@@ -136,8 +136,8 @@ Calculates an implementation-dependent approximation to the inverse tangent for 
 -   If `x_i` is `NaN`, the result is `NaN`.
 -   If `x_i` is `+0`, the result is `+0`.
 -   If `x_i` is `-0`, the result is `-0`.
--   If `x_i` is `+infinity`, the result is an implementation-dependent approximation to `+π/2`.
--   If `x_i` is `-infinity`, the result is an implementation-dependent approximation to `-π/2`.
+-   If `x_i` is `+infinity`, the result is an implementation-dependent approximation to `+π/2` (rounded).
+-   If `x_i` is `-infinity`, the result is an implementation-dependent approximation to `-π/2` (rounded).
 
 #### Parameters
 
@@ -168,6 +168,21 @@ Calculates an implementation-dependent approximation to the inverse hyperbolic t
 #### Returns
 
 -   **out**: an array containing the inverse hyperbolic tangent of each element in `x`.
+
+### ceil(x, *, out=None)
+
+Rounds each element `x_i` of the input array `x` to the smallest (i.e., closest to `-infinity`) integer-valued number that is not less than `x_i`.
+
+-   If `x_i` is already integer-valued, the result is `x_i`.
+
+#### Parameters
+
+-   **x**: input array.
+-   **out**: output array. If provided, must be a tuple consisting of a single value: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+
+#### Returns
+
+-   **out**: an array containing the rounded result for each element in `x`.
 
 ### cos(x, *, out=None)
 
@@ -226,6 +241,21 @@ Calculates an implementation-dependent approximation to the exponential function
 
 -   **out**: an array containing the evaluated exponential function result for each element in `x`.
 
+### floor(x, *, out=None)
+
+Rounds each element `x_i` of the input array `x` to the greatest (i.e., closest to `+infinity`) integer-valued number that is not greater than `x_i`.
+
+-   If `x_i` is already integer-valued, the result is `x_i`.
+
+#### Parameters
+
+-   **x**: input array.
+-   **out**: output array. If provided, must be a tuple consisting of a single value: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+
+#### Returns
+
+-   **out**: an array containing the rounded result for each element in `x`.
+
 ### log(x, *, out=None)
 
 Calculates an implementation-dependent approximation to the natural logarithm for each element `x_i` of the input array `x`.
@@ -244,6 +274,22 @@ Calculates an implementation-dependent approximation to the natural logarithm fo
 #### Returns
 
 -   **out**: an array containing the evaluated natural logarithm for each element in `x`.
+
+### round(x, *, out=None)
+
+Rounds each element `x_i` of the input array `x` to the nearest integer-valued number.
+
+-   If `x_i` is already integer-valued, the result is `x_i`.
+-   If two integers are equally close to `x_i`, the result is whichever integer is farthest from `0`.
+
+#### Parameters
+
+-   **x**: input array.
+-   **out**: output array. If provided, must be a tuple consisting of a single value: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+
+#### Returns
+
+-   **out**: an array containing the rounded result for each element in `x`.
 
 ### sin(x, *, out=None)
 
@@ -337,6 +383,21 @@ Calculates an implementation-dependent approximation to the hyperbolic tangent f
 #### Returns
 
 -   **out**: an array containing the hyperbolic tangent of each element in `x`.
+
+### trunc(x, *, out=None)
+
+Rounds each element `x_i` of the input array `x` to the integer-valued number that is closest to but no greater than `x_i`.
+
+-   If `x_i` is already integer-valued, the result is `x_i`.
+
+#### Parameters
+
+-   **x**: input array.
+-   **out**: output array. If provided, must be a tuple consisting of a single value: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+
+#### Returns
+
+-   **out**: an array containing the rounded result for each element in `x`.
 
 * * *
 
