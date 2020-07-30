@@ -63,7 +63,7 @@ Calculates the absolute value for each element `x_i` of the input array `x` (i.e
 
 ### <a name="acos" href="#acos">#</a> acos(x, /, *, out=None)
 
-Calculates an implementation-dependent approximation to the inverse cosine, having domain `[-1,+1]` and codomain `[+0, +π]`, for each element `x_i` of the input array `x`. Each element-wise result is expressed in radians.
+Calculates an implementation-dependent approximation of the principal value of the inverse cosine, having domain `[-1,+1]` and codomain `[+0, +π]`, for each element `x_i` of the input array `x`. Each element-wise result is expressed in radians.
 
 -   If `x_i` is `NaN`, the result is `NaN`.
 -   If `x_i` is greater than `1`, the result is `NaN`.
@@ -81,7 +81,7 @@ Calculates an implementation-dependent approximation to the inverse cosine, havi
 
 ### <a name="acosh" href="#acosh">#</a> acosh(x, /, *, out=None)
 
-Calculates an implementation-dependent approximation to the inverse hyperbolic cosine for each element `x_i` of the input array `x`.
+Calculates an implementation-dependent approximation to the inverse hyperbolic cosine, having domain `[+1, +infinity]` and codomain `[+0, +infinity]`, for each element `x_i` of the input array `x`.
 
 -   If `x_i` is `NaN`, the result is `NaN`.
 -   If `x_i` is less than `1`, the result is `NaN`.
@@ -90,7 +90,7 @@ Calculates an implementation-dependent approximation to the inverse hyperbolic c
 
 #### Parameters
 
--   **x**: input array.
+-   **x**: input array whose elements each represent the area of a hyperbolic sector.
 -   **out**: output array. If provided, must be a tuple consisting of a single value: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
 #### Returns
@@ -115,7 +115,7 @@ Calculates the sum for each element `x1_i` of the input array `x1` with the resp
 
 ### <a name="asin" href="#asin">#</a> asin(x, /, *, out=None)
 
-Calculates an implementation-dependent approximation to the inverse sine for each element `x_i` of the input array `x`. Each element-wise result is expressed in radians and ranges from `-π/2` to `+π/2`.
+Calculates an implementation-dependent approximation of the principal value of the inverse sine, having domain `[-1, +1]` and codomain `[-π/2, +π/2]` for each element `x_i` of the input array `x`. Each element-wise result is expressed in radians.
 
 -   If `x_i` is `NaN`, the result is `NaN`.
 -   If `x_i` is greater than `1`, the result is `NaN`.
@@ -134,7 +134,7 @@ Calculates an implementation-dependent approximation to the inverse sine for eac
 
 ### <a name="asinh" href="#asinh">#</a> asinh(x, /, *, out=None)
 
-Calculates an implementation-dependent approximation to the inverse hyperbolic sine for each element `x_i` in the input array `x`.
+Calculates an implementation-dependent approximation to the inverse hyperbolic sine, having domain `[-infinity, +infinity]` and codomain `[-infinity, +infinity]`, for each element `x_i` in the input array `x`.
 
 -   If `x_i` is `NaN`, the result is `NaN`.
 -   If `x_i` is `+0`, the result is `+0`.
@@ -144,7 +144,7 @@ Calculates an implementation-dependent approximation to the inverse hyperbolic s
 
 #### Parameters
 
--   **x**: input array.
+-   **x**: input array whose elements each represent the area of a hyperbolic sector.
 -   **out**: output array. If provided, must be a tuple consisting of a single value: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
 #### Returns
@@ -153,7 +153,7 @@ Calculates an implementation-dependent approximation to the inverse hyperbolic s
 
 ### <a name="atan" href="#atan">#</a> atan(x, /, *, out=None)
 
-Calculates an implementation-dependent approximation to the inverse tangent for each element `x_i` of the input array `x`. Each element-wise result is expressed in radians and ranges from `-π/2` to `+π/2`.
+Calculates an implementation-dependent approximation of the principal value of the inverse tangent, having domain `[-infinity, +infinity]` and codomain `[-π/2, +π/2]`, for each element `x_i` of the input array `x`. Each element-wise result is expressed in radians.
 
 -   If `x_i` is `NaN`, the result is `NaN`.
 -   If `x_i` is `+0`, the result is `+0`.
@@ -172,7 +172,7 @@ Calculates an implementation-dependent approximation to the inverse tangent for 
 
 ### <a name="atanh" href="#atanh">#</a> atanh(x, /, *, out=None)
 
-Calculates an implementation-dependent approximation to the inverse hyperbolic tangent for each element `x_i` of the input array `x`.
+Calculates an implementation-dependent approximation to the inverse hyperbolic tangent, having domain `[-1, +1]` and codomain `[-infinity, +infinity]`, for each element `x_i` of the input array `x`.
 
 -   If `x_i` is `NaN`, the result is `NaN`.
 -   If `x_i` is less than `-1`, the result is `NaN`.
@@ -184,7 +184,7 @@ Calculates an implementation-dependent approximation to the inverse hyperbolic t
 
 #### Parameters
 
--   **x**: input array.
+-   **x**: input array whose elements each represent the area of a hyperbolic sector.
 -   **out**: output array. If provided, must be a tuple consisting of a single value: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
 #### Returns
@@ -208,7 +208,7 @@ Rounds each element `x_i` of the input array `x` to the smallest (i.e., closest 
 
 ### <a name="cos" href="#cos">#</a> cos(x, /, *, out=None)
 
-Calculates an implementation-dependent approximation to the cosine for each element `x_i` of the input array `x`. Each element `x_i` is assumed to be expressed in radians.
+Calculates an implementation-dependent approximation to the cosine, having domain `(-infinity, +infinity)` and codomain `[-1, +1]`, for each element `x_i` of the input array `x`. Each element `x_i` is assumed to be expressed in radians.
 
 -   If `x_i` is `NaN`, the result is `NaN`.
 -   If `x_i` is `+0`, the result is `1`.
@@ -218,7 +218,7 @@ Calculates an implementation-dependent approximation to the cosine for each elem
 
 #### Parameters
 
--   **x**: input array.
+-   **x**: input array whose elements are each expressed in radians.
 -   **out**: output array. If provided, must be a tuple consisting of a single value: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
 #### Returns
@@ -227,7 +227,7 @@ Calculates an implementation-dependent approximation to the cosine for each elem
 
 ### <a name="cosh" href="#cosh">#</a> cosh(x, /, *, out=None)
 
-Calculates an implementation-dependent approximation to the hyperbolic cosine for each element `x_i` in the input array `x`.
+Calculates an implementation-dependent approximation to the hyperbolic cosine, having domain `[-infinity, +infinity]` and codomain `[-infinity, +infinity]`, for each element `x_i` in the input array `x`.
 
 -   If `x_i` is `NaN`, the result is `NaN`.
 -   If `x_i` is `+0`, the result is `1`.
@@ -237,7 +237,7 @@ Calculates an implementation-dependent approximation to the hyperbolic cosine fo
 
 #### Parameters
 
--   **x**: input array.
+-   **x**: input array whose elements each represent a hyperbolic angle.
 -   **out**: output array. If provided, must be a tuple consisting of a single value: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
 #### Returns
@@ -262,7 +262,7 @@ Calculates the division for each element `x1_i` of the input array `x1` with the
 
 ### <a name="exp" href="#exp">#</a> exp(x, /, *, out=None)
 
-Calculates an implementation-dependent approximation to the exponential function for each element `x_i` of the input array `x` (`e` raised to the power of `x_i`, where `e` is the base of the natural logarithm).
+Calculates an implementation-dependent approximation to the exponential function, having domain `[-infinity, +infinity]` and codomain `[+0, +infinity]`, for each element `x_i` of the input array `x` (`e` raised to the power of `x_i`, where `e` is the base of the natural logarithm).
 
 -   If `x_i` is `NaN`, the result is `NaN`.
 -   If `x_i` is `+0`, the result is `1`.
@@ -296,7 +296,7 @@ Rounds each element `x_i` of the input array `x` to the greatest (i.e., closest 
 
 ### <a name="log" href="#log">#</a> log(x, /, *, out=None)
 
-Calculates an implementation-dependent approximation to the natural logarithm for each element `x_i` of the input array `x`.
+Calculates an implementation-dependent approximation to the natural (base `e`) logarithm, having domain `[0, +infinity]` and codomain `[-infinity, +infinity]`, for each element `x_i` of the input array `x`.
 
 -   If `x_i` is `NaN`, the result is `NaN`.
 -   If `x_i` is less than `0`, the result is `NaN`.
@@ -347,7 +347,7 @@ Rounds each element `x_i` of the input array `x` to the nearest integer-valued n
 
 ### <a name="sin" href="#sin">#</a> sin(x, /, *, out=None)
 
-Calculates an implementation-dependent approximation to the sine for each element `x_i` of the input array `x`. Each element `x_i` is assumed to be expressed in radians.
+Calculates an implementation-dependent approximation to the sine, having domain `(-infinity, +infinity)` and codomain `[-1, +1]`, for each element `x_i` of the input array `x`. Each element `x_i` is assumed to be expressed in radians.
 
 -   If `x_i` is `NaN`, the result is `NaN`.
 -   If `x_i` is `+0`, the result is `+0`.
@@ -356,7 +356,7 @@ Calculates an implementation-dependent approximation to the sine for each elemen
 
 #### Parameters
 
--   **x**: input array.
+-   **x**: input array whose elements are each expressed in radians.
 -   **out**: output array. If provided, must be a tuple consisting of a single value: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
 #### Returns
@@ -365,7 +365,7 @@ Calculates an implementation-dependent approximation to the sine for each elemen
 
 ### <a name="sinh" href="#sinh">#</a> sinh(x, /, *, out=None)
 
-Calculates an implementation-dependent approximation to the hyperbolic sine for each element `x_i` of the input array `x`.
+Calculates an implementation-dependent approximation to the hyperbolic sine, having domain `[-infinity, +infinity]` and codomain `[-infinity, +infinity]`, for each element `x_i` of the input array `x`.
 
 -   If `x_i` is `NaN`, the result is `NaN`.
 -   If `x_i` is `+0`, the result is `+0`.
@@ -375,7 +375,7 @@ Calculates an implementation-dependent approximation to the hyperbolic sine for 
 
 #### Parameters
 
--   **x**: input array.
+-   **x**: input array whose elements each represent a hyperbolic angle.
 -   **out**: output array. If provided, must be a tuple consisting of a single value: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
 #### Returns
@@ -384,7 +384,7 @@ Calculates an implementation-dependent approximation to the hyperbolic sine for 
 
 ### <a name="sqrt" href="#sqrt">#</a> sqrt(x, /, *, out=None)
 
-Calculates an implementation-dependent approximation to the square root for each element `x_i` of the input array `x`.
+Calculates the square root, having domain `[0, +infinity]` and codomain `[0, +infinity]`, for each element `x_i` of the input array `x`. After rounding, each result should be indistinguishable from the infinitely precise result (as required by IEEE 754).
 
 -   If `x_i` is `NaN`, the result is `NaN`.
 -   If `x_i` is less than `0`, the result is `NaN`.
@@ -419,7 +419,7 @@ Calculates the difference for each element `x1_i` of the input array `x1` with t
 
 ### <a name="tan" href="#tan">#</a> tan(x, /, *, out=None)
 
-Calculates an implementation-dependent approximation to the tangent for each element `x_i` of the input array `x`. Each element `x_i` is assumed to be expressed in radians.
+Calculates an implementation-dependent approximation to the tangent, having domain `(-infinity, +infinity)` and codomain `(-infinity, +infinity)`, for each element `x_i` of the input array `x`. Each element `x_i` is assumed to be expressed in radians.
 
 -   If `x_i` is `NaN`, the result is `NaN`.
 -   If `x_i` is `+0`, the result is `+0`.
@@ -428,7 +428,7 @@ Calculates an implementation-dependent approximation to the tangent for each ele
 
 #### Parameters
 
--   **x**: input array.
+-   **x**: input array whose elements are each expressed in radians.
 -   **out**: output array. If provided, must be a tuple consisting of a single value: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
 #### Returns
@@ -437,7 +437,7 @@ Calculates an implementation-dependent approximation to the tangent for each ele
 
 ### <a name="tanh" href="#tanh">#</a> tanh(x, /, *, out=None)
 
-Calculates an implementation-dependent approximation to the hyperbolic tangent for each element `x_i` of the input array `x`.
+Calculates an implementation-dependent approximation to the hyperbolic tangent, having domain `[-infinity, +infinity]` and codomain `[-1, +1]`, for each element `x_i` of the input array `x`.
 
 -   If `x_i` is `NaN`, the result is `NaN`.
 -   If `x_i` is `+0`, the result is `+0`.
@@ -447,7 +447,7 @@ Calculates an implementation-dependent approximation to the hyperbolic tangent f
 
 #### Parameters
 
--   **x**: input array.
+-   **x**: input array whose elements each represent a hyperbolic angle.
 -   **out**: output array. If provided, must be a tuple consisting of a single value: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
 #### Returns
