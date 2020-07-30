@@ -38,7 +38,7 @@ A conforming implementation of the array API standard must provide and support t
 
 <!-- NOTE: please keep the functions in alphabetical order -->
 
-### abs(x, *, out=None)
+### <a name="abs" href="#abs">#</a> abs(x, *, out=None)
 
 Calculates the absolute value for each element `x_i` of the input array `x` (i.e., the element-wise result has the same magnitude as the respective element in `x` but has positive sign).
 
@@ -55,7 +55,7 @@ Calculates the absolute value for each element `x_i` of the input array `x` (i.e
 
 -   **out**: an array containing the absolute value of each element in `x`.
 
-### acos(x, *, out=None)
+### <a name="acos" href="#acos">#</a> acos(x, *, out=None)
 
 Calculates an implementation-dependent approximation to the inverse cosine for each element `x_i` of the input array `x`. Each element-wise result is expressed in radians and ranges from `+0` to `+π`.
 
