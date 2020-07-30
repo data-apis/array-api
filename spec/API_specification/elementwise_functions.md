@@ -50,7 +50,7 @@ A conforming implementation of the array API standard must provide and support t
 
 ### <a name="abs" href="#abs">#</a> abs(x, /, *, out=None)
 
-Calculates the absolute value for each element `x_i` of the input array `x` (i.e., the element-wise result has the same magnitude as the respective element in `x` but has positive sign).
+Calculates the absolute value for each element `xᵢ` of the input array `x` (i.e., the element-wise result has the same magnitude as the respective element in `x` but has positive sign).
 
 -   If `x_i` is `NaN`, the result is `NaN`.
 -   If `x_i` is `-0`, the result is `+0`.
