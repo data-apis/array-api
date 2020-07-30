@@ -71,7 +71,7 @@ Calculates an implementation-dependent approximation to the inverse cosine for e
 
 #### Returns
 
--   **out**: an array containing the absolute value of each element in `x`.
+-   **out**: an array containing the inverse cosine of each element in `x`.
 
 ### acosh(x, *, out=None)
 
@@ -89,7 +89,7 @@ Calculates an implementation-dependent approximation to the inverse hyperbolic c
 
 #### Returns
 
--   **out**: an array containing the absolute value of each element in `x`.
+-   **out**: an array containing the inverse hyperbolic cosine of each element in `x`.
 
 ### asin(x, *, out=None)
 
@@ -108,7 +108,7 @@ Calculates an implementation-dependent approximation to the inverse sine for eac
 
 #### Returns
 
--   **out**: an array containing the absolute value of each element in `x`.
+-   **out**: an array containing the inverse sine of each element in `x`.
 
 ### asinh(x, *, out=None)
 
@@ -127,7 +127,7 @@ Calculates an implementation-dependent approximation to the inverse hyperbolic s
 
 #### Returns
 
--   **out**: an array containing the absolute value of each element in `x`.
+-   **out**: an array containing the inverse hyperbolic sine of each element in `x`.
 
 ### atan(x, *, out=None)
 
@@ -146,7 +146,7 @@ Calculates an implementation-dependent approximation to the inverse tangent for 
 
 #### Returns
 
--   **out**: an array containing the absolute value of each element in `x`.
+-   **out**: an array containing the inverse tangent of each element in `x`.
 
 ### atanh(x, *, out=None)
 
@@ -167,7 +167,7 @@ Calculates an implementation-dependent approximation to the inverse hyperbolic t
 
 #### Returns
 
--   **out**: an array containing the absolute value of each element in `x`.
+-   **out**: an array containing the inverse hyperbolic tangent of each element in `x`.
 
 ### cos(x, *, out=None)
 
@@ -186,7 +186,7 @@ Calculates an implementation-dependent approximation to the cosine for each elem
 
 #### Returns
 
--   **out**: an array containing the absolute value of each element in `x`.
+-   **out**: an array containing the cosine of each element in `x`.
 
 ### cosh(x, *, out=None)
 
@@ -205,7 +205,7 @@ Calculates an implementation-dependent approximation to the hyperbolic cosine fo
 
 #### Returns
 
--   **out**: an array containing the absolute value of each element in `x`.
+-   **out**: an array containing the hyperbolic cosine of each element in `x`.
 
 ### exp(x, *, out=None)
 
@@ -243,7 +243,7 @@ Calculates an implementation-dependent approximation to the natural logarithm fo
 
 #### Returns
 
--   **out**: an array containing the evaluated exponential function result for each element in `x`.
+-   **out**: an array containing the evaluated natural logarithm for each element in `x`.
 
 ### sin(x, *, out=None)
 
@@ -261,7 +261,7 @@ Calculates an implementation-dependent approximation to the sine for each elemen
 
 #### Returns
 
--   **out**: an array containing the absolute value of each element in `x`.
+-   **out**: an array containing the sine of each element in `x`.
 
 ### sinh(x, *, out=None)
 
@@ -280,7 +280,7 @@ Calculates an implementation-dependent approximation to the hyperbolic sine for 
 
 #### Returns
 
--   **out**: an array containing the absolute value of each element in `x`.
+-   **out**: an array containing the hyperbolic sine of each element in `x`.
 
 ### sqrt(x, *, out=None)
 
@@ -291,6 +291,15 @@ Calculates an implementation-dependent approximation to the square root for each
 -   If `x_i` is `+0`, the result is `+0`.
 -   If `x_i` is `-0`, the result is `-0`.
 -   If `x_i` is `+infinity`, the result is `+infinity`.
+
+#### Parameters
+
+-   **x**: input array.
+-   **out**: output array. If provided, must be a tuple consisting of a single value: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+
+#### Returns
+
+-   **out**: an array containing the square root of each element in `x`.
 
 ### tan(x, *, out=None)
 
@@ -308,7 +317,7 @@ Calculates an implementation-dependent approximation to the tangent for each ele
 
 #### Returns
 
--   **out**: an array containing the absolute value of each element in `x`.
+-   **out**: an array containing the tangent of each element in `x`.
 
 ### tanh(x, *, out=None)
 
@@ -327,7 +336,7 @@ Calculates an implementation-dependent approximation to the hyperbolic tangent f
 
 #### Returns
 
--   **out**: an array containing the absolute value of each element in `x`.
+-   **out**: an array containing the hyperbolic tangent of each element in `x`.
 
 * * *
 
