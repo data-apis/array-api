@@ -32,7 +32,7 @@ a tuple of `N` non-negative integers that specify the sizes of each dimension an
 
 ### element-wise
 
-an operation performed element-by-element, in which individual array elements are considered in isolation and independently of surrounding array elements.
+an operation performed element-by-element, in which individual array elements are considered in isolation and independently of other elements within the same array.
 
 * * *
 
