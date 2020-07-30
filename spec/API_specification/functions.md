@@ -62,7 +62,7 @@ Calculates the absolute value for each element `x_i` of the input array `x` (i.e
 
 ### <a name="acos" href="#acos">#</a> acos(x, *, out=None)
 
-Calculates an implementation-dependent approximation to the inverse cosine for each element `x_i` of the input array `x`. Each element-wise result is expressed in radians and ranges from `+0` to `+π`.
+Calculates an implementation-dependent approximation to the inverse cosine, having domain `[-1,+1]` and codomain `[+0, +π]`, for each element `x_i` of the input array `x`. Each element-wise result is expressed in radians.
 
 -   If `x_i` is `NaN`, the result is `NaN`.
 -   If `x_i` is greater than `1`, the result is `NaN`.
