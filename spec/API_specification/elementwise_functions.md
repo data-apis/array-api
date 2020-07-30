@@ -52,7 +52,7 @@ A conforming implementation of the array API standard must provide and support t
 
 Calculates the absolute value for each element `xᵢ` of the input array `x` (i.e., the element-wise result has the same magnitude as the respective element in `x` but has positive sign).
 
--   If `x_i` is `NaN`, the result is `NaN`.
+-   If <code>x<sub>i</sub></code> is `NaN`, the result is `NaN`.
 -   If `x_i` is `-0`, the result is `+0`.
 -   If `x_i` is `-infinity`, the result is `+infinity`.
 
