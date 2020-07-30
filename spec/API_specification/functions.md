@@ -55,6 +55,158 @@ Calculates the absolute value for each element `x_i` of the input array `x` (i.e
 
 -   **out**: an array containing the absolute value of each element in `x`.
 
+### acos(x, *, out=None)
+
+Calculates an implementation-dependent approximation to the inverse cosine for each element `x_i` of the input array `x`. Each element-wise result is expressed in radians and ranges from `+0` to `+π`.
+
+-   If `x_i` is `NaN`, the result is `NaN`.
+-   If `x_i` is greater than `1`, the result is `NaN`.
+-   If `x_i` is less than `-1`, the result is `NaN`.
+-   If `x_i` is exactly `1`, the result is `+0`.
+
+#### Parameters
+
+-   **x**: input array.
+-   **out**: output array. If provided, must be a tuple consisting of a single value: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+
+#### Returns
+
+-   **out**: an array containing the absolute value of each element in `x`.
+
+### acosh(x, *, out=None)
+
+Calculates an implementation-dependent approximation to the inverse hyperbolic cosine for each element `x_i` of the input array `x`.
+
+-   If `x_i` is `NaN`, the result is `NaN`.
+-   If `x_i` is less than `1`, the result is `NaN`.
+-   If `x_i` is `1`, the result is `+0`.
+-   If `x_i` is `+infinity`, the result is `+infinity`.
+
+#### Parameters
+
+-   **x**: input array.
+-   **out**: output array. If provided, must be a tuple consisting of a single value: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+
+#### Returns
+
+-   **out**: an array containing the absolute value of each element in `x`.
+
+### asin(x, *, out=None)
+
+Calculates an implementation-dependent approximation to the inverse sine for each element `x_i` of the input array `x`. Each element-wise result is expressed in radians and ranges from `-π/2` to `+π/2`.
+
+-   If `x_i` is `NaN`, the result is `NaN`.
+-   If `x_i` is greater than `1`, the result is `NaN`.
+-   If `x_i` is less than `-1`, the result is `NaN`.
+-   If `x_i` is `+0`, the result is `+0`.
+-   If `x_i` is `-0`, the result is `-0`.
+
+#### Parameters
+
+-   **x**: input array.
+-   **out**: output array. If provided, must be a tuple consisting of a single value: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+
+#### Returns
+
+-   **out**: an array containing the absolute value of each element in `x`.
+
+### asinh(x, *, out=None)
+
+Calculates an implementation-dependent approximation to the inverse hyperbolic sine for each element `x_i` in the input array `x`.
+
+-   If `x_i` is `NaN`, the result is `NaN`.
+-   If `x_i` is `+0`, the result is `+0`.
+-   If `x_i` is `-0`, the result is `-0`.
+-   If `x_i` is `+infinity`, the result is `+infinity`.
+-   If `x_i` is `-infinity`, the result is `-infinity`.
+
+#### Parameters
+
+-   **x**: input array.
+-   **out**: output array. If provided, must be a tuple consisting of a single value: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+
+#### Returns
+
+-   **out**: an array containing the absolute value of each element in `x`.
+
+### atan(x, *, out=None)
+
+Calculates an implementation-dependent approximation to the inverse tangent for each element `x_i` of the input array `x`. Each element-wise result is expressed in radians and ranges from `-π/2` to `+π/2`.
+
+-   If `x_i` is `NaN`, the result is `NaN`.
+-   If `x_i` is `+0`, the result is `+0`.
+-   If `x_i` is `-0`, the result is `-0`.
+-   If `x_i` is `+infinity`, the result is an implementation-dependent approximation to `+π/2`.
+-   If `x_i` is `-infinity`, the result is an implementation-dependent approximation to `-π/2`.
+
+#### Parameters
+
+-   **x**: input array.
+-   **out**: output array. If provided, must be a tuple consisting of a single value: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+
+#### Returns
+
+-   **out**: an array containing the absolute value of each element in `x`.
+
+### atanh(x, *, out=None)
+
+Calculates an implementation-dependent approximation to the inverse hyperbolic tangent for each element `x_i` of the input array `x`.
+
+-   If `x_i` is `NaN`, the result is `NaN`.
+-   If `x_i` is less than `-1`, the result is `NaN`.
+-   If `x_i` is greater than `1`, the result is `NaN`.
+-   If `x_i` is `-1`, the result is `-infinity`.
+-   If `x_i` is `+1`, the result is `+infinity`.
+-   If `x_i` is `+0`, the result is `+0`.
+-   If `x_i` is `-0`, the result is `-0`.
+
+#### Parameters
+
+-   **x**: input array.
+-   **out**: output array. If provided, must be a tuple consisting of a single value: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+
+#### Returns
+
+-   **out**: an array containing the absolute value of each element in `x`.
+
+### cos(x, *, out=None)
+
+Calculates an implementation-dependent approximation to the cosine for each element `x_i` of the input array `x`. Each element `x_i` is assumed to be expressed in radians.
+
+-   If `x_i` is `NaN`, the result is `NaN`.
+-   If `x_i` is `+0`, the result is `1`.
+-   If `x_i` is `-0`, the result is `1`.
+-   If `x_i` is `+infinity`, the result is `NaN`.
+-   If `x_i` is `-infinity`, the result is `NaN`.
+
+#### Parameters
+
+-   **x**: input array.
+-   **out**: output array. If provided, must be a tuple consisting of a single value: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+
+#### Returns
+
+-   **out**: an array containing the absolute value of each element in `x`.
+
+### cosh(x, *, out=None)
+
+Calculates an implementation-dependent approximation to the hyperbolic cosine for each element `x_i` in the input array `x`.
+
+-   If `x_i` is `NaN`, the result is `NaN`.
+-   If `x_i` is `+0`, the result is `1`.
+-   If `x_i` is `-0`, the result is `1`.
+-   If `x_i` is `+infinity`, the result is `+infinity`.
+-   If `x_i` is `-infinity`, the result is `+infinity`.
+
+#### Parameters
+
+-   **x**: input array.
+-   **out**: output array. If provided, must be a tuple consisting of a single value: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+
+#### Returns
+
+-   **out**: an array containing the absolute value of each element in `x`.
+
 ### exp(x, *, out=None)
 
 Calculates an implementation-dependent approximation to the exponential function for each element `x_i` of the input array `x` (`e` raised to the power of `x_i`, where `e` is the base of the natural logarithm).
@@ -93,6 +245,43 @@ Calculates an implementation-dependent approximation to the natural logarithm fo
 
 -   **out**: an array containing the evaluated exponential function result for each element in `x`.
 
+### sin(x, *, out=None)
+
+Calculates an implementation-dependent approximation to the sine for each element `x_i` of the input array `x`. Each element `x_i` is assumed to be expressed in radians.
+
+-   If `x_i` is `NaN`, the result is `NaN`.
+-   If `x_i` is `+0`, the result is `+0`.
+-   If `x_i` is `-0`, the result is `-0`.
+-   If `x_i` is `+infinity` or `-infinity`, the result is `NaN`.
+
+#### Parameters
+
+-   **x**: input array.
+-   **out**: output array. If provided, must be a tuple consisting of a single value: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+
+#### Returns
+
+-   **out**: an array containing the absolute value of each element in `x`.
+
+### sinh(x, *, out=None)
+
+Calculates an implementation-dependent approximation to the hyperbolic sine for each element `x_i` of the input array `x`.
+
+-   If `x_i` is `NaN`, the result is `NaN`.
+-   If `x_i` is `+0`, the result is `+0`.
+-   If `x_i` is `-0`, the result is `-0`.
+-   If `x_i` is `+infinity`, the result is `+infinity`.
+-   If `x_i` is `-infinity`, the result is `-infinity`.
+
+#### Parameters
+
+-   **x**: input array.
+-   **out**: output array. If provided, must be a tuple consisting of a single value: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+
+#### Returns
+
+-   **out**: an array containing the absolute value of each element in `x`.
+
 ### sqrt(x, *, out=None)
 
 Calculates an implementation-dependent approximation to the square root for each element `x_i` of the input array `x`.
@@ -102,6 +291,43 @@ Calculates an implementation-dependent approximation to the square root for each
 -   If `x_i` is `+0`, the result is `+0`.
 -   If `x_i` is `-0`, the result is `-0`.
 -   If `x_i` is `+infinity`, the result is `+infinity`.
+
+### tan(x, *, out=None)
+
+Calculates an implementation-dependent approximation to the tangent for each element `x_i` of the input array `x`. Each element `x_i` is assumed to be expressed in radians.
+
+-   If `x_i` is `NaN`, the result is `NaN`.
+-   If `x_i` is `+0`, the result is `+0`.
+-   If `x_i` is `-0`, the result is `-0`.
+-   If `x_i` is `+infinity` or `-infinity`, the result is `NaN`.
+
+#### Parameters
+
+-   **x**: input array.
+-   **out**: output array. If provided, must be a tuple consisting of a single value: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+
+#### Returns
+
+-   **out**: an array containing the absolute value of each element in `x`.
+
+### tanh(x, *, out=None)
+
+Calculates an implementation-dependent approximation to the hyperbolic tangent for each element `x_i` of the input array `x`.
+
+-   If `x_i` is `NaN`, the result is `NaN`.
+-   If `x_i` is `+0`, the result is `+0`.
+-   If `x_i` is `-0`, the result is `-0`.
+-   If `x_i` is `+infinity`, the result is `+1`.
+-   If `x_i` is `-infinity`, the result is `-1`.
+
+#### Parameters
+
+-   **x**: input array.
+-   **out**: output array. If provided, must be a tuple consisting of a single value: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+
+#### Returns
+
+-   **out**: an array containing the absolute value of each element in `x`.
 
 * * *
 
