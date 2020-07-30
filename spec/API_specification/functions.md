@@ -34,7 +34,7 @@ a tuple of `N` non-negative integers that specify the sizes of each dimension an
 
 ## Functions
 
-A conforming implementation of the array API standard must provide and support the following functions adhering to the following conventions:
+A conforming implementation of the array API standard must provide and support the following functions adhering to the following conventions.
 
 -   Optional arguments must be [keyword-only](https://www.python.org/dev/peps/pep-3102/) arguments.
 -   The `out` keyword argument must be a tuple with one entry per output.
@@ -95,6 +95,22 @@ Calculates an implementation-dependent approximation to the inverse hyperbolic c
 #### Returns
 
 -   **out**: an array containing the inverse hyperbolic cosine of each element in `x`.
+
+### <a name="add" href="#add">#</a> add(x1, x2, *, out=None)
+
+Calculates the sum for each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`.
+
+-   If either `x1_i` or `x2_i` is `NaN`, the result is `NaN`.
+
+#### Parameters
+
+-   **x1**: input array.
+-   **x2**: input array.
+-   **out**: output array. If provided, must be a tuple consisting of a single value: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+
+#### Returns
+
+-   **out**: an array containing the element-wise sums.
 
 ### <a name="asin" href="#asin">#</a> asin(x, *, out=None)
 
@@ -227,6 +243,22 @@ Calculates an implementation-dependent approximation to the hyperbolic cosine fo
 
 -   **out**: an array containing the hyperbolic cosine of each element in `x`.
 
+### <a name="divide" href="#divide">#</a> divide(x1, x2, *, out=None)
+
+Calculates the division for each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`.
+
+-   If either `x1_i` or `x2_i` is `NaN`, the result is `NaN`.
+
+#### Parameters
+
+-   **x1**: dividend input array.
+-   **x2**: divisor input array.
+-   **out**: output array. If provided, must be a tuple consisting of a single value: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+
+#### Returns
+
+-   **out**: an array containing the element-wise results.
+
 ### <a name="exp" href="#exp">#</a> exp(x, *, out=None)
 
 Calculates an implementation-dependent approximation to the exponential function for each element `x_i` of the input array `x` (`e` raised to the power of `x_i`, where `e` is the base of the natural logarithm).
@@ -279,6 +311,22 @@ Calculates an implementation-dependent approximation to the natural logarithm fo
 #### Returns
 
 -   **out**: an array containing the evaluated natural logarithm for each element in `x`.
+
+### <a name="multiply" href="#multiply">#</a> multiply(x1, x2, *, out=None)
+
+Calculates the product for each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`.
+
+-   If either `x1_i` or `x2_i` is `NaN`, the result is `NaN`.
+
+#### Parameters
+
+-   **x1**: input array.
+-   **x2**: input array.
+-   **out**: output array. If provided, must be a tuple consisting of a single value: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+
+#### Returns
+
+-   **out**: an array containing the element-wise products.
 
 ### <a name="round" href="#round">#</a> round(x, *, out=None)
 
@@ -351,6 +399,22 @@ Calculates an implementation-dependent approximation to the square root for each
 #### Returns
 
 -   **out**: an array containing the square root of each element in `x`.
+
+### <a name="subtract" href="#subtract">#</a> subtract(x1, x2, *, out=None)
+
+Calculates the difference for each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`.
+
+-   If either `x1_i` or `x2_i` is `NaN`, the result is `NaN`.
+
+#### Parameters
+
+-   **x1**: input array.
+-   **x2**: input array.
+-   **out**: output array. If provided, must be a tuple consisting of a single value: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+
+#### Returns
+
+-   **out**: an array containing the element-wise differences.
 
 ### <a name="tan" href="#tan">#</a> tan(x, *, out=None)
 
