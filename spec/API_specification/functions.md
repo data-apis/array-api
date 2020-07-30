@@ -73,7 +73,7 @@ Calculates an implementation-dependent approximation to the inverse cosine for e
 
 -   **out**: an array containing the inverse cosine of each element in `x`.
 
-### acosh(x, *, out=None)
+### <a name="acosh" href="#acosh">#</a> acosh(x, *, out=None)
 
 Calculates an implementation-dependent approximation to the inverse hyperbolic cosine for each element `x_i` of the input array `x`.
 
@@ -91,7 +91,7 @@ Calculates an implementation-dependent approximation to the inverse hyperbolic c
 
 -   **out**: an array containing the inverse hyperbolic cosine of each element in `x`.
 
-### asin(x, *, out=None)
+### <a name="asin" href="#asin">#</a> asin(x, *, out=None)
 
 Calculates an implementation-dependent approximation to the inverse sine for each element `x_i` of the input array `x`. Each element-wise result is expressed in radians and ranges from `-π/2` to `+π/2`.
 
@@ -110,7 +110,7 @@ Calculates an implementation-dependent approximation to the inverse sine for eac
 
 -   **out**: an array containing the inverse sine of each element in `x`.
 
-### asinh(x, *, out=None)
+### <a name="asinh" href="#asinh">#</a> asinh(x, *, out=None)
 
 Calculates an implementation-dependent approximation to the inverse hyperbolic sine for each element `x_i` in the input array `x`.
 
@@ -129,7 +129,7 @@ Calculates an implementation-dependent approximation to the inverse hyperbolic s
 
 -   **out**: an array containing the inverse hyperbolic sine of each element in `x`.
 
-### atan(x, *, out=None)
+### <a name="atan" href="#atan">#</a> atan(x, *, out=None)
 
 Calculates an implementation-dependent approximation to the inverse tangent for each element `x_i` of the input array `x`. Each element-wise result is expressed in radians and ranges from `-π/2` to `+π/2`.
 
@@ -148,7 +148,7 @@ Calculates an implementation-dependent approximation to the inverse tangent for 
 
 -   **out**: an array containing the inverse tangent of each element in `x`.
 
-### atanh(x, *, out=None)
+### <a name="atanh" href="#atanh">#</a> atanh(x, *, out=None)
 
 Calculates an implementation-dependent approximation to the inverse hyperbolic tangent for each element `x_i` of the input array `x`.
 
@@ -169,7 +169,7 @@ Calculates an implementation-dependent approximation to the inverse hyperbolic t
 
 -   **out**: an array containing the inverse hyperbolic tangent of each element in `x`.
 
-### ceil(x, *, out=None)
+### <a name="ceil" href="#ceil">#</a> ceil(x, *, out=None)
 
 Rounds each element `x_i` of the input array `x` to the smallest (i.e., closest to `-infinity`) integer-valued number that is not less than `x_i`.
 
@@ -184,7 +184,7 @@ Rounds each element `x_i` of the input array `x` to the smallest (i.e., closest 
 
 -   **out**: an array containing the rounded result for each element in `x`.
 
-### cos(x, *, out=None)
+### <a name="cos" href="#cos">#</a> cos(x, *, out=None)
 
 Calculates an implementation-dependent approximation to the cosine for each element `x_i` of the input array `x`. Each element `x_i` is assumed to be expressed in radians.
 
@@ -203,7 +203,7 @@ Calculates an implementation-dependent approximation to the cosine for each elem
 
 -   **out**: an array containing the cosine of each element in `x`.
 
-### cosh(x, *, out=None)
+### <a name="cosh" href="#cosh">#</a> cosh(x, *, out=None)
 
 Calculates an implementation-dependent approximation to the hyperbolic cosine for each element `x_i` in the input array `x`.
 
@@ -222,7 +222,7 @@ Calculates an implementation-dependent approximation to the hyperbolic cosine fo
 
 -   **out**: an array containing the hyperbolic cosine of each element in `x`.
 
-### exp(x, *, out=None)
+### <a name="exp" href="#exp">#</a> exp(x, *, out=None)
 
 Calculates an implementation-dependent approximation to the exponential function for each element `x_i` of the input array `x` (`e` raised to the power of `x_i`, where `e` is the base of the natural logarithm).
 
@@ -241,7 +241,7 @@ Calculates an implementation-dependent approximation to the exponential function
 
 -   **out**: an array containing the evaluated exponential function result for each element in `x`.
 
-### floor(x, *, out=None)
+### <a name="floor" href="#floor">#</a> floor(x, *, out=None)
 
 Rounds each element `x_i` of the input array `x` to the greatest (i.e., closest to `+infinity`) integer-valued number that is not greater than `x_i`.
 
@@ -256,7 +256,7 @@ Rounds each element `x_i` of the input array `x` to the greatest (i.e., closest 
 
 -   **out**: an array containing the rounded result for each element in `x`.
 
-### log(x, *, out=None)
+### <a name="log" href="#log">#</a> log(x, *, out=None)
 
 Calculates an implementation-dependent approximation to the natural logarithm for each element `x_i` of the input array `x`.
 
@@ -275,7 +275,7 @@ Calculates an implementation-dependent approximation to the natural logarithm fo
 
 -   **out**: an array containing the evaluated natural logarithm for each element in `x`.
 
-### round(x, *, out=None)
+### <a name="round" href="#round">#</a> round(x, *, out=None)
 
 Rounds each element `x_i` of the input array `x` to the nearest integer-valued number.
 
@@ -291,7 +291,7 @@ Rounds each element `x_i` of the input array `x` to the nearest integer-valued n
 
 -   **out**: an array containing the rounded result for each element in `x`.
 
-### sin(x, *, out=None)
+### <a name="sin" href="#sin">#</a> sin(x, *, out=None)
 
 Calculates an implementation-dependent approximation to the sine for each element `x_i` of the input array `x`. Each element `x_i` is assumed to be expressed in radians.
 
@@ -309,7 +309,7 @@ Calculates an implementation-dependent approximation to the sine for each elemen
 
 -   **out**: an array containing the sine of each element in `x`.
 
-### sinh(x, *, out=None)
+### <a name="sinh" href="#sinh">#</a> sinh(x, *, out=None)
 
 Calculates an implementation-dependent approximation to the hyperbolic sine for each element `x_i` of the input array `x`.
 
@@ -328,7 +328,7 @@ Calculates an implementation-dependent approximation to the hyperbolic sine for 
 
 -   **out**: an array containing the hyperbolic sine of each element in `x`.
 
-### sqrt(x, *, out=None)
+### <a name="sqrt" href="#sqrt">#</a> sqrt(x, *, out=None)
 
 Calculates an implementation-dependent approximation to the square root for each element `x_i` of the input array `x`.
 
@@ -347,7 +347,7 @@ Calculates an implementation-dependent approximation to the square root for each
 
 -   **out**: an array containing the square root of each element in `x`.
 
-### tan(x, *, out=None)
+### <a name="tan" href="#tan">#</a> tan(x, *, out=None)
 
 Calculates an implementation-dependent approximation to the tangent for each element `x_i` of the input array `x`. Each element `x_i` is assumed to be expressed in radians.
 
@@ -365,7 +365,7 @@ Calculates an implementation-dependent approximation to the tangent for each ele
 
 -   **out**: an array containing the tangent of each element in `x`.
 
-### tanh(x, *, out=None)
+### <a name="tanh" href="#tanh">#</a> tanh(x, *, out=None)
 
 Calculates an implementation-dependent approximation to the hyperbolic tangent for each element `x_i` of the input array `x`.
 
@@ -384,7 +384,7 @@ Calculates an implementation-dependent approximation to the hyperbolic tangent f
 
 -   **out**: an array containing the hyperbolic tangent of each element in `x`.
 
-### trunc(x, *, out=None)
+### <a name="trunc" href="#trunc">#</a> trunc(x, *, out=None)
 
 Rounds each element `x_i` of the input array `x` to the integer-valued number that is closest to but no greater than `x_i`.
 
