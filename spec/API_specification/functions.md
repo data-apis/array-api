@@ -34,7 +34,12 @@ a tuple of `N` non-negative integers that specify the sizes of each dimension an
 
 ## Functions
 
-A conforming implementation of the array API standard must provide and support the following functions.
+A conforming implementation of the array API standard must provide and support the following functions adhering to the following conventions:
+
+-   Optional arguments must be [keyword-only](https://www.python.org/dev/peps/pep-3102/) arguments.
+-   The `out` keyword argument must be a tuple with one entry per output.
+-   If `out` is not provided or is `None` (the default), an uninitialized return array must be created for each output.
+-   Unless stated otherwise, floating-point operations must adhere to IEEE 754-2019.
 
 <!-- NOTE: please keep the functions in alphabetical order -->
 
@@ -398,12 +403,3 @@ Rounds each element `x_i` of the input array `x` to the integer-valued number th
 #### Returns
 
 -   **out**: an array containing the rounded result for each element in `x`.
-
-* * *
-
-## Addendum
-
--   Optional arguments must be [keyword-only](https://www.python.org/dev/peps/pep-3102/) arguments.
--   The `out` keyword argument must be a tuple with one entry per output.
--   If `out` is not provided or is `None` (the default), an uninitialized return array must be created for each output.
--   Unless stated otherwise, floating-point operations must adhere to IEEE 754-2019.
