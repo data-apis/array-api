@@ -6,6 +6,6 @@ API specification
    :maxdepth: 1
 
    array_object
-   functions
+   elementwise_functions
    indexing
    casting

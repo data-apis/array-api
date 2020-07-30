@@ -1,6 +1,6 @@
-# Functions
+# Element-wise Functions
 
-> Array API function specification.
+> Array API specification for element-wise functions.
 
 ## Conformance
 
@@ -29,6 +29,10 @@ a (usually fixed-size) multidimensional container of items of the same type and 
 ### shape
 
 a tuple of `N` non-negative integers that specify the sizes of each dimension and where `N` corresponds to the number of dimensions.
+
+### element-wise
+
+an operation performed element-by-element, in which individual array elements are considered in isolation and independently of surrounding array elements.
 
 * * *
 
