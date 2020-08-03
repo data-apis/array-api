@@ -50,11 +50,11 @@ A conforming implementation of the array API standard must provide and support t
 
 ### <a name="abs" href="#abs">#</a> abs(x, /, *, out=None)
 
-Calculates the absolute value for each element <code>x<sub>i</sub></code> of the input array `x` (i.e., the element-wise result has the same magnitude as the respective element in `x` but has positive sign).
+Calculates the absolute value for each element `x_i` of the input array `x` (i.e., the element-wise result has the same magnitude as the respective element in `x` but has positive sign).
 
--   If <code>x<sub>i</sub></code> is `NaN`, the result is `NaN`.
--   If <code>x<sub>i</sub></code> is `-0`, the result is `+0`.
--   If <code>x<sub>i</sub></code> is `-infinity`, the result is `+infinity`.
+-   If `x_i` is `NaN`, the result is `NaN`.
+-   If `x_i` is `-0`, the result is `+0`.
+-   If `x_i` is `-infinity`, the result is `+infinity`.
 
 #### Parameters
 
@@ -67,12 +67,12 @@ Calculates the absolute value for each element <code>x<sub>i</sub></code> of the
 
 ### <a name="acos" href="#acos">#</a> acos(x, /, *, out=None)
 
-Calculates an implementation-dependent approximation of the principal value of the inverse cosine, having domain `[-1, +1]` and codomain `[+0, +π]`, for each element <code>x<sub>i</sub></code> of the input array `x`. Each element-wise result is expressed in radians.
+Calculates an implementation-dependent approximation of the principal value of the inverse cosine, having domain `[-1, +1]` and codomain `[+0, +π]`, for each element `x_i` of the input array `x`. Each element-wise result is expressed in radians.
 
--   If <code>x<sub>i</sub></code> is `NaN`, the result is `NaN`.
--   If <code>x<sub>i</sub></code> is greater than `1`, the result is `NaN`.
--   If <code>x<sub>i</sub></code> is less than `-1`, the result is `NaN`.
--   If <code>x<sub>i</sub></code> is exactly `1`, the result is `+0`.
+-   If `x_i` is `NaN`, the result is `NaN`.
+-   If `x_i` is greater than `1`, the result is `NaN`.
+-   If `x_i` is less than `-1`, the result is `NaN`.
+-   If `x_i` is exactly `1`, the result is `+0`.
 
 #### Parameters
 
@@ -85,12 +85,12 @@ Calculates an implementation-dependent approximation of the principal value of t
 
 ### <a name="acosh" href="#acosh">#</a> acosh(x, /, *, out=None)
 
-Calculates an implementation-dependent approximation to the inverse hyperbolic cosine, having domain `[+1, +infinity]` and codomain `[+0, +infinity]`, for each element <code>x<sub>i</sub></code> of the input array `x`.
+Calculates an implementation-dependent approximation to the inverse hyperbolic cosine, having domain `[+1, +infinity]` and codomain `[+0, +infinity]`, for each element `x_i` of the input array `x`.
 
--   If <code>x<sub>i</sub></code> is `NaN`, the result is `NaN`.
--   If <code>x<sub>i</sub></code> is less than `1`, the result is `NaN`.
--   If <code>x<sub>i</sub></code> is `1`, the result is `+0`.
--   If <code>x<sub>i</sub></code> is `+infinity`, the result is `+infinity`.
+-   If `x_i` is `NaN`, the result is `NaN`.
+-   If `x_i` is less than `1`, the result is `NaN`.
+-   If `x_i` is `1`, the result is `+0`.
+-   If `x_i` is `+infinity`, the result is `+infinity`.
 
 #### Parameters
 
@@ -119,13 +119,13 @@ Calculates the sum for each element <code>x1<sub>i</sub></code> of the input arr
 
 ### <a name="asin" href="#asin">#</a> asin(x, /, *, out=None)
 
-Calculates an implementation-dependent approximation of the principal value of the inverse sine, having domain `[-1, +1]` and codomain `[-π/2, +π/2]` for each element <code>x<sub>i</sub></code> of the input array `x`. Each element-wise result is expressed in radians.
+Calculates an implementation-dependent approximation of the principal value of the inverse sine, having domain `[-1, +1]` and codomain `[-π/2, +π/2]` for each element `x_i` of the input array `x`. Each element-wise result is expressed in radians.
 
--   If <code>x<sub>i</sub></code> is `NaN`, the result is `NaN`.
--   If <code>x<sub>i</sub></code> is greater than `1`, the result is `NaN`.
--   If <code>x<sub>i</sub></code> is less than `-1`, the result is `NaN`.
--   If <code>x<sub>i</sub></code> is `+0`, the result is `+0`.
--   If <code>x<sub>i</sub></code> is `-0`, the result is `-0`.
+-   If `x_i` is `NaN`, the result is `NaN`.
+-   If `x_i` is greater than `1`, the result is `NaN`.
+-   If `x_i` is less than `-1`, the result is `NaN`.
+-   If `x_i` is `+0`, the result is `+0`.
+-   If `x_i` is `-0`, the result is `-0`.
 
 #### Parameters
 
@@ -138,13 +138,13 @@ Calculates an implementation-dependent approximation of the principal value of t
 
 ### <a name="asinh" href="#asinh">#</a> asinh(x, /, *, out=None)
 
-Calculates an implementation-dependent approximation to the inverse hyperbolic sine, having domain `[-infinity, +infinity]` and codomain `[-infinity, +infinity]`, for each element <code>x<sub>i</sub></code> in the input array `x`.
+Calculates an implementation-dependent approximation to the inverse hyperbolic sine, having domain `[-infinity, +infinity]` and codomain `[-infinity, +infinity]`, for each element `x_i` in the input array `x`.
 
--   If <code>x<sub>i</sub></code> is `NaN`, the result is `NaN`.
--   If <code>x<sub>i</sub></code> is `+0`, the result is `+0`.
--   If <code>x<sub>i</sub></code> is `-0`, the result is `-0`.
--   If <code>x<sub>i</sub></code> is `+infinity`, the result is `+infinity`.
--   If <code>x<sub>i</sub></code> is `-infinity`, the result is `-infinity`.
+-   If `x_i` is `NaN`, the result is `NaN`.
+-   If `x_i` is `+0`, the result is `+0`.
+-   If `x_i` is `-0`, the result is `-0`.
+-   If `x_i` is `+infinity`, the result is `+infinity`.
+-   If `x_i` is `-infinity`, the result is `-infinity`.
 
 #### Parameters
 
@@ -157,13 +157,13 @@ Calculates an implementation-dependent approximation to the inverse hyperbolic s
 
 ### <a name="atan" href="#atan">#</a> atan(x, /, *, out=None)
 
-Calculates an implementation-dependent approximation of the principal value of the inverse tangent, having domain `[-infinity, +infinity]` and codomain `[-π/2, +π/2]`, for each element <code>x<sub>i</sub></code> of the input array `x`. Each element-wise result is expressed in radians.
+Calculates an implementation-dependent approximation of the principal value of the inverse tangent, having domain `[-infinity, +infinity]` and codomain `[-π/2, +π/2]`, for each element `x_i` of the input array `x`. Each element-wise result is expressed in radians.
 
--   If <code>x<sub>i</sub></code> is `NaN`, the result is `NaN`.
--   If <code>x<sub>i</sub></code> is `+0`, the result is `+0`.
--   If <code>x<sub>i</sub></code> is `-0`, the result is `-0`.
--   If <code>x<sub>i</sub></code> is `+infinity`, the result is an implementation-dependent approximation to `+π/2` (rounded).
--   If <code>x<sub>i</sub></code> is `-infinity`, the result is an implementation-dependent approximation to `-π/2` (rounded).
+-   If `x_i` is `NaN`, the result is `NaN`.
+-   If `x_i` is `+0`, the result is `+0`.
+-   If `x_i` is `-0`, the result is `-0`.
+-   If `x_i` is `+infinity`, the result is an implementation-dependent approximation to `+π/2` (rounded).
+-   If `x_i` is `-infinity`, the result is an implementation-dependent approximation to `-π/2` (rounded).
 
 #### Parameters
 
@@ -176,15 +176,15 @@ Calculates an implementation-dependent approximation of the principal value of t
 
 ### <a name="atanh" href="#atanh">#</a> atanh(x, /, *, out=None)
 
-Calculates an implementation-dependent approximation to the inverse hyperbolic tangent, having domain `[-1, +1]` and codomain `[-infinity, +infinity]`, for each element <code>x<sub>i</sub></code> of the input array `x`.
+Calculates an implementation-dependent approximation to the inverse hyperbolic tangent, having domain `[-1, +1]` and codomain `[-infinity, +infinity]`, for each element `x_i` of the input array `x`.
 
--   If <code>x<sub>i</sub></code> is `NaN`, the result is `NaN`.
--   If <code>x<sub>i</sub></code> is less than `-1`, the result is `NaN`.
--   If <code>x<sub>i</sub></code> is greater than `1`, the result is `NaN`.
--   If <code>x<sub>i</sub></code> is `-1`, the result is `-infinity`.
--   If <code>x<sub>i</sub></code> is `+1`, the result is `+infinity`.
--   If <code>x<sub>i</sub></code> is `+0`, the result is `+0`.
--   If <code>x<sub>i</sub></code> is `-0`, the result is `-0`.
+-   If `x_i` is `NaN`, the result is `NaN`.
+-   If `x_i` is less than `-1`, the result is `NaN`.
+-   If `x_i` is greater than `1`, the result is `NaN`.
+-   If `x_i` is `-1`, the result is `-infinity`.
+-   If `x_i` is `+1`, the result is `+infinity`.
+-   If `x_i` is `+0`, the result is `+0`.
+-   If `x_i` is `-0`, the result is `-0`.
 
 #### Parameters
 
@@ -197,9 +197,9 @@ Calculates an implementation-dependent approximation to the inverse hyperbolic t
 
 ### <a name="ceil" href="#ceil">#</a> ceil(x, /, *, out=None)
 
-Rounds each element <code>x<sub>i</sub></code> of the input array `x` to the smallest (i.e., closest to `-infinity`) integer-valued number that is not less than <code>x<sub>i</sub></code>.
+Rounds each element `x_i` of the input array `x` to the smallest (i.e., closest to `-infinity`) integer-valued number that is not less than `x_i`.
 
--   If <code>x<sub>i</sub></code> is already integer-valued, the result is <code>x<sub>i</sub></code>.
+-   If `x_i` is already integer-valued, the result is `x_i`.
 
 #### Parameters
 
@@ -212,13 +212,13 @@ Rounds each element <code>x<sub>i</sub></code> of the input array `x` to the sma
 
 ### <a name="cos" href="#cos">#</a> cos(x, /, *, out=None)
 
-Calculates an implementation-dependent approximation to the cosine, having domain `(-infinity, +infinity)` and codomain `[-1, +1]`, for each element <code>x<sub>i</sub></code> of the input array `x`. Each element <code>x<sub>i</sub></code> is assumed to be expressed in radians.
+Calculates an implementation-dependent approximation to the cosine, having domain `(-infinity, +infinity)` and codomain `[-1, +1]`, for each element `x_i` of the input array `x`. Each element `x_i` is assumed to be expressed in radians.
 
--   If <code>x<sub>i</sub></code> is `NaN`, the result is `NaN`.
--   If <code>x<sub>i</sub></code> is `+0`, the result is `1`.
--   If <code>x<sub>i</sub></code> is `-0`, the result is `1`.
--   If <code>x<sub>i</sub></code> is `+infinity`, the result is `NaN`.
--   If <code>x<sub>i</sub></code> is `-infinity`, the result is `NaN`.
+-   If `x_i` is `NaN`, the result is `NaN`.
+-   If `x_i` is `+0`, the result is `1`.
+-   If `x_i` is `-0`, the result is `1`.
+-   If `x_i` is `+infinity`, the result is `NaN`.
+-   If `x_i` is `-infinity`, the result is `NaN`.
 
 #### Parameters
 
@@ -231,13 +231,13 @@ Calculates an implementation-dependent approximation to the cosine, having domai
 
 ### <a name="cosh" href="#cosh">#</a> cosh(x, /, *, out=None)
 
-Calculates an implementation-dependent approximation to the hyperbolic cosine, having domain `[-infinity, +infinity]` and codomain `[-infinity, +infinity]`, for each element <code>x<sub>i</sub></code> in the input array `x`.
+Calculates an implementation-dependent approximation to the hyperbolic cosine, having domain `[-infinity, +infinity]` and codomain `[-infinity, +infinity]`, for each element `x_i` in the input array `x`.
 
--   If <code>x<sub>i</sub></code> is `NaN`, the result is `NaN`.
--   If <code>x<sub>i</sub></code> is `+0`, the result is `1`.
--   If <code>x<sub>i</sub></code> is `-0`, the result is `1`.
--   If <code>x<sub>i</sub></code> is `+infinity`, the result is `+infinity`.
--   If <code>x<sub>i</sub></code> is `-infinity`, the result is `+infinity`.
+-   If `x_i` is `NaN`, the result is `NaN`.
+-   If `x_i` is `+0`, the result is `1`.
+-   If `x_i` is `-0`, the result is `1`.
+-   If `x_i` is `+infinity`, the result is `+infinity`.
+-   If `x_i` is `-infinity`, the result is `+infinity`.
 
 #### Parameters
 
@@ -266,13 +266,13 @@ Calculates the division for each element <code>x1<sub>i</sub></code> of the inpu
 
 ### <a name="exp" href="#exp">#</a> exp(x, /, *, out=None)
 
-Calculates an implementation-dependent approximation to the exponential function, having domain `[-infinity, +infinity]` and codomain `[+0, +infinity]`, for each element <code>x<sub>i</sub></code> of the input array `x` (`e` raised to the power of <code>x<sub>i</sub></code>, where `e` is the base of the natural logarithm).
+Calculates an implementation-dependent approximation to the exponential function, having domain `[-infinity, +infinity]` and codomain `[+0, +infinity]`, for each element `x_i` of the input array `x` (`e` raised to the power of `x_i`, where `e` is the base of the natural logarithm).
 
--   If <code>x<sub>i</sub></code> is `NaN`, the result is `NaN`.
--   If <code>x<sub>i</sub></code> is `+0`, the result is `1`.
--   If <code>x<sub>i</sub></code> is `-0`, the result is `1`.
--   If <code>x<sub>i</sub></code> is `+infinity`, the result is `+infinity`.
--   If <code>x<sub>i</sub></code> is `-infinity`, the result is `+0`.
+-   If `x_i` is `NaN`, the result is `NaN`.
+-   If `x_i` is `+0`, the result is `1`.
+-   If `x_i` is `-0`, the result is `1`.
+-   If `x_i` is `+infinity`, the result is `+infinity`.
+-   If `x_i` is `-infinity`, the result is `+0`.
 
 #### Parameters
 
@@ -285,9 +285,9 @@ Calculates an implementation-dependent approximation to the exponential function
 
 ### <a name="floor" href="#floor">#</a> floor(x, /, *, out=None)
 
-Rounds each element <code>x<sub>i</sub></code> of the input array `x` to the greatest (i.e., closest to `+infinity`) integer-valued number that is not greater than <code>x<sub>i</sub></code>.
+Rounds each element `x_i` of the input array `x` to the greatest (i.e., closest to `+infinity`) integer-valued number that is not greater than `x_i`.
 
--   If <code>x<sub>i</sub></code> is already integer-valued, the result is <code>x<sub>i</sub></code>.
+-   If `x_i` is already integer-valued, the result is `x_i`.
 
 #### Parameters
 
@@ -300,13 +300,13 @@ Rounds each element <code>x<sub>i</sub></code> of the input array `x` to the gre
 
 ### <a name="log" href="#log">#</a> log(x, /, *, out=None)
 
-Calculates an implementation-dependent approximation to the natural (base `e`) logarithm, having domain `[0, +infinity]` and codomain `[-infinity, +infinity]`, for each element <code>x<sub>i</sub></code> of the input array `x`.
+Calculates an implementation-dependent approximation to the natural (base `e`) logarithm, having domain `[0, +infinity]` and codomain `[-infinity, +infinity]`, for each element `x_i` of the input array `x`.
 
--   If <code>x<sub>i</sub></code> is `NaN`, the result is `NaN`.
--   If <code>x<sub>i</sub></code> is less than `0`, the result is `NaN`.
--   If <code>x<sub>i</sub></code> is `+0` or `-0`, the result is `-infinity`.
--   If <code>x<sub>i</sub></code> is `1`, the result is `+0`.
--   If <code>x<sub>i</sub></code> is `+infinity`, the result is `+infinity`.
+-   If `x_i` is `NaN`, the result is `NaN`.
+-   If `x_i` is less than `0`, the result is `NaN`.
+-   If `x_i` is `+0` or `-0`, the result is `-infinity`.
+-   If `x_i` is `1`, the result is `+0`.
+-   If `x_i` is `+infinity`, the result is `+infinity`.
 
 #### Parameters
 
@@ -335,10 +335,10 @@ Calculates the product for each element <code>x1<sub>i</sub></code> of the input
 
 ### <a name="round" href="#round">#</a> round(x, /, *, out=None)
 
-Rounds each element <code>x<sub>i</sub></code> of the input array `x` to the nearest integer-valued number.
+Rounds each element `x_i` of the input array `x` to the nearest integer-valued number.
 
--   If <code>x<sub>i</sub></code> is already integer-valued, the result is <code>x<sub>i</sub></code>.
--   If two integers are equally close to <code>x<sub>i</sub></code>, the result is whichever integer is farthest from `0`.
+-   If `x_i` is already integer-valued, the result is `x_i`.
+-   If two integers are equally close to `x_i`, the result is whichever integer is farthest from `0`.
 
 #### Parameters
 
@@ -351,12 +351,12 @@ Rounds each element <code>x<sub>i</sub></code> of the input array `x` to the nea
 
 ### <a name="sin" href="#sin">#</a> sin(x, /, *, out=None)
 
-Calculates an implementation-dependent approximation to the sine, having domain `(-infinity, +infinity)` and codomain `[-1, +1]`, for each element <code>x<sub>i</sub></code> of the input array `x`. Each element <code>x<sub>i</sub></code> is assumed to be expressed in radians.
+Calculates an implementation-dependent approximation to the sine, having domain `(-infinity, +infinity)` and codomain `[-1, +1]`, for each element `x_i` of the input array `x`. Each element `x_i` is assumed to be expressed in radians.
 
--   If <code>x<sub>i</sub></code> is `NaN`, the result is `NaN`.
--   If <code>x<sub>i</sub></code> is `+0`, the result is `+0`.
--   If <code>x<sub>i</sub></code> is `-0`, the result is `-0`.
--   If <code>x<sub>i</sub></code> is `+infinity` or `-infinity`, the result is `NaN`.
+-   If `x_i` is `NaN`, the result is `NaN`.
+-   If `x_i` is `+0`, the result is `+0`.
+-   If `x_i` is `-0`, the result is `-0`.
+-   If `x_i` is `+infinity` or `-infinity`, the result is `NaN`.
 
 #### Parameters
 
@@ -369,13 +369,13 @@ Calculates an implementation-dependent approximation to the sine, having domain 
 
 ### <a name="sinh" href="#sinh">#</a> sinh(x, /, *, out=None)
 
-Calculates an implementation-dependent approximation to the hyperbolic sine, having domain `[-infinity, +infinity]` and codomain `[-infinity, +infinity]`, for each element <code>x<sub>i</sub></code> of the input array `x`.
+Calculates an implementation-dependent approximation to the hyperbolic sine, having domain `[-infinity, +infinity]` and codomain `[-infinity, +infinity]`, for each element `x_i` of the input array `x`.
 
--   If <code>x<sub>i</sub></code> is `NaN`, the result is `NaN`.
--   If <code>x<sub>i</sub></code> is `+0`, the result is `+0`.
--   If <code>x<sub>i</sub></code> is `-0`, the result is `-0`.
--   If <code>x<sub>i</sub></code> is `+infinity`, the result is `+infinity`.
--   If <code>x<sub>i</sub></code> is `-infinity`, the result is `-infinity`.
+-   If `x_i` is `NaN`, the result is `NaN`.
+-   If `x_i` is `+0`, the result is `+0`.
+-   If `x_i` is `-0`, the result is `-0`.
+-   If `x_i` is `+infinity`, the result is `+infinity`.
+-   If `x_i` is `-infinity`, the result is `-infinity`.
 
 #### Parameters
 
@@ -388,13 +388,13 @@ Calculates an implementation-dependent approximation to the hyperbolic sine, hav
 
 ### <a name="sqrt" href="#sqrt">#</a> sqrt(x, /, *, out=None)
 
-Calculates the square root, having domain `[0, +infinity]` and codomain `[0, +infinity]`, for each element <code>x<sub>i</sub></code> of the input array `x`. After rounding, each result should be indistinguishable from the infinitely precise result (as required by IEEE 754).
+Calculates the square root, having domain `[0, +infinity]` and codomain `[0, +infinity]`, for each element `x_i` of the input array `x`. After rounding, each result should be indistinguishable from the infinitely precise result (as required by IEEE 754).
 
--   If <code>x<sub>i</sub></code> is `NaN`, the result is `NaN`.
--   If <code>x<sub>i</sub></code> is less than `0`, the result is `NaN`.
--   If <code>x<sub>i</sub></code> is `+0`, the result is `+0`.
--   If <code>x<sub>i</sub></code> is `-0`, the result is `-0`.
--   If <code>x<sub>i</sub></code> is `+infinity`, the result is `+infinity`.
+-   If `x_i` is `NaN`, the result is `NaN`.
+-   If `x_i` is less than `0`, the result is `NaN`.
+-   If `x_i` is `+0`, the result is `+0`.
+-   If `x_i` is `-0`, the result is `-0`.
+-   If `x_i` is `+infinity`, the result is `+infinity`.
 
 #### Parameters
 
@@ -423,12 +423,12 @@ Calculates the difference for each element <code>x1<sub>i</sub></code> of the in
 
 ### <a name="tan" href="#tan">#</a> tan(x, /, *, out=None)
 
-Calculates an implementation-dependent approximation to the tangent, having domain `(-infinity, +infinity)` and codomain `(-infinity, +infinity)`, for each element <code>x<sub>i</sub></code> of the input array `x`. Each element <code>x<sub>i</sub></code> is assumed to be expressed in radians.
+Calculates an implementation-dependent approximation to the tangent, having domain `(-infinity, +infinity)` and codomain `(-infinity, +infinity)`, for each element `x_i` of the input array `x`. Each element `x_i` is assumed to be expressed in radians.
 
--   If <code>x<sub>i</sub></code> is `NaN`, the result is `NaN`.
--   If <code>x<sub>i</sub></code> is `+0`, the result is `+0`.
--   If <code>x<sub>i</sub></code> is `-0`, the result is `-0`.
--   If <code>x<sub>i</sub></code> is `+infinity` or `-infinity`, the result is `NaN`.
+-   If `x_i` is `NaN`, the result is `NaN`.
+-   If `x_i` is `+0`, the result is `+0`.
+-   If `x_i` is `-0`, the result is `-0`.
+-   If `x_i` is `+infinity` or `-infinity`, the result is `NaN`.
 
 #### Parameters
 
@@ -441,13 +441,13 @@ Calculates an implementation-dependent approximation to the tangent, having doma
 
 ### <a name="tanh" href="#tanh">#</a> tanh(x, /, *, out=None)
 
-Calculates an implementation-dependent approximation to the hyperbolic tangent, having domain `[-infinity, +infinity]` and codomain `[-1, +1]`, for each element <code>x<sub>i</sub></code> of the input array `x`.
+Calculates an implementation-dependent approximation to the hyperbolic tangent, having domain `[-infinity, +infinity]` and codomain `[-1, +1]`, for each element `x_i` of the input array `x`.
 
--   If <code>x<sub>i</sub></code> is `NaN`, the result is `NaN`.
--   If <code>x<sub>i</sub></code> is `+0`, the result is `+0`.
--   If <code>x<sub>i</sub></code> is `-0`, the result is `-0`.
--   If <code>x<sub>i</sub></code> is `+infinity`, the result is `+1`.
--   If <code>x<sub>i</sub></code> is `-infinity`, the result is `-1`.
+-   If `x_i` is `NaN`, the result is `NaN`.
+-   If `x_i` is `+0`, the result is `+0`.
+-   If `x_i` is `-0`, the result is `-0`.
+-   If `x_i` is `+infinity`, the result is `+1`.
+-   If `x_i` is `-infinity`, the result is `-1`.
 
 #### Parameters
 
@@ -460,9 +460,9 @@ Calculates an implementation-dependent approximation to the hyperbolic tangent, 
 
 ### <a name="trunc" href="#trunc">#</a> trunc(x, /, *, out=None)
 
-Rounds each element <code>x<sub>i</sub></code> of the input array `x` to the integer-valued number that is closest to but no greater than <code>x<sub>i</sub></code>.
+Rounds each element `x_i` of the input array `x` to the integer-valued number that is closest to but no greater than `x_i`.
 
--   If <code>x<sub>i</sub></code> is already integer-valued, the result is <code>x<sub>i</sub></code>.
+-   If `x_i` is already integer-valued, the result is `x_i`.
 
 #### Parameters
 
