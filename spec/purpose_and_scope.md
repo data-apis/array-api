@@ -50,9 +50,13 @@ For the purposes of this specification, the following terms and definitions appl
 
 a (usually fixed-size) multidimensional container of items of the same type and size.
 
-### broadcasting
+### broadcast
 
 automatic (implicit) expansion of array dimensions to be of equal sizes without copying array data.
+
+### compatible
+
+two arrays whose dimensions are compatible (i.e., where the size of each dimension in one array is either equal to one or to the size of the corresponding dimension in a second array).
 
 ### element-wise
 
