@@ -2,8 +2,6 @@
 
 > Array API specification for element-wise functions.
 
-## Functions
-
 A conforming implementation of the array API standard must provide and support the following functions adhering to the following conventions.
 
 -   Positional parameters must be [positional-only](https://www.python.org/dev/peps/pep-0570/) parameters. Positional-only parameters have no externally-usable name. When a function accepting positional-only parameters is called, positional arguments are mapped to these parameters based solely on their order.
