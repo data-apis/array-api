@@ -50,6 +50,10 @@ For the purposes of this specification, the following terms and definitions appl
 
 a (usually fixed-size) multidimensional container of items of the same type and size.
 
+### broadcasting
+
+automatic (implicit) expansion of array dimensions to be of equal sizes without copying array data.
+
 ### element-wise
 
 an operation performed element-by-element, in which individual array elements are considered in isolation and independently of other elements within the same array.
