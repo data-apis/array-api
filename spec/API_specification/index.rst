@@ -8,4 +8,5 @@ API specification
    array_object
    elementwise_functions
    indexing
+   broadcasting
    casting
