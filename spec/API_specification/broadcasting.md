@@ -102,4 +102,4 @@ B      (3d array):  8 x 4 x 3 # second dimension does not match
 
 ## In-place Semantics
 
-In-place element-wise operations must not change the shape of the in-place array as a result of broadcasting.
+As implied by the broadcasting algorithm, in-place element-wise operations must not change the shape of the in-place array as a result of broadcasting.
