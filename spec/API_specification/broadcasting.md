@@ -6,7 +6,7 @@
 
 **Broadcasting** refers to the automatic (implicit) expansion of array dimensions to be of equal sizes without copying array data for the purpose of making arrays with different shapes have compatible shapes for element-wise operations.
 
-Broadcasting facilitates user ergonomics by encouraging users to elide unnecessary copying of array data and can **potentially** enable more memory-efficient element-wise operations through vectorization, reduced memory consumption, and cache locality.
+Broadcasting facilitates user ergonomics by encouraging users to avoid unnecessary copying of array data and can **potentially** enable more memory-efficient element-wise operations through vectorization, reduced memory consumption, and cache locality.
 
 ## Algorithm
 
