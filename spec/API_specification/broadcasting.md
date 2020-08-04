@@ -30,9 +30,9 @@ The results of the element-wise arithmetic operation must be stored in an array 
 
 1.  Repeat, while `i >= 0`
 
-	1.  If `N1 > i`, let `d1` be the size of dimension `n` for array `x1` (i.e., the result of `shape1[i]`); else, let `d1` be `1`.
+	1.  If `N1-N+i >= 0`, let `d1` be the size of dimension `n` for array `x1` (i.e., the result of `shape1[i]`); else, let `d1` be `1`.
 
-	1.  If `N2 > i`, let `d2` be the size of dimension `n` for array `x2` (i.e., the result of `shape2[i]`); else, let `d2` be `1`.
+	1.  If `N2-N+i >= 0`, let `d2` be the size of dimension `n` for array `x2` (i.e., the result of `shape2[i]`); else, let `d2` be `1`.
 
 	1.  If `d1 == 1`, then
 		
