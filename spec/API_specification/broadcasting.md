@@ -14,15 +14,15 @@ Given an element-wise operation involving two compatible arrays, an array having
 
 The results of the element-wise operation must be stored in an array having a shape determined by the following algorithm.
 
-1.  Let `x1` and `x2` both be arrays.
+1.  Let `A` and `B` both be arrays.
 
-1.  Let `shape1` be a tuple describing the shape of array `x1`.
+1.  Let `shape1` be a tuple describing the shape of array `A`.
 
-1.  Let `shape2` be a tuple describing the shape of array `x2`.
+1.  Let `shape2` be a tuple describing the shape of array `B`.
 
-1.  Let `N1` be the number of dimensions of array `x1` (i.e., the result of `len(shape1)`).
+1.  Let `N1` be the number of dimensions of array `A` (i.e., the result of `len(shape1)`).
 
-1.  Let `N2` be the number of dimensions of array `x2` (i.e., the result of `len(shape2)`).
+1.  Let `N2` be the number of dimensions of array `B` (i.e., the result of `len(shape2)`).
 
 1.  Let `N` be the maximum value of `N1` and `N2` (i.e., the result of `max(N1, N2)`).
 
@@ -32,9 +32,9 @@ The results of the element-wise operation must be stored in an array having a sh
 
 1.  Repeat, while `i >= 0`
 
-	1.  If `N1-N+i >= 0`, let `d1` be the size of dimension `n` for array `x1` (i.e., the result of `shape1[i]`); else, let `d1` be `1`.
+	1.  If `N1-N+i >= 0`, let `d1` be the size of dimension `n` for array `A` (i.e., the result of `shape1[i]`); else, let `d1` be `1`.
 
-	1.  If `N2-N+i >= 0`, let `d2` be the size of dimension `n` for array `x2` (i.e., the result of `shape2[i]`); else, let `d2` be `1`.
+	1.  If `N2-N+i >= 0`, let `d2` be the size of dimension `n` for array `B` (i.e., the result of `shape2[i]`); else, let `d2` be `1`.
 
 	1.  If `d1 == 1`, then
 		
