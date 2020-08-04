@@ -52,7 +52,7 @@ a (usually fixed-size) multidimensional container of items of the same type and 
 
 ### broadcast
 
-automatic (implicit) expansion of array dimensions to be of equal sizes without copying array data.
+automatic (implicit) expansion of array dimensions to be of equal sizes without copying array data for the purpose of making arrays with different shapes have compatible shapes for element-wise operations.
 
 ### compatible
 

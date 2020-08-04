@@ -8,9 +8,9 @@
 
 ## Algorithm
 
-Given an element-wise arithmetic operation involving two compatible arrays, an array having a singleton dimension (i.e., a dimension whose size is one) is broadcast (i.e., virtually repeated) across an array having a corresponding non-singleton dimension.
+Given an element-wise operation involving two compatible arrays, an array having a singleton dimension (i.e., a dimension whose size is one) is broadcast (i.e., virtually repeated) across an array having a corresponding non-singleton dimension.
 
-The results of the element-wise arithmetic operation must be stored in an array having a shape determined by the following algorithm.
+The results of the element-wise operation must be stored in an array having a shape determined by the following algorithm.
 
 1.  Let `x1` and `x2` both be arrays.
 
