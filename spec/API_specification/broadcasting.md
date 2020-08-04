@@ -36,15 +36,15 @@ The results of the element-wise arithmetic operation must be stored in an array 
 
 	1.  If `d1 == 1`, then
 		
-		-   set `shape[i]` to `d2`.
+		-   set the `i`th element of `shape` to `d2`.
 
 	1.  Else, if `d2 == 1`, then
 
-		-   set `shape[i]` to `d1`.
+		-   set the `i`th element of `shape` to `d1`.
 
 	1.  Else, if `d1 == d2`, then
 
-		-   set `shape[i]` to `d1`.
+		-   set the `i`th element of `shape` to `d1`.
 
 	1.  Else, throw an exception.
 
