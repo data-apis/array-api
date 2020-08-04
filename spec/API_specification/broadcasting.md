@@ -30,25 +30,25 @@ The results of the element-wise arithmetic operation must be stored in an array 
 
 1.  Repeat, while `i >= 0`
 
-	a.  If `N1 > i`, let `d1` be the size of dimension `n` for array `x1` (i.e., the result of `shape1[i]`); else, let `d1` be `1`.
+	1.  If `N1 > i`, let `d1` be the size of dimension `n` for array `x1` (i.e., the result of `shape1[i]`); else, let `d1` be `1`.
 
-	a.  If `N2 > i`, let `d2` be the size of dimension `n` for array `x2` (i.e., the result of `shape2[i]`); else, let `d2` be `1`.
+	1.  If `N2 > i`, let `d2` be the size of dimension `n` for array `x2` (i.e., the result of `shape2[i]`); else, let `d2` be `1`.
 
-	a.  If `d1 == 1`, then
+	1.  If `d1 == 1`, then
 		
 		-   set `shape[i]` to `d2`.
 
-	a.  Else, if `d2 == 1`, then
+	1.  Else, if `d2 == 1`, then
 
 		-   set `shape[i]` to `d1`.
 
-	a.  Else, if `d1 == d2`, then
+	1.  Else, if `d1 == d2`, then
 
 		-   set `shape[i]` to `d1`.
 
-	a.  Else, throw an exception.
+	1.  Else, throw an exception.
 
-	a.  Set `i` to `i-1`.
+	1.  Set `i` to `i-1`.
 
 1.  Let `tuple(shape)` be the shape of the result array.
 
