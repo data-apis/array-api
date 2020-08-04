@@ -4,7 +4,9 @@
 
 ## Overview
 
-**Broadcasting** refers to the automatic (implicit) expansion of array dimensions to be of equal sizes without copying array data.
+**Broadcasting** refers to the automatic (implicit) expansion of array dimensions to be of equal sizes without copying array data for the purpose of making arrays with different shapes have compatible shapes for element-wise operations.
+
+Broadcasting facilitates user ergonomics by encouraging users to elide unnecessary copying of array data and can **potentially** enable more memory-efficient element-wise operations through vectorization, reduced memory consumption, and cache locality.
 
 ## Algorithm
 
@@ -97,3 +99,7 @@ B      (1d array):  4 # dimension does not match
 A      (2d array):      2 x 1
 B      (3d array):  8 x 4 x 3 # second dimension does not match
 ```
+
+## In-place Semantics
+
+In-place element-wise operations must not change the shape of the in-place array as a result of broadcasting.
