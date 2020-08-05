@@ -22,17 +22,17 @@ Calculates the absolute value for each element `x_i` of the input array `x` (i.e
 
 #### Parameters
 
--   **x**: _array_
+-   **x**: _&lt;array&gt;_
 
     -   input array.
 
--   **out**: _Optional\[Tuple\[array]]_
+-   **out**: _Optional\[Tuple\[&lt;array&gt;]]_
 
     -   output array. If provided, must be a tuple consisting of a single value: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
 #### Returns
 
--   **out**: array
+-   **out**: _&lt;array&gt;_
 
     -   an array containing the absolute value of each element in `x`.
 
