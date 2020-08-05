@@ -47,12 +47,19 @@ Calculates an implementation-dependent approximation of the principal value of t
 
 #### Parameters
 
--   **x**: input array.
--   **out**: output array. If provided, must be a tuple consisting of a single value: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+-   **x**: _&lt;array&gt;_
+
+    -   input array.
+
+-   **out**: _Optional\[ Tuple\[&lt;array&gt;] ]_
+
+    -   output array. If provided, must be a tuple consisting of a single value: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
 #### Returns
 
--   **out**: an array containing the inverse cosine of each element in `x`.
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the inverse cosine of each element in `x`.
 
 ### <a name="acosh" href="#acosh">#</a> acosh(x, /, *, out=None)
 
@@ -65,12 +72,19 @@ Calculates an implementation-dependent approximation to the inverse hyperbolic c
 
 #### Parameters
 
--   **x**: input array whose elements each represent the area of a hyperbolic sector.
--   **out**: output array. If provided, must be a tuple consisting of a single value: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+-   **x**: _&lt;array&gt;_
+
+    -   input array whose elements each represent the area of a hyperbolic sector.
+
+-   **out**: _Optional\[ Tuple\[&lt;array&gt;] ]_
+
+    -   output array. If provided, must be a tuple consisting of a single value: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
 #### Returns
 
--   **out**: an array containing the inverse hyperbolic cosine of each element in `x`.
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the inverse hyperbolic cosine of each element in `x`.
 
 ### <a name="add" href="#add">#</a> add(x1, x2, /, *, out=None)
 
@@ -80,13 +94,23 @@ Calculates the sum for each element <code>x1<sub>i</sub></code> of the input arr
 
 #### Parameters
 
--   **x1**: input array.
--   **x2**: input array.
--   **out**: output array. If provided, must be a tuple consisting of a single value: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+-   **x1**: _&lt;array&gt;_
+
+    -   input array.
+
+-   **x2**: _&lt;array&gt;_
+
+    -   input array.
+
+-   **out**: _Optional\[ Tuple\[&lt;array&gt;] ]_
+
+    -   output array. If provided, must be a tuple consisting of a single value: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
 #### Returns
 
--   **out**: an array containing the element-wise sums.
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the element-wise sums.
 
 ### <a name="asin" href="#asin">#</a> asin(x, /, *, out=None)
 
@@ -100,12 +124,19 @@ Calculates an implementation-dependent approximation of the principal value of t
 
 #### Parameters
 
--   **x**: input array.
--   **out**: output array. If provided, must be a tuple consisting of a single value: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+-   **x**: _&lt;array&gt;_
+
+    -   input array.
+
+-   **out**: _Optional\[ Tuple\[&lt;array&gt;] ]_
+
+    -   output array. If provided, must be a tuple consisting of a single value: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
 #### Returns
 
--   **out**: an array containing the inverse sine of each element in `x`.
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the inverse sine of each element in `x`.
 
 ### <a name="asinh" href="#asinh">#</a> asinh(x, /, *, out=None)
 
@@ -119,12 +150,19 @@ Calculates an implementation-dependent approximation to the inverse hyperbolic s
 
 #### Parameters
 
--   **x**: input array whose elements each represent the area of a hyperbolic sector.
--   **out**: output array. If provided, must be a tuple consisting of a single value: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+-   **x**: _&lt;array&gt;_
+
+    -   input array whose elements each represent the area of a hyperbolic sector.
+
+-   **out**: _Optional\[ Tuple\[&lt;array&gt;] ]_
+
+    -   output array. If provided, must be a tuple consisting of a single value: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
 #### Returns
 
--   **out**: an array containing the inverse hyperbolic sine of each element in `x`.
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the inverse hyperbolic sine of each element in `x`.
 
 ### <a name="atan" href="#atan">#</a> atan(x, /, *, out=None)
 
@@ -138,12 +176,19 @@ Calculates an implementation-dependent approximation of the principal value of t
 
 #### Parameters
 
--   **x**: input array.
--   **out**: output array. If provided, must be a tuple consisting of a single value: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+-   **x**: _&lt;array&gt;_
+
+    -   input array.
+
+-   **out**: _Optional\[ Tuple\[&lt;array&gt;] ]_
+
+    -   output array. If provided, must be a tuple consisting of a single value: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
 #### Returns
 
--   **out**: an array containing the inverse tangent of each element in `x`.
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the inverse tangent of each element in `x`.
 
 ### <a name="atanh" href="#atanh">#</a> atanh(x, /, *, out=None)
 
@@ -159,12 +204,19 @@ Calculates an implementation-dependent approximation to the inverse hyperbolic t
 
 #### Parameters
 
--   **x**: input array whose elements each represent the area of a hyperbolic sector.
--   **out**: output array. If provided, must be a tuple consisting of a single value: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+-   **x**: _&lt;array&gt;_
+
+    -   input array whose elements each represent the area of a hyperbolic sector.
+
+-   **out**: _Optional\[ Tuple\[&lt;array&gt;] ]_
+
+    -   output array. If provided, must be a tuple consisting of a single value: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
 #### Returns
 
--   **out**: an array containing the inverse hyperbolic tangent of each element in `x`.
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the inverse hyperbolic tangent of each element in `x`.
 
 ### <a name="ceil" href="#ceil">#</a> ceil(x, /, *, out=None)
 
@@ -174,12 +226,19 @@ Rounds each element `x_i` of the input array `x` to the smallest (i.e., closest 
 
 #### Parameters
 
--   **x**: input array.
--   **out**: output array. If provided, must be a tuple consisting of a single value: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+-   **x**: _&lt;array&gt;_
+
+    -   input array.
+
+-   **out**: _Optional\[ Tuple\[&lt;array&gt;] ]_
+
+    -   output array. If provided, must be a tuple consisting of a single value: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
 #### Returns
 
--   **out**: an array containing the rounded result for each element in `x`.
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the rounded result for each element in `x`.
 
 ### <a name="cos" href="#cos">#</a> cos(x, /, *, out=None)
 
@@ -193,12 +252,19 @@ Calculates an implementation-dependent approximation to the cosine, having domai
 
 #### Parameters
 
--   **x**: input array whose elements are each expressed in radians.
--   **out**: output array. If provided, must be a tuple consisting of a single value: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+-   **x**: _&lt;array&gt;_
+
+    -   input array whose elements are each expressed in radians.
+
+-   **out**: _Optional\[ Tuple\[&lt;array&gt;] ]_
+
+    -   output array. If provided, must be a tuple consisting of a single value: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
 #### Returns
 
--   **out**: an array containing the cosine of each element in `x`.
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the cosine of each element in `x`.
 
 ### <a name="cosh" href="#cosh">#</a> cosh(x, /, *, out=None)
 
@@ -212,12 +278,19 @@ Calculates an implementation-dependent approximation to the hyperbolic cosine, h
 
 #### Parameters
 
--   **x**: input array whose elements each represent a hyperbolic angle.
--   **out**: output array. If provided, must be a tuple consisting of a single value: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+-   **x**: _&lt;array&gt;_
+
+    -   input array whose elements each represent a hyperbolic angle.
+
+-   **out**: _Optional\[ Tuple\[&lt;array&gt;] ]_
+
+    -   output array. If provided, must be a tuple consisting of a single value: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
 #### Returns
 
--   **out**: an array containing the hyperbolic cosine of each element in `x`.
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the hyperbolic cosine of each element in `x`.
 
 ### <a name="divide" href="#divide">#</a> divide(x1, x2, /, *, out=None)
 
@@ -227,13 +300,23 @@ Calculates the division for each element <code>x1<sub>i</sub></code> of the inpu
 
 #### Parameters
 
--   **x1**: dividend input array.
--   **x2**: divisor input array.
--   **out**: output array. If provided, must be a tuple consisting of a single value: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+-   **x1**: _&lt;array&gt;_
+
+    -   dividend input array.
+
+-   **x2**: _&lt;array&gt;_
+
+    -   divisor input array.
+
+-   **out**: _Optional\[ Tuple\[&lt;array&gt;] ]_
+
+    -   output array. If provided, must be a tuple consisting of a single value: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
 #### Returns
 
--   **out**: an array containing the element-wise results.
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the element-wise results.
 
 ### <a name="exp" href="#exp">#</a> exp(x, /, *, out=None)
 
@@ -247,12 +330,19 @@ Calculates an implementation-dependent approximation to the exponential function
 
 #### Parameters
 
--   **x**: input array.
--   **out**: output array. If provided, must be a tuple consisting of a single value: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+-   **x**: _&lt;array&gt;_
+
+    -   input array.
+
+-   **out**: _Optional\[ Tuple\[&lt;array&gt;] ]_
+
+    -   output array. If provided, must be a tuple consisting of a single value: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
 #### Returns
 
--   **out**: an array containing the evaluated exponential function result for each element in `x`.
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the evaluated exponential function result for each element in `x`.
 
 ### <a name="floor" href="#floor">#</a> floor(x, /, *, out=None)
 
@@ -262,12 +352,19 @@ Rounds each element `x_i` of the input array `x` to the greatest (i.e., closest 
 
 #### Parameters
 
--   **x**: input array.
--   **out**: output array. If provided, must be a tuple consisting of a single value: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+-   **x**: _&lt;array&gt;_
+
+    -   input array.
+
+-   **out**: _Optional\[ Tuple\[&lt;array&gt;] ]_
+
+    -   output array. If provided, must be a tuple consisting of a single value: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
 #### Returns
 
--   **out**: an array containing the rounded result for each element in `x`.
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the rounded result for each element in `x`.
 
 ### <a name="log" href="#log">#</a> log(x, /, *, out=None)
 
@@ -281,12 +378,19 @@ Calculates an implementation-dependent approximation to the natural (base `e`) l
 
 #### Parameters
 
--   **x**: input array.
--   **out**: output array. If provided, must be a tuple consisting of a single value: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+-   **x**: _&lt;array&gt;_
+
+    -   input array.
+
+-   **out**: _Optional\[ Tuple\[&lt;array&gt;] ]_
+
+    -   output array. If provided, must be a tuple consisting of a single value: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
 #### Returns
 
--   **out**: an array containing the evaluated natural logarithm for each element in `x`.
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the evaluated natural logarithm for each element in `x`.
 
 ### <a name="multiply" href="#multiply">#</a> multiply(x1, x2, /, *, out=None)
 
@@ -296,13 +400,23 @@ Calculates the product for each element <code>x1<sub>i</sub></code> of the input
 
 #### Parameters
 
--   **x1**: input array.
--   **x2**: input array.
--   **out**: output array. If provided, must be a tuple consisting of a single value: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+-   **x1**: _&lt;array&gt;_
+
+    -   input array.
+
+-   **x2**: _&lt;array&gt;_
+
+    -   input array.
+
+-   **out**: _Optional\[ Tuple\[&lt;array&gt;] ]_
+
+    -   output array. If provided, must be a tuple consisting of a single value: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
 #### Returns
 
--   **out**: an array containing the element-wise products.
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the element-wise products.
 
 ### <a name="round" href="#round">#</a> round(x, /, *, out=None)
 
@@ -313,12 +427,19 @@ Rounds each element `x_i` of the input array `x` to the nearest integer-valued n
 
 #### Parameters
 
--   **x**: input array.
--   **out**: output array. If provided, must be a tuple consisting of a single value: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+-   **x**: _&lt;array&gt;_
+
+    -   input array.
+
+-   **out**: _Optional\[ Tuple\[&lt;array&gt;] ]_
+
+    -   output array. If provided, must be a tuple consisting of a single value: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
 #### Returns
 
--   **out**: an array containing the rounded result for each element in `x`.
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the rounded result for each element in `x`.
 
 ### <a name="sin" href="#sin">#</a> sin(x, /, *, out=None)
 
@@ -331,12 +452,19 @@ Calculates an implementation-dependent approximation to the sine, having domain 
 
 #### Parameters
 
--   **x**: input array whose elements are each expressed in radians.
--   **out**: output array. If provided, must be a tuple consisting of a single value: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+-   **x**: _&lt;array&gt;_
+
+    -   input array whose elements are each expressed in radians.
+
+-   **out**: _Optional\[ Tuple\[&lt;array&gt;] ]_
+
+    -   output array. If provided, must be a tuple consisting of a single value: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
 #### Returns
 
--   **out**: an array containing the sine of each element in `x`.
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the sine of each element in `x`.
 
 ### <a name="sinh" href="#sinh">#</a> sinh(x, /, *, out=None)
 
@@ -350,12 +478,19 @@ Calculates an implementation-dependent approximation to the hyperbolic sine, hav
 
 #### Parameters
 
--   **x**: input array whose elements each represent a hyperbolic angle.
--   **out**: output array. If provided, must be a tuple consisting of a single value: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+-   **x**: _&lt;array&gt;_
+
+    -   input array whose elements each represent a hyperbolic angle.
+
+-   **out**: _Optional\[ Tuple\[&lt;array&gt;] ]_
+
+    -   output array. If provided, must be a tuple consisting of a single value: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
 #### Returns
 
--   **out**: an array containing the hyperbolic sine of each element in `x`.
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the hyperbolic sine of each element in `x`.
 
 ### <a name="sqrt" href="#sqrt">#</a> sqrt(x, /, *, out=None)
 
@@ -369,12 +504,19 @@ Calculates the square root, having domain `[0, +infinity]` and codomain `[0, +in
 
 #### Parameters
 
--   **x**: input array.
--   **out**: output array. If provided, must be a tuple consisting of a single value: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+-   **x**: _&lt;array&gt;_
+
+    -   input array.
+
+-   **out**: _Optional\[ Tuple\[&lt;array&gt;] ]_
+
+    -   output array. If provided, must be a tuple consisting of a single value: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
 #### Returns
 
--   **out**: an array containing the square root of each element in `x`.
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the square root of each element in `x`.
 
 ### <a name="subtract" href="#subtract">#</a> subtract(x1, x2, /, *, out=None)
 
@@ -384,13 +526,23 @@ Calculates the difference for each element <code>x1<sub>i</sub></code> of the in
 
 #### Parameters
 
--   **x1**: input array.
--   **x2**: input array.
--   **out**: output array. If provided, must be a tuple consisting of a single value: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+-   **x1**: _&lt;array&gt;_
+
+    -   input array.
+
+-   **x2**: _&lt;array&gt;_
+
+    -   input array.
+
+-   **out**: _Optional\[ Tuple\[&lt;array&gt;] ]_
+
+    -   output array. If provided, must be a tuple consisting of a single value: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
 #### Returns
 
--   **out**: an array containing the element-wise differences.
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the element-wise differences.
 
 ### <a name="tan" href="#tan">#</a> tan(x, /, *, out=None)
 
@@ -403,12 +555,19 @@ Calculates an implementation-dependent approximation to the tangent, having doma
 
 #### Parameters
 
--   **x**: input array whose elements are each expressed in radians.
--   **out**: output array. If provided, must be a tuple consisting of a single value: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+-   **x**: _&lt;array&gt;_
+
+    -   input array whose elements are each expressed in radians.
+
+-   **out**: _Optional\[ Tuple\[&lt;array&gt;] ]_
+
+    -   output array. If provided, must be a tuple consisting of a single value: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
 #### Returns
 
--   **out**: an array containing the tangent of each element in `x`.
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the tangent of each element in `x`.
 
 ### <a name="tanh" href="#tanh">#</a> tanh(x, /, *, out=None)
 
@@ -422,12 +581,19 @@ Calculates an implementation-dependent approximation to the hyperbolic tangent, 
 
 #### Parameters
 
--   **x**: input array whose elements each represent a hyperbolic angle.
--   **out**: output array. If provided, must be a tuple consisting of a single value: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+-   **x**: _&lt;array&gt;_
+
+    -   input array whose elements each represent a hyperbolic angle.
+
+-   **out**: _Optional\[ Tuple\[&lt;array&gt;] ]_
+
+    -   output array. If provided, must be a tuple consisting of a single value: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
 #### Returns
 
--   **out**: an array containing the hyperbolic tangent of each element in `x`.
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the hyperbolic tangent of each element in `x`.
 
 ### <a name="trunc" href="#trunc">#</a> trunc(x, /, *, out=None)
 
@@ -437,9 +603,16 @@ Rounds each element `x_i` of the input array `x` to the integer-valued number th
 
 #### Parameters
 
--   **x**: input array.
--   **out**: output array. If provided, must be a tuple consisting of a single value: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+-   **x**: _&lt;array&gt;_
+
+    -   input array.
+
+-   **out**: _Optional\[ Tuple\[&lt;array&gt;] ]_
+
+    -   output array. If provided, must be a tuple consisting of a single value: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
 #### Returns
 
--   **out**: an array containing the rounded result for each element in `x`.
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the rounded result for each element in `x`.
