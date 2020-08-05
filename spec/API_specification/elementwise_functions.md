@@ -12,7 +12,7 @@ A conforming implementation of the array API standard must provide and support t
 
 <!-- NOTE: please keep the functions in alphabetical order -->
 
-### <a name="abs" href="#abs">#</a> abs(x, /, *, out=None)
+### <a name="abs" href="#abs">#</a> abs(x: array, /, *, out: Union\[Tuple\[array], None] = None)
 
 Calculates the absolute value for each element `x_i` of the input array `x` (i.e., the element-wise result has the same magnitude as the respective element in `x` but has positive sign).
 
@@ -22,12 +22,19 @@ Calculates the absolute value for each element `x_i` of the input array `x` (i.e
 
 #### Parameters
 
--   **x**: input array.
--   **out**: output array. If provided, must be a tuple consisting of a single value: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+-   **x**: array
+
+    -   input array.
+
+-   **out**: Union\[Tuple\[array], None] (optional)
+
+    -   output array. If provided, must be a tuple consisting of a single value: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
 #### Returns
 
--   **out**: an array containing the absolute value of each element in `x`.
+-   **out**: array
+
+    -   an array containing the absolute value of each element in `x`.
 
 ### <a name="acos" href="#acos">#</a> acos(x, /, *, out=None)
 
