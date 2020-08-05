@@ -12,7 +12,7 @@ A conforming implementation of the array API standard must provide and support t
 
 <!-- NOTE: please keep the functions in alphabetical order -->
 
-### <a name="abs" href="#abs">#</a> abs(x: array, /, *, out: Union\[Tuple\[array], None] = None)
+### <a name="abs" href="#abs">#</a> abs(x, /, *, out=None)
 
 Calculates the absolute value for each element `x_i` of the input array `x` (i.e., the element-wise result has the same magnitude as the respective element in `x` but has positive sign).
 
