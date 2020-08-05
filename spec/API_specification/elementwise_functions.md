@@ -22,11 +22,11 @@ Calculates the absolute value for each element `x_i` of the input array `x` (i.e
 
 #### Parameters
 
--   **x**: array
+-   **x**: _array_
 
     -   input array.
 
--   **out**: Optional\[Tuple\[array]]
+-   **out**: _Optional\[Tuple\[array]]_
 
     -   output array. If provided, must be a tuple consisting of a single value: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
