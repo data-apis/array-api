@@ -9,6 +9,7 @@ A conforming implementation of the array API standard must provide and support t
 -   For functions returning a single output array, the `out` keyword argument may be either `None`, an array, or a tuple containing a single array element.
 -   When a function returns multiple output arrays, the `out` keyword argument must be a tuple with one entry (either `None` or an array) per output. Providing a single output array when a function returns multiple output arrays must **not** be permitted.
 -   If `out` is not provided or is `None` (the default), an uninitialized return array must be created for each output for which an output array has not been provided.
+-   Broadcasting semantics must follow the semantics defined by this specification.
 -   Unless stated otherwise, floating-point operations must adhere to IEEE 754-2019.
 
 <!-- NOTE: please keep the functions in alphabetical order -->
@@ -29,7 +30,7 @@ Calculates the absolute value for each element `x_i` of the input array `x` (i.e
 
 -   **out**: _Optional\[ Union\[ &lt;array&gt;, Tuple\[ Optional\[&lt;array&gt;] ] ]_
 
-    -   output array. If specified as a tuple, the tuple must consist of a single entry: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+    -   output array. If provided, the output array must be compatible with the provided input array (i.e., must have a shape to which the input array can broadcast). If specified as a tuple, the tuple must consist of a single entry: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
 #### Returns
 
@@ -54,7 +55,7 @@ Calculates an implementation-dependent approximation of the principal value of t
 
 -   **out**:  _Optional\[ Union\[ &lt;array&gt;, Tuple\[ Optional\[&lt;array&gt;] ] ]_
 
-    -   output array. If specified as a tuple, the tuple must consist of a single entry: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+    -   output array. If provided, the output array must be compatible with the provided input array (i.e., must have a shape to which the input array can broadcast). If specified as a tuple, the tuple must consist of a single entry: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
 #### Returns
 
@@ -79,7 +80,7 @@ Calculates an implementation-dependent approximation to the inverse hyperbolic c
 
 -   **out**:  _Optional\[ Union\[ &lt;array&gt;, Tuple\[ Optional\[&lt;array&gt;] ] ]_
 
-    -   output array. If specified as a tuple, the tuple must consist of a single entry: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+    -   output array. If provided, the output array must be compatible with the provided input array (i.e., must have a shape to which the input array can broadcast). If specified as a tuple, the tuple must consist of a single entry: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
 #### Returns
 
@@ -101,11 +102,11 @@ Calculates the sum for each element `x1_i` of the input array `x1` with the resp
 
 -   **x2**: _&lt;array&gt;_
 
-    -   second input array.
+    -   second input array. Must be compatible with `x1` (i.e., `x1` and `x2` must be able to broadcast to a common shape). 
 
 -   **out**:  _Optional\[ Union\[ &lt;array&gt;, Tuple\[ Optional\[&lt;array&gt;] ] ]_
 
-    -   output array. If specified as a tuple, the tuple must consist of a single entry: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+    -   output array. If provided, the output array must be compatible with the provided input arrays (i.e., must have a shape to which the input arrays can broadcast). If specified as a tuple, the tuple must consist of a single entry: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
 #### Returns
 
@@ -131,7 +132,7 @@ Calculates an implementation-dependent approximation of the principal value of t
 
 -   **out**:  _Optional\[ Union\[ &lt;array&gt;, Tuple\[ Optional\[&lt;array&gt;] ] ]_
 
-    -   output array. If specified as a tuple, the tuple must consist of a single entry: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+    -   output array. If provided, the output array must be compatible with the provided input array (i.e., must have a shape to which the input array can broadcast). If specified as a tuple, the tuple must consist of a single entry: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
 #### Returns
 
@@ -157,7 +158,7 @@ Calculates an implementation-dependent approximation to the inverse hyperbolic s
 
 -   **out**:  _Optional\[ Union\[ &lt;array&gt;, Tuple\[ Optional\[&lt;array&gt;] ] ]_
 
-    -   output array. If specified as a tuple, the tuple must consist of a single entry: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+    -   output array. If provided, the output array must be compatible with the provided input array (i.e., must have a shape to which the input array can broadcast). If specified as a tuple, the tuple must consist of a single entry: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
 #### Returns
 
@@ -183,7 +184,7 @@ Calculates an implementation-dependent approximation of the principal value of t
 
 -   **out**:  _Optional\[ Union\[ &lt;array&gt;, Tuple\[ Optional\[&lt;array&gt;] ] ]_
 
-    -   output array. If specified as a tuple, the tuple must consist of a single entry: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+    -   output array. If provided, the output array must be compatible with the provided input array (i.e., must have a shape to which the input array can broadcast). If specified as a tuple, the tuple must consist of a single entry: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
 #### Returns
 
@@ -211,7 +212,7 @@ Calculates an implementation-dependent approximation to the inverse hyperbolic t
 
 -   **out**:  _Optional\[ Union\[ &lt;array&gt;, Tuple\[ Optional\[&lt;array&gt;] ] ]_
 
-    -   output array. If specified as a tuple, the tuple must consist of a single entry: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+    -   output array. If provided, the output array must be compatible with the provided input array (i.e., must have a shape to which the input array can broadcast). If specified as a tuple, the tuple must consist of a single entry: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
 #### Returns
 
@@ -233,7 +234,7 @@ Rounds each element `x_i` of the input array `x` to the smallest (i.e., closest 
 
 -   **out**:  _Optional\[ Union\[ &lt;array&gt;, Tuple\[ Optional\[&lt;array&gt;] ] ]_
 
-    -   output array. If specified as a tuple, the tuple must consist of a single entry: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+    -   output array. If provided, the output array must be compatible with the provided input array (i.e., must have a shape to which the input array can broadcast). If specified as a tuple, the tuple must consist of a single entry: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
 #### Returns
 
@@ -259,7 +260,7 @@ Calculates an implementation-dependent approximation to the cosine, having domai
 
 -   **out**:  _Optional\[ Union\[ &lt;array&gt;, Tuple\[ Optional\[&lt;array&gt;] ] ]_
 
-    -   output array. If specified as a tuple, the tuple must consist of a single entry: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+    -   output array. If provided, the output array must be compatible with the provided input array (i.e., must have a shape to which the input array can broadcast). If specified as a tuple, the tuple must consist of a single entry: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
 #### Returns
 
@@ -285,7 +286,7 @@ Calculates an implementation-dependent approximation to the hyperbolic cosine, h
 
 -   **out**:  _Optional\[ Union\[ &lt;array&gt;, Tuple\[ Optional\[&lt;array&gt;] ] ]_
 
-    -   output array. If specified as a tuple, the tuple must consist of a single entry: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+    -   output array. If provided, the output array must be compatible with the provided input array (i.e., must have a shape to which the input array can broadcast). If specified as a tuple, the tuple must consist of a single entry: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
 #### Returns
 
@@ -307,11 +308,11 @@ Calculates the division for each element `x1_i` of the input array `x1` with the
 
 -   **x2**: _&lt;array&gt;_
 
-    -   divisor input array.
+    -   divisor input array. Must be compatible with `x1` (i.e., `x1` and `x2` must be able to broadcast to a common shape).
 
 -   **out**:  _Optional\[ Union\[ &lt;array&gt;, Tuple\[ Optional\[&lt;array&gt;] ] ]_
 
-    -   output array. If specified as a tuple, the tuple must consist of a single entry: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+    -   output array. If provided, the output array must be compatible with the provided input arrays (i.e., must have a shape to which the input arrays can broadcast). If specified as a tuple, the tuple must consist of a single entry: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
 #### Returns
 
@@ -337,7 +338,7 @@ Calculates an implementation-dependent approximation to the exponential function
 
 -   **out**:  _Optional\[ Union\[ &lt;array&gt;, Tuple\[ Optional\[&lt;array&gt;] ] ]_
 
-    -   output array. If specified as a tuple, the tuple must consist of a single entry: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+    -   output array. If provided, the output array must be compatible with the provided input array (i.e., must have a shape to which the input array can broadcast). If specified as a tuple, the tuple must consist of a single entry: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
 #### Returns
 
@@ -359,7 +360,7 @@ Rounds each element `x_i` of the input array `x` to the greatest (i.e., closest 
 
 -   **out**:  _Optional\[ Union\[ &lt;array&gt;, Tuple\[ Optional\[&lt;array&gt;] ] ]_
 
-    -   output array. If specified as a tuple, the tuple must consist of a single entry: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+    -   output array. If provided, the output array must be compatible with the provided input array (i.e., must have a shape to which the input array can broadcast). If specified as a tuple, the tuple must consist of a single entry: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
 #### Returns
 
@@ -385,7 +386,7 @@ Calculates an implementation-dependent approximation to the natural (base `e`) l
 
 -   **out**:  _Optional\[ Union\[ &lt;array&gt;, Tuple\[ Optional\[&lt;array&gt;] ] ]_
 
-    -   output array. If specified as a tuple, the tuple must consist of a single entry: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+    -   output array. If provided, the output array must be compatible with the provided input array (i.e., must have a shape to which the input array can broadcast). If specified as a tuple, the tuple must consist of a single entry: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
 #### Returns
 
@@ -407,11 +408,11 @@ Calculates the product for each element `x1_i` of the input array `x1` with the 
 
 -   **x2**: _&lt;array&gt;_
 
-    -   second input array.
+    -   second input array. Must be compatible with `x1` (i.e., `x1` and `x2` must be able to broadcast to a common shape).
 
 -   **out**:  _Optional\[ Union\[ &lt;array&gt;, Tuple\[ Optional\[&lt;array&gt;] ] ]_
 
-    -   output array. If specified as a tuple, the tuple must consist of a single entry: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+    -   output array. If provided, the output array must be compatible with the provided input arrays (i.e., must have a shape to which the input arrays can broadcast). If specified as a tuple, the tuple must consist of a single entry: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
 #### Returns
 
@@ -434,7 +435,7 @@ Rounds each element `x_i` of the input array `x` to the nearest integer-valued n
 
 -   **out**:  _Optional\[ Union\[ &lt;array&gt;, Tuple\[ Optional\[&lt;array&gt;] ] ]_
 
-    -   output array. If specified as a tuple, the tuple must consist of a single entry: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+    -   output array. If provided, the output array must be compatible with the provided input array (i.e., must have a shape to which the input array can broadcast). If specified as a tuple, the tuple must consist of a single entry: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
 #### Returns
 
@@ -459,7 +460,7 @@ Calculates an implementation-dependent approximation to the sine, having domain 
 
 -   **out**:  _Optional\[ Union\[ &lt;array&gt;, Tuple\[ Optional\[&lt;array&gt;] ] ]_
 
-    -   output array. If specified as a tuple, the tuple must consist of a single entry: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+    -   output array. If provided, the output array must be compatible with the provided input array (i.e., must have a shape to which the input array can broadcast). If specified as a tuple, the tuple must consist of a single entry: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
 #### Returns
 
@@ -485,7 +486,7 @@ Calculates an implementation-dependent approximation to the hyperbolic sine, hav
 
 -   **out**:  _Optional\[ Union\[ &lt;array&gt;, Tuple\[ Optional\[&lt;array&gt;] ] ]_
 
-    -   output array. If specified as a tuple, the tuple must consist of a single entry: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+    -   output array. If provided, the output array must be compatible with the provided input array (i.e., must have a shape to which the input array can broadcast). If specified as a tuple, the tuple must consist of a single entry: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
 #### Returns
 
@@ -511,7 +512,7 @@ Calculates the square root, having domain `[0, +infinity]` and codomain `[0, +in
 
 -   **out**:  _Optional\[ Union\[ &lt;array&gt;, Tuple\[ Optional\[&lt;array&gt;] ] ]_
 
-    -   output array. If specified as a tuple, the tuple must consist of a single entry: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+    -   output array. If provided, the output array must be compatible with the provided input array (i.e., must have a shape to which the input array can broadcast). If specified as a tuple, the tuple must consist of a single entry: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
 #### Returns
 
@@ -533,11 +534,11 @@ Calculates the difference for each element `x1_i` of the input array `x1` with t
 
 -   **x2**: _&lt;array&gt;_
 
-    -   second input array.
+    -   second input array. Must be compatible with `x1` (i.e., `x1` and `x2` must be able to broadcast to a common shape).
 
 -   **out**:  _Optional\[ Union\[ &lt;array&gt;, Tuple\[ Optional\[&lt;array&gt;] ] ]_
 
-    -   output array. If specified as a tuple, the tuple must consist of a single entry: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+    -   output array. If provided, the output array must be compatible with the provided input arrays (i.e., must have a shape to which the input arrays can broadcast). If specified as a tuple, the tuple must consist of a single entry: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
 #### Returns
 
@@ -562,7 +563,7 @@ Calculates an implementation-dependent approximation to the tangent, having doma
 
 -   **out**:  _Optional\[ Union\[ &lt;array&gt;, Tuple\[ Optional\[&lt;array&gt;] ] ]_
 
-    -   output array. If specified as a tuple, the tuple must consist of a single entry: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+    -   output array. If provided, the output array must be compatible with the provided input array (i.e., must have a shape to which the input array can broadcast). If specified as a tuple, the tuple must consist of a single entry: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
 #### Returns
 
@@ -588,7 +589,7 @@ Calculates an implementation-dependent approximation to the hyperbolic tangent, 
 
 -   **out**:  _Optional\[ Union\[ &lt;array&gt;, Tuple\[ Optional\[&lt;array&gt;] ] ]_
 
-    -   output array. If specified as a tuple, the tuple must consist of a single entry: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+    -   output array. If provided, the output array must be compatible with the provided input array (i.e., must have a shape to which the input array can broadcast). If specified as a tuple, the tuple must consist of a single entry: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
 #### Returns
 
@@ -610,7 +611,7 @@ Rounds each element `x_i` of the input array `x` to the integer-valued number th
 
 -   **out**:  _Optional\[ Union\[ &lt;array&gt;, Tuple\[ Optional\[&lt;array&gt;] ] ]_
 
-    -   output array. If specified as a tuple, the tuple must consist of a single entry: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+    -   output array. If provided, the output array must be compatible with the provided input array (i.e., must have a shape to which the input array can broadcast). If specified as a tuple, the tuple must consist of a single entry: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
 #### Returns
 
