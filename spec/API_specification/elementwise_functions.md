@@ -89,19 +89,19 @@ Calculates an implementation-dependent approximation to the inverse hyperbolic c
 
 ### <a name="add" href="#add">#</a> add(x1, x2, /, *, out=None)
 
-Calculates the sum for each element <code>x1<sub>i</sub></code> of the input array `x1` with the respective element <code>x2<sub>i</sub></code> of the input array `x2`.
+Calculates the sum for each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`.
 
--   If either <code>x1<sub>i</sub></code> or <code>x2<sub>i</sub></code> is `NaN`, the result is `NaN`.
+-   If either `x1_i` or `x2_i` is `NaN`, the result is `NaN`.
 
 #### Parameters
 
 -   **x1**: _&lt;array&gt;_
 
-    -   input array.
+    -   first input array.
 
 -   **x2**: _&lt;array&gt;_
 
-    -   input array.
+    -   second input array.
 
 -   **out**:  _Optional\[ Union\[ &lt;array&gt;, Tuple\[ Optional\[&lt;array&gt;] ] ]_
 
@@ -295,9 +295,9 @@ Calculates an implementation-dependent approximation to the hyperbolic cosine, h
 
 ### <a name="divide" href="#divide">#</a> divide(x1, x2, /, *, out=None)
 
-Calculates the division for each element <code>x1<sub>i</sub></code> of the input array `x1` with the respective element <code>x2<sub>i</sub></code> of the input array `x2`.
+Calculates the division for each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`.
 
--   If either <code>x1<sub>i</sub></code> or <code>x2<sub>i</sub></code> is `NaN`, the result is `NaN`.
+-   If either `x1_i` or `x2_i` is `NaN`, the result is `NaN`.
 
 #### Parameters
 
@@ -395,19 +395,19 @@ Calculates an implementation-dependent approximation to the natural (base `e`) l
 
 ### <a name="multiply" href="#multiply">#</a> multiply(x1, x2, /, *, out=None)
 
-Calculates the product for each element <code>x1<sub>i</sub></code> of the input array `x1` with the respective element <code>x2<sub>i</sub></code> of the input array `x2`.
+Calculates the product for each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`.
 
--   If either <code>x1<sub>i</sub></code> or <code>x2<sub>i</sub></code> is `NaN`, the result is `NaN`.
+-   If either `x1_i` or `x2_i` is `NaN`, the result is `NaN`.
 
 #### Parameters
 
 -   **x1**: _&lt;array&gt;_
 
-    -   input array.
+    -   first input array.
 
 -   **x2**: _&lt;array&gt;_
 
-    -   input array.
+    -   second input array.
 
 -   **out**:  _Optional\[ Union\[ &lt;array&gt;, Tuple\[ Optional\[&lt;array&gt;] ] ]_
 
@@ -521,19 +521,19 @@ Calculates the square root, having domain `[0, +infinity]` and codomain `[0, +in
 
 ### <a name="subtract" href="#subtract">#</a> subtract(x1, x2, /, *, out=None)
 
-Calculates the difference for each element <code>x1<sub>i</sub></code> of the input array `x1` with the respective element <code>x2<sub>i</sub></code> of the input array `x2`.
+Calculates the difference for each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`.
 
--   If either <code>x1<sub>i</sub></code> or <code>x2<sub>i</sub></code> is `NaN`, the result is `NaN`.
+-   If either `x1_i` or `x2_i` is `NaN`, the result is `NaN`.
 
 #### Parameters
 
 -   **x1**: _&lt;array&gt;_
 
-    -   input array.
+    -   first input array.
 
 -   **x2**: _&lt;array&gt;_
 
-    -   input array.
+    -   second input array.
 
 -   **out**:  _Optional\[ Union\[ &lt;array&gt;, Tuple\[ Optional\[&lt;array&gt;] ] ]_
 
