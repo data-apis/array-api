@@ -6,8 +6,8 @@ A conforming implementation of the array API standard must provide and support t
 
 -   Positional parameters must be [positional-only](https://www.python.org/dev/peps/pep-0570/) parameters. Positional-only parameters have no externally-usable name. When a function accepting positional-only parameters is called, positional arguments are mapped to these parameters based solely on their order.
 -   Optional parameters must be [keyword-only](https://www.python.org/dev/peps/pep-3102/) arguments.
--   An `out` keyword argument must be a tuple with one entry per output.
--   If `out` is not provided or is `None` (the default), an uninitialized return array must be created for each output.
+-   For functions returning a single output array, the `out` keyword argument may be either `None`, an array, or a tuple containing a single array element. When a function returns multiple output arrays, the `out` keyword argument must be a tuple with one entry (either `None` or an array) per output.
+-   If `out` is not provided or is `None` (the default), an uninitialized return array must be created for each output for which an output array has not been provided.
 -   Unless stated otherwise, floating-point operations must adhere to IEEE 754-2019.
 
 <!-- NOTE: please keep the functions in alphabetical order -->
@@ -26,7 +26,7 @@ Calculates the absolute value for each element `x_i` of the input array `x` (i.e
 
     -   input array.
 
--   **out**: _Optional\[ Tuple\[&lt;array&gt;] ]_
+-   **out**: _Optional\[ Union\[ &lt;array&gt;, Tuple\[ Optional\[&lt;array&gt;] ] ]_
 
     -   output array. If provided, must be a tuple consisting of a single value: the output array. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
