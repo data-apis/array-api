@@ -94,10 +94,13 @@ The following examples demonstrate array shapes which do **not** broadcast.
 
 ```text
 A      (1d array):  3
-B      (1d array):  4 # dimension does not match
+B      (1d array):  4           # dimension does not match
 
 A      (2d array):      2 x 1
-B      (3d array):  8 x 4 x 3 # second dimension does not match
+B      (3d array):  8 x 4 x 3   # second dimension does not match
+
+A      (3d array):  15 x 3 x 5
+B      (2d array):  15 x 3      # size-1 dimensions can only be prepended, not appended
 ```
 
 ## In-place Semantics
