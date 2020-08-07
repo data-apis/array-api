@@ -1,3 +1,5 @@
+.. _broadcasting:
+
 # Broadcasting
 
 > Array API specification for broadcasting semantics.

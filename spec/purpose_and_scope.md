@@ -44,7 +44,7 @@ A conforming implementation of the array API standard may provide additional val
 
 For the purposes of this specification, the following terms and definitions apply.
 
-<!-- NOTE: please keep the terms in alphabetical order -->
+<!-- NOTE: please keep terms in alphabetical order -->
 
 ### array
 

@@ -30,7 +30,7 @@ Calculates the absolute value for each element `x_i` of the input array `x` (i.e
 
 -   **out**: _Optional\[ &lt;array&gt; ]_
 
-    -   output array. If provided, the output array must be compatible with the provided input array (i.e., must have a shape to which the input array can broadcast). If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+    -   output array. If provided, the output array must be compatible with the provided input array (see :ref:`broadcasting`). If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
 #### Returns
 
@@ -55,7 +55,7 @@ Calculates an implementation-dependent approximation of the principal value of t
 
 -   **out**:  _Optional\[ &lt;array&gt; ]_
 
-    -   output array. If provided, the output array must be compatible with the provided input array (i.e., must have a shape to which the input array can broadcast). If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+    -   output array. If provided, the output array must be compatible with the provided input array (see :ref:`broadcasting`). If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
 #### Returns
 
@@ -80,7 +80,7 @@ Calculates an implementation-dependent approximation to the inverse hyperbolic c
 
 -   **out**:  _Optional\[ &lt;array&gt; ]_
 
-    -   output array. If provided, the output array must be compatible with the provided input array (i.e., must have a shape to which the input array can broadcast). If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+    -   output array. If provided, the output array must be compatible with the provided input array (see :ref:`broadcasting`). If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
 #### Returns
 
@@ -106,7 +106,7 @@ Calculates the sum for each element `x1_i` of the input array `x1` with the resp
 
 -   **out**:  _Optional\[ &lt;array&gt; ]_
 
-    -   output array. If provided, the output array must be compatible with the provided input arrays (i.e., must have a shape to which the input arrays can broadcast). If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+    -   output array. If provided, the output array must be compatible with the provided input arrays (see :ref:`broadcasting`). If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
 #### Returns
 
@@ -132,7 +132,7 @@ Calculates an implementation-dependent approximation of the principal value of t
 
 -   **out**:  _Optional\[ &lt;array&gt; ]_
 
-    -   output array. If provided, the output array must be compatible with the provided input array (i.e., must have a shape to which the input array can broadcast). If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+    -   output array. If provided, the output array must be compatible with the provided input array (see :ref:`broadcasting`). If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
 #### Returns
 
@@ -158,7 +158,7 @@ Calculates an implementation-dependent approximation to the inverse hyperbolic s
 
 -   **out**:  _Optional\[ &lt;array&gt; ]_
 
-    -   output array. If provided, the output array must be compatible with the provided input array (i.e., must have a shape to which the input array can broadcast). If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+    -   output array. If provided, the output array must be compatible with the provided input array (see :ref:`broadcasting`). If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
 #### Returns
 
@@ -184,7 +184,7 @@ Calculates an implementation-dependent approximation of the principal value of t
 
 -   **out**:  _Optional\[ &lt;array&gt; ]_
 
-    -   output array. If provided, the output array must be compatible with the provided input array (i.e., must have a shape to which the input array can broadcast). If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+    -   output array. If provided, the output array must be compatible with the provided input array (see :ref:`broadcasting`). If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
 #### Returns
 
@@ -212,7 +212,7 @@ Calculates an implementation-dependent approximation to the inverse hyperbolic t
 
 -   **out**:  _Optional\[ &lt;array&gt; ]_
 
-    -   output array. If provided, the output array must be compatible with the provided input array (i.e., must have a shape to which the input array can broadcast). If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+    -   output array. If provided, the output array must be compatible with the provided input array (see :ref:`broadcasting`). If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
 #### Returns
 
@@ -234,7 +234,7 @@ Rounds each element `x_i` of the input array `x` to the smallest (i.e., closest 
 
 -   **out**:  _Optional\[ &lt;array&gt; ]_
 
-    -   output array. If provided, the output array must be compatible with the provided input array (i.e., must have a shape to which the input array can broadcast). If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+    -   output array. If provided, the output array must be compatible with the provided input array (see :ref:`broadcasting`). If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
 #### Returns
 
@@ -260,7 +260,7 @@ Calculates an implementation-dependent approximation to the cosine, having domai
 
 -   **out**:  _Optional\[ &lt;array&gt; ]_
 
-    -   output array. If provided, the output array must be compatible with the provided input array (i.e., must have a shape to which the input array can broadcast). If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+    -   output array. If provided, the output array must be compatible with the provided input array (see :ref:`broadcasting`). If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
 #### Returns
 
@@ -286,7 +286,7 @@ Calculates an implementation-dependent approximation to the hyperbolic cosine, h
 
 -   **out**:  _Optional\[ &lt;array&gt; ]_
 
-    -   output array. If provided, the output array must be compatible with the provided input array (i.e., must have a shape to which the input array can broadcast). If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+    -   output array. If provided, the output array must be compatible with the provided input array (see :ref:`broadcasting`). If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
 #### Returns
 
@@ -312,7 +312,7 @@ Calculates the division for each element `x1_i` of the input array `x1` with the
 
 -   **out**:  _Optional\[ &lt;array&gt; ]_
 
-    -   output array. If provided, the output array must be compatible with the provided input arrays (i.e., must have a shape to which the input arrays can broadcast). If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+    -   output array. If provided, the output array must be compatible with the provided input arrays (see :ref:`broadcasting`). If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
 #### Returns
 
@@ -338,7 +338,7 @@ Calculates an implementation-dependent approximation to the exponential function
 
 -   **out**:  _Optional\[ &lt;array&gt; ]_
 
-    -   output array. If provided, the output array must be compatible with the provided input array (i.e., must have a shape to which the input array can broadcast). If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+    -   output array. If provided, the output array must be compatible with the provided input array (see :ref:`broadcasting`). If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
 #### Returns
 
@@ -360,7 +360,7 @@ Rounds each element `x_i` of the input array `x` to the greatest (i.e., closest 
 
 -   **out**:  _Optional\[ &lt;array&gt; ]_
 
-    -   output array. If provided, the output array must be compatible with the provided input array (i.e., must have a shape to which the input array can broadcast). If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+    -   output array. If provided, the output array must be compatible with the provided input array (see :ref:`broadcasting`). If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
 #### Returns
 
@@ -386,7 +386,7 @@ Calculates an implementation-dependent approximation to the natural (base `e`) l
 
 -   **out**:  _Optional\[ &lt;array&gt; ]_
 
-    -   output array. If provided, the output array must be compatible with the provided input array (i.e., must have a shape to which the input array can broadcast). If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+    -   output array. If provided, the output array must be compatible with the provided input array (see :ref:`broadcasting`). If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
 #### Returns
 
@@ -412,7 +412,7 @@ Calculates the product for each element `x1_i` of the input array `x1` with the 
 
 -   **out**:  _Optional\[ &lt;array&gt; ]_
 
-    -   output array. If provided, the output array must be compatible with the provided input arrays (i.e., must have a shape to which the input arrays can broadcast). If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+    -   output array. If provided, the output array must be compatible with the provided input arrays (see :ref:`broadcasting`). If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
 #### Returns
 
@@ -435,7 +435,7 @@ Rounds each element `x_i` of the input array `x` to the nearest integer-valued n
 
 -   **out**:  _Optional\[ &lt;array&gt; ]_
 
-    -   output array. If provided, the output array must be compatible with the provided input array (i.e., must have a shape to which the input array can broadcast). If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+    -   output array. If provided, the output array must be compatible with the provided input array (see :ref:`broadcasting`). If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
 #### Returns
 
@@ -460,7 +460,7 @@ Calculates an implementation-dependent approximation to the sine, having domain 
 
 -   **out**:  _Optional\[ &lt;array&gt; ]_
 
-    -   output array. If provided, the output array must be compatible with the provided input array (i.e., must have a shape to which the input array can broadcast). If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+    -   output array. If provided, the output array must be compatible with the provided input array (see :ref:`broadcasting`). If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
 #### Returns
 
@@ -486,7 +486,7 @@ Calculates an implementation-dependent approximation to the hyperbolic sine, hav
 
 -   **out**:  _Optional\[ &lt;array&gt; ]_
 
-    -   output array. If provided, the output array must be compatible with the provided input array (i.e., must have a shape to which the input array can broadcast). If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+    -   output array. If provided, the output array must be compatible with the provided input array (see :ref:`broadcasting`). If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
 #### Returns
 
@@ -512,7 +512,7 @@ Calculates the square root, having domain `[0, +infinity]` and codomain `[0, +in
 
 -   **out**:  _Optional\[ &lt;array&gt; ]_
 
-    -   output array. If provided, the output array must be compatible with the provided input array (i.e., must have a shape to which the input array can broadcast). If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+    -   output array. If provided, the output array must be compatible with the provided input array (see :ref:`broadcasting`). If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
 #### Returns
 
@@ -538,7 +538,7 @@ Calculates the difference for each element `x1_i` of the input array `x1` with t
 
 -   **out**:  _Optional\[ &lt;array&gt; ]_
 
-    -   output array. If provided, the output array must be compatible with the provided input arrays (i.e., must have a shape to which the input arrays can broadcast). If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+    -   output array. If provided, the output array must be compatible with the provided input arrays (see :ref:`broadcasting`). If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
 #### Returns
 
@@ -563,7 +563,7 @@ Calculates an implementation-dependent approximation to the tangent, having doma
 
 -   **out**:  _Optional\[ &lt;array&gt; ]_
 
-    -   output array. If provided, the output array must be compatible with the provided input array (i.e., must have a shape to which the input array can broadcast). If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+    -   output array. If provided, the output array must be compatible with the provided input array (see :ref:`broadcasting`). If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
 #### Returns
 
@@ -589,7 +589,7 @@ Calculates an implementation-dependent approximation to the hyperbolic tangent, 
 
 -   **out**:  _Optional\[ &lt;array&gt; ]_
 
-    -   output array. If provided, the output array must be compatible with the provided input array (i.e., must have a shape to which the input array can broadcast). If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+    -   output array. If provided, the output array must be compatible with the provided input array (see :ref:`broadcasting`). If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
 #### Returns
 
@@ -611,7 +611,7 @@ Rounds each element `x_i` of the input array `x` to the integer-valued number th
 
 -   **out**:  _Optional\[ &lt;array&gt; ]_
 
-    -   output array. If provided, the output array must be compatible with the provided input array (i.e., must have a shape to which the input array can broadcast). If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+    -   output array. If provided, the output array must be compatible with the provided input array (see :ref:`broadcasting`). If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
 #### Returns
 
