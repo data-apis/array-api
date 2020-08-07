@@ -104,7 +104,7 @@ A      (2d array):      2 x 1
 B      (3d array):  8 x 4 x 3   # second dimension does not match
 
 A      (3d array):  15 x 3 x 5
-B      (2d array):  15 x 3      # size-1 dimensions can only be prepended, not appended
+B      (2d array):  15 x 3      # singleton dimensions can only be prepended, not appended
 ```
 
 ## In-place Semantics
