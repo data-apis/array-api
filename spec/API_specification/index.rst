@@ -6,7 +6,8 @@ API specification
    :maxdepth: 1
 
    array_object
-   elementwise_functions
    indexing
-   broadcasting
    casting
+   broadcasting
+   out_keyword
+   elementwise_functions

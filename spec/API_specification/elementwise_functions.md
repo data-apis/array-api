@@ -6,10 +6,8 @@ A conforming implementation of the array API standard must provide and support t
 
 -   Positional parameters must be [positional-only](https://www.python.org/dev/peps/pep-0570/) parameters. Positional-only parameters have no externally-usable name. When a function accepting positional-only parameters is called, positional arguments are mapped to these parameters based solely on their order.
 -   Optional parameters must be [keyword-only](https://www.python.org/dev/peps/pep-3102/) arguments.
--   For functions returning a single output array, the `out` keyword argument may be either `None`or an array.
--   When a function returns multiple output arrays, the `out` keyword argument must be a tuple with one entry (either `None` or an array) per output. Providing a single output array when a function returns multiple output arrays must **not** be permitted.
--   If `out` is not provided or is `None` (the default), an uninitialized return array must be created for each output for which an output array has not been provided.
--   Broadcasting semantics must follow the semantics defined in this specification (see :ref:`broadcasting`).
+-   The `out` keyword argument must follow the conventions defined in :ref:`out_keyword`.
+-   Broadcasting semantics must follow the semantics defined in :ref:`broadcasting`.
 -   Unless stated otherwise, floating-point operations must adhere to IEEE 754-2019.
 
 <!-- NOTE: please keep the functions in alphabetical order -->
