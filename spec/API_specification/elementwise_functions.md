@@ -6,7 +6,7 @@ A conforming implementation of the array API standard must provide and support t
 
 -   Positional parameters must be [positional-only](https://www.python.org/dev/peps/pep-0570/) parameters. Positional-only parameters have no externally-usable name. When a function accepting positional-only parameters is called, positional arguments are mapped to these parameters based solely on their order.
 -   Optional parameters must be [keyword-only](https://www.python.org/dev/peps/pep-3102/) arguments.
--   The `out` keyword argument must follow the conventions defined in :ref:`out_keyword`.
+-   The `out` keyword argument must follow the conventions defined in :ref:`out-keyword`.
 -   Broadcasting semantics must follow the semantics defined in :ref:`broadcasting`.
 -   Unless stated otherwise, floating-point operations must adhere to IEEE 754-2019.
 
