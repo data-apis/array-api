@@ -24,7 +24,7 @@
 
 ## How to read this document
 
-
+For guidance on how to read and understand the type annotations included in this specification, consult the Python [documentation](https://docs.python.org/3/library/typing.html).
 
 
 ## How to adopt this API
