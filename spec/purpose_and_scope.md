@@ -62,9 +62,17 @@ two arrays whose dimensions are compatible (i.e., where the size of each dimensi
 
 an operation performed element-by-element, in which individual array elements are considered in isolation and independently of other elements within the same array.
 
+### rank
+
+number of array dimensions (not to be confused with the number of linearly independent columns of a matrix).
+
 ### shape
 
 a tuple of `N` non-negative integers that specify the sizes of each dimension and where `N` corresponds to the number of dimensions.
+
+### singleton dimension
+
+a dimension whose size is one.
 
 * * *
 

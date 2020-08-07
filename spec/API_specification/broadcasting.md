@@ -14,6 +14,8 @@ Broadcasting facilitates user ergonomics by encouraging users to avoid unnecessa
 
 Given an element-wise operation involving two compatible arrays, an array having a singleton dimension (i.e., a dimension whose size is one) is broadcast (i.e., virtually repeated) across an array having a corresponding non-singleton dimension.
 
+If two arrays are of unequal rank, the array having a lower rank is promoted to a higher rank by (virtually) prepending singleton dimensions until the number of dimensions matches that of the array having a higher rank.
+
 The results of the element-wise operation must be stored in an array having a shape determined by the following algorithm.
 
 1.  Let `A` and `B` both be arrays.
