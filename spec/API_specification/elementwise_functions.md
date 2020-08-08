@@ -9,6 +9,7 @@ A conforming implementation of the array API standard must provide and support t
 -   The `out` keyword argument must follow the conventions defined in :ref:`out-keyword`.
 -   Broadcasting semantics must follow the semantics defined in :ref:`broadcasting`.
 -   Unless stated otherwise, functions must support the data types defined in :ref:`data-types`.
+-   Unless stated otherwise, functions must adhere to the type promotion rules defined in :ref:`type_promotion`.
 -   Unless stated otherwise, floating-point operations must adhere to IEEE 754-2019.
 
 <!-- NOTE: please keep the functions in alphabetical order -->
