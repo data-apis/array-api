@@ -7,6 +7,7 @@ API specification
 
    array_object
    indexing
+   data_types
    casting
    broadcasting
    out_keyword
