@@ -100,7 +100,7 @@ Calculates the sum for each element `x1_i` of the input array `x1` with the resp
 
 -   **x2**: _&lt;array&gt;_
 
-    -   second input array. Must be compatible with `x1` (i.e., `x1` and `x2` must be able to broadcast to a common shape; see :ref:`broadcasting`). 
+    -   second input array. Must be compatible with `x1` (see :ref:`broadcasting`). 
 
 -   **out**:  _Optional\[ &lt;array&gt; ]_
 
@@ -306,7 +306,7 @@ Calculates the division for each element `x1_i` of the input array `x1` with the
 
 -   **x2**: _&lt;array&gt;_
 
-    -   divisor input array. Must be compatible with `x1` (i.e., `x1` and `x2` must be able to broadcast to a common shape; see :ref:`broadcasting`).
+    -   divisor input array. Must be compatible with `x1` (see :ref:`broadcasting`).
 
 -   **out**:  _Optional\[ &lt;array&gt; ]_
 
@@ -406,7 +406,7 @@ Calculates the product for each element `x1_i` of the input array `x1` with the 
 
 -   **x2**: _&lt;array&gt;_
 
-    -   second input array. Must be compatible with `x1` (i.e., `x1` and `x2` must be able to broadcast to a common shape; see :ref:`broadcasting`).
+    -   second input array. Must be compatible with `x1` (see :ref:`broadcasting`).
 
 -   **out**:  _Optional\[ &lt;array&gt; ]_
 
@@ -532,7 +532,7 @@ Calculates the difference for each element `x1_i` of the input array `x1` with t
 
 -   **x2**: _&lt;array&gt;_
 
-    -   second input array. Must be compatible with `x1` (i.e., `x1` and `x2` must be able to broadcast to a common shape; see :ref:`broadcasting`).
+    -   second input array. Must be compatible with `x1` (see :ref:`broadcasting`).
 
 -   **out**:  _Optional\[ &lt;array&gt; ]_
 
