@@ -46,8 +46,8 @@ A 64-bit unsigned integer whose values exist on the interval `[0, +18,446,744,07
 
 ## float32
 
-IEEE 754 single-precision binary floating-point number (see IEEE 754-2019).
+IEEE 754 single-precision (32-bit) binary floating-point number (see IEEE 754-2019).
 
 ## float64
 
-IEEE 754 double-precision binary floating-point number (see IEEE 754-2019).
+IEEE 754 double-precision (64-bit) binary floating-point number (see IEEE 754-2019).
