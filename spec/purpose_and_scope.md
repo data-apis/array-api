@@ -34,9 +34,9 @@ For guidance on how to read and understand the type annotations included in this
 
 ## Conformance
 
-A conforming implementation of the array API standard must provide and support all the functions, arguments, syntax, and semantics described in this specification.
+A conforming implementation of the array API standard must provide and support all the functions, arguments, data types, syntax, and semantics described in this specification.
 
-A conforming implementation of the array API standard may provide additional values, objects, properties, and functions beyond those described in this specification.
+A conforming implementation of the array API standard may provide additional values, objects, properties, data types, and functions beyond those described in this specification.
 
 * * *
 
