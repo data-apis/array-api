@@ -26,7 +26,7 @@ Calculates the arithmetic mean of the input array `x`.
 
 -   **axis**: _Optional\[ Union\[ int, Tuple\[ int, ... ] ] ]_
 
-    -   axis or axes along which the mean must be computed. By default, the mean must be computed over the entire array. If a tuple of integers, the mean must be computed over multiple axes.
+    -   axis or axes along which the mean must be computed. By default, the mean must be computed over the entire array. If a tuple of integers, the mean must be computed over multiple axes. Default: `None`.
 
 -   **keepdims**: _bool_
 
