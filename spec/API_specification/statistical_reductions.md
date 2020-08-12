@@ -14,6 +14,34 @@ A conforming implementation of the array API standard must provide and support t
 
 <!-- NOTE: please keep the functions in alphabetical order -->
 
+### <a name="max" href="#max">#</a> max(x, /, *, axis=None, keepdims=False, out=None)
+
+Calculates the maximum value of the input array `x`.
+
+#### Parameters
+
+-   **x**: _&lt;array&gt;_
+
+    -   input array.
+
+-   **axis**: _Optional\[ Union\[ int, Tuple\[ int, ... ] ] ]_
+
+    -   axis or axes along which maximum values must be computed. By default, the maximum value must be computed over the entire array. If a tuple of integers, maximum values must be computed over multiple axes. Default: `None`.
+
+-   **keepdims**: _bool_
+
+    -   If `True`, the reduced axes (dimensions) must be included in the result as singleton dimensions, and, accordingly, the result must be compatible with the input array. Otherwise, if `False`, the reduced axes (dimensions) must not be included in the result. Default: `False`.
+
+-   **out**: _Optional\[ &lt;array&gt; ]_
+
+    -   output array. If provided, the output array must have the expected output shape. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each computation. Default: `None`.
+
+#### Returns
+
+-   **out**: _Union\[ int, float, &lt;array&gt; ]_
+
+    -   if the maximum value was computed over the entire array, the maximum value; otherwise, an array containing the maximum values.
+
 ### <a name="mean" href="#mean">#</a> mean(x, /, *, axis=None, keepdims=False, out=None)
 
 Calculates the arithmetic mean of the input array `x`.
@@ -26,7 +54,7 @@ Calculates the arithmetic mean of the input array `x`.
 
 -   **axis**: _Optional\[ Union\[ int, Tuple\[ int, ... ] ] ]_
 
-    -   axis or axes along which the mean must be computed. By default, the mean must be computed over the entire array. If a tuple of integers, the mean must be computed over multiple axes. Default: `None`.
+    -   axis or axes along which arithmetic means must be computed. By default, the mean must be computed over the entire array. If a tuple of integers, arithmetic means must be computed over multiple axes. Default: `None`.
 
 -   **keepdims**: _bool_
 
@@ -41,3 +69,31 @@ Calculates the arithmetic mean of the input array `x`.
 -   **out**: _Union\[ float, &lt;array&gt; ]_
 
     -   if the arithmetic mean was computed over the entire array, the arithmetic mean; otherwise, an array containing the arithmetic means.
+
+### <a name="min" href="#min">#</a> min(x, /, *, axis=None, keepdims=False, out=None)
+
+Calculates the minimum value of the input array `x`.
+
+#### Parameters
+
+-   **x**: _&lt;array&gt;_
+
+    -   input array.
+
+-   **axis**: _Optional\[ Union\[ int, Tuple\[ int, ... ] ] ]_
+
+    -   axis or axes along which minimum values must be computed. By default, the minimum value must be computed over the entire array. If a tuple of integers, minimum values must be computed over multiple axes. Default: `None`.
+
+-   **keepdims**: _bool_
+
+    -   If `True`, the reduced axes (dimensions) must be included in the result as singleton dimensions, and, accordingly, the result must be compatible with the input array. Otherwise, if `False`, the reduced axes (dimensions) must not be included in the result. Default: `False`.
+
+-   **out**: _Optional\[ &lt;array&gt; ]_
+
+    -   output array. If provided, the output array must have the expected output shape. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each computation. Default: `None`.
+
+#### Returns
+
+-   **out**: _Union\[ int, float, &lt;array&gt; ]_
+
+    -   if the minimum value was computed over the entire array, the minimum value; otherwise, an array containing the minimum values.
