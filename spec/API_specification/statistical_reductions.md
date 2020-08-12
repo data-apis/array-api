@@ -30,7 +30,7 @@ Calculates the maximum value of the input array `x`.
 
 -   **keepdims**: _bool_
 
-    -   If `True`, the reduced axes (dimensions) must be included in the result as singleton dimensions, and, accordingly, the result must be compatible with the input array. Otherwise, if `False`, the reduced axes (dimensions) must not be included in the result. Default: `False`.
+    -   If `True`, the reduced axes (dimensions) must be included in the result as singleton dimensions, and, accordingly, the result must be compatible with the input array (see :ref:`broadcasting`). Otherwise, if `False`, the reduced axes (dimensions) must not be included in the result. Default: `False`.
 
 -   **out**: _Optional\[ &lt;array&gt; ]_
 
@@ -58,7 +58,7 @@ Calculates the arithmetic mean of the input array `x`.
 
 -   **keepdims**: _bool_
 
-    -   If `True`, the reduced axes (dimensions) must be included in the result as singleton dimensions, and, accordingly, the result must be compatible with the input array. Otherwise, if `False`, the reduced axes (dimensions) must not be included in the result. Default: `False`.
+    -   If `True`, the reduced axes (dimensions) must be included in the result as singleton dimensions, and, accordingly, the result must be compatible with the input array (see :ref:`broadcasting`). Otherwise, if `False`, the reduced axes (dimensions) must not be included in the result. Default: `False`.
 
 -   **out**: _Optional\[ &lt;array&gt; ]_
 
@@ -86,7 +86,7 @@ Calculates the minimum value of the input array `x`.
 
 -   **keepdims**: _bool_
 
-    -   If `True`, the reduced axes (dimensions) must be included in the result as singleton dimensions, and, accordingly, the result must be compatible with the input array. Otherwise, if `False`, the reduced axes (dimensions) must not be included in the result. Default: `False`.
+    -   If `True`, the reduced axes (dimensions) must be included in the result as singleton dimensions, and, accordingly, the result must be compatible with the input array (see :ref:`broadcasting`). Otherwise, if `False`, the reduced axes (dimensions) must not be included in the result. Default: `False`.
 
 -   **out**: _Optional\[ &lt;array&gt; ]_
 
