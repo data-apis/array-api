@@ -2,13 +2,13 @@
 
 ## Summary
 
-Since the goal of this API is to move existing array APIs closer towards one another, its design is informed primarily from these existing libraries and their usage, not from any abstract theory or first principles. We can understand our process as pulled in two directions, driven by downstream usage of array libraries towards a larger surface area and driven by array implementors towards a smaller one. We are effectively trying to thread a needle between these two stakeholders, trying to find the pieces that are implemented by most of the array libraries and that are used by many applications. To do this, we have collected data on both what functioanlity different array libraries implement as well as what functionality is commmonly used.
+Since the goal of this API is to move existing array APIs closer toward one another, its design is informed primarily from these existing libraries and their usage, not from abstract theory or first principles. We can understand our process as pulled in two directions, driven by downstream usage of array libraries toward a larger surface area and driven by array implementors toward a smaller one. We are effectively trying to thread a needle between these two stakeholders, trying to find the pieces that are implemented by most of the array libraries and that are used by many applications. To do this, we have collected data on both what functionality different array libraries implement as well as what functionality is commonly used.
 
 
 
 ## Methods
 
-To collect data on array API producers, we scraped the docs of the many common array libraries to pull out the signatures for their various functions. For consumers, we looked at a number of popular downstream data science libraries that users an array library and ran their test suites, recording every call to an array API. Using those traces, we have data on how the different APIs are used, including what functions are called and what type of arguments they take.
+To collect data on array API producers, we scraped the docs of the many common array libraries to pull out the signatures for their various functions. For consumers, we looked at a number of popular downstream data science libraries that used an array library and ran their test suites, recording every call to an array API. Using those traces, we have data on how the different APIs are used, including what functions are called and what type of arguments they take.
 
 
 
@@ -21,7 +21,7 @@ Once we have all these records of function calls, we combine them to create a si
 In order to present the results in a human readbable form, we generate a type definition like file for each of the modules we trace, which lists which downstream library access each function and how many times they do.
  
 
-The most similar existing tool, is probably the [MonkeyType](https://github.com/Instagram/MonkeyType) library, created by Instagram, to generate type definiations from usage of Python code. However, they do not stop at every bytecode execution, instead only tracing function calls, leaving out some of the "dunder" methods. It would likely be useful to explore at some point how the functionality we needed could be added to that existing library.
+The most similar existing tool, is probably the [MonkeyType](https://github.com/Instagram/MonkeyType) library, created by Instagram, to generate type definitions from usage of Python code. However, they do not stop at every bytecode execution, instead only tracing function calls, leaving out some of the "dunder" methods. It would likely be useful to explore at some point how the functionality we needed could be added to that existing library.
 
 There are a number of limitations with this approach. The primary one is it being relatively resource intense, since adding this tracing slows down execution by quiet a lot. This has led us to create an automated runner for these tasks using Kubernetes. Also, it requires creating a custom environment for each downstream library that is capable of running its test suite.
 
