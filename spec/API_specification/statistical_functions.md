@@ -68,7 +68,7 @@ Calculates the arithmetic mean of the input array `x`.
 
 -   **out**: _&lt;array&gt;_
 
-    -   if the arithmetic mean was computed over the entire array, a zero-dimensional array containing the arithmetic mean; otherwise, a non-zero dimensional array containing the arithmetic means.
+    -   if the arithmetic mean was computed over the entire array, a zero-dimensional array containing the arithmetic mean; otherwise, a non-zero-dimensional array containing the arithmetic means.
 
 ### <a name="min" href="#min">#</a> min(x, /, *, axis=None, keepdims=False, out=None)
 
@@ -96,7 +96,7 @@ Calculates the minimum value of the input array `x`.
 
 -   **out**: _&lt;array&gt;_
 
-    -   if the minimum value was computed over the entire array, a zero-dimensional array containing the minimum value; otherwise, a non-zero dimensional array containing the minimum values.
+    -   if the minimum value was computed over the entire array, a zero-dimensional array containing the minimum value; otherwise, a non-zero-dimensional array containing the minimum values.
 
 ### <a name="prod" href="#prod">#</a> prod(x, /, *, axis=None, keepdims=False, out=None)
 
@@ -124,7 +124,7 @@ Calculates the product of input array `x` elements.
 
 -   **out**: _&lt;array&gt;_
 
-    -   if the product was computed over the entire array, a zero-dimensional array containing the product; otherwise, a non-zero dimensional array containing the products.
+    -   if the product was computed over the entire array, a zero-dimensional array containing the product; otherwise, a non-zero-dimensional array containing the products.
 
 ### <a name="std" href="#std">#</a> std(x, /, *, axis=None, correction=0.0, keepdims=False, out=None)
 
@@ -156,7 +156,7 @@ Calculates the standard deviation of the input array `x`.
 
 -   **out**: _&lt;array&gt;_
 
-    -   if the standard deviation was computed over the entire array, a zero-dimensional array containing the standard deviation; otherwise, a non-zero dimensional array containing the standard deviations.
+    -   if the standard deviation was computed over the entire array, a zero-dimensional array containing the standard deviation; otherwise, a non-zero-dimensional array containing the standard deviations.
 
 ### <a name="sum" href="#sum">#</a> sum(x, /, *, axis=None, keepdims=False, out=None)
 
@@ -216,4 +216,4 @@ Calculates the variance of the input array `x`.
 
 -   **out**: _&lt;array&gt;_
 
-    -   if the variance was computed over the entire array, a zero-dimensional array containing the variance; otherwise, a non-zero dimensional array containing the variances.
+    -   if the variance was computed over the entire array, a zero-dimensional array containing the variance; otherwise, a non-zero-dimensional array containing the variances.
