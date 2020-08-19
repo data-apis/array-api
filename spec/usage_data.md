@@ -25,11 +25,6 @@ that used an array library and ran their test suites, recording every call to an
 array API. Using those traces, we have data on how the different APIs are used,
 including what functions are called and what type of arguments they take.
 
-We used this data to inform which APIs were most commonly used, to understand
-what to include in the specification. We were also able to see which keyword
-arguments were used and the types of the arguments. This data helped inform our
-choices on what to standardize.
-
 ## Tooling
 
 To understand how a downstream consumer calls an API library led us to build a
@@ -101,3 +96,10 @@ the generated typings, from different downstream users.
 The [`array-api-comparison`](https://github.com/data-apis/array-api-comparison)
 repository contains the data that was scraped from array library websites, as
 well as some summary analysis using that data and the recorded data.
+
+## Usage
+
+We used this data to inform which APIs were most commonly used, to understand
+what to include in the specification. We were also able to see which keyword
+arguments were used and the types of the arguments. This data helped inform our
+choices on what to standardize.
