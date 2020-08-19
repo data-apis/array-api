@@ -56,6 +56,32 @@ In order to present the results in a human-readable form, we generate a type
 definition like file for each of the modules we trace, which lists which
 downstream library access each function and how many times they do.
 
+For example, this is the generated signature for `numpy.arange`. In the
+docstring is the number of lines of code that contain a call to this function
+which are executed when running the test suites of a number of libraries:
+
+```python
+def arange(
+    _0: object,
+    /,
+    *_args: object,
+    dtype: Union[type, str, numpy.dtype, None] = ...,
+    step: Union[int, float] = ...,
+    stop: int = ...,
+):
+    """
+    usage.dask: 347
+    usage.matplotlib: 359
+    usage.pandas: 894
+    usage.sample-usage: 4
+    usage.scipy: 1173
+    usage.skimage: 174
+    usage.sklearn: 373
+    usage.xarray: 666
+    """
+    ...
+```
+
 There are a number of limitations with this approach. The primary one is it
 being relatively resource intense, since adding this tracing slows down
 execution by quiet a lot. Also, it requires creating a custom environment for
