@@ -13,3 +13,4 @@ API specification
    broadcasting
    out_keyword
    elementwise_functions
+   sorting_functions
