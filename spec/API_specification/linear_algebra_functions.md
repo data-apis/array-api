@@ -79,7 +79,7 @@ Returns the specified diagonals. If `a` has more than two dimensions, then the a
         -   `offset > 0`: off-diagonal above the main diagonal.
         -   `offset < 0`: off-diagonal below the main diagonal.
 
-    Default: `0`.
+        Default: `0`.
 
 #### Returns
 
@@ -179,3 +179,41 @@ Computes the outer product of two vectors `a` and `b`.
 -   **out**: _&lt;array&gt;_
 
     -   a two-dimensional array containing the outer product and whose shape is `NxM`.
+
+### <a name="trace" href="#trace">#</a> trace(a, /, *, axis1=0, axis2=1, offset=0)
+
+Returns the sum along the specified diagonals. If `a` has more than two dimensions, then the axes (dimensions) specified by `axis1` and `axis2` are used to determine the two-dimensional sub-arrays for which to compute the sum along the specified diagonals. 
+
+#### Parameters
+
+-   **a**: _&lt;array&gt;_
+
+    -   input array. Must have at least `2` dimensions.
+
+-   **axis1**: _int_
+
+    -   first axis (dimension) with respect to which to compute the trace. Default: `0`.
+
+-   **axis2**: _int_
+
+    -   second axis (dimension) with respect to which to compute the trace. Default: `1`.
+
+-   **offset**: _int_
+
+    -   offset specifying the off-diagonal relative to the main diagonal.
+
+        -   `offset = 0`: the main diagonal.
+        -   `offset > 0`: off-diagonal above the main diagonal.
+        -   `offset < 0`: off-diagonal below the main diagonal.
+
+        Default: `0`.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   if `a` is a two-dimensional array, a zero-dimensional array containing the trace; otherwise, a multi-dimensional array containing the traces. For a multi-dimensional output array, if `a` has rank `k` and shape `(I, J, K, ..., L, M, N)` and `axis1=-2` and `axis1=-1`, then the output array has rank `k-2` and shape `(I, J, K, ..., L)` where
+    
+        ```text
+        out[i, j, k, ..., l] = trace(a[i, j, k, ..., l, :, :])
+        ```
