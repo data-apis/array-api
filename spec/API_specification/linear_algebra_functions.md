@@ -220,3 +220,22 @@ Returns the sum along the specified diagonals. If `a` has more than two dimensio
         out[i, j, k, ..., l] = trace(a[i, j, k, ..., l, :, :])
         ```
 
+### <a name="transpose" href="#transpose">#</a> transpose(a, /, *, axes=None)
+
+Transposes (or permutes the axes (dimensions)) of an array `a`.
+
+#### Parameters
+
+-   **a**: _&lt;array&gt;_
+
+    -   input array.
+
+-   **axes**: _Optional\[ Tuple\[ int, ... ] ]_
+
+    -   tuple containing a permutation of `(0, 1, ..., N-1)` where `N` is the number of axes (dimensions) of `a`. If `None`, the axes (dimensions) are permuted in reverse order (i.e., equivalent to setting `axes=(N-1, ..., 1, 0)`). Default: `None`.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the transpose. Must have the same data type as `a`.
