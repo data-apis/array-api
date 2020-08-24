@@ -111,17 +111,21 @@ Computes the matrix or vector norm of `a`.
 
 -   **a**: _&lt;array&gt;_
 
-    -   input array. If `axis` is `None`, `a` must be either one- or two-dimensional.
+    -   input array.
 
 -   **axis**: _Optional\[ Union\[ int, Tuple\[ int, int ] ] ]_
 
-    -   If an integer, `axis` specifies the axis (dimension) along which to compute vector norms. If a 2-tuple, `axis` specifies the axes (dimensions) defining two-dimensional matrices for which to compute matrix norms. If `None`,
+    -   If an integer, `axis` specifies the axis (dimension) along which to compute vector norms.
+    
+        If a 2-tuple, `axis` specifies the axes (dimensions) defining two-dimensional matrices for which to compute matrix norms.
+    
+        If `None`,
     
         -   if `a` is one-dimensional, the function computes the vector norm.
         -   if `a` is two-dimensional, the function computes the matrix norm.
-        -   if `a` has more than two dimensions, the function computes the vector norm for vectors defined by the last axis (dimension). Equivalent to specifying `axis=-1`.
+        -   if `a` has more than two dimensions, the function computes the vector norm over all array values (i.e., equivalent to computing the vector norm of a flattened array).
 
-    Negative indices must be supported. Default: `None`.
+        Negative indices must be supported. Default: `None`.
 
 -   **keepdims**: _bool_
 
@@ -158,7 +162,7 @@ Computes the matrix or vector norm of `a`.
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the norms. Must have the same data type as `a`. If `axis` is a scalar value (`int` or `float`), the output array has a rank which is one less than the rank of `a`. If `axis` is a 2-tuple, the output array has a rank which is two less than the rank of `a`.
+    -   an array containing the norms. Must have the same data type as `a`. If `axis` is `None`, the output array is a zero-dimensional array containing a vector norm. If `axis` is a scalar value (`int` or `float`), the output array has a rank which is one less than the rank of `a`. If `axis` is a 2-tuple, the output array has a rank which is two less than the rank of `a`.
 
 ### <a name="outer" href="#outer">#</a> outer(a, b, /)
 
