@@ -160,3 +160,22 @@ Computes the matrix or vector norm of `a`.
 
     -   an array containing the norms. Must have the same data type as `a`. If `axis` is a scalar value (`int` or `float`), the output array has a rank which is one less than the rank of `a`. If `axis` is a 2-tuple, the output array has a rank which is two less than the rank of `a`.
 
+### <a name="outer" href="#outer">#</a> outer(a, b, /)
+
+Computes the outer product of two vectors `a` and `b`.
+
+#### Parameters
+
+-   **a**: _&lt;array&gt;_
+
+    -   first one-dimensional input array of size `N`.
+
+-   **b**: _&lt;array&gt;_
+
+    -   second one-dimensional input array of size `M`.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   a two-dimensional array containing the outer product and whose shape is `NxM`.
