@@ -52,3 +52,37 @@ Returns the determinant of a square matrix (or stack of square matrices) `a`.
 -   **out**: _&lt;array&gt;_
 
     -   if `a` is a two-dimensional array, a zero-dimensional array containing the determinant; otherwise, a non-zero dimensional array containing the determinant for each square matrix.
+
+### <a name="diagonal" href="#diagonal">#</a> diagonal(a, /, *, offset=0, axis1=0, axis2=1)
+
+Returns the specified diagonals. If `a` has more than two dimensions, then the axes specified by `axis1` and `axis2` are used to determine the two-dimensional sub-arrays from which to return diagonals. 
+
+#### Parameters
+
+-   **a**: _&lt;array&gt;_
+
+    -   input array. Must have at least `2` dimensions.
+
+-   **offset**: _int_
+
+    -   offset specifying the off-diagonal relative to the main diagonal.
+
+        -   `offset = 0`: the main diagonal.
+        -   `offset > 0`: off-diagonal above the main diagonal.
+        -   `offset < 0`: off-diagonal below the main diagonal.
+
+    Default: `0`.
+
+-   **axis1**: _int_
+
+    -   first axis with respect to which to take diagonal. Default: `0`.
+
+-   **axis2**: _int_
+
+    -   second axis with respect to which to take diagonal. Default: `1`.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   if `a` is a two-dimensional array, a one-dimensional array containing the diagonal; otherwise, a multi-dimensional array containing the diagonals and whose shape is determined by removing `axis1` and `axis2` and appending a dimension equal to the size of the resulting diagonals. The returned array must have the same type as `a`.
