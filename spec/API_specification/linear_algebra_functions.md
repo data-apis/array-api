@@ -182,7 +182,7 @@ Computes the outer product of two vectors `a` and `b`.
 
 ### <a name="trace" href="#trace">#</a> trace(a, /, *, axis1=0, axis2=1, offset=0)
 
-Returns the sum along the specified diagonals. If `a` has more than two dimensions, then the axes (dimensions) specified by `axis1` and `axis2` are used to determine the two-dimensional sub-arrays for which to compute the sum along the specified diagonals. 
+Returns the sum along the specified diagonals. If `a` has more than two dimensions, then the axes (dimensions) specified by `axis1` and `axis2` are used to determine the two-dimensional sub-arrays for which to compute the trace. 
 
 #### Parameters
 
@@ -212,8 +212,11 @@ Returns the sum along the specified diagonals. If `a` has more than two dimensio
 
 -   **out**: _&lt;array&gt;_
 
-    -   if `a` is a two-dimensional array, a zero-dimensional array containing the trace; otherwise, a multi-dimensional array containing the traces. For a multi-dimensional output array, if `a` has rank `k` and shape `(I, J, K, ..., L, M, N)` and `axis1=-2` and `axis1=-1`, then the output array has rank `k-2` and shape `(I, J, K, ..., L)` where
+    -   if `a` is a two-dimensional array, a zero-dimensional array containing the trace; otherwise, a multi-dimensional array containing the traces.
+    
+        The shape of a multi-dimensional output array is determined by removing `axis1` and `axis2` and storing the traces in the last array dimension. For example, if `a` has rank `k` and shape `(I, J, K, ..., L, M, N)` and `axis1=-2` and `axis1=-1`, then a multi-dimensional output array has rank `k-2` and shape `(I, J, K, ..., L)` where
     
         ```text
         out[i, j, k, ..., l] = trace(a[i, j, k, ..., l, :, :])
         ```
+
