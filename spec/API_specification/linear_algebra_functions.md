@@ -85,4 +85,20 @@ Returns the specified diagonals. If `a` has more than two dimensions, then the a
 
 -   **out**: _&lt;array&gt;_
 
-    -   if `a` is a two-dimensional array, a one-dimensional array containing the diagonal; otherwise, a multi-dimensional array containing the diagonals and whose shape is determined by removing `axis1` and `axis2` and appending a dimension equal to the size of the resulting diagonals. The returned array must have the same type as `a`.
+    -   if `a` is a two-dimensional array, a one-dimensional array containing the diagonal; otherwise, a multi-dimensional array containing the diagonals and whose shape is determined by removing `axis1` and `axis2` and appending a dimension equal to the size of the resulting diagonals. Must have the same type as `a`.
+
+### <a name="inv" href="#inv">#</a> inv(a, /)
+
+Computes the multiplicative inverse of a square matrix (or stack of square matrices) `a`.
+
+#### Parameters
+
+-   **a**: _&lt;array&gt;_
+
+    -   input array having shape `(..., M, M)` and whose innermost two dimensions form square matrices.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the multiplicative inverses. Must have the same type and shape as `a`.
