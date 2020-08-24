@@ -12,7 +12,7 @@ A conforming implementation of the array API standard must provide and support t
 
 ### <a name="argsort" href="#argsort">#</a> argsort(x, /, *, axis=-1)
 
-Returns the indices that sort an array `x` along a specified axis.
+Returns the indices that sort an array `x` in ascending order along a specified axis.
 
 #### Parameters
 
@@ -32,7 +32,7 @@ Returns the indices that sort an array `x` along a specified axis.
 
 ### <a name="sort" href="#sort">#</a> sort(x, /, *, axis=-1)
 
-Returns a sorted copy of an input array `x`.
+Returns a sorted (in ascending order) copy of an input array `x`.
 
 #### Parameters
 
