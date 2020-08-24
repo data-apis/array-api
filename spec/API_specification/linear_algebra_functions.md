@@ -29,7 +29,7 @@ Returns the cross product of 3-element vectors. If `a` and `b` are multi-dimensi
 
 -   **axis**: _int_
 
-    -   the axis of `a` and `b` containing the vectors for which to compute the cross product. If set to `-1`, the function computes the cross product for vectors defined by the last axis. Default: `-1`.
+    -   the axis (dimension) of `a` and `b` containing the vectors for which to compute the cross product. If set to `-1`, the function computes the cross product for vectors defined by the last axis (dimension). Default: `-1`.
 
 #### Returns
 
@@ -53,15 +53,23 @@ Returns the determinant of a square matrix (or stack of square matrices) `a`.
 
     -   if `a` is a two-dimensional array, a zero-dimensional array containing the determinant; otherwise, a non-zero dimensional array containing the determinant for each square matrix.
 
-### <a name="diagonal" href="#diagonal">#</a> diagonal(a, /, *, offset=0, axis1=0, axis2=1)
+### <a name="diagonal" href="#diagonal">#</a> diagonal(a, /, *, axis1=0, axis2=1, offset=0)
 
-Returns the specified diagonals. If `a` has more than two dimensions, then the axes specified by `axis1` and `axis2` are used to determine the two-dimensional sub-arrays from which to return diagonals. 
+Returns the specified diagonals. If `a` has more than two dimensions, then the axes (dimensions) specified by `axis1` and `axis2` are used to determine the two-dimensional sub-arrays from which to return diagonals. 
 
 #### Parameters
 
 -   **a**: _&lt;array&gt;_
 
     -   input array. Must have at least `2` dimensions.
+
+-   **axis1**: _int_
+
+    -   first axis (dimension) with respect to which to take diagonal. Default: `0`.
+
+-   **axis2**: _int_
+
+    -   second axis (dimension) with respect to which to take diagonal. Default: `1`.
 
 -   **offset**: _int_
 
@@ -73,19 +81,11 @@ Returns the specified diagonals. If `a` has more than two dimensions, then the a
 
     Default: `0`.
 
--   **axis1**: _int_
-
-    -   first axis with respect to which to take diagonal. Default: `0`.
-
--   **axis2**: _int_
-
-    -   second axis with respect to which to take diagonal. Default: `1`.
-
 #### Returns
 
 -   **out**: _&lt;array&gt;_
 
-    -   if `a` is a two-dimensional array, a one-dimensional array containing the diagonal; otherwise, a multi-dimensional array containing the diagonals and whose shape is determined by removing `axis1` and `axis2` and appending a dimension equal to the size of the resulting diagonals. Must have the same type as `a`.
+    -   if `a` is a two-dimensional array, a one-dimensional array containing the diagonal; otherwise, a multi-dimensional array containing the diagonals and whose shape is determined by removing `axis1` and `axis2` and appending a dimension equal to the size of the resulting diagonals. Must have the same data type as `a`.
 
 ### <a name="inv" href="#inv">#</a> inv(a, /)
 
@@ -101,4 +101,62 @@ Computes the multiplicative inverse of a square matrix (or stack of square matri
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the multiplicative inverses. Must have the same type and shape as `a`.
+    -   an array containing the multiplicative inverses. Must have the same data type and shape as `a`.
+
+### <a name="norm" href="#norm">#</a> norm(a, /, *, axis=None, keepdims=False, ord=None)
+
+Computes the matrix or vector norm of `a`.
+
+#### Parameters
+
+-   **a**: _&lt;array&gt;_
+
+    -   input array. If `axis` is `None`, `a` must be either one- or two-dimensional.
+
+-   **axis**: _Optional\[ Union\[ int, Tuple\[ int, int ] ] ]_
+
+    -   If an integer, `axis` specifies the axis (dimension) along which to compute vector norms. If a 2-tuple, `axis` specifies the axes (dimensions) defining two-dimensional matrices for which to compute matrix norms. If `None`,
+    
+        -   if `a` is one-dimensional, the function computes the vector norm.
+        -   if `a` is two-dimensional, the function computes the matrix norm.
+        -   if `a` has more than two dimensions, the function computes the vector norm for vectors defined by the last axis (dimension). Equivalent to specifying `axis=-1`.
+
+    Negative indices must be supported. Default: `None`.
+
+-   **keepdims**: _bool_
+
+    -   If `True`, the axes (dimensions) specified by `axis` must be included in the result as singleton dimensions, and, accordingly, the result must be compatible with the input array (see :ref:`broadcasting`). Otherwise, if `False`, the axes (dimensions) specified by `axis` must not be included in the result. Default: `False`.
+
+-   **ord**: _Optional\[ int, float, inf, 'fro', 'nuc' ]_
+
+    -   order of the norm. The following norms must be supported:
+
+        | ord         | matrix                          | vector              |
+        | ----------- | ------------------------------- | ------------------- |
+        | None        | 'fro'                           | L2-norm (Euclidean) |
+        | 'fro'       | 'fro'                           | -                   |
+        | 'nuc'       | 'nuc'                           | -                   |
+        | 1           | max(sum(abs(x), axis=0))        | L1-norm             |
+        | 2           | largest singular value          | L2-norm (Euclidean) |
+        | inf         | max(sum(abs(x), axis=1))        | infinity norm       |
+        | (int,float) | -                               | p-norm (for p >= 1) |
+
+        where `fro` corresponds to the **Frobenius norm**, `nuc` corresponds to the **nuclear norm**, and `-` indicates that the norm is **not** supported. For matrices,
+
+        -   if `ord=1`, the norm corresponds to the induced matrix norm where `p=1` (i.e., the maximum absolute value column sum).
+        -   if `ord=2`, the norm corresponds to the induced matrix norm where `p=inf` (i.e., the maximum absolute value row sum).
+        -   if `ord=inf`, the norm corresponds to the induced matrix norm where `p=2` (i.e., the largest singular value).
+
+        If `None`,
+
+        -   if matrix (or matrices), the function computes the Frobenius norm.
+        -   if vector (or vectors), the function computes the L2-norm (Euclidean norm).
+        
+        Default: `None`.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the norms. Must have the same data type as `a`. If `axis` is a scalar value (`int` or `float`), the output array has a rank which is one less than the rank of `a`. If `axis` is a 2-tuple, the output array has a rank which is two less than the rank of `a`.
+

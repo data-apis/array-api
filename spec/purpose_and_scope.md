@@ -50,6 +50,10 @@ For the purposes of this specification, the following terms and definitions appl
 
 a (usually fixed-size) multidimensional container of items of the same type and size.
 
+### axis
+
+an array dimension.
+
 ### broadcast
 
 automatic (implicit) expansion of array dimensions to be of equal sizes without copying array data for the purpose of making arrays with different shapes have compatible shapes for element-wise operations.
