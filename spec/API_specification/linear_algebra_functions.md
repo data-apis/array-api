@@ -36,3 +36,19 @@ Returns the cross product of 3-element vectors. If `a` and `b` are multi-dimensi
 -   **out**: _&lt;array&gt;_
 
     -   an array containing the cross products.
+
+### <a name="det" href="#det">#</a> det(a, /)
+
+Returns the determinant of a square matrix (or stack of square matrices) `a`.
+
+#### Parameters
+
+-   **a**: _&lt;array&gt;_
+
+    -   input array having shape `(..., M, M)` and whose innermost two dimensions form square matrices.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   if `a` is a two-dimensional array, a zero-dimensional array containing the determinant; otherwise, a non-zero dimensional array containing the determinant for each square matrix.
