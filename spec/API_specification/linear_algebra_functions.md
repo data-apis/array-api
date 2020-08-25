@@ -131,7 +131,7 @@ Computes the matrix or vector norm of `a`.
 
     -   If `True`, the axes (dimensions) specified by `axis` must be included in the result as singleton dimensions, and, accordingly, the result must be compatible with the input array (see :ref:`broadcasting`). Otherwise, if `False`, the axes (dimensions) specified by `axis` must not be included in the result. Default: `False`.
 
--   **ord**: _Optional\[ int, float, Literal\[ -inf, inf, 'fro', 'nuc' ] ]_
+-   **ord**: _Optional\[ int, float, Literal\[ inf, -inf, 'fro', 'nuc' ] ]_
 
     -   order of the norm. The following norms must be supported:
 
