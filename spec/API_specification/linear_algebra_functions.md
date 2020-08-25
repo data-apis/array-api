@@ -152,7 +152,7 @@ Computes the matrix or vector norm of `a`.
         | -1               | min(sum(abs(x), axis=0))        | sum(1./abs(a))**(-1)       |
         | -2               | smallest singular value         | 1./sqrt(sum(1./abs(a)**2)) |
         | -inf             | min(sum(abs(x), axis=1))        | min(abs(a))                |
-        | (int,float < 1)  | -                               | sum(abs(a)**ord)**(1./ord) |
+        | (int,float < 1)  | -                               | sum(abs(a)\*\*ord)\*\*(1./ord) |
 
         When `ord` is `None`, the following norms must be the default norms:
 
