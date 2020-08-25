@@ -103,6 +103,30 @@ Computes the multiplicative inverse of a square matrix (or stack of square matri
 
     -   an array containing the multiplicative inverses. Must have the same data type and shape as `a`.
 
+### <a name="matrix_transpose" href="#matrix_transpose">#</a> matrix_transpose(a, /, *, axis1=0, axis2=1)
+
+Transposes the axes (dimensions) specified by `axis1` and `axis2`. If `a` has more than two dimensions, then the axes (dimensions) specified by `axis1` and `axis2` are used to determine the two-dimensional sub-arrays to be transposed. 
+
+#### Parameters
+
+-   **a**: _&lt;array&gt;_
+
+    -   input array. Must have at least `2` dimensions.
+
+-   **axis1**: _int_
+
+    -   first axis (dimension). Default: `0`.
+
+-   **axis2**: _int_
+
+    -   second axis (dimension). Default: `1`.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the matrix transpose(s).
+
 ### <a name="norm" href="#norm">#</a> norm(a, /, *, axis=None, keepdims=False, ord=None)
 
 Computes the matrix or vector norm of `a`.
