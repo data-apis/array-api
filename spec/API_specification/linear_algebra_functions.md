@@ -133,23 +133,36 @@ Computes the matrix or vector norm of `a`.
 
 -   **ord**: _Optional\[ int, float, Literal\[ inf, -inf, 'fro', 'nuc' ] ]_
 
-    -   order of the norm. The following norms must be supported:
+    -   order of the norm. The following mathematical norms must be supported:
 
-        | ord           | matrix                          | vector                     |
-        | ------------  | ------------------------------- | -------------------------- |
-        | None          | 'fro'                           | L2-norm (Euclidean)        |
-        | 'fro'         | 'fro'                           | -                          |
-        | 'nuc'         | 'nuc'                           | -                          |
-        | 1             | max(sum(abs(x), axis=0))        | L1-norm                    |
-        | -1            | min(sum(abs(x), axis=0))        | sum(1./abs(x))**(-1)       |
-        | 2             | largest singular value          | L2-norm (Euclidean)        |
-        | -2            | smallest singular value         | 1./sqrt(sum(1./abs(x)**2)) |
-        | inf           | max(sum(abs(x), axis=1))        | infinity norm              |
-        | -inf          | min(sum(abs(x), axis=1))        | min(abs(x))                |
-        | (+int,+float) | -                               | p-norm (for p >= 1)        |
-        | (-int,-float) | -                               | sum(abs(x)**ord)**(1./ord) |
+        | ord              | matrix                          | vector                     |
+        | ---------------- | ------------------------------- | -------------------------- |
+        | 'fro'            | 'fro'                           | -                          |
+        | 'nuc'            | 'nuc'                           | -                          |
+        | 1                | max(sum(abs(x), axis=0))        | L1-norm (Manhattan)        |
+        | 2                | largest singular value          | L2-norm (Euclidean)        |
+        | inf              | max(sum(abs(x), axis=1))        | infinity norm              |
+        | (int,float >= 1) | -                               | p-norm                     |
 
-        where `fro` corresponds to the **Frobenius norm**, `nuc` corresponds to the **nuclear norm**, and `-` indicates that the norm is **not** supported. For matrices,
+        The following non-mathematical "norms" must be supported:
+
+        | ord              | matrix                          | vector                     |
+        | ---------------- | ------------------------------- | -------------------------- |
+        | 0                | -                               | sum(a != 0)                |
+        | -1               | min(sum(abs(x), axis=0))        | sum(1./abs(a))**(-1)       |
+        | -2               | smallest singular value         | 1./sqrt(sum(1./abs(a)**2)) |
+        | -inf             | min(sum(abs(x), axis=1))        | min(abs(a))                |
+        | (int,float < 1)  | -                               | sum(abs(a)**ord)**(1./ord) |
+
+        When `ord` is `None`, the following norms must be the default norms:
+
+        | ord              | matrix                          | vector                     |
+        | ---------------- | ------------------------------- | -------------------------- |
+        | None             | 'fro'                           | L2-norm (Euclidean)        |
+        
+        where `fro` corresponds to the **Frobenius norm**, `nuc` corresponds to the **nuclear norm**, and `-` indicates that the norm is **not** supported.
+
+        For matrices,
 
         -   if `ord=1`, the norm corresponds to the induced matrix norm where `p=1` (i.e., the maximum absolute value column sum).
         -   if `ord=2`, the norm corresponds to the induced matrix norm where `p=inf` (i.e., the maximum absolute value row sum).
