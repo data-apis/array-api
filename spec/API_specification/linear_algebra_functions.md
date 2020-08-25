@@ -13,23 +13,23 @@ A conforming implementation of the array API standard must provide and support t
 
 <!-- NOTE: please keep the functions in alphabetical order -->
 
-### <a name="cross" href="#cross">#</a> cross(a, b, /, *, axis=-1)
+### <a name="cross" href="#cross">#</a> cross(x1, x2, /, *, axis=-1)
 
-Returns the cross product of 3-element vectors. If `a` and `b` are multi-dimensional arrays (i.e., both have a rank greater than `1`), then the cross-product of each pair of corresponding 3-element vectors is independently computed.
+Returns the cross product of 3-element vectors. If `x1` and `x2` are multi-dimensional arrays (i.e., both have a rank greater than `1`), then the cross-product of each pair of corresponding 3-element vectors is independently computed.
 
 #### Parameters
 
--   **a**: _&lt;array&gt;_
+-   **x1**: _&lt;array&gt;_
 
     -   first input array.
 
--   **b**: _&lt;array&gt;_
+-   **x2**: _&lt;array&gt;_
 
-    -   second input array. Must have the same shape as `a`. 
+    -   second input array. Must have the same shape as `x1`. 
 
 -   **axis**: _int_
 
-    -   the axis (dimension) of `a` and `b` containing the vectors for which to compute the cross product. If set to `-1`, the function computes the cross product for vectors defined by the last axis (dimension). Default: `-1`.
+    -   the axis (dimension) of `x1` and `x2` containing the vectors for which to compute the cross product. If set to `-1`, the function computes the cross product for vectors defined by the last axis (dimension). Default: `-1`.
 
 #### Returns
 
@@ -37,9 +37,9 @@ Returns the cross product of 3-element vectors. If `a` and `b` are multi-dimensi
 
     -   an array containing the cross products.
 
-### <a name="det" href="#det">#</a> det(a, /)
+### <a name="det" href="#det">#</a> det(x, /)
 
-Returns the determinant of a square matrix (or stack of square matrices) `a`.
+Returns the determinant of a square matrix (or stack of square matrices) `x`.
 
 #### Parameters
 
@@ -51,15 +51,15 @@ Returns the determinant of a square matrix (or stack of square matrices) `a`.
 
 -   **out**: _&lt;array&gt;_
 
-    -   if `a` is a two-dimensional array, a zero-dimensional array containing the determinant; otherwise, a non-zero dimensional array containing the determinant for each square matrix.
+    -   if `x` is a two-dimensional array, a zero-dimensional array containing the determinant; otherwise, a non-zero dimensional array containing the determinant for each square matrix.
 
-### <a name="diagonal" href="#diagonal">#</a> diagonal(a, /, *, axis1=0, axis2=1, offset=0)
+### <a name="diagonal" href="#diagonal">#</a> diagonal(x, /, *, axis1=0, axis2=1, offset=0)
 
-Returns the specified diagonals. If `a` has more than two dimensions, then the axes (dimensions) specified by `axis1` and `axis2` are used to determine the two-dimensional sub-arrays from which to return diagonals. 
+Returns the specified diagonals. If `x` has more than two dimensions, then the axes (dimensions) specified by `axis1` and `axis2` are used to determine the two-dimensional sub-arrays from which to return diagonals. 
 
 #### Parameters
 
--   **a**: _&lt;array&gt;_
+-   **x**: _&lt;array&gt;_
 
     -   input array. Must have at least `2` dimensions.
 
@@ -85,15 +85,15 @@ Returns the specified diagonals. If `a` has more than two dimensions, then the a
 
 -   **out**: _&lt;array&gt;_
 
-    -   if `a` is a two-dimensional array, a one-dimensional array containing the diagonal; otherwise, a multi-dimensional array containing the diagonals and whose shape is determined by removing `axis1` and `axis2` and appending a dimension equal to the size of the resulting diagonals. Must have the same data type as `a`.
+    -   if `x` is a two-dimensional array, a one-dimensional array containing the diagonal; otherwise, a multi-dimensional array containing the diagonals and whose shape is determined by removing `axis1` and `axis2` and appending a dimension equal to the size of the resulting diagonals. Must have the same data type as `x`.
 
-### <a name="inv" href="#inv">#</a> inv(a, /)
+### <a name="inv" href="#inv">#</a> inv(x, /)
 
-Computes the multiplicative inverse of a square matrix (or stack of square matrices) `a`.
+Computes the multiplicative inverse of a square matrix (or stack of square matrices) `x`.
 
 #### Parameters
 
--   **a**: _&lt;array&gt;_
+-   **x**: _&lt;array&gt;_
 
     -   input array having shape `(..., M, M)` and whose innermost two dimensions form square matrices.
 
@@ -101,15 +101,15 @@ Computes the multiplicative inverse of a square matrix (or stack of square matri
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the multiplicative inverses. Must have the same data type and shape as `a`.
+    -   an array containing the multiplicative inverses. Must have the same data type and shape as `x`.
 
-### <a name="matrix_transpose" href="#matrix_transpose">#</a> matrix_transpose(a, /, *, axis1=0, axis2=1)
+### <a name="matrix_transpose" href="#matrix_transpose">#</a> matrix_transpose(x, /, *, axis1=0, axis2=1)
 
-Transposes the axes (dimensions) specified by `axis1` and `axis2`. If `a` has more than two dimensions, then the axes (dimensions) specified by `axis1` and `axis2` are used to determine the two-dimensional sub-arrays to be transposed. 
+Transposes the axes (dimensions) specified by `axis1` and `axis2`. If `x` has more than two dimensions, then the axes (dimensions) specified by `axis1` and `axis2` are used to determine the two-dimensional sub-arrays to be transposed. 
 
 #### Parameters
 
--   **a**: _&lt;array&gt;_
+-   **x**: _&lt;array&gt;_
 
     -   input array. Must have at least `2` dimensions.
 
@@ -127,13 +127,13 @@ Transposes the axes (dimensions) specified by `axis1` and `axis2`. If `a` has mo
 
     -   an array containing the matrix transpose(s).
 
-### <a name="norm" href="#norm">#</a> norm(a, /, *, axis=None, keepdims=False, ord=None)
+### <a name="norm" href="#norm">#</a> norm(x, /, *, axis=None, keepdims=False, ord=None)
 
-Computes the matrix or vector norm of `a`.
+Computes the matrix or vector norm of `x`.
 
 #### Parameters
 
--   **a**: _&lt;array&gt;_
+-   **x**: _&lt;array&gt;_
 
     -   input array.
 
@@ -145,9 +145,9 @@ Computes the matrix or vector norm of `a`.
     
         If `None`,
     
-        -   if `a` is one-dimensional, the function computes the vector norm.
-        -   if `a` is two-dimensional, the function computes the matrix norm.
-        -   if `a` has more than two dimensions, the function computes the vector norm over all array values (i.e., equivalent to computing the vector norm of a flattened array).
+        -   if `x` is one-dimensional, the function computes the vector norm.
+        -   if `x` is two-dimensional, the function computes the matrix norm.
+        -   if `x` has more than two dimensions, the function computes the vector norm over all array values (i.e., equivalent to computing the vector norm of a flattened array).
 
         Negative indices must be supported. Default: `None`.
 
@@ -203,19 +203,19 @@ Computes the matrix or vector norm of `a`.
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the norms. Must have the same data type as `a`. If `axis` is `None`, the output array is a zero-dimensional array containing a vector norm. If `axis` is a scalar value (`int` or `float`), the output array has a rank which is one less than the rank of `a`. If `axis` is a 2-tuple, the output array has a rank which is two less than the rank of `a`.
+    -   an array containing the norms. Must have the same data type as `x`. If `axis` is `None`, the output array is a zero-dimensional array containing a vector norm. If `axis` is a scalar value (`int` or `float`), the output array has a rank which is one less than the rank of `x`. If `axis` is a 2-tuple, the output array has a rank which is two less than the rank of `x`.
 
-### <a name="outer" href="#outer">#</a> outer(a, b, /)
+### <a name="outer" href="#outer">#</a> outer(x1, x2, /)
 
-Computes the outer product of two vectors `a` and `b`.
+Computes the outer product of two vectors `x1` and `x2`.
 
 #### Parameters
 
--   **a**: _&lt;array&gt;_
+-   **x1**: _&lt;array&gt;_
 
     -   first one-dimensional input array of size `N`.
 
--   **b**: _&lt;array&gt;_
+-   **x2**: _&lt;array&gt;_
 
     -   second one-dimensional input array of size `M`.
 
@@ -225,13 +225,13 @@ Computes the outer product of two vectors `a` and `b`.
 
     -   a two-dimensional array containing the outer product and whose shape is `NxM`.
 
-### <a name="trace" href="#trace">#</a> trace(a, /, *, axis1=0, axis2=1, offset=0)
+### <a name="trace" href="#trace">#</a> trace(x, /, *, axis1=0, axis2=1, offset=0)
 
-Returns the sum along the specified diagonals. If `a` has more than two dimensions, then the axes (dimensions) specified by `axis1` and `axis2` are used to determine the two-dimensional sub-arrays for which to compute the trace. 
+Returns the sum along the specified diagonals. If `x` has more than two dimensions, then the axes (dimensions) specified by `axis1` and `axis2` are used to determine the two-dimensional sub-arrays for which to compute the trace. 
 
 #### Parameters
 
--   **a**: _&lt;array&gt;_
+-   **x**: _&lt;array&gt;_
 
     -   input array. Must have at least `2` dimensions.
 
@@ -257,30 +257,30 @@ Returns the sum along the specified diagonals. If `a` has more than two dimensio
 
 -   **out**: _&lt;array&gt;_
 
-    -   if `a` is a two-dimensional array, a zero-dimensional array containing the trace; otherwise, a multi-dimensional array containing the traces.
+    -   if `x` is a two-dimensional array, a zero-dimensional array containing the trace; otherwise, a multi-dimensional array containing the traces.
     
-        The shape of a multi-dimensional output array is determined by removing `axis1` and `axis2` and storing the traces in the last array dimension. For example, if `a` has rank `k` and shape `(I, J, K, ..., L, M, N)` and `axis1=-2` and `axis1=-1`, then a multi-dimensional output array has rank `k-2` and shape `(I, J, K, ..., L)` where
+        The shape of a multi-dimensional output array is determined by removing `axis1` and `axis2` and storing the traces in the last array dimension. For example, if `x` has rank `k` and shape `(I, J, K, ..., L, M, N)` and `axis1=-2` and `axis1=-1`, then a multi-dimensional output array has rank `k-2` and shape `(I, J, K, ..., L)` where
     
         ```text
         out[i, j, k, ..., l] = trace(a[i, j, k, ..., l, :, :])
         ```
 
-### <a name="transpose" href="#transpose">#</a> transpose(a, /, *, axes=None)
+### <a name="transpose" href="#transpose">#</a> transpose(x, /, *, axes=None)
 
-Transposes (or permutes the axes (dimensions)) of an array `a`.
+Transposes (or permutes the axes (dimensions)) of an array `x`.
 
 #### Parameters
 
--   **a**: _&lt;array&gt;_
+-   **x**: _&lt;array&gt;_
 
     -   input array.
 
 -   **axes**: _Optional\[ Tuple\[ int, ... ] ]_
 
-    -   tuple containing a permutation of `(0, 1, ..., N-1)` where `N` is the number of axes (dimensions) of `a`. If `None`, the axes (dimensions) are permuted in reverse order (i.e., equivalent to setting `axes=(N-1, ..., 1, 0)`). Default: `None`.
+    -   tuple containing a permutation of `(0, 1, ..., N-1)` where `N` is the number of axes (dimensions) of `x`. If `None`, the axes (dimensions) are permuted in reverse order (i.e., equivalent to setting `axes=(N-1, ..., 1, 0)`). Default: `None`.
 
 #### Returns
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the transpose. Must have the same data type as `a`.
+    -   an array containing the transpose. Must have the same data type as `x`.
