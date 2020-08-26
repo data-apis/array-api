@@ -56,3 +56,19 @@ Returns the indices of the minimum values along a specified axis. When the minim
 -   **out**: _&lt;array&gt;_
 
     -   if `axis` is `None`, a zero-dimensional array containing the index of the first occurrence of the minimum value; otherwise, a non-zero-dimensional array containing the indices of the minimum values.
+
+### <a name="nonzero" href="#nonzero">#</a> nonzero(x, /)
+
+Return the indices of the array elements which are non-zero.
+
+#### Parameters
+
+-   **x**: _&lt;array&gt;_
+
+    -   input array.
+
+#### Returns
+
+-   **out**: _Tuple\[ &lt;array&gt;, ... ]_
+
+    -   a tuple of arrays, one for each dimension of `x`, containing the indices of the non-zero elements in that dimension. The indices must be returned in row-major, C-style order.
