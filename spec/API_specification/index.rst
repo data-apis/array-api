@@ -14,3 +14,4 @@ API specification
    out_keyword
    elementwise_functions
    statistical_functions
+   set_functions
