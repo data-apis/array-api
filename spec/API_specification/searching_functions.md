@@ -96,6 +96,6 @@ Returns elements chosen from `x1` or `x2` depending on `condition`.
 
 #### Returns
 
--   **out**: _Tuple\[ &lt;array&gt;, ... ]_
+-   **out**: _&lt;array&gt;_
 
     -   an array with elements from `x1` where `condition` is truthy, and elements from `x2` elsewhere.
