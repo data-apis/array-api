@@ -1,11 +1,14 @@
 # Searching Functions
 
-> Array API specification for sorting functions.
+> Array API specification for functions for searching arrays.
+
 A conforming implementation of the array API standard must provide and support the following functions adhering to the following conventions.
 
 -   Positional parameters must be [positional-only](https://www.python.org/dev/peps/pep-0570/) parameters. Positional-only parameters have no externally-usable name. When a function accepting positional-only parameters is called, positional arguments are mapped to these parameters based solely on their order.
 -   Optional parameters must be [keyword-only](https://www.python.org/dev/peps/pep-3102/) arguments.
+-   Broadcasting semantics must follow the semantics defined in :ref:`broadcasting`.
 -   Unless stated otherwise, functions must support the data types defined in :ref:`data-types`.
+-   Unless stated otherwise, functions must adhere to the type promotion rules defined in :ref:`type-promotion`.
 
 <!-- NOTE: please keep the functions in alphabetical order -->
 
@@ -71,4 +74,28 @@ Return the indices of the array elements which are non-zero.
 
 -   **out**: _Tuple\[ &lt;array&gt;, ... ]_
 
-    -   a tuple of arrays, one for each dimension of `x`, containing the indices of the non-zero elements in that dimension. The indices must be returned in row-major, C-style order.
+    -   a tuple of `k` arrays, one for each dimension of `x` and each of size `n` (where `n` is the total number of non-zero elements), containing the indices of the non-zero elements in that dimension. The indices must be returned in row-major, C-style order. 
+
+### <a name="where" href="#where">#</a> where(condition, x1, x2, /)
+
+Return elements chosen from `x1` or `x2` depending on `condition`.
+
+#### Parameters
+
+-   **condition**: _&lt;array&gt;_
+
+    -   when truthy, yield `x1_i`; otherwise, yield `x2_i`. Must be compatible with `x1` and `x2` (see :ref:`broadcasting`). 
+
+-   **x1**: _&lt;array&gt;_
+
+    -   first input array. Must be compatible with `condition` and `x2` (see :ref:`broadcasting`). 
+
+-   **x2**: _&lt;array&gt;_
+
+    -   second input array. Must be compatible with `x1` and `condition` (see :ref:`broadcasting`). 
+
+#### Returns
+
+-   **out**: _Tuple\[ &lt;array&gt;, ... ]_
+
+    -   an array with elements from `x1` where `condition` is truthy, and elements from `x2` elsewhere.
