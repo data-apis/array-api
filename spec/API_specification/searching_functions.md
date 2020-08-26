@@ -101,7 +101,7 @@ Returns elements chosen from `x1` or `x2` depending on `condition`.
 
 -   **x2**: _&lt;array&gt;_
 
-    -   second input array. Must be compatible with `x1` and `condition` (see :ref:`broadcasting`). 
+    -   second input array. Must be compatible with `condition` and `x1` (see :ref:`broadcasting`). 
 
 #### Returns
 
