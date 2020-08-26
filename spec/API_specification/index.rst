@@ -13,4 +13,5 @@ API specification
    broadcasting
    out_keyword
    elementwise_functions
+   statistical_functions
    linear_algebra_functions
