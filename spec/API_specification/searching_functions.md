@@ -82,9 +82,9 @@ Returns elements chosen from `x1` or `x2` depending on `condition`.
 
 #### Parameters
 
--   **condition**: _&lt;array&gt;_
+-   **condition**: _&lt;array&lt;bool&gt;&gt;_
 
-    -   when truthy, yield `x1_i`; otherwise, yield `x2_i`. Must be compatible with `x1` and `x2` (see :ref:`broadcasting`). 
+    -   when `True`, yield `x1_i`; otherwise, yield `x2_i`. Must be compatible with `x1` and `x2` (see :ref:`broadcasting`). 
 
 -   **x1**: _&lt;array&gt;_
 
@@ -98,4 +98,4 @@ Returns elements chosen from `x1` or `x2` depending on `condition`.
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array with elements from `x1` where `condition` is truthy, and elements from `x2` elsewhere.
+    -   an array with elements from `x1` where `condition` is `True`, and elements from `x2` elsewhere.
