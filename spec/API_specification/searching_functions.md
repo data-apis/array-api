@@ -62,7 +62,7 @@ Returns the indices of the minimum values along a specified axis. When the minim
 
 ### <a name="nonzero" href="#nonzero">#</a> nonzero(x, /)
 
-Return the indices of the array elements which are non-zero.
+Returns the indices of the array elements which are non-zero.
 
 #### Parameters
 
@@ -78,7 +78,7 @@ Return the indices of the array elements which are non-zero.
 
 ### <a name="where" href="#where">#</a> where(condition, x1, x2, /)
 
-Return elements chosen from `x1` or `x2` depending on `condition`.
+Returns elements chosen from `x1` or `x2` depending on `condition`.
 
 #### Parameters
 
