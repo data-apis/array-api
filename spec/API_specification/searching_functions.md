@@ -68,7 +68,7 @@ Returns the indices of the array elements which are non-zero.
 
 -   **x**: _&lt;array&gt;_
 
-    -   input array.
+    -   input array. Must have a positive rank. If `x` is zero-dimensional, the function must raise an exception.
 
 #### Returns
 
