@@ -394,6 +394,98 @@ Calculates an implementation-dependent approximation to the natural (base `e`) l
 
     -   an array containing the evaluated natural logarithm for each element in `x`.
 
+### <a name="logical_and" href="#logical_and">#</a> logical_and(x1, x2, /, *, out=None)
+
+Computes the logical AND for each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`. Zeros should be considered the equivalent of `False`, while non-zeros should be considered the equivalent of `True`.
+
+#### Parameters
+
+-   **x1**: _&lt;array&gt;_
+
+    -   first input array.
+
+-   **x2**: _&lt;array&gt;_
+
+    -   second input array. Must be compatible with `x1` (see :ref:`broadcasting`). 
+
+-   **out**:  _Optional\[ &lt;array&gt; ]_
+
+    -   output array. If provided, the output array must be compatible with the provided input arrays (see :ref:`broadcasting`). If not provided or is `None`, an uninitialized return array, whose underlying data type is `bool`, must be created and then filled with the result of each element-wise computation. Default: `None`.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the element-wise results.
+
+### <a name="logical_not" href="#logical_not">#</a> logical_not(x, /, *, out=None)
+
+Computes the logical NOT for each element `x_i` of the input array `x`. Zeros should be considered the equivalent of `False`, while non-zeros should be considered the equivalent of `True`.
+
+#### Parameters
+
+-   **x**: _&lt;array&gt;_
+
+    -   input array. 
+
+-   **out**:  _Optional\[ &lt;array&gt; ]_
+
+    -   output array. If provided, the output array must be compatible with the provided input array `x` (see :ref:`broadcasting`). If not provided or is `None`, an uninitialized return array, whose underlying data type is `bool`, must be created and then filled with the result of each element-wise computation. Default: `None`.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the element-wise results.
+
+### <a name="logical_or" href="#logical_or">#</a> logical_or(x1, x2, /, *, out=None)
+
+Computes the logical OR for each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`. Zeros should be considered the equivalent of `False`, while non-zeros should be considered the equivalent of `True`.
+
+#### Parameters
+
+-   **x1**: _&lt;array&gt;_
+
+    -   first input array.
+
+-   **x2**: _&lt;array&gt;_
+
+    -   second input array. Must be compatible with `x1` (see :ref:`broadcasting`). 
+
+-   **out**:  _Optional\[ &lt;array&gt; ]_
+
+    -   output array. If provided, the output array must be compatible with the provided input arrays (see :ref:`broadcasting`). If not provided or is `None`, an uninitialized return array, whose underlying data type is `bool`, must be created and then filled with the result of each element-wise computation. Default: `None`.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the element-wise results.
+
+### <a name="logical_xor" href="#logical_xor">#</a> logical_xor(x1, x2, /, *, out=None)
+
+Computes the logical XOR for each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`. Zeros must should be considered the equivalent of `False`, while non-zeros must should be considered the equivalent of `True`.
+
+#### Parameters
+
+-   **x1**: _&lt;array&gt;_
+
+    -   first input array.
+
+-   **x2**: _&lt;array&gt;_
+
+    -   second input array. Must be compatible with `x1` (see :ref:`broadcasting`). 
+
+-   **out**:  _Optional\[ &lt;array&gt; ]_
+
+    -   output array. If provided, the output array must be compatible with the provided input arrays (see :ref:`broadcasting`). If not provided or is `None`, an uninitialized return array, whose underlying data type is `bool`, must be created and then filled with the result of each element-wise computation. Default: `None`.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the element-wise results.
+
 ### <a name="multiply" href="#multiply">#</a> multiply(x1, x2, /, *, out=None)
 
 Calculates the product for each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`.
