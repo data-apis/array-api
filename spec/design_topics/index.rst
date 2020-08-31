@@ -12,5 +12,6 @@ Design topics & constraints
    array_ducktyping
    data_interchange
    missing_data
+   accuracy
    portability
    C_API
