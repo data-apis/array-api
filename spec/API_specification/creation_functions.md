@@ -130,3 +130,27 @@ Returns a new array having a specified `shape` and filled with `fill_value`.
 -   **out**: _&lt;array&gt;_
 
     -   an array where every element is equal to `fill_value`.
+
+### <a name="full_like" href="#full_like">#</a> full_like(x, fill_value, /, *, dtype=None)
+
+Returns a new array with the same `shape` as an input array `x` and filled with `fill_value`.
+
+#### Parameters
+
+-   **x**: _&lt;array&gt;_
+
+    -   input array from which to derive the output array shape. If `dtype` is not provided, the output array data type must be inferred from `x`.
+
+-   **fill_value**: _Union\[ int, float ] ]_
+
+    -   fill value.
+
+-   **dtype**: _Optional\[ TODO ]_ 
+
+    -   output array data type. Default: `None`.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array having the same shape as `x` and where every element is equal to `fill_value`.
