@@ -154,3 +154,37 @@ Returns a new array with the same `shape` as an input array `x` and filled with 
 -   **out**: _&lt;array&gt;_
 
     -   an array having the same shape as `x` and where every element is equal to `fill_value`.
+
+### <a name="linspace" href="#linspace">#</a> linspace(start, stop, /, *, num=50, dtype=None, endpoint=True)
+
+Returns evenly spaced numbers over a specified interval.
+
+#### Parameters
+
+-   **start**: _Union\[ int, float ]_
+
+    -   the start of the interval.
+
+-   **stop**: _Union\[ int, float ]_
+
+    -   the end of the interval. If `endpoint` is `False`, the function must generate a sequence of `num+1` evenly spaced numbers starting with `start` and ending with `stop` and exclude the `stop` from the returned array such that the returned array consists of evenly spaced numbers over the half-open interval `[start, stop)`. If `endpoint` is `True`, the output array must consist of evenly spaced numbers over the closed interval `[start, stop]`. Default: `True`.
+       
+        _Note: that the step size changes when `endpoint` is `False`._
+
+-   **num**: _Optional\[ int ]_
+
+    -   number of samples. Must be a non-negative value; otherwise, throw an exception. Default: `50`.
+
+-   **dtype**: _Optional\[ TODO ]_ 
+
+    -   output array data type. Default: `None`.
+
+-   **endpoint**: _Optional\[ bool ]_
+
+    -   boolean indicating whether to include `stop` in the interval. Default: `True`.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   a one-dimensional array containing evenly spaced values.
