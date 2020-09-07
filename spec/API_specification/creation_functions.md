@@ -78,3 +78,31 @@ Returns an uninitialized array with the same `shape` as an input array `x`.
 -   **out**: _&lt;array&gt;_
 
     -   an array having the same shape as `x` and containing uninitialized data.
+
+### <a name="eye" href="#eye">#</a> eye(N, /, *, M=None, k=0, dtype=None)
+
+Returns a two-dimensional array with ones on the `k`th diagonal and zeros elsewhere.
+
+#### Parameters
+
+-   **N**: _int_
+
+    -   number of rows in the output array.
+
+-   **M**: _Optional\[ int ]_
+
+    -   number of columns in the output array. If `None`, the default number of columns in the output array is `N`. Default: `None`.
+
+-   **k**: _Optional\[ int ]_
+
+    -   index of the diagonal. A positive value refers to an upper diagonal, a negative value to a lower diagonal, and `0` to the main diagonal. Default: `0`.
+
+-   **dtype**: _Optional\[ TODO ]_ 
+
+    -   output array data type. Default: `None`.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array where all elements are equal to zero, except for the `k`th diagonal, whose values are equal to one.
