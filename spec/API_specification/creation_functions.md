@@ -41,11 +41,11 @@ Returns evenly spaced values within the half-open interval `[start, stop)` as a 
 
 ### <a name="empty" href="#empty">#</a> empty(shape, /, *, dtype=None)
 
-Returns an uninitialized array of given `shape` and data type.
+Returns an uninitialized array having a  specified `shape`.
 
 #### Parameters
 
--   **shape**: _Optional\[ Union\[ int, Tuple\[ int, ... ] ] ]_
+-   **shape**: _Union\[ int, Tuple\[ int, ... ] ]_
 
     -   output array shape.
 
@@ -106,3 +106,27 @@ Returns a two-dimensional array with ones on the `k`th diagonal and zeros elsewh
 -   **out**: _&lt;array&gt;_
 
     -   an array where all elements are equal to zero, except for the `k`th diagonal, whose values are equal to one.
+
+### <a name="full" href="#full">#</a> full(shape, fill_value, /, *, dtype=None)
+
+Returns a new array having a specified `shape` and filled with `fill_value`.
+
+#### Parameters
+
+-   **shape**: _Union\[ int, Tuple\[ int, ... ] ]_
+
+    -   output array shape.
+
+-   **fill_value**: _Union\[ int, float ] ]_
+
+    -   fill value.
+
+-   **dtype**: _Optional\[ TODO ]_ 
+
+    -   output array data type. Default: `None`.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array where every element is equal to `fill_value`.
