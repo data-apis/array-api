@@ -12,5 +12,6 @@ API specification
    casting
    broadcasting
    out_keyword
+   creation_functions
    elementwise_functions
    statistical_functions
