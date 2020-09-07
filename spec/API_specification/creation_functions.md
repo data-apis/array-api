@@ -41,7 +41,7 @@ Returns evenly spaced values within the half-open interval `[start, stop)` as a 
 
 ### <a name="empty" href="#empty">#</a> empty(shape, /, *, dtype=None)
 
-Returns an uninitialized array having a  specified `shape`.
+Returns an uninitialized array having a specified `shape`.
 
 #### Parameters
 
@@ -67,11 +67,11 @@ Returns an uninitialized array with the same `shape` as an input array `x`.
 
 -   **x**: _&lt;array&gt;_
 
-    -   input array from which to derive the output array shape. If `dtype` is not provided, the output array data type must be inferred from `x`.
+    -   input array from which to derive the output array shape.
 
 -   **dtype**: _Optional\[ TODO ]_ 
 
-    -   output array data type. Default: `None`.
+    -   output array data type. If `dtype` is `None`, the output array data type must be inferred from `x`. Default: `None`.
 
 #### Returns
 
@@ -139,7 +139,7 @@ Returns a new array with the same `shape` as an input array `x` and filled with 
 
 -   **x**: _&lt;array&gt;_
 
-    -   input array from which to derive the output array shape. If `dtype` is not provided, the output array data type must be inferred from `x`.
+    -   input array from which to derive the output array shape.
 
 -   **fill_value**: _Union\[ int, float ] ]_
 
@@ -147,7 +147,7 @@ Returns a new array with the same `shape` as an input array `x` and filled with 
 
 -   **dtype**: _Optional\[ TODO ]_ 
 
-    -   output array data type. Default: `None`.
+    -   output array data type. If `dtype` is `None`, the output array data type must be inferred from `x`. Default: `None`.
 
 #### Returns
 
@@ -188,3 +188,43 @@ Returns evenly spaced numbers over a specified interval.
 -   **out**: _&lt;array&gt;_
 
     -   a one-dimensional array containing evenly spaced values.
+
+### <a name="ones" href="#ones">#</a> ones(shape, /, *, dtype=None)
+
+Returns a new array having a specified `shape` and filled with ones.
+
+#### Parameters
+
+-   **shape**: _Union\[ int, Tuple\[ int, ... ] ]_
+
+    -   output array shape.
+
+-   **dtype**: _Optional\[ TODO ]_ 
+
+    -   output array data type. Default: `None`.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing ones.
+
+### <a name="ones_like" href="#ones_like">#</a> ones_like(x, /, *, dtype=None)
+
+Returns a new array with the same `shape` as an input array `x` and filled with ones.
+
+#### Parameters
+
+-   **x**: _&lt;array&gt;_
+
+    -   input array from which to derive the output array shape.
+
+-   **dtype**: _Optional\[ TODO ]_ 
+
+    -   output array data type. If `dtype` is `None`, the output array data type must be inferred from `x`. Default: `None`.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array having the same shape as `x` and filled with ones.
