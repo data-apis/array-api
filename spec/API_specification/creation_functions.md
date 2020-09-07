@@ -38,3 +38,43 @@ Returns evenly spaced values within the half-open interval `[start, stop)` as a 
 -   **out**: _&lt;array&gt;_
 
     -   a one-dimensional array containing evenly spaced values. The length of the output array must be `ceil((stop-start)/step)`.
+
+### <a name="empty" href="#empty">#</a> empty(shape, /, *, dtype=None)
+
+Returns an uninitialized array of given `shape` and data type.
+
+#### Parameters
+
+-   **shape**: _Optional\[ Union\[ int, Tuple\[ int, ... ] ] ]_
+
+    -   output array shape.
+
+-   **dtype**: _Optional\[ TODO ]_ 
+
+    -   output array data type. Default: `None`.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing uninitialized data.
+
+### <a name="empty_like" href="#empty_like">#</a> empty_like(x, /, *, dtype=None)
+
+Returns an uninitialized array with the same `shape` as an input array `x`.
+
+#### Parameters
+
+-   **x**: _&lt;array&gt;_
+
+    -   input array from which to derive the output array shape. If `dtype` is not provided, the output array data type must be inferred from `x`.
+
+-   **dtype**: _Optional\[ TODO ]_ 
+
+    -   output array data type. Default: `None`.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array having the same shape as `x` and containing uninitialized data.
