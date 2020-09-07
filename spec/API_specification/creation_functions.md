@@ -133,7 +133,7 @@ Returns a new array having a specified `shape` and filled with `fill_value`.
 
 ### <a name="full_like" href="#full_like">#</a> full_like(x, fill_value, /, *, dtype=None)
 
-Returns a new array with the same `shape` as an input array `x` and filled with `fill_value`.
+Returns a new array filled with `fill_value` and having the same `shape` as an input array `x`.
 
 #### Parameters
 
@@ -211,7 +211,7 @@ Returns a new array having a specified `shape` and filled with ones.
 
 ### <a name="ones_like" href="#ones_like">#</a> ones_like(x, /, *, dtype=None)
 
-Returns a new array with the same `shape` as an input array `x` and filled with ones.
+Returns a new array filled with ones and having the same `shape` as an input array `x`.
 
 #### Parameters
 
@@ -228,3 +228,43 @@ Returns a new array with the same `shape` as an input array `x` and filled with 
 -   **out**: _&lt;array&gt;_
 
     -   an array having the same shape as `x` and filled with ones.
+
+### <a name="zeros" href="#zeros">#</a> zeros(shape, /, *, dtype=None)
+
+Returns a new array having a specified `shape` and filled with zeros.
+
+#### Parameters
+
+-   **shape**: _Union\[ int, Tuple\[ int, ... ] ]_
+
+    -   output array shape.
+
+-   **dtype**: _Optional\[ TODO ]_ 
+
+    -   output array data type. Default: `None`.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing zeros.
+
+### <a name="zeros_like" href="#zeros_like">#</a> zeros_like(x, /, *, dtype=None)
+
+Returns a new array filled with zeros and having the same `shape` as an input array `x`.
+
+#### Parameters
+
+-   **x**: _&lt;array&gt;_
+
+    -   input array from which to derive the output array shape.
+
+-   **dtype**: _Optional\[ TODO ]_ 
+
+    -   output array data type. If `dtype` is `None`, the output array data type must be inferred from `x`. Default: `None`.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array having the same shape as `x` and filled with zeros.
