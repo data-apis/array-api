@@ -29,6 +29,48 @@ For guidance on how to read and understand the type annotations included in this
 
 ## How to adopt this API
 
+Most (all) existing array libraries will find something in this API standard
+that is incompatible with a current implementation, and that they cannot
+change due to backwards compatibility concerns. Therefore we expect that each
+of those libraries will want to offer a standard-compliant API in a _new
+namespace_. The question then becomes: how does a user access this namespace?
+
+The simplest method is: document the import to use to directly access the
+namespace (e.g. `import package_name.array_api`). This has two issues though:
+
+1. Array-consuming libraries that want to support multiple array libraries
+   then have to explicitly import each library.
+2. It is difficult to _version_ the array API standard implementation (see
+   :ref:`api-versioning`).
+
+To address both issues, a uniform method must be provided by a conforming
+implementation to access the API namespace, namely a function:
+
+```
+mod = x.__array_namespace__(api_version='2020.10')
+```
+
+TBD: what should the naming convention be for the namespace (`mod` above)?
+
+.. note::
+
+    This is inspired by [NEP 37](https://numpy.org/neps/nep-0037-array-module.html#how-to-use-get-array-module),
+    however it avoids adding a dependency on NumPy or having to provide a
+    separate package just to do `get_array_module(x)`
+
+    NEP 37 is still in flux (it was just accepted by JAX and TensorFlow on an
+    experimental basis), and it's possible that that should be accepted instead.
+
+    TBD: a decision must be made on this topic before a first version of the
+    standard can become final. We prefer to delay this decision, to see how
+    NEP 37 adoption will work out.
+
+The `mod` namespace must contain the array object and all functionality
+specified in :ref:`api-specification`. It may contain other functionality,
+however it is recommended not to add other functions or objects, because that
+may make it harder for users to write code that will work with multiple array
+libraries.
+
 
 * * *
 

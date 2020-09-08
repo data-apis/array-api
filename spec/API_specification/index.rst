@@ -1,3 +1,5 @@
+.. _api-specification:
+
 API specification
 =================
 
@@ -17,3 +19,9 @@ API specification
    statistical_functions
    searching_functions
    linear_algebra_functions
+
+
+.. _api-versioning:
+
+TODO: add `__array_api_version__` (or similar) version here, and the way to
+      retrieve it - see https://github.com/data-apis/workgroup/issues/24
