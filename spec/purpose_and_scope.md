@@ -50,6 +50,10 @@ For the purposes of this specification, the following terms and definitions appl
 
 a (usually fixed-size) multidimensional container of items of the same type and size.
 
+### axis
+
+an array dimension.
+
 ### broadcast
 
 automatic (implicit) expansion of array dimensions to be of equal sizes without copying array data for the purpose of making arrays with different shapes have compatible shapes for element-wise operations.
@@ -62,6 +66,10 @@ two arrays whose dimensions are compatible (i.e., where the size of each dimensi
 
 an operation performed element-by-element, in which individual array elements are considered in isolation and independently of other elements within the same array.
 
+### matrix
+
+a two-dimensional array.
+
 ### rank
 
 number of array dimensions (not to be confused with the number of linearly independent columns of a matrix).
@@ -73,6 +81,10 @@ a tuple of `N` non-negative integers that specify the sizes of each dimension an
 ### singleton dimension
 
 a dimension whose size is one.
+
+### vector
+
+a one-dimensional array.
 
 * * *
 
