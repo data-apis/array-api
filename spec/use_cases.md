@@ -19,6 +19,14 @@ considered, and then works out a few concrete use cases in more detail.
 
 ## Concrete use cases
 
+- :ref:`use-case-scipy`
+- :ref:`use-case-einops`
+- :ref:`use-case-xtensor`
+- :ref:`use-case-numba`
+
+
+.. _use-case-scipy:
+
 ### Use case 1: add GPU and distributed support to SciPy
 
 When surveying a representative set of advanced users and research software
@@ -111,6 +119,8 @@ and have `freq`, `Pxx` be arrays of the same type and on the same device as `x`.
     scikit-bio, to code written for a single purpose or user.
 
 
+.. _use-case-einops:
+
 ### Use case 2: simplify einops by removing the backend system
 
 [einops](https://github.com/arogozhnikov/einops) is a library that provides flexible tensor operations and supports many array libraries (NumPy, TensorFlow, PyTorch, CuPy, MXNet, JAX).
@@ -145,6 +155,8 @@ Hence the complete `einops` code base could be close to 50% smaller, and easier 
     array types in a single API.
 
 
+.. _use-case-xtensor:
+
 ### Use case 3: adding a Python API to xtensor
 
 [xtensor](https://github.com/xtensor-stack/xtensor) is a C++ array library
@@ -173,6 +185,8 @@ without having to make the above-mentioned choices.
     Array implementations in other languages are often in a similar situation,
     and could translate this array API standard 1:1 to their language.
 
+
+.. _use-case-numba:
 
 ### Use case 4: make JIT compilation of array computations easier and more robust
 
