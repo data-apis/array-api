@@ -109,3 +109,37 @@ and have `freq`, `Pxx` be arrays of the same type and on the same device as `x`.
     This type of use case applies to many other libraries, from scikit-learn
     and scikit-image to domain-specific libraries like AstroPy and
     scikit-bio, to code written for a single purpose or user.
+
+
+### Use case 2: simplify einops by removing the backend system
+
+[einops](https://github.com/arogozhnikov/einops) is a library that provides flexible tensor operations and supports many array libraries (NumPy, TensorFlow, PyTorch, CuPy, MXNet, JAX).
+Most of the code in `einops` is:
+
+- [einops.py](https://github.com/arogozhnikov/einops/blob/master/einops/einops.py)
+  contains the functions it offers as public API (`rearrange`, `reduce`, `repeat`).
+- [_backends.py](https://github.com/arogozhnikov/einops/blob/master/einops/_backends.py)
+  contains the glue code needed to support that many array libraries.
+
+The amount of code in each of those two files is almost the same (~550 LoC each).
+The typical pattern in `einops.py` is:
+```
+def some_func(x):
+    ...
+    backend = get_backend(x)
+    shape = backend.shape(x)
+    result = backend.reduce(x)
+    ...
+```
+With a standard array API, the `_backends.py` glue layer could almost completely disappear,
+because the purpose it serves (providing a unified interface to array operations from each
+of the supported backends) is already addressed by the array API standard.
+Hence the complete `einops` code base could be close to 50% smaller, and easier to maintain or add to.
+
+.. note::
+
+    Other libraries that have a similar backend system to support many array libraries
+    include [TensorLy](https://github.com/tensorly/tensorly),
+    [Unumpy](https://github.com/Quansight-Labs/unumpy) and
+    [EagerPy](https://github.com/jonasrauber/eagerpy). Many end users and organizations will also have such glue code - it tends to be needed whenever one tries to support multiple
+    array types in a single API.
