@@ -143,3 +143,32 @@ Hence the complete `einops` code base could be close to 50% smaller, and easier 
     [Unumpy](https://github.com/Quansight-Labs/unumpy) and
     [EagerPy](https://github.com/jonasrauber/eagerpy). Many end users and organizations will also have such glue code - it tends to be needed whenever one tries to support multiple
     array types in a single API.
+
+
+### Use case 3: adding a Python API to xtensor
+
+[xtensor](https://github.com/xtensor-stack/xtensor) is a C++ array library
+that is NumPy-inspired and provides lazy arrays. It has Python (and Julia and R)
+bindings, however it does not have a Python array API.
+
+Xtensor aims to follow NumPy closely, however it only implements a subset of functionality
+and documents some API differences in
+[Notable differences with NumPy](https://xtensor.readthedocs.io/en/latest/numpy-differences.html).
+
+Note that other libraries document similar differences, see for example
+[this page for JAX](https://jax.readthedocs.io/en/latest/jax.numpy.html) and
+[this page for TensorFlow](https://www.tensorflow.org/guide/tf_numpy).
+
+Each time an array library author designs a new API, they have to choose (a)
+what subset of NumPy makes sense to implement, and (b) where to deviate
+because NumPy's API for a particular function is suboptimal or the semantics
+don't fit their execution model.
+
+This array API standard aims to provide an API that can be readily adopted,
+without having to make the above-mentioned choices.
+
+.. note::
+
+    XND is another array library, written in C, that still needs a Python API.
+    Array implementations in other languages are often in a similar situation,
+    and could translate this array API standard 1:1 to their language.
