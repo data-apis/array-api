@@ -172,3 +172,43 @@ without having to make the above-mentioned choices.
     XND is another array library, written in C, that still needs a Python API.
     Array implementations in other languages are often in a similar situation,
     and could translate this array API standard 1:1 to their language.
+
+
+### Use case 4: make JIT compilation of array computations easier and more robust
+
+[Numba](https://github.com/numba/numba) is a Just-In-Time (JIT) compiler for
+numerical functions in Python; it is NumPy-aware. [PyPy](https://pypy.org)
+is an implementation of Python with a JIT at its core; its NumPy support relies
+on running NumPy itself through a compatibility layer (`cpyext`), while a
+previous attempt to implement NumPy support directly was unsuccessful.
+
+Other array libraries may have an internal JIT (e.g., TensorFlow, PyTorch,
+JAX, MXNet) or work with an external JIT like
+[XLA](https://www.tensorflow.org/xla) or [VTA](https://tvm.apache.org/docs/vta/index.html).
+
+Numba currently has to jump through some hoops to accommodate NumPy's casting rules
+and may not attain full compatibility with NumPy in some cases - see, e.g.,
+[this](https://github.com/numba/numba/issues/4749) or
+[this](https://github.com/numba/numba/issues/5907) example issue regarding (array) scalar
+return values.
+
+An [explicit suggestion from a Numba developer](https://twitter.com/esc___/status/1295389487485333505)
+for this array API standard was:
+
+> for JIT compilers (e.g. Numba) it will be important, that the type of the
+  returned value(s) depends only on the *types* of the input but not on the
+  *values*.
+
+A concrete goal for this use case is to have better matching between
+JIT-compiled and non-JIT execution. Here is an example from the Numba code
+base, the need for which should be avoided in the future:
+
+```
+def check(x, y):
+    got = cfunc(x, y)
+    np.testing.assert_array_almost_equal(got, pyfunc(x, y))
+    # Check the power operation conserved the input's dtype
+    # (this is different from Numpy, whose behaviour depends on
+    #  the *values* of the arguments -- see PyArray_CanCastArrayTo).
+    self.assertEqual(got.dtype, x.dtype)
+```
