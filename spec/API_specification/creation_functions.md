@@ -155,7 +155,7 @@ Returns a new array filled with `fill_value` and having the same `shape` as an i
 
     -   an array having the same shape as `x` and where every element is equal to `fill_value`.
 
-### <a name="linspace" href="#linspace">#</a> linspace(start, stop, /, *, num=50, dtype=None, endpoint=True)
+### <a name="linspace" href="#linspace">#</a> linspace(start, stop, num, /, *, dtype=None, endpoint=True)
 
 Returns evenly spaced numbers over a specified interval.
 
@@ -171,9 +171,9 @@ Returns evenly spaced numbers over a specified interval.
        
         _Note: that the step size changes when `endpoint` is `False`._
 
--   **num**: _Optional\[ int ]_
+-   **num**: _int_
 
-    -   number of samples. Must be a non-negative value; otherwise, throw an exception. Default: `50`.
+    -   number of samples. Must be a non-negative integer value; otherwise, the function must throw an exception.
 
 -   **dtype**: _Optional\[ TODO ]_ 
 
