@@ -5,6 +5,7 @@ API specification
    :caption: API specification
    :maxdepth: 1
 
+   function_and_method_signatures
    array_object
    indexing
    data_types
@@ -15,3 +16,4 @@ API specification
    creation_functions
    elementwise_functions
    statistical_functions
+   linear_algebra_functions
