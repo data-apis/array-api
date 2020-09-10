@@ -806,7 +806,7 @@ Returns an indication of the sign of a number for each element `x_i` of the inpu
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the evaluated result for each element in `x`.
+    -   an array containing the evaluated result for each element in `x`. If `out` is `None`, the returned array must have the same data type as `x`.
 
 ### <a name="sin" href="#sin">#</a> sin(x, /, *, out=None)
 
