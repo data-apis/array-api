@@ -36,9 +36,13 @@ The results of the element-wise operation must be stored in an array having a sh
 
 1.  Repeat, while `i >= 0`
 
-	1.  If `N1-N+i >= 0`, let `d1` be the size of dimension `n` for array `A` (i.e., the result of `shape1[i]`); else, let `d1` be `1`.
+	1.  Let `n1` be `N1 - N + i`.
 
-	1.  If `N2-N+i >= 0`, let `d2` be the size of dimension `n` for array `B` (i.e., the result of `shape2[i]`); else, let `d2` be `1`.
+	1.  If `n1 >= 0`, let `d1` be the size of dimension `n1` for array `A` (i.e., the result of `shape1[n1]`); else, let `d1` be `1`.
+
+	1.  Let `n2` be `N2 - N + i`.
+
+	1.  If `n2 >= 0`, let `d2` be the size of dimension `n2` for array `B` (i.e., the result of `shape2[n2]`); else, let `d2` be `1`.
 
 	1.  If `d1 == 1`, then
 		
