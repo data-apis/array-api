@@ -27,7 +27,7 @@ considered, and then works out a few concrete use cases in more detail.
 
 .. _use-case-scipy:
 
-### Use case 1: add GPU and distributed support to SciPy
+### Use case 1: add hardware accelerator and distributed support to SciPy
 
 When surveying a representative set of advanced users and research software
 engineers in 2019 (for [this NSF proposal](https://figshare.com/articles/Mid-Scale_Research_Infrastructure_-_The_Scientific_Python_Ecosystem/8009441)),
@@ -39,7 +39,8 @@ single-threaded. Common performance-related wishes users have are:
 
 - parallel algorithms (can be multi-threaded or multiprocessing based)
 - support for distributed arrays (with Dask in particular)
-- support for GPUs
+- support for GPUs and other hardware accelerators (shortened to just "GPU"
+  in the rest of this use case)
 
 Some parallelism can be supported in SciPy, it has a `workers` keyword
 (similar to scikit-learn's `n_jobs` keyword) that allows specifying to use
@@ -149,7 +150,8 @@ Hence the complete `einops` code base could be close to 50% smaller, and easier 
 .. note::
 
     Other libraries that have a similar backend system to support many array libraries
-    include [TensorLy](https://github.com/tensorly/tensorly),
+    include [TensorLy](https://github.com/tensorly/tensorly), the (now discontinued)
+    multi-backend version of [Keras](https://github.com/keras-team/keras),
     [Unumpy](https://github.com/Quansight-Labs/unumpy) and
     [EagerPy](https://github.com/jonasrauber/eagerpy). Many end users and organizations will also have such glue code - it tends to be needed whenever one tries to support multiple
     array types in a single API.
