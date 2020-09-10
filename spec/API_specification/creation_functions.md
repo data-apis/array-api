@@ -173,7 +173,7 @@ Returns evenly spaced numbers over a specified interval.
 
 -   **num**: _int_
 
-    -   number of samples. Must be a non-negative integer value; otherwise, the function must throw an exception.
+    -   number of samples. Must be a non-negative integer value; otherwise, the function must raise an exception.
 
 -   **dtype**: _Optional\[ TODO ]_ 
 
