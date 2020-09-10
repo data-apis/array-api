@@ -370,6 +370,32 @@ Calculates an implementation-dependent approximation to the exponential function
 
     -   an array containing the evaluated exponential function result for each element in `x`.
 
+### <a name="expm1" href="#expm1">#</a> expm1(x, /, *, out=None)
+
+Calculates an implementation-dependent approximation to `exp(x)-1`, having domain `[-infinity, +infinity]` and codomain `[-1, +infinity]`, for each element `x_i` of the input array `x` (`e` raised to the power of `x_i` minus `1`, where `e` is the base of the natural logarithm).
+
+-   If `x_i` is `NaN`, the result is `NaN`.
+-   If `x_i` is `+0`, the result is `+0`.
+-   If `x_i` is `-0`, the result is `-0`.
+-   If `x_i` is `+infinity`, the result is `+infinity`.
+-   If `x_i` is `-infinity`, the result is `-1`.
+
+#### Parameters
+
+-   **x**: _&lt;array&gt;_
+
+    -   input array.
+
+-   **out**:  _Optional\[ &lt;array&gt; ]_
+
+    -   output array. If provided, the output array must be compatible with the provided input array (see :ref:`broadcasting`). If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the evaluated result for each element in `x`.
+
 ### <a name="floor" href="#floor">#</a> floor(x, /, *, out=None)
 
 Rounds each element `x_i` of the input array `x` to the greatest (i.e., closest to `+infinity`) integer-valued number that is not greater than `x_i`.
@@ -513,6 +539,85 @@ Calculates an implementation-dependent approximation to the natural (base `e`) l
 -   **out**: _&lt;array&gt;_
 
     -   an array containing the evaluated natural logarithm for each element in `x`.
+
+### <a name="log1p" href="#log1p">#</a> log1p(x, /, *, out=None)
+
+Calculates an implementation-dependent approximation to the natural (base `e`) logarithm, having domain `[-1, +infinity]` and codomain `[-infinity, +infinity]`, of `1+x_i` for each element `x_i` of the input array `x`.
+
+-   If `x_i` is `NaN`, the result is `NaN`.
+-   If `x_i` is less than `-1`, the result is `NaN`.
+-   If `x_i` is `-1`, the result is `-infinity`.
+-   If `x_i` is `-0`, the result is `-0`.
+-   If `x_i` is `+0`, the result is `+0`.
+-   If `x_i` is `+infinity`, the result is `+infinity`.
+
+#### Parameters
+
+-   **x**: _&lt;array&gt;_
+
+    -   input array.
+
+-   **out**:  _Optional\[ &lt;array&gt; ]_
+
+    -   output array. If provided, the output array must be compatible with the provided input array (see :ref:`broadcasting`). If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the evaluated result for each element in `x`.
+
+### <a name="log2" href="#log2">#</a> log2(x, /, *, out=None)
+
+Calculates an implementation-dependent approximation to the base `2` logarithm, having domain `[0, +infinity]` and codomain `[-infinity, +infinity]`, for each element `x_i` of the input array `x`.
+
+-   If `x_i` is `NaN`, the result is `NaN`.
+-   If `x_i` is less than `0`, the result is `NaN`.
+-   If `x_i` is `+0` or `-0`, the result is `-infinity`.
+-   If `x_i` is `1`, the result is `+0`.
+-   If `x_i` is `+infinity`, the result is `+infinity`.
+
+#### Parameters
+
+-   **x**: _&lt;array&gt;_
+
+    -   input array.
+
+-   **out**:  _Optional\[ &lt;array&gt; ]_
+
+    -   output array. If provided, the output array must be compatible with the provided input array (see :ref:`broadcasting`). If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the evaluated base `2` logarithm for each element in `x`.
+
+### <a name="log10" href="#log10">#</a> log10(x, /, *, out=None)
+
+Calculates an implementation-dependent approximation to the base `10` logarithm, having domain `[0, +infinity]` and codomain `[-infinity, +infinity]`, for each element `x_i` of the input array `x`.
+
+-   If `x_i` is `NaN`, the result is `NaN`.
+-   If `x_i` is less than `0`, the result is `NaN`.
+-   If `x_i` is `+0` or `-0`, the result is `-infinity`.
+-   If `x_i` is `1`, the result is `+0`.
+-   If `x_i` is `+infinity`, the result is `+infinity`.
+
+#### Parameters
+
+-   **x**: _&lt;array&gt;_
+
+    -   input array.
+
+-   **out**:  _Optional\[ &lt;array&gt; ]_
+
+    -   output array. If provided, the output array must be compatible with the provided input array (see :ref:`broadcasting`). If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the evaluated base `10` logarithm for each element in `x`.
 
 ### <a name="logical_and" href="#logical_and">#</a> logical_and(x1, x2, /, *, out=None)
 
@@ -679,6 +784,30 @@ Rounds each element `x_i` of the input array `x` to the nearest integer-valued n
 
     -   an array containing the rounded result for each element in `x`.
 
+### <a name="sign" href="#sign">#</a> sign(x, /, *, out=None)
+
+Returns an indication of the sign of a number for each element `x_i` of the input array `x`.
+
+-   if `x_i` is less than `0`, the result is `-1`.
+-   if `x_i` is `-0` or `+0`, the result is `0`.
+-   if `x_i` is greater than `0`, the result is `+1`.
+
+#### Parameters
+
+-   **x**: _&lt;array&gt;_
+
+    -   input array.
+
+-   **out**:  _Optional\[ &lt;array&gt; ]_
+
+    -   output array. If provided, the output array must be compatible with the provided input array (see :ref:`broadcasting`). If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the evaluated result for each element in `x`.
+
 ### <a name="sin" href="#sin">#</a> sin(x, /, *, out=None)
 
 Calculates an implementation-dependent approximation to the sine, having domain `(-infinity, +infinity)` and codomain `[-1, +1]`, for each element `x_i` of the input array `x`. Each element `x_i` is assumed to be expressed in radians.
@@ -729,6 +858,26 @@ Calculates an implementation-dependent approximation to the hyperbolic sine, hav
 -   **out**: _&lt;array&gt;_
 
     -   an array containing the hyperbolic sine of each element in `x`.
+
+### <a name="square" href="#square">#</a> square(x, /, *, out=None)
+
+Squares (`x_i * x_i`) each element `x_i` of the input array `x`.
+
+#### Parameters
+
+-   **x**: _&lt;array&gt;_
+
+    -   input array.
+
+-   **out**:  _Optional\[ &lt;array&gt; ]_
+
+    -   output array. If provided, the output array must be compatible with the provided input array (see :ref:`broadcasting`). If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the evaluated result for each element in `x`.
 
 ### <a name="sqrt" href="#sqrt">#</a> sqrt(x, /, *, out=None)
 
