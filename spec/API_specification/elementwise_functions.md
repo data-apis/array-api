@@ -372,7 +372,7 @@ Calculates an implementation-dependent approximation to the exponential function
 
 ### <a name="expm1" href="#expm1">#</a> expm1(x, /, *, out=None)
 
-Calculates an implementation-dependent approximation to `exp(x)-1`, having domain `[-infinity, +infinity]` and codomain `[-1, +infinity]`, for each element `x_i` of the input array `x` (`e` raised to the power of `x_i` minus `1`, where `e` is the base of the natural logarithm).
+Calculates an implementation-dependent approximation to `exp(x)-1`, having domain `[-infinity, +infinity]` and codomain `[-1, +infinity]`, for each element `x_i` of the input array `x`.
 
 -   If `x_i` is `NaN`, the result is `NaN`.
 -   If `x_i` is `+0`, the result is `+0`.
