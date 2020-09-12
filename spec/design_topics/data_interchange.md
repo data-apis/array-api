@@ -20,14 +20,10 @@ The interchange mechanism must offer the following:
    per-device protocols it's hard to figure out unambiguous rules for which
    protocol gets used, and the situation will get more complex over time
    as TPU's and other accelerators become more widely available)._
-4. Moving data from one device to another must raise by default, and be
-   explicitly enabled by the user.
-   _Rationale: data transfer is typically very expensive, and hence must not
-   happen silently._
-5. Zero-copy semantics where possible, making a copy only if needed (e.g.
+4. Zero-copy semantics where possible, making a copy only if needed (e.g.
    when data is not contiguous in memory).
    _Rationale: performance._
-6. A stable C ABI.
+5. A stable C ABI.
    _Rationale: all prominent existing array libraries are implemented in
    C/C++, and are released independently from each other. Hence a stable C
    ABI is required for packages to work well together._
@@ -39,3 +35,15 @@ for details.
 TODO: design an appropriate Python API for DLPACK (`to_dlpack` followed by `from_dlpack` is a little clunky, we'd like it to work more like the buffer protocol does on CPU, with a single constructor function).
 
 TODO: specify the expected behaviour with copy/view/move/shared-memory semantics in detail.
+
+
+.. note::
+
+   If an array that is accessed via the interchange protocol lives on a
+   device that the requesting library does not support, one of two things
+   must happen: moving data to another device, or raising an exception.
+   Device transfers are typically expensive, hence doing that silently can
+   lead to hard to detect performance issues. Hence it is
+   recommended to raise an exception, and let the user explicitly enable
+   device transfers via, e.g., a `force=False` keyword that they can set to
+   `True`.
