@@ -15,4 +15,5 @@ API specification
    out_keyword
    elementwise_functions
    statistical_functions
+   searching_functions
    linear_algebra_functions
