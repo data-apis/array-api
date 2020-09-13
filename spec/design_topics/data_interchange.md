@@ -27,6 +27,7 @@ The interchange mechanism must offer the following:
    _Rationale: all prominent existing array libraries are implemented in
    C/C++, and are released independently from each other. Hence a stable C
    ABI is required for packages to work well together._
+6. An 
 
 The best candidate for this protocol is DLPack. See the
 [RFC to adopt DLPack](https://github.com/data-apis/consortium-feedback/issues/1)
@@ -49,7 +50,9 @@ for details.
 
     In addition to the above argument, it is also clear from adoption patterns that DLPack
     has the widest support. The buffer protocol, despite being a lot older and standardized as part of Python itself via PEP 3118, hardly has any support from array libraries.
-    CPU interoperability is mostly dealt with via the NumPy-specific `__array__`.
+    CPU interoperability is mostly dealt with via the NumPy-specific `__array__` (which,
+    when called, means the object it is attached to must return a `numpy.ndarray` containing
+    the data the object holds).
 
 
 TODO: design an appropriate Python API for DLPACK (`to_dlpack` followed by `from_dlpack` is a little clunky, we'd like it to work more like the buffer protocol does on CPU, with a single constructor function).
