@@ -35,7 +35,7 @@ for details.
 
 .. note::
 
-   The main alternatives to DLPack are device-specific methods:
+    The main alternatives to DLPack are device-specific methods:
 
     - The [buffer protocol](https://docs.python.org/dev/c-api/buffer.html) on CPU
     - `__cuda_array_interface__` for CUDA, specified in the Numba documentation
@@ -48,11 +48,13 @@ for details.
     device gets supported by array libraries (e.g. TPUs, AMD GPUs, emerging
     hardware accelerators) also seems undesirable.
 
-    In addition to the above argument, it is also clear from adoption patterns that DLPack
-    has the widest support. The buffer protocol, despite being a lot older and standardized as part of Python itself via PEP 3118, hardly has any support from array libraries.
-    CPU interoperability is mostly dealt with via the NumPy-specific `__array__` (which,
-    when called, means the object it is attached to must return a `numpy.ndarray` containing
-    the data the object holds).
+    In addition to the above argument, it is also clear from adoption
+    patterns that DLPack has the widest support. The buffer protocol, despite
+    being a lot older and standardized as part of Python itself via PEP 3118,
+    hardly has any support from array libraries. CPU interoperability is
+    mostly dealt with via the NumPy-specific `__array__` (which, when called,
+    means the object it is attached to must return a `numpy.ndarray`
+    containing the data the object holds).
 
 
 TODO: design an appropriate Python API for DLPACK (`to_dlpack` followed by `from_dlpack` is a little clunky, we'd like it to work more like the buffer protocol does on CPU, with a single constructor function).
@@ -62,12 +64,10 @@ TODO: specify the expected behaviour with copy/view/move/shared-memory semantics
 
 .. note::
 
-   If an array that is accessed via the interchange protocol lives on a
-   device that the requesting library does not support, one of two things
-   must happen: moving data to another device, or raising an exception.
-   Device transfers are typically expensive, hence doing that silently can
-   lead to hard to detect performance issues. Hence it is
-   recommended to raise an exception, and let the user explicitly enable
-   device transfers via, e.g., a `force=False` keyword that they can set to
-   `True`.
-
+    If an array that is accessed via the interchange protocol lives on a
+    device that the requesting library does not support, one of two things
+    must happen: moving data to another device, or raising an exception.
+    Device transfers are typically expensive, hence doing that silently can
+    lead to hard to detect performance issues. Hence it is recommended to
+    raise an exception, and let the user explicitly enable device transfers
+    via, e.g., a `force=False` keyword that they can set to `True`.
