@@ -6,6 +6,14 @@
 
 ## Backwards compatibility
 
+Functions, objects, keywords and specified behaviour are added to this API standard
+only if those are already present in multiple existing array libraries, and if there is
+data that those APIs are used. Therefore it is highly unlikely that future versions
+of this standard will make backwards-incompatible changes.
+
+The aim is for future versions to be 100% backwards compatible with older versions.
+Any exceptions must have strong rationales, and be clearly documented in the updated
+API specification.
 
 
 ## Versioning
