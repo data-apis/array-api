@@ -47,6 +47,13 @@ To address both issues, a uniform method must be provided by a conforming
 implementation to access the API namespace, namely a function:
 
 ```
+xp = x.__array_namespace__()
+```
+
+The function must take one keyword, `api_version=None`, to make it possible to
+request a specific API version:
+
+```
 xp = x.__array_namespace__(api_version='2020.10')
 ```
 
