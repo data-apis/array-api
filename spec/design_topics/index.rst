@@ -12,6 +12,4 @@ Design topics & constraints
    array_ducktyping
    data_interchange
    device support
-   missing_data
-   portability
    C_API
