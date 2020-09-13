@@ -2,6 +2,16 @@
 
 ## Scope extensions
 
+Proposals for scope extensions in a future version of the API standard will follow
+the process documented at:
+
+TODO: link to specific document in https://github.com/data-apis/governance once
+it is available.
+
+In summary, proposed new APIs go through several maturity stages, and will only be
+accepted in a future version of this API standard once they have reached the "Final"
+maturity stage, which means multiple array libraries have compliant implementations
+and real-world experience from use of those implementations is available.
 
 
 ## Backwards compatibility
