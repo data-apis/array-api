@@ -11,6 +11,7 @@ Design topics & constraints
    static_typing
    array_ducktyping
    data_interchange
+   device support
    missing_data
    portability
    C_API

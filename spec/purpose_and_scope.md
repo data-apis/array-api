@@ -29,6 +29,7 @@ The scope of the array API standard includes:
 - Casting rules, broadcasting, indexing
 - Data interchange. I.e. protocols to convert one type of array into another
   type, potentially sharing memory.
+- Device support.
 
 Furthermore, meta-topics included in this standard include:
 
@@ -127,12 +128,6 @@ extensions are dealt with_):
 
 
 ### TBD whether or not in scope, or for a later version
-
-- Device support (related to array creation on a specific device).
-
-  _This can be important, however there's no uniform syntax for it currently
-  and it may not make sense to add such syntax to libraries that only support a
-  single device type._
 
 - Random number generation, Fourier transforms, and miscellaneous functionality
   like a padding function.
