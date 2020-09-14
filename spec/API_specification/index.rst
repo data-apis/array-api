@@ -17,3 +17,4 @@ API specification
    statistical_functions
    searching_functions
    linear_algebra_functions
+   constants
