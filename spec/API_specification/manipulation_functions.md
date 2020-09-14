@@ -21,7 +21,7 @@ Joins a sequence of arrays along an existing axis.
 
 -   **axis**: _Optional\[ int ]_ 
 
-    -   axis along which the arrays will be joined. If `axis` is `None`, arrays must be flattened before concatenation. If `axis` is negative, the function must count from last dimension. Default: `0`.
+    -   axis along which the arrays will be joined. If `axis` is `None`, arrays must be flattened before concatenation. If `axis` is negative, the function must determine the axis along which to join by counting from the last dimension. Default: `0`.
 
 #### Returns
 
