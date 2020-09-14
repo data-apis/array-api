@@ -271,7 +271,7 @@ Calculates an implementation-dependent approximation to the hyperbolic cosine, h
 
 ### <a name="divide" href="#divide">#</a> divide(x1, x2, /)
 
-Calculates the division for each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`. For floating-point operands,
+Calculates the division for each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`. For floating-point arithmetic,
 
 -   If either `x1_i` or `x2_i` is `NaN`, the result is `NaN`.
 -   If both `x1_i` and `x2_i` has the same sign, the result is positive.
@@ -642,7 +642,7 @@ Computes the logical XOR for each element `x1_i` of the input array `x1` with th
 
 ### <a name="multiply" href="#multiply">#</a> multiply(x1, x2, /)
 
-Calculates the product for each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`. For floating-point operands,
+Calculates the product for each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`. For floating-point arithmetic,
 
 -   If either `x1_i` or `x2_i` is `NaN`, the result is `NaN`.
 -   If both `x1_i` and `x2_i` have the same sign, the result is positive.
