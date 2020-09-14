@@ -91,7 +91,7 @@ Rolls array elements along a specified axis. Array elements that roll beyond the
 
 -   **out**: _&lt;array&gt;_
 
-    -   an output array having the same data type as `x` and whose elements, relative to `x`, have shifted.
+    -   an output array having the same data type as `x` and whose elements, relative to `x`, are shifted.
 
 ### <a name="squeeze" href="#squeeze">#</a> squeeze(x, /, *, axis=None)
 
