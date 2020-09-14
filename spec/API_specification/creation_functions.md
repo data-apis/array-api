@@ -29,7 +29,7 @@ Returns evenly spaced values within the half-open interval `[start, stop)` as a 
 
     -   the distance between two adjacent elements (`out[i+1] - out[i]`). Default: `1`.
 
--   **dtype**: _Optional\[ TODO ]_ 
+-   **dtype**: _Optional\[ _&lt;dtype&gt;_ ]_ 
 
     -   output array data type. Default: `None`.
 
@@ -49,7 +49,7 @@ Returns an uninitialized array having a specified `shape`.
 
     -   output array shape.
 
--   **dtype**: _Optional\[ TODO ]_ 
+-   **dtype**: _Optional\[ _&lt;dtype&gt;_ ]_ 
 
     -   output array data type. Default: `None`.
 
@@ -69,7 +69,7 @@ Returns an uninitialized array with the same `shape` as an input array `x`.
 
     -   input array from which to derive the output array shape.
 
--   **dtype**: _Optional\[ TODO ]_ 
+-   **dtype**: _Optional\[ _&lt;dtype&gt;_ ]_ 
 
     -   output array data type. If `dtype` is `None`, the output array data type must be inferred from `x`. Default: `None`.
 
@@ -97,7 +97,7 @@ Returns a two-dimensional array with ones on the `k`th diagonal and zeros elsewh
 
     -   index of the diagonal. A positive value refers to an upper diagonal, a negative value to a lower diagonal, and `0` to the main diagonal. Default: `0`.
 
--   **dtype**: _Optional\[ TODO ]_ 
+-   **dtype**: _Optional\[ _&lt;dtype&gt;_ ]_ 
 
     -   output array data type. Default: `None`.
 
@@ -121,7 +121,7 @@ Returns a new array having a specified `shape` and filled with `fill_value`.
 
     -   fill value.
 
--   **dtype**: _Optional\[ TODO ]_ 
+-   **dtype**: _Optional\[ _&lt;dtype&gt;_ ]_ 
 
     -   output array data type. Default: `None`.
 
@@ -145,7 +145,7 @@ Returns a new array filled with `fill_value` and having the same `shape` as an i
 
     -   fill value.
 
--   **dtype**: _Optional\[ TODO ]_ 
+-   **dtype**: _Optional\[ _&lt;dtype&gt;_ ]_ 
 
     -   output array data type. If `dtype` is `None`, the output array data type must be inferred from `x`. Default: `None`.
 
@@ -175,7 +175,7 @@ Returns evenly spaced numbers over a specified interval.
 
     -   number of samples. Must be a non-negative integer value; otherwise, the function must raise an exception.
 
--   **dtype**: _Optional\[ TODO ]_ 
+-   **dtype**: _Optional\[ _&lt;dtype&gt;_ ]_ 
 
     -   output array data type. Default: `None`.
 
@@ -199,7 +199,7 @@ Returns a new array having a specified `shape` and filled with ones.
 
     -   output array shape.
 
--   **dtype**: _Optional\[ TODO ]_ 
+-   **dtype**: _Optional\[ _&lt;dtype&gt;_ ]_ 
 
     -   output array data type. Default: `None`.
 
@@ -219,7 +219,7 @@ Returns a new array filled with ones and having the same `shape` as an input arr
 
     -   input array from which to derive the output array shape.
 
--   **dtype**: _Optional\[ TODO ]_ 
+-   **dtype**: _Optional\[ _&lt;dtype&gt;_ ]_ 
 
     -   output array data type. If `dtype` is `None`, the output array data type must be inferred from `x`. Default: `None`.
 
@@ -239,7 +239,7 @@ Returns a new array having a specified `shape` and filled with zeros.
 
     -   output array shape.
 
--   **dtype**: _Optional\[ TODO ]_ 
+-   **dtype**: _Optional\[ _&lt;dtype&gt;_ ]_ 
 
     -   output array data type. Default: `None`.
 
@@ -259,7 +259,7 @@ Returns a new array filled with zeros and having the same `shape` as an input ar
 
     -   input array from which to derive the output array shape.
 
--   **dtype**: _Optional\[ TODO ]_ 
+-   **dtype**: _Optional\[ _&lt;dtype&gt;_ ]_ 
 
     -   output array data type. If `dtype` is `None`, the output array data type must be inferred from `x`. Default: `None`.
 
