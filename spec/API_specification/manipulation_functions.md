@@ -21,10 +21,30 @@ Joins a sequence of arrays along an existing axis.
 
 -   **axis**: _Optional\[ int ]_ 
 
-    -   axis along which the arrays will be joined. If `axis` is `None`, arrays are flattened before concatenation. A negative `axis` is interpreted as counting from last dimension (i.e., `axis+rank(arrays)`-th dimension). Default: `0`.
+    -   axis along which the arrays will be joined. If `axis` is `None`, arrays are flattened before concatenation. If `axis` is negative, the function must count from last dimension. Default: `0`.
 
 #### Returns
 
 -   **out**: _&lt;array&gt;_
 
     -   an output array containing the concatenated values.
+
+### <a name="flip" href="#flip">#</a> flip(x, /, *, axis=None)
+
+Reverses the order of elements in an array along the given axis. The shape of the array must be preserved.
+
+#### Parameters
+
+-   **x**: _&lt;array&gt;_
+
+    -   input array.
+
+-   **axis**: _Optional\[ int, Tuple\[ int ] ]_ 
+
+    -   axis (or axes) along which to flip. If `axis` is `None`, the function must flip all input array axes. If `axis` is negative, the function must count from the last dimension. If provided more than one axis, the function must flip only the specified axes. Default: `None`.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an output array having the same data type as `x` and whose axes, relative to `x`, are flipped.
