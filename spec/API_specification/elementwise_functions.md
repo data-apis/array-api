@@ -652,6 +652,51 @@ Computes the truth value of `x1_i != x2_i` for each element `x1_i` of the input 
 
     -   an array containing the element-wise results.
 
+### <a name="pow" href="#pow">#</a> pow(x1, x2, /)
+
+Calculates an implementation-dependent approximation of exponentiation by raising each element `x1_i` (the base) of the input array `x1` to the power of `x2_i` (the exponent), where `x2_i` is the corresponding element of the input array `x2`.
+
+-   if `x1_i` is not equal to `1` and `x2_i` is `NaN`, the result is `NaN`.
+-   if `x2_i` is `+0`, the result is `1`, even if `x1_i` is `NaN`.
+-   if `x2_i` is `-0`, the result is `1`, even if `x1_i` is `NaN`.
+-   if `x1_i` is `NaN` and `x2_i` is nonzero, the result is `NaN`.
+-   if `abs(x1_i)` is greater than `1` and `x2_i` is `+infinity`, the result is `+infinity`.
+-   if `abs(x1_i)` is greater than `1` and `x2_i` is `-infinity`, the result is `+0`.
+-   if `abs(x1_i)` is `1` and `x2_i` is `+infinity`, the result is `1`.
+-   if `abs(x1_i)` is `1` and `x2_i` is `-infinity`, the result is `1`.
+-   if `x1_i` is `1` and `x2_i` is not `NaN`, the result is `1`.
+-   if `abs(x1_i)` is less than `1` and `x2_i` is `+infinity`, the result is `+0`.
+-   if `abs(x1_i)` is less than `1` and `x2_i` is `-infinity`, the result is `+infinity`.
+-   if `x1_i` is `+infinity` and `x2_i` is greater than `0`, the result is `+infinity`.
+-   if `x1_i` is `+infinity` and `x2_i` is less than `0`, the result is `+0`.
+-   if `x1_i` is `-infinity` and `x2_i` is greater than `0`, the result is `-infinity`.
+-   if `x1_i` is `-infinity`, `x2_i` is greater than `0`, and `x2_i` is not an odd integer value, the result is `+infinity`.
+-   if `x1_i` is `-infinity`, `x2_i` is less than `0`, and `x2_i` is an odd integer value, the result is `-0`.
+-   if `x1_i` is `-infinity`, `x2_i` is less than `0`, and `x2_i` is not an odd integer value, the result is `+0`.
+-   if `x1_i` is `+0` and `x2_i` is greater than `0`, the result is `+0`.
+-   if `x1_i` is `+0` and `x2_i` is less than `0`, the result is `+infinity`.
+-   if `x1_i` is `-0`, `x2_i` is greater than `0`, and `x2_i` is an odd integer value, the result is `-0`.
+-   if `x1_i` is `-0`, `x2_i` is greater than `0`, and `x2_i` is not an odd integer value, the result is `+0`.
+-   if `x1_i` is `-0`, `x2_i` is less than `0`, and `x2_i` is an odd integer value, the result is `-infinity`.
+-   if `x1_i` is `-0`, `x2_i` is less than `0`, and `x2_i` is not an odd integer value, the result is `+infinity`.
+-   if `x1_i` is less than `0`, `x1_i` is finite, `x2_i` is finite, and `x2_i` is not an integer value, the result is `NaN`.
+
+#### Parameters
+
+-   **x1**: _&lt;array&gt;_
+
+    -   first input array whose elements correspond to the exponentiation base.
+
+-   **x2**: _&lt;array&gt;_
+
+    -   second input array whose elements correspond to the exponentiation exponent. Must be compatible with `x1` (see :ref:`broadcasting`).
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the element-wise results.
+
 ### <a name="round" href="#round">#</a> round(x, /)
 
 Rounds each element `x_i` of the input array `x` to the nearest integer-valued number.
