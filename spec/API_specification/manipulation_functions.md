@@ -47,7 +47,7 @@ Reverses the order of elements in an array along the given axis. The shape of th
 
 -   **out**: _&lt;array&gt;_
 
-    -   an output array having the same data type and shape as `x` and whose axes, relative to `x`, are flipped.
+    -   an output array having the same data type and shape as `x` and whose elements, relative to `x`, are reordered.
 
 ### <a name="reshape" href="#reshape">#</a> reshape(x, shape, /)
 
