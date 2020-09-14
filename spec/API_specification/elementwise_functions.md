@@ -542,7 +542,7 @@ Calculates an implementation-dependent approximation to the natural (base `e`) l
 
 ### <a name="log1p" href="#log1p">#</a> log1p(x, /, *, out=None)
 
-Calculates an implementation-dependent approximation to the natural (base `e`) logarithm, having domain `[-1, +infinity]` and codomain `[-infinity, +infinity]`, of `1+x_i` for each element `x_i` of the input array `x`.
+Calculates an implementation-dependent approximation to `log(1+x)`, where `log` refers to the natural (base `e`) logarithm, having domain `[-1, +infinity]` and codomain `[-infinity, +infinity]`, for each element `x_i` of the input array `x`.
 
 -   If `x_i` is `NaN`, the result is `NaN`.
 -   If `x_i` is less than `-1`, the result is `NaN`.
