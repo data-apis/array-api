@@ -10,7 +10,7 @@ A conforming implementation of the array API standard must provide and support t
 
 <!-- NOTE: please keep the functions in alphabetical order -->
 
-### <a name="unique" href="#unique">#</a> unique(x, /, *, return_counts=False, return_index=False, return_inverse=False)
+### <a name="unique" href="#unique">#</a> unique(x, /, *, return_counts=False, return_index=False, return_inverse=False, sorted=True)
 
 Returns the unique elements of an input array `x`.
 
@@ -31,6 +31,12 @@ Returns the unique elements of an input array `x`.
 -   **return_inverse**: _bool_
 
     -   If `True`, the function must also return the indices of the unique array that reconstruct `x`. Default: `False`.
+
+-   **sorted**: _bool_
+
+    -   If `True`, the function must sort the unique elements in ascending order before returning as output. If `False`, the function must sort the unique elements in the same order that they occur in `x`. Default: `False`.
+
+        _TODO: sort order needs discussion. See [gh-40](https://github.com/data-apis/array-api/issues/40)_
 
 #### Returns
 
