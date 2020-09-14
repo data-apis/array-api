@@ -45,7 +45,7 @@ except to require specific results for certain argument values that represent bo
 
 For other argument values, these functions should compute approximations to the results of respective mathematical functions; however, this specification recognizes that array libraries may be constrained by underlying hardware and/or seek to optimize performance over absolute accuracy and, thus, allows some latitude in the choice of approximation algorithms.
 
-Although the specification leaves the choice of algorithms to the implementation, this specification recommends (but does not specify) that implementations use the approximation algorithms for IEEE 754-2019 arithmetic contained in [fdlibm](http://www.netlib.org/fdlibm), the freely distributable mathematical library from Sun Microsystems, or some other comparable IEEE 754-2019 compliant mathematical library.
+Although the specification leaves the choice of algorithms to the implementation, this specification recommends (but does not specify) that implementations use the approximation algorithms for IEEE 754-2019 arithmetic contained in [FDLIBM](http://www.netlib.org/fdlibm), the freely distributable mathematical library from Sun Microsystems, or some other comparable IEEE 754-2019 compliant mathematical library.
 
 ## Statistical Functions
 
