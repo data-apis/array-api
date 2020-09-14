@@ -121,7 +121,7 @@ Joins a sequence of arrays along a new axis.
 
 -   **arrays**: _Sequence\[ &lt;array&gt; ]_
 
-    -   input arrays to join. The arrays must have the same shape, except in the dimension specified by `axis`.
+    -   input arrays to join. Each array must have the same shape.
 
 -   **axis**: _Optional\[ int ]_ 
 
