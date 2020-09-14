@@ -68,3 +68,29 @@ Reshapes an array without changing its data.
 -   **out**: _&lt;array&gt;_
 
     -   an output array having the same data type, elements, and underlying element order as `x`.
+
+### <a name="roll" href="#roll">#</a> roll(x, shift, /, *, axis=None)
+
+Rolls array elements along a specified axis.
+
+Array elements that roll beyond the last position are re-introduced at the first position. Array elements that roll beyond the first position are re-introduced at the last position.
+
+#### Parameters
+
+-   **x**: _&lt;array&gt;_
+
+    -   input array.
+
+-   **shift**: _Union\[ int, Tuple\[ int, ... ] ]_
+
+    -   number of places by which the elements are shifted. If `shift` is a tuple, then `axis` must be a tuple of the same size, and each of the given axes must be shifted by the corresponding element in `shift`. If `shift` is an `int` and `axis` a tuple, then the same `shift` is used for all specified axes. If a shift is positive, then array elements are shifted positively (toward larger indices) along the dimension of `axis`. If a shift is negative, then array elements are shifted negatively (toward smaller indices) along the dimension of `axis`.
+
+-   **axis**: _Optional\[ Union\[ int, Tuple\[ int, ... ] ] ]_ 
+
+    -   axis (or axes) along which elements to shift. If `axis` is `None`, the array is flattened, shifted, and then restored to its original shape. Default: `None`.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an output array having the same data type as `x` and whose elements, relative to `x`, have shifted.
