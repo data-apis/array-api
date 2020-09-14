@@ -16,4 +16,5 @@ API specification
    creation_functions
    elementwise_functions
    statistical_functions
+   searching_functions
    linear_algebra_functions
