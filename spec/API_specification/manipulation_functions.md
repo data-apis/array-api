@@ -71,9 +71,7 @@ Reshapes an array without changing its data.
 
 ### <a name="roll" href="#roll">#</a> roll(x, shift, /, *, axis=None)
 
-Rolls array elements along a specified axis.
-
-Array elements that roll beyond the last position are re-introduced at the first position. Array elements that roll beyond the first position are re-introduced at the last position.
+Rolls array elements along a specified axis. Array elements that roll beyond the last position are re-introduced at the first position. Array elements that roll beyond the first position are re-introduced at the last position.
 
 #### Parameters
 
@@ -94,3 +92,43 @@ Array elements that roll beyond the last position are re-introduced at the first
 -   **out**: _&lt;array&gt;_
 
     -   an output array having the same data type as `x` and whose elements, relative to `x`, have shifted.
+
+### <a name="squeeze" href="#squeeze">#</a> squeeze(x, /, *, axis=None)
+
+Removes singleton dimensions (axes) from `x`.
+
+#### Parameters
+
+-   **x**: _&lt;array&gt;_
+
+    -   input array.
+
+-   **axis**: _Optional\[ Union\[ int, Tuple\[ int, ... ] ] ]_ 
+
+    -   axis (or axes) to squeeze. If provided, only the specified axes must be squeezed. If `axis` is `None`, all singleton dimensions (axes) must be removed. If a specified axis has a size greater than one, the specified axis must be left unchanged. Default: `None`.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an output array having the same data type and elements as `x`.
+
+### <a name="stack" href="#stack">#</a> stack(arrays, /, *, axis=0)
+
+Joins a sequence of arrays along a new axis.
+
+#### Parameters
+
+-   **arrays**: _Sequence\[ &lt;array&gt; ]_
+
+    -   input arrays to join. The arrays must have the same shape, except in the dimension specified by `axis`.
+
+-   **axis**: _Optional\[ int ]_ 
+
+    -   axis along which the arrays will be joined. Providing an `axis` specifies the index of the new axis in the dimensions of the result. For example, if `axis` is `0`, the new axis will be the first dimension and the output array will have shape `(N, A, B, C)`; if `axis` is `1`, the new axis will be the second dimension and the output array will have shape `(A, N, B, C)`; and, if `axis` is `-1`, the new axis will be the last dimension and the output array will have shape `(A, B, C, N)`. A valid `axis` must be on the interval `[-N, N)`, where `N` is the rank (number of dimensions) of `x`. If provided an `axis` outside of the required interval, the function must raise an exception. Default: `0`.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an output array having rank `N+1`, where `N` is the rank (number of dimensions) of `x`.
