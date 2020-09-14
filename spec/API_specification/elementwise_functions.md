@@ -320,6 +320,30 @@ Calculates the division for each element `x1_i` of the input array `x1` with the
 
     -   an array containing the element-wise results.
 
+### <a name="equal" href="#equal">#</a> equal(x1, x2, /, *, out=None)
+
+Computes the truth value of `x1_i == x2_i` for each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`.
+
+#### Parameters
+
+-   **x1**: _&lt;array&gt;_
+
+    -   first input array.
+
+-   **x2**: _&lt;array&gt;_
+
+    -   second input array. Must be compatible with `x1` (see :ref:`broadcasting`). 
+
+-   **out**:  _Optional\[ &lt;array&gt; ]_
+
+    -   output array. If provided, the output array must be compatible with the provided input arrays (see :ref:`broadcasting`). If not provided or is `None`, an uninitialized return array, whose underlying data type is `bool`, must be created and then filled with the result of each element-wise computation. Default: `None`.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the element-wise results.
+
 ### <a name="exp" href="#exp">#</a> exp(x, /, *, out=None)
 
 Calculates an implementation-dependent approximation to the exponential function, having domain `[-infinity, +infinity]` and codomain `[+0, +infinity]`, for each element `x_i` of the input array `x` (`e` raised to the power of `x_i`, where `e` is the base of the natural logarithm).
@@ -368,6 +392,102 @@ Rounds each element `x_i` of the input array `x` to the greatest (i.e., closest 
 
     -   an array containing the rounded result for each element in `x`.
 
+### <a name="greater" href="#greater">#</a> greater(x1, x2, /, *, out=None)
+
+Computes the truth value of `x1_i > x2_i` for each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`.
+
+#### Parameters
+
+-   **x1**: _&lt;array&gt;_
+
+    -   first input array.
+
+-   **x2**: _&lt;array&gt;_
+
+    -   second input array. Must be compatible with `x1` (see :ref:`broadcasting`). 
+
+-   **out**:  _Optional\[ &lt;array&gt; ]_
+
+    -   output array. If provided, the output array must be compatible with the provided input arrays (see :ref:`broadcasting`). If not provided or is `None`, an uninitialized return array, whose underlying data type is `bool`, must be created and then filled with the result of each element-wise computation. Default: `None`.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the element-wise results.
+
+### <a name="greater_equal" href="#greater_equal">#</a> greater_equal(x1, x2, /, *, out=None)
+
+Computes the truth value of `x1_i >= x2_i` for each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`.
+
+#### Parameters
+
+-   **x1**: _&lt;array&gt;_
+
+    -   first input array.
+
+-   **x2**: _&lt;array&gt;_
+
+    -   second input array. Must be compatible with `x1` (see :ref:`broadcasting`). 
+
+-   **out**:  _Optional\[ &lt;array&gt; ]_
+
+    -   output array. If provided, the output array must be compatible with the provided input arrays (see :ref:`broadcasting`). If not provided or is `None`, an uninitialized return array, whose underlying data type is `bool`, must be created and then filled with the result of each element-wise computation. Default: `None`.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the element-wise results.
+
+### <a name="less" href="#less">#</a> less(x1, x2, /, *, out=None)
+
+Computes the truth value of `x1_i < x2_i` for each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`.
+
+#### Parameters
+
+-   **x1**: _&lt;array&gt;_
+
+    -   first input array.
+
+-   **x2**: _&lt;array&gt;_
+
+    -   second input array. Must be compatible with `x1` (see :ref:`broadcasting`). 
+
+-   **out**:  _Optional\[ &lt;array&gt; ]_
+
+    -   output array. If provided, the output array must be compatible with the provided input arrays (see :ref:`broadcasting`). If not provided or is `None`, an uninitialized return array, whose underlying data type is `bool`, must be created and then filled with the result of each element-wise computation. Default: `None`.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the element-wise results.
+
+### <a name="less_equal" href="#less_equal">#</a> less_equal(x1, x2, /, *, out=None)
+
+Computes the truth value of `x1_i <= x2_i` for each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`.
+
+#### Parameters
+
+-   **x1**: _&lt;array&gt;_
+
+    -   first input array.
+
+-   **x2**: _&lt;array&gt;_
+
+    -   second input array. Must be compatible with `x1` (see :ref:`broadcasting`). 
+
+-   **out**:  _Optional\[ &lt;array&gt; ]_
+
+    -   output array. If provided, the output array must be compatible with the provided input arrays (see :ref:`broadcasting`). If not provided or is `None`, an uninitialized return array, whose underlying data type is `bool`, must be created and then filled with the result of each element-wise computation. Default: `None`.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the element-wise results.
+
 ### <a name="log" href="#log">#</a> log(x, /, *, out=None)
 
 Calculates an implementation-dependent approximation to the natural (base `e`) logarithm, having domain `[0, +infinity]` and codomain `[-infinity, +infinity]`, for each element `x_i` of the input array `x`.
@@ -394,6 +514,98 @@ Calculates an implementation-dependent approximation to the natural (base `e`) l
 
     -   an array containing the evaluated natural logarithm for each element in `x`.
 
+### <a name="logical_and" href="#logical_and">#</a> logical_and(x1, x2, /, *, out=None)
+
+Computes the logical AND for each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`. Zeros should be considered the equivalent of `False`, while non-zeros should be considered the equivalent of `True`.
+
+#### Parameters
+
+-   **x1**: _&lt;array&gt;_
+
+    -   first input array.
+
+-   **x2**: _&lt;array&gt;_
+
+    -   second input array. Must be compatible with `x1` (see :ref:`broadcasting`). 
+
+-   **out**:  _Optional\[ &lt;array&gt; ]_
+
+    -   output array. If provided, the output array must be compatible with the provided input arrays (see :ref:`broadcasting`). If not provided or is `None`, an uninitialized return array, whose underlying data type is `bool`, must be created and then filled with the result of each element-wise computation. Default: `None`.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the element-wise results.
+
+### <a name="logical_not" href="#logical_not">#</a> logical_not(x, /, *, out=None)
+
+Computes the logical NOT for each element `x_i` of the input array `x`. Zeros should be considered the equivalent of `False`, while non-zeros should be considered the equivalent of `True`.
+
+#### Parameters
+
+-   **x**: _&lt;array&gt;_
+
+    -   input array. 
+
+-   **out**:  _Optional\[ &lt;array&gt; ]_
+
+    -   output array. If provided, the output array must be compatible with the provided input array `x` (see :ref:`broadcasting`). If not provided or is `None`, an uninitialized return array, whose underlying data type is `bool`, must be created and then filled with the result of each element-wise computation. Default: `None`.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the element-wise results.
+
+### <a name="logical_or" href="#logical_or">#</a> logical_or(x1, x2, /, *, out=None)
+
+Computes the logical OR for each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`. Zeros should be considered the equivalent of `False`, while non-zeros should be considered the equivalent of `True`.
+
+#### Parameters
+
+-   **x1**: _&lt;array&gt;_
+
+    -   first input array.
+
+-   **x2**: _&lt;array&gt;_
+
+    -   second input array. Must be compatible with `x1` (see :ref:`broadcasting`). 
+
+-   **out**:  _Optional\[ &lt;array&gt; ]_
+
+    -   output array. If provided, the output array must be compatible with the provided input arrays (see :ref:`broadcasting`). If not provided or is `None`, an uninitialized return array, whose underlying data type is `bool`, must be created and then filled with the result of each element-wise computation. Default: `None`.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the element-wise results.
+
+### <a name="logical_xor" href="#logical_xor">#</a> logical_xor(x1, x2, /, *, out=None)
+
+Computes the logical XOR for each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`. Zeros must should be considered the equivalent of `False`, while non-zeros must should be considered the equivalent of `True`.
+
+#### Parameters
+
+-   **x1**: _&lt;array&gt;_
+
+    -   first input array.
+
+-   **x2**: _&lt;array&gt;_
+
+    -   second input array. Must be compatible with `x1` (see :ref:`broadcasting`). 
+
+-   **out**:  _Optional\[ &lt;array&gt; ]_
+
+    -   output array. If provided, the output array must be compatible with the provided input arrays (see :ref:`broadcasting`). If not provided or is `None`, an uninitialized return array, whose underlying data type is `bool`, must be created and then filled with the result of each element-wise computation. Default: `None`.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the element-wise results.
+
 ### <a name="multiply" href="#multiply">#</a> multiply(x1, x2, /, *, out=None)
 
 Calculates the product for each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`.
@@ -419,6 +631,30 @@ Calculates the product for each element `x1_i` of the input array `x1` with the 
 -   **out**: _&lt;array&gt;_
 
     -   an array containing the element-wise products.
+
+### <a name="not_equal" href="#not_equal">#</a> not_equal(x1, x2, /, *, out=None)
+
+Computes the truth value of `x1_i != x2_i` for each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`.
+
+#### Parameters
+
+-   **x1**: _&lt;array&gt;_
+
+    -   first input array.
+
+-   **x2**: _&lt;array&gt;_
+
+    -   second input array. Must be compatible with `x1` (see :ref:`broadcasting`). 
+
+-   **out**:  _Optional\[ &lt;array&gt; ]_
+
+    -   output array. If provided, the output array must be compatible with the provided input arrays (see :ref:`broadcasting`). If not provided or is `None`, an uninitialized return array, whose underlying data type is `bool`, must be created and then filled with the result of each element-wise computation. Default: `None`.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the element-wise results.
 
 ### <a name="round" href="#round">#</a> round(x, /, *, out=None)
 
