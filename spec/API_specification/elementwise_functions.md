@@ -465,6 +465,8 @@ Calculates an implementation-dependent approximation to the natural (base `e`) l
 
 Calculates an implementation-dependent approximation to `log(1+x)`, where `log` refers to the natural (base `e`) logarithm, having domain `[-1, +infinity]` and codomain `[-infinity, +infinity]`, for each element `x_i` of the input array `x`.
 
+_Note: the purpose of this API, which is particularly useful in financial applications, is to calculate `log(1+x)` more accurately when `x` is close to zero. Accordingly, conforming implementations should avoid implementing this API as simply `log(1+x)`. See FDLIBM, or some other IEEE 754-2019 compliant mathematical library, for a potential reference implementation._
+
 -   If `x_i` is `NaN`, the result is `NaN`.
 -   If `x_i` is less than `-1`, the result is `NaN`.
 -   If `x_i` is `-1`, the result is `-infinity`.
