@@ -97,6 +97,10 @@ Calculates the sum for each element `x1_i` of the input array `x1` with the resp
 -   If `x1_i` is a nonzero finite number and `x2_i` is `-x1_i`, the result is `+0`.
 -   In the remaining cases, when neither an `infinity`, `+0`, `-0`, nor a `NaN` is involved, and the operands have the same sign or have different magnitudes, the sum is computed and rounded to the nearest representable value according to IEEE 754-2019 and a supported round mode. If the magnitude is too large to represent, the operation overflows and the result is an `infinity` of the appropriate sign.
 
+.. note::
+
+    Floating-point addition is a commutative operation, but not always associative.
+
 #### Parameters
 
 -   **x1**: _&lt;array&gt;_
@@ -835,9 +839,7 @@ Calculates the square root, having domain `[0, +infinity]` and codomain `[0, +in
 
 ### <a name="subtract" href="#subtract">#</a> subtract(x1, x2, /)
 
-Calculates the difference for each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`.
-
--   If either `x1_i` or `x2_i` is `NaN`, the result is `NaN`.
+Calculates the difference for each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`. The result of `x1_i - x2_i` must **always** be the same as `x1_i + (-x2_i)` and is thus governed by the same floating-point rules as addition (see [`add`][#add]).
 
 #### Parameters
 
