@@ -8,6 +8,16 @@ A conforming implementation of the array API standard must provide and support t
 
 A conforming implementation of the array API standard may provide and support additional data types beyond those described in this specification.
 
+.. note::
+
+    These dtypes are objects that can be used as dtype specifiers in functions and methods (e.g., `zeros((2, 3), dtype=float32)`). A conforming implementation may add methods or attributes to dtype objects; these are not part of this specification however.
+
+.. note::
+
+    Implementations may provide others ways to specify dtypes (e.g.,
+    `zeros((2, 3), dtype='f4')`); these are not part of this specification however.
+
+
 ## bool
 
 Boolean (`True` or `False`) stored as a byte.
