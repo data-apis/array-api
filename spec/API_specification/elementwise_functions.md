@@ -77,9 +77,25 @@ Calculates an implementation-dependent approximation to the inverse hyperbolic c
 
 ### <a name="add" href="#add">#</a> add(x1, x2, /)
 
-Calculates the sum for each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`.
+Calculates the sum for each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`. For floating-point arithmetic,
 
 -   If either `x1_i` or `x2_i` is `NaN`, the result is `NaN`.
+-   If `x1_i` is `+infinity` and `x2_i` is `-infinity`, the result is `NaN`.
+-   If `x1_i` is `-infinity` and `x2_i` is `+infinity`, the result is `NaN`.
+-   If `x1_i` is `+infinity` and `x2_i` is `+infinity`, the result is `+infinity`.
+-   If `x1_i` is `-infinity` and `x2_i` is `-infinity`, the result is `-infinity`.
+-   If `x1_i` is `+infinity` and `x2_i` is finite, the result is `+infinity`.
+-   If `x1_i` is `-infinity` and `x2_i` is finite, the result is `-infinity`.
+-   If `x1_i` is finite and `x2_i` is `+infinity`, the result is `+infinity`.
+-   If `x1_i` is finite and `x2_i` is `-infinity`, the result is `-infinity`.
+-   If `x1_i` is `-0` and `x2_i` is `-0`, the result is `-0`.
+-   If `x1_i` is `-0` and `x2_i` is `+0`, the result is `+0`.
+-   If `x1_i` is `+0` and `x2_i` is `-0`, the result is `+0`.
+-   If `x1_i` is `+0` and `x2_i` is `+0`, the result is `+0`.
+-   If `x1_i` is `+0` or `-0` and `x2_i` is a nonzero finite number, the result is `x2_i`.
+-   If `x1_i` is a nonzero finite number and `x2_i` is `+0` or `-0`, the result is `x1_i`.
+-   If `x1_i` is a nonzero finite number and `x2_i` is `-x1_i`, the result is `+0`.
+-   In the remaining cases, when neither an `infinity`, `+0`, `-0`, nor a `NaN` is involved, and the operands have the same sign or have different magnitudes, the sum is computed and rounded to the nearest representable value according to IEEE 754-2019 and a supported round mode. If the magnitude is too large to represent, the operation overflows and the result is an `infinity` of the appropriate sign.
 
 #### Parameters
 
@@ -656,30 +672,30 @@ Computes the truth value of `x1_i != x2_i` for each element `x1_i` of the input 
 
 Calculates an implementation-dependent approximation of exponentiation by raising each element `x1_i` (the base) of the input array `x1` to the power of `x2_i` (the exponent), where `x2_i` is the corresponding element of the input array `x2`.
 
--   if `x1_i` is not equal to `1` and `x2_i` is `NaN`, the result is `NaN`.
--   if `x2_i` is `+0`, the result is `1`, even if `x1_i` is `NaN`.
--   if `x2_i` is `-0`, the result is `1`, even if `x1_i` is `NaN`.
--   if `x1_i` is `NaN` and `x2_i` is nonzero, the result is `NaN`.
--   if `abs(x1_i)` is greater than `1` and `x2_i` is `+infinity`, the result is `+infinity`.
--   if `abs(x1_i)` is greater than `1` and `x2_i` is `-infinity`, the result is `+0`.
--   if `abs(x1_i)` is `1` and `x2_i` is `+infinity`, the result is `1`.
--   if `abs(x1_i)` is `1` and `x2_i` is `-infinity`, the result is `1`.
--   if `x1_i` is `1` and `x2_i` is not `NaN`, the result is `1`.
--   if `abs(x1_i)` is less than `1` and `x2_i` is `+infinity`, the result is `+0`.
--   if `abs(x1_i)` is less than `1` and `x2_i` is `-infinity`, the result is `+infinity`.
--   if `x1_i` is `+infinity` and `x2_i` is greater than `0`, the result is `+infinity`.
--   if `x1_i` is `+infinity` and `x2_i` is less than `0`, the result is `+0`.
--   if `x1_i` is `-infinity` and `x2_i` is greater than `0`, the result is `-infinity`.
--   if `x1_i` is `-infinity`, `x2_i` is greater than `0`, and `x2_i` is not an odd integer value, the result is `+infinity`.
--   if `x1_i` is `-infinity`, `x2_i` is less than `0`, and `x2_i` is an odd integer value, the result is `-0`.
--   if `x1_i` is `-infinity`, `x2_i` is less than `0`, and `x2_i` is not an odd integer value, the result is `+0`.
--   if `x1_i` is `+0` and `x2_i` is greater than `0`, the result is `+0`.
--   if `x1_i` is `+0` and `x2_i` is less than `0`, the result is `+infinity`.
--   if `x1_i` is `-0`, `x2_i` is greater than `0`, and `x2_i` is an odd integer value, the result is `-0`.
--   if `x1_i` is `-0`, `x2_i` is greater than `0`, and `x2_i` is not an odd integer value, the result is `+0`.
--   if `x1_i` is `-0`, `x2_i` is less than `0`, and `x2_i` is an odd integer value, the result is `-infinity`.
--   if `x1_i` is `-0`, `x2_i` is less than `0`, and `x2_i` is not an odd integer value, the result is `+infinity`.
--   if `x1_i` is less than `0`, `x1_i` is finite, `x2_i` is finite, and `x2_i` is not an integer value, the result is `NaN`.
+-   If `x1_i` is not equal to `1` and `x2_i` is `NaN`, the result is `NaN`.
+-   If `x2_i` is `+0`, the result is `1`, even if `x1_i` is `NaN`.
+-   If `x2_i` is `-0`, the result is `1`, even if `x1_i` is `NaN`.
+-   If `x1_i` is `NaN` and `x2_i` is nonzero, the result is `NaN`.
+-   If `abs(x1_i)` is greater than `1` and `x2_i` is `+infinity`, the result is `+infinity`.
+-   If `abs(x1_i)` is greater than `1` and `x2_i` is `-infinity`, the result is `+0`.
+-   If `abs(x1_i)` is `1` and `x2_i` is `+infinity`, the result is `1`.
+-   If `abs(x1_i)` is `1` and `x2_i` is `-infinity`, the result is `1`.
+-   If `x1_i` is `1` and `x2_i` is not `NaN`, the result is `1`.
+-   If `abs(x1_i)` is less than `1` and `x2_i` is `+infinity`, the result is `+0`.
+-   If `abs(x1_i)` is less than `1` and `x2_i` is `-infinity`, the result is `+infinity`.
+-   If `x1_i` is `+infinity` and `x2_i` is greater than `0`, the result is `+infinity`.
+-   If `x1_i` is `+infinity` and `x2_i` is less than `0`, the result is `+0`.
+-   If `x1_i` is `-infinity` and `x2_i` is greater than `0`, the result is `-infinity`.
+-   If `x1_i` is `-infinity`, `x2_i` is greater than `0`, and `x2_i` is not an odd integer value, the result is `+infinity`.
+-   If `x1_i` is `-infinity`, `x2_i` is less than `0`, and `x2_i` is an odd integer value, the result is `-0`.
+-   If `x1_i` is `-infinity`, `x2_i` is less than `0`, and `x2_i` is not an odd integer value, the result is `+0`.
+-   If `x1_i` is `+0` and `x2_i` is greater than `0`, the result is `+0`.
+-   If `x1_i` is `+0` and `x2_i` is less than `0`, the result is `+infinity`.
+-   If `x1_i` is `-0`, `x2_i` is greater than `0`, and `x2_i` is an odd integer value, the result is `-0`.
+-   If `x1_i` is `-0`, `x2_i` is greater than `0`, and `x2_i` is not an odd integer value, the result is `+0`.
+-   If `x1_i` is `-0`, `x2_i` is less than `0`, and `x2_i` is an odd integer value, the result is `-infinity`.
+-   If `x1_i` is `-0`, `x2_i` is less than `0`, and `x2_i` is not an odd integer value, the result is `+infinity`.
+-   If `x1_i` is less than `0`, `x1_i` is finite, `x2_i` is finite, and `x2_i` is not an integer value, the result is `NaN`.
 
 #### Parameters
 
@@ -720,9 +736,9 @@ Rounds each element `x_i` of the input array `x` to the nearest integer-valued n
 
 Returns an indication of the sign of a number for each element `x_i` of the input array `x`.
 
--   if `x_i` is less than `0`, the result is `-1`.
--   if `x_i` is `-0` or `+0`, the result is `0`.
--   if `x_i` is greater than `0`, the result is `+1`.
+-   If `x_i` is less than `0`, the result is `-1`.
+-   If `x_i` is `-0` or `+0`, the result is `0`.
+-   If `x_i` is greater than `0`, the result is `+1`.
 
 #### Parameters
 
