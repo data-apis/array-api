@@ -353,7 +353,7 @@ Calculates an implementation-dependent approximation to `exp(x)-1`, having domai
 
 .. note::
 
-    The purpose of this API, which is particularly useful in financial applications, is to calculate `exp(x)-1.0` more accurately when `x` is close to zero. Accordingly, conforming implementations should avoid implementing this API as simply `exp(x)-1.0`. See FDLIBM, or some other IEEE 754-2019 compliant mathematical library, for a potential reference implementation.
+    The purpose of this API is to calculate `exp(x)-1.0` more accurately when `x` is close to zero. Accordingly, conforming implementations should avoid implementing this API as simply `exp(x)-1.0`. See FDLIBM, or some other IEEE 754-2019 compliant mathematical library, for a potential reference implementation.
 
 -   If `x_i` is `NaN`, the result is `NaN`.
 -   If `x_i` is `+0`, the result is `+0`.
@@ -499,7 +499,7 @@ Calculates an implementation-dependent approximation to `log(1+x)`, where `log` 
 
 .. note::
 
-    The purpose of this API, which is particularly useful in financial applications, is to calculate `log(1+x)` more accurately when `x` is close to zero. Accordingly, conforming implementations should avoid implementing this API as simply `log(1+x)`. See FDLIBM, or some other IEEE 754-2019 compliant mathematical library, for a potential reference implementation.
+    The purpose of this API is to calculate `log(1+x)` more accurately when `x` is close to zero. Accordingly, conforming implementations should avoid implementing this API as simply `log(1+x)`. See FDLIBM, or some other IEEE 754-2019 compliant mathematical library, for a potential reference implementation.
 
 -   If `x_i` is `NaN`, the result is `NaN`.
 -   If `x_i` is less than `-1`, the result is `NaN`.
