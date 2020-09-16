@@ -431,6 +431,54 @@ Computes the truth value of `x1_i >= x2_i` for each element `x1_i` of the input 
 
     -   an array containing the element-wise results.
 
+### <a name="isfinite" href="#isfinite">#</a> isfinite(x, /)
+
+Tests each element `x_i` of the input array `x` to determine if finite (i.e., not `NaN` and not equal to positive or negative infinity).
+
+#### Parameters
+
+-   **x**: _&lt;array&gt;_
+
+    -   input array.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array, whose underlying data type is `bool`, containing test results. An element `out_i` is `True` if `x_i` is finite and `False` otherwise.
+
+### <a name="isinf" href="#isinf">#</a> isinf(x, /)
+
+Tests each element `x_i` of the input array `x` to determine if equal to positive or negative infinity.
+
+#### Parameters
+
+-   **x**: _&lt;array&gt;_
+
+    -   input array.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array, whose underlying data type is `bool`, containing test results. An element `out_i` is `True` if `x_i` is either positive or negative infinity and `False` otherwise.
+
+### <a name="isnan" href="#isnan">#</a> isnan(x, /)
+
+Tests each element `x_i` of the input array `x` to determine whether the element is `NaN`.
+
+#### Parameters
+
+-   **x**: _&lt;array&gt;_
+
+    -   input array.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array, whose underlying data type is `bool`, containing test results. An element `out_i` is `True` if `x_i` is `NaN` and `False` otherwise.
+
 ### <a name="less" href="#less">#</a> less(x1, x2, /)
 
 Computes the truth value of `x1_i < x2_i` for each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`.
