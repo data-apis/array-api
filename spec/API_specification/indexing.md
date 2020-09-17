@@ -34,18 +34,18 @@ The basic slice syntax is `i:j:k` where `i` is the starting index, `j` is the st
 
 ```text
 A[:]
-A[x:]
-A[:y]
-A[x:y]
+A[i:]
+A[:j]
+A[i:k]
 A[::]
-A[x::]
-A[:y:]
-A[::z]
-A[x:y:]
-A[x::z]
-A[:y:z]
-A[x::z]
-A[x:y:z]
+A[i::]
+A[:j:]
+A[::k]
+A[i:j:]
+A[i::k]
+A[:j:k]
+A[i::k]
+A[i:j:k]
 ```
 
 .. note::
