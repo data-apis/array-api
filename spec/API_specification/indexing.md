@@ -92,7 +92,7 @@ Indexing via `:` and `::` must be equivalent and have defaults derived from the 
 
 ## Multi-Axis Indexing
 
-Multi-dimensional arrays must extend the concept of single-axis indexing to multiple axes by applying single-axis indexing rules along each axis (dimension) and supporting the following additional rules. Let `N` be the number of dimensions of a multi-dimensional array `A`.
+Multi-dimensional arrays must extend the concept of single-axis indexing to multiple axes by applying single-axis indexing rules along each axis (dimension) and supporting the following additional rules. Let `N` be the number of dimensions ("rank") of a multi-dimensional array `A`.
 
 1.  Each axis may be independently indexed via single-axis indexing by providing a comma-separated sequence ("selection tuple") of single-axis indexing expressions (e.g., `A[:, 2:10, :, 5]`).
 
