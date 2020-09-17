@@ -6,7 +6,7 @@
 
 A conforming implementation of the array API standard must adhere to the following conventions.
 
-## Single-Axis Indexing
+## Single-axis Indexing
 
 To index a single array axis, an array must support standard Python indexing rules. Let `n` be the axis (dimension) size.
 
@@ -90,7 +90,7 @@ Slice syntax must have the following defaults. Let `n` be the axis (dimension) s
 
 Indexing via `:` and `::` must be equivalent and have defaults derived from the rules above. Both `:` and `::` indicate to select all elements along a single axis (dimension).
 
-## Multi-Axis Indexing
+## Multi-axis Indexing
 
 Multi-dimensional arrays must extend the concept of single-axis indexing to multiple axes by applying single-axis indexing rules along each axis (dimension) and supporting the following additional rules. Let `N` be the number of dimensions ("rank") of a multi-dimensional array `A`.
 
