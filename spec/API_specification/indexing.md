@@ -10,23 +10,23 @@ A conforming implementation of the array API standard must adhere to the followi
 
 To index a single array axis, an array must support standard Python indexing rules. Let `n` be the axis (dimension) size.
 
-1.  Indices must be Python integers (i.e., `int`).
+-   Indices must be Python integers (i.e., `int`).
 
-1.  Nonnegative indices must start at `0` (i.e., zero-based indexing).
+-   Nonnegative indices must start at `0` (i.e., zero-based indexing).
 
-1.  Valid nonnegative indices must reside on the half-open interval `[0, n)`.
+-   Valid nonnegative indices must reside on the half-open interval `[0, n)`.
 
-1.  Negative indices must count backward from the last array index, starting from `-1` (i.e., negative-one-based indexing, where `-1` refers to the last array index).
+-   Negative indices must count backward from the last array index, starting from `-1` (i.e., negative-one-based indexing, where `-1` refers to the last array index).
 
     .. note::
 
         A negative index `j` is equivalent to `n-j`; the former is syntactic sugar for the latter, providing a shorthand for indexing elements that would otherwise need to be specified in terms of the axis (dimension) size.
 
-1.  Valid negative indices must reside on the closed interval `[-n, -1]`.
+-   Valid negative indices must reside on the closed interval `[-n, -1]`.
 
-1.  A negative index `j` is related to a zero-based nonnegative index `i` via `i = n+j`.
+-   A negative index `j` is related to a zero-based nonnegative index `i` via `i = n+j`.
 
-1.  Colons `:` must be used for [slices](https://docs.python.org/3/library/functions.html?highlight=slice#slice): `start:stop:step`, where `start` is inclusive and `stop` is exclusive.
+-   Colons `:` must be used for [slices](https://docs.python.org/3/library/functions.html?highlight=slice#slice): `start:stop:step`, where `start` is inclusive and `stop` is exclusive.
 
 ### Slice Syntax
 
@@ -82,11 +82,11 @@ j > i + (m-1)k
 
 Slice syntax must have the following defaults. Let `n` be the axis (dimension) size.
 
-1.  If `k` is not provided (e.g., `0:10`), `k` must equal `1`.
-1.  If `k > 0` and `i` is not provided (e.g., `:10:2`), `i` must equal `0`.
-1.  If `k > 0` and `j` is not provided (e.g., `0::2`), `j` must equal `n`.
-1.  If `k < 0` and `i` is not provided (e.g., `:10:-2`), `i` must equal `n-1`.
-1.  If `k < 0` and `j` is not provided (e.g., `0::-2`), `j` must equal `-n-1`.
+-   If `k` is not provided (e.g., `0:10`), `k` must equal `1`.
+-   If `k > 0` and `i` is not provided (e.g., `:10:2`), `i` must equal `0`.
+-   If `k > 0` and `j` is not provided (e.g., `0::2`), `j` must equal `n`.
+-   If `k < 0` and `i` is not provided (e.g., `:10:-2`), `i` must equal `n-1`.
+-   If `k < 0` and `j` is not provided (e.g., `0::-2`), `j` must equal `-n-1`.
 
 Indexing via `:` and `::` must be equivalent and have defaults derived from the rules above. Both `:` and `::` indicate to select all elements along a single axis (dimension).
 
@@ -94,18 +94,18 @@ Indexing via `:` and `::` must be equivalent and have defaults derived from the 
 
 Multi-dimensional arrays must extend the concept of single-axis indexing to multiple axes by applying single-axis indexing rules along each axis (dimension) and supporting the following additional rules. Let `N` be the number of dimensions ("rank") of a multi-dimensional array `A`.
 
-1.  Each axis may be independently indexed via single-axis indexing by providing a comma-separated sequence ("selection tuple") of single-axis indexing expressions (e.g., `A[:, 2:10, :, 5]`).
+-   Each axis may be independently indexed via single-axis indexing by providing a comma-separated sequence ("selection tuple") of single-axis indexing expressions (e.g., `A[:, 2:10, :, 5]`).
 
     .. note::
 
         In Python, `x[(exp1, exp2, ..., expN)]` is equivalent to `x[exp1, exp2, ..., expN]`; the latter is syntactic sugar for the former.
 
-1.  Providing a single integer as a single-axis index must index the same elements as the slice `i:i+1`.
+-   Providing a single integer as a single-axis index must index the same elements as the slice `i:i+1`.
 
-1.  Providing a single integer as a single-axis index must reduce the number of array dimensions by `1` (i.e., the array rank should decrease by one; if `A` has rank `2`, `rank(A)-1 == rank(A[0, :])`). In particular, a selection tuple with the `m`th element an integer (and all other entries `:`) indexes a sub-array with rank `N-1`.
+-   Providing a single integer as a single-axis index must reduce the number of array dimensions by `1` (i.e., the array rank should decrease by one; if `A` has rank `2`, `rank(A)-1 == rank(A[0, :])`). In particular, a selection tuple with the `m`th element an integer (and all other entries `:`) indexes a sub-array with rank `N-1`.
 
-1.  Providing a slice must retain array dimensions (i.e., the array rank must remain the same; `rank(A) == rank(A[:])`).
+-   Providing a slice must retain array dimensions (i.e., the array rank must remain the same; `rank(A) == rank(A[:])`).
 
-1.  If the number of provided single-axis indexing expressions is less than `N`, then `:` must be assumed for the remaining dimensions (e.g., if `A` has rank `2`, `A[2:10] == A[2:10, :]`).
+-   If the number of provided single-axis indexing expressions is less than `N`, then `:` must be assumed for the remaining dimensions (e.g., if `A` has rank `2`, `A[2:10] == A[2:10, :]`).
 
-1.  Providing [ellipsis](https://docs.python.org/3/library/constants.html#Ellipsis) must apply `:` to each dimension necessary to index all dimensions (e.g., if `A` has rank `4`, `A[1:, ..., 2:5] == A[1:, :, :, 2:5]`). Only a single ellipsis must be allowed. An exception must be raised if more than one ellipsis is provided. 
+-   Providing [ellipsis](https://docs.python.org/3/library/constants.html#Ellipsis) must apply `:` to each dimension necessary to index all dimensions (e.g., if `A` has rank `4`, `A[1:, ..., 2:5] == A[1:, :, :, 2:5]`). Only a single ellipsis must be allowed. An exception must be raised if more than one ellipsis is provided. 
