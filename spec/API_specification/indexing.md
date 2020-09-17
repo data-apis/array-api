@@ -98,7 +98,7 @@ Multi-dimensional arrays must extend the concept of single-axis indexing to mult
 
 .. note::
 
-    In Python, `x[(exp1, exp2, ..., expN)]` is equivalent to `x[exp1, exp2, ..., expN]`; the latter is just syntactic sugar for the former.
+    In Python, `x[(exp1, exp2, ..., expN)]` is equivalent to `x[exp1, exp2, ..., expN]`; the latter is syntactic sugar for the former.
 
 2.  Providing a single integer as a single-axis index must index the same elements as the slice `i:i+1`.
 
