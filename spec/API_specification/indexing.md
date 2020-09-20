@@ -10,11 +10,15 @@ A conforming implementation of the array API standard must adhere to the followi
 
 To index a single array axis, an array must support standard Python indexing rules. Let `n` be the axis (dimension) size.
 
--   Indices must be Python integers (i.e., `int`).
+-   An valid index must be an object satisfying [`operator.index`](https://www.python.org/dev/peps/pep-0357/) (e.g., `int`).
 
 -   Nonnegative indices must start at `0` (i.e., zero-based indexing).
 
 -   Valid nonnegative indices must reside on the half-open interval `[0, n)`.
+
+    .. note::
+
+        This specification does not explicitly require bounds checking. The behavior for out-of-bounds integer indices is left unspecified.
 
 -   Negative indices must count backward from the last array index, starting from `-1` (i.e., negative-one-based indexing, where `-1` refers to the last array index).
 
@@ -23,6 +27,10 @@ To index a single array axis, an array must support standard Python indexing rul
         A negative index `j` is equivalent to `n-j`; the former is syntactic sugar for the latter, providing a shorthand for indexing elements that would otherwise need to be specified in terms of the axis (dimension) size.
 
 -   Valid negative indices must reside on the closed interval `[-n, -1]`.
+
+    .. note::
+
+        This specification does not explicitly require bounds checking. The behavior for out-of-bounds integer indices is left unspecified.
 
 -   A negative index `j` is related to a zero-based nonnegative index `i` via `i = n+j`.
 
@@ -109,3 +117,6 @@ Multi-dimensional arrays must extend the concept of single-axis indexing to mult
 -   If the number of provided single-axis indexing expressions is less than `N`, then `:` must be assumed for the remaining dimensions (e.g., if `A` has rank `2`, `A[2:10] == A[2:10, :]`).
 
 -   Providing [ellipsis](https://docs.python.org/3/library/constants.html#Ellipsis) must apply `:` to each dimension necessary to index all dimensions (e.g., if `A` has rank `4`, `A[1:, ..., 2:5] == A[1:, :, :, 2:5]`). Only a single ellipsis must be allowed. An exception must be raised if more than one ellipsis is provided. 
+
+## Boolean Array Indexing
+
