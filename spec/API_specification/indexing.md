@@ -112,7 +112,9 @@ Multi-dimensional arrays must extend the concept of single-axis indexing to mult
 
         In Python, `x[(exp1, exp2, ..., expN)]` is equivalent to `x[exp1, exp2, ..., expN]`; the latter is syntactic sugar for the former.
 
--   Providing a single integer as a single-axis index must index the same elements as the slice `i:i+1`.
+-   Providing a single nonnegative integer `i` as a single-axis index must index the same elements as the slice `i:i+1`.
+
+-   Providing a single negative integer `i` as a single-axis index must index the same elements as the slice `n+i:n`, where `n` is the axis (dimension) size.
 
 -   Providing a single integer as a single-axis index must reduce the number of array dimensions by `1` (i.e., the array rank should decrease by one; if `A` has rank `2`, `rank(A)-1 == rank(A[0, :])`). In particular, a selection tuple with the `m`th element an integer (and all other entries `:`) indexes a sub-array with rank `N-1`.
 
