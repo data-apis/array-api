@@ -10,7 +10,7 @@ A conforming implementation of the array API standard must adhere to the followi
 
 To index a single array axis, an array must support standard Python indexing rules. Let `n` be the axis (dimension) size.
 
--   An valid index must be an object satisfying [`operator.index`](https://www.python.org/dev/peps/pep-0357/) (e.g., `int`).
+-   A valid integer index must be an object satisfying [`operator.index`](https://www.python.org/dev/peps/pep-0357/) (e.g., `int`).
 
 -   Nonnegative indices must start at `0` (i.e., zero-based indexing).
 
