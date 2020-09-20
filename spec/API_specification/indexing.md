@@ -10,11 +10,11 @@ A conforming implementation of the array API standard must adhere to the followi
 
 To index a single array axis, an array must support standard Python indexing rules. Let `n` be the axis (dimension) size.
 
--   A valid integer index must be an object satisfying [`operator.index`](https://www.python.org/dev/peps/pep-0357/) (e.g., `int`).
+-   An integer index must be an object satisfying [`operator.index`](https://www.python.org/dev/peps/pep-0357/) (e.g., `int`).
 
 -   Nonnegative indices must start at `0` (i.e., zero-based indexing).
 
--   Valid nonnegative indices must reside on the half-open interval `[0, n)`.
+-   **Valid** nonnegative indices must reside on the half-open interval `[0, n)`.
 
     .. note::
 
@@ -26,7 +26,7 @@ To index a single array axis, an array must support standard Python indexing rul
 
         A negative index `j` is equivalent to `n-j`; the former is syntactic sugar for the latter, providing a shorthand for indexing elements that would otherwise need to be specified in terms of the axis (dimension) size.
 
--   Valid negative indices must reside on the closed interval `[-n, -1]`.
+-   **Valid** negative indices must reside on the closed interval `[-n, -1]`.
 
     .. note::
 
@@ -86,7 +86,7 @@ j > i + (m-1)k
 
 .. note::
 
-    The starting index `i` is **always** included, while the stopping index `j` is **always** excluded. This preserves `x[:i]+x[i:]` always being equal to `x`.
+    For `i < j`, **valid** integer index `i`, and positive step `k`, a starting index `i` is **always** included, while the stopping index `j` is **always** excluded. This preserves `x[:i]+x[i:]` always being equal to `x`.
 
 Slice syntax must have the following defaults. Let `n` be the axis (dimension) size.
 
