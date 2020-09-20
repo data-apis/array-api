@@ -122,6 +122,8 @@ Multi-dimensional arrays must extend the concept of single-axis indexing to mult
 
 -   If the number of provided single-axis indexing expressions is less than `N`, then `:` must be assumed for the remaining dimensions (e.g., if `A` has rank `2`, `A[2:10] == A[2:10, :]`).
 
+-   An `IndexError` exception must be raised if the number of provided single-axis indexing expressions is greater than `N`.
+
 -   Providing [ellipsis](https://docs.python.org/3/library/constants.html#Ellipsis) must apply `:` to each dimension necessary to index all dimensions (e.g., if `A` has rank `4`, `A[1:, ..., 2:5] == A[1:, :, :, 2:5]`). Only a single ellipsis must be allowed. An exception must be raised if more than one ellipsis is provided. 
 
 ## Boolean Array Indexing
