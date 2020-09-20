@@ -88,6 +88,10 @@ j > i + (m-1)k
 
     For `i < j`, **valid** integer index `i`, and positive step `k`, a starting index `i` is **always** included, while the stopping index `j` is **always** excluded. This preserves `x[:i]+x[i:]` always being equal to `x`.
 
+.. note::
+
+    Using a slice to index into a single array axis should select the same elements as using a slice to index a Python list of the same size.
+
 Slice syntax must have the following defaults. Let `n` be the axis (dimension) size.
 
 -   If `k` is not provided (e.g., `0:10`), `k` must equal `1`.
