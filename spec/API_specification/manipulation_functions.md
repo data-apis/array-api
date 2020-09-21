@@ -6,6 +6,7 @@ A conforming implementation of the array API standard must provide and support t
 
 -   Positional parameters must be [positional-only](https://www.python.org/dev/peps/pep-0570/) parameters. Positional-only parameters have no externally-usable name. When a function accepting positional-only parameters is called, positional arguments are mapped to these parameters based solely on their order.
 -   Optional parameters must be [keyword-only](https://www.python.org/dev/peps/pep-3102/) arguments.
+-   Unless stated otherwise, functions must adhere to the type promotion rules defined in :ref:`type-promotion`.
 
 <!-- NOTE: please keep the functions in alphabetical order -->
 
@@ -27,7 +28,11 @@ Joins a sequence of arrays along an existing axis.
 
 -   **out**: _&lt;array&gt;_
 
-    -   an output array containing the concatenated values.
+    -   an output array containing the concatenated values. If the input arrays have different data types, normal [type promotion rules](type_promotion.md) apply. If the input arrays have the same data type, the output array must have the same data type as the input arrays.
+
+        .. note::
+
+            This specification leaves type promotion between data type families (i.e., `intxx` and `floatxx`) unspecified.
 
 ### <a name="flip" href="#flip">#</a> flip(x, /, *, axis=None)
 
@@ -59,9 +64,9 @@ Reshapes an array without changing its data.
 
     -   input array to reshape.
 
--   **shape**: _Union\[ int, Tuple\[ int, ... ] ]_ 
+-   **shape**: _Tuple\[ int, ... ]_ 
 
-    -   a new shape compatible with the original shape. If `shape` is an integer, then the result must be a one-dimensional array of that length. One shape dimension is allowed to be `-1`. When a shape dimension is `-1`, the corresponding output array shape dimension must be inferred from the length of the array and the remaining dimensions.
+    -   a new shape compatible with the original shape. One shape dimension is allowed to be `-1`. When a shape dimension is `-1`, the corresponding output array shape dimension must be inferred from the length of the array and the remaining dimensions.
 
 #### Returns
 
@@ -131,4 +136,8 @@ Joins a sequence of arrays along a new axis.
 
 -   **out**: _&lt;array&gt;_
 
-    -   an output array having rank `N+1`, where `N` is the rank (number of dimensions) of `x`.
+    -   an output array having rank `N+1`, where `N` is the rank (number of dimensions) of `x`. If the input arrays have different data types, normal [type promotion rules](type_promotion.md) apply. If the input arrays have the same data type, the output array must have the same data type as the input arrays.
+
+        .. note::
+
+            This specification leaves type promotion between data type families (i.e., `intxx` and `floatxx`) unspecified.
