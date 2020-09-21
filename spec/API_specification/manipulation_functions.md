@@ -34,6 +34,26 @@ Joins a sequence of arrays along an existing axis.
 
             This specification leaves type promotion between data type families (i.e., `intxx` and `floatxx`) unspecified.
 
+### <a name="expand_dims" href="#expand_dims">#</a> expand_dims(x, axis, /)
+
+Expands the shape of an array by inserting a new axis (dimension) of size one at the position specified by `axis`.
+
+#### Parameters
+
+-   **x**: _&lt;array&gt;_
+
+    -   input array.
+
+-   **axis**: _int_ 
+
+    -   axis position. Must follow Python's indexing rules: zero-based and negative indices must be counted backward from the last dimension. If `x` has rank `N`, a valid `axis` must reside on the interval `[-N-1, N+1]`. An `IndexError` exception must be raised if provided an invalid `axis` position.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an expanded output array having the same data type and shape as `x`.
+
 ### <a name="flip" href="#flip">#</a> flip(x, /, *, axis=None)
 
 Reverses the order of elements in an array along the given axis. The shape of the array must be preserved.
