@@ -1,3 +1,5 @@
+.. _searching-functions:
+
 # Searching Functions
 
 > Array API specification for functions for searching arrays.

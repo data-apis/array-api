@@ -128,3 +128,18 @@ Multi-dimensional arrays must extend the concept of single-axis indexing to mult
 
 ## Boolean Array Indexing
 
+An array must support indexing via a **single** `M`-dimensional boolean array `B` with shape `S1 = (s1, ..., sM)` according to the following rules. Let `A` be an `N`-dimensional array with shape `S2 = (s1, ..., sM, ..., sN)`.
+
+-   If `N >= M`, then `A[B]` must replace the first `M` dimensions of `A` with a single dimension having a size equal to the number of `True` elements in `B`.
+
+    .. note::
+
+        For example, if `N == M == 2`, indexing `A` via a boolean array `B` will return a one-dimensional array whose size is equal to the number of `True` elements in `B`.
+
+-   If `N < M`, then an `IndexError` exception must be raised.
+
+-   The size of each dimension in `B` must equal the size of the corresponding dimension in `A` or be `0`, beginning with the first dimension in `A`. If a dimension size does not equal the size of the corresponding dimension in `A` and is not `0`, then an `IndexError` exception must be raised.
+
+-   The elements of a boolean index array must be iterated in row-major, C-style order, with the exception of zero-dimensional boolean arrays.
+
+-   A zero-dimensional boolean index array (equivalent to `True` or `False`) follows the same axis replacement rules stated above. Namely, a zero-dimensional boolean index array removes zero dimensions and adds a single dimension of length `1` if the index array's value is `True` and of length `0` if the index array's value is `False`. Accordingly, for a zero-dimensional boolean index array `B`, the result of `A[B]` has shape `S = (1, s1, ..., sN)` if the index array's value is `True` and has shape `S = (0, s1, ..., sN)` if the index array's value is `False`.
