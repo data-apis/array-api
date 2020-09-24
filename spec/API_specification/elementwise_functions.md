@@ -10,6 +10,7 @@ A conforming implementation of the array API standard must provide and support t
 -   Unless stated otherwise, functions must support the data types defined in :ref:`data-types`.
 -   Unless stated otherwise, functions must adhere to the type promotion rules defined in :ref:`type-promotion`.
 -   Unless stated otherwise, floating-point operations must adhere to IEEE 754-2019.
+-   Unless stated otherwise, element-wise mathematical functions must satisfy the minimum accuracy requirements defined in :ref:`accuracy`.
 
 <!-- NOTE: please keep the functions in alphabetical order -->
 
