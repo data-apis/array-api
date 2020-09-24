@@ -30,14 +30,19 @@ This specification does **not** precisely define the behavior of the following f
 -   asin
 -   asinh
 -   atan
+-   atan2
 -   atanh
 -   cos
 -   cosh
 -   exp
+-   expm1
 -   log
+-   log1p
+-   log2
+-   log10
+-   pow
 -   sin
 -   sinh
--   sqrt
 -   tan
 -   tanh
    
