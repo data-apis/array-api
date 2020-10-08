@@ -12,7 +12,6 @@ API specification
    type_promotion
    casting
    broadcasting
-   out_keyword
    creation_functions
    elementwise_functions
    statistical_functions
