@@ -11,6 +11,8 @@ A conforming implementation of the array API standard must provide and support a
 -   Unless stated otherwise, methods must adhere to the type promotion rules defined in :ref:`type-promotion`.
 -   Unless stated otherwise, floating-point operations must adhere to IEEE 754-2019.
 
+* * *
+
 ## Attributes
 
 <!-- NOTE: please keep the attributes in alphabetical order -->
@@ -64,6 +66,8 @@ Transpose of the array.
 -   **out**: _&lt;array&gt;_
 
     -   array whose dimensions (axes) are permuted in reverse order relative to original array. Must have the same data type as the original array.
+
+* * *
 
 ## Methods
 
