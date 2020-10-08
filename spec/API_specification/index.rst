@@ -19,4 +19,5 @@ API specification
    linear_algebra_functions
    searching_functions
    set_functions
+   utility_functions
    constants
