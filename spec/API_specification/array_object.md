@@ -73,7 +73,7 @@ Transpose of the array.
 
 <!-- NOTE: please keep the methods in alphabetical order -->
 
-### <a name="__abs__" href="#__abs__">#</a> \_\_abs\_\_(self, /)
+### <a name="__abs__" href="#__abs__">#</a> \_\_abs\_\_(x, /)
 
 Calculates the absolute value for each element `x_i` of an array instance `x` (i.e., the element-wise result has the same magnitude as the respective element in `x` but has positive sign).
 
@@ -83,7 +83,7 @@ Calculates the absolute value for each element `x_i` of an array instance `x` (i
 
 #### Parameters
 
--   **self**: _&lt;array&gt;_
+-   **x**: _&lt;array&gt;_
 
     -   array instance.
 
@@ -91,8 +91,455 @@ Calculates the absolute value for each element `x_i` of an array instance `x` (i
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the element-wise absolute value. Must have the same data type as `self`.
+    -   an array containing the element-wise absolute value. Must have the same data type as `x`.
 
 .. note::
 
-    Element-wise results should equal those of the equivalent element-wise function.
+    Element-wise results should equal those of the equivalent element-wise function. TODO: link to function specification: `abs`.
+
+### <a name="__add__" href="#__add__">#</a> \_\_add\_\_(x1, x2, /)
+
+Calculates the sum for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`. For floating-point arithmetic,
+
+-   If either `x1_i` or `x2_i` is `NaN`, the result is `NaN`.
+-   If `x1_i` is `+infinity` and `x2_i` is `-infinity`, the result is `NaN`.
+-   If `x1_i` is `-infinity` and `x2_i` is `+infinity`, the result is `NaN`.
+-   If `x1_i` is `+infinity` and `x2_i` is `+infinity`, the result is `+infinity`.
+-   If `x1_i` is `-infinity` and `x2_i` is `-infinity`, the result is `-infinity`.
+-   If `x1_i` is `+infinity` and `x2_i` is finite, the result is `+infinity`.
+-   If `x1_i` is `-infinity` and `x2_i` is finite, the result is `-infinity`.
+-   If `x1_i` is finite and `x2_i` is `+infinity`, the result is `+infinity`.
+-   If `x1_i` is finite and `x2_i` is `-infinity`, the result is `-infinity`.
+-   If `x1_i` is `-0` and `x2_i` is `-0`, the result is `-0`.
+-   If `x1_i` is `-0` and `x2_i` is `+0`, the result is `+0`.
+-   If `x1_i` is `+0` and `x2_i` is `-0`, the result is `+0`.
+-   If `x1_i` is `+0` and `x2_i` is `+0`, the result is `+0`.
+-   If `x1_i` is `+0` or `-0` and `x2_i` is a nonzero finite number, the result is `x2_i`.
+-   If `x1_i` is a nonzero finite number and `x2_i` is `+0` or `-0`, the result is `x1_i`.
+-   If `x1_i` is a nonzero finite number and `x2_i` is `-x1_i`, the result is `+0`.
+-   In the remaining cases, when neither an `infinity`, `+0`, `-0`, nor a `NaN` is involved, and the operands have the same sign or have different magnitudes, the sum must be computed and rounded to the nearest representable value according to IEEE 754-2019 and a supported round mode. If the magnitude is too large to represent, the operation overflows and the result is an `infinity` of appropriate sign.
+
+.. note::
+
+    Floating-point addition is a commutative operation, but not always associative.
+
+#### Parameters
+
+-   **x1**: _&lt;array&gt;_
+
+    -   array instance (augend array).
+
+-   **x2**: _&lt;array;gt;_
+
+    -   addend array. Must be compatible with `x1` (see :ref:`broadcasting`).
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the element-wise sums.
+
+.. note::
+
+    Element-wise results should equal those of the equivalent element-wise function. TODO: link to function specification: `add`.
+
+### <a name="__and__" href="#__and__">#</a> \_\_and\_\_(x1, x2, /)
+
+Evaluates `x1_i & x2_i` for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`.
+
+#### Parameters
+
+-   **x1**: _&lt;array&gt;_
+
+    -   array instance.
+
+-   **x2**: _&lt;array;gt;_
+
+    -   other array. Must be compatible with `x1` (see :ref:`broadcasting`).
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the element-wise results.
+
+### <a name="__eq__" href="#__eq__">#</a> \_\_eq\_\_(x1, x2, /)
+
+Computes the truth value of `x1_i == x2_i` for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`.
+
+#### Parameters
+
+-   **x1**: _&lt;array&gt;_
+
+    -   array instance.
+
+-   **x2**: _&lt;array;gt;_
+
+    -   other array. Must be compatible with `x1` (see :ref:`broadcasting`).
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the element-wise results.
+
+.. note::
+
+    Element-wise results should equal those of the equivalent element-wise function. TODO: link to function specification: `equal`.
+
+### <a name="__floordiv__" href="#__floordiv__">#</a> \_\_floordiv\_\_(x1, x2, /)
+
+Evaluates `x1_i // x2_i` for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`.
+
+#### Parameters
+
+-   **x1**: _&lt;array&gt;_
+
+    -   array instance.
+
+-   **x2**: _&lt;array;gt;_
+
+    -   other array. Must be compatible with `x1` (see :ref:`broadcasting`).
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the element-wise results.
+
+TODO: an element-wise counterpart API
+
+### <a name="__ge__" href="#__ge__">#</a> \_\_ge\_\_(x1, x2, /)
+
+Computes the truth value of `x1_i >= x2_i` for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`.
+
+#### Parameters
+
+-   **x1**: _&lt;array&gt;_
+
+    -   array instance.
+
+-   **x2**: _&lt;array&gt;_
+
+    -   other array. Must be compatible with `x1` (see :ref:`broadcasting`).
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the element-wise results.
+
+.. note::
+
+    Element-wise results should equal those of the equivalent element-wise function. TODO: link to function specification: `greater_equal`.
+
+### <a name="__getitem__" href="#__getitem__">#</a> \_\_getitem\_\_(x, key, /)
+
+TODO
+
+### <a name="__gt__" href="#__gt__">#</a> \_\_gt\_\_(x1, x2, /)
+
+Computes the truth value of `x1_i > x2_i` for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`.
+
+#### Parameters
+
+-   **x1**: _&lt;array&gt;_
+
+    -   array instance.
+
+-   **x2**: _&lt;array&gt;_
+
+    -   other array. Must be compatible with `x1` (see :ref:`broadcasting`).
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the element-wise results.
+
+.. note::
+
+    Element-wise results should equal those of the equivalent element-wise function. TODO: link to function specification: `greater`.
+
+### <a name="__invert__" href="#__invert__">#</a> \_\_invert\_\_(x, /)
+
+Evaluates `~x_i` for each element `x_i` of an array instance `x`.
+
+#### Parameters
+
+-   **x**: _&lt;array&gt;_
+
+    -   array instance.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the element-wise results.
+
+TODO: functional counterpart (bitwise_not)
+
+### <a name="__le__" href="#__le__">#</a> \_\_le\_\_(x1, x2, /)
+
+Computes the truth value of `x1_i <= x2_i` for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`.
+
+#### Parameters
+
+-   **x1**: _&lt;array&gt;_
+
+    -   array instance.
+
+-   **x2**: _&lt;array&gt;_
+
+    -   other array. Must be compatible with `x1` (see :ref:`broadcasting`).
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the element-wise results.
+
+.. note::
+
+    Element-wise results should equal those of the equivalent element-wise function. TODO: link to function specification: `less_equal`.
+
+### <a name="__len__" href="#__len__">#</a> \_\_len\_\_(x, /)
+
+TODO
+
+### <a name="__lshift__" href="#__lshift__">#</a> \_\_lshift\_\_(x1, x2, /)
+
+Evaluates `x1_i << x2_i` for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`.
+
+#### Parameters
+
+-   **x1**: _&lt;array&gt;_
+
+    -   array instance.
+
+-   **x2**: _&lt;array;gt;_
+
+    -   other array. Must be compatible with `x1` (see :ref:`broadcasting`).
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the element-wise results.
+
+TODO: functional counterpart?
+
+### <a name="__lt__" href="#__lt__">#</a> \_\_lt\_\_(x1, x2, /)
+
+Computes the truth value of `x1_i < x2_i` for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`.
+
+#### Parameters
+
+-   **x1**: _&lt;array&gt;_
+
+    -   array instance.
+
+-   **x2**: _&lt;array&gt;_
+
+    -   other array. Must be compatible with `x1` (see :ref:`broadcasting`).
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the element-wise results.
+
+.. note::
+
+    Element-wise results should equal those of the equivalent element-wise function. TODO: link to function specification: `less`.
+
+### <a name="__mod__" href="#__mod__">#</a> \_\_mod\_\_(x1, x2, /)
+
+Evaluates `x1_i % x2_i` for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`.
+
+#### Parameters
+
+-   **x1**: _&lt;array&gt;_
+
+    -   array instance.
+
+-   **x2**: _&lt;array;gt;_
+
+    -   other array. Must be compatible with `x1` (see :ref:`broadcasting`).
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the element-wise results.
+
+TODO: an element-wise counterpart API
+
+### <a name="__mul__" href="#__mul__">#</a> \_\_mul\_\_(x1, x2, /)
+
+Calculates the product for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`. For floating-point arithmetic,
+
+-   If either `x1_i` or `x2_i` is `NaN`, the result is `NaN`.
+-   If both `x1_i` and `x2_i` have the same sign, the result is positive.
+-   If `x1_i` and `x2_i` have different signs, the result is negative.
+-   If `x1_i` is either `+infinity` or `-infinity` and `x2_i` is either `+0` or `-0`, the result is `NaN`.
+-   If `x1_i` is either `+0` or `-0` and `x2_i` is either `+infinity` or `-infinity`, the result is `NaN`.
+-   If `x1_i` is either `+infinity` or `-infinity` and `x2_i` is either `+infinity` or `-infinity`, the result is either `+infinity` and `-infinity` with the sign determined by the rule already stated above.
+-   If `x1_i` is either `+infinity` or `-infinity` and `x2_i` is a finite nonzero value, the result is a signed infinity with the sign determined by the rule already stated above.
+-   If `x1_i` is a finite nonzero value and `x2_i` is either `+infinity` or `-infinity`, the result is a signed infinity with the sign determined by the rule already stated above.
+-   In the remaining cases, where neither an `infinity` nor `NaN` is involved, the product must be computed and rounded to the nearest representable value according to IEEE 754-2019 and a supported rounding mode. If the magnitude is too large to represent, the result is an `infinity` of appropriate sign. If the magnitude is too small to represent, the result is a zero of appropriate sign.
+
+.. note::
+
+    Floating-point multiplication is not always associative due to finite precision.
+
+#### Parameters
+
+-   **x1**: _&lt;array&gt;_
+
+    -   array instance.
+
+-   **x2**: _&lt;array;gt;_
+
+    -   other array. Must be compatible with `x1` (see :ref:`broadcasting`).
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the element-wise products.
+
+.. note::
+
+    Element-wise results should equal those of the equivalent element-wise function. TODO: link to function specification: `multiply`.
+
+### <a name="__ne__" href="#__ne__">#</a> \_\_ne\_\_(x1, x2, /)
+
+Computes the truth value of `x1_i != x2_i` for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`.
+
+#### Parameters
+
+-   **x1**: _&lt;array&gt;_
+
+    -   array instance.
+
+-   **x2**: _&lt;array;gt;_
+
+    -   other array. Must be compatible with `x1` (see :ref:`broadcasting`).
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the element-wise results.
+
+.. note::
+
+    Element-wise results should equal those of the equivalent element-wise function. TODO: link to function specification: `not_equal`.
+
+### <a name="__neg__" href="#__neg__">#</a> \_\_neg\_\_(x, /)
+
+Evaluates `-x_i` for each element `x_i` of an array instance `x`.
+
+#### Parameters
+
+-   **x**: _&lt;array&gt;_
+
+    -   array instance.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the element-wise results.
+
+TODO: functional counterpart? (numpy.negative)
+
+### <a name="__or__" href="#__or__">#</a> \_\_or\_\_(x1, x2, /)
+
+Evaluates `x1_i | x2_i` for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`.
+
+#### Parameters
+
+-   **x1**: _&lt;array&gt;_
+
+    -   array instance.
+
+-   **x2**: _&lt;array;gt;_
+
+    -   other array. Must be compatible with `x1` (see :ref:`broadcasting`).
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the element-wise results.
+
+TODO: functional counterpart? (bitwise_or)
+
+### <a name="__pos__" href="#__pos__">#</a> \_\_pos\_\_(x, /)
+
+Evaluates `+x_i` for each element `x_i` of an array instance `x`.
+
+#### Parameters
+
+-   **x**: _&lt;array&gt;_
+
+    -   array instance.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the element-wise results.
+
+TODO: functional counterpart? (numpy.positive)
+
+### <a name="__pow__" href="#__pow__">#</a> \_\_pow\_\_(x1, x2, /)
+
+Calculates an implementation-dependent approximation of exponentiation by raising each element `x1_i` (the base) of an array instance `x1` to the power of `x2_i` (the exponent), where `x2_i` is the corresponding element of the array `x2`.
+
+-   If `x1_i` is not equal to `1` and `x2_i` is `NaN`, the result is `NaN`.
+-   If `x2_i` is `+0`, the result is `1`, even if `x1_i` is `NaN`.
+-   If `x2_i` is `-0`, the result is `1`, even if `x1_i` is `NaN`.
+-   If `x1_i` is `NaN` and `x2_i` is nonzero, the result is `NaN`.
+-   If `abs(x1_i)` is greater than `1` and `x2_i` is `+infinity`, the result is `+infinity`.
+-   If `abs(x1_i)` is greater than `1` and `x2_i` is `-infinity`, the result is `+0`.
+-   If `abs(x1_i)` is `1` and `x2_i` is `+infinity`, the result is `1`.
+-   If `abs(x1_i)` is `1` and `x2_i` is `-infinity`, the result is `1`.
+-   If `x1_i` is `1` and `x2_i` is not `NaN`, the result is `1`.
+-   If `abs(x1_i)` is less than `1` and `x2_i` is `+infinity`, the result is `+0`.
+-   If `abs(x1_i)` is less than `1` and `x2_i` is `-infinity`, the result is `+infinity`.
+-   If `x1_i` is `+infinity` and `x2_i` is greater than `0`, the result is `+infinity`.
+-   If `x1_i` is `+infinity` and `x2_i` is less than `0`, the result is `+0`.
+-   If `x1_i` is `-infinity` and `x2_i` is greater than `0`, the result is `-infinity`.
+-   If `x1_i` is `-infinity`, `x2_i` is greater than `0`, and `x2_i` is not an odd integer value, the result is `+infinity`.
+-   If `x1_i` is `-infinity`, `x2_i` is less than `0`, and `x2_i` is an odd integer value, the result is `-0`.
+-   If `x1_i` is `-infinity`, `x2_i` is less than `0`, and `x2_i` is not an odd integer value, the result is `+0`.
+-   If `x1_i` is `+0` and `x2_i` is greater than `0`, the result is `+0`.
+-   If `x1_i` is `+0` and `x2_i` is less than `0`, the result is `+infinity`.
+-   If `x1_i` is `-0`, `x2_i` is greater than `0`, and `x2_i` is an odd integer value, the result is `-0`.
+-   If `x1_i` is `-0`, `x2_i` is greater than `0`, and `x2_i` is not an odd integer value, the result is `+0`.
+-   If `x1_i` is `-0`, `x2_i` is less than `0`, and `x2_i` is an odd integer value, the result is `-infinity`.
+-   If `x1_i` is `-0`, `x2_i` is less than `0`, and `x2_i` is not an odd integer value, the result is `+infinity`.
+-   If `x1_i` is less than `0`, `x1_i` is finite, `x2_i` is finite, and `x2_i` is not an integer value, the result is `NaN`.
+
+#### Parameters
+
+-   **x1**: _&lt;array&gt;_
+
+    -   array instance whose elements correspond to the exponentiation base.
+
+-   **x2**: _&lt;array;gt;_
+
+    -   other array whose elements correspond to the exponentiation exponent. Must be compatible with `x1` (see :ref:`broadcasting`).
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the element-wise results.
+
+.. note::
+
+    Element-wise results should equal those of the equivalent element-wise function. TODO: link to function specification: `pow`.

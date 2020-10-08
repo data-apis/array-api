@@ -756,7 +756,7 @@ Calculates the product for each element `x1_i` of the input array `x1` with the 
 
 .. note::
 
-    Floating-point multiplication not always associative due to finite precision.
+    Floating-point multiplication is not always associative due to finite precision.
 
 #### Parameters
 
