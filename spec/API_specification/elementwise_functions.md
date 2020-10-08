@@ -183,6 +183,58 @@ Calculates an implementation-dependent approximation of the principal value of t
 
     -   an array containing the inverse tangent of each element in `x`.
 
+### <a name="atan2" href="#atan2">#</a> atan2(x1, x2, /)
+
+Calculates an implementation-dependent approximation of the inverse tangent of the quotient `x1/x2`, having domain `[-infinity, +infinity] x [-infinity, +infinity]` (where the `x` notation denotes the set of ordered pairs of elements `(x1_i, x2_i)`) and codomain `[-π, +π]`, for each pair of elements `(x1_i, x2_i)` of the input arrays `x1` and `x2`, respectively. Each element-wise result is expressed in radians.
+
+The signs of `x1_i` and `x2_i` determine the quadrant of each element-wise result. The quadrant (i.e., branch) is chosen such that each element-wise result is the signed angle in radians between the ray ending at the origin and passing through the point `(1,0)` and the ray ending at the origin and passing through the point `(x2_i, x1_i)`.
+
+.. note::
+
+    Note the role reversal: the "y-coordinate" is the first function parameter; the "x-coordinate" is the second function parameter. The parameter order is intentional and traditional for the two-argument inverse tangent function where the y-coordinate argument is first and the x-coordinate argument is second.
+
+By IEEE 754 convention, the inverse tangent of the quotient `x1/x2` is defined for `x2_i` equal to positive or negative zero and for either or both of `x1_i` and `x2_i` equal to positive or negative `infinity`. 
+
+-   If `x1_i` or `x2_i` is `NaN`, the result is `NaN`.
+-   If `x1_i` is greater than `0` and `x2_i` is `+0`, the result is an implementation-dependent approximation to `+π/2`.
+-   If `x1_i` is greater than `0` and `x2_i` is `-0`, the result is an implementation-dependent approximation to `+π/2`.
+-   If `x1_i` is `+0` and `x2_i` is greater than `0`, the result is `+0`.
+-   If `x1_i` is `+0` and `x2_i` is `+0`, the result is `+0`.
+-   If `x1_i` is `+0` and `x2_i` is `-0`, the result is an implementation-dependent approximation to `+π`.
+-   If `x1_i` is `+0` and `x2_i` is less than `0`, the result is an implementation-dependent approximation to `+π`.
+-   If `x1_i` is `-0` and `x2_i` is greater than `0`, the result is `-0`.
+-   If `x1_i` is `-0` and `x2_i` is `+0`, the result is `-0`.
+-   If `x1_i` is `-0` and `x2_i` is `-0`, the result is an implementation-dependent approximation to `-π`.
+-   If `x1_i` is `-0` and `x2_i` is less than `0`, the result is an implementation-dependent approximation to `-π`.
+-   If `x1_i` is less than `0` and `x2_i` is `+0`, the result is an implementation-dependent approximation to `-π/2`.
+-   If `x1_i` is less than `0` and `x2_i` is `-0`, the result is an implementation-dependent approximation to `-π/2`.
+-   If `x1_i` is greater than `0`, `x1_i` is finite, and `x2_i` is `+infinity`, the result is `+0`.
+-   If `x1_i` is greater than `0`, `x1_i` is finite, and `x2_i` is `-infinity`, the result is an implementation-dependent approximation to `+π`.
+-   If `x1_i` is less than `0`, `x1_i` is finite, and `x2_i` is `+infinity`, the result is `-0`.
+-   If `x1_i` is less than `0`, `x1_i` is finite, and `x2_i` is `-infinity`, the result is an implementation-dependent approximation to `-π`.
+-   If `x1_i` is `+infinity` and `x2_i` is finite, the result is an implementation-dependent approximation to `+π/2`.
+-   If `x1_i` is `-infinity` and `x2_i` is finite, the result is an implementation-dependent approximation to `-π/2`.
+-   If `x1_i` is `+infinity` and `x2_i` is `+infinity`, the result is an implementation-dependent approximation to `+π/4`.
+-   If `x1_i` is `+infinity` and `x2_i` is `-infinity`, the result is an implementation-dependent approximation to `+3π/4`.
+-   If `x1_i` is `-infinity` and `x2_i` is `+infinity`, the result is an implementation-dependent approximation to `-π/4`.
+-   If `x1_i` is `-infinity` and `x2_i` is `-infinity`, the result is an implementation-dependent approximation to `-3π/4`.
+
+#### Parameters
+
+-   **x1**: _&lt;array&gt;_
+
+    -   input array corresponding to the y-coordinates.
+
+-   **x2**: _&lt;array&gt;_
+
+    -   input array corresponding to the x-coordinates. Must be compatible with `x1` (see :ref:`broadcasting`).
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the inverse tangent of the quotient `x1/x2`.
+
 ### <a name="atanh" href="#atanh">#</a> atanh(x, /)
 
 Calculates an implementation-dependent approximation to the inverse hyperbolic tangent, having domain `[-1, +1]` and codomain `[-infinity, +infinity]`, for each element `x_i` of the input array `x`.
