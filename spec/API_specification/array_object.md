@@ -68,3 +68,27 @@ Transpose of the array.
 ## Methods
 
 <!-- NOTE: please keep the methods in alphabetical order -->
+
+### <a name="__abs__" href="#__abs__">#</a> \_\_abs\_\_(self, /)
+
+Calculates the absolute value for each element `x_i` of an array instance `x` (i.e., the element-wise result has the same magnitude as the respective element in `x` but has positive sign).
+
+-   If `x_i` is `NaN`, the result is `NaN`.
+-   If `x_i` is `-0`, the result is `+0`.
+-   If `x_i` is `-infinity`, the result is `+infinity`.
+
+#### Parameters
+
+-   **self**: _&lt;array&gt;_
+
+    -   array instance.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the element-wise absolute value. Must have the same data type as `self`.
+
+.. note::
+
+    Element-wise results should equal those of the equivalent element-wise function.

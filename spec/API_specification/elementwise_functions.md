@@ -31,7 +31,7 @@ Calculates the absolute value for each element `x_i` of the input array `x` (i.e
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the absolute value of each element in `x`.
+    -   an array containing the element-wise absolute value. Must have the same data type as `x`.
 
 ### <a name="acos" href="#acos">#</a> acos(x, /)
 
