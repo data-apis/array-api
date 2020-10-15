@@ -44,7 +44,7 @@ Calculates an implementation-dependent approximation of the principal value of t
 -   If `x_i` is `NaN`, the result is `NaN`.
 -   If `x_i` is greater than `1`, the result is `NaN`.
 -   If `x_i` is less than `-1`, the result is `NaN`.
--   If `x_i` is exactly `1`, the result is `+0`.
+-   If `x_i` is `1`, the result is `+0`.
 
 #### Parameters
 
@@ -100,8 +100,8 @@ Calculates the sum for each element `x1_i` of the input array `x1` with the resp
 -   If `x1_i` is `-0` and `x2_i` is `+0`, the result is `+0`.
 -   If `x1_i` is `+0` and `x2_i` is `-0`, the result is `+0`.
 -   If `x1_i` is `+0` and `x2_i` is `+0`, the result is `+0`.
--   If `x1_i` is `+0` or `-0` and `x2_i` is a nonzero finite number, the result is `x2_i`.
--   If `x1_i` is a nonzero finite number and `x2_i` is `+0` or `-0`, the result is `x1_i`.
+-   If `x1_i` is either `+0` or `-0` and `x2_i` is a nonzero finite number, the result is `x2_i`.
+-   If `x1_i` is a nonzero finite number and `x2_i` is either `+0` or `-0`, the result is `x1_i`.
 -   If `x1_i` is a nonzero finite number and `x2_i` is `-x1_i`, the result is `+0`.
 -   In the remaining cases, when neither an `infinity`, `+0`, `-0`, nor a `NaN` is involved, and the operands have the same sign or have different magnitudes, the sum must be computed and rounded to the nearest representable value according to IEEE 754-2019 and a supported round mode. If the magnitude is too large to represent, the operation overflows and the result is an `infinity` of appropriate sign.
 
@@ -211,7 +211,7 @@ By IEEE 754 convention, the inverse tangent of the quotient `x1/x2` is defined f
 
 #### Special Values
 
--   If `x1_i` or `x2_i` is `NaN`, the result is `NaN`.
+-   If either `x1_i` or `x2_i` is `NaN`, the result is `NaN`.
 -   If `x1_i` is greater than `0` and `x2_i` is `+0`, the result is an implementation-dependent approximation to `+π/2`.
 -   If `x1_i` is greater than `0` and `x2_i` is `-0`, the result is an implementation-dependent approximation to `+π/2`.
 -   If `x1_i` is `+0` and `x2_i` is greater than `0`, the result is `+0`.
@@ -350,15 +350,15 @@ Calculates the division for each element `x1_i` of the input array `x1` with the
 #### Special Values
 
 -   If either `x1_i` or `x2_i` is `NaN`, the result is `NaN`.
--   If both `x1_i` and `x2_i` has the same sign, the result is positive.
--   If `x1_i` and `x2_i` has different signs, the result is negative.
+-   If both `x1_i` and `x2_i` have the same sign, the result is positive.
+-   If `x1_i` and `x2_i` have different signs, the result is negative.
 -   If `x1_i` is either `+infinity` or `-infinity` and `x2_i` is either `+infinity` or `-infinity`, the result is `NaN`.
 -   If `x1_i` is either `+infinity` or `-infinity` and `x2_i` is either `+0` or `-0`, the result is a signed infinity with the sign determined by the rule already stated above.
--   If `x1_i` is either `+infinity` or `-infinity` and `x2_i` is a finite nonzero value, the result is a signed infinity with the sign determined by the rule already stated above.
--   If `x1_i` is a finite value and `x2_i` is either `+infinity` or `-infinity`, the result is a signed zero with the sign determined by the rule already stated above.
+-   If `x1_i` is either `+infinity` or `-infinity` and `x2_i` is a nonzero finite number, the result is a signed infinity with the sign determined by the rule already stated above.
+-   If `x1_i` is finite and `x2_i` is either `+infinity` or `-infinity`, the result is a signed zero with the sign determined by the rule already stated above.
 -   If `x1_i` is either `+0` or `-0` and `x2_i` is either `+0` or `-0`, the result is `NaN`.
--   If `x1_i` is either `+0` or `-0` and `x2_i` is a finite nonzero value, the result is a signed zero with the sign determined by the rule already stated above.
--   If `x1_i` is a nonzero finite value and `x2_i` is either `+0` or `-0`, the result is a signed infinity with the sign determined by the rule already stated above.
+-   If `x1_i` is either `+0` or `-0` and `x2_i` is a nonzero finite number, the result is a signed zero with the sign determined by the rule already stated above.
+-   If `x1_i` is a nonzero finite number and `x2_i` is either `+0` or `-0`, the result is a signed infinity with the sign determined by the rule already stated above.
 -   In the remaining cases, where neither an `-infinity`, `+0`, `-0`, or `NaN` is involved, the quotient must be computed and rounded to the nearest representable value according to IEEE 754-2019 and a supported rounding mode. If the magnitude is too larger to represent, the operation overflows and the result is an `infinity` of appropriate sign. If the magnitude is too small to represent, the operation underflows and the result is a zero of appropriate sign.
 
 #### Parameters
@@ -790,8 +790,8 @@ Calculates the product for each element `x1_i` of the input array `x1` with the 
 -   If `x1_i` is either `+infinity` or `-infinity` and `x2_i` is either `+0` or `-0`, the result is `NaN`.
 -   If `x1_i` is either `+0` or `-0` and `x2_i` is either `+infinity` or `-infinity`, the result is `NaN`.
 -   If `x1_i` is either `+infinity` or `-infinity` and `x2_i` is either `+infinity` or `-infinity`, the result is either `+infinity` and `-infinity` with the sign determined by the rule already stated above.
--   If `x1_i` is either `+infinity` or `-infinity` and `x2_i` is a finite nonzero value, the result is a signed infinity with the sign determined by the rule already stated above.
--   If `x1_i` is a finite nonzero value and `x2_i` is either `+infinity` or `-infinity`, the result is a signed infinity with the sign determined by the rule already stated above.
+-   If `x1_i` is either `+infinity` or `-infinity` and `x2_i` is a nonzero finite number, the result is a signed infinity with the sign determined by the rule already stated above.
+-   If `x1_i` is a nonzero finite number and `x2_i` is either `+infinity` or `-infinity`, the result is a signed infinity with the sign determined by the rule already stated above.
 -   In the remaining cases, where neither an `infinity` nor `NaN` is involved, the product must be computed and rounded to the nearest representable value according to IEEE 754-2019 and a supported rounding mode. If the magnitude is too large to represent, the result is an `infinity` of appropriate sign. If the magnitude is too small to represent, the result is a zero of appropriate sign.
 
 .. note::
