@@ -609,7 +609,7 @@ Calculates an implementation-dependent approximation to the natural (base `e`) l
 
 -   If `x_i` is `NaN`, the result is `NaN`.
 -   If `x_i` is less than `0`, the result is `NaN`.
--   If `x_i` is `+0` or `-0`, the result is `-infinity`.
+-   If `x_i` is either `+0` or `-0`, the result is `-infinity`.
 -   If `x_i` is `1`, the result is `+0`.
 -   If `x_i` is `+infinity`, the result is `+infinity`.
 
@@ -662,7 +662,7 @@ Calculates an implementation-dependent approximation to the base `2` logarithm, 
 
 -   If `x_i` is `NaN`, the result is `NaN`.
 -   If `x_i` is less than `0`, the result is `NaN`.
--   If `x_i` is `+0` or `-0`, the result is `-infinity`.
+-   If `x_i` is either `+0` or `-0`, the result is `-infinity`.
 -   If `x_i` is `1`, the result is `+0`.
 -   If `x_i` is `+infinity`, the result is `+infinity`.
 
@@ -686,7 +686,7 @@ Calculates an implementation-dependent approximation to the base `10` logarithm,
 
 -   If `x_i` is `NaN`, the result is `NaN`.
 -   If `x_i` is less than `0`, the result is `NaN`.
--   If `x_i` is `+0` or `-0`, the result is `-infinity`.
+-   If `x_i` is either `+0` or `-0`, the result is `-infinity`.
 -   If `x_i` is `1`, the result is `+0`.
 -   If `x_i` is `+infinity`, the result is `+infinity`.
 
@@ -789,7 +789,7 @@ Calculates the product for each element `x1_i` of the input array `x1` with the 
 -   If `x1_i` and `x2_i` have different signs, the result is negative.
 -   If `x1_i` is either `+infinity` or `-infinity` and `x2_i` is either `+0` or `-0`, the result is `NaN`.
 -   If `x1_i` is either `+0` or `-0` and `x2_i` is either `+infinity` or `-infinity`, the result is `NaN`.
--   If `x1_i` is either `+infinity` or `-infinity` and `x2_i` is either `+infinity` or `-infinity`, the result is either `+infinity` and `-infinity` with the sign determined by the rule already stated above.
+-   If `x1_i` is either `+infinity` or `-infinity` and `x2_i` is either `+infinity` or `-infinity`, the result is a signed infinity with the sign determined by the rule already stated above.
 -   If `x1_i` is either `+infinity` or `-infinity` and `x2_i` is a nonzero finite number, the result is a signed infinity with the sign determined by the rule already stated above.
 -   If `x1_i` is a nonzero finite number and `x2_i` is either `+infinity` or `-infinity`, the result is a signed infinity with the sign determined by the rule already stated above.
 -   In the remaining cases, where neither an `infinity` nor `NaN` is involved, the product must be computed and rounded to the nearest representable value according to IEEE 754-2019 and a supported rounding mode. If the magnitude is too large to represent, the result is an `infinity` of appropriate sign. If the magnitude is too small to represent, the result is a zero of appropriate sign.
@@ -909,7 +909,7 @@ Returns an indication of the sign of a number for each element `x_i` of the inpu
 #### Special Values
 
 -   If `x_i` is less than `0`, the result is `-1`.
--   If `x_i` is `-0` or `+0`, the result is `0`.
+-   If `x_i` is either `-0` or `+0`, the result is `0`.
 -   If `x_i` is greater than `0`, the result is `+1`.
 
 #### Parameters
@@ -933,7 +933,7 @@ Calculates an implementation-dependent approximation to the sine, having domain 
 -   If `x_i` is `NaN`, the result is `NaN`.
 -   If `x_i` is `+0`, the result is `+0`.
 -   If `x_i` is `-0`, the result is `-0`.
--   If `x_i` is `+infinity` or `-infinity`, the result is `NaN`.
+-   If `x_i` is either `+infinity` or `-infinity`, the result is `NaN`.
 
 #### Parameters
 
@@ -1040,7 +1040,7 @@ Calculates an implementation-dependent approximation to the tangent, having doma
 -   If `x_i` is `NaN`, the result is `NaN`.
 -   If `x_i` is `+0`, the result is `+0`.
 -   If `x_i` is `-0`, the result is `-0`.
--   If `x_i` is `+infinity` or `-infinity`, the result is `NaN`.
+-   If `x_i` is either `+infinity` or `-infinity`, the result is `NaN`.
 
 #### Parameters
 
