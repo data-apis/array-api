@@ -169,6 +169,8 @@ Evaluates `x1_i & x2_i` for each element `x1_i` of an array instance `x1` with t
 
     -   an array containing the element-wise results.
 
+TODO: functional counterpart
+
 ### <a name="__eq__" href="#__eq__">#</a> \_\_eq\_\_(x1, x2, /)
 
 Computes the truth value of `x1_i == x2_i` for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`.
