@@ -774,6 +774,22 @@ Calculates the product for each element `x1_i` of the input array `x1` with the 
 
     -   an array containing the element-wise products.
 
+### <a name="negative" href="#negative">#</a> negative(x, /)
+
+Computes the numerical negative of each element `x_i` (i.e., `y_i = -x_i`) of the input array `x`.
+
+#### Parameters
+
+-   **x**: _&lt;array&gt;_
+
+    -   input array.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the evaluated result for each element in `x`. Must be the same data type as `x`.
+
 ### <a name="not_equal" href="#not_equal">#</a> not_equal(x1, x2, /)
 
 Computes the truth value of `x1_i != x2_i` for each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`.
@@ -793,6 +809,22 @@ Computes the truth value of `x1_i != x2_i` for each element `x1_i` of the input 
 -   **out**: _&lt;array&gt;_
 
     -   an array containing the element-wise results.
+
+### <a name="positive" href="#positive">#</a> positive(x, /)
+
+Computes the numerical positive of each element `x_i` (i.e., `y_i = +x_i`) of the input array `x`.
+
+#### Parameters
+
+-   **x**: _&lt;array&gt;_
+
+    -   input array.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the evaluated result for each element in `x`. Must be the same data type as `x`.
 
 ### <a name="pow" href="#pow">#</a> pow(x1, x2, /)
 
