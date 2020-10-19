@@ -21,11 +21,11 @@ Returns the cross product of 3-element vectors. If `x1` and `x2` are multi-dimen
 
 -   **x1**: _&lt;array&gt;_
 
-    -   first input array.
+    -   first input array. Must have a data type of either `float32` or `float64`.
 
 -   **x2**: _&lt;array&gt;_
 
-    -   second input array. Must have the same shape as `x1`. 
+    -   second input array. Must have the same shape as `x1`.  Must have a data type of either `float32` or `float64`.
 
 -   **axis**: _int_
 
@@ -43,9 +43,9 @@ Returns the determinant of a square matrix (or stack of square matrices) `x`.
 
 #### Parameters
 
--   **a**: _&lt;array&gt;_
+-   **x**: _&lt;array&gt;_
 
-    -   input array having shape `(..., M, M)` and whose innermost two dimensions form square matrices.
+    -   input array having shape `(..., M, M)` and whose innermost two dimensions form square matrices. Must have a data type of either `float32` or `float64`.
 
 #### Returns
 
@@ -111,7 +111,7 @@ Computes the matrix or vector norm of `x`.
 
 -   **x**: _&lt;array&gt;_
 
-    -   input array.
+    -   input array. Must have a data type of either `float32` or `float64`.
 
 -   **axis**: _Optional\[ Union\[ int, Tuple\[ int, int ] ] ]_
 
@@ -179,7 +179,7 @@ Computes the matrix or vector norm of `x`.
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the norms. If `axis` is `None`, the output array is a zero-dimensional array containing a vector norm. If `axis` is a scalar value (`int` or `float`), the output array has a rank which is one less than the rank of `x`. If `axis` is a 2-tuple, the output array has a rank which is two less than the rank of `x`. TODO: output array data type.
+    -   an array containing the norms. If `axis` is `None`, the output array is a zero-dimensional array containing a vector norm. If `axis` is a scalar value (`int` or `float`), the output array has a rank which is one less than the rank of `x`. If `axis` is a 2-tuple, the output array has a rank which is two less than the rank of `x`. The returned array must have the same data type as `x`.
 
 ### <a name="outer" href="#outer">#</a> outer(x1, x2, /)
 
@@ -189,11 +189,11 @@ Computes the outer product of two vectors `x1` and `x2`.
 
 -   **x1**: _&lt;array&gt;_
 
-    -   first one-dimensional input array of size `N`.
+    -   first one-dimensional input array of size `N`. Must have a data type of either `float32` or `float64`.
 
 -   **x2**: _&lt;array&gt;_
 
-    -   second one-dimensional input array of size `M`.
+    -   second one-dimensional input array of size `M`. Must have a data type of either `float32` or `float64`.
 
 #### Returns
 
