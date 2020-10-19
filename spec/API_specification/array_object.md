@@ -616,6 +616,8 @@ Evaluates `x2_i & x1_i` for each element `x1_i` of an array instance `x1` with t
 
     -   an array containing the element-wise results.
 
+TODO: link to functional equivalent
+
 ### <a name="__rfloordiv__" href="#__rfloordiv__">#</a> \_\_rfloordiv\_\_(x1, x2, /)
 
 Evaluates `x2_i // x1_i` for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`.
@@ -861,17 +863,29 @@ Calculates the difference for each element `x2_i` of an array `x2` with the resp
 
 ### <a name="__rtruediv__" href="#__rtruediv__">#</a> \_\_rtruediv\_\_(x1, x2, /)
 
-Evaluates `x2_i / x1_i` for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`.
+Evaluates `x2_i / x1_i` for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`. For floating-point arithmetic,
+
+-   If either `x1_i` or `x2_i` is `NaN`, the result is `NaN`.
+-   If both `x1_i` and `x2_i` has the same sign, the result is positive.
+-   If `x1_i` and `x2_i` has different signs, the result is negative.
+-   If `x1_i` is either `+infinity` or `-infinity` and `x2_i` is either `+infinity` or `-infinity`, the result is `NaN`.
+-   If `x2_i` is either `+infinity` or `-infinity` and `x1_i` is either `+0` or `-0`, the result is a signed infinity with the sign determined by the rule already stated above.
+-   If `x2_i` is either `+infinity` or `-infinity` and `x1_i` is a finite nonzero value, the result is a signed infinity with the sign determined by the rule already stated above.
+-   If `x2_i` is a finite value and `x1_i` is either `+infinity` or `-infinity`, the result is a signed zero with the sign determined by the rule already stated above.
+-   If `x1_i` is either `+0` or `-0` and `x2_i` is either `+0` or `-0`, the result is `NaN`.
+-   If `x2_i` is either `+0` or `-0` and `x1_i` is a finite nonzero value, the result is a signed zero with the sign determined by the rule already stated above.
+-   If `x2_i` is a nonzero finite value and `x1_i` is either `+0` or `-0`, the result is a signed infinity with the sign determined by the rule already stated above.
+-   In the remaining cases, where neither an `-infinity`, `+0`, `-0`, or `NaN` is involved, the quotient must be computed and rounded to the nearest representable value according to IEEE 754-2019 and a supported rounding mode. If the magnitude is too larger to represent, the operation overflows and the result is an `infinity` of appropriate sign. If the magnitude is too small to represent, the operation underflows and the result is a zero of appropriate sign.
 
 #### Parameters
 
 -   **x1**: _&lt;array&gt;_
 
-    -   array instance.
+    -   array instance (divisor).
 
 -   **x2**: _&lt;array&gt;_
 
-    -   other array. Must be compatible with `x1` (see :ref:`broadcasting`).
+    -   dividend array. Must be compatible with `x1` (see :ref:`broadcasting`).
 
 #### Returns
 
@@ -879,7 +893,9 @@ Evaluates `x2_i / x1_i` for each element `x1_i` of an array instance `x1` with t
 
     -   an array containing the element-wise results.
 
-TODO: an element-wise counterpart API
+.. note::
+
+    Element-wise results should equal those of the equivalent element-wise function. TODO: link to function specification: `divide`.
 
 ### <a name="__rxor__" href="#__rxor__">#</a> \_\_rxor\_\_(x1, x2, /)
 
@@ -937,7 +953,19 @@ Calculates the difference for each element `x1_i` of an array instance `x1` with
 
 ### <a name="__truediv__" href="#__truediv__">#</a> \_\_truediv\_\_(x1, x2, /)
 
-Evaluates `x1_i / x2_i` for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`.
+Evaluates `x1_i / x2_i` for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`. For floating-point arithmetic,
+
+-   If either `x1_i` or `x2_i` is `NaN`, the result is `NaN`.
+-   If both `x1_i` and `x2_i` has the same sign, the result is positive.
+-   If `x1_i` and `x2_i` has different signs, the result is negative.
+-   If `x1_i` is either `+infinity` or `-infinity` and `x2_i` is either `+infinity` or `-infinity`, the result is `NaN`.
+-   If `x1_i` is either `+infinity` or `-infinity` and `x2_i` is either `+0` or `-0`, the result is a signed infinity with the sign determined by the rule already stated above.
+-   If `x1_i` is either `+infinity` or `-infinity` and `x2_i` is a finite nonzero value, the result is a signed infinity with the sign determined by the rule already stated above.
+-   If `x1_i` is a finite value and `x2_i` is either `+infinity` or `-infinity`, the result is a signed zero with the sign determined by the rule already stated above.
+-   If `x1_i` is either `+0` or `-0` and `x2_i` is either `+0` or `-0`, the result is `NaN`.
+-   If `x1_i` is either `+0` or `-0` and `x2_i` is a finite nonzero value, the result is a signed zero with the sign determined by the rule already stated above.
+-   If `x1_i` is a nonzero finite value and `x2_i` is either `+0` or `-0`, the result is a signed infinity with the sign determined by the rule already stated above.
+-   In the remaining cases, where neither an `-infinity`, `+0`, `-0`, or `NaN` is involved, the quotient must be computed and rounded to the nearest representable value according to IEEE 754-2019 and a supported rounding mode. If the magnitude is too larger to represent, the operation overflows and the result is an `infinity` of appropriate sign. If the magnitude is too small to represent, the operation underflows and the result is a zero of appropriate sign.
 
 #### Parameters
 
@@ -955,7 +983,9 @@ Evaluates `x1_i / x2_i` for each element `x1_i` of an array instance `x1` with t
 
     -   an array containing the element-wise results.
 
-TODO: an element-wise counterpart API
+.. note::
+
+    Element-wise results should equal those of the equivalent element-wise function. TODO: link to function specification: `divide`.
 
 ### <a name="__xor__" href="#__xor__">#</a> \_\_xor\_\_(x1, x2, /)
 
