@@ -35,7 +35,7 @@ Returns the cross product of 3-element vectors. If `x1` and `x2` are multi-dimen
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the cross products.
+    -   an array containing the cross products. The returned array must have a data type determined by :ref:`type-promotion` rules.
 
 ### <a name="det" href="#det">#</a> det(x, /)
 
@@ -51,7 +51,7 @@ Returns the determinant of a square matrix (or stack of square matrices) `x`.
 
 -   **out**: _&lt;array&gt;_
 
-    -   if `x` is a two-dimensional array, a zero-dimensional array containing the determinant; otherwise, a non-zero dimensional array containing the determinant for each square matrix.
+    -   if `x` is a two-dimensional array, a zero-dimensional array containing the determinant; otherwise, a non-zero dimensional array containing the determinant for each square matrix. The returned array must have a data type determined by :ref:`type-promotion` rules.
 
 ### <a name="diagonal" href="#diagonal">#</a> diagonal(x, /, *, axis1=0, axis2=1, offset=0)
 
@@ -85,7 +85,7 @@ Returns the specified diagonals. If `x` has more than two dimensions, then the a
 
 -   **out**: _&lt;array&gt;_
 
-    -   if `x` is a two-dimensional array, a one-dimensional array containing the diagonal; otherwise, a multi-dimensional array containing the diagonals and whose shape is determined by removing `axis1` and `axis2` and appending a dimension equal to the size of the resulting diagonals. Must have the same data type as `x`.
+    -   if `x` is a two-dimensional array, a one-dimensional array containing the diagonal; otherwise, a multi-dimensional array containing the diagonals and whose shape is determined by removing `axis1` and `axis2` and appending a dimension equal to the size of the resulting diagonals. The returned array must have the same data type as `x`.
 
 ### <a name="inv" href="#inv">#</a> inv(x, /)
 
@@ -95,13 +95,13 @@ Computes the multiplicative inverse of a square matrix (or stack of square matri
 
 -   **x**: _&lt;array&gt;_
 
-    -   input array having shape `(..., M, M)` and whose innermost two dimensions form square matrices.
+    -   input array having shape `(..., M, M)` and whose innermost two dimensions form square matrices. Must have a data type of either `float32` or `float64`.
 
 #### Returns
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the multiplicative inverses. Must have the same data type and shape as `x`.
+    -   an array containing the multiplicative inverses. The returned array must have the same data type and shape as `x`.
 
 ### <a name="norm" href="#norm">#</a> norm(x, /, *, axis=None, keepdims=False, ord=None)
 
@@ -179,7 +179,7 @@ Computes the matrix or vector norm of `x`.
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the norms. Must have the same data type as `x`. If `axis` is `None`, the output array is a zero-dimensional array containing a vector norm. If `axis` is a scalar value (`int` or `float`), the output array has a rank which is one less than the rank of `x`. If `axis` is a 2-tuple, the output array has a rank which is two less than the rank of `x`.
+    -   an array containing the norms. If `axis` is `None`, the output array is a zero-dimensional array containing a vector norm. If `axis` is a scalar value (`int` or `float`), the output array has a rank which is one less than the rank of `x`. If `axis` is a 2-tuple, the output array has a rank which is two less than the rank of `x`. TODO: output array data type.
 
 ### <a name="outer" href="#outer">#</a> outer(x1, x2, /)
 
@@ -199,7 +199,7 @@ Computes the outer product of two vectors `x1` and `x2`.
 
 -   **out**: _&lt;array&gt;_
 
-    -   a two-dimensional array containing the outer product and whose shape is `NxM`.
+    -   a two-dimensional array containing the outer product and whose shape is `NxM`. The returned array must have a data type determined by :ref:`type-promotion` rules.
 
 ### <a name="trace" href="#trace">#</a> trace(x, /, *, axis1=0, axis2=1, offset=0)
 
@@ -241,6 +241,8 @@ Returns the sum along the specified diagonals. If `x` has more than two dimensio
         out[i, j, k, ..., l] = trace(a[i, j, k, ..., l, :, :])
         ```
 
+        The returned array must have the same data type as `x`.
+
 ### <a name="transpose" href="#transpose">#</a> transpose(x, /, *, axes=None)
 
 Transposes (or permutes the axes (dimensions)) of an array `x`.
@@ -259,4 +261,4 @@ Transposes (or permutes the axes (dimensions)) of an array `x`.
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the transpose. Must have the same data type as `x`.
+    -   an array containing the transpose. The returned array must have the same data type as `x`.

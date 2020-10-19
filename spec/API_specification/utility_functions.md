@@ -35,7 +35,7 @@ Tests whether all input array elements evaluate to `True` along a specified axis
 
 -   **out**: _&lt;array&gt;_
 
-    -   if a logical AND reduction was performed over the entire array, a zero-dimensional array containing the test result; otherwise, a non-zero-dimensional array containing the test results. The returned array must be a boolean array (i.e., an array whose underlying data type is `bool`).
+    -   if a logical AND reduction was performed over the entire array, a zero-dimensional array containing the test result; otherwise, a non-zero-dimensional array containing the test results. The returned array must have a data type of `bool` (i.e., must be a boolean array).
 
 ### <a name="any" href="#any">#</a> any(x, /, *, axis=None, keepdims=False)
 
@@ -59,4 +59,4 @@ Tests whether any input array element evaluates to `True` along a specified axis
 
 -   **out**: _&lt;array&gt;_
 
-    -   if a logical OR reduction was performed over the entire array, a zero-dimensional array containing the test result; otherwise, a non-zero-dimensional array containing the test results. The returned array must be a boolean array (i.e., an array whose underlying data type is `bool`).
+    -   if a logical OR reduction was performed over the entire array, a zero-dimensional array containing the test result; otherwise, a non-zero-dimensional array containing the test results. The returned array must have a data type of `bool` (i.e., must be a boolean array).

@@ -39,7 +39,7 @@ Returns evenly spaced values within the half-open interval `[start, stop)` as a 
 
 -   **out**: _&lt;array&gt;_
 
-    -   a one-dimensional array containing evenly spaced values. The length of the output array must be `ceil((stop-start)/step)`.
+    -   a one-dimensional array containing evenly spaced values. The length of the output array must be `ceil((stop-start)/step)`. TODO: output array data type.
 
 ### <a name="empty" href="#empty">#</a> empty(shape, /, *, dtype=None)
 
@@ -59,7 +59,7 @@ Returns an uninitialized array having a specified `shape`.
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing uninitialized data.
+    -   an array containing uninitialized data. TODO: output array data type.
 
 ### <a name="empty_like" href="#empty_like">#</a> empty_like(x, /, *, dtype=None)
 
@@ -107,7 +107,7 @@ Returns a two-dimensional array with ones on the `k`th diagonal and zeros elsewh
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array where all elements are equal to zero, except for the `k`th diagonal, whose values are equal to one.
+    -   an array where all elements are equal to zero, except for the `k`th diagonal, whose values are equal to one. TODO: output array data type.
 
 ### <a name="full" href="#full">#</a> full(shape, fill_value, /, *, dtype=None)
 
@@ -131,7 +131,7 @@ Returns a new array having a specified `shape` and filled with `fill_value`.
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array where every element is equal to `fill_value`.
+    -   an array where every element is equal to `fill_value`. TODO: output array data type.
 
 ### <a name="full_like" href="#full_like">#</a> full_like(x, fill_value, /, *, dtype=None)
 
@@ -189,7 +189,7 @@ Returns evenly spaced numbers over a specified interval.
 
 -   **out**: _&lt;array&gt;_
 
-    -   a one-dimensional array containing evenly spaced values.
+    -   a one-dimensional array containing evenly spaced values. TODO: output array data type.
 
 ### <a name="ones" href="#ones">#</a> ones(shape, /, *, dtype=None)
 
@@ -209,7 +209,7 @@ Returns a new array having a specified `shape` and filled with ones.
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing ones.
+    -   an array containing ones. TODO: output array data type.
 
 ### <a name="ones_like" href="#ones_like">#</a> ones_like(x, /, *, dtype=None)
 
@@ -249,7 +249,7 @@ Returns a new array having a specified `shape` and filled with zeros.
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing zeros.
+    -   an array containing zeros. TODO: output array data type.
 
 ### <a name="zeros_like" href="#zeros_like">#</a> zeros_like(x, /, *, dtype=None)
 

@@ -28,7 +28,7 @@ Joins a sequence of arrays along an existing axis.
 
 -   **out**: _&lt;array&gt;_
 
-    -   an output array containing the concatenated values. If the input arrays have different data types, normal [type promotion rules](type_promotion.md) apply. If the input arrays have the same data type, the output array must have the same data type as the input arrays.
+    -   an output array containing the concatenated values. If the input arrays have different data types, normal [type promotion rules](type_promotion.md) must apply. If the input arrays have the same data type, the output array must have the same data type as the input arrays.
 
         .. note::
 
