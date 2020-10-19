@@ -135,7 +135,7 @@ Calculates the sum for each element `x1_i` of an array instance `x1` with the re
 
     -   array instance (augend array).
 
--   **x2**: _&lt;array;gt;_
+-   **x2**: _&lt;array&gt;_
 
     -   addend array. Must be compatible with `x1` (see :ref:`broadcasting`).
 
@@ -159,7 +159,7 @@ Evaluates `x1_i & x2_i` for each element `x1_i` of an array instance `x1` with t
 
     -   array instance.
 
--   **x2**: _&lt;array;gt;_
+-   **x2**: _&lt;array&gt;_
 
     -   other array. Must be compatible with `x1` (see :ref:`broadcasting`).
 
@@ -179,7 +179,7 @@ Computes the truth value of `x1_i == x2_i` for each element `x1_i` of an array i
 
     -   array instance.
 
--   **x2**: _&lt;array;gt;_
+-   **x2**: _&lt;array&gt;_
 
     -   other array. Must be compatible with `x1` (see :ref:`broadcasting`).
 
@@ -203,7 +203,7 @@ Evaluates `x1_i // x2_i` for each element `x1_i` of an array instance `x1` with 
 
     -   array instance.
 
--   **x2**: _&lt;array;gt;_
+-   **x2**: _&lt;array&gt;_
 
     -   other array. Must be compatible with `x1` (see :ref:`broadcasting`).
 
@@ -323,7 +323,7 @@ Evaluates `x1_i << x2_i` for each element `x1_i` of an array instance `x1` with 
 
     -   array instance.
 
--   **x2**: _&lt;array;gt;_
+-   **x2**: _&lt;array&gt;_
 
     -   other array. Must be compatible with `x1` (see :ref:`broadcasting`).
 
@@ -369,7 +369,7 @@ Evaluates `x1_i % x2_i` for each element `x1_i` of an array instance `x1` with t
 
     -   array instance.
 
--   **x2**: _&lt;array;gt;_
+-   **x2**: _&lt;array&gt;_
 
     -   other array. Must be compatible with `x1` (see :ref:`broadcasting`).
 
@@ -405,7 +405,7 @@ Calculates the product for each element `x1_i` of an array instance `x1` with th
 
     -   array instance.
 
--   **x2**: _&lt;array;gt;_
+-   **x2**: _&lt;array&gt;_
 
     -   other array. Must be compatible with `x1` (see :ref:`broadcasting`).
 
@@ -429,7 +429,7 @@ Computes the truth value of `x1_i != x2_i` for each element `x1_i` of an array i
 
     -   array instance.
 
--   **x2**: _&lt;array;gt;_
+-   **x2**: _&lt;array&gt;_
 
     -   other array. Must be compatible with `x1` (see :ref:`broadcasting`).
 
@@ -471,7 +471,7 @@ Evaluates `x1_i | x2_i` for each element `x1_i` of an array instance `x1` with t
 
     -   array instance.
 
--   **x2**: _&lt;array;gt;_
+-   **x2**: _&lt;array&gt;_
 
     -   other array. Must be compatible with `x1` (see :ref:`broadcasting`).
 
@@ -536,7 +536,7 @@ Calculates an implementation-dependent approximation of exponentiation by raisin
 
     -   array instance whose elements correspond to the exponentiation base.
 
--   **x2**: _&lt;array;gt;_
+-   **x2**: _&lt;array&gt;_
 
     -   other array whose elements correspond to the exponentiation exponent. Must be compatible with `x1` (see :ref:`broadcasting`).
 
@@ -582,7 +582,7 @@ Calculates the sum for each element `x1_i` of an array instance `x1` with the re
 
     -   array instance (addend array).
 
--   **x2**: _&lt;array;gt;_
+-   **x2**: _&lt;array&gt;_
 
     -   augend array. Must be compatible with `x1` (see :ref:`broadcasting`).
 
@@ -606,7 +606,7 @@ Evaluates `x2_i & x1_i` for each element `x1_i` of an array instance `x1` with t
 
     -   array instance.
 
--   **x2**: _&lt;array;gt;_
+-   **x2**: _&lt;array&gt;_
 
     -   other array. Must be compatible with `x1` (see :ref:`broadcasting`).
 
@@ -626,7 +626,7 @@ Evaluates `x2_i // x1_i` for each element `x1_i` of an array instance `x1` with 
 
     -   array instance.
 
--   **x2**: _&lt;array;gt;_
+-   **x2**: _&lt;array&gt;_
 
     -   other array. Must be compatible with `x1` (see :ref:`broadcasting`).
 
@@ -648,7 +648,7 @@ Evaluates `x2_i << x1_i` for each element `x1_i` of an array instance `x1` with 
 
     -   array instance.
 
--   **x2**: _&lt;array;gt;_
+-   **x2**: _&lt;array&gt;_
 
     -   other array. Must be compatible with `x1` (see :ref:`broadcasting`).
 
@@ -670,7 +670,7 @@ Evaluates `x2_i % x1_i` for each element `x1_i` of an array instance `x1` with t
 
     -   array instance.
 
--   **x2**: _&lt;array;gt;_
+-   **x2**: _&lt;array&gt;_
 
     -   other array. Must be compatible with `x1` (see :ref:`broadcasting`).
 
@@ -706,7 +706,7 @@ Calculates the product for each element `x1_i` of an array instance `x1` with th
 
     -   array instance.
 
--   **x2**: _&lt;array;gt;_
+-   **x2**: _&lt;array&gt;_
 
     -   other array. Must be compatible with `x1` (see :ref:`broadcasting`).
 
@@ -730,7 +730,7 @@ Evaluates `x2_i | x1_i` for each element `x1_i` of an array instance `x1` with t
 
     -   array instance.
 
--   **x2**: _&lt;array;gt;_
+-   **x2**: _&lt;array&gt;_
 
     -   other array. Must be compatible with `x1` (see :ref:`broadcasting`).
 
@@ -777,7 +777,7 @@ Calculates an implementation-dependent approximation of exponentiation by raisin
 
     -   array instance whose elements correspond to the exponentiation exponent.
 
--   **x2**: _&lt;array;gt;_
+-   **x2**: _&lt;array&gt;_
 
     -   other array whose elements correspond to the exponentiation base. Must be compatible with `x1` (see :ref:`broadcasting`).
 
@@ -801,7 +801,7 @@ Evaluates `x2_i >> x1_i` for each element `x1_i` of an array instance `x1` with 
 
     -   array instance.
 
--   **x2**: _&lt;array;gt;_
+-   **x2**: _&lt;array&gt;_
 
     -   other array. Must be compatible with `x1` (see :ref:`broadcasting`).
 
@@ -823,7 +823,7 @@ Evaluates `x1_i >> x2_i` for each element `x1_i` of an array instance `x1` with 
 
     -   array instance.
 
--   **x2**: _&lt;array;gt;_
+-   **x2**: _&lt;array&gt;_
 
     -   other array. Must be compatible with `x1` (see :ref:`broadcasting`).
 
@@ -845,7 +845,7 @@ Calculates the difference for each element `x2_i` of an array `x2` with the resp
 
     -   array instance (subtrahend array).
 
--   **x2**: _&lt;array;gt;_
+-   **x2**: _&lt;array&gt;_
 
     -   minuend array. Must be compatible with `x1` (see :ref:`broadcasting`).
 
@@ -869,7 +869,7 @@ Evaluates `x2_i / x1_i` for each element `x1_i` of an array instance `x1` with t
 
     -   array instance.
 
--   **x2**: _&lt;array;gt;_
+-   **x2**: _&lt;array&gt;_
 
     -   other array. Must be compatible with `x1` (see :ref:`broadcasting`).
 
@@ -891,7 +891,7 @@ Evaluates `x2_i ^ x1_i` for each element `x1_i` of an array instance `x1` with t
 
     -   array instance.
 
--   **x2**: _&lt;array;gt;_
+-   **x2**: _&lt;array&gt;_
 
     -   other array. Must be compatible with `x1` (see :ref:`broadcasting`).
 
@@ -921,7 +921,7 @@ Calculates the difference for each element `x1_i` of an array instance `x1` with
 
     -   array instance (minuend array).
 
--   **x2**: _&lt;array;gt;_
+-   **x2**: _&lt;array&gt;_
 
     -   subtrahend array. Must be compatible with `x1` (see :ref:`broadcasting`).
 
@@ -945,7 +945,7 @@ Evaluates `x1_i / x2_i` for each element `x1_i` of an array instance `x1` with t
 
     -   array instance.
 
--   **x2**: _&lt;array;gt;_
+-   **x2**: _&lt;array&gt;_
 
     -   other array. Must be compatible with `x1` (see :ref:`broadcasting`).
 
@@ -967,7 +967,7 @@ Evaluates `x1_i ^ x2_i` for each element `x1_i` of an array instance `x1` with t
 
     -   array instance.
 
--   **x2**: _&lt;array;gt;_
+-   **x2**: _&lt;array&gt;_
 
     -   other array. Must be compatible with `x1` (see :ref:`broadcasting`).
 
