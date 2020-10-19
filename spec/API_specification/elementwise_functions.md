@@ -833,7 +833,7 @@ Calculates an implementation-dependent approximation of exponentiation by raisin
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the element-wise results. TODO: output array data type
+    -   an array containing the element-wise results. The returned array must have a data type determined by :ref:`type-promotion` rules.
 
 ### <a name="round" href="#round">#</a> round(x, /)
 
