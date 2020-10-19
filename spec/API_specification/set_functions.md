@@ -46,15 +46,15 @@ Returns the unique elements of an input array `x`.
 
         -   **unique**: _&lt;array&gt;_
 
-            -   an array containing the set of unique elements in `x`. Must have the same data type as `x`.
+            -   an array containing the set of unique elements in `x`. The returned array must have the same data type as `x`.
 
         -   **indices**: _&lt;array&gt;_
 
-            -   an array containing the indices (first occurrences) of `x` that result in `unique`. TODO: data type.
+            -   an array containing the indices (first occurrences) of `x` that result in `unique`. The returned array must have a data type of `int32` or `int64`.
 
         -   **inverse**: _&lt;array&gt;_
 
-            -   an array containing the indices of `unique` that reconstruct `x`. TODO: data type.
+            -   an array containing the indices of `unique` that reconstruct `x`. The returned array must have a data type of `int32` or `int64`.
 
         -   **counts**: _&lt;array&gt;_
 
