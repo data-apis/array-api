@@ -828,7 +828,7 @@ Computes the numerical negative of each element `x_i` (i.e., `y_i = -x_i`) of th
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the evaluated result for each element in `x`. The returned array must have the same data type as `x`.
+    -   an array containing the evaluated result for each element in `x`. The returned array must have a supported numerical data type.
 
 ### <a name="not_equal" href="#not_equal">#</a> not_equal(x1, x2, /)
 
@@ -864,7 +864,7 @@ Computes the numerical positive of each element `x_i` (i.e., `y_i = +x_i`) of th
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the evaluated result for each element in `x`. The returned array must have the same data type as `x`.
+    -   an array containing the evaluated result for each element in `x`. The returned array must have a supported numerical data type.
 
 ### <a name="pow" href="#pow">#</a> pow(x1, x2, /)
 
@@ -954,7 +954,7 @@ Returns an indication of the sign of a number for each element `x_i` of the inpu
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the evaluated result for each element in `x`. If `out` is `None`, the returned array must have the same data type as `x`.
+    -   an array containing the evaluated result for each element in `x`.
 
 ### <a name="sin" href="#sin">#</a> sin(x, /)
 
