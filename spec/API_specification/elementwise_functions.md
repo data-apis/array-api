@@ -822,7 +822,7 @@ Computes the numerical negative of each element `x_i` (i.e., `y_i = -x_i`) of th
 
 -   **x**: _&lt;array&gt;_
 
-    -   input array. Must have a numerical data type.
+    -   input array.
 
 #### Returns
 
@@ -858,7 +858,7 @@ Computes the numerical positive of each element `x_i` (i.e., `y_i = +x_i`) of th
 
 -   **x**: _&lt;array&gt;_
 
-    -   input array. Must have a numerical data type.
+    -   input array.
 
 #### Returns
 
