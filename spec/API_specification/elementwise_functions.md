@@ -828,7 +828,7 @@ Computes the numerical negative of each element `x_i` (i.e., `y_i = -x_i`) of th
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the evaluated result for each element in `x`. Must be the same data type as `x`.
+    -   an array containing the evaluated result for each element in `x`. The returned array must have the same data type as `x`.
 
 ### <a name="not_equal" href="#not_equal">#</a> not_equal(x1, x2, /)
 
@@ -864,7 +864,7 @@ Computes the numerical positive of each element `x_i` (i.e., `y_i = +x_i`) of th
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the evaluated result for each element in `x`. Must be the same data type as `x`.
+    -   an array containing the evaluated result for each element in `x`. The returned array must have the same data type as `x`.
 
 ### <a name="pow" href="#pow">#</a> pow(x1, x2, /)
 
