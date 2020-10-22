@@ -43,14 +43,14 @@ namespace (e.g. `import package_name.array_api`). This has two issues though:
 2. It is difficult to _version_ the array API standard implementation (see
    :ref:`api-versioning`).
 
-To address both issues, a uniform method must be provided by a conforming
-implementation to access the API namespace, namely a function:
+To address both issues, a uniform way must be provided by a conforming
+implementation to access the API namespace, namely a method on the array object:
 
 ```
 xp = x.__array_namespace__()
 ```
 
-The function must take one keyword, `api_version=None`, to make it possible to
+The method must take one keyword, `api_version=None`, to make it possible to
 request a specific API version:
 
 ```
