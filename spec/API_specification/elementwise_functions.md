@@ -10,6 +10,7 @@ A conforming implementation of the array API standard must provide and support t
 -   Unless stated otherwise, functions must support the data types defined in :ref:`data-types`.
 -   Unless stated otherwise, functions must adhere to the type promotion rules defined in :ref:`type-promotion`.
 -   Unless stated otherwise, floating-point operations must adhere to IEEE 754-2019.
+-   Unless stated otherwise, element-wise mathematical functions must satisfy the minimum accuracy requirements defined in :ref:`accuracy`.
 
 <!-- NOTE: please keep the functions in alphabetical order -->
 
@@ -371,10 +372,6 @@ Calculates the division for each element `x1_i` of the input array `x1` with the
 
     -   divisor input array. Must be compatible with `x1` (see :ref:`broadcasting`).
 
--   **out**:  _Optional\[ &lt;array&gt; ]_
-
-    -   output array. If provided, the output array must be compatible with the provided input arrays (see :ref:`broadcasting`). If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
-
 #### Returns
 
 -   **out**: _&lt;array&gt;_
@@ -472,6 +469,26 @@ Rounds each element `x_i` of the input array `x` to the greatest (i.e., closest 
 -   **out**: _&lt;array&gt;_
 
     -   an array containing the rounded result for each element in `x`.
+
+### <a name="floor_divide" href="#floor_divide">#</a> floor_divide(x1, x2, /)
+
+Rounds the result of dividing each element `x1_i` of the input array `x1` by the respective element `x2_i` of the input array `x2` to the greatest (i.e., closest to `+infinity`) integer-value number that is not greater than the division result.
+
+#### Parameters
+
+-   **x1**: _&lt;array&gt;_
+
+    -   dividend input array.
+
+-   **x2**: _&lt;array&gt;_
+
+    -   divisor input array. Must be compatible with `x1` (see :ref:`broadcasting`).
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the element-wise results.
 
 ### <a name="greater" href="#greater">#</a> greater(x1, x2, /)
 
@@ -912,6 +929,26 @@ Calculates an implementation-dependent approximation of exponentiation by raisin
 -   **out**: _&lt;array&gt;_
 
     -   an array containing the element-wise results.
+
+### <a name="remainder" href="#remainder">#</a> remainder(x1, x2, /)
+
+Returns the remainder of division for each element `x1_i` of the input array `x1` and the respective element `x2_i` of the input array `x2`.
+
+#### Parameters
+
+-   **x1**: _&lt;array&gt;_
+
+    -   dividend input array.
+
+-   **x2**: _&lt;array&gt;_
+
+    -   divisor input array. Must be compatible with `x1` (see :ref:`broadcasting`).
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the element-wise results. Each element-wise result must have the same sign as the respective element `x2_i`.
 
 ### <a name="round" href="#round">#</a> round(x, /)
 
