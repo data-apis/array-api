@@ -109,6 +109,13 @@ extensions are dealt with_):
    particular way of building regular functions with a few extra
    methods/properties._
 
+7. Behaviour for unexpected/invalid input to functions and methods.
+
+  _Rationale: there are a huge amount of ways in which users can provide
+  invalid or unspecified input to functionality in the standard. Exception
+  types or other resulting behaviour cannot be completely covered and would
+  be hard to make consistent between libraries._
+
 
 **Non-goals** for the API standard include:
 
@@ -125,6 +132,13 @@ extensions are dealt with_):
   _This may be feasible, however it's assumed that when an array-consuming
   library switches from one array type to another, some testing and possibly
   code adjustment for performance or other reasons may be needed._
+
+- Making it possible to mix multiple array libraries in function calls.
+
+  _Most array libraries do not know about other libraries, and the functions
+  they implement may try to convert "foreign" input, or raise an exception.
+  This behaviour is hard to specify; ensuring only a single array type is
+  used is best left to the end user._
 
 
 ### TBD whether or not in scope, or for a later version
