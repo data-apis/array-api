@@ -278,6 +278,122 @@ Calculates an implementation-dependent approximation to the inverse hyperbolic t
 
     -   an array containing the inverse hyperbolic tangent of each element in `x`.
 
+### <a name="bitwise_and" href="#bitwise_and">#</a> bitwise_and(x1, x2, /)
+
+Computes the bitwise AND of the underlying binary representation of each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`.
+
+#### Parameters
+
+-   **x1**: _&lt;array&gt;_
+
+    -   first input array. Must have an integer or boolean data type.
+
+-   **x2**: _&lt;array&gt;_
+
+    -   second input array. Must be compatible with `x1` (see :ref:`broadcasting`). Must have an integer or boolean data type.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the element-wise results.
+
+### <a name="bitwise_left_shift" href="#bitwise_left_shift">#</a> bitwise_left_shift(x1, x2, /)
+
+Shifts the bits of each element `x1_i` of the input array `x1` to the left by appending `x2_i` (i.e., the respective element in the input array `x2`) zeros to the right of `x1_i`.
+
+#### Parameters
+
+-   **x1**: _&lt;array&gt;_
+
+    -   first input array. Must have an integer data type.
+
+-   **x2**: _&lt;array&gt;_
+
+    -   second input array. Must be compatible with `x1` (see :ref:`broadcasting`). Must have an integer or boolean data type. Each element must be greater than or equal to `0`.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the element-wise results.
+
+### <a name="bitwise_invert" href="#bitwise_invert">#</a> bitwise_invert(x, /)
+
+Inverts (flips) each bit for each element `x_i` of the input array `x`.
+
+#### Parameters
+
+-   **x**: _&lt;array&gt;_
+
+    -   input array. Must have an integer or boolean data type.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the element-wise results. Must have the same data type as `x`.
+
+### <a name="bitwise_or" href="#bitwise_or">#</a> bitwise_or(x1, x2, /)
+
+Computes the bitwise OR of the underlying binary representation of each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`.
+
+#### Parameters
+
+-   **x1**: _&lt;array&gt;_
+
+    -   first input array. Must have an integer or boolean data type.
+
+-   **x2**: _&lt;array&gt;_
+
+    -   second input array. Must be compatible with `x1` (see :ref:`broadcasting`). Must have an integer or boolean data type.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the element-wise results.
+
+### <a name="bitwise_right_shift" href="#bitwise_right_shift">#</a> bitwise_right_shift(x1, x2, /)
+
+Shifts the bits of each element `x1_i` of the input array `x1` to the right according to the respective element `x2_i` of the input array `x2`.
+
+#### Parameters
+
+-   **x1**: _&lt;array&gt;_
+
+    -   first input array. Must have an integer data type.
+
+-   **x2**: _&lt;array&gt;_
+
+    -   second input array. Must be compatible with `x1` (see :ref:`broadcasting`). Must have an integer or boolean data type. Each element must be greater than or equal to `0`.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the element-wise results.
+
+### <a name="bitwise_xor" href="#bitwise_xor">#</a> bitwise_xor(x1, x2, /)
+
+Computes the bitwise XOR of the underlying binary representation of each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`.
+
+#### Parameters
+
+-   **x1**: _&lt;array&gt;_
+
+    -   first input array. Must have an integer or boolean data type.
+
+-   **x2**: _&lt;array&gt;_
+
+    -   second input array. Must be compatible with `x1` (see :ref:`broadcasting`). Must have an integer or boolean data type.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the element-wise results.
+
 ### <a name="ceil" href="#ceil">#</a> ceil(x, /)
 
 Rounds each element `x_i` of the input array `x` to the smallest (i.e., closest to `-infinity`) integer-valued number that is not less than `x_i`.
