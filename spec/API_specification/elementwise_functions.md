@@ -53,6 +53,10 @@ Calculates an implementation-dependent approximation of the principal value of t
 
     -   input array.
 
+        .. note::
+
+            For non-numerical input data types, this specification leaves type promotion to numerical data types unspecified (e.g., `bool` to `intxx` or `floatxx`).
+
 #### Returns
 
 -   **out**: _&lt;array&gt;_
