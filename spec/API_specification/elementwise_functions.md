@@ -10,12 +10,15 @@ A conforming implementation of the array API standard must provide and support t
 -   Unless stated otherwise, functions must support the data types defined in :ref:`data-types`.
 -   Unless stated otherwise, functions must adhere to the type promotion rules defined in :ref:`type-promotion`.
 -   Unless stated otherwise, floating-point operations must adhere to IEEE 754-2019.
+-   Unless stated otherwise, element-wise mathematical functions must satisfy the minimum accuracy requirements defined in :ref:`accuracy`.
 
 <!-- NOTE: please keep the functions in alphabetical order -->
 
 ### <a name="abs" href="#abs">#</a> abs(x, /)
 
 Calculates the absolute value for each element `x_i` of the input array `x` (i.e., the element-wise result has the same magnitude as the respective element in `x` but has positive sign).
+
+#### Special Values
 
 -   If `x_i` is `NaN`, the result is `NaN`.
 -   If `x_i` is `-0`, the result is `+0`.
@@ -37,10 +40,12 @@ Calculates the absolute value for each element `x_i` of the input array `x` (i.e
 
 Calculates an implementation-dependent approximation of the principal value of the inverse cosine, having domain `[-1, +1]` and codomain `[+0, +π]`, for each element `x_i` of the input array `x`. Each element-wise result is expressed in radians.
 
+#### Special Values
+
 -   If `x_i` is `NaN`, the result is `NaN`.
 -   If `x_i` is greater than `1`, the result is `NaN`.
 -   If `x_i` is less than `-1`, the result is `NaN`.
--   If `x_i` is exactly `1`, the result is `+0`.
+-   If `x_i` is `1`, the result is `+0`.
 
 #### Parameters
 
@@ -57,6 +62,8 @@ Calculates an implementation-dependent approximation of the principal value of t
 ### <a name="acosh" href="#acosh">#</a> acosh(x, /)
 
 Calculates an implementation-dependent approximation to the inverse hyperbolic cosine, having domain `[+1, +infinity]` and codomain `[+0, +infinity]`, for each element `x_i` of the input array `x`.
+
+#### Special Values
 
 -   If `x_i` is `NaN`, the result is `NaN`.
 -   If `x_i` is less than `1`, the result is `NaN`.
@@ -79,6 +86,8 @@ Calculates an implementation-dependent approximation to the inverse hyperbolic c
 
 Calculates the sum for each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`. For floating-point arithmetic,
 
+#### Special Values
+
 -   If either `x1_i` or `x2_i` is `NaN`, the result is `NaN`.
 -   If `x1_i` is `+infinity` and `x2_i` is `-infinity`, the result is `NaN`.
 -   If `x1_i` is `-infinity` and `x2_i` is `+infinity`, the result is `NaN`.
@@ -92,8 +101,8 @@ Calculates the sum for each element `x1_i` of the input array `x1` with the resp
 -   If `x1_i` is `-0` and `x2_i` is `+0`, the result is `+0`.
 -   If `x1_i` is `+0` and `x2_i` is `-0`, the result is `+0`.
 -   If `x1_i` is `+0` and `x2_i` is `+0`, the result is `+0`.
--   If `x1_i` is `+0` or `-0` and `x2_i` is a nonzero finite number, the result is `x2_i`.
--   If `x1_i` is a nonzero finite number and `x2_i` is `+0` or `-0`, the result is `x1_i`.
+-   If `x1_i` is either `+0` or `-0` and `x2_i` is a nonzero finite number, the result is `x2_i`.
+-   If `x1_i` is a nonzero finite number and `x2_i` is either `+0` or `-0`, the result is `x1_i`.
 -   If `x1_i` is a nonzero finite number and `x2_i` is `-x1_i`, the result is `+0`.
 -   In the remaining cases, when neither an `infinity`, `+0`, `-0`, nor a `NaN` is involved, and the operands have the same sign or have different magnitudes, the sum must be computed and rounded to the nearest representable value according to IEEE 754-2019 and a supported round mode. If the magnitude is too large to represent, the operation overflows and the result is an `infinity` of appropriate sign.
 
@@ -121,6 +130,8 @@ Calculates the sum for each element `x1_i` of the input array `x1` with the resp
 
 Calculates an implementation-dependent approximation of the principal value of the inverse sine, having domain `[-1, +1]` and codomain `[-π/2, +π/2]` for each element `x_i` of the input array `x`. Each element-wise result is expressed in radians.
 
+#### Special Values
+
 -   If `x_i` is `NaN`, the result is `NaN`.
 -   If `x_i` is greater than `1`, the result is `NaN`.
 -   If `x_i` is less than `-1`, the result is `NaN`.
@@ -143,6 +154,8 @@ Calculates an implementation-dependent approximation of the principal value of t
 
 Calculates an implementation-dependent approximation to the inverse hyperbolic sine, having domain `[-infinity, +infinity]` and codomain `[-infinity, +infinity]`, for each element `x_i` in the input array `x`.
 
+#### Special Values
+
 -   If `x_i` is `NaN`, the result is `NaN`.
 -   If `x_i` is `+0`, the result is `+0`.
 -   If `x_i` is `-0`, the result is `-0`.
@@ -164,6 +177,8 @@ Calculates an implementation-dependent approximation to the inverse hyperbolic s
 ### <a name="atan" href="#atan">#</a> atan(x, /)
 
 Calculates an implementation-dependent approximation of the principal value of the inverse tangent, having domain `[-infinity, +infinity]` and codomain `[-π/2, +π/2]`, for each element `x_i` of the input array `x`. Each element-wise result is expressed in radians.
+
+#### Special Values
 
 -   If `x_i` is `NaN`, the result is `NaN`.
 -   If `x_i` is `+0`, the result is `+0`.
@@ -193,9 +208,11 @@ The signs of `x1_i` and `x2_i` determine the quadrant of each element-wise resul
 
     Note the role reversal: the "y-coordinate" is the first function parameter; the "x-coordinate" is the second function parameter. The parameter order is intentional and traditional for the two-argument inverse tangent function where the y-coordinate argument is first and the x-coordinate argument is second.
 
-By IEEE 754 convention, the inverse tangent of the quotient `x1/x2` is defined for `x2_i` equal to positive or negative zero and for either or both of `x1_i` and `x2_i` equal to positive or negative `infinity`. 
+By IEEE 754 convention, the inverse tangent of the quotient `x1/x2` is defined for `x2_i` equal to positive or negative zero and for either or both of `x1_i` and `x2_i` equal to positive or negative `infinity`.
 
--   If `x1_i` or `x2_i` is `NaN`, the result is `NaN`.
+#### Special Values
+
+-   If either `x1_i` or `x2_i` is `NaN`, the result is `NaN`.
 -   If `x1_i` is greater than `0` and `x2_i` is `+0`, the result is an implementation-dependent approximation to `+π/2`.
 -   If `x1_i` is greater than `0` and `x2_i` is `-0`, the result is an implementation-dependent approximation to `+π/2`.
 -   If `x1_i` is `+0` and `x2_i` is greater than `0`, the result is `+0`.
@@ -238,6 +255,8 @@ By IEEE 754 convention, the inverse tangent of the quotient `x1/x2` is defined f
 ### <a name="atanh" href="#atanh">#</a> atanh(x, /)
 
 Calculates an implementation-dependent approximation to the inverse hyperbolic tangent, having domain `[-1, +1]` and codomain `[-infinity, +infinity]`, for each element `x_i` of the input array `x`.
+
+#### Special Values
 
 -   If `x_i` is `NaN`, the result is `NaN`.
 -   If `x_i` is less than `-1`, the result is `NaN`.
@@ -379,6 +398,8 @@ Computes the bitwise XOR of the underlying binary representation of each element
 
 Rounds each element `x_i` of the input array `x` to the smallest (i.e., closest to `-infinity`) integer-valued number that is not less than `x_i`.
 
+#### Special Values
+
 -   If `x_i` is already integer-valued, the result is `x_i`.
 
 #### Parameters
@@ -396,6 +417,8 @@ Rounds each element `x_i` of the input array `x` to the smallest (i.e., closest 
 ### <a name="cos" href="#cos">#</a> cos(x, /)
 
 Calculates an implementation-dependent approximation to the cosine, having domain `(-infinity, +infinity)` and codomain `[-1, +1]`, for each element `x_i` of the input array `x`. Each element `x_i` is assumed to be expressed in radians.
+
+#### Special Values
 
 -   If `x_i` is `NaN`, the result is `NaN`.
 -   If `x_i` is `+0`, the result is `1`.
@@ -441,16 +464,18 @@ Calculates an implementation-dependent approximation to the hyperbolic cosine, h
 
 Calculates the division for each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`. For floating-point arithmetic,
 
+#### Special Values
+
 -   If either `x1_i` or `x2_i` is `NaN`, the result is `NaN`.
--   If both `x1_i` and `x2_i` has the same sign, the result is positive.
--   If `x1_i` and `x2_i` has different signs, the result is negative.
+-   If both `x1_i` and `x2_i` have the same sign, the result is positive.
+-   If `x1_i` and `x2_i` have different signs, the result is negative.
 -   If `x1_i` is either `+infinity` or `-infinity` and `x2_i` is either `+infinity` or `-infinity`, the result is `NaN`.
 -   If `x1_i` is either `+infinity` or `-infinity` and `x2_i` is either `+0` or `-0`, the result is a signed infinity with the sign determined by the rule already stated above.
--   If `x1_i` is either `+infinity` or `-infinity` and `x2_i` is a finite nonzero value, the result is a signed infinity with the sign determined by the rule already stated above.
--   If `x1_i` is a finite value and `x2_i` is either `+infinity` or `-infinity`, the result is a signed zero with the sign determined by the rule already stated above.
+-   If `x1_i` is either `+infinity` or `-infinity` and `x2_i` is a nonzero finite number, the result is a signed infinity with the sign determined by the rule already stated above.
+-   If `x1_i` is finite and `x2_i` is either `+infinity` or `-infinity`, the result is a signed zero with the sign determined by the rule already stated above.
 -   If `x1_i` is either `+0` or `-0` and `x2_i` is either `+0` or `-0`, the result is `NaN`.
--   If `x1_i` is either `+0` or `-0` and `x2_i` is a finite nonzero value, the result is a signed zero with the sign determined by the rule already stated above.
--   If `x1_i` is a nonzero finite value and `x2_i` is either `+0` or `-0`, the result is a signed infinity with the sign determined by the rule already stated above.
+-   If `x1_i` is either `+0` or `-0` and `x2_i` is a nonzero finite number, the result is a signed zero with the sign determined by the rule already stated above.
+-   If `x1_i` is a nonzero finite number and `x2_i` is either `+0` or `-0`, the result is a signed infinity with the sign determined by the rule already stated above.
 -   In the remaining cases, where neither an `-infinity`, `+0`, `-0`, or `NaN` is involved, the quotient must be computed and rounded to the nearest representable value according to IEEE 754-2019 and a supported rounding mode. If the magnitude is too larger to represent, the operation overflows and the result is an `infinity` of appropriate sign. If the magnitude is too small to represent, the operation underflows and the result is a zero of appropriate sign.
 
 #### Parameters
@@ -462,10 +487,6 @@ Calculates the division for each element `x1_i` of the input array `x1` with the
 -   **x2**: _&lt;array&gt;_
 
     -   divisor input array. Must be compatible with `x1` (see :ref:`broadcasting`).
-
--   **out**:  _Optional\[ &lt;array&gt; ]_
-
-    -   output array. If provided, the output array must be compatible with the provided input arrays (see :ref:`broadcasting`). If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each element-wise computation. Default: `None`.
 
 #### Returns
 
@@ -497,6 +518,8 @@ Computes the truth value of `x1_i == x2_i` for each element `x1_i` of the input 
 
 Calculates an implementation-dependent approximation to the exponential function, having domain `[-infinity, +infinity]` and codomain `[+0, +infinity]`, for each element `x_i` of the input array `x` (`e` raised to the power of `x_i`, where `e` is the base of the natural logarithm).
 
+#### Special Values
+
 -   If `x_i` is `NaN`, the result is `NaN`.
 -   If `x_i` is `+0`, the result is `1`.
 -   If `x_i` is `-0`, the result is `1`.
@@ -523,6 +546,8 @@ Calculates an implementation-dependent approximation to `exp(x)-1`, having domai
 
     The purpose of this API is to calculate `exp(x)-1.0` more accurately when `x` is close to zero. Accordingly, conforming implementations should avoid implementing this API as simply `exp(x)-1.0`. See FDLIBM, or some other IEEE 754-2019 compliant mathematical library, for a potential reference implementation.
 
+#### Special Values
+
 -   If `x_i` is `NaN`, the result is `NaN`.
 -   If `x_i` is `+0`, the result is `+0`.
 -   If `x_i` is `-0`, the result is `-0`.
@@ -545,6 +570,8 @@ Calculates an implementation-dependent approximation to `exp(x)-1`, having domai
 
 Rounds each element `x_i` of the input array `x` to the greatest (i.e., closest to `+infinity`) integer-valued number that is not greater than `x_i`.
 
+#### Special Values
+
 -   If `x_i` is already integer-valued, the result is `x_i`.
 
 #### Parameters
@@ -559,6 +586,26 @@ Rounds each element `x_i` of the input array `x` to the greatest (i.e., closest 
 
     -   an array containing the rounded result for each element in `x`.
 
+### <a name="floor_divide" href="#floor_divide">#</a> floor_divide(x1, x2, /)
+
+Rounds the result of dividing each element `x1_i` of the input array `x1` by the respective element `x2_i` of the input array `x2` to the greatest (i.e., closest to `+infinity`) integer-value number that is not greater than the division result.
+
+#### Parameters
+
+-   **x1**: _&lt;array&gt;_
+
+    -   dividend input array.
+
+-   **x2**: _&lt;array&gt;_
+
+    -   divisor input array. Must be compatible with `x1` (see :ref:`broadcasting`).
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the element-wise results.
+
 ### <a name="greater" href="#greater">#</a> greater(x1, x2, /)
 
 Computes the truth value of `x1_i > x2_i` for each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`.
@@ -571,7 +618,7 @@ Computes the truth value of `x1_i > x2_i` for each element `x1_i` of the input a
 
 -   **x2**: _&lt;array&gt;_
 
-    -   second input array. Must be compatible with `x1` (see :ref:`broadcasting`). 
+    -   second input array. Must be compatible with `x1` (see :ref:`broadcasting`).
 
 #### Returns
 
@@ -691,9 +738,11 @@ Computes the truth value of `x1_i <= x2_i` for each element `x1_i` of the input 
 
 Calculates an implementation-dependent approximation to the natural (base `e`) logarithm, having domain `[0, +infinity]` and codomain `[-infinity, +infinity]`, for each element `x_i` of the input array `x`.
 
+#### Special Values
+
 -   If `x_i` is `NaN`, the result is `NaN`.
 -   If `x_i` is less than `0`, the result is `NaN`.
--   If `x_i` is `+0` or `-0`, the result is `-infinity`.
+-   If `x_i` is either `+0` or `-0`, the result is `-infinity`.
 -   If `x_i` is `1`, the result is `+0`.
 -   If `x_i` is `+infinity`, the result is `+infinity`.
 
@@ -716,6 +765,8 @@ Calculates an implementation-dependent approximation to `log(1+x)`, where `log` 
 .. note::
 
     The purpose of this API is to calculate `log(1+x)` more accurately when `x` is close to zero. Accordingly, conforming implementations should avoid implementing this API as simply `log(1+x)`. See FDLIBM, or some other IEEE 754-2019 compliant mathematical library, for a potential reference implementation.
+
+#### Special Values
 
 -   If `x_i` is `NaN`, the result is `NaN`.
 -   If `x_i` is less than `-1`, the result is `NaN`.
@@ -740,9 +791,11 @@ Calculates an implementation-dependent approximation to `log(1+x)`, where `log` 
 
 Calculates an implementation-dependent approximation to the base `2` logarithm, having domain `[0, +infinity]` and codomain `[-infinity, +infinity]`, for each element `x_i` of the input array `x`.
 
+#### Special Values
+
 -   If `x_i` is `NaN`, the result is `NaN`.
 -   If `x_i` is less than `0`, the result is `NaN`.
--   If `x_i` is `+0` or `-0`, the result is `-infinity`.
+-   If `x_i` is either `+0` or `-0`, the result is `-infinity`.
 -   If `x_i` is `1`, the result is `+0`.
 -   If `x_i` is `+infinity`, the result is `+infinity`.
 
@@ -762,9 +815,11 @@ Calculates an implementation-dependent approximation to the base `2` logarithm, 
 
 Calculates an implementation-dependent approximation to the base `10` logarithm, having domain `[0, +infinity]` and codomain `[-infinity, +infinity]`, for each element `x_i` of the input array `x`.
 
+#### Special Values
+
 -   If `x_i` is `NaN`, the result is `NaN`.
 -   If `x_i` is less than `0`, the result is `NaN`.
--   If `x_i` is `+0` or `-0`, the result is `-infinity`.
+-   If `x_i` is either `+0` or `-0`, the result is `-infinity`.
 -   If `x_i` is `1`, the result is `+0`.
 -   If `x_i` is `+infinity`, the result is `+infinity`.
 
@@ -860,14 +915,16 @@ Computes the logical XOR for each element `x1_i` of the input array `x1` with th
 
 Calculates the product for each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`. For floating-point arithmetic,
 
+#### Special Values
+
 -   If either `x1_i` or `x2_i` is `NaN`, the result is `NaN`.
 -   If both `x1_i` and `x2_i` have the same sign, the result is positive.
 -   If `x1_i` and `x2_i` have different signs, the result is negative.
 -   If `x1_i` is either `+infinity` or `-infinity` and `x2_i` is either `+0` or `-0`, the result is `NaN`.
 -   If `x1_i` is either `+0` or `-0` and `x2_i` is either `+infinity` or `-infinity`, the result is `NaN`.
--   If `x1_i` is either `+infinity` or `-infinity` and `x2_i` is either `+infinity` or `-infinity`, the result is either `+infinity` and `-infinity` with the sign determined by the rule already stated above.
--   If `x1_i` is either `+infinity` or `-infinity` and `x2_i` is a finite nonzero value, the result is a signed infinity with the sign determined by the rule already stated above.
--   If `x1_i` is a finite nonzero value and `x2_i` is either `+infinity` or `-infinity`, the result is a signed infinity with the sign determined by the rule already stated above.
+-   If `x1_i` is either `+infinity` or `-infinity` and `x2_i` is either `+infinity` or `-infinity`, the result is a signed infinity with the sign determined by the rule already stated above.
+-   If `x1_i` is either `+infinity` or `-infinity` and `x2_i` is a nonzero finite number, the result is a signed infinity with the sign determined by the rule already stated above.
+-   If `x1_i` is a nonzero finite number and `x2_i` is either `+infinity` or `-infinity`, the result is a signed infinity with the sign determined by the rule already stated above.
 -   In the remaining cases, where neither an `infinity` nor `NaN` is involved, the product must be computed and rounded to the nearest representable value according to IEEE 754-2019 and a supported rounding mode. If the magnitude is too large to represent, the result is an `infinity` of appropriate sign. If the magnitude is too small to represent, the result is a zero of appropriate sign.
 
 .. note::
@@ -890,6 +947,22 @@ Calculates the product for each element `x1_i` of the input array `x1` with the 
 
     -   an array containing the element-wise products.
 
+### <a name="negative" href="#negative">#</a> negative(x, /)
+
+Computes the numerical negative of each element `x_i` (i.e., `y_i = -x_i`) of the input array `x`.
+
+#### Parameters
+
+-   **x**: _&lt;array&gt;_
+
+    -   input array.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the evaluated result for each element in `x`. The returned array must have a supported numerical data type.
+
 ### <a name="not_equal" href="#not_equal">#</a> not_equal(x1, x2, /)
 
 Computes the truth value of `x1_i != x2_i` for each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`.
@@ -910,9 +983,27 @@ Computes the truth value of `x1_i != x2_i` for each element `x1_i` of the input 
 
     -   an array containing the element-wise results.
 
+### <a name="positive" href="#positive">#</a> positive(x, /)
+
+Computes the numerical positive of each element `x_i` (i.e., `y_i = +x_i`) of the input array `x`.
+
+#### Parameters
+
+-   **x**: _&lt;array&gt;_
+
+    -   input array.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the evaluated result for each element in `x`. The returned array must have a supported numerical data type.
+
 ### <a name="pow" href="#pow">#</a> pow(x1, x2, /)
 
 Calculates an implementation-dependent approximation of exponentiation by raising each element `x1_i` (the base) of the input array `x1` to the power of `x2_i` (the exponent), where `x2_i` is the corresponding element of the input array `x2`.
+
+#### Special Values
 
 -   If `x1_i` is not equal to `1` and `x2_i` is `NaN`, the result is `NaN`.
 -   If `x2_i` is `+0`, the result is `1`, even if `x1_i` is `NaN`.
@@ -955,9 +1046,31 @@ Calculates an implementation-dependent approximation of exponentiation by raisin
 
     -   an array containing the element-wise results.
 
+### <a name="remainder" href="#remainder">#</a> remainder(x1, x2, /)
+
+Returns the remainder of division for each element `x1_i` of the input array `x1` and the respective element `x2_i` of the input array `x2`.
+
+#### Parameters
+
+-   **x1**: _&lt;array&gt;_
+
+    -   dividend input array.
+
+-   **x2**: _&lt;array&gt;_
+
+    -   divisor input array. Must be compatible with `x1` (see :ref:`broadcasting`).
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the element-wise results. Each element-wise result must have the same sign as the respective element `x2_i`.
+
 ### <a name="round" href="#round">#</a> round(x, /)
 
 Rounds each element `x_i` of the input array `x` to the nearest integer-valued number.
+
+#### Special Values
 
 -   If `x_i` is already integer-valued, the result is `x_i`.
 -   If two integers are equally close to `x_i`, the result is whichever integer is farthest from `0`.
@@ -978,8 +1091,10 @@ Rounds each element `x_i` of the input array `x` to the nearest integer-valued n
 
 Returns an indication of the sign of a number for each element `x_i` of the input array `x`.
 
+#### Special Values
+
 -   If `x_i` is less than `0`, the result is `-1`.
--   If `x_i` is `-0` or `+0`, the result is `0`.
+-   If `x_i` is either `-0` or `+0`, the result is `0`.
 -   If `x_i` is greater than `0`, the result is `+1`.
 
 #### Parameters
@@ -992,16 +1107,18 @@ Returns an indication of the sign of a number for each element `x_i` of the inpu
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the evaluated result for each element in `x`. If `out` is `None`, the returned array must have the same data type as `x`.
+    -   an array containing the evaluated result for each element in `x`.
 
 ### <a name="sin" href="#sin">#</a> sin(x, /)
 
 Calculates an implementation-dependent approximation to the sine, having domain `(-infinity, +infinity)` and codomain `[-1, +1]`, for each element `x_i` of the input array `x`. Each element `x_i` is assumed to be expressed in radians.
 
+#### Special Values
+
 -   If `x_i` is `NaN`, the result is `NaN`.
 -   If `x_i` is `+0`, the result is `+0`.
 -   If `x_i` is `-0`, the result is `-0`.
--   If `x_i` is `+infinity` or `-infinity`, the result is `NaN`.
+-   If `x_i` is either `+infinity` or `-infinity`, the result is `NaN`.
 
 #### Parameters
 
@@ -1018,6 +1135,8 @@ Calculates an implementation-dependent approximation to the sine, having domain 
 ### <a name="sinh" href="#sinh">#</a> sinh(x, /)
 
 Calculates an implementation-dependent approximation to the hyperbolic sine, having domain `[-infinity, +infinity]` and codomain `[-infinity, +infinity]`, for each element `x_i` of the input array `x`.
+
+#### Special Values
 
 -   If `x_i` is `NaN`, the result is `NaN`.
 -   If `x_i` is `+0`, the result is `+0`.
@@ -1056,6 +1175,8 @@ Squares (`x_i * x_i`) each element `x_i` of the input array `x`.
 ### <a name="sqrt" href="#sqrt">#</a> sqrt(x, /)
 
 Calculates the square root, having domain `[0, +infinity]` and codomain `[0, +infinity]`, for each element `x_i` of the input array `x`. After rounding, each result should be indistinguishable from the infinitely precise result (as required by IEEE 754).
+
+#### Special Values
 
 -   If `x_i` is `NaN`, the result is `NaN`.
 -   If `x_i` is less than `0`, the result is `NaN`.
@@ -1099,10 +1220,12 @@ Calculates the difference for each element `x1_i` of the input array `x1` with t
 
 Calculates an implementation-dependent approximation to the tangent, having domain `(-infinity, +infinity)` and codomain `(-infinity, +infinity)`, for each element `x_i` of the input array `x`. Each element `x_i` is assumed to be expressed in radians.
 
+#### Special Values
+
 -   If `x_i` is `NaN`, the result is `NaN`.
 -   If `x_i` is `+0`, the result is `+0`.
 -   If `x_i` is `-0`, the result is `-0`.
--   If `x_i` is `+infinity` or `-infinity`, the result is `NaN`.
+-   If `x_i` is either `+infinity` or `-infinity`, the result is `NaN`.
 
 #### Parameters
 
@@ -1119,6 +1242,8 @@ Calculates an implementation-dependent approximation to the tangent, having doma
 ### <a name="tanh" href="#tanh">#</a> tanh(x, /)
 
 Calculates an implementation-dependent approximation to the hyperbolic tangent, having domain `[-infinity, +infinity]` and codomain `[-1, +1]`, for each element `x_i` of the input array `x`.
+
+#### Special Values
 
 -   If `x_i` is `NaN`, the result is `NaN`.
 -   If `x_i` is `+0`, the result is `+0`.
@@ -1141,6 +1266,8 @@ Calculates an implementation-dependent approximation to the hyperbolic tangent, 
 ### <a name="trunc" href="#trunc">#</a> trunc(x, /)
 
 Rounds each element `x_i` of the input array `x` to the integer-valued number that is closest to but no greater than `x_i`.
+
+#### Special Values
 
 -   If `x_i` is already integer-valued, the result is `x_i`.
 

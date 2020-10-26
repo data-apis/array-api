@@ -18,6 +18,8 @@ made in the API standard. For example, JIT compilers may require output dtypes
 of functions to be predictable from input dtypes only rather than input values.
 
 
+.. _assumptions-dependencies:
+
 ## Dependencies
 
 The only dependency that's assumed in this standard is that on Python itself.
