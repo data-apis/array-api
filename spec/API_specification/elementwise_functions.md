@@ -298,7 +298,7 @@ Computes the bitwise AND of the underlying binary representation of each element
 
     -   an array containing the element-wise results.
 
-### <a name="bitwise_lshift" href="#bitwise_lshift">#</a> bitwise_lshift(x1, x2, /)
+### <a name="bitwise_left_shift" href="#bitwise_left_shift">#</a> bitwise_left_shift(x1, x2, /)
 
 Shifts the bits of each element `x1_i` of the input array `x1` to the left by appending `x2_i` (i.e., the respective element in the input array `x2`) zeros to the right of `x1_i`.
 
@@ -354,7 +354,7 @@ Computes the bitwise OR of the underlying binary representation of each element 
 
     -   an array containing the element-wise results.
 
-### <a name="bitwise_rshift" href="#bitwise_rshift">#</a> bitwise_rshift(x1, x2, /)
+### <a name="bitwise_right_shift" href="#bitwise_right_shift">#</a> bitwise_right_shift(x1, x2, /)
 
 Shifts the bits of each element `x1_i` of the input array `x1` to the right according to the respective element `x2_i` of the input array `x2`.
 
