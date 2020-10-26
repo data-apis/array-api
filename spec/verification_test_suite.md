@@ -5,7 +5,7 @@
 In addition to the specification documents, a test suite is being developed to
 aid library developers check conformance to the spec. **NOTE: The test suite
 is still a work in progress.** It can be found at
-[[https://github.com/data-apis/array-api-tests]].
+<https://github.com/data-apis/array-api-tests>.
 
 It is important to note that while the aim of the array api test suite is to
 cover as much as the spec as possible, there are necessarily some aspects of
