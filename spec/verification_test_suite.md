@@ -7,8 +7,8 @@ aid library developers check conformance to the spec. **NOTE: The test suite
 is still a work in progress.** It can be found at
 <https://github.com/data-apis/array-api-tests>.
 
-It is important to note that while the aim of the array api test suite is to
-cover as much as the spec as possible, there are necessarily some aspects of
+It is important to note that while the aim of the array API test suite is to
+cover as much of the spec as possible, there are necessarily some aspects of
 the spec that are not covered by the test suite, typically because they are
 impossible to effectively test. Furthermore, if the test suite appears to
 diverge in any way from what the spec documents say, this should be considered
@@ -33,7 +33,7 @@ For example
 
     ARRAY_API_TESTS_MODULE=numpy pytest
 
-Alternately, edit the `array_api_tests/_array_module.py` file and change the
+Alternatively, edit the `array_api_tests/_array_module.py` file and change the
 line
 
 ```py
