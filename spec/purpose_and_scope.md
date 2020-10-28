@@ -380,44 +380,34 @@ For the purposes of this specification, the following terms and definitions appl
 
 <!-- NOTE: please keep terms in alphabetical order -->
 
-### array
-
+**array**:
 a (usually fixed-size) multidimensional container of items of the same type and size.
 
-### axis
-
+**axis**:
 an array dimension.
 
-### broadcast
-
+**broadcast**:
 automatic (implicit) expansion of array dimensions to be of equal sizes without copying array data for the purpose of making arrays with different shapes have compatible shapes for element-wise operations.
 
-### compatible
-
+**compatible**:
 two arrays whose dimensions are compatible (i.e., where the size of each dimension in one array is either equal to one or to the size of the corresponding dimension in a second array).
 
-### element-wise
-
+**element-wise**:
 an operation performed element-by-element, in which individual array elements are considered in isolation and independently of other elements within the same array.
 
-### matrix
-
+**matrix**:
 a two-dimensional array.
 
-### rank
-
+**rank**:
 number of array dimensions (not to be confused with the number of linearly independent columns of a matrix).
 
-### shape
-
+**shape**:
 a tuple of `N` non-negative integers that specify the sizes of each dimension and where `N` corresponds to the number of dimensions.
 
-### singleton dimension
-
+**singleton dimension**:
 a dimension whose size is one.
 
-### vector
-
+**vector**:
 a one-dimensional array.
 
 * * *
