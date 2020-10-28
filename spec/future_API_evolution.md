@@ -23,6 +23,8 @@ Any exceptions must have strong rationales, and be clearly documented in the upd
 API specification.
 
 
+.. _api-versioning:
+
 ## Versioning
 
 This API standard uses the following versioning scheme:
