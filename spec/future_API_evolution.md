@@ -1,3 +1,5 @@
+.. _future-API-evolution:
+
 # Future API standard evolution
 
 ## Scope extensions
