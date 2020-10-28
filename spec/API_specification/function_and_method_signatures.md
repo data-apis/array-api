@@ -1,3 +1,5 @@
+.. _function-and-method-signatures:
+
 # Function and method signatures
 
 Function signatures in this standard adhere to the following:
