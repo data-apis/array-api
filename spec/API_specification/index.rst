@@ -15,6 +15,7 @@ API specification
    casting
    broadcasting
    creation_functions
+   manipulation_functions
    elementwise_functions
    statistical_functions
    linear_algebra_functions

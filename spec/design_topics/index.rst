@@ -12,5 +12,5 @@ Design topics & constraints
    array_ducktyping
    data_interchange
    accuracy
-   device support
+   device_support
    C_API
