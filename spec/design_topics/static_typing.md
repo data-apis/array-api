@@ -20,7 +20,7 @@ example:
 
 ```python
 # `Array` is a particular class in the library
-sin(x: Array, / ...) -> Array:
+def sin(x: Array, / ...) -> Array:
     ...
 ```
 
@@ -30,7 +30,7 @@ and
 # There's some base class `_BaseArray`, and there may be multiple
 # array subclasses inside the library
 A = TypeVar('A', bound=_BaseArray)
-sin(x: A, / ...) -> A:
+def sin(x: A, / ...) -> A:
     ...
 ```
 should both be fine. There may be other variations possible. Also note that
