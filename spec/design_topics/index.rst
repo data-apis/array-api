@@ -5,7 +5,6 @@ Design topics & constraints
    :caption: Design topics & constraints
    :maxdepth: 1
 
-   backwards_compatibility
    eager_lazy_eval
    parallelism
    static_typing
