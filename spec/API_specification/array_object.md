@@ -1,1 +1,3 @@
+.. array-object:
+
 # Array object
