@@ -8,7 +8,6 @@ Design topics & constraints
    eager_lazy_eval
    parallelism
    static_typing
-   array_ducktyping
    data_interchange
    accuracy
    device_support
