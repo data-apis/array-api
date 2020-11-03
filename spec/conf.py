@@ -86,8 +86,8 @@ html_theme_options = {
 
     # Set the color and the accent color (see
     # https://material.io/design/color/the-color-system.html)
-    'color_primary': 'deep-purple',
-    'color_accent': 'cyan',
+    'color_primary': 'indigo',
+    'color_accent': 'green',
 
     # Set the repo location to get a badge with stats
     #'repo_url': 'https://github.com/project/project/',
