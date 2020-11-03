@@ -142,7 +142,7 @@ Multi-dimensional arrays must extend the concept of single-axis indexing to mult
 
 An array must support indexing via a **single** `M`-dimensional boolean array `B` with shape `S1 = (s1, ..., sM)` according to the following rules. Let `A` be an `N`-dimensional array with shape `S2 = (s1, ..., sM, ..., sN)`.
 
--   If `N >= M`, then `A[B]` must replace the first `M` dimensions of `A` with a single dimension having a size equal to the number of `True` elements in `B`.
+-   If `N >= M`, then `A[B]` must replace the first `M` dimensions of `A` with a single dimension having a size equal to the number of `True` elements in `B`. The values in the resulting array must be in row-major (C-style order); this is equivalent to `A[nonzero(B)]`.
 
     .. note::
 
