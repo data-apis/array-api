@@ -1,3 +1,5 @@
+.. _usage-data:
+
 # Usage Data
 
 > Summary of existing array API design and usage.
