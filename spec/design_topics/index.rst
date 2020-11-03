@@ -5,7 +5,7 @@ Design topics & constraints
    :caption: Design topics & constraints
    :maxdepth: 1
 
-   eager_lazy_eval
+   copies_views_and_mutation
    parallelism
    static_typing
    data_interchange
