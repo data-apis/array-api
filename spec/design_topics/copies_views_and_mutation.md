@@ -57,12 +57,15 @@ The situation with `out=` is slightly different - it's less heavily used, and
 easier to avoid. It's also not an optimal API, because it mixes an
 "efficiency of implementation" consideration ("you're allowed to do this
 inplace") with the semantics of a function ("the output _must_ be placed into
-this array). There's alternatives, for example the donated arguments in JAX
-or working buffers in LAPACK, that allow the user to express "you _may_
-overwrite this data, do whatever is fastest". Given that those alternatives
-aren't widely used in array libraries today, this API standard chooses to (a)
-leave out `out=`, and (b) not specify another method of reusing arrays that
-are no longer needed as buffers.
+this array). There are libraries that do some form of tracing or abstract
+interpretation over a language that does not support mutation (to make
+analysis easier); in those cases implementing `out=` with correct handling of
+views may even be impossible to do. There's alternatives, for example the
+donated arguments in JAX or working buffers in LAPACK, that allow the user to
+express "you _may_ overwrite this data, do whatever is fastest". Given that
+those alternatives aren't widely used in array libraries today, this API
+standard chooses to (a) leave out `out=`, and (b) not specify another method
+of reusing arrays that are no longer needed as buffers.
 
 This leaves the problem of the initial example - with this API standard it
 remains possible to write code that will not work the same for all array
