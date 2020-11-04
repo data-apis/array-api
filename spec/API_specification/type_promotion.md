@@ -10,8 +10,8 @@ A conforming implementation of the array API standard may support additional typ
 
 .. note::
 
-    Type codes are used here to keep tables readable, they are not part of the standard.
-    In code, use the dtype objects specified in :ref:`data-types` (e.g., `int16` rather than `'i2'`).
+    Type codes are used here to keep tables readable; they are not part of the standard.
+    In code, use the data type objects specified in :ref:`data-types` (e.g., `int16` rather than `'i2'`).
 
 ## Rules
 
@@ -72,10 +72,11 @@ A conforming implementation of the array API standard may support additional typ
 ## Notes
 
 -   Type promotion rules **strictly** apply when determining the common result type for two **array** operands during an arithmetic operation, regardless of array dimension. Accordingly, zero-dimensional arrays are subject to the same type promotion rules as dimensional arrays.
--   Non-array ("scalar") operands are **not** permitted to participate in type promotion.
+-   Type promotion of non-numerical data types to numerical data types is unspecified (e.g., `bool` to `intxx` or `floatxx`).
+-   Non-array ("scalar") operands must not participate in type promotion.
 
 
 .. note::
 
     Mixed integer and floating-point type promotion rules are not specified
-    because behaviour varies between implementations.
+    because behavior varies between implementations.

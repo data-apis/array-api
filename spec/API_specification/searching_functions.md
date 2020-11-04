@@ -34,7 +34,7 @@ Returns the indices of the maximum values along a specified axis. When the maxim
 
 -   **out**: _&lt;array&gt;_
 
-    -   if `axis` is `None`, a zero-dimensional array containing the index of the first occurrence of the maximum value; otherwise, a non-zero-dimensional array containing the indices of the maximum values. The returned array must have a data type of either `int32` or `int64`.
+    -   if `axis` is `None`, a zero-dimensional array containing the index of the first occurrence of the maximum value; otherwise, a non-zero-dimensional array containing the indices of the maximum values. The returned array must have be the default array index data type.
 
 ### <a name="argmin" href="#argmin">#</a> argmin(x, /, *, axis=None, keepdims=False)
 
@@ -58,7 +58,7 @@ Returns the indices of the minimum values along a specified axis. When the minim
 
 -   **out**: _&lt;array&gt;_
 
-    -   if `axis` is `None`, a zero-dimensional array containing the index of the first occurrence of the minimum value; otherwise, a non-zero-dimensional array containing the indices of the minimum values. The returned array must have a data type of either `int32` or `int64`.
+    -   if `axis` is `None`, a zero-dimensional array containing the index of the first occurrence of the minimum value; otherwise, a non-zero-dimensional array containing the indices of the minimum values. The returned array must have the default array index data type.
 
 ### <a name="nonzero" href="#nonzero">#</a> nonzero(x, /)
 
@@ -74,7 +74,7 @@ Returns the indices of the array elements which are non-zero.
 
 -   **out**: _Tuple\[ &lt;array&gt;, ... ]_
 
-    -   a tuple of `k` arrays, one for each dimension of `x` and each of size `n` (where `n` is the total number of non-zero elements), containing the indices of the non-zero elements in that dimension. The indices must be returned in row-major, C-style order. The returned array must have a data type of either `int32` or `int64`.
+    -   a tuple of `k` arrays, one for each dimension of `x` and each of size `n` (where `n` is the total number of non-zero elements), containing the indices of the non-zero elements in that dimension. The indices must be returned in row-major, C-style order. The returned array must have the default array index data type.
 
 ### <a name="where" href="#where">#</a> where(condition, x1, x2, /)
 

@@ -59,7 +59,7 @@ Calculates the arithmetic mean of the input array `x`.
 
 -   **out**: _&lt;array&gt;_
 
-    -   if the arithmetic mean was computed over the entire array, a zero-dimensional array containing the arithmetic mean; otherwise, a non-zero-dimensional array containing the arithmetic means. The returned array must have a data type of either `float32` or `float64`.
+    -   if the arithmetic mean was computed over the entire array, a zero-dimensional array containing the arithmetic mean; otherwise, a non-zero-dimensional array containing the arithmetic means. The returned array must have be the default floating-point data type.
 
 ### <a name="min" href="#min">#</a> min(x, /, *, axis=None, keepdims=False)
 
@@ -135,7 +135,7 @@ Calculates the standard deviation of the input array `x`.
 
 -   **out**: _&lt;array&gt;_
 
-    -   if the standard deviation was computed over the entire array, a zero-dimensional array containing the standard deviation; otherwise, a non-zero-dimensional array containing the standard deviations. The returned array must have a data type of either `float32` or `float64`.
+    -   if the standard deviation was computed over the entire array, a zero-dimensional array containing the standard deviation; otherwise, a non-zero-dimensional array containing the standard deviations. The returned array must have the default floating-point data type.
 
 ### <a name="sum" href="#sum">#</a> sum(x, /, *, axis=None, keepdims=False)
 
@@ -187,4 +187,4 @@ Calculates the variance of the input array `x`.
 
 -   **out**: _&lt;array&gt;_
 
-    -   if the variance was computed over the entire array, a zero-dimensional array containing the variance; otherwise, a non-zero-dimensional array containing the variances. The returned array must have a data type of either `float32` or `float64`.
+    -   if the variance was computed over the entire array, a zero-dimensional array containing the variance; otherwise, a non-zero-dimensional array containing the variances. The returned array must have the default floating-point data type.

@@ -33,7 +33,7 @@ Returns evenly spaced values within the half-open interval `[start, stop)` as a 
 
 -   **dtype**: _Optional\[ &lt;dtype&gt; ]_ 
 
-    -   output array data type. If `dtype` is `None`, the output array data type must be either `float32` or `float64`. Default: `None`.
+    -   output array data type. If `dtype` is `None`, the output array data type must be the default floating-point data type. Default: `None`.
 
 #### Returns
 
@@ -53,7 +53,7 @@ Returns an uninitialized array having a specified `shape`.
 
 -   **dtype**: _Optional\[ &lt;dtype&gt; ]_ 
 
-    -   output array data type. If `dtype` is `None`, the output array data type must be either `float32` or `float64`. Default: `None`.
+    -   output array data type. If `dtype` is `None`, the output array data type must be the default floating-point data type. Default: `None`.
 
 #### Returns
 
@@ -101,7 +101,7 @@ Returns a two-dimensional array with ones on the `k`th diagonal and zeros elsewh
 
 -   **dtype**: _Optional\[ &lt;dtype&gt; ]_ 
 
-    -   output array data type. If `dtype` is `None`, the output array data type must be either `float32` or `float64`. Default: `None`.
+    -   output array data type. If `dtype` is `None`, the output array data type must be the default floating-point data type. Default: `None`.
 
 #### Returns
 
@@ -125,7 +125,7 @@ Returns a new array having a specified `shape` and filled with `fill_value`.
 
 -   **dtype**: _Optional\[ &lt;dtype&gt; ]_ 
 
-    -   output array data type. If `dtype` is `None`, the output array data type must be either `float32` or `float64`. Default: `None`.
+    -   output array data type. If `dtype` is `None`, the output array data type must be the default floating-point data type. Default: `None`.
 
 #### Returns
 
@@ -179,7 +179,7 @@ Returns evenly spaced numbers over a specified interval.
 
 -   **dtype**: _Optional\[ &lt;dtype&gt; ]_ 
 
-    -   output array data type. If `dtype` is `None`, the output array data type must be either `float32` or `float64`. Default: `None`.
+    -   output array data type. If `dtype` is `None`, the output array data type must be the default floating-point data type. Default: `None`.
 
 -   **endpoint**: _Optional\[ bool ]_
 
@@ -203,7 +203,7 @@ Returns a new array having a specified `shape` and filled with ones.
 
 -   **dtype**: _Optional\[ &lt;dtype&gt; ]_ 
 
-    -   output array data type. If `dtype` is `None`, the output array data type must be either `float32` or `float64`. Default: `None`.
+    -   output array data type. If `dtype` is `None`, the output array data type must be the default floating-point data type. Default: `None`.
 
 #### Returns
 
@@ -243,7 +243,7 @@ Returns a new array having a specified `shape` and filled with zeros.
 
 -   **dtype**: _Optional\[ &lt;dtype&gt; ]_ 
 
-    -   output array data type. If `dtype` is `None`, the output array data type must be either `float32` or `float64`. Default: `None`.
+    -   output array data type. If `dtype` is `None`, the output array data type must be the default floating-point data type. Default: `None`.
 
 #### Returns
 
