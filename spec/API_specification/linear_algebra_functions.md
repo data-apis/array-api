@@ -13,6 +13,10 @@ A conforming implementation of the array API standard must provide and support t
 
 <!-- NOTE: please keep the functions in alphabetical order -->
 
+### <a name="cholesky" href="#cholesky">#</a> cholesky()
+
+TODO
+
 ### <a name="cross" href="#cross">#</a> cross(x1, x2, /, *, axis=-1)
 
 Returns the cross product of 3-element vectors. If `x1` and `x2` are multi-dimensional arrays (i.e., both have a rank greater than `1`), then the cross-product of each pair of corresponding 3-element vectors is independently computed.
@@ -87,6 +91,22 @@ Returns the specified diagonals. If `x` has more than two dimensions, then the a
 
     -   if `x` is a two-dimensional array, a one-dimensional array containing the diagonal; otherwise, a multi-dimensional array containing the diagonals and whose shape is determined by removing `axis1` and `axis2` and appending a dimension equal to the size of the resulting diagonals. The returned array must have the same data type as `x`.
 
+### <a name="dot" href="#dot">#</a> dot()
+
+TODO
+
+### <a name="eig" href="#eig">#</a> eig()
+
+TODO
+
+### <a name="eigvalsh" href="#eigvalsh">#</a> eigvalsh()
+
+TODO
+
+### <a name="einsum" href="#einsum">#</a> einsum()
+
+TODO
+
 ### <a name="inv" href="#inv">#</a> inv(x, /)
 
 Computes the multiplicative inverse of a square matrix (or stack of square matrices) `x`.
@@ -102,6 +122,22 @@ Computes the multiplicative inverse of a square matrix (or stack of square matri
 -   **out**: _&lt;array&gt;_
 
     -   an array containing the multiplicative inverses. The returned array must have the same data type and shape as `x`.
+
+### <a name="lstsq" href="#lstsq">#</a> lstsq()
+
+TODO
+
+### <a name="matmul" href="#matmul">#</a> matmul()
+
+TODO
+
+### <a name="matrix_power" href="#matrix_power">#</a> matrix_power()
+
+TODO
+
+### <a name="matrix_rank" href="#matrix_rank">#</a> matrix_rank()
+
+TODO
 
 ### <a name="norm" href="#norm">#</a> norm(x, /, *, axis=None, keepdims=False, ord=None)
 
@@ -200,6 +236,26 @@ Computes the outer product of two vectors `x1` and `x2`.
 -   **out**: _&lt;array&gt;_
 
     -   a two-dimensional array containing the outer product and whose shape is `NxM`. The returned array must have a data type determined by :ref:`type-promotion` rules.
+
+### <a name="pinv" href="#pinv">#</a> pinv()
+
+TODO
+
+### <a name="qr" href="#qr">#</a> qr()
+
+TODO
+
+### <a name="slogdet" href="#slogdet">#</a> slogdet()
+
+TODO
+
+### <a name="solve" href="#solve">#</a> solve()
+
+TODO
+
+### <a name="svd" href="#svd">#</a> svd()
+
+TODO
 
 ### <a name="trace" href="#trace">#</a> trace(x, /, *, axis1=0, axis2=1, offset=0)
 

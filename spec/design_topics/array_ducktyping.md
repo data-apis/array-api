@@ -1,1 +1,0 @@
-# Array duck typing

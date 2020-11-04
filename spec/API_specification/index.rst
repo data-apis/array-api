@@ -15,6 +15,7 @@ API specification
    casting
    broadcasting
    creation_functions
+   manipulation_functions
    elementwise_functions
    statistical_functions
    linear_algebra_functions
@@ -24,8 +25,3 @@ API specification
    utility_functions
    constants
 
-
-.. _api-versioning:
-
-TODO: add `__array_api_version__` (or similar) version here, and the way to
-      retrieve it - see https://github.com/data-apis/workgroup/issues/24
