@@ -1,3 +1,5 @@
+.. _data-interchange:
+
 # Data interchange mechanisms
 
 This section discusses the mechanism to convert one type of array into another.
