@@ -1,3 +1,5 @@
+.. array-object:
+
 # Array object
 
 > Array API specification for array object attributes and methods.

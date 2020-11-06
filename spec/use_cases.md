@@ -1,3 +1,5 @@
+.. _use-cases:
+
 # Use cases
 
 Use cases inform the requirements for, and design choices made in, this array

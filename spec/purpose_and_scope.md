@@ -2,12 +2,86 @@
 
 ## Introduction
 
+Python users have a wealth of choice for libraries and frameworks for
+numerical computing, data science, machine learning, and deep learning. New
+frameworks pushing forward the state of the art in these fields are appearing
+every year. One unintended consequence of all this activity and creativity
+has been fragmentation in multidimensional array (a.k.a. tensor) libraries -
+which are the fundamental data structure for these fields. Choices include
+NumPy, Tensorflow, PyTorch, Dask, JAX, CuPy, MXNet, Xarray, and others.
+
+The APIs of each of these libraries are largely similar, but with enough
+differences that it's quite difficult to write code that works with multiple
+(or all) of these libraries. This array API standard aims to address that
+issue, by specifying an API for the most common ways arrays are constructed
+and used.
+
+Why not simply pick an existing API and bless that as the standard? In short,
+because there are often good reasons for the current inconsistencies between
+libraries. The most obvious candidate for that existing API is NumPy. However
+NumPy was not designed with non-CPU devices, graph-based libraries, or JIT
+compilers in mind. Other libraries often deviate from NumPy for good
+(necessary) reasons. Choices made in this API standard are often the same
+ones NumPy makes, or close to it, but are different where necessary to make
+sure all existing array libraries can adopt this API.
+
 
 ### This API standard
 
+This document aims to standardize functionality that exists in most/all array
+libraries and either is commonly used or is needed for
+consistency/completeness. Usage is determined via analysis of downstream
+libraries, see :ref:`usage-data`. An example of consistency is: there are
+functional equivalents for all Python operators (including the rarely used
+ones).
 
-## History
+Beyond usage and consistency, there's a set of use cases that inform the API
+design to ensure it's fit for a wide range of users and situations - see
+:ref:`use-cases`.
 
+A question that may arise when reading this document is: _"what about
+functionality that's not present in this document?_ This:
+
+- means that there is no guarantee the functionality is present in libraries
+  adhering to the standard
+- does _not_ mean that that functionality is unimportant
+- may indicate that that functionality, if present in a particular array
+  library, is unlikely to be present in all other libraries
+
+.. note::
+
+    This document is ready for wider community review, but still contains a
+    number of TODOs, and is expected to change and evolve before a first
+    official release. See :ref:`future-API-evolution` for proposed
+    versioning.
+
+
+### History
+
+The first library for numerical and scientific computing in Python was
+Numeric, developed in the mid-1990s. In the early 2000s a second, similar
+library, Numarray, was created. In 2005 NumPy was written, superceding both
+Numeric and Numarray and resolving the fragmentation at that time. For
+roughly a decade, NumPy was the only widely used array library. Over the past
+~5 years, mainly due to the emergence of new hardware and the rise of deep
+learning, many other libraries have appeared, leading to more severe
+fragmentation. Concepts and APIs in newer libraries were often inspired by
+(or copied from) those in older ones - and then changed or improved upon to
+fit new needs and use cases. Individual library authors discussed ideas,
+however there was never (before this array API standard) an serious attempt
+to coordinate between all libraries to avoid fragmentation and arrive at a
+common API standard.
+
+The idea for this array API standard grew gradually out of many conversations
+between maintainers during 2019-2020. It quickly became clear that any
+attempt to write a new "reference library" to fix the current fragmentation
+was infeasible - unlike in 2005, there are now too many different use cases
+and too many stakeholders, and the speed of innovation is too high. In May
+2020 an initial group of maintainers was assembled in the [Consortium for
+Python Data API Standards](https://data-apis.org/) to start drafting a
+specification for an array API that could be adopted by each of the existing
+array and tensor libraries. That resulted in this document, describing that
+API.
 
 
 ## Scope (includes out-of-scope / non-goals)
@@ -109,6 +183,13 @@ extensions are dealt with_):
    particular way of building regular functions with a few extra
    methods/properties._
 
+7. Behaviour for unexpected/invalid input to functions and methods.
+
+  _Rationale: there are a huge amount of ways in which users can provide
+  invalid or unspecified input to functionality in the standard. Exception
+  types or other resulting behaviour cannot be completely covered and would
+  be hard to make consistent between libraries._
+
 
 **Non-goals** for the API standard include:
 
@@ -125,6 +206,13 @@ extensions are dealt with_):
   _This may be feasible, however it's assumed that when an array-consuming
   library switches from one array type to another, some testing and possibly
   code adjustment for performance or other reasons may be needed._
+
+- Making it possible to mix multiple array libraries in function calls.
+
+  _Most array libraries do not know about other libraries, and the functions
+  they implement may try to convert "foreign" input, or raise an exception.
+  This behaviour is hard to specify; ensuring only a single array type is
+  used is best left to the end user._
 
 
 ### TBD whether or not in scope, or for a later version
@@ -232,6 +320,53 @@ For guidance on how to read and understand the type annotations included in this
 
 ## How to adopt this API
 
+Most (all) existing array libraries will find something in this API standard
+that is incompatible with a current implementation, and that they cannot
+change due to backwards compatibility concerns. Therefore we expect that each
+of those libraries will want to offer a standard-compliant API in a _new
+namespace_. The question then becomes: how does a user access this namespace?
+
+The simplest method is: document the import to use to directly access the
+namespace (e.g. `import package_name.array_api`). This has two issues though:
+
+1. Array-consuming libraries that want to support multiple array libraries
+   then have to explicitly import each library.
+2. It is difficult to _version_ the array API standard implementation (see
+   :ref:`api-versioning`).
+
+To address both issues, a uniform way must be provided by a conforming
+implementation to access the API namespace, namely a method on the array object:
+
+```
+xp = x.__array_namespace__()
+```
+
+The method must take one keyword, `api_version=None`, to make it possible to
+request a specific API version:
+
+```
+xp = x.__array_namespace__(api_version='2020.10')
+```
+
+.. note::
+
+    This is inspired by [NEP 37](https://numpy.org/neps/nep-0037-array-module.html#how-to-use-get-array-module),
+    however it avoids adding a dependency on NumPy or having to provide a
+    separate package just to do `get_array_module(x)`
+
+    NEP 37 is still in flux (it was just accepted by JAX and TensorFlow on an
+    experimental basis), and it's possible that that should be accepted instead.
+
+    TBD: a decision must be made on this topic before a first version of the
+    standard can become final. We prefer to delay this decision, to see how
+    NEP 37 adoption will work out.
+
+The `xp` namespace must contain the array object and all functionality
+specified in :ref:`api-specification`. It may contain other functionality,
+however it is recommended not to add other functions or objects, because that
+may make it harder for users to write code that will work with multiple array
+libraries.
+
 
 * * *
 
@@ -259,44 +394,34 @@ For the purposes of this specification, the following terms and definitions appl
 
 <!-- NOTE: please keep terms in alphabetical order -->
 
-### array
-
+**array**:
 a (usually fixed-size) multidimensional container of items of the same type and size.
 
-### axis
-
+**axis**:
 an array dimension.
 
-### broadcast
-
+**broadcast**:
 automatic (implicit) expansion of array dimensions to be of equal sizes without copying array data for the purpose of making arrays with different shapes have compatible shapes for element-wise operations.
 
-### compatible
-
+**compatible**:
 two arrays whose dimensions are compatible (i.e., where the size of each dimension in one array is either equal to one or to the size of the corresponding dimension in a second array).
 
-### element-wise
-
+**element-wise**:
 an operation performed element-by-element, in which individual array elements are considered in isolation and independently of other elements within the same array.
 
-### matrix
-
+**matrix**:
 a two-dimensional array.
 
-### rank
-
+**rank**:
 number of array dimensions (not to be confused with the number of linearly independent columns of a matrix).
 
-### shape
-
+**shape**:
 a tuple of `N` non-negative integers that specify the sizes of each dimension and where `N` corresponds to the number of dimensions.
 
-### singleton dimension
-
+**singleton dimension**:
 a dimension whose size is one.
 
-### vector
-
+**vector**:
 a one-dimensional array.
 
 * * *

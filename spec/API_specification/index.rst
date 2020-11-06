@@ -1,3 +1,5 @@
+.. _api-specification:
+
 API specification
 =================
 
@@ -13,10 +15,13 @@ API specification
    casting
    broadcasting
    creation_functions
+   manipulation_functions
    elementwise_functions
    statistical_functions
    linear_algebra_functions
    searching_functions
+   linear_algebra_functions
    set_functions
    utility_functions
    constants
+
