@@ -37,7 +37,7 @@ Number of array dimensions (axes).
 
     -   number of array dimensions (axes).
 
-TODO: need to more carefully consider this in order to accommodate, e.g., graph tensors where the number of dimensions may be dynamic.
+_TODO: need to more carefully consider this in order to accommodate, e.g., graph tensors where the number of dimensions may be dynamic._
 
 ### <a name="shape" href="#shape">#</a> shape
 
@@ -49,7 +49,7 @@ Array dimensions.
 
     -   array dimensions as either a tuple or a custom shape object. If a shape object, the object must be immutable and must support indexing for dimension retrieval.
 
-TODO: need to more carefully consider this in order to accommodate, e.g., graph tensors where a shape may be dynamic.
+_TODO: need to more carefully consider this in order to accommodate, e.g., graph tensors where a shape may be dynamic._
 
 ### <a name="size" href="#size">#</a> size
 
@@ -61,7 +61,7 @@ Number of elements in an array. This should equal the product of the array's dim
 
     -   number of elements in an array.
 
-TODO: need to more carefully consider this in order to accommodate, e.g., graph tensors where the number of elements may be dynamic.
+_TODO: need to more carefully consider this in order to accommodate, e.g., graph tensors where the number of elements may be dynamic._
 
 ### <a name="T" href="#T">#</a> T
 
