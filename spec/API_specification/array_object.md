@@ -73,7 +73,7 @@ Transpose of the array.
 
 -   **out**: _&lt;array&gt;_
 
-    -   array whose dimensions (axes) are permuted in reverse order relative to original array. Must have the same data type as the original array.
+    -   array whose dimensions (axes) are permuted in reverse order relative to original array. The returned array must have the same data type as the original array.
 
 * * *
 
@@ -99,7 +99,7 @@ Calculates the absolute value for each element `x_i` of an array instance `x` (i
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the element-wise absolute value. Must have the same data type as `x`.
+    -   an array containing the element-wise absolute value. The returned array must have the same data type as `x`.
 
 .. note::
 
@@ -116,14 +116,14 @@ Calculates the sum for each element `x1_i` of an array instance `x1` with the re
 -   If `x1_i` is `-infinity` and `x2_i` is `-infinity`, the result is `-infinity`.
 -   If `x1_i` is `+infinity` and `x2_i` is finite, the result is `+infinity`.
 -   If `x1_i` is `-infinity` and `x2_i` is finite, the result is `-infinity`.
--   If `x1_i` is finite and `x2_i` is `+infinity`, the result is `+infinity`.
--   If `x1_i` is finite and `x2_i` is `-infinity`, the result is `-infinity`.
+-   If `x1_i` is a finite number and `x2_i` is `+infinity`, the result is `+infinity`.
+-   If `x1_i` is a finite number and `x2_i` is `-infinity`, the result is `-infinity`.
 -   If `x1_i` is `-0` and `x2_i` is `-0`, the result is `-0`.
 -   If `x1_i` is `-0` and `x2_i` is `+0`, the result is `+0`.
 -   If `x1_i` is `+0` and `x2_i` is `-0`, the result is `+0`.
 -   If `x1_i` is `+0` and `x2_i` is `+0`, the result is `+0`.
--   If `x1_i` is `+0` or `-0` and `x2_i` is a nonzero finite number, the result is `x2_i`.
--   If `x1_i` is a nonzero finite number and `x2_i` is `+0` or `-0`, the result is `x1_i`.
+-   If `x1_i` is either `+0` or `-0` and `x2_i` is a nonzero finite number, the result is `x2_i`.
+-   If `x1_i` is a nonzero finite number and `x2_i` is either `+0` or `-0`, the result is `x1_i`.
 -   If `x1_i` is a nonzero finite number and `x2_i` is `-x1_i`, the result is `+0`.
 -   In the remaining cases, when neither an `infinity`, `+0`, `-0`, nor a `NaN` is involved, and the operands have the same sign or have different magnitudes, the sum must be computed and rounded to the nearest representable value according to IEEE 754-2019 and a supported round mode. If the magnitude is too large to represent, the operation overflows and the result is an `infinity` of appropriate sign.
 
@@ -145,7 +145,7 @@ Calculates the sum for each element `x1_i` of an array instance `x1` with the re
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the element-wise sums.
+    -   an array containing the element-wise sums. The returned array must have a data type determined by :ref:`type-promotion`.
 
 .. note::
 
@@ -159,17 +159,17 @@ Evaluates `x1_i & x2_i` for each element `x1_i` of an array instance `x1` with t
 
 -   **x1**: _&lt;array&gt;_
 
-    -   array instance.
+    -   array instance. Must have an integer or boolean data type.
 
 -   **x2**: _&lt;array&gt;_
 
-    -   other array. Must be compatible with `x1` (see :ref:`broadcasting`).
+    -   other array. Must be compatible with `x1` (see :ref:`broadcasting`). Must have an integer or boolean data type.
 
 #### Returns
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the element-wise results.
+    -   an array containing the element-wise results. The returned array must have a data type determined by :ref:`type-promotion`.
 
 .. note::
 
@@ -193,7 +193,7 @@ Computes the truth value of `x1_i == x2_i` for each element `x1_i` of an array i
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the element-wise results.
+    -   an array containing the element-wise results. The returned array must have a data type of `bool` (i.e., must be a boolean array).
 
 .. note::
 
@@ -217,7 +217,7 @@ Evaluates `x1_i // x2_i` for each element `x1_i` of an array instance `x1` with 
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the element-wise results.
+    -   an array containing the element-wise results. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
 
 .. note::
 
@@ -241,7 +241,7 @@ Computes the truth value of `x1_i >= x2_i` for each element `x1_i` of an array i
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the element-wise results.
+    -   an array containing the element-wise results. The returned array must have a data type of `bool` (i.e., must be a boolean array).
 
 .. note::
 
@@ -269,7 +269,7 @@ Computes the truth value of `x1_i > x2_i` for each element `x1_i` of an array in
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the element-wise results.
+    -   an array containing the element-wise results. The returned array must have a data type of `bool` (i.e., must be a boolean array).
 
 .. note::
 
@@ -283,13 +283,13 @@ Evaluates `~x_i` for each element `x_i` of an array instance `x`.
 
 -   **x**: _&lt;array&gt;_
 
-    -   array instance.
+    -   array instance. Must have an integer or boolean data type.
 
 #### Returns
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the element-wise results.
+    -   an array containing the element-wise results. The returned array must have the same data type as `x`.
 
 .. note::
 
@@ -313,7 +313,7 @@ Computes the truth value of `x1_i <= x2_i` for each element `x1_i` of an array i
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the element-wise results.
+    -   an array containing the element-wise results. The returned array must have a data type of `bool` (i.e., must be a boolean array).
 
 .. note::
 
@@ -331,17 +331,17 @@ Evaluates `x1_i << x2_i` for each element `x1_i` of an array instance `x1` with 
 
 -   **x1**: _&lt;array&gt;_
 
-    -   array instance.
+    -   array instance. Must have an integer data type.
 
 -   **x2**: _&lt;array&gt;_
 
-    -   other array. Must be compatible with `x1` (see :ref:`broadcasting`).
+    -   other array. Must be compatible with `x1` (see :ref:`broadcasting`). Must have an integer data type. Each element must be greater than or equal to `0`.
 
 #### Returns
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the element-wise results.
+    -   an array containing the element-wise results. The returned array must have the same data type as `x1`.
 
 .. note::
 
@@ -365,7 +365,7 @@ Computes the truth value of `x1_i < x2_i` for each element `x1_i` of an array in
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the element-wise results.
+    -   an array containing the element-wise results. The returned array must have a data type of `bool` (i.e., must be a boolean array).
 
 .. note::
 
@@ -389,7 +389,7 @@ Evaluates `x1_i % x2_i` for each element `x1_i` of an array instance `x1` with t
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the element-wise results.
+    -   an array containing the element-wise results. Each element-wise result must have the same sign as the respective element `x2_i`. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
 
 .. note::
 
@@ -404,9 +404,9 @@ Calculates the product for each element `x1_i` of an array instance `x1` with th
 -   If `x1_i` and `x2_i` have different signs, the result is negative.
 -   If `x1_i` is either `+infinity` or `-infinity` and `x2_i` is either `+0` or `-0`, the result is `NaN`.
 -   If `x1_i` is either `+0` or `-0` and `x2_i` is either `+infinity` or `-infinity`, the result is `NaN`.
--   If `x1_i` is either `+infinity` or `-infinity` and `x2_i` is either `+infinity` or `-infinity`, the result is either `+infinity` and `-infinity` with the sign determined by the rule already stated above.
--   If `x1_i` is either `+infinity` or `-infinity` and `x2_i` is a finite nonzero value, the result is a signed infinity with the sign determined by the rule already stated above.
--   If `x1_i` is a finite nonzero value and `x2_i` is either `+infinity` or `-infinity`, the result is a signed infinity with the sign determined by the rule already stated above.
+-   If `x1_i` is either `+infinity` or `-infinity` and `x2_i` is either `+infinity` or `-infinity`, the result is a signed infinity with the sign determined by the rule already stated above.
+-   If `x1_i` is either `+infinity` or `-infinity` and `x2_i` is a nonzero finite number, the result is a signed infinity with the sign determined by the rule already stated above.
+-   If `x1_i` is a nonzero finite number and `x2_i` is either `+infinity` or `-infinity`, the result is a signed infinity with the sign determined by the rule already stated above.
 -   In the remaining cases, where neither an `infinity` nor `NaN` is involved, the product must be computed and rounded to the nearest representable value according to IEEE 754-2019 and a supported rounding mode. If the magnitude is too large to represent, the result is an `infinity` of appropriate sign. If the magnitude is too small to represent, the result is a zero of appropriate sign.
 
 .. note::
@@ -427,7 +427,7 @@ Calculates the product for each element `x1_i` of an array instance `x1` with th
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the element-wise products.
+    -   an array containing the element-wise products. The returned array must have a data type determined by :ref:`type-promotion`.
 
 .. note::
 
@@ -451,7 +451,7 @@ Computes the truth value of `x1_i != x2_i` for each element `x1_i` of an array i
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the element-wise results.
+    -   an array containing the element-wise results. The returned array must have a data type of `bool` (i.e., must be a boolean array).
 
 .. note::
 
@@ -471,7 +471,7 @@ Evaluates `-x_i` for each element `x_i` of an array instance `x`.
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the element-wise results.
+    -   an array containing the evaluated result for each element in `x`. The returned array must have a data type determined by :ref:`type-promotion`.
 
 .. note::
 
@@ -485,17 +485,17 @@ Evaluates `x1_i | x2_i` for each element `x1_i` of an array instance `x1` with t
 
 -   **x1**: _&lt;array&gt;_
 
-    -   array instance.
+    -   array instance. Must have an integer or boolean data type.
 
 -   **x2**: _&lt;array&gt;_
 
-    -   other array. Must be compatible with `x1` (see :ref:`broadcasting`).
+    -   other array. Must be compatible with `x1` (see :ref:`broadcasting`). Must have an integer or boolean data type.
 
 #### Returns
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the element-wise results.
+    -   an array containing the element-wise results. The returned array must have a data type determined by :ref:`type-promotion`.
 
 .. note::
 
@@ -515,7 +515,7 @@ Evaluates `+x_i` for each element `x_i` of an array instance `x`.
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the element-wise results.
+    -   an array containing the evaluated result for each element in `x`. The returned array must have the same data type as `x`.
 
 .. note::
 
@@ -564,7 +564,7 @@ Calculates an implementation-dependent approximation of exponentiation by raisin
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the element-wise results.
+    -   an array containing the element-wise results. The returned array must have a data type determined by :ref:`type-promotion`.
 
 .. note::
 
@@ -581,14 +581,14 @@ Calculates the sum for each element `x1_i` of an array instance `x1` with the re
 -   If `x1_i` is `-infinity` and `x2_i` is `-infinity`, the result is `-infinity`.
 -   If `x1_i` is `+infinity` and `x2_i` is finite, the result is `+infinity`.
 -   If `x1_i` is `-infinity` and `x2_i` is finite, the result is `-infinity`.
--   If `x1_i` is finite and `x2_i` is `+infinity`, the result is `+infinity`.
--   If `x1_i` is finite and `x2_i` is `-infinity`, the result is `-infinity`.
+-   If `x1_i` is a finite number and `x2_i` is `+infinity`, the result is `+infinity`.
+-   If `x1_i` is a finite number and `x2_i` is `-infinity`, the result is `-infinity`.
 -   If `x1_i` is `-0` and `x2_i` is `-0`, the result is `-0`.
 -   If `x1_i` is `-0` and `x2_i` is `+0`, the result is `+0`.
 -   If `x1_i` is `+0` and `x2_i` is `-0`, the result is `+0`.
 -   If `x1_i` is `+0` and `x2_i` is `+0`, the result is `+0`.
--   If `x1_i` is `+0` or `-0` and `x2_i` is a nonzero finite number, the result is `x2_i`.
--   If `x1_i` is a nonzero finite number and `x2_i` is `+0` or `-0`, the result is `x1_i`.
+-   If `x1_i` is either `+0` or `-0` and `x2_i` is a nonzero finite number, the result is `x2_i`.
+-   If `x1_i` is a nonzero finite number and `x2_i` is either `+0` or `-0`, the result is `x1_i`.
 -   If `x1_i` is a nonzero finite number and `x2_i` is `-x1_i`, the result is `+0`.
 -   In the remaining cases, when neither an `infinity`, `+0`, `-0`, nor a `NaN` is involved, and the operands have the same sign or have different magnitudes, the sum must be computed and rounded to the nearest representable value according to IEEE 754-2019 and a supported round mode. If the magnitude is too large to represent, the operation overflows and the result is an `infinity` of appropriate sign.
 
@@ -610,7 +610,7 @@ Calculates the sum for each element `x1_i` of an array instance `x1` with the re
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the element-wise sums.
+    -   an array containing the element-wise sums. The returned array must have a data type determined by :ref:`type-promotion`.
 
 .. note::
 
@@ -624,17 +624,17 @@ Evaluates `x2_i & x1_i` for each element `x1_i` of an array instance `x1` with t
 
 -   **x1**: _&lt;array&gt;_
 
-    -   array instance.
+    -   array instance. Must have an integer or boolean data type.
 
 -   **x2**: _&lt;array&gt;_
 
-    -   other array. Must be compatible with `x1` (see :ref:`broadcasting`).
+    -   other array. Must be compatible with `x1` (see :ref:`broadcasting`). Must have an integer or boolean data type.
 
 #### Returns
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the element-wise results.
+    -   an array containing the element-wise results. The returned array must have a data type determined by :ref:`type-promotion`.
 
 .. note::
 
@@ -658,7 +658,7 @@ Evaluates `x2_i // x1_i` for each element `x1_i` of an array instance `x1` with 
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the element-wise results.
+    -   an array containing the element-wise results. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
 
 .. note::
 
@@ -672,17 +672,17 @@ Evaluates `x2_i << x1_i` for each element `x1_i` of an array instance `x1` with 
 
 -   **x1**: _&lt;array&gt;_
 
-    -   array instance.
+    -   array instance. Must have an integer data type. Each element must be greater than or equal to `0`.
 
 -   **x2**: _&lt;array&gt;_
 
-    -   other array. Must be compatible with `x1` (see :ref:`broadcasting`).
+    -   other array. Must be compatible with `x1` (see :ref:`broadcasting`). Must have an integer data type.
 
 #### Returns
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the element-wise results.
+    -   an array containing the element-wise results. The returned array must have the same data type as `x2`.
 
 .. note::
 
@@ -706,7 +706,7 @@ Evaluates `x2_i % x1_i` for each element `x1_i` of an array instance `x1` with t
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the element-wise results.
+    -   an array containing the element-wise results. Each element-wise result must have the same sign as the respective element `x1_i`. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
 
 .. note::
 
@@ -721,9 +721,9 @@ Calculates the product for each element `x1_i` of an array instance `x1` with th
 -   If `x1_i` and `x2_i` have different signs, the result is negative.
 -   If `x1_i` is either `+infinity` or `-infinity` and `x2_i` is either `+0` or `-0`, the result is `NaN`.
 -   If `x1_i` is either `+0` or `-0` and `x2_i` is either `+infinity` or `-infinity`, the result is `NaN`.
--   If `x1_i` is either `+infinity` or `-infinity` and `x2_i` is either `+infinity` or `-infinity`, the result is either `+infinity` and `-infinity` with the sign determined by the rule already stated above.
--   If `x1_i` is either `+infinity` or `-infinity` and `x2_i` is a finite nonzero value, the result is a signed infinity with the sign determined by the rule already stated above.
--   If `x1_i` is a finite nonzero value and `x2_i` is either `+infinity` or `-infinity`, the result is a signed infinity with the sign determined by the rule already stated above.
+-   If `x1_i` is either `+infinity` or `-infinity` and `x2_i` is either `+infinity` or `-infinity`, the result is a signed infinity with the sign determined by the rule already stated above.
+-   If `x1_i` is either `+infinity` or `-infinity` and `x2_i` is a nonzero finite number, the result is a signed infinity with the sign determined by the rule already stated above.
+-   If `x1_i` is a nonzero finite number and `x2_i` is either `+infinity` or `-infinity`, the result is a signed infinity with the sign determined by the rule already stated above.
 -   In the remaining cases, where neither an `infinity` nor `NaN` is involved, the product must be computed and rounded to the nearest representable value according to IEEE 754-2019 and a supported rounding mode. If the magnitude is too large to represent, the result is an `infinity` of appropriate sign. If the magnitude is too small to represent, the result is a zero of appropriate sign.
 
 .. note::
@@ -744,7 +744,7 @@ Calculates the product for each element `x1_i` of an array instance `x1` with th
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the element-wise products.
+    -   an array containing the element-wise products. The returned array must have a data type determined by :ref:`type-promotion`.
 
 .. note::
 
@@ -758,17 +758,17 @@ Evaluates `x2_i | x1_i` for each element `x1_i` of an array instance `x1` with t
 
 -   **x1**: _&lt;array&gt;_
 
-    -   array instance.
+    -   array instance. Must have an integer or boolean data type.
 
 -   **x2**: _&lt;array&gt;_
 
-    -   other array. Must be compatible with `x1` (see :ref:`broadcasting`).
+    -   other array. Must be compatible with `x1` (see :ref:`broadcasting`). Must have an integer or boolean data type.
 
 #### Returns
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the element-wise results.
+    -   an array containing the element-wise results. The returned array must have a data type determined by :ref:`type-promotion`.
 
 .. note::
 
@@ -817,7 +817,7 @@ Calculates an implementation-dependent approximation of exponentiation by raisin
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the element-wise results.
+    -   an array containing the element-wise results. The returned array must have a data type determined by :ref:`type-promotion`.
 
 .. note::
 
@@ -831,17 +831,17 @@ Evaluates `x2_i >> x1_i` for each element `x1_i` of an array instance `x1` with 
 
 -   **x1**: _&lt;array&gt;_
 
-    -   array instance.
+    -   array instance. Must have an integer data type. Each element must be greater than or equal to `0`.
 
 -   **x2**: _&lt;array&gt;_
 
-    -   other array. Must be compatible with `x1` (see :ref:`broadcasting`).
+    -   other array. Must be compatible with `x1` (see :ref:`broadcasting`). Must have an integer data type.
 
 #### Returns
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the element-wise results.
+    -   an array containing the element-wise results. The returned array must have the same data type as `x2`.
 
 .. note::
 
@@ -855,17 +855,17 @@ Evaluates `x1_i >> x2_i` for each element `x1_i` of an array instance `x1` with 
 
 -   **x1**: _&lt;array&gt;_
 
-    -   array instance.
+    -   array instance. Must have an integer data type.
 
 -   **x2**: _&lt;array&gt;_
 
-    -   other array. Must be compatible with `x1` (see :ref:`broadcasting`).
+    -   other array. Must be compatible with `x1` (see :ref:`broadcasting`). Must have an integer data type. Each element must be greater than or equal to `0`.
 
 #### Returns
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the element-wise results.
+    -   an array containing the element-wise results. The returned array must have the same data type as `x1`.
 
 .. note::
 
@@ -873,7 +873,7 @@ Evaluates `x1_i >> x2_i` for each element `x1_i` of an array instance `x1` with 
 
 ### <a name="__rsub__" href="#__rsub__">#</a> \_\_rsub\_\_(x1, x2, /)
 
-Calculates the difference for each element `x2_i` of an array `x2` with the respective element `x1_i` of the array instance `x1`. The result of `x2_i - x1_i` **must** be the same as `x2_i + (-x1_i)` and is thus governed by the same floating-point rules as addition (see [`__radd__`](#__radd__)).
+Calculates the difference for each element `x2_i` of an array `x2` with the respective element `x1_i` of the array instance `x1`. The result of `x2_i - x1_i` must be the same as `x2_i + (-x1_i)` and is thus governed by the same floating-point rules as addition (see [`__radd__`](#__radd__)).
 
 #### Parameters
 
@@ -889,7 +889,7 @@ Calculates the difference for each element `x2_i` of an array `x2` with the resp
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the element-wise differences.
+    -   an array containing the element-wise differences. The returned array must have a data type determined by :ref:`type-promotion`.
 
 .. note::
 
@@ -900,15 +900,15 @@ Calculates the difference for each element `x2_i` of an array `x2` with the resp
 Evaluates `x2_i / x1_i` for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`. For floating-point arithmetic,
 
 -   If either `x1_i` or `x2_i` is `NaN`, the result is `NaN`.
--   If both `x1_i` and `x2_i` has the same sign, the result is positive.
--   If `x1_i` and `x2_i` has different signs, the result is negative.
+-   If both `x1_i` and `x2_i` have the same sign, the result is positive.
+-   If `x1_i` and `x2_i` have different signs, the result is negative.
 -   If `x1_i` is either `+infinity` or `-infinity` and `x2_i` is either `+infinity` or `-infinity`, the result is `NaN`.
 -   If `x2_i` is either `+infinity` or `-infinity` and `x1_i` is either `+0` or `-0`, the result is a signed infinity with the sign determined by the rule already stated above.
--   If `x2_i` is either `+infinity` or `-infinity` and `x1_i` is a finite nonzero value, the result is a signed infinity with the sign determined by the rule already stated above.
--   If `x2_i` is a finite value and `x1_i` is either `+infinity` or `-infinity`, the result is a signed zero with the sign determined by the rule already stated above.
+-   If `x2_i` is either `+infinity` or `-infinity` and `x1_i` is a nonzero finite number, the result is a signed infinity with the sign determined by the rule already stated above.
+-   If `x2_i` is a finite number and `x1_i` is either `+infinity` or `-infinity`, the result is a signed zero with the sign determined by the rule already stated above.
 -   If `x1_i` is either `+0` or `-0` and `x2_i` is either `+0` or `-0`, the result is `NaN`.
--   If `x2_i` is either `+0` or `-0` and `x1_i` is a finite nonzero value, the result is a signed zero with the sign determined by the rule already stated above.
--   If `x2_i` is a nonzero finite value and `x1_i` is either `+0` or `-0`, the result is a signed infinity with the sign determined by the rule already stated above.
+-   If `x2_i` is either `+0` or `-0` and `x1_i` is a nonzero finite number, the result is a signed zero with the sign determined by the rule already stated above.
+-   If `x2_i` is a nonzero finite number and `x1_i` is either `+0` or `-0`, the result is a signed infinity with the sign determined by the rule already stated above.
 -   In the remaining cases, where neither an `-infinity`, `+0`, `-0`, or `NaN` is involved, the quotient must be computed and rounded to the nearest representable value according to IEEE 754-2019 and a supported rounding mode. If the magnitude is too larger to represent, the operation overflows and the result is an `infinity` of appropriate sign. If the magnitude is too small to represent, the operation underflows and the result is a zero of appropriate sign.
 
 #### Parameters
@@ -925,7 +925,7 @@ Evaluates `x2_i / x1_i` for each element `x1_i` of an array instance `x1` with t
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the element-wise results.
+    -   an array containing the element-wise results. The returned array must have a data type determined by :ref:`type-promotion`.
 
 .. note::
 
@@ -939,17 +939,17 @@ Evaluates `x2_i ^ x1_i` for each element `x1_i` of an array instance `x1` with t
 
 -   **x1**: _&lt;array&gt;_
 
-    -   array instance.
+    -   array instance. Must have an integer or boolean data type.
 
 -   **x2**: _&lt;array&gt;_
 
-    -   other array. Must be compatible with `x1` (see :ref:`broadcasting`).
+    -   other array. Must be compatible with `x1` (see :ref:`broadcasting`). Must have an integer or boolean data type.
 
 #### Returns
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the element-wise results.
+    -   an array containing the element-wise results. The returned array must have a data type determined by :ref:`type-promotion`.
 
 .. note::
 
@@ -965,7 +965,7 @@ TODO
 
 ### <a name="__sub__" href="#__sub__">#</a> \_\_sub\_\_(x1, x2, /)
 
-Calculates the difference for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`. The result of `x1_i - x2_i` **must** be the same as `x1_i + (-x2_i)` and is thus governed by the same floating-point rules as addition (see [`__add__`](#__add__)).
+Calculates the difference for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`. The result of `x1_i - x2_i` must be the same as `x1_i + (-x2_i)` and is thus governed by the same floating-point rules as addition (see [`__add__`](#__add__)).
 
 #### Parameters
 
@@ -981,7 +981,7 @@ Calculates the difference for each element `x1_i` of an array instance `x1` with
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the element-wise differences.
+    -   an array containing the element-wise differences. The returned array must have a data type determined by :ref:`type-promotion`.
 
 .. note::
 
@@ -992,15 +992,15 @@ Calculates the difference for each element `x1_i` of an array instance `x1` with
 Evaluates `x1_i / x2_i` for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`. For floating-point arithmetic,
 
 -   If either `x1_i` or `x2_i` is `NaN`, the result is `NaN`.
--   If both `x1_i` and `x2_i` has the same sign, the result is positive.
--   If `x1_i` and `x2_i` has different signs, the result is negative.
+-   If both `x1_i` and `x2_i` have the same sign, the result is positive.
+-   If `x1_i` and `x2_i` have different signs, the result is negative.
 -   If `x1_i` is either `+infinity` or `-infinity` and `x2_i` is either `+infinity` or `-infinity`, the result is `NaN`.
 -   If `x1_i` is either `+infinity` or `-infinity` and `x2_i` is either `+0` or `-0`, the result is a signed infinity with the sign determined by the rule already stated above.
--   If `x1_i` is either `+infinity` or `-infinity` and `x2_i` is a finite nonzero value, the result is a signed infinity with the sign determined by the rule already stated above.
--   If `x1_i` is a finite value and `x2_i` is either `+infinity` or `-infinity`, the result is a signed zero with the sign determined by the rule already stated above.
+-   If `x1_i` is either `+infinity` or `-infinity` and `x2_i` is a nonzero finite number, the result is a signed infinity with the sign determined by the rule already stated above.
+-   If `x1_i` is a finite number and `x2_i` is either `+infinity` or `-infinity`, the result is a signed zero with the sign determined by the rule already stated above.
 -   If `x1_i` is either `+0` or `-0` and `x2_i` is either `+0` or `-0`, the result is `NaN`.
--   If `x1_i` is either `+0` or `-0` and `x2_i` is a finite nonzero value, the result is a signed zero with the sign determined by the rule already stated above.
--   If `x1_i` is a nonzero finite value and `x2_i` is either `+0` or `-0`, the result is a signed infinity with the sign determined by the rule already stated above.
+-   If `x1_i` is either `+0` or `-0` and `x2_i` is a nonzero finite number, the result is a signed zero with the sign determined by the rule already stated above.
+-   If `x1_i` is a nonzero finite number and `x2_i` is either `+0` or `-0`, the result is a signed infinity with the sign determined by the rule already stated above.
 -   In the remaining cases, where neither an `-infinity`, `+0`, `-0`, or `NaN` is involved, the quotient must be computed and rounded to the nearest representable value according to IEEE 754-2019 and a supported rounding mode. If the magnitude is too larger to represent, the operation overflows and the result is an `infinity` of appropriate sign. If the magnitude is too small to represent, the operation underflows and the result is a zero of appropriate sign.
 
 #### Parameters
@@ -1017,7 +1017,7 @@ Evaluates `x1_i / x2_i` for each element `x1_i` of an array instance `x1` with t
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the element-wise results.
+    -   an array containing the element-wise results. The returned array must have a data type determined by :ref:`type-promotion`.
 
 .. note::
 
@@ -1031,17 +1031,17 @@ Evaluates `x1_i ^ x2_i` for each element `x1_i` of an array instance `x1` with t
 
 -   **x1**: _&lt;array&gt;_
 
-    -   array instance.
+    -   array instance. Must have an integer or boolean data type.
 
 -   **x2**: _&lt;array&gt;_
 
-    -   other array. Must be compatible with `x1` (see :ref:`broadcasting`).
+    -   other array. Must be compatible with `x1` (see :ref:`broadcasting`). Must have an integer or boolean data type.
 
 #### Returns
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the element-wise results.
+    -   an array containing the element-wise results. The returned array must have a data type determined by :ref:`type-promotion`.
 
 .. note::
 
