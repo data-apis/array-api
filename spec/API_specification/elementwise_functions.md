@@ -1,3 +1,5 @@
+.. _element-wise-functions:
+
 # Element-wise Functions
 
 > Array API specification for element-wise functions.
