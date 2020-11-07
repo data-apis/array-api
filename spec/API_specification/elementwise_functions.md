@@ -1200,7 +1200,7 @@ Calculates the square root, having domain `[0, +infinity]` and codomain `[0, +in
 
 ### <a name="subtract" href="#subtract">#</a> subtract(x1, x2, /)
 
-Calculates the difference for each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`. The result of `x1_i - x2_i` must **always** be the same as `x1_i + (-x2_i)` and is thus governed by the same floating-point rules as addition (see [`add`][#add]).
+Calculates the difference for each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`. The result of `x1_i - x2_i` must **always** be the same as `x1_i + (-x2_i)` and is thus governed by the same floating-point rules as addition (see [`add`](#add)).
 
 #### Parameters
 

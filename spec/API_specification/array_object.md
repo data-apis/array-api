@@ -103,7 +103,7 @@ Calculates the absolute value for each element `x_i` of an array instance `x` (i
 
 .. note::
 
-    Element-wise results must equal those of the equivalent element-wise function [`abs()`](elementwise_functions.md#abs).
+    Element-wise results must equal the results returned by the equivalent element-wise function [`abs(x)`](elementwise_functions.md#abs).
 
 ### <a name="__add__" href="#__add__">#</a> \_\_add\_\_(x1, x2, /)
 
@@ -149,7 +149,7 @@ Calculates the sum for each element `x1_i` of an array instance `x1` with the re
 
 .. note::
 
-    Element-wise results must equal those of the equivalent element-wise function [`add()`](elementwise_functions.md#add).
+    Element-wise results must equal the results returned by the equivalent element-wise function [`add(x1, x2)`](elementwise_functions.md#add).
 
 ### <a name="__and__" href="#__and__">#</a> \_\_and\_\_(x1, x2, /)
 
@@ -173,7 +173,7 @@ Evaluates `x1_i & x2_i` for each element `x1_i` of an array instance `x1` with t
 
 .. note::
 
-    Element-wise results must equal those of the equivalent element-wise function [`bitwise_and()`](elementwise_functions.md#and).
+    Element-wise results must equal the results returned by the equivalent element-wise function [`bitwise_and(x1, x2)`](elementwise_functions.md#and).
 
 ### <a name="__eq__" href="#__eq__">#</a> \_\_eq\_\_(x1, x2, /)
 
@@ -197,7 +197,7 @@ Computes the truth value of `x1_i == x2_i` for each element `x1_i` of an array i
 
 .. note::
 
-    Element-wise results must equal those of the equivalent element-wise function [`equal`](elementwise_functions.md#equal).
+    Element-wise results must equal the results returned by the equivalent element-wise function [`equal(x1, x2)`](elementwise_functions.md#equal).
 
 ### <a name="__floordiv__" href="#__floordiv__">#</a> \_\_floordiv\_\_(x1, x2, /)
 
@@ -221,7 +221,7 @@ Evaluates `x1_i // x2_i` for each element `x1_i` of an array instance `x1` with 
 
 .. note::
 
-    Element-wise results must equal those of the equivalent element-wise function [`floor_divide()`](elementwise_functions.md#floor_divide).
+    Element-wise results must equal the results returned by the equivalent element-wise function [`floor_divide(x1, x2)`](elementwise_functions.md#floor_divide).
 
 ### <a name="__ge__" href="#__ge__">#</a> \_\_ge\_\_(x1, x2, /)
 
@@ -245,7 +245,7 @@ Computes the truth value of `x1_i >= x2_i` for each element `x1_i` of an array i
 
 .. note::
 
-    Element-wise results must equal those of the equivalent element-wise function [`greater_equal()`](elementwise_functions.md#greater_equal).
+    Element-wise results must equal the results returned by the equivalent element-wise function [`greater_equal(x1, x2)`](elementwise_functions.md#greater_equal).
 
 ### <a name="__getitem__" href="#__getitem__">#</a> \_\_getitem\_\_(x, key, /)
 
@@ -273,7 +273,7 @@ Computes the truth value of `x1_i > x2_i` for each element `x1_i` of an array in
 
 .. note::
 
-    Element-wise results must equal those of the equivalent element-wise function [`greater()`](elementwise_functions.md#greater).
+    Element-wise results must equal the results returned by the equivalent element-wise function [`greater(x1, x2)`](elementwise_functions.md#greater).
 
 ### <a name="__invert__" href="#__invert__">#</a> \_\_invert\_\_(x, /)
 
@@ -293,7 +293,7 @@ Evaluates `~x_i` for each element `x_i` of an array instance `x`.
 
 .. note::
 
-    Element-wise results must equal those of the equivalent element-wise function [`bitwise_invert()`](elementwise_functions.md#bitwise_invert).
+    Element-wise results must equal the results returned by the equivalent element-wise function [`bitwise_invert(x)`](elementwise_functions.md#bitwise_invert).
 
 ### <a name="__le__" href="#__le__">#</a> \_\_le\_\_(x1, x2, /)
 
@@ -317,7 +317,7 @@ Computes the truth value of `x1_i <= x2_i` for each element `x1_i` of an array i
 
 .. note::
 
-    Element-wise results must equal those of the equivalent element-wise function [`less_equal()`](elementwise_functions.md#less_equal). 
+    Element-wise results must equal the results returned by the equivalent element-wise function [`less_equal(x1, x2)`](elementwise_functions.md#less_equal). 
 
 ### <a name="__len__" href="#__len__">#</a> \_\_len\_\_(x, /)
 
@@ -345,7 +345,7 @@ Evaluates `x1_i << x2_i` for each element `x1_i` of an array instance `x1` with 
 
 .. note::
 
-    Element-wise results must equal those of the equivalent element-wise function [`less_equal()`](elementwise_functions.md#bitwise_left_shift).
+    Element-wise results must equal the results returned by the equivalent element-wise function [`less_equal(x1, x2)`](elementwise_functions.md#bitwise_left_shift).
 
 ### <a name="__lt__" href="#__lt__">#</a> \_\_lt\_\_(x1, x2, /)
 
@@ -369,7 +369,7 @@ Computes the truth value of `x1_i < x2_i` for each element `x1_i` of an array in
 
 .. note::
 
-    Element-wise results must equal those of the equivalent element-wise function [`less()`](elementwise_functions.md#less).
+    Element-wise results must equal the results returned by the equivalent element-wise function [`less(x1, x2)`](elementwise_functions.md#less).
 
 ### <a name="__mod__" href="#__mod__">#</a> \_\_mod\_\_(x1, x2, /)
 
@@ -393,7 +393,7 @@ Evaluates `x1_i % x2_i` for each element `x1_i` of an array instance `x1` with t
 
 .. note::
 
-    Element-wise results must equal those of the equivalent element-wise function [`remainder()`](elementwise_functions.md#remainder).
+    Element-wise results must equal the results returned by the equivalent element-wise function [`remainder(x1, x2)`](elementwise_functions.md#remainder).
 
 ### <a name="__mul__" href="#__mul__">#</a> \_\_mul\_\_(x1, x2, /)
 
@@ -431,7 +431,7 @@ Calculates the product for each element `x1_i` of an array instance `x1` with th
 
 .. note::
 
-    Element-wise results must equal those of the equivalent element-wise function [`multiply()`](elementwise_functions.md#multiply).
+    Element-wise results must equal the results returned by the equivalent element-wise function [`multiply(x1, x2)`](elementwise_functions.md#multiply).
 
 ### <a name="__ne__" href="#__ne__">#</a> \_\_ne\_\_(x1, x2, /)
 
@@ -455,7 +455,7 @@ Computes the truth value of `x1_i != x2_i` for each element `x1_i` of an array i
 
 .. note::
 
-    Element-wise results must equal those of the equivalent element-wise function [`not_equal()`](elementwise_functions.md#not_equal).
+    Element-wise results must equal the results returned by the equivalent element-wise function [`not_equal(x1, x2)`](elementwise_functions.md#not_equal).
 
 ### <a name="__neg__" href="#__neg__">#</a> \_\_neg\_\_(x, /)
 
@@ -475,7 +475,7 @@ Evaluates `-x_i` for each element `x_i` of an array instance `x`.
 
 .. note::
 
-    Element-wise results must equal those of the equivalent element-wise function [`negative()`](elementwise_functions.md#negative).
+    Element-wise results must equal the results returned by the equivalent element-wise function [`negative(x)`](elementwise_functions.md#negative).
 
 ### <a name="__or__" href="#__or__">#</a> \_\_or\_\_(x1, x2, /)
 
@@ -499,7 +499,7 @@ Evaluates `x1_i | x2_i` for each element `x1_i` of an array instance `x1` with t
 
 .. note::
 
-    Element-wise results must equal those of the equivalent element-wise function [`positive()`](elementwise_functions.md#bitwise_or).
+    Element-wise results must equal the results returned by the equivalent element-wise function [`positive(x1, x2)`](elementwise_functions.md#bitwise_or).
 
 ### <a name="__pos__" href="#__pos__">#</a> \_\_pos\_\_(x, /)
 
@@ -519,7 +519,7 @@ Evaluates `+x_i` for each element `x_i` of an array instance `x`.
 
 .. note::
 
-    Element-wise results must equal those of the equivalent element-wise function [`positive()`](elementwise_functions.md#positive).
+    Element-wise results must equal the results returned by the equivalent element-wise function [`positive(x)`](elementwise_functions.md#positive).
 
 ### <a name="__pow__" href="#__pow__">#</a> \_\_pow\_\_(x1, x2, /)
 
@@ -568,7 +568,7 @@ Calculates an implementation-dependent approximation of exponentiation by raisin
 
 .. note::
 
-    Element-wise results must equal those of the equivalent element-wise function [`pow()`](elementwise_functions.md#pow).
+    Element-wise results must equal the results returned by the equivalent element-wise function [`pow(x1, x2)`](elementwise_functions.md#pow).
 
 ### <a name="__radd__" href="#__radd__">#</a> \_\_radd\_\_(x1, x2, /)
 
@@ -614,7 +614,7 @@ Calculates the sum for each element `x1_i` of an array instance `x1` with the re
 
 .. note::
 
-    Element-wise results must equal those of the equivalent element-wise function [`add()`](elementwise_functions.md#add).
+    Element-wise results must equal the results returned by the equivalent element-wise function [`add(x2, x1)`](elementwise_functions.md#add).
 
 ### <a name="__rand__" href="#__rand__">#</a> \_\_rand\_\_(x1, x2, /)
 
@@ -638,7 +638,7 @@ Evaluates `x2_i & x1_i` for each element `x1_i` of an array instance `x1` with t
 
 .. note::
 
-    Element-wise results must equal those of the equivalent element-wise function [`bitwise_and()`](elementwise_functions.md#bitwise_and).
+    Element-wise results must equal the results returned by the equivalent element-wise function [`bitwise_and(x2, x1)`](elementwise_functions.md#bitwise_and).
 
 ### <a name="__rfloordiv__" href="#__rfloordiv__">#</a> \_\_rfloordiv\_\_(x1, x2, /)
 
@@ -662,7 +662,7 @@ Evaluates `x2_i // x1_i` for each element `x1_i` of an array instance `x1` with 
 
 .. note::
 
-    Element-wise results must equal those of the equivalent element-wise function [`floor_divide()`](elementwise_functions.md#floor_divide).
+    Element-wise results must equal the results returned by the equivalent element-wise function [`floor_divide(x2, x1)`](elementwise_functions.md#floor_divide).
 
 ### <a name="__rlshift__" href="#__rlshift__">#</a> \_\_rlshift\_\_(x1, x2, /)
 
@@ -686,7 +686,7 @@ Evaluates `x2_i << x1_i` for each element `x1_i` of an array instance `x1` with 
 
 .. note::
 
-    Element-wise results must equal those of the equivalent element-wise function [`bitwise_left_shift()`](elementwise_functions.md#bitwise_left_shift).
+    Element-wise results must equal the results returned by the equivalent element-wise function [`bitwise_left_shift(x2, x1)`](elementwise_functions.md#bitwise_left_shift).
 
 ### <a name="__rmod__" href="#__rmod__">#</a> \_\_rmod\_\_(x1, x2, /)
 
@@ -708,7 +708,9 @@ Evaluates `x2_i % x1_i` for each element `x1_i` of an array instance `x1` with t
 
     -   an array containing the element-wise results.
 
-TODO: an element-wise counterpart API
+.. note::
+
+    Element-wise results must equal the results returned by the equivalent element-wise function [`remainder(x2, x1)`](elementwise_functions.md#remainder).
 
 ### <a name="__rmul__" href="#__rmul__">#</a> \_\_rmul\_\_(x1, x2, /)
 
@@ -746,7 +748,7 @@ Calculates the product for each element `x1_i` of an array instance `x1` with th
 
 .. note::
 
-    Element-wise results should equal those of the equivalent element-wise function. TODO: link to function specification: `multiply`.
+    Element-wise results must equal the results returned by the equivalent element-wise function [`multiply(x2, x1)`](elementwise_functions.md#multiply).
 
 ### <a name="__ror__" href="#__ror__">#</a> \_\_ror\_\_(x1, x2, /)
 
@@ -768,7 +770,9 @@ Evaluates `x2_i | x1_i` for each element `x1_i` of an array instance `x1` with t
 
     -   an array containing the element-wise results.
 
-TODO: functional counterpart? (bitwise_or)
+.. note::
+
+    Element-wise results must equal the results returned by the equivalent element-wise function [`bitwise_or(x2, x1)`](elementwise_functions.md#bitwise_or).
 
 ### <a name="__rpow__" href="#__rpow__">#</a> \_\_rpow\_\_(x1, x2, /)
 
@@ -817,7 +821,7 @@ Calculates an implementation-dependent approximation of exponentiation by raisin
 
 .. note::
 
-    Element-wise results should equal those of the equivalent element-wise function. TODO: link to function specification: `pow`.
+    Element-wise results must equal the results returned by the equivalent element-wise function [`pow(x2, x1)`](elementwise_functions#pow).
 
 ### <a name="__rrshift__" href="#__rrshift__">#</a> \_\_rrshift\_\_(x1, x2, /)
 
@@ -839,7 +843,9 @@ Evaluates `x2_i >> x1_i` for each element `x1_i` of an array instance `x1` with 
 
     -   an array containing the element-wise results.
 
-TODO: functional counterpart?
+.. note::
+
+    Element-wise results must equal the results returned by the equivalent element-wise function [`bitwise_right_shift(x2, x1)`](elementwise_functions.md#bitwise_right_shift).
 
 ### <a name="__rshift__" href="#__rshift__">#</a> \_\_rshift\_\_(x1, x2, /)
 
@@ -861,11 +867,13 @@ Evaluates `x1_i >> x2_i` for each element `x1_i` of an array instance `x1` with 
 
     -   an array containing the element-wise results.
 
-TODO: functional counterpart?
+.. note::
+
+    Element-wise results must equal the results returned by the equivalent element-wise function [`bitwise_right_shift(x1, x2)`](elementwise_functions.md#bitwise_right_shift).
 
 ### <a name="__rsub__" href="#__rsub__">#</a> \_\_rsub\_\_(x1, x2, /)
 
-Calculates the difference for each element `x2_i` of an array `x2` with the respective element `x1_i` of the array instance `x1`. The result of `x2_i - x1_i` **must** be the same as `x2_i + (-x1_i)` and is thus governed by the same floating-point rules as addition (see [`__radd__`][#__radd__]).
+Calculates the difference for each element `x2_i` of an array `x2` with the respective element `x1_i` of the array instance `x1`. The result of `x2_i - x1_i` **must** be the same as `x2_i + (-x1_i)` and is thus governed by the same floating-point rules as addition (see [`__radd__`](#__radd__)).
 
 #### Parameters
 
@@ -885,7 +893,7 @@ Calculates the difference for each element `x2_i` of an array `x2` with the resp
 
 .. note::
 
-    Element-wise results should equal those of the equivalent element-wise function. TODO: link to function specification: `subtract`.
+    Element-wise results must equal the results returned by the equivalent element-wise function [`subtract(x2, x1)`](elementwise_functions.md#subtract).
 
 ### <a name="__rtruediv__" href="#__rtruediv__">#</a> \_\_rtruediv\_\_(x1, x2, /)
 
@@ -921,7 +929,7 @@ Evaluates `x2_i / x1_i` for each element `x1_i` of an array instance `x1` with t
 
 .. note::
 
-    Element-wise results should equal those of the equivalent element-wise function. TODO: link to function specification: `divide`.
+    Element-wise results must equal the results returned by the equivalent element-wise function [`divide(x2, x1)`](elementwise_functions.md#divide).
 
 ### <a name="__rxor__" href="#__rxor__">#</a> \_\_rxor\_\_(x1, x2, /)
 
@@ -943,7 +951,9 @@ Evaluates `x2_i ^ x1_i` for each element `x1_i` of an array instance `x1` with t
 
     -   an array containing the element-wise results.
 
-TODO: functional counterpart? (bitwise_or)
+.. note::
+
+    Element-wise results must equal the results returned by the equivalent element-wise function [`bitwise_xor(x2, x1)`](elementwise_functions.md#bitwise_xor).
 
 ### <a name="__setitem__" href="#__setitem__">#</a> \_\_setitem\_\_(x, key, value, /)
 
@@ -955,7 +965,7 @@ TODO
 
 ### <a name="__sub__" href="#__sub__">#</a> \_\_sub\_\_(x1, x2, /)
 
-Calculates the difference for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`. The result of `x1_i - x2_i` **must** be the same as `x1_i + (-x2_i)` and is thus governed by the same floating-point rules as addition (see [`__add__`][#__add__]).
+Calculates the difference for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`. The result of `x1_i - x2_i` **must** be the same as `x1_i + (-x2_i)` and is thus governed by the same floating-point rules as addition (see [`__add__`](#__add__)).
 
 #### Parameters
 
@@ -975,7 +985,7 @@ Calculates the difference for each element `x1_i` of an array instance `x1` with
 
 .. note::
 
-    Element-wise results should equal those of the equivalent element-wise function. TODO: link to function specification: `subtract`.
+    Element-wise results must equal the results returned by the equivalent element-wise function [`subtract(x1, x2)`](elementwise_functions.md#subtract).
 
 ### <a name="__truediv__" href="#__truediv__">#</a> \_\_truediv\_\_(x1, x2, /)
 
@@ -1011,7 +1021,7 @@ Evaluates `x1_i / x2_i` for each element `x1_i` of an array instance `x1` with t
 
 .. note::
 
-    Element-wise results should equal those of the equivalent element-wise function. TODO: link to function specification: `divide`.
+    Element-wise results must equal the results returned by the equivalent element-wise function [`divide(x1, x2)`](elementwise_functions.md#divide).
 
 ### <a name="__xor__" href="#__xor__">#</a> \_\_xor\_\_(x1, x2, /)
 
@@ -1033,4 +1043,6 @@ Evaluates `x1_i ^ x2_i` for each element `x1_i` of an array instance `x1` with t
 
     -   an array containing the element-wise results.
 
-TODO: functional counterpart? (bitwise_xor)
+.. note::
+
+    Element-wise results must equal the results returned by the equivalent element-wise function [`bitwise_xor(x1, x2)`](elementwise_functions.md#bitwise_xor).
