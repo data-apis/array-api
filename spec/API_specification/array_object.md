@@ -381,7 +381,7 @@ Computes the truth value of `x1_i >= x2_i` for each element `x1_i` of an array i
 
 ### <a name="__getitem__" href="#__getitem__">#</a> \_\_getitem\_\_(x, key, /)
 
-TODO
+_TODO: dependent on the indexing specification._
 
 ### <a name="__gt__" href="#__gt__">#</a> \_\_gt\_\_(x1, x2, /)
 
@@ -1152,11 +1152,7 @@ Evaluates `x2_i ^ x1_i` for each element `x1_i` of an array instance `x1` with t
 
 ### <a name="__setitem__" href="#__setitem__">#</a> \_\_setitem\_\_(x, key, value, /)
 
-TODO
-
-### <a name="__sizeof__" href="#__sizeof__">#</a> \_\_sizeof\_\_(x, /)
-
-TODO
+_TODO: dependent on the indexing specification._
 
 ### <a name="__sub__" href="#__sub__">#</a> \_\_sub\_\_(x1, x2, /)
 
