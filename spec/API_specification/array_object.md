@@ -15,6 +15,134 @@ A conforming implementation of the array API standard must provide and support a
 
 * * *
 
+## Operators
+
+A conforming implementation of the array API standard must provide and support an array object supporting the following Python operators:
+
+-   `x1 < x2`: [`__lt__(x1, x2)`](#__lt__)
+    
+    -   [`operator.lt(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.lt)
+    -   [`operator.__lt__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__lt__)
+
+-   `x1 <= x2`: [`__le__(x1, x2)`](#__le__)
+
+    -   [`operator.le(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.le)
+    -   [`operator.__le__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__le__)
+
+-   `x1 > x2`: [`__gt__(x1, x2)`](#__gt__)
+    
+    -   [`operator.gt(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.gt)
+    -   `operator.__gt__(x1, x2)`
+
+-   `x1 >= x2`: [`__ge__(x1, x2)`](#__ge__)
+
+    -   `operator.ge(x1, x2)`
+    -   `operator.__ge__(x1, x2)`
+
+-   `x1 == x2`: [`__eq__(x1, x2)`](#__eq__)
+
+    -   [`operator.eq(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.eq)
+    -   [`operator.__eq__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__eq__)
+
+-   `x1 != x2`: [`__ne__(x1, x2)`](#__ne__)
+
+    -   [`operator.ne(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.ne)
+    -   [`operator.__ne__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__ne__)
+
+-   `+x`: [`__pos__(x)`](#__pos__)
+
+    -   [`operator.pos(x)`](https://docs.python.org/3/library/operator.html#operator.pos)
+    -   [`operator.__pos__(x)`](https://docs.python.org/3/library/operator.html#operator.__pos__)
+
+-   `-x`: [`__neg__(x)`](#__neg__)
+
+    -   [`operator.neg(x)`](https://docs.python.org/3/library/operator.html#operator.neg)
+    -   [`operator.__neg__(x)`](https://docs.python.org/3/library/operator.html#operator.__neg__)
+
+-   `x1 + x2`: [`__add__(x1, x2)`](#__add__)
+
+    -   [`operator.add(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.add)
+    -   [`operator.__add__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__add__)
+
+-   `x1 - x2`: [`__sub__(x1, x2)`](#__sub__)
+
+    -   [`operator.sub(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.sub)
+    -   [`operator.__sub__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__sub__)
+
+-   `x1 * x2`: [`__mul__(x1, x2)`](#__mul__)
+
+    -   [`operator.mul(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.mul)
+    -   [`operator.__mul__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__mul__)
+
+-   `x1 / x2`: [`__truediv__(x1, x2)`](#__truediv__)
+
+    -   [`operator.truediv(x1,x2)`](https://docs.python.org/3/library/operator.html#operator.truediv)
+    -   [`operator.__truediv__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__truediv__)
+
+-   `x1 // x2`: [`__floordiv__(x1, x2)`](#__floordiv__)
+
+    -   [`operator.floordiv(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.floordiv)
+    -   [`operator.__floordiv__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__floordiv__)
+
+-   `x1 % x2`: [`__mod__(x1, x2)`](#__mod__)
+
+    -   [`operator.mod(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.mod)
+    -   [`operator.__mod__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__mod__)
+
+-   `x1 ** x2`: [`__pow__(x1, x2)`](#__pow__)
+
+    -   [`operator.pow(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.pow)
+    -   [`operator.__pow__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__pow__)
+
+-   `x1 @ x2`: [`__matmul__(x1, x2)`](#__matmul__)
+
+    -   [`operator.matmul(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.matmul)
+    -   [`operator.__matmul__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__matmul__)
+
+-   `~x`: [`__invert(x)`](#__invert__)
+
+    -   [`operator.inv(x)`](https://docs.python.org/3/library/operator.html#operator.inv)
+    -   [`operator.invert(x)`](https://docs.python.org/3/library/operator.html#operator.invert)
+    -   [`operator.__inv__(x)`](https://docs.python.org/3/library/operator.html#operator.__inv__)
+    -   [`operator.__invert__(x)`](https://docs.python.org/3/library/operator.html#operator.__invert__)
+
+-   `x1 & x2`: [`__and__(x1, x2)`](#__and__)
+
+    -   [`operator.and(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.and)
+    -   [`operator.__and__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__and__)
+
+-   `x1 | x2`: [`__or__(x1, x2)`](#__or__)
+
+    -   [`operator.or(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.or)
+    -   [`operator.__or__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__or__)
+
+-   `x1 ^ x2`: [`__xor__(x1, x2)`](#__xor__)
+
+    -   [`operator.xor(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.xor)
+    -   [`operator.__xor__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__xor__)
+
+-   `x1 << x2`: [`__lshift__(x1, x2)`](#__lshift__)
+
+    -   [`operator.lshift(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.lshift)
+    -   [`operator.__lshift__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__lshift__)
+
+-   `x1 >> x2`: [`__rshift__(x1, x2)`](#__rshift__)
+
+    -   [`operator.rshift(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.rshift)
+    -   [`operator.__rshift__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__rshift__)
+
+-   `abs`: [`__abs__(x)`](#__abs__)
+
+    -   [`operator.abs(x)`](https://docs.python.org/3/library/operator.html#operator.abs)
+    -   [`operator.__abs__(x)`](https://docs.python.org/3/library/operator.html#operator.__abs__)
+
+-   `x[key]`: [`__getitem__(x, key)`](#__getitem__)
+
+    -   [`operator.getitem(x, key)`](https://docs.python.org/3/library/operator.html#operator.getitem)
+    -   [`operator.__getitem__(x, key)`](https://docs.python.org/3/library/operator.html#operator.__getitem__)
+
+* * *
+
 ## Attributes
 
 <!-- NOTE: please keep the attributes in alphabetical order -->
