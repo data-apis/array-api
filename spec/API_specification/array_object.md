@@ -131,7 +131,7 @@ A conforming implementation of the array API standard must provide and support a
     -   [`operator.rshift(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.rshift)
     -   [`operator.__rshift__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__rshift__)
 
--   `abs`: [`__abs__(x)`](#__abs__)
+-   `abs(x)`: [`__abs__(x)`](#__abs__)
 
     -   [`operator.abs(x)`](https://docs.python.org/3/library/operator.html#operator.abs)
     -   [`operator.__abs__(x)`](https://docs.python.org/3/library/operator.html#operator.__abs__)
