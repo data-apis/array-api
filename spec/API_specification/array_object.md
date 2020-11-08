@@ -32,12 +32,12 @@ A conforming implementation of the array API standard must provide and support a
 -   `x1 > x2`: [`__gt__(x1, x2)`](#__gt__)
     
     -   [`operator.gt(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.gt)
-    -   `operator.__gt__(x1, x2)`
+    -   [`operator.__gt__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__gt__)
 
 -   `x1 >= x2`: [`__ge__(x1, x2)`](#__ge__)
 
-    -   `operator.ge(x1, x2)`
-    -   `operator.__ge__(x1, x2)`
+    -   [`operator.ge(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.ge)
+    -   [`operator.__ge__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__ge__)
 
 -   `x1 == x2`: [`__eq__(x1, x2)`](#__eq__)
 
@@ -99,7 +99,7 @@ A conforming implementation of the array API standard must provide and support a
     -   [`operator.matmul(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.matmul)
     -   [`operator.__matmul__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__matmul__)
 
--   `~x`: [`__invert(x)`](#__invert__)
+-   `~x`: [`__invert__(x)`](#__invert__)
 
     -   [`operator.inv(x)`](https://docs.python.org/3/library/operator.html#operator.inv)
     -   [`operator.invert(x)`](https://docs.python.org/3/library/operator.html#operator.invert)
