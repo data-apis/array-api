@@ -36,7 +36,7 @@ Returns the indices that sort an array `x` along a specified axis.
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array of indices. Must have the same shape as `x`.
+    -   an array of indices. The returned array must have the same shape as `x`. The returned array must have the default array index data type.
 
 ### <a name="sort" href="#sort">#</a> sort(x, /, *, axis=-1, descending=False, stable=True)
 
@@ -64,4 +64,4 @@ Returns a sorted copy of an input array `x`.
 
 -   **out**: _&lt;array&gt;_
 
-    -   a sorted array. Must have the same data type and shape as `x`.
+    -   a sorted array. The returned array must have the same data type and shape as `x`.
