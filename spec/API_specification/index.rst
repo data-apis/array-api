@@ -1,3 +1,5 @@
+.. _api-specification:
+
 API specification
 =================
 
@@ -12,8 +14,13 @@ API specification
    type_promotion
    casting
    broadcasting
-   out_keyword
+   creation_functions
+   manipulation_functions
    elementwise_functions
    statistical_functions
-   sorting_functions
    linear_algebra_functions
+   searching_functions
+   sorting_functions
+   set_functions
+   utility_functions
+   constants

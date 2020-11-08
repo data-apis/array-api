@@ -1,3 +1,5 @@
+.. _function-and-method-signatures:
+
 # Function and method signatures
 
 Function signatures in this standard adhere to the following:
@@ -10,6 +12,13 @@ Function signatures in this standard adhere to the following:
 
    _Rationale: existing libraries have incompatible conventions, and using names
    of positional parameters is not normal/recommended practice._
+
+   .. note::
+
+       Positional-only parameters are only available in Python >= 3.8. Libraries
+       still supporting 3.7 or 3.6 may consider making the API standard-compliant
+       namespace >= 3.8. Alternatively, they can add guidance to their users in the
+       documentation to use the functions as if they were positional-only. 
 
 2. Optional parameters must be
    [keyword-only](https://www.python.org/dev/peps/pep-3102/) arguments.

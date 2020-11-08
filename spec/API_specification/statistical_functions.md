@@ -6,7 +6,6 @@ A conforming implementation of the array API standard must provide and support t
 
 -   Positional parameters must be [positional-only](https://www.python.org/dev/peps/pep-0570/) parameters. Positional-only parameters have no externally-usable name. When a function accepting positional-only parameters is called, positional arguments are mapped to these parameters based solely on their order.
 -   Optional parameters must be [keyword-only](https://www.python.org/dev/peps/pep-3102/) arguments.
--   The `out` keyword argument must follow the conventions defined in :ref:`out-keyword`.
 -   Broadcasting semantics must follow the semantics defined in :ref:`broadcasting`.
 -   Unless stated otherwise, functions must support the data types defined in :ref:`data-types`.
 -   Unless stated otherwise, functions must adhere to the type promotion rules defined in :ref:`type-promotion`.
@@ -14,7 +13,7 @@ A conforming implementation of the array API standard must provide and support t
 
 <!-- NOTE: please keep the functions in alphabetical order -->
 
-### <a name="max" href="#max">#</a> max(x, /, *, axis=None, keepdims=False, out=None)
+### <a name="max" href="#max">#</a> max(x, /, *, axis=None, keepdims=False)
 
 Calculates the maximum value of the input array `x`.
 
@@ -32,17 +31,13 @@ Calculates the maximum value of the input array `x`.
 
     -   If `True`, the reduced axes (dimensions) must be included in the result as singleton dimensions, and, accordingly, the result must be compatible with the input array (see :ref:`broadcasting`). Otherwise, if `False`, the reduced axes (dimensions) must not be included in the result. Default: `False`.
 
--   **out**: _Optional\[ &lt;array&gt; ]_
-
-    -   output array. If provided, the output array must have the expected output shape. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each computation. Default: `None`.
-
 #### Returns
 
 -   **out**: _&lt;array&gt;_
 
-    -   if the maximum value was computed over the entire array, a zero-dimensional array containing the maximum value; otherwise, a non-zero-dimensional array containing the maximum values.
+    -   if the maximum value was computed over the entire array, a zero-dimensional array containing the maximum value; otherwise, a non-zero-dimensional array containing the maximum values. The returned array must have the same data type as `x`.
 
-### <a name="mean" href="#mean">#</a> mean(x, /, *, axis=None, keepdims=False, out=None)
+### <a name="mean" href="#mean">#</a> mean(x, /, *, axis=None, keepdims=False)
 
 Calculates the arithmetic mean of the input array `x`.
 
@@ -60,17 +55,13 @@ Calculates the arithmetic mean of the input array `x`.
 
     -   If `True`, the reduced axes (dimensions) must be included in the result as singleton dimensions, and, accordingly, the result must be compatible with the input array (see :ref:`broadcasting`). Otherwise, if `False`, the reduced axes (dimensions) must not be included in the result. Default: `False`.
 
--   **out**: _Optional\[ &lt;array&gt; ]_
-
-    -   output array. If provided, the output array must have the expected output shape. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each computation. Default: `None`.
-
 #### Returns
 
 -   **out**: _&lt;array&gt;_
 
-    -   if the arithmetic mean was computed over the entire array, a zero-dimensional array containing the arithmetic mean; otherwise, a non-zero-dimensional array containing the arithmetic means.
+    -   if the arithmetic mean was computed over the entire array, a zero-dimensional array containing the arithmetic mean; otherwise, a non-zero-dimensional array containing the arithmetic means. The returned array must have be the default floating-point data type.
 
-### <a name="min" href="#min">#</a> min(x, /, *, axis=None, keepdims=False, out=None)
+### <a name="min" href="#min">#</a> min(x, /, *, axis=None, keepdims=False)
 
 Calculates the minimum value of the input array `x`.
 
@@ -88,17 +79,13 @@ Calculates the minimum value of the input array `x`.
 
     -   If `True`, the reduced axes (dimensions) must be included in the result as singleton dimensions, and, accordingly, the result must be compatible with the input array (see :ref:`broadcasting`). Otherwise, if `False`, the reduced axes (dimensions) must not be included in the result. Default: `False`.
 
--   **out**: _Optional\[ &lt;array&gt; ]_
-
-    -   output array. If provided, the output array must have the expected output shape. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each computation. Default: `None`.
-
 #### Returns
 
 -   **out**: _&lt;array&gt;_
 
-    -   if the minimum value was computed over the entire array, a zero-dimensional array containing the minimum value; otherwise, a non-zero-dimensional array containing the minimum values.
+    -   if the minimum value was computed over the entire array, a zero-dimensional array containing the minimum value; otherwise, a non-zero-dimensional array containing the minimum values. The returned array must have the same data type as `x`.
 
-### <a name="prod" href="#prod">#</a> prod(x, /, *, axis=None, keepdims=False, out=None)
+### <a name="prod" href="#prod">#</a> prod(x, /, *, axis=None, keepdims=False)
 
 Calculates the product of input array `x` elements.
 
@@ -116,17 +103,13 @@ Calculates the product of input array `x` elements.
 
     -   If `True`, the reduced axes (dimensions) must be included in the result as singleton dimensions, and, accordingly, the result must be compatible with the input array (see :ref:`broadcasting`). Otherwise, if `False`, the reduced axes (dimensions) must not be included in the result. Default: `False`.
 
--   **out**: _Optional\[ &lt;array&gt; ]_
-
-    -   output array. If provided, the output array must have the expected output shape. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each computation. Default: `None`.
-
 #### Returns
 
 -   **out**: _&lt;array&gt;_
 
-    -   if the product was computed over the entire array, a zero-dimensional array containing the product; otherwise, a non-zero-dimensional array containing the products.
+    -   if the product was computed over the entire array, a zero-dimensional array containing the product; otherwise, a non-zero-dimensional array containing the products. The returned array must have the same data type as `x`.
 
-### <a name="std" href="#std">#</a> std(x, /, *, axis=None, correction=0.0, keepdims=False, out=None)
+### <a name="std" href="#std">#</a> std(x, /, *, axis=None, correction=0.0, keepdims=False)
 
 Calculates the standard deviation of the input array `x`.
 
@@ -148,17 +131,13 @@ Calculates the standard deviation of the input array `x`.
 
     -   If `True`, the reduced axes (dimensions) must be included in the result as singleton dimensions, and, accordingly, the result must be compatible with the input array (see :ref:`broadcasting`). Otherwise, if `False`, the reduced axes (dimensions) must not be included in the result. Default: `False`.
 
--   **out**: _Optional\[ &lt;array&gt; ]_
-
-    -   output array. If provided, the output array must have the expected output shape. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each computation. Default: `None`.
-
 #### Returns
 
 -   **out**: _&lt;array&gt;_
 
-    -   if the standard deviation was computed over the entire array, a zero-dimensional array containing the standard deviation; otherwise, a non-zero-dimensional array containing the standard deviations.
+    -   if the standard deviation was computed over the entire array, a zero-dimensional array containing the standard deviation; otherwise, a non-zero-dimensional array containing the standard deviations. The returned array must have the default floating-point data type.
 
-### <a name="sum" href="#sum">#</a> sum(x, /, *, axis=None, keepdims=False, out=None)
+### <a name="sum" href="#sum">#</a> sum(x, /, *, axis=None, keepdims=False)
 
 Calculates the sum of the input array `x`.
 
@@ -176,17 +155,13 @@ Calculates the sum of the input array `x`.
 
     -   If `True`, the reduced axes (dimensions) must be included in the result as singleton dimensions, and, accordingly, the result must be compatible with the input array (see :ref:`broadcasting`). Otherwise, if `False`, the reduced axes (dimensions) must not be included in the result. Default: `False`.
 
--   **out**: _Optional\[ &lt;array&gt; ]_
-
-    -   output array. If provided, the output array must have the expected output shape. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each computation. Default: `None`.
-
 #### Returns
 
 -   **out**: _&lt;array&gt;_
 
-    -   if the sum was computed over the entire array, a zero-dimensional array containing the sum; otherwise, an array containing the sums.
+    -   if the sum was computed over the entire array, a zero-dimensional array containing the sum; otherwise, an array containing the sums. The returned array must have the same data type as `x`.
 
-### <a name="var" href="#var">#</a> var(x, /, *, axis=None, correction=0.0, keepdims=False, out=None)
+### <a name="var" href="#var">#</a> var(x, /, *, axis=None, correction=0.0, keepdims=False)
 
 Calculates the variance of the input array `x`.
 
@@ -208,12 +183,8 @@ Calculates the variance of the input array `x`.
 
     -   If `True`, the reduced axes (dimensions) must be included in the result as singleton dimensions, and, accordingly, the result must be compatible with the input array (see :ref:`broadcasting`). Otherwise, if `False`, the reduced axes (dimensions) must not be included in the result. Default: `False`.
 
--   **out**: _Optional\[ &lt;array&gt; ]_
-
-    -   output array. If provided, the output array must have the expected output shape. If not provided or is `None`, an uninitialized return array must be created and then filled with the result of each computation. Default: `None`.
-
 #### Returns
 
 -   **out**: _&lt;array&gt;_
 
-    -   if the variance was computed over the entire array, a zero-dimensional array containing the variance; otherwise, a non-zero-dimensional array containing the variances.
+    -   if the variance was computed over the entire array, a zero-dimensional array containing the variance; otherwise, a non-zero-dimensional array containing the variances. The returned array must have the default floating-point data type.
