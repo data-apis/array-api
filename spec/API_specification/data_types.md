@@ -6,16 +6,28 @@
 
 A conforming implementation of the array API standard must provide and support the following data types.
 
+.. note::
+
+    Data types ("dtypes") are objects that can be used as `dtype` specifiers in functions and methods (e.g., `zeros((2, 3), dtype=float32)`). A conforming implementation may add methods or attributes to data type objects; however, these methods and attributes are not included in this specification.
+
+.. note::
+
+    Implementations may provide other ways to specify data types (e.g.,
+    `zeros((2, 3), dtype='f4')`); however, these are not included in this specification.
+
 A conforming implementation of the array API standard may provide and support additional data types beyond those described in this specification.
 
-.. note::
-
-    These dtypes are objects that can be used as dtype specifiers in functions and methods (e.g., `zeros((2, 3), dtype=float32)`). A conforming implementation may add methods or attributes to dtype objects; these are not part of this specification however.
+A conforming implementation of the array API standard must define a default floating-point data type (either `float32` or `float64`).
 
 .. note::
 
-    Implementations may provide others ways to specify dtypes (e.g.,
-    `zeros((2, 3), dtype='f4')`); these are not part of this specification however.
+    The default floating-point data type should be clearly defined in a conforming library's documentation.
+
+A conforming implementation of the array API standard must define a default data type for an array index (either `int32` or `int64`).
+
+.. note::
+
+    The default array index data type should be clearly defined in a conforming library's documentation.
 
 
 ## bool

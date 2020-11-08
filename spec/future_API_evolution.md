@@ -1,12 +1,11 @@
+.. _future-API-evolution:
+
 # Future API standard evolution
 
 ## Scope extensions
 
 Proposals for scope extensions in a future version of the API standard will follow
-the process documented at:
-
-TODO: link to specific document in https://github.com/data-apis/governance once
-it is available.
+the process documented at https://github.com/data-apis/governance/blob/master/process_document.md
 
 In summary, proposed new APIs go through several maturity stages, and will only be
 accepted in a future version of this API standard once they have reached the "Final"
@@ -25,6 +24,8 @@ The aim is for future versions to be 100% backwards compatible with older versio
 Any exceptions must have strong rationales, and be clearly documented in the updated
 API specification.
 
+
+.. _api-versioning:
 
 ## Versioning
 
