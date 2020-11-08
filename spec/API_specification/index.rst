@@ -20,8 +20,7 @@ API specification
    statistical_functions
    linear_algebra_functions
    searching_functions
-   linear_algebra_functions
+   sorting_functions
    set_functions
    utility_functions
    constants
-
