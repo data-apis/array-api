@@ -58,7 +58,7 @@ Returns a sorted copy of an input array `x`.
 
 -   **stable**: _bool_
 
-    -   sort stability. If `True`, the returned array must maintain the relative order of `x` values which compare as equal. If `False`, the returned indices may or may not maintain the relative order of `x` values which compare as equal (i.e., the relative order of `x` values which compare as equal is implementation-dependent). Default: `True`.
+    -   sort stability. If `True`, the returned array must maintain the relative order of `x` values which compare as equal. If `False`, the returned array may or may not maintain the relative order of `x` values which compare as equal (i.e., the relative order of `x` values which compare as equal is implementation-dependent). Default: `True`.
 
 #### Returns
 
