@@ -375,6 +375,26 @@ Computes the truth value of `x1_i < x2_i` for each element `x1_i` of an array in
 
     Element-wise results must equal the results returned by the equivalent element-wise function [`less(x1, x2)`](elementwise_functions.md#less).
 
+### <a name="__matmul__" href="#__matmul__">#</a> \_\_matmul\_\_(x1, x2, /)
+
+_TODO: awaiting `matmul` functional equivalent._
+
+#### Parameters
+
+-   **x1**: _&lt;array&gt;_
+
+    -   array instance.
+
+-   **x2**: _&lt;array&gt;_
+
+    -   other array. Must be compatible with `x1` (see :ref:`broadcasting`).
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   _TODO_
+
 ### <a name="__mod__" href="#__mod__">#</a> \_\_mod\_\_(x1, x2, /)
 
 Evaluates `x1_i % x2_i` for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`.
@@ -697,6 +717,26 @@ Evaluates `x2_i << x1_i` for each element `x1_i` of an array instance `x1` with 
 .. note::
 
     Element-wise results must equal the results returned by the equivalent element-wise function [`bitwise_left_shift(x2, x1)`](elementwise_functions.md#bitwise_left_shift).
+
+### <a name="__rmatmul__" href="#__rmatmul__">#</a> \_\_rmatmul\_\_(x1, x2, /)
+
+_TODO: awaiting `matmul` functional equivalent._
+
+#### Parameters
+
+-   **x1**: _&lt;array&gt;_
+
+    -   array instance.
+
+-   **x2**: _&lt;array&gt;_
+
+    -   other array. Must be compatible with `x1` (see :ref:`broadcasting`).
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   _TODO_
 
 ### <a name="__rmod__" href="#__rmod__">#</a> \_\_rmod\_\_(x1, x2, /)
 
