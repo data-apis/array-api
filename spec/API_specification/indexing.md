@@ -18,7 +18,7 @@ To index a single array axis, an array must support standard Python indexing rul
 
     .. note::
 
-        This specification does not explicitly require bounds checking. The behavior for out-of-bounds integer indices is left unspecified.
+        This specification does not require bounds checking. The behavior for out-of-bounds integer indices is left unspecified.
 
 -   Negative indices must count backward from the last array index, starting from `-1` (i.e., negative-one-based indexing, where `-1` refers to the last array index).
 
@@ -30,7 +30,7 @@ To index a single array axis, an array must support standard Python indexing rul
 
     .. note::
 
-        This specification does not explicitly require bounds checking. The behavior for out-of-bounds integer indices is left unspecified.
+        This specification does not require bounds checking. The behavior for out-of-bounds integer indices is left unspecified.
 
 -   A negative index `j` is related to a zero-based nonnegative index `i` via `i = n+j`.
 
@@ -104,11 +104,19 @@ Using a slice to index a single array axis must adhere to the following rules. L
 
 -   If `i` equals `j`, a slice must return an empty array, whose axis (dimension) size along the indexed axis is `0`.
 
--   If `i` and `j` resolve to starting and stopping indices, respectively, which are out-of-bounds (i.e., a starting index less than `0` and/or a stopping index greater than `n`), then the respective index is clipped to the array axis bounds. For a starting index, the bound is `0`. For a stopping index, the bound is `n`.
-
--   Indexing a single array axis with an out-of-bounds slice (i.e., a slice which does not select any array axis elements) must return an empty array, whose axis (dimension) size along the indexed axis is `0`.
-
 -   Indexing via `:` and `::` must be equivalent and have defaults derived from the rules above. Both `:` and `::` indicate to select all elements along a single axis (dimension).
+
+.. note::
+
+    This specification does not require "clipping" out-of-bounds indices (i.e., requiring the starting and stopping indices `i` and `j` be bound by `0` and `n`, respectively).
+
+    _Rationale: this is consistent with bounds checking for integer indexing; the behavior of out-of-bounds indices is left unspecified. Implementations may choose to clip, raise an exception, return junk values, or some other behavior depending on device requirements and performance considerations._
+
+.. note::
+
+    This specification leaves unspecified the behavior of indexing a single array axis with an out-of-bounds slice (i.e., a slice which does not select any array axis elements).
+
+    _Rationale: this is consistent with bounds checking for integer indexing; the behavior of out-of-bounds indices is left unspecified. Implementations may choose to return an empty array (whose axis (dimension) size along the indexed axis is `0`), raise an exception, or some other behavior depending on device requirements and performance considerations._
 
 ## Multi-axis Indexing
 
@@ -128,8 +136,6 @@ Multi-dimensional arrays must extend the concept of single-axis indexing to mult
 
 -   Providing a slice must retain array dimensions (i.e., the array rank must remain the same; `rank(A) == rank(A[:])`).
 
--   For each slice which attempts to select elements along a particular axis, but whose starting index is out-of-bounds, the axis (dimension) size of the result array must be `0`.
-
 -   If the number of provided single-axis indexing expressions is less than `N`, then `:` must be assumed for the remaining dimensions (e.g., if `A` has rank `2`, `A[2:10] == A[2:10, :]`).
 
 -   An `IndexError` exception must be raised if the number of provided single-axis indexing expressions is greater than `N`.
@@ -137,6 +143,12 @@ Multi-dimensional arrays must extend the concept of single-axis indexing to mult
 -   Providing [ellipsis](https://docs.python.org/3/library/constants.html#Ellipsis) must apply `:` to each dimension necessary to index all dimensions (e.g., if `A` has rank `4`, `A[1:, ..., 2:5] == A[1:, :, :, 2:5]`). Only a single ellipsis must be allowed. An `IndexError` exception must be raised if more than one ellipsis is provided.
 
 -   The result of multi-axis indexing must be an array of the same data type as the indexed array.
+
+.. note::
+
+    This specification leaves unspecified the behavior of providing a slice which attempts to select elements along a particular axis, but whose starting index is out-of-bounds.
+
+    _Rationale: this is consistent with bounds-checking for single-axis indexing. An implementation may choose to set the axis (dimension) size of the result array to `0`, raise an exception, return junk values, or some other behavior depending on device requirements and performance considerations._
 
 ## Boolean Array Indexing
 
