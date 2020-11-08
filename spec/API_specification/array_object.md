@@ -453,7 +453,7 @@ Computes the truth value of `x1_i <= x2_i` for each element `x1_i` of an array i
 
 ### <a name="__len__" href="#__len__">#</a> \_\_len\_\_(x, /)
 
-TODO
+_TODO: need to more carefully consider this in order to accommodate, e.g., graph tensors where a shape may be dynamic._
 
 ### <a name="__lshift__" href="#__lshift__">#</a> \_\_lshift\_\_(x1, x2, /)
 
