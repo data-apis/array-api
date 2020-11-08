@@ -10,7 +10,7 @@ A conforming implementation of the array API standard must provide and support t
 
 <!-- NOTE: please keep the functions in alphabetical order -->
 
-### <a name="argsort" href="#argsort">#</a> argsort(x, /, *, axis=-1, descending=False)
+### <a name="argsort" href="#argsort">#</a> argsort(x, /, *, axis=-1, descending=False, stable=True)
 
 Returns the indices that sort an array `x` along a specified axis.
 
@@ -28,13 +28,17 @@ Returns the indices that sort an array `x` along a specified axis.
 
     -   sort order. If `True`, the returned indices sort `x` in descending order (by value). If `False`, the returned indices sort `x` in ascending order (by value). Default: `False`.
 
+-   **stable**: _bool_
+
+    -   sort stability. If `True`, the returned indices must maintain the relative order of `x` values which compare as equal. If `False`, the returned indices may or may not maintain the relative order of `x` values which compare as equal (i.e., the relative order of `x` values which compare as equal is implementation-dependent). Default: `True`.
+
 #### Returns
 
 -   **out**: _&lt;array&gt;_
 
     -   an array of indices. Must have the same shape as `x`.
 
-### <a name="sort" href="#sort">#</a> sort(x, /, *, axis=-1, descending=False)
+### <a name="sort" href="#sort">#</a> sort(x, /, *, axis=-1, descending=False, stable=True)
 
 Returns a sorted copy of an input array `x`.
 
@@ -51,6 +55,10 @@ Returns a sorted copy of an input array `x`.
 -   **descending**: _bool_
 
     -   sort order. If `True`, the array is sorted in descending order (by value). If `False`, the array is sorted in ascending order (by value). Default: `False`.
+
+-   **stable**: _bool_
+
+    -   sort stability. If `True`, the returned array must maintain the relative order of `x` values which compare as equal. If `False`, the returned indices may or may not maintain the relative order of `x` values which compare as equal (i.e., the relative order of `x` values which compare as equal is implementation-dependent). Default: `True`.
 
 #### Returns
 
