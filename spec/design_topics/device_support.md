@@ -1,4 +1,4 @@
-.. _device-support:
+(device-support)=
 
 # Device support
 

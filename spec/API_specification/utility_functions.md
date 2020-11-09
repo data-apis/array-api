@@ -6,10 +6,12 @@ A conforming implementation of the array API standard must provide and support t
 
 -   Positional parameters must be [positional-only](https://www.python.org/dev/peps/pep-0570/) parameters. Positional-only parameters have no externally-usable name. When a function accepting positional-only parameters is called, positional arguments are mapped to these parameters based solely on their order.
 -   Optional parameters must be [keyword-only](https://www.python.org/dev/peps/pep-3102/) arguments.
--   Broadcasting semantics must follow the semantics defined in :ref:`broadcasting`.
--   Unless stated otherwise, functions must support the data types defined in :ref:`data-types`.
--   Unless stated otherwise, functions must adhere to the type promotion rules defined in :ref:`type-promotion`.
+-   Broadcasting semantics must follow the semantics defined in {ref}`broadcasting`.
+-   Unless stated otherwise, functions must support the data types defined in {ref}`data-types`.
+-   Unless stated otherwise, functions must adhere to the type promotion rules defined in {ref}`type-promotion`.
 -   Unless stated otherwise, floating-point operations must adhere to IEEE 754-2019.
+
+## Objects in API
 
 <!-- NOTE: please keep the functions in alphabetical order -->
 
@@ -29,7 +31,7 @@ Tests whether all input array elements evaluate to `True` along a specified axis
 
 -   **keepdims**: _bool_
 
-    -   If `True`, the reduced axes (dimensions) must be included in the result as singleton dimensions, and, accordingly, the result must be compatible with the input array (see :ref:`broadcasting`). Otherwise, if `False`, the reduced axes (dimensions) must not be included in the result. Default: `False`.
+    -   If `True`, the reduced axes (dimensions) must be included in the result as singleton dimensions, and, accordingly, the result must be compatible with the input array (see {ref}`broadcasting`). Otherwise, if `False`, the reduced axes (dimensions) must not be included in the result. Default: `False`.
 
 #### Returns
 
@@ -53,7 +55,7 @@ Tests whether any input array element evaluates to `True` along a specified axis
 
 -   **keepdims**: _bool_
 
-    -   If `True`, the reduced axes (dimensions) must be included in the result as singleton dimensions, and, accordingly, the result must be compatible with the input array (see :ref:`broadcasting`). Otherwise, if `False`, the reduced axes (dimensions) must not be included in the result. Default: `False`.
+    -   If `True`, the reduced axes (dimensions) must be included in the result as singleton dimensions, and, accordingly, the result must be compatible with the input array (see {ref}`broadcasting`). Otherwise, if `False`, the reduced axes (dimensions) must not be included in the result. Default: `False`.
 
 #### Returns
 

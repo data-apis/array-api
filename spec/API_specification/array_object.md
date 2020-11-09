@@ -1,4 +1,4 @@
-.. array-object:
+(array-object)=
 
 # Array object
 
@@ -8,9 +8,9 @@ A conforming implementation of the array API standard must provide and support a
 
 -   Positional parameters must be [positional-only](https://www.python.org/dev/peps/pep-0570/) parameters. Positional-only parameters have no externally-usable name. When a method accepting positional-only parameters is called, positional arguments are mapped to these parameters based solely on their order.
 -   Optional parameters must be [keyword-only](https://www.python.org/dev/peps/pep-3102/) arguments.
--   Broadcasting semantics must follow the semantics defined in :ref:`broadcasting`.
--   Unless stated otherwise, methods must support the data types defined in :ref:`data-types`.
--   Unless stated otherwise, methods must adhere to the type promotion rules defined in :ref:`type-promotion`.
+-   Broadcasting semantics must follow the semantics defined in {ref}`broadcasting`.
+-   Unless stated otherwise, methods must support the data types defined in {ref}`data-types`.
+-   Unless stated otherwise, methods must adhere to the type promotion rules defined in {ref}`type-promotion`.
 -   Unless stated otherwise, floating-point operations must adhere to IEEE 754-2019.
 
 * * *
@@ -19,114 +19,114 @@ A conforming implementation of the array API standard must provide and support a
 
 A conforming implementation of the array API standard must provide and support an array object supporting the following Python operators:
 
--   `x1 < x2`: [`__lt__(x1, x2)`](#__lt__)
+-   `x1 < x2`: [`__lt__(x1, x2)`](#__lt__x1-x2-)
     
     -   [`operator.lt(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.lt)
     -   [`operator.__lt__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__lt__)
 
--   `x1 <= x2`: [`__le__(x1, x2)`](#__le__)
+-   `x1 <= x2`: [`__le__(x1, x2)`](#__le__x1-x2-)
 
     -   [`operator.le(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.le)
     -   [`operator.__le__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__le__)
 
--   `x1 > x2`: [`__gt__(x1, x2)`](#__gt__)
+-   `x1 > x2`: [`__gt__(x1, x2)`](#__gt__x1-x2-)
     
     -   [`operator.gt(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.gt)
     -   [`operator.__gt__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__gt__)
 
--   `x1 >= x2`: [`__ge__(x1, x2)`](#__ge__)
+-   `x1 >= x2`: [`__ge__(x1, x2)`](#__ge__x1-x2-)
 
     -   [`operator.ge(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.ge)
     -   [`operator.__ge__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__ge__)
 
--   `x1 == x2`: [`__eq__(x1, x2)`](#__eq__)
+-   `x1 == x2`: [`__eq__(x1, x2)`](#__eq__x1-x2-)
 
     -   [`operator.eq(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.eq)
     -   [`operator.__eq__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__eq__)
 
--   `x1 != x2`: [`__ne__(x1, x2)`](#__ne__)
+-   `x1 != x2`: [`__ne__(x1, x2)`](#__ne__x1-x2-)
 
     -   [`operator.ne(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.ne)
     -   [`operator.__ne__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__ne__)
 
--   `+x`: [`__pos__(x)`](#__pos__)
+-   `+x`: [`__pos__(x)`](#__pos__x-)
 
     -   [`operator.pos(x)`](https://docs.python.org/3/library/operator.html#operator.pos)
     -   [`operator.__pos__(x)`](https://docs.python.org/3/library/operator.html#operator.__pos__)
 
--   `-x`: [`__neg__(x)`](#__neg__)
+-   `-x`: [`__neg__(x)`](#__neg__x-)
 
     -   [`operator.neg(x)`](https://docs.python.org/3/library/operator.html#operator.neg)
     -   [`operator.__neg__(x)`](https://docs.python.org/3/library/operator.html#operator.__neg__)
 
--   `x1 + x2`: [`__add__(x1, x2)`](#__add__)
+-   `x1 + x2`: [`__add__(x1, x2)`](#__add__x1-x2-)
 
     -   [`operator.add(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.add)
     -   [`operator.__add__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__add__)
 
--   `x1 - x2`: [`__sub__(x1, x2)`](#__sub__)
+-   `x1 - x2`: [`__sub__(x1, x2)`](#__sub__x1-x2-)
 
     -   [`operator.sub(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.sub)
     -   [`operator.__sub__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__sub__)
 
--   `x1 * x2`: [`__mul__(x1, x2)`](#__mul__)
+-   `x1 * x2`: [`__mul__(x1, x2)`](#__mul__x1-x2-)
 
     -   [`operator.mul(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.mul)
     -   [`operator.__mul__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__mul__)
 
--   `x1 / x2`: [`__truediv__(x1, x2)`](#__truediv__)
+-   `x1 / x2`: [`__truediv__(x1, x2)`](#__truediv__x1-x2-)
 
     -   [`operator.truediv(x1,x2)`](https://docs.python.org/3/library/operator.html#operator.truediv)
     -   [`operator.__truediv__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__truediv__)
 
--   `x1 // x2`: [`__floordiv__(x1, x2)`](#__floordiv__)
+-   `x1 // x2`: [`__floordiv__(x1, x2)`](#__floordiv__x1-x2-)
 
     -   [`operator.floordiv(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.floordiv)
     -   [`operator.__floordiv__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__floordiv__)
 
--   `x1 % x2`: [`__mod__(x1, x2)`](#__mod__)
+-   `x1 % x2`: [`__mod__(x1, x2)`](#__mod__x1-x2-)
 
     -   [`operator.mod(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.mod)
     -   [`operator.__mod__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__mod__)
 
--   `x1 ** x2`: [`__pow__(x1, x2)`](#__pow__)
+-   `x1 ** x2`: [`__pow__(x1, x2)`](#__pow__x1-x2-)
 
     -   [`operator.pow(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.pow)
     -   [`operator.__pow__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__pow__)
 
--   `x1 @ x2`: [`__matmul__(x1, x2)`](#__matmul__)
+-   `x1 @ x2`: [`__matmul__(x1, x2)`](#__matmul__x1-x2-)
 
     -   [`operator.matmul(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.matmul)
     -   [`operator.__matmul__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__matmul__)
 
--   `~x`: [`__invert__(x)`](#__invert__)
+-   `~x`: [`__invert__(x)`](#__invert__x-)
 
     -   [`operator.inv(x)`](https://docs.python.org/3/library/operator.html#operator.inv)
     -   [`operator.invert(x)`](https://docs.python.org/3/library/operator.html#operator.invert)
     -   [`operator.__inv__(x)`](https://docs.python.org/3/library/operator.html#operator.__inv__)
     -   [`operator.__invert__(x)`](https://docs.python.org/3/library/operator.html#operator.__invert__)
 
--   `x1 & x2`: [`__and__(x1, x2)`](#__and__)
+-   `x1 & x2`: [`__and__(x1, x2)`](#__and__x1-x2-)
 
     -   [`operator.and(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.and)
     -   [`operator.__and__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__and__)
 
--   `x1 | x2`: [`__or__(x1, x2)`](#__or__)
+-   `x1 | x2`: [`__or__(x1, x2)`](#__or__x1-x2-)
 
     -   [`operator.or(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.or)
     -   [`operator.__or__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__or__)
 
--   `x1 ^ x2`: [`__xor__(x1, x2)`](#__xor__)
+-   `x1 ^ x2`: [`__xor__(x1, x2)`](#__xor__x1-x2-)
 
     -   [`operator.xor(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.xor)
     -   [`operator.__xor__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__xor__)
 
--   `x1 << x2`: [`__lshift__(x1, x2)`](#__lshift__)
+-   `x1 << x2`: [`__lshift__(x1, x2)`](#__lshift__x1-x2-)
 
     -   [`operator.lshift(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.lshift)
     -   [`operator.__lshift__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__lshift__)
 
--   `x1 >> x2`: [`__rshift__(x1, x2)`](#__rshift__)
+-   `x1 >> x2`: [`__rshift__(x1, x2)`](#__rshift__x1-x2-)
 
     -   [`operator.rshift(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.rshift)
     -   [`operator.__rshift__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__rshift__)
@@ -134,7 +134,7 @@ A conforming implementation of the array API standard must provide and support a
 
 ### In-place operators
 
-As discussed in :ref:`copyview-mutability`, in-place operators need to be
+As discussed in {ref}`copyview-mutability`, in-place operators need to be
 supported. The following operators must be supported:
 
 - `+=`. May be (but does not have to be) implemented via `__iadd__`.
@@ -241,7 +241,7 @@ Transpose of the array.
 
 <!-- NOTE: please keep the methods in alphabetical order -->
 
-### <a name="__abs__" href="#__abs__">#</a> \_\_abs\_\_(x, /)
+### \_\_abs\_\_(x, /)
 
 Calculates the absolute value for each element `x_i` of an array instance `x` (i.e., the element-wise result has the same magnitude as the respective element in `x` but has positive sign).
 
@@ -263,11 +263,12 @@ Calculates the absolute value for each element `x_i` of an array instance `x` (i
 
     -   an array containing the element-wise absolute value. The returned array must have the same data type as `x`.
 
-.. note::
+```{note}
 
-    Element-wise results must equal the results returned by the equivalent element-wise function [`abs(x)`](elementwise_functions.md#abs).
+Element-wise results must equal the results returned by the equivalent element-wise function [`abs(x)`](elementwise_functions.md#absx-).
+```
 
-### <a name="__add__" href="#__add__">#</a> \_\_add\_\_(x1, x2, /)
+### \_\_add\_\_(x1, x2, /)
 
 Calculates the sum for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`. For floating-point arithmetic,
 
@@ -291,9 +292,10 @@ Calculates the sum for each element `x1_i` of an array instance `x1` with the re
 -   If `x1_i` is a nonzero finite number and `x2_i` is `-x1_i`, the result is `+0`.
 -   In the remaining cases, when neither `infinity`, `+0`, `-0`, nor a `NaN` is involved, and the operands have the same mathematical sign or have different magnitudes, the sum must be computed and rounded to the nearest representable value according to IEEE 754-2019 and a supported round mode. If the magnitude is too large to represent, the operation overflows and the result is an `infinity` of appropriate mathematical sign.
 
-.. note::
+```{note}
 
-    Floating-point addition is a commutative operation, but not always associative.
+Floating-point addition is a commutative operation, but not always associative.
+```
 
 #### Parameters
 
@@ -303,19 +305,20 @@ Calculates the sum for each element `x1_i` of an array instance `x1` with the re
 
 -   **x2**: _&lt;array&gt;_
 
-    -   addend array. Must be compatible with `x1` (see :ref:`broadcasting`).
+    -   addend array. Must be compatible with `x1` (see {ref}`broadcasting`).
 
 #### Returns
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the element-wise sums. The returned array must have a data type determined by :ref:`type-promotion`.
+    -   an array containing the element-wise sums. The returned array must have a data type determined by {ref}`type-promotion`.
 
-.. note::
+```{note}
 
-    Element-wise results must equal the results returned by the equivalent element-wise function [`add(x1, x2)`](elementwise_functions.md#add).
+Element-wise results must equal the results returned by the equivalent element-wise function [`add(x1, x2)`](elementwise_functions.md#addx1-x2-).
+```
 
-### <a name="__and__" href="#__and__">#</a> \_\_and\_\_(x1, x2, /)
+### \_\_and\_\_(x1, x2, /)
 
 Evaluates `x1_i & x2_i` for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`.
 
@@ -327,19 +330,20 @@ Evaluates `x1_i & x2_i` for each element `x1_i` of an array instance `x1` with t
 
 -   **x2**: _&lt;array&gt;_
 
-    -   other array. Must be compatible with `x1` (see :ref:`broadcasting`). Must have an integer or boolean data type.
+    -   other array. Must be compatible with `x1` (see {ref}`broadcasting`). Must have an integer or boolean data type.
 
 #### Returns
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the element-wise results. The returned array must have a data type determined by :ref:`type-promotion`.
+    -   an array containing the element-wise results. The returned array must have a data type determined by {ref}`type-promotion`.
 
-.. note::
+```{note}
 
-    Element-wise results must equal the results returned by the equivalent element-wise function [`bitwise_and(x1, x2)`](elementwise_functions.md#and).
+Element-wise results must equal the results returned by the equivalent element-wise function [`bitwise_and(x1, x2)`](elementwise_functions.md#logical_andx1-x2-).
+```
 
-### <a name="__eq__" href="#__eq__">#</a> \_\_eq\_\_(x1, x2, /)
+### \_\_eq\_\_(x1, x2, /)
 
 Computes the truth value of `x1_i == x2_i` for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`.
 
@@ -351,7 +355,7 @@ Computes the truth value of `x1_i == x2_i` for each element `x1_i` of an array i
 
 -   **x2**: _&lt;array&gt;_
 
-    -   other array. Must be compatible with `x1` (see :ref:`broadcasting`).
+    -   other array. Must be compatible with `x1` (see {ref}`broadcasting`).
 
 #### Returns
 
@@ -359,11 +363,12 @@ Computes the truth value of `x1_i == x2_i` for each element `x1_i` of an array i
 
     -   an array containing the element-wise results. The returned array must have a data type of `bool` (i.e., must be a boolean array).
 
-.. note::
+```{note}
 
-    Element-wise results must equal the results returned by the equivalent element-wise function [`equal(x1, x2)`](elementwise_functions.md#equal).
+Element-wise results must equal the results returned by the equivalent element-wise function [`equal(x1, x2)`](elementwise_functions.md#equalx1-x2-).
+```
 
-### <a name="__floordiv__" href="#__floordiv__">#</a> \_\_floordiv\_\_(x1, x2, /)
+### \_\_floordiv\_\_(x1, x2, /)
 
 Evaluates `x1_i // x2_i` for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`.
 
@@ -375,19 +380,20 @@ Evaluates `x1_i // x2_i` for each element `x1_i` of an array instance `x1` with 
 
 -   **x2**: _&lt;array&gt;_
 
-    -   other array. Must be compatible with `x1` (see :ref:`broadcasting`).
+    -   other array. Must be compatible with `x1` (see {ref}`broadcasting`).
 
 #### Returns
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the element-wise results. The returned array must have a data type determined by :ref:`type-promotion`.
+    -   an array containing the element-wise results. The returned array must have a data type determined by {ref}`type-promotion`.
 
-.. note::
+```{note}
 
-    Element-wise results must equal the results returned by the equivalent element-wise function [`floor_divide(x1, x2)`](elementwise_functions.md#floor_divide).
+Element-wise results must equal the results returned by the equivalent element-wise function [`floor_divide(x1, x2)`](elementwise_functions.md#floor_dividex1-x2-).
+```
 
-### <a name="__ge__" href="#__ge__">#</a> \_\_ge\_\_(x1, x2, /)
+### \_\_ge\_\_(x1, x2, /)
 
 Computes the truth value of `x1_i >= x2_i` for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`.
 
@@ -399,7 +405,7 @@ Computes the truth value of `x1_i >= x2_i` for each element `x1_i` of an array i
 
 -   **x2**: _&lt;array&gt;_
 
-    -   other array. Must be compatible with `x1` (see :ref:`broadcasting`).
+    -   other array. Must be compatible with `x1` (see {ref}`broadcasting`).
 
 #### Returns
 
@@ -407,15 +413,16 @@ Computes the truth value of `x1_i >= x2_i` for each element `x1_i` of an array i
 
     -   an array containing the element-wise results. The returned array must have a data type of `bool` (i.e., must be a boolean array).
 
-.. note::
+```{note}
 
-    Element-wise results must equal the results returned by the equivalent element-wise function [`greater_equal(x1, x2)`](elementwise_functions.md#greater_equal).
+Element-wise results must equal the results returned by the equivalent element-wise function [`greater_equal(x1, x2)`](elementwise_functions.md#greater_equalx1-x2-).
+```
 
-### <a name="__getitem__" href="#__getitem__">#</a> \_\_getitem\_\_(x, key, /)
+### \_\_getitem\_\_(x, key, /)
 
 _TODO: dependent on the indexing specification._
 
-### <a name="__gt__" href="#__gt__">#</a> \_\_gt\_\_(x1, x2, /)
+### \_\_gt\_\_(x1, x2, /)
 
 Computes the truth value of `x1_i > x2_i` for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`.
 
@@ -427,7 +434,7 @@ Computes the truth value of `x1_i > x2_i` for each element `x1_i` of an array in
 
 -   **x2**: _&lt;array&gt;_
 
-    -   other array. Must be compatible with `x1` (see :ref:`broadcasting`).
+    -   other array. Must be compatible with `x1` (see {ref}`broadcasting`).
 
 #### Returns
 
@@ -435,11 +442,12 @@ Computes the truth value of `x1_i > x2_i` for each element `x1_i` of an array in
 
     -   an array containing the element-wise results. The returned array must have a data type of `bool` (i.e., must be a boolean array).
 
-.. note::
+```{note}
 
-    Element-wise results must equal the results returned by the equivalent element-wise function [`greater(x1, x2)`](elementwise_functions.md#greater).
+Element-wise results must equal the results returned by the equivalent element-wise function [`greater(x1, x2)`](elementwise_functions.md#greaterx1-x2-).
+```
 
-### <a name="__invert__" href="#__invert__">#</a> \_\_invert\_\_(x, /)
+### \_\_invert\_\_(x, /)
 
 Evaluates `~x_i` for each element `x_i` of an array instance `x`.
 
@@ -455,11 +463,12 @@ Evaluates `~x_i` for each element `x_i` of an array instance `x`.
 
     -   an array containing the element-wise results. The returned array must have the same data type as `x`.
 
-.. note::
+```{note}
 
-    Element-wise results must equal the results returned by the equivalent element-wise function [`bitwise_invert(x)`](elementwise_functions.md#bitwise_invert).
+Element-wise results must equal the results returned by the equivalent element-wise function [`bitwise_invert(x)`](elementwise_functions.md#bitwise_invertx-).
+```
 
-### <a name="__le__" href="#__le__">#</a> \_\_le\_\_(x1, x2, /)
+### \_\_le\_\_(x1, x2, /)
 
 Computes the truth value of `x1_i <= x2_i` for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`.
 
@@ -471,7 +480,7 @@ Computes the truth value of `x1_i <= x2_i` for each element `x1_i` of an array i
 
 -   **x2**: _&lt;array&gt;_
 
-    -   other array. Must be compatible with `x1` (see :ref:`broadcasting`).
+    -   other array. Must be compatible with `x1` (see {ref}`broadcasting`).
 
 #### Returns
 
@@ -479,15 +488,16 @@ Computes the truth value of `x1_i <= x2_i` for each element `x1_i` of an array i
 
     -   an array containing the element-wise results. The returned array must have a data type of `bool` (i.e., must be a boolean array).
 
-.. note::
+```{note}
 
-    Element-wise results must equal the results returned by the equivalent element-wise function [`less_equal(x1, x2)`](elementwise_functions.md#less_equal). 
+Element-wise results must equal the results returned by the equivalent element-wise function [`less_equal(x1, x2)`](elementwise_functions.md#less_equalx1-x2-). 
+```
 
-### <a name="__len__" href="#__len__">#</a> \_\_len\_\_(x, /)
+### \_\_len\_\_(x, /)
 
 _TODO: need to more carefully consider this in order to accommodate, e.g., graph tensors where a shape may be dynamic._
 
-### <a name="__lshift__" href="#__lshift__">#</a> \_\_lshift\_\_(x1, x2, /)
+### \_\_lshift\_\_(x1, x2, /)
 
 Evaluates `x1_i << x2_i` for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`.
 
@@ -499,7 +509,7 @@ Evaluates `x1_i << x2_i` for each element `x1_i` of an array instance `x1` with 
 
 -   **x2**: _&lt;array&gt;_
 
-    -   other array. Must be compatible with `x1` (see :ref:`broadcasting`). Must have an integer data type. Each element must be greater than or equal to `0`.
+    -   other array. Must be compatible with `x1` (see {ref}`broadcasting`). Must have an integer data type. Each element must be greater than or equal to `0`.
 
 #### Returns
 
@@ -507,11 +517,12 @@ Evaluates `x1_i << x2_i` for each element `x1_i` of an array instance `x1` with 
 
     -   an array containing the element-wise results. The returned array must have the same data type as `x1`.
 
-.. note::
+```{note}
 
-    Element-wise results must equal the results returned by the equivalent element-wise function [`less_equal(x1, x2)`](elementwise_functions.md#bitwise_left_shift).
+Element-wise results must equal the results returned by the equivalent element-wise function [`less_equal(x1, x2)`](elementwise_functions.md#bitwise_left_shiftx1-x2-).
+```
 
-### <a name="__lt__" href="#__lt__">#</a> \_\_lt\_\_(x1, x2, /)
+### \_\_lt\_\_(x1, x2, /)
 
 Computes the truth value of `x1_i < x2_i` for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`.
 
@@ -523,7 +534,7 @@ Computes the truth value of `x1_i < x2_i` for each element `x1_i` of an array in
 
 -   **x2**: _&lt;array&gt;_
 
-    -   other array. Must be compatible with `x1` (see :ref:`broadcasting`).
+    -   other array. Must be compatible with `x1` (see {ref}`broadcasting`).
 
 #### Returns
 
@@ -531,11 +542,12 @@ Computes the truth value of `x1_i < x2_i` for each element `x1_i` of an array in
 
     -   an array containing the element-wise results. The returned array must have a data type of `bool` (i.e., must be a boolean array).
 
-.. note::
+```{note}
 
-    Element-wise results must equal the results returned by the equivalent element-wise function [`less(x1, x2)`](elementwise_functions.md#less).
+Element-wise results must equal the results returned by the equivalent element-wise function [`less(x1, x2)`](elementwise_functions.md#lessx1-x2-).
+```
 
-### <a name="__matmul__" href="#__matmul__">#</a> \_\_matmul\_\_(x1, x2, /)
+### \_\_matmul\_\_(x1, x2, /)
 
 _TODO: awaiting `matmul` functional equivalent._
 
@@ -547,7 +559,7 @@ _TODO: awaiting `matmul` functional equivalent._
 
 -   **x2**: _&lt;array&gt;_
 
-    -   other array. Must be compatible with `x1` (see :ref:`broadcasting`).
+    -   other array. Must be compatible with `x1` (see {ref}`broadcasting`).
 
 #### Returns
 
@@ -555,7 +567,7 @@ _TODO: awaiting `matmul` functional equivalent._
 
     -   _TODO_
 
-### <a name="__mod__" href="#__mod__">#</a> \_\_mod\_\_(x1, x2, /)
+### \_\_mod\_\_(x1, x2, /)
 
 Evaluates `x1_i % x2_i` for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`.
 
@@ -567,19 +579,20 @@ Evaluates `x1_i % x2_i` for each element `x1_i` of an array instance `x1` with t
 
 -   **x2**: _&lt;array&gt;_
 
-    -   other array. Must be compatible with `x1` (see :ref:`broadcasting`).
+    -   other array. Must be compatible with `x1` (see {ref}`broadcasting`).
 
 #### Returns
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the element-wise results. Each element-wise result must have the same sign as the respective element `x2_i`. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
+    -   an array containing the element-wise results. Each element-wise result must have the same sign as the respective element `x2_i`. The returned array must have a floating-point data type determined by {ref}`type-promotion`.
 
-.. note::
+```{note}
 
-    Element-wise results must equal the results returned by the equivalent element-wise function [`remainder(x1, x2)`](elementwise_functions.md#remainder).
+Element-wise results must equal the results returned by the equivalent element-wise function [`remainder(x1, x2)`](elementwise_functions.md#remainderx1-x2-).
+```
 
-### <a name="__mul__" href="#__mul__">#</a> \_\_mul\_\_(x1, x2, /)
+### \_\_mul\_\_(x1, x2, /)
 
 Calculates the product for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`. For floating-point arithmetic,
 
@@ -595,9 +608,10 @@ Calculates the product for each element `x1_i` of an array instance `x1` with th
 -   If `x1_i` is a nonzero finite number and `x2_i` is either `+infinity` or `-infinity`, the result is a signed infinity with the mathematical sign determined by the rule already stated above.
 -   In the remaining cases, where neither `infinity` nor `NaN` is involved, the product must be computed and rounded to the nearest representable value according to IEEE 754-2019 and a supported rounding mode. If the magnitude is too large to represent, the result is an `infinity` of appropriate mathematical sign. If the magnitude is too small to represent, the result is a zero of appropriate mathematical sign.
 
-.. note::
+```{note}
 
-    Floating-point multiplication is not always associative due to finite precision.
+Floating-point multiplication is not always associative due to finite precision.
+```
 
 #### Parameters
 
@@ -607,19 +621,20 @@ Calculates the product for each element `x1_i` of an array instance `x1` with th
 
 -   **x2**: _&lt;array&gt;_
 
-    -   other array. Must be compatible with `x1` (see :ref:`broadcasting`).
+    -   other array. Must be compatible with `x1` (see {ref}`broadcasting`).
 
 #### Returns
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the element-wise products. The returned array must have a data type determined by :ref:`type-promotion`.
+    -   an array containing the element-wise products. The returned array must have a data type determined by {ref}`type-promotion`.
 
-.. note::
+```{note}
 
-    Element-wise results must equal the results returned by the equivalent element-wise function [`multiply(x1, x2)`](elementwise_functions.md#multiply).
+Element-wise results must equal the results returned by the equivalent element-wise function [`multiply(x1, x2)`](elementwise_functions.md#multiplyx1-x2-).
+```
 
-### <a name="__ne__" href="#__ne__">#</a> \_\_ne\_\_(x1, x2, /)
+### \_\_ne\_\_(x1, x2, /)
 
 Computes the truth value of `x1_i != x2_i` for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`.
 
@@ -631,7 +646,7 @@ Computes the truth value of `x1_i != x2_i` for each element `x1_i` of an array i
 
 -   **x2**: _&lt;array&gt;_
 
-    -   other array. Must be compatible with `x1` (see :ref:`broadcasting`).
+    -   other array. Must be compatible with `x1` (see {ref}`broadcasting`).
 
 #### Returns
 
@@ -639,11 +654,12 @@ Computes the truth value of `x1_i != x2_i` for each element `x1_i` of an array i
 
     -   an array containing the element-wise results. The returned array must have a data type of `bool` (i.e., must be a boolean array).
 
-.. note::
+```{note}
 
-    Element-wise results must equal the results returned by the equivalent element-wise function [`not_equal(x1, x2)`](elementwise_functions.md#not_equal).
+Element-wise results must equal the results returned by the equivalent element-wise function [`not_equal(x1, x2)`](elementwise_functions.md#not_equalx1-x2-).
+```
 
-### <a name="__neg__" href="#__neg__">#</a> \_\_neg\_\_(x, /)
+### \_\_neg\_\_(x, /)
 
 Evaluates `-x_i` for each element `x_i` of an array instance `x`.
 
@@ -657,13 +673,14 @@ Evaluates `-x_i` for each element `x_i` of an array instance `x`.
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the evaluated result for each element in `x`. The returned array must have a data type determined by :ref:`type-promotion`.
+    -   an array containing the evaluated result for each element in `x`. The returned array must have a data type determined by {ref}`type-promotion`.
 
-.. note::
+```{note}
 
-    Element-wise results must equal the results returned by the equivalent element-wise function [`negative(x)`](elementwise_functions.md#negative).
+Element-wise results must equal the results returned by the equivalent element-wise function [`negative(x)`](elementwise_functions.md#negativex-).
+```
 
-### <a name="__or__" href="#__or__">#</a> \_\_or\_\_(x1, x2, /)
+### \_\_or\_\_(x1, x2, /)
 
 Evaluates `x1_i | x2_i` for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`.
 
@@ -675,19 +692,20 @@ Evaluates `x1_i | x2_i` for each element `x1_i` of an array instance `x1` with t
 
 -   **x2**: _&lt;array&gt;_
 
-    -   other array. Must be compatible with `x1` (see :ref:`broadcasting`). Must have an integer or boolean data type.
+    -   other array. Must be compatible with `x1` (see {ref}`broadcasting`). Must have an integer or boolean data type.
 
 #### Returns
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the element-wise results. The returned array must have a data type determined by :ref:`type-promotion`.
+    -   an array containing the element-wise results. The returned array must have a data type determined by {ref}`type-promotion`.
 
-.. note::
+```{note}
 
-    Element-wise results must equal the results returned by the equivalent element-wise function [`positive(x1, x2)`](elementwise_functions.md#bitwise_or).
+Element-wise results must equal the results returned by the equivalent element-wise function [`positive(x1, x2)`](elementwise_functions.md#bitwise_orx1-x2-).
+```
 
-### <a name="__pos__" href="#__pos__">#</a> \_\_pos\_\_(x, /)
+### \_\_pos\_\_(x, /)
 
 Evaluates `+x_i` for each element `x_i` of an array instance `x`.
 
@@ -703,11 +721,12 @@ Evaluates `+x_i` for each element `x_i` of an array instance `x`.
 
     -   an array containing the evaluated result for each element in `x`. The returned array must have the same data type as `x`.
 
-.. note::
+```{note}
 
-    Element-wise results must equal the results returned by the equivalent element-wise function [`positive(x)`](elementwise_functions.md#positive).
+Element-wise results must equal the results returned by the equivalent element-wise function [`positive(x)`](elementwise_functions.md#positivex-).
+```
 
-### <a name="__pow__" href="#__pow__">#</a> \_\_pow\_\_(x1, x2, /)
+### \_\_pow\_\_(x1, x2, /)
 
 Calculates an implementation-dependent approximation of exponentiation by raising each element `x1_i` (the base) of an array instance `x1` to the power of `x2_i` (the exponent), where `x2_i` is the corresponding element of the array `x2`.
 
@@ -746,19 +765,20 @@ Calculates an implementation-dependent approximation of exponentiation by raisin
 
 -   **x2**: _&lt;array&gt;_
 
-    -   other array whose elements correspond to the exponentiation exponent. Must be compatible with `x1` (see :ref:`broadcasting`).
+    -   other array whose elements correspond to the exponentiation exponent. Must be compatible with `x1` (see {ref}`broadcasting`).
 
 #### Returns
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the element-wise results. The returned array must have a data type determined by :ref:`type-promotion`.
+    -   an array containing the element-wise results. The returned array must have a data type determined by {ref}`type-promotion`.
 
-.. note::
+```{note}
 
-    Element-wise results must equal the results returned by the equivalent element-wise function [`pow(x1, x2)`](elementwise_functions.md#pow).
+Element-wise results must equal the results returned by the equivalent element-wise function [`pow(x1, x2)`](elementwise_functions.md#powx1-x2-).
+```
 
-### <a name="__rshift__" href="#__rshift__">#</a> \_\_rshift\_\_(x1, x2, /)
+### \_\_rshift\_\_(x1, x2, /)
 
 Evaluates `x1_i >> x2_i` for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`.
 
@@ -770,7 +790,7 @@ Evaluates `x1_i >> x2_i` for each element `x1_i` of an array instance `x1` with 
 
 -   **x2**: _&lt;array&gt;_
 
-    -   other array. Must be compatible with `x1` (see :ref:`broadcasting`). Must have an integer data type. Each element must be greater than or equal to `0`.
+    -   other array. Must be compatible with `x1` (see {ref}`broadcasting`). Must have an integer data type. Each element must be greater than or equal to `0`.
 
 #### Returns
 
@@ -778,17 +798,18 @@ Evaluates `x1_i >> x2_i` for each element `x1_i` of an array instance `x1` with 
 
     -   an array containing the element-wise results. The returned array must have the same data type as `x1`.
 
-.. note::
+```{note}
 
-    Element-wise results must equal the results returned by the equivalent element-wise function [`bitwise_right_shift(x1, x2)`](elementwise_functions.md#bitwise_right_shift).
+Element-wise results must equal the results returned by the equivalent element-wise function [`bitwise_right_shift(x1, x2)`](elementwise_functions.md#bitwise_right_shiftx1-x2-).
+```
 
-### <a name="__setitem__" href="#__setitem__">#</a> \_\_setitem\_\_(x, key, value, /)
+### \_\_setitem\_\_(x, key, value, /)
 
 _TODO: dependent on the indexing specification._
 
-### <a name="__sub__" href="#__sub__">#</a> \_\_sub\_\_(x1, x2, /)
+### \_\_sub\_\_(x1, x2, /)
 
-Calculates the difference for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`. The result of `x1_i - x2_i` must be the same as `x1_i + (-x2_i)` and is thus governed by the same floating-point rules as addition (see [`__add__()`](#__add__)).
+Calculates the difference for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`. The result of `x1_i - x2_i` must be the same as `x1_i + (-x2_i)` and is thus governed by the same floating-point rules as addition (see [`__add__()`](#__add__x1-x2-)).
 
 #### Parameters
 
@@ -798,19 +819,20 @@ Calculates the difference for each element `x1_i` of an array instance `x1` with
 
 -   **x2**: _&lt;array&gt;_
 
-    -   subtrahend array. Must be compatible with `x1` (see :ref:`broadcasting`).
+    -   subtrahend array. Must be compatible with `x1` (see {ref}`broadcasting`).
 
 #### Returns
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the element-wise differences. The returned array must have a data type determined by :ref:`type-promotion`.
+    -   an array containing the element-wise differences. The returned array must have a data type determined by {ref}`type-promotion`.
 
-.. note::
+```{note}
 
-    Element-wise results must equal the results returned by the equivalent element-wise function [`subtract(x1, x2)`](elementwise_functions.md#subtract).
+Element-wise results must equal the results returned by the equivalent element-wise function [`subtract(x1, x2)`](elementwise_functions.md#subtractx1-x2-).
+```
 
-### <a name="__truediv__" href="#__truediv__">#</a> \_\_truediv\_\_(x1, x2, /)
+### \_\_truediv\_\_(x1, x2, /)
 
 Evaluates `x1_i / x2_i` for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`. For floating-point arithmetic,
 
@@ -847,19 +869,20 @@ Evaluates `x1_i / x2_i` for each element `x1_i` of an array instance `x1` with t
 
 -   **x2**: _&lt;array&gt;_
 
-    -   other array. Must be compatible with `x1` (see :ref:`broadcasting`).
+    -   other array. Must be compatible with `x1` (see {ref}`broadcasting`).
 
 #### Returns
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the element-wise results. The returned array must have a data type determined by :ref:`type-promotion`.
+    -   an array containing the element-wise results. The returned array must have a data type determined by {ref}`type-promotion`.
 
-.. note::
+```{note}
 
-    Element-wise results must equal the results returned by the equivalent element-wise function [`divide(x1, x2)`](elementwise_functions.md#divide).
+Element-wise results must equal the results returned by the equivalent element-wise function [`divide(x1, x2)`](elementwise_functions.md#dividex1-x2-).
+```
 
-### <a name="__xor__" href="#__xor__">#</a> \_\_xor\_\_(x1, x2, /)
+### \_\_xor\_\_(x1, x2, /)
 
 Evaluates `x1_i ^ x2_i` for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`.
 
@@ -871,14 +894,15 @@ Evaluates `x1_i ^ x2_i` for each element `x1_i` of an array instance `x1` with t
 
 -   **x2**: _&lt;array&gt;_
 
-    -   other array. Must be compatible with `x1` (see :ref:`broadcasting`). Must have an integer or boolean data type.
+    -   other array. Must be compatible with `x1` (see {ref}`broadcasting`). Must have an integer or boolean data type.
 
 #### Returns
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the element-wise results. The returned array must have a data type determined by :ref:`type-promotion`.
+    -   an array containing the element-wise results. The returned array must have a data type determined by {ref}`type-promotion`.
 
-.. note::
+```{note}
 
-    Element-wise results must equal the results returned by the equivalent element-wise function [`bitwise_xor(x1, x2)`](elementwise_functions.md#bitwise_xor).
+Element-wise results must equal the results returned by the equivalent element-wise function [`bitwise_xor(x1, x2)`](elementwise_functions.md#bitwise_xorx1-x2-).
+```

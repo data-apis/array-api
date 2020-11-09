@@ -1,4 +1,4 @@
-.. _copyview-mutability:
+(copyview-mutability)=
 
 # Copy-view behaviour and mutability
 
@@ -71,6 +71,7 @@ This leaves the problem of the initial example - with this API standard it
 remains possible to write code that will not work the same for all array
 libraries. This is something that the user must be careful about.
 
-.. note::
+```{note}
 
-    It is recommended that users avoid any mutating operations when a view may be involved."
+It is recommended that users avoid any mutating operations when a view may be involved.
+```

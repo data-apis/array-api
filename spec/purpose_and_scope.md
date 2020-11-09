@@ -31,13 +31,13 @@ sure all existing array libraries can adopt this API.
 This document aims to standardize functionality that exists in most/all array
 libraries and either is commonly used or is needed for
 consistency/completeness. Usage is determined via analysis of downstream
-libraries, see :ref:`usage-data`. An example of consistency is: there are
+libraries, see {ref}`usage-data`. An example of consistency is: there are
 functional equivalents for all Python operators (including the rarely used
 ones).
 
 Beyond usage and consistency, there's a set of use cases that inform the API
 design to ensure it's fit for a wide range of users and situations - see
-:ref:`use-cases`.
+{ref}`use-cases`.
 
 A question that may arise when reading this document is: _"what about
 functionality that's not present in this document?_ This:
@@ -48,13 +48,13 @@ functionality that's not present in this document?_ This:
 - may indicate that that functionality, if present in a particular array
   library, is unlikely to be present in all other libraries
 
-.. note::
+```{note}
 
-    This document is ready for wider community review, but still contains a
-    number of TODOs, and is expected to change and evolve before a first
-    official release. See :ref:`future-API-evolution` for proposed
-    versioning.
-
+This document is ready for wider community review, but still contains a
+number of TODOs, and is expected to change and evolve before a first
+official release. See {ref}`future-API-evolution` for proposed
+versioning.
+```
 
 ### History
 
@@ -83,6 +83,8 @@ specification for an array API that could be adopted by each of the existing
 array and tensor libraries. That resulted in this document, describing that
 API.
 
+
+(Scope)=
 
 ## Scope (includes out-of-scope / non-goals)
 
@@ -158,7 +160,7 @@ extensions are dealt with_):
    _Rationale: this is an important topic for some array-consuming libraries,
    but there is no widely shared C/Cython API and hence it doesn't make sense at
    this point in time to standardize anything. See
-   [the C API section](design_topics/C_API.md) for more details._
+   the [C API section](design_topics/C_API.md) for more details._
 
 4. Standardization of these dtypes is out of scope: bfloat16, complex, extended
    precision floating point, datetime, string, object and void dtypes.
@@ -308,15 +310,13 @@ relevant:
 - [Apache Arrow](https://arrow.apache.org/)
 
 
-## High-level API overview
-
-
-
 
 ## How to read this document
 
 For guidance on how to read and understand the type annotations included in this specification, consult the Python [documentation](https://docs.python.org/3/library/typing.html).
 
+
+(how-to-adopt-this-api)=
 
 ## How to adopt this API
 
@@ -332,7 +332,7 @@ namespace (e.g. `import package_name.array_api`). This has two issues though:
 1. Array-consuming libraries that want to support multiple array libraries
    then have to explicitly import each library.
 2. It is difficult to _version_ the array API standard implementation (see
-   :ref:`api-versioning`).
+   {ref}`api-versioning`).
 
 To address both issues, a uniform way must be provided by a conforming
 implementation to access the API namespace, namely a method on the array object:
@@ -348,21 +348,22 @@ request a specific API version:
 xp = x.__array_namespace__(api_version='2020.10')
 ```
 
-.. note::
+```{note}
 
-    This is inspired by [NEP 37](https://numpy.org/neps/nep-0037-array-module.html#how-to-use-get-array-module),
-    however it avoids adding a dependency on NumPy or having to provide a
-    separate package just to do `get_array_module(x)`
+This is inspired by [NEP 37](https://numpy.org/neps/nep-0037-array-module.html#how-to-use-get-array-module),
+however it avoids adding a dependency on NumPy or having to provide a
+separate package just to do `get_array_module(x)`
 
-    NEP 37 is still in flux (it was just accepted by JAX and TensorFlow on an
-    experimental basis), and it's possible that that should be accepted instead.
+NEP 37 is still in flux (it was just accepted by JAX and TensorFlow on an
+experimental basis), and it's possible that that should be accepted instead.
 
-    TBD: a decision must be made on this topic before a first version of the
-    standard can become final. We prefer to delay this decision, to see how
-    NEP 37 adoption will work out.
+TBD: a decision must be made on this topic before a first version of the
+standard can become final. We prefer to delay this decision, to see how
+NEP 37 adoption will work out.
+```
 
 The `xp` namespace must contain the array object and all functionality
-specified in :ref:`api-specification`. It may contain other functionality,
+specified in {ref}`api-specification`. It may contain other functionality,
 however it is recommended not to add other functions or objects, because that
 may make it harder for users to write code that will work with multiple array
 libraries.

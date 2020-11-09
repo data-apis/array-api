@@ -1,3 +1,5 @@
+(Assumptions)=
+
 # Assumptions
 
 ## Hardware and software environments
@@ -18,7 +20,7 @@ made in the API standard. For example, JIT compilers may require output dtypes
 of functions to be predictable from input dtypes only rather than input values.
 
 
-.. _assumptions-dependencies:
+(assumptions-dependencies)=
 
 ## Dependencies
 
@@ -55,8 +57,7 @@ likely unwilling to make significant backwards-incompatible changes for the
 purpose of conforming to this standard. Therefore it is assumed that the
 standard will be made available in a new namespace within each library, or the
 library will provide a way to retrieve a module or module-like object that
-adheres to this standard.  See [How to adopt this API](purpose_and_scope.html#how-to-adopt-this-api)
-for more details.
+adheres to this standard. See {ref}`how-to-adopt-this-api` for more details.
 
 
 ## Production code & interactive use

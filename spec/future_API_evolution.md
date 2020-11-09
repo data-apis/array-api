@@ -1,4 +1,4 @@
-.. _future-API-evolution:
+(future-API-evolution)=
 
 # Future API standard evolution
 
@@ -25,7 +25,7 @@ Any exceptions must have strong rationales, and be clearly documented in the upd
 API specification.
 
 
-.. _api-versioning:
+(api-versioning)=
 
 ## Versioning
 
@@ -44,15 +44,17 @@ No utilities for dealing with version comparisons need to be provided; given
 the format simple string comparisons with Python operators (`=-`, `<`, `>=`,
 etc.) will be enough.
 
-.. note::
+```{note}
 
-    Rationale for the `yyyy.mm` versioning scheme choice:
-    the API will be provided as part of a library, which already has a versioning
-    scheme (typically PEP 440 compliant and in the form `major.minor.bugfix`),
-    and a way to access it via `module.__version__`. The API standard version is
-    completely independent from the package version. Given the standardization
-    process, it resembles a C/C++ versioning scheme (e.g. `C99`, `C++14`) more
-    than Python package versioning.
+Rationale for the `yyyy.mm` versioning scheme choice:
+the API will be provided as part of a library, which already has a versioning
+scheme (typically PEP 440 compliant and in the form `major.minor.bugfix`),
+and a way to access it via `module.__version__`. The API standard version is
+completely independent from the package version. Given the standardization
+process, it resembles a C/C++ versioning scheme (e.g. `C99`, `C++14`) more
+than Python package versioning.
+```
 
 The frequency of releasing a new version of an API standard will likely be at
-regular intervals and on the order of one year, however no assumption on frequency of new versions appearing must be made.
+regular intervals and on the order of one year, however no assumption on
+frequency of new versions appearing must be made.

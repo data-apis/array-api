@@ -1,4 +1,4 @@
-.. _type-promotion:
+(type-promotion)=
 
 # Type Promotion Rules
 
@@ -8,10 +8,11 @@ A conforming implementation of the array API standard must implement the followi
 
 A conforming implementation of the array API standard may support additional type promotion rules beyond those described in this specification.
 
-.. note::
+```{note}
 
-    Type codes are used here to keep tables readable; they are not part of the standard.
-    In code, use the data type objects specified in :ref:`data-types` (e.g., `int16` rather than `'i2'`).
+Type codes are used here to keep tables readable; they are not part of the standard.
+In code, use the data type objects specified in {ref}`data-types` (e.g., `int16` rather than `'i2'`).
+```
 
 ## Rules
 
@@ -76,7 +77,8 @@ A conforming implementation of the array API standard may support additional typ
 -   Non-array ("scalar") operands must not participate in type promotion.
 
 
-.. note::
+```{note}
 
-    Mixed integer and floating-point type promotion rules are not specified
-    because behavior varies between implementations.
+Mixed integer and floating-point type promotion rules are not specified
+because behavior varies between implementations.
+```

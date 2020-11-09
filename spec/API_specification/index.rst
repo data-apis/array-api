@@ -12,7 +12,6 @@ API specification
    indexing
    data_types
    type_promotion
-   casting
    broadcasting
    creation_functions
    manipulation_functions

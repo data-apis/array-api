@@ -1,4 +1,4 @@
-.. _searching-functions:
+(searching-functions)=
 
 # Searching Functions
 
@@ -8,9 +8,11 @@ A conforming implementation of the array API standard must provide and support t
 
 -   Positional parameters must be [positional-only](https://www.python.org/dev/peps/pep-0570/) parameters. Positional-only parameters have no externally-usable name. When a function accepting positional-only parameters is called, positional arguments are mapped to these parameters based solely on their order.
 -   Optional parameters must be [keyword-only](https://www.python.org/dev/peps/pep-3102/) arguments.
--   Broadcasting semantics must follow the semantics defined in :ref:`broadcasting`.
--   Unless stated otherwise, functions must support the data types defined in :ref:`data-types`.
--   Unless stated otherwise, functions must adhere to the type promotion rules defined in :ref:`type-promotion`.
+-   Broadcasting semantics must follow the semantics defined in {ref}`broadcasting`.
+-   Unless stated otherwise, functions must support the data types defined in {ref}`data-types`.
+-   Unless stated otherwise, functions must adhere to the type promotion rules defined in {ref}`type-promotion`.
+
+## Objects in API
 
 <!-- NOTE: please keep the functions in alphabetical order -->
 
@@ -30,7 +32,7 @@ Returns the indices of the maximum values along a specified axis. When the maxim
 
 -   **keepdims**: _bool_
 
-    -   If `True`, the reduced axes (dimensions) must be included in the result as singleton dimensions, and, accordingly, the result must be compatible with the input array (see :ref:`broadcasting`). Otherwise, if `False`, the reduced axes (dimensions) must not be included in the result. Default: `False`.
+    -   If `True`, the reduced axes (dimensions) must be included in the result as singleton dimensions, and, accordingly, the result must be compatible with the input array (see {ref}`broadcasting`). Otherwise, if `False`, the reduced axes (dimensions) must not be included in the result. Default: `False`.
 
 #### Returns
 
@@ -54,7 +56,7 @@ Returns the indices of the minimum values along a specified axis. When the minim
 
 -   **keepdims**: _bool_
 
-    -   If `True`, the reduced axes (dimensions) must be included in the result as singleton dimensions, and, accordingly, the result must be compatible with the input array (see :ref:`broadcasting`). Otherwise, if `False`, the reduced axes (dimensions) must not be included in the result. Default: `False`.
+    -   If `True`, the reduced axes (dimensions) must be included in the result as singleton dimensions, and, accordingly, the result must be compatible with the input array (see {ref}`broadcasting`). Otherwise, if `False`, the reduced axes (dimensions) must not be included in the result. Default: `False`.
 
 #### Returns
 
@@ -86,18 +88,18 @@ Returns elements chosen from `x1` or `x2` depending on `condition`.
 
 -   **condition**: _&lt;array&lt;bool&gt;&gt;_
 
-    -   when `True`, yield `x1_i`; otherwise, yield `x2_i`. Must be compatible with `x1` and `x2` (see :ref:`broadcasting`). 
+    -   when `True`, yield `x1_i`; otherwise, yield `x2_i`. Must be compatible with `x1` and `x2` (see {ref}`broadcasting`). 
 
 -   **x1**: _&lt;array&gt;_
 
-    -   first input array. Must be compatible with `condition` and `x2` (see :ref:`broadcasting`). 
+    -   first input array. Must be compatible with `condition` and `x2` (see {ref}`broadcasting`). 
 
 -   **x2**: _&lt;array&gt;_
 
-    -   second input array. Must be compatible with `condition` and `x1` (see :ref:`broadcasting`). 
+    -   second input array. Must be compatible with `condition` and `x1` (see {ref}`broadcasting`). 
 
 #### Returns
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array with elements from `x1` where `condition` is `True`, and elements from `x2` elsewhere. The returned array must have a data type determined by :ref:`type-promotion` rules.
+    -   an array with elements from `x1` where `condition` is `True`, and elements from `x2` elsewhere. The returned array must have a data type determined by {ref}`type-promotion` rules.
