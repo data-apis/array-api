@@ -136,6 +136,7 @@ A conforming implementation of the array API standard must provide and support a
     -   [`operator.abs(x)`](https://docs.python.org/3/library/operator.html#operator.abs)
     -   [`operator.__abs__(x)`](https://docs.python.org/3/library/operator.html#operator.__abs__)
 
+
 ### In-place operators
 
 As discussed in :ref:`copyview-mutability`, in-place operators need to be
@@ -146,6 +147,27 @@ supported. The following operators must be supported:
 - `*=`, implemented via `__imul__`.
 - `/=`, implemented via `__idiv__`.
 
+
+### Right-hand side dunder methods
+
+All supported operators for which `array <op> scalar` is implemented also need a right-hand
+size dunder method. The following methods must be supported:
+
+- `__radd__`
+- `__rsub__`
+- `__rmul__`
+- `__rdiv__`
+- `__rfloordiv__`
+- `__rtruediv__`
+- `__rpow__`
+- `__rmod__`
+- `__rand__`
+- `__ror__`
+- `__rxor__`
+- `__rlshift__`
+- `__rrshift__`
+
+For the expected numerical behaviour, see their left-hand equivalents.
 
 * * *
 
@@ -732,309 +754,6 @@ Calculates an implementation-dependent approximation of exponentiation by raisin
 
     Element-wise results must equal the results returned by the equivalent element-wise function [`pow(x1, x2)`](elementwise_functions.md#pow).
 
-### <a name="__radd__" href="#__radd__">#</a> \_\_radd\_\_(x1, x2, /)
-
-Calculates the sum for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`. For floating-point arithmetic,
-
-#### Special Cases
-
--   If either `x1_i` or `x2_i` is `NaN`, the result is `NaN`.
--   If `x1_i` is `+infinity` and `x2_i` is `-infinity`, the result is `NaN`.
--   If `x1_i` is `-infinity` and `x2_i` is `+infinity`, the result is `NaN`.
--   If `x1_i` is `+infinity` and `x2_i` is `+infinity`, the result is `+infinity`.
--   If `x1_i` is `-infinity` and `x2_i` is `-infinity`, the result is `-infinity`.
--   If `x1_i` is `+infinity` and `x2_i` is a finite number, the result is `+infinity`.
--   If `x1_i` is `-infinity` and `x2_i` is a finite number, the result is `-infinity`.
--   If `x1_i` is a finite number and `x2_i` is `+infinity`, the result is `+infinity`.
--   If `x1_i` is a finite number and `x2_i` is `-infinity`, the result is `-infinity`.
--   If `x1_i` is `-0` and `x2_i` is `-0`, the result is `-0`.
--   If `x1_i` is `-0` and `x2_i` is `+0`, the result is `+0`.
--   If `x1_i` is `+0` and `x2_i` is `-0`, the result is `+0`.
--   If `x1_i` is `+0` and `x2_i` is `+0`, the result is `+0`.
--   If `x1_i` is either `+0` or `-0` and `x2_i` is a nonzero finite number, the result is `x2_i`.
--   If `x1_i` is a nonzero finite number and `x2_i` is either `+0` or `-0`, the result is `x1_i`.
--   If `x1_i` is a nonzero finite number and `x2_i` is `-x1_i`, the result is `+0`.
--   In the remaining cases, when neither `infinity`, `+0`, `-0`, nor a `NaN` is involved, and the operands have the same mathematical sign or have different magnitudes, the sum must be computed and rounded to the nearest representable value according to IEEE 754-2019 and a supported round mode. If the magnitude is too large to represent, the operation overflows and the result is an `infinity` of appropriate mathematical sign.
-
-.. note::
-
-    Floating-point addition is a commutative operation, but not always associative.
-
-#### Parameters
-
--   **x1**: _&lt;array&gt;_
-
-    -   array instance (addend array).
-
--   **x2**: _&lt;array&gt;_
-
-    -   augend array. Must be compatible with `x1` (see :ref:`broadcasting`).
-
-#### Returns
-
--   **out**: _&lt;array&gt;_
-
-    -   an array containing the element-wise sums. The returned array must have a data type determined by :ref:`type-promotion`.
-
-.. note::
-
-    Element-wise results must equal the results returned by the equivalent element-wise function [`add(x2, x1)`](elementwise_functions.md#add).
-
-### <a name="__rand__" href="#__rand__">#</a> \_\_rand\_\_(x1, x2, /)
-
-Evaluates `x2_i & x1_i` for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`.
-
-#### Parameters
-
--   **x1**: _&lt;array&gt;_
-
-    -   array instance. Must have an integer or boolean data type.
-
--   **x2**: _&lt;array&gt;_
-
-    -   other array. Must be compatible with `x1` (see :ref:`broadcasting`). Must have an integer or boolean data type.
-
-#### Returns
-
--   **out**: _&lt;array&gt;_
-
-    -   an array containing the element-wise results. The returned array must have a data type determined by :ref:`type-promotion`.
-
-.. note::
-
-    Element-wise results must equal the results returned by the equivalent element-wise function [`bitwise_and(x2, x1)`](elementwise_functions.md#bitwise_and).
-
-### <a name="__rfloordiv__" href="#__rfloordiv__">#</a> \_\_rfloordiv\_\_(x1, x2, /)
-
-Evaluates `x2_i // x1_i` for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`.
-
-#### Parameters
-
--   **x1**: _&lt;array&gt;_
-
-    -   array instance.
-
--   **x2**: _&lt;array&gt;_
-
-    -   other array. Must be compatible with `x1` (see :ref:`broadcasting`).
-
-#### Returns
-
--   **out**: _&lt;array&gt;_
-
-    -   an array containing the element-wise results. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
-
-.. note::
-
-    Element-wise results must equal the results returned by the equivalent element-wise function [`floor_divide(x2, x1)`](elementwise_functions.md#floor_divide).
-
-### <a name="__rlshift__" href="#__rlshift__">#</a> \_\_rlshift\_\_(x1, x2, /)
-
-Evaluates `x2_i << x1_i` for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`.
-
-#### Parameters
-
--   **x1**: _&lt;array&gt;_
-
-    -   array instance. Must have an integer data type. Each element must be greater than or equal to `0`.
-
--   **x2**: _&lt;array&gt;_
-
-    -   other array. Must be compatible with `x1` (see :ref:`broadcasting`). Must have an integer data type.
-
-#### Returns
-
--   **out**: _&lt;array&gt;_
-
-    -   an array containing the element-wise results. The returned array must have the same data type as `x2`.
-
-.. note::
-
-    Element-wise results must equal the results returned by the equivalent element-wise function [`bitwise_left_shift(x2, x1)`](elementwise_functions.md#bitwise_left_shift).
-
-### <a name="__rmatmul__" href="#__rmatmul__">#</a> \_\_rmatmul\_\_(x1, x2, /)
-
-_TODO: awaiting `matmul` functional equivalent._
-
-#### Parameters
-
--   **x1**: _&lt;array&gt;_
-
-    -   array instance.
-
--   **x2**: _&lt;array&gt;_
-
-    -   other array. Must be compatible with `x1` (see :ref:`broadcasting`).
-
-#### Returns
-
--   **out**: _&lt;array&gt;_
-
-    -   _TODO_
-
-### <a name="__rmod__" href="#__rmod__">#</a> \_\_rmod\_\_(x1, x2, /)
-
-Evaluates `x2_i % x1_i` for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`.
-
-#### Parameters
-
--   **x1**: _&lt;array&gt;_
-
-    -   array instance.
-
--   **x2**: _&lt;array&gt;_
-
-    -   other array. Must be compatible with `x1` (see :ref:`broadcasting`).
-
-#### Returns
-
--   **out**: _&lt;array&gt;_
-
-    -   an array containing the element-wise results. Each element-wise result must have the same sign as the respective element `x1_i`. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
-
-.. note::
-
-    Element-wise results must equal the results returned by the equivalent element-wise function [`remainder(x2, x1)`](elementwise_functions.md#remainder).
-
-### <a name="__rmul__" href="#__rmul__">#</a> \_\_rmul\_\_(x1, x2, /)
-
-Calculates the product for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`. For floating-point arithmetic,
-
-#### Special Cases
-
--   If either `x1_i` or `x2_i` is `NaN`, the result is `NaN`.
--   If `x1_i` and `x2_i` have the same mathematical sign, the result has a positive mathematical sign.
--   If `x1_i` and `x2_i` have different mathematical signs, the result has a negative mathematical sign.
--   If `x1_i` is either `+infinity` or `-infinity` and `x2_i` is either `+0` or `-0`, the result is `NaN`.
--   If `x1_i` is either `+0` or `-0` and `x2_i` is either `+infinity` or `-infinity`, the result is `NaN`.
--   If `x1_i` is either `+infinity` or `-infinity` and `x2_i` is either `+infinity` or `-infinity`, the result is a signed infinity with the mathematical sign determined by the rule already stated above.
--   If `x1_i` is either `+infinity` or `-infinity` and `x2_i` is a nonzero finite number, the result is a signed infinity with the mathematical sign determined by the rule already stated above.
--   If `x1_i` is a nonzero finite number and `x2_i` is either `+infinity` or `-infinity`, the result is a signed infinity with the mathematical sign determined by the rule already stated above.
--   In the remaining cases, where neither `infinity` nor `NaN` is involved, the product must be computed and rounded to the nearest representable value according to IEEE 754-2019 and a supported rounding mode. If the magnitude is too large to represent, the result is an `infinity` of appropriate mathematical sign. If the magnitude is too small to represent, the result is a zero of appropriate mathematical sign.
-
-.. note::
-
-    Floating-point multiplication is not always associative due to finite precision.
-
-#### Parameters
-
--   **x1**: _&lt;array&gt;_
-
-    -   array instance.
-
--   **x2**: _&lt;array&gt;_
-
-    -   other array. Must be compatible with `x1` (see :ref:`broadcasting`).
-
-#### Returns
-
--   **out**: _&lt;array&gt;_
-
-    -   an array containing the element-wise products. The returned array must have a data type determined by :ref:`type-promotion`.
-
-.. note::
-
-    Element-wise results must equal the results returned by the equivalent element-wise function [`multiply(x2, x1)`](elementwise_functions.md#multiply).
-
-### <a name="__ror__" href="#__ror__">#</a> \_\_ror\_\_(x1, x2, /)
-
-Evaluates `x2_i | x1_i` for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`.
-
-#### Parameters
-
--   **x1**: _&lt;array&gt;_
-
-    -   array instance. Must have an integer or boolean data type.
-
--   **x2**: _&lt;array&gt;_
-
-    -   other array. Must be compatible with `x1` (see :ref:`broadcasting`). Must have an integer or boolean data type.
-
-#### Returns
-
--   **out**: _&lt;array&gt;_
-
-    -   an array containing the element-wise results. The returned array must have a data type determined by :ref:`type-promotion`.
-
-.. note::
-
-    Element-wise results must equal the results returned by the equivalent element-wise function [`bitwise_or(x2, x1)`](elementwise_functions.md#bitwise_or).
-
-### <a name="__rpow__" href="#__rpow__">#</a> \_\_rpow\_\_(x1, x2, /)
-
-Calculates an implementation-dependent approximation of exponentiation by raising each element `x2_i` (the base) of an array `x2` to the power of `x1_i` (the exponent), where `x1_i` is the corresponding element of the array instance `x1`.
-
-#### Special Cases
-
--   If `x2_i` is not equal to `1` and `x1_i` is `NaN`, the result is `NaN`.
--   If `x1_i` is `+0`, the result is `1`, even if `x2_i` is `NaN`.
--   If `x1_i` is `-0`, the result is `1`, even if `x2_i` is `NaN`.
--   If `x2_i` is `NaN` and `x1_i` is not equal to `0`, the result is `NaN`.
--   If `abs(x2_i)` is greater than `1` and `x1_i` is `+infinity`, the result is `+infinity`.
--   If `abs(x2_i)` is greater than `1` and `x1_i` is `-infinity`, the result is `+0`.
--   If `abs(x2_i)` is `1` and `x1_i` is `+infinity`, the result is `1`.
--   If `abs(x2_i)` is `1` and `x1_i` is `-infinity`, the result is `1`.
--   If `x2_i` is `1` and `x1_i` is not `NaN`, the result is `1`.
--   If `abs(x2_i)` is less than `1` and `x1_i` is `+infinity`, the result is `+0`.
--   If `abs(x2_i)` is less than `1` and `x1_i` is `-infinity`, the result is `+infinity`.
--   If `x2_i` is `+infinity` and `x1_i` is greater than `0`, the result is `+infinity`.
--   If `x2_i` is `+infinity` and `x1_i` is less than `0`, the result is `+0`.
--   If `x2_i` is `-infinity` and `x1_i` is greater than `0`, the result is `-infinity`.
--   If `x2_i` is `-infinity`, `x1_i` is greater than `0`, and `x1_i` is not an odd integer value, the result is `+infinity`.
--   If `x2_i` is `-infinity`, `x1_i` is less than `0`, and `x1_i` is an odd integer value, the result is `-0`.
--   If `x2_i` is `-infinity`, `x1_i` is less than `0`, and `x1_i` is not an odd integer value, the result is `+0`.
--   If `x2_i` is `+0` and `x1_i` is greater than `0`, the result is `+0`.
--   If `x2_i` is `+0` and `x1_i` is less than `0`, the result is `+infinity`.
--   If `x2_i` is `-0`, `x1_i` is greater than `0`, and `x1_i` is an odd integer value, the result is `-0`.
--   If `x2_i` is `-0`, `x1_i` is greater than `0`, and `x1_i` is not an odd integer value, the result is `+0`.
--   If `x2_i` is `-0`, `x1_i` is less than `0`, and `x1_i` is an odd integer value, the result is `-infinity`.
--   If `x2_i` is `-0`, `x1_i` is less than `0`, and `x1_i` is not an odd integer value, the result is `+infinity`.
--   If `x2_i` is less than `0`, `x2_i` is a finite number, `x1_i` is a finite number, and `x1_i` is not an integer value, the result is `NaN`.
-
-#### Parameters
-
--   **x1**: _&lt;array&gt;_
-
-    -   array instance whose elements correspond to the exponentiation exponent.
-
--   **x2**: _&lt;array&gt;_
-
-    -   other array whose elements correspond to the exponentiation base. Must be compatible with `x1` (see :ref:`broadcasting`).
-
-#### Returns
-
--   **out**: _&lt;array&gt;_
-
-    -   an array containing the element-wise results. The returned array must have a data type determined by :ref:`type-promotion`.
-
-.. note::
-
-    Element-wise results must equal the results returned by the equivalent element-wise function [`pow(x2, x1)`](elementwise_functions#pow).
-
-### <a name="__rrshift__" href="#__rrshift__">#</a> \_\_rrshift\_\_(x1, x2, /)
-
-Evaluates `x2_i >> x1_i` for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`.
-
-#### Parameters
-
--   **x1**: _&lt;array&gt;_
-
-    -   array instance. Must have an integer data type. Each element must be greater than or equal to `0`.
-
--   **x2**: _&lt;array&gt;_
-
-    -   other array. Must be compatible with `x1` (see :ref:`broadcasting`). Must have an integer data type.
-
-#### Returns
-
--   **out**: _&lt;array&gt;_
-
-    -   an array containing the element-wise results. The returned array must have the same data type as `x2`.
-
-.. note::
-
-    Element-wise results must equal the results returned by the equivalent element-wise function [`bitwise_right_shift(x2, x1)`](elementwise_functions.md#bitwise_right_shift).
-
 ### <a name="__rshift__" href="#__rshift__">#</a> \_\_rshift\_\_(x1, x2, /)
 
 Evaluates `x1_i >> x2_i` for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`.
@@ -1058,103 +777,6 @@ Evaluates `x1_i >> x2_i` for each element `x1_i` of an array instance `x1` with 
 .. note::
 
     Element-wise results must equal the results returned by the equivalent element-wise function [`bitwise_right_shift(x1, x2)`](elementwise_functions.md#bitwise_right_shift).
-
-### <a name="__rsub__" href="#__rsub__">#</a> \_\_rsub\_\_(x1, x2, /)
-
-Calculates the difference for each element `x2_i` of an array `x2` with the respective element `x1_i` of the array instance `x1`. The result of `x2_i - x1_i` must be the same as `x2_i + (-x1_i)` and is thus governed by the same floating-point rules as addition (see [`__radd__()`](#__radd__)).
-
-#### Parameters
-
--   **x1**: _&lt;array&gt;_
-
-    -   array instance (subtrahend array).
-
--   **x2**: _&lt;array&gt;_
-
-    -   minuend array. Must be compatible with `x1` (see :ref:`broadcasting`).
-
-#### Returns
-
--   **out**: _&lt;array&gt;_
-
-    -   an array containing the element-wise differences. The returned array must have a data type determined by :ref:`type-promotion`.
-
-.. note::
-
-    Element-wise results must equal the results returned by the equivalent element-wise function [`subtract(x2, x1)`](elementwise_functions.md#subtract).
-
-### <a name="__rtruediv__" href="#__rtruediv__">#</a> \_\_rtruediv\_\_(x1, x2, /)
-
-Evaluates `x2_i / x1_i` for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`. For floating-point arithmetic,
-
-#### Special Cases
-
--   If either `x1_i` or `x2_i` is `NaN`, the result is `NaN`.
--   If `x1_i` is either `+infinity` or `-infinity` and `x2_i` is either `+infinity` or `-infinity`, the result is `NaN`.
--   If `x1_i` is either `+0` or `-0` and `x2_i` is either `+0` or `-0`, the result is `NaN`.
--   If `x2_i` is `+0` and `x1_i` is greater than `0`, the result is `+0`.
--   If `x2_i` is `-0` and `x1_i` is greater than `0`, the result `-0`.
--   If `x2_i` is `+0` and `x1_i` is less than `0`, the result is `-0`.
--   If `x2_i` is `-0` and `x1_i` is less than `0`, the result is `+0`.
--   If `x2_i` is greater than `0` and `x1_i` is `+0`, the result is `+infinity`.
--   If `x2_i` is greater than `0` and `x1_i` is `-0`, the result is `-infinity`.
--   If `x2_i` is less than `0` and `x1_i` is `+0`, the result is `-infinity`.
--   If `x2_i` is less than `0` and `x1_i` is `-0`, the result is `+infinity`.
--   If `x2_i` is `+infinity` and `x1_i` is a positive (i.e., greater than `0`) finite number, the result is `+infinity`.
--   If `x2_i` is `+infinity` and `x1_i` is a negative (i.e., less than `0`) finite number, the result is `-infinity`.
--   If `x2_i` is `-infinity` and `x1_i` is a positive (i.e., greater than `0`) finite number, the result is `-infinity`.
--   If `x2_i` is `-infinity` and `x1_i` is a negative (i.e., less than `0`) finite number, the result is `+infinity`.
--   If `x2_i` is a positive (i.e., greater than `0`) finite number and `x1_i` is `+infinity`, the result is `+0`.
--   If `x2_i` is a positive (i.e., greater than `0`) finite number and `x1_i` is `-infinity`, the result is `-0`.
--   If `x2_i` is a negative (i.e., less than `0`) finite number and `x1_i` is `+infinity`, the result is `-0`.
--   If `x2_i` is a negative (i.e., less than `0`) finite number and `x1_i` is `-infinity`, the result is `+0`.
--   If `x1_i` and `x2_i` have the same mathematical sign and are both nonzero finite numbers, the result has a positive mathematical sign.
--   If `x1_i` and `x2_i` have different mathematical signs and are both nonzero finite numbers, the result has a negative mathematical sign.
--   In the remaining cases, where neither `-infinity`, `+0`, `-0`, nor `NaN` is involved, the quotient must be computed and rounded to the nearest representable value according to IEEE 754-2019 and a supported rounding mode. If the magnitude is too larger to represent, the operation overflows and the result is an `infinity` of appropriate mathematical sign. If the magnitude is too small to represent, the operation underflows and the result is a zero of appropriate mathematical sign.
-
-#### Parameters
-
--   **x1**: _&lt;array&gt;_
-
-    -   array instance (divisor).
-
--   **x2**: _&lt;array&gt;_
-
-    -   dividend array. Must be compatible with `x1` (see :ref:`broadcasting`).
-
-#### Returns
-
--   **out**: _&lt;array&gt;_
-
-    -   an array containing the element-wise results. The returned array must have a data type determined by :ref:`type-promotion`.
-
-.. note::
-
-    Element-wise results must equal the results returned by the equivalent element-wise function [`divide(x2, x1)`](elementwise_functions.md#divide).
-
-### <a name="__rxor__" href="#__rxor__">#</a> \_\_rxor\_\_(x1, x2, /)
-
-Evaluates `x2_i ^ x1_i` for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`.
-
-#### Parameters
-
--   **x1**: _&lt;array&gt;_
-
-    -   array instance. Must have an integer or boolean data type.
-
--   **x2**: _&lt;array&gt;_
-
-    -   other array. Must be compatible with `x1` (see :ref:`broadcasting`). Must have an integer or boolean data type.
-
-#### Returns
-
--   **out**: _&lt;array&gt;_
-
-    -   an array containing the element-wise results. The returned array must have a data type determined by :ref:`type-promotion`.
-
-.. note::
-
-    Element-wise results must equal the results returned by the equivalent element-wise function [`bitwise_xor(x2, x1)`](elementwise_functions.md#bitwise_xor).
 
 ### <a name="__setitem__" href="#__setitem__">#</a> \_\_setitem\_\_(x, key, value, /)
 
