@@ -146,6 +146,15 @@ supported. The following operators must be supported:
 - `-=`, implemented via `__isub__`.
 - `*=`, implemented via `__imul__`.
 - `/=`, implemented via `__idiv__`.
+- `//=`, implemented via `__ifloordiv__`.
+- `**=`, implemented via `__ipow__`.
+- `@=`, implemented via `__imatmul__`.
+- `%=`, implemented via `__imod__`.
+- `&=`, implemented via `__iand__`.
+- `|=`, implemented via `__ior__`.
+- `^=`, implemented via `__ixor__`.
+- `<<=`, implemented via `__ilshift__`.
+- `>>=`, implemented via `__irshift__`.
 
 
 ### Right-hand side dunder methods
