@@ -15,6 +15,8 @@ A conforming implementation of the array API standard must provide and support a
 
 * * *
 
+(operators)=
+
 ## Operators
 
 A conforming implementation of the array API standard must provide and support an array object supporting the following Python operators:
