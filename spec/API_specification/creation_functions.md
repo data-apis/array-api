@@ -8,10 +8,10 @@ A conforming implementation of the array API standard must provide and support t
 -   Optional parameters must be [keyword-only](https://www.python.org/dev/peps/pep-3102/) arguments.
 
 ## Objects in API
- 
+
 <!-- NOTE: please keep the functions in alphabetical order -->
 
-### <a name="arange" href="#arange">#</a> arange(start, /, *, stop=None, step=1, dtype=None)
+### arange(start, /, *, stop=None, step=1, dtype=None)
 
 Returns evenly spaced values within the half-open interval `[start, stop)` as a one-dimensional array.
 
@@ -34,7 +34,7 @@ This function cannot guarantee that the interval does not include the `stop` val
 
     -   the distance between two adjacent elements (`out[i+1] - out[i]`). Default: `1`.
 
--   **dtype**: _Optional\[ &lt;dtype&gt; ]_ 
+-   **dtype**: _Optional\[ &lt;dtype&gt; ]_
 
     -   output array data type. If `dtype` is `None`, the output array data type must be the default floating-point data type. Default: `None`.
 
@@ -44,7 +44,7 @@ This function cannot guarantee that the interval does not include the `stop` val
 
     -   a one-dimensional array containing evenly spaced values. The length of the output array must be `ceil((stop-start)/step)`.
 
-### <a name="empty" href="#empty">#</a> empty(shape, /, *, dtype=None)
+### empty(shape, /, *, dtype=None)
 
 Returns an uninitialized array having a specified `shape`.
 
@@ -54,7 +54,7 @@ Returns an uninitialized array having a specified `shape`.
 
     -   output array shape.
 
--   **dtype**: _Optional\[ &lt;dtype&gt; ]_ 
+-   **dtype**: _Optional\[ &lt;dtype&gt; ]_
 
     -   output array data type. If `dtype` is `None`, the output array data type must be the default floating-point data type. Default: `None`.
 
@@ -64,7 +64,7 @@ Returns an uninitialized array having a specified `shape`.
 
     -   an array containing uninitialized data.
 
-### <a name="empty_like" href="#empty_like">#</a> empty_like(x, /, *, dtype=None)
+### empty_like(x, /, *, dtype=None)
 
 Returns an uninitialized array with the same `shape` as an input array `x`.
 
@@ -74,7 +74,7 @@ Returns an uninitialized array with the same `shape` as an input array `x`.
 
     -   input array from which to derive the output array shape.
 
--   **dtype**: _Optional\[ &lt;dtype&gt; ]_ 
+-   **dtype**: _Optional\[ &lt;dtype&gt; ]_
 
     -   output array data type. If `dtype` is `None`, the output array data type must be inferred from `x`. Default: `None`.
 
@@ -84,7 +84,7 @@ Returns an uninitialized array with the same `shape` as an input array `x`.
 
     -   an array having the same shape as `x` and containing uninitialized data.
 
-### <a name="eye" href="#eye">#</a> eye(N, /, *, M=None, k=0, dtype=None)
+### eye(N, /, *, M=None, k=0, dtype=None)
 
 Returns a two-dimensional array with ones on the `k`th diagonal and zeros elsewhere.
 
@@ -102,7 +102,7 @@ Returns a two-dimensional array with ones on the `k`th diagonal and zeros elsewh
 
     -   index of the diagonal. A positive value refers to an upper diagonal, a negative value to a lower diagonal, and `0` to the main diagonal. Default: `0`.
 
--   **dtype**: _Optional\[ &lt;dtype&gt; ]_ 
+-   **dtype**: _Optional\[ &lt;dtype&gt; ]_
 
     -   output array data type. If `dtype` is `None`, the output array data type must be the default floating-point data type. Default: `None`.
 
@@ -112,7 +112,7 @@ Returns a two-dimensional array with ones on the `k`th diagonal and zeros elsewh
 
     -   an array where all elements are equal to zero, except for the `k`th diagonal, whose values are equal to one.
 
-### <a name="full" href="#full">#</a> full(shape, fill_value, /, *, dtype=None)
+### full(shape, fill_value, /, *, dtype=None)
 
 Returns a new array having a specified `shape` and filled with `fill_value`.
 
@@ -126,7 +126,7 @@ Returns a new array having a specified `shape` and filled with `fill_value`.
 
     -   fill value.
 
--   **dtype**: _Optional\[ &lt;dtype&gt; ]_ 
+-   **dtype**: _Optional\[ &lt;dtype&gt; ]_
 
     -   output array data type. If `dtype` is `None`, the output array data type must be the default floating-point data type. Default: `None`.
 
@@ -136,7 +136,7 @@ Returns a new array having a specified `shape` and filled with `fill_value`.
 
     -   an array where every element is equal to `fill_value`.
 
-### <a name="full_like" href="#full_like">#</a> full_like(x, fill_value, /, *, dtype=None)
+### full_like(x, fill_value, /, *, dtype=None)
 
 Returns a new array filled with `fill_value` and having the same `shape` as an input array `x`.
 
@@ -150,7 +150,7 @@ Returns a new array filled with `fill_value` and having the same `shape` as an i
 
     -   fill value.
 
--   **dtype**: _Optional\[ &lt;dtype&gt; ]_ 
+-   **dtype**: _Optional\[ &lt;dtype&gt; ]_
 
     -   output array data type. If `dtype` is `None`, the output array data type must be inferred from `x`. Default: `None`.
 
@@ -160,7 +160,7 @@ Returns a new array filled with `fill_value` and having the same `shape` as an i
 
     -   an array having the same shape as `x` and where every element is equal to `fill_value`.
 
-### <a name="linspace" href="#linspace">#</a> linspace(start, stop, num, /, *, dtype=None, endpoint=True)
+### linspace(start, stop, num, /, *, dtype=None, endpoint=True)
 
 Returns evenly spaced numbers over a specified interval.
 
@@ -173,14 +173,14 @@ Returns evenly spaced numbers over a specified interval.
 -   **stop**: _Union\[ int, float ]_
 
     -   the end of the interval. If `endpoint` is `False`, the function must generate a sequence of `num+1` evenly spaced numbers starting with `start` and ending with `stop` and exclude the `stop` from the returned array such that the returned array consists of evenly spaced numbers over the half-open interval `[start, stop)`. If `endpoint` is `True`, the output array must consist of evenly spaced numbers over the closed interval `[start, stop]`. Default: `True`.
-       
+
         _Note: that the step size changes when `endpoint` is `False`._
 
 -   **num**: _int_
 
     -   number of samples. Must be a non-negative integer value; otherwise, the function must raise an exception.
 
--   **dtype**: _Optional\[ &lt;dtype&gt; ]_ 
+-   **dtype**: _Optional\[ &lt;dtype&gt; ]_
 
     -   output array data type. If `dtype` is `None`, the output array data type must be the default floating-point data type. Default: `None`.
 
@@ -194,7 +194,7 @@ Returns evenly spaced numbers over a specified interval.
 
     -   a one-dimensional array containing evenly spaced values.
 
-### <a name="ones" href="#ones">#</a> ones(shape, /, *, dtype=None)
+### ones(shape, /, *, dtype=None)
 
 Returns a new array having a specified `shape` and filled with ones.
 
@@ -204,7 +204,7 @@ Returns a new array having a specified `shape` and filled with ones.
 
     -   output array shape.
 
--   **dtype**: _Optional\[ &lt;dtype&gt; ]_ 
+-   **dtype**: _Optional\[ &lt;dtype&gt; ]_
 
     -   output array data type. If `dtype` is `None`, the output array data type must be the default floating-point data type. Default: `None`.
 
@@ -214,7 +214,7 @@ Returns a new array having a specified `shape` and filled with ones.
 
     -   an array containing ones.
 
-### <a name="ones_like" href="#ones_like">#</a> ones_like(x, /, *, dtype=None)
+### ones_like(x, /, *, dtype=None)
 
 Returns a new array filled with ones and having the same `shape` as an input array `x`.
 
@@ -224,7 +224,7 @@ Returns a new array filled with ones and having the same `shape` as an input arr
 
     -   input array from which to derive the output array shape.
 
--   **dtype**: _Optional\[ &lt;dtype&gt; ]_ 
+-   **dtype**: _Optional\[ &lt;dtype&gt; ]_
 
     -   output array data type. If `dtype` is `None`, the output array data type must be inferred from `x`. Default: `None`.
 
@@ -234,7 +234,7 @@ Returns a new array filled with ones and having the same `shape` as an input arr
 
     -   an array having the same shape as `x` and filled with ones.
 
-### <a name="zeros" href="#zeros">#</a> zeros(shape, /, *, dtype=None)
+### zeros(shape, /, *, dtype=None)
 
 Returns a new array having a specified `shape` and filled with zeros.
 
@@ -244,7 +244,7 @@ Returns a new array having a specified `shape` and filled with zeros.
 
     -   output array shape.
 
--   **dtype**: _Optional\[ &lt;dtype&gt; ]_ 
+-   **dtype**: _Optional\[ &lt;dtype&gt; ]_
 
     -   output array data type. If `dtype` is `None`, the output array data type must be the default floating-point data type. Default: `None`.
 
@@ -254,7 +254,7 @@ Returns a new array having a specified `shape` and filled with zeros.
 
     -   an array containing zeros.
 
-### <a name="zeros_like" href="#zeros_like">#</a> zeros_like(x, /, *, dtype=None)
+### zeros_like(x, /, *, dtype=None)
 
 Returns a new array filled with zeros and having the same `shape` as an input array `x`.
 
@@ -264,7 +264,7 @@ Returns a new array filled with zeros and having the same `shape` as an input ar
 
     -   input array from which to derive the output array shape.
 
--   **dtype**: _Optional\[ &lt;dtype&gt; ]_ 
+-   **dtype**: _Optional\[ &lt;dtype&gt; ]_
 
     -   output array data type. If `dtype` is `None`, the output array data type must be inferred from `x`. Default: `None`.
 

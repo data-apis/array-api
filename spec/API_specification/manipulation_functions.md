@@ -12,7 +12,7 @@ A conforming implementation of the array API standard must provide and support t
 
 <!-- NOTE: please keep the functions in alphabetical order -->
 
-### <a name="concat" href="#concat">#</a> concat(arrays, /, *, axis=0)
+### concat(arrays, /, *, axis=0)
 
 Joins a sequence of arrays along an existing axis.
 
@@ -22,7 +22,7 @@ Joins a sequence of arrays along an existing axis.
 
     -   input arrays to join. The arrays must have the same shape, except in the dimension specified by `axis`.
 
--   **axis**: _Optional\[ int ]_ 
+-   **axis**: _Optional\[ int ]_
 
     -   axis along which the arrays will be joined. If `axis` is `None`, arrays must be flattened before concatenation. If `axis` is negative, the function must determine the axis along which to join by counting from the last dimension. Default: `0`.
 
@@ -37,7 +37,7 @@ Joins a sequence of arrays along an existing axis.
         This specification leaves type promotion between data type families (i.e., `intxx` and `floatxx`) unspecified.
         ```
 
-### <a name="expand_dims" href="#expand_dims">#</a> expand_dims(x, axis, /)
+### expand_dims(x, axis, /)
 
 Expands the shape of an array by inserting a new axis (dimension) of size one at the position specified by `axis`.
 
@@ -47,7 +47,7 @@ Expands the shape of an array by inserting a new axis (dimension) of size one at
 
     -   input array.
 
--   **axis**: _int_ 
+-   **axis**: _int_
 
     -   axis position. Must follow Python's indexing rules: zero-based and negative indices must be counted backward from the last dimension. If `x` has rank `N`, a valid `axis` must reside on the interval `[-N-1, N+1]`. An `IndexError` exception must be raised if provided an invalid `axis` position.
 
@@ -57,7 +57,7 @@ Expands the shape of an array by inserting a new axis (dimension) of size one at
 
     -   an expanded output array having the same data type and shape as `x`.
 
-### <a name="flip" href="#flip">#</a> flip(x, /, *, axis=None)
+### flip(x, /, *, axis=None)
 
 Reverses the order of elements in an array along the given axis. The shape of the array must be preserved.
 
@@ -67,7 +67,7 @@ Reverses the order of elements in an array along the given axis. The shape of th
 
     -   input array.
 
--   **axis**: _Optional\[ Union\[ int, Tuple\[ int, ... ] ] ]_ 
+-   **axis**: _Optional\[ Union\[ int, Tuple\[ int, ... ] ] ]_
 
     -   axis (or axes) along which to flip. If `axis` is `None`, the function must flip all input array axes. If `axis` is negative, the function must count from the last dimension. If provided more than one axis, the function must flip only the specified axes. Default: `None`.
 
@@ -77,7 +77,7 @@ Reverses the order of elements in an array along the given axis. The shape of th
 
     -   an output array having the same data type and shape as `x` and whose elements, relative to `x`, are reordered.
 
-### <a name="reshape" href="#reshape">#</a> reshape(x, shape, /)
+### reshape(x, shape, /)
 
 Reshapes an array without changing its data.
 
@@ -87,7 +87,7 @@ Reshapes an array without changing its data.
 
     -   input array to reshape.
 
--   **shape**: _Tuple\[ int, ... ]_ 
+-   **shape**: _Tuple\[ int, ... ]_
 
     -   a new shape compatible with the original shape. One shape dimension is allowed to be `-1`. When a shape dimension is `-1`, the corresponding output array shape dimension must be inferred from the length of the array and the remaining dimensions.
 
@@ -97,7 +97,7 @@ Reshapes an array without changing its data.
 
     -   an output array having the same data type, elements, and underlying element order as `x`.
 
-### <a name="roll" href="#roll">#</a> roll(x, shift, /, *, axis=None)
+### roll(x, shift, /, *, axis=None)
 
 Rolls array elements along a specified axis. Array elements that roll beyond the last position are re-introduced at the first position. Array elements that roll beyond the first position are re-introduced at the last position.
 
@@ -111,7 +111,7 @@ Rolls array elements along a specified axis. Array elements that roll beyond the
 
     -   number of places by which the elements are shifted. If `shift` is a tuple, then `axis` must be a tuple of the same size, and each of the given axes must be shifted by the corresponding element in `shift`. If `shift` is an `int` and `axis` a tuple, then the same `shift` is used for all specified axes. If a shift is positive, then array elements are shifted positively (toward larger indices) along the dimension of `axis`. If a shift is negative, then array elements are shifted negatively (toward smaller indices) along the dimension of `axis`.
 
--   **axis**: _Optional\[ Union\[ int, Tuple\[ int, ... ] ] ]_ 
+-   **axis**: _Optional\[ Union\[ int, Tuple\[ int, ... ] ] ]_
 
     -   axis (or axes) along which elements to shift. If `axis` is `None`, the array is flattened, shifted, and then restored to its original shape. Default: `None`.
 
@@ -121,7 +121,7 @@ Rolls array elements along a specified axis. Array elements that roll beyond the
 
     -   an output array having the same data type as `x` and whose elements, relative to `x`, are shifted.
 
-### <a name="squeeze" href="#squeeze">#</a> squeeze(x, /, *, axis=None)
+### squeeze(x, /, *, axis=None)
 
 Removes singleton dimensions (axes) from `x`.
 
@@ -131,7 +131,7 @@ Removes singleton dimensions (axes) from `x`.
 
     -   input array.
 
--   **axis**: _Optional\[ Union\[ int, Tuple\[ int, ... ] ] ]_ 
+-   **axis**: _Optional\[ Union\[ int, Tuple\[ int, ... ] ] ]_
 
     -   axis (or axes) to squeeze. If provided, only the specified axes must be squeezed. If `axis` is `None`, all singleton dimensions (axes) must be removed. If a specified axis has a size greater than one, the specified axis must be left unchanged. Default: `None`.
 
@@ -141,7 +141,7 @@ Removes singleton dimensions (axes) from `x`.
 
     -   an output array having the same data type and elements as `x`.
 
-### <a name="stack" href="#stack">#</a> stack(arrays, /, *, axis=0)
+### stack(arrays, /, *, axis=0)
 
 Joins a sequence of arrays along a new axis.
 
@@ -151,7 +151,7 @@ Joins a sequence of arrays along a new axis.
 
     -   input arrays to join. Each array must have the same shape.
 
--   **axis**: _Optional\[ int ]_ 
+-   **axis**: _Optional\[ int ]_
 
     -   axis along which the arrays will be joined. Providing an `axis` specifies the index of the new axis in the dimensions of the result. For example, if `axis` is `0`, the new axis will be the first dimension and the output array will have shape `(N, A, B, C)`; if `axis` is `1`, the new axis will be the second dimension and the output array will have shape `(A, N, B, C)`; and, if `axis` is `-1`, the new axis will be the last dimension and the output array will have shape `(A, B, C, N)`. A valid `axis` must be on the interval `[-N, N)`, where `N` is the rank (number of dimensions) of `x`. If provided an `axis` outside of the required interval, the function must raise an exception. Default: `0`.
 

@@ -20,7 +20,7 @@ A conforming implementation of the array API standard must provide and support a
 A conforming implementation of the array API standard must provide and support an array object supporting the following Python operators:
 
 -   `x1 < x2`: [`__lt__(x1, x2)`](#__lt__x1-x2-)
-    
+
     -   [`operator.lt(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.lt)
     -   [`operator.__lt__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__lt__)
 
@@ -30,7 +30,7 @@ A conforming implementation of the array API standard must provide and support a
     -   [`operator.__le__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__le__)
 
 -   `x1 > x2`: [`__gt__(x1, x2)`](#__gt__x1-x2-)
-    
+
     -   [`operator.gt(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.gt)
     -   [`operator.__gt__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__gt__)
 
@@ -179,7 +179,7 @@ For the expected numerical behaviour, see their left-hand equivalents.
 
 <!-- NOTE: please keep the attributes in alphabetical order -->
 
-### <a name="dtype" href="#dtype">#</a> dtype
+### dtype
 
 Data type of the array elements.
 
@@ -189,7 +189,7 @@ Data type of the array elements.
 
     -   array data type.
 
-### <a name="ndim" href="#ndim">#</a> ndim
+### ndim
 
 Number of array dimensions (axes).
 
@@ -201,7 +201,7 @@ Number of array dimensions (axes).
 
 _TODO: need to more carefully consider this in order to accommodate, e.g., graph tensors where the number of dimensions may be dynamic._
 
-### <a name="shape" href="#shape">#</a> shape
+### shape
 
 Array dimensions.
 
@@ -213,7 +213,7 @@ Array dimensions.
 
 _TODO: need to more carefully consider this in order to accommodate, e.g., graph tensors where a shape may be dynamic._
 
-### <a name="size" href="#size">#</a> size
+### size
 
 Number of elements in an array. This should equal the product of the array's dimensions.
 
@@ -225,7 +225,7 @@ Number of elements in an array. This should equal the product of the array's dim
 
 _TODO: need to more carefully consider this in order to accommodate, e.g., graph tensors where the number of elements may be dynamic._
 
-### <a name="T" href="#T">#</a> T
+### T
 
 Transpose of the array.
 
@@ -490,7 +490,7 @@ Computes the truth value of `x1_i <= x2_i` for each element `x1_i` of an array i
 
 ```{note}
 
-Element-wise results must equal the results returned by the equivalent element-wise function [`less_equal(x1, x2)`](elementwise_functions.md#less_equalx1-x2-). 
+Element-wise results must equal the results returned by the equivalent element-wise function [`less_equal(x1, x2)`](elementwise_functions.md#less_equalx1-x2-).
 ```
 
 ### \_\_len\_\_(x, /)

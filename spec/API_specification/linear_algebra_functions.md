@@ -15,11 +15,11 @@ A conforming implementation of the array API standard must provide and support t
 
 <!-- NOTE: please keep the functions in alphabetical order -->
 
-### <a name="cholesky" href="#cholesky">#</a> cholesky()
+### cholesky()
 
 TODO
 
-### <a name="cross" href="#cross">#</a> cross(x1, x2, /, *, axis=-1)
+### cross(x1, x2, /, *, axis=-1)
 
 Returns the cross product of 3-element vectors. If `x1` and `x2` are multi-dimensional arrays (i.e., both have a rank greater than `1`), then the cross-product of each pair of corresponding 3-element vectors is independently computed.
 
@@ -43,7 +43,7 @@ Returns the cross product of 3-element vectors. If `x1` and `x2` are multi-dimen
 
     -   an array containing the cross products. The returned array must have a data type determined by {ref}`type-promotion` rules.
 
-### <a name="det" href="#det">#</a> det(x, /)
+### det(x, /)
 
 Returns the determinant of a square matrix (or stack of square matrices) `x`.
 
@@ -59,9 +59,9 @@ Returns the determinant of a square matrix (or stack of square matrices) `x`.
 
     -   if `x` is a two-dimensional array, a zero-dimensional array containing the determinant; otherwise, a non-zero dimensional array containing the determinant for each square matrix. The returned array must have a data type determined by {ref}`type-promotion` rules.
 
-### <a name="diagonal" href="#diagonal">#</a> diagonal(x, /, *, axis1=0, axis2=1, offset=0)
+### diagonal(x, /, *, axis1=0, axis2=1, offset=0)
 
-Returns the specified diagonals. If `x` has more than two dimensions, then the axes (dimensions) specified by `axis1` and `axis2` are used to determine the two-dimensional sub-arrays from which to return diagonals. 
+Returns the specified diagonals. If `x` has more than two dimensions, then the axes (dimensions) specified by `axis1` and `axis2` are used to determine the two-dimensional sub-arrays from which to return diagonals.
 
 #### Parameters
 
@@ -93,23 +93,23 @@ Returns the specified diagonals. If `x` has more than two dimensions, then the a
 
     -   if `x` is a two-dimensional array, a one-dimensional array containing the diagonal; otherwise, a multi-dimensional array containing the diagonals and whose shape is determined by removing `axis1` and `axis2` and appending a dimension equal to the size of the resulting diagonals. The returned array must have the same data type as `x`.
 
-### <a name="dot" href="#dot">#</a> dot()
+### dot()
 
 TODO
 
-### <a name="eig" href="#eig">#</a> eig()
+### eig()
 
 TODO
 
-### <a name="eigvalsh" href="#eigvalsh">#</a> eigvalsh()
+### eigvalsh()
 
 TODO
 
-### <a name="einsum" href="#einsum">#</a> einsum()
+### einsum()
 
 TODO
 
-### <a name="inv" href="#inv">#</a> inv(x, /)
+### inv(x, /)
 
 Computes the multiplicative inverse of a square matrix (or stack of square matrices) `x`.
 
@@ -125,23 +125,23 @@ Computes the multiplicative inverse of a square matrix (or stack of square matri
 
     -   an array containing the multiplicative inverses. The returned array must have the same data type and shape as `x`.
 
-### <a name="lstsq" href="#lstsq">#</a> lstsq()
+### lstsq()
 
 TODO
 
-### <a name="matmul" href="#matmul">#</a> matmul()
+### matmul()
 
 TODO
 
-### <a name="matrix_power" href="#matrix_power">#</a> matrix_power()
+### matrix_power()
 
 TODO
 
-### <a name="matrix_rank" href="#matrix_rank">#</a> matrix_rank()
+### matrix_rank()
 
 TODO
 
-### <a name="norm" href="#norm">#</a> norm(x, /, *, axis=None, keepdims=False, ord=None)
+### norm(x, /, *, axis=None, keepdims=False, ord=None)
 
 Computes the matrix or vector norm of `x`.
 
@@ -154,11 +154,11 @@ Computes the matrix or vector norm of `x`.
 -   **axis**: _Optional\[ Union\[ int, Tuple\[ int, int ] ] ]_
 
     -   If an integer, `axis` specifies the axis (dimension) along which to compute vector norms.
-    
+
         If a 2-tuple, `axis` specifies the axes (dimensions) defining two-dimensional matrices for which to compute matrix norms.
-    
+
         If `None`,
-    
+
         -   if `x` is one-dimensional, the function computes the vector norm.
         -   if `x` is two-dimensional, the function computes the matrix norm.
         -   if `x` has more than two dimensions, the function computes the vector norm over all array values (i.e., equivalent to computing the vector norm of a flattened array).
@@ -197,7 +197,7 @@ Computes the matrix or vector norm of `x`.
         | ord              | matrix                          | vector                     |
         | ---------------- | ------------------------------- | -------------------------- |
         | None             | 'fro'                           | L2-norm (Euclidean)        |
-        
+
         where `fro` corresponds to the **Frobenius norm**, `nuc` corresponds to the **nuclear norm**, and `-` indicates that the norm is **not** supported.
 
         For matrices,
@@ -210,7 +210,7 @@ Computes the matrix or vector norm of `x`.
 
         -   if matrix (or matrices), the function computes the Frobenius norm.
         -   if vector (or vectors), the function computes the L2-norm (Euclidean norm).
-        
+
         Default: `None`.
 
 #### Returns
@@ -219,7 +219,7 @@ Computes the matrix or vector norm of `x`.
 
     -   an array containing the norms. If `axis` is `None`, the output array is a zero-dimensional array containing a vector norm. If `axis` is a scalar value (`int` or `float`), the output array has a rank which is one less than the rank of `x`. If `axis` is a 2-tuple, the output array has a rank which is two less than the rank of `x`. The returned array must have the same data type as `x`.
 
-### <a name="outer" href="#outer">#</a> outer(x1, x2, /)
+### outer(x1, x2, /)
 
 Computes the outer product of two vectors `x1` and `x2`.
 
@@ -239,29 +239,29 @@ Computes the outer product of two vectors `x1` and `x2`.
 
     -   a two-dimensional array containing the outer product and whose shape is `NxM`. The returned array must have a data type determined by {ref}`type-promotion` rules.
 
-### <a name="pinv" href="#pinv">#</a> pinv()
+### pinv()
 
 TODO
 
-### <a name="qr" href="#qr">#</a> qr()
+### qr()
 
 TODO
 
-### <a name="slogdet" href="#slogdet">#</a> slogdet()
+### slogdet()
 
 TODO
 
-### <a name="solve" href="#solve">#</a> solve()
+### solve()
 
 TODO
 
-### <a name="svd" href="#svd">#</a> svd()
+### svd()
 
 TODO
 
-### <a name="trace" href="#trace">#</a> trace(x, /, *, axis1=0, axis2=1, offset=0)
+### trace(x, /, *, axis1=0, axis2=1, offset=0)
 
-Returns the sum along the specified diagonals. If `x` has more than two dimensions, then the axes (dimensions) specified by `axis1` and `axis2` are used to determine the two-dimensional sub-arrays for which to compute the trace. 
+Returns the sum along the specified diagonals. If `x` has more than two dimensions, then the axes (dimensions) specified by `axis1` and `axis2` are used to determine the two-dimensional sub-arrays for which to compute the trace.
 
 #### Parameters
 
@@ -292,16 +292,16 @@ Returns the sum along the specified diagonals. If `x` has more than two dimensio
 -   **out**: _&lt;array&gt;_
 
     -   if `x` is a two-dimensional array, a zero-dimensional array containing the trace; otherwise, a multi-dimensional array containing the traces.
-    
+
         The shape of a multi-dimensional output array is determined by removing `axis1` and `axis2` and storing the traces in the last array dimension. For example, if `x` has rank `k` and shape `(I, J, K, ..., L, M, N)` and `axis1=-2` and `axis1=-1`, then a multi-dimensional output array has rank `k-2` and shape `(I, J, K, ..., L)` where
-    
+
         ```text
         out[i, j, k, ..., l] = trace(a[i, j, k, ..., l, :, :])
         ```
 
         The returned array must have the same data type as `x`.
 
-### <a name="transpose" href="#transpose">#</a> transpose(x, /, *, axes=None)
+### transpose(x, /, *, axes=None)
 
 Transposes (or permutes the axes (dimensions)) of an array `x`.
 
