@@ -344,7 +344,7 @@ Evaluates `x1_i // x2_i` for each element `x1_i` of an array instance `x1` with 
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the element-wise results. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
+    -   an array containing the element-wise results. The returned array must have a data type determined by :ref:`type-promotion`.
 
 .. note::
 
