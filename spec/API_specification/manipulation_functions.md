@@ -6,7 +6,9 @@ A conforming implementation of the array API standard must provide and support t
 
 -   Positional parameters must be [positional-only](https://www.python.org/dev/peps/pep-0570/) parameters. Positional-only parameters have no externally-usable name. When a function accepting positional-only parameters is called, positional arguments are mapped to these parameters based solely on their order.
 -   Optional parameters must be [keyword-only](https://www.python.org/dev/peps/pep-3102/) arguments.
--   Unless stated otherwise, functions must adhere to the type promotion rules defined in :ref:`type-promotion`.
+-   Unless stated otherwise, functions must adhere to the type promotion rules defined in {ref}`type-promotion`.
+
+## Objects in API
 
 <!-- NOTE: please keep the functions in alphabetical order -->
 
@@ -30,9 +32,10 @@ Joins a sequence of arrays along an existing axis.
 
     -   an output array containing the concatenated values. If the input arrays have different data types, normal [type promotion rules](type_promotion.md) must apply. If the input arrays have the same data type, the output array must have the same data type as the input arrays.
 
-        .. note::
+        ```{note}
 
-            This specification leaves type promotion between data type families (i.e., `intxx` and `floatxx`) unspecified.
+        This specification leaves type promotion between data type families (i.e., `intxx` and `floatxx`) unspecified.
+        ```
 
 ### <a name="expand_dims" href="#expand_dims">#</a> expand_dims(x, axis, /)
 
@@ -158,6 +161,7 @@ Joins a sequence of arrays along a new axis.
 
     -   an output array having rank `N+1`, where `N` is the rank (number of dimensions) of `x`. If the input arrays have different data types, normal [type promotion rules](type_promotion.md) must apply. If the input arrays have the same data type, the output array must have the same data type as the input arrays.
 
-        .. note::
+        ```{note}
 
-            This specification leaves type promotion between data type families (i.e., `intxx` and `floatxx`) unspecified.
+        This specification leaves type promotion between data type families (i.e., `intxx` and `floatxx`) unspecified.
+        ```

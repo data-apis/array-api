@@ -7,6 +7,8 @@ A conforming implementation of the array API standard must provide and support t
 -   Positional parameters must be [positional-only](https://www.python.org/dev/peps/pep-0570/) parameters. Positional-only parameters have no externally-usable name. When a function accepting positional-only parameters is called, positional arguments are mapped to these parameters based solely on their order.
 -   Optional parameters must be [keyword-only](https://www.python.org/dev/peps/pep-3102/) arguments.
 
+## Objects in API
+ 
 <!-- NOTE: please keep the functions in alphabetical order -->
 
 ### <a name="arange" href="#arange">#</a> arange(start, /, *, stop=None, step=1, dtype=None)
@@ -23,9 +25,10 @@ Returns evenly spaced values within the half-open interval `[start, stop)` as a 
 
     -   the end of the interval. Default: `None`.
 
-.. note::
+```{note}
 
-    This function cannot guarantee that the interval does not include the `stop` value in those cases where `step` is not an integer and floating-point rounding errors affect the length of the output array.
+This function cannot guarantee that the interval does not include the `stop` value in those cases where `step` is not an integer and floating-point rounding errors affect the length of the output array.
+```
 
 -   **step**: _Union\[ int, float ]_
 

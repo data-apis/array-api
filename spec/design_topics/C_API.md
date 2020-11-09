@@ -1,8 +1,8 @@
-.. _C-api:
+(C-API)=
 
 # C API
 
-Use of a C API is out of scope for this array API, as mentioned in :ref:`Scope`.
+Use of a C API is out of scope for this array API, as mentioned in {ref}`Scope`.
 There are a lot of libraries that do use such an API - in particular via Cython code
 or via direct usage of the NumPy C API. When the maintainers of such libraries
 want to use this array API standard to support multiple types of arrays, they
@@ -14,33 +14,35 @@ and hence the goal is to make other array types work without converting to a
 visualization package), then other array types can simply be handled by converting
 to the supported array type.
 
-.. note::
+```{note}
 
-    Often a zero-copy conversion to `numpy.ndarray` is possible, at least for CPU arrays.
-    If that's the case, this may be a good way to support other array types.
-    The main difficulty in that case will be getting the return array type right - however,
-    this standard does provide a Python-level API for array construction that should allow
-    doing this. A relevant question is if it's possible to know with
-    certainty that a conversion will be zero-copy. This may indeed be
-    possible, see :ref:`data-interchange`.
-
+Often a zero-copy conversion to `numpy.ndarray` is possible, at least for CPU arrays.
+If that's the case, this may be a good way to support other array types.
+The main difficulty in that case will be getting the return array type right - however,
+this standard does provide a Python-level API for array construction that should allow
+doing this. A relevant question is if it's possible to know with
+certainty that a conversion will be zero-copy. This may indeed be
+possible, see {ref}`data-interchange`.
+```
 
 ## Example situations for C/Cython usage
 
 ### Situation 1: a Python package that is mostly pure Python, with a limited number of Cython extensions
 
-.. note::
+```{note}
 
-    Projects in this situation include Statsmodels, scikit-bio and QuTiP
+Projects in this situation include Statsmodels, scikit-bio and QuTiP
+```
 
 Main strategy: documentation. The functionality using Cython code will not support other array types (or only with conversion to/from `numpy.ndarray`), which can be documented per function.
 
 
 ### Situation 2: a Python package that contains a lot of Cython code
 
-.. note::
+```{note}
 
-    Projects in this situation include scikit-learn and scikit-image
+Projects in this situation include scikit-learn and scikit-image
+```
 
 Main strategy: add support for other array types _per submodule_. This keeps it manageable to explain to the user which functionality does and doesn't have support.
 
@@ -49,9 +51,10 @@ Longer term: specific support for particular array types (e.g. `cupy.ndarray` ca
 
 ### Situation 3: a Python package that uses the NumPy or Python C API directly
 
-.. note::
+```{note}
 
-    Projects in this situation include SciPy and Astropy
+Projects in this situation include SciPy and Astropy
+```
 
 Strategy: similar to _situation 2_, but the number of submodules that can support all array types may be limited.
 

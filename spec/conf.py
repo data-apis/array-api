@@ -15,7 +15,6 @@
 # sys.path.insert(0, os.path.abspath('.'))
 
 import sphinx_material
-from recommonmark.transform import AutoStructify
 
 # -- Project information -----------------------------------------------------
 
@@ -24,7 +23,7 @@ copyright = '2020, Consortium for Python Data API Standards'
 author = 'Consortium for Python Data API Standards'
 
 # The full version, including alpha/beta/rc tags
-release = '0.1-dev'
+release = '2021.01-DRAFT'
 
 
 # -- General configuration ---------------------------------------------------
@@ -33,7 +32,7 @@ release = '0.1-dev'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    'recommonmark',
+    'myst_parser',
     'sphinx.ext.extlinks',
     'sphinx.ext.intersphinx',
     'sphinx.ext.todo',
@@ -49,6 +48,8 @@ templates_path = ['_templates']
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
+# MyST options
+myst_heading_anchors = 3
 
 # -- Options for HTML output -------------------------------------------------
 
@@ -112,7 +113,7 @@ html_theme_options = {
     "nav_links": [
         {"href": "index", "internal": True, "title": "Array API standard"},
         {
-            "href": "https://link-to-consortium-website",
+            "href": "https://data-apis.org",
             "internal": False,
             "title": "Consortium for Python Data API Standards",
         },
@@ -142,19 +143,3 @@ extlinks = {
     "durole": ("http://docutils.sourceforge.net/docs/ref/rst/" "roles.html#%s", ""),
     "dudir": ("http://docutils.sourceforge.net/docs/ref/rst/" "directives.html#%s", ""),
 }
-
-
-# Enable eval_rst in markdown
-def setup(app):
-    app.add_config_value(
-        "recommonmark_config",
-        {"enable_math": True, "enable_inline_math": True, "enable_eval_rst": True},
-        True,
-    )
-    app.add_transform(AutoStructify)
-    app.add_object_type(
-        "confval",
-        "confval",
-        objname="configuration value",
-        indextemplate="pair: %s; configuration value",
-    )

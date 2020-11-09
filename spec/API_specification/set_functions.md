@@ -6,7 +6,9 @@ A conforming implementation of the array API standard must provide and support t
 
 -   Positional parameters must be [positional-only](https://www.python.org/dev/peps/pep-0570/) parameters. Positional-only parameters have no externally-usable name. When a function accepting positional-only parameters is called, positional arguments are mapped to these parameters based solely on their order.
 -   Optional parameters must be [keyword-only](https://www.python.org/dev/peps/pep-3102/) arguments.
--   Unless stated otherwise, functions must support the data types defined in :ref:`data-types`.
+-   Unless stated otherwise, functions must support the data types defined in {ref}`data-types`.
+
+## Objects in API
 
 <!-- NOTE: please keep the functions in alphabetical order -->
 

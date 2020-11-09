@@ -1,4 +1,4 @@
-.. _indexing:
+(indexing)=
 
 # Indexing
 
@@ -16,21 +16,24 @@ To index a single array axis, an array must support standard Python indexing rul
 
 -   **Valid** nonnegative indices must reside on the half-open interval `[0, n)`.
 
-    .. note::
+    ```{note}
 
-        This specification does not require bounds checking. The behavior for out-of-bounds integer indices is left unspecified.
+    This specification does not require bounds checking. The behavior for out-of-bounds integer indices is left unspecified.
+    ```
 
 -   Negative indices must count backward from the last array index, starting from `-1` (i.e., negative-one-based indexing, where `-1` refers to the last array index).
 
-    .. note::
+    ```{note}
 
-        A negative index `j` is equivalent to `n-j`; the former is syntactic sugar for the latter, providing a shorthand for indexing elements that would otherwise need to be specified in terms of the axis (dimension) size.
+    A negative index `j` is equivalent to `n-j`; the former is syntactic sugar for the latter, providing a shorthand for indexing elements that would otherwise need to be specified in terms of the axis (dimension) size.
+    ```
 
 -   **Valid** negative indices must reside on the closed interval `[-n, -1]`.
 
-    .. note::
+    ```{note}
 
-        This specification does not require bounds checking. The behavior for out-of-bounds integer indices is left unspecified.
+    This specification does not require bounds checking. The behavior for out-of-bounds integer indices is left unspecified.
+    ```
 
 -   A negative index `j` is related to a zero-based nonnegative index `i` via `i = n+j`.
 
@@ -56,9 +59,10 @@ A[i::k]
 A[i:j:k]
 ```
 
-.. note::
+```{note}
 
-    Slice syntax can be equivalently achieved using the Python built-in [`slice()`](https://docs.python.org/3/library/functions.html#slice) API. From the perspective from `A`, the behavior of `A[i:j:k]` and `A[slice(i, j, k)]` is indistinguishable (i.e., both retrieve the same set of items from `__getitem__`).
+Slice syntax can be equivalently achieved using the Python built-in [`slice()`](https://docs.python.org/3/library/functions.html#slice) API. From the perspective from `A`, the behavior of `A[i:j:k]` and `A[slice(i, j, k)]` is indistinguishable (i.e., both retrieve the same set of items from `__getitem__`).
+```
 
 Using a slice to index a single array axis must select `m` elements with index values
 
@@ -84,13 +88,15 @@ such that
 j > i + (m-1)k
 ```
 
-.. note::
+```{note}
 
-    For `i` on the interval `[0, n)` (where `n` is the axis size), `j` on the interval `(0, n]`, `i` less than `j`, and positive step `k`, a starting index `i` is **always** included, while the stopping index `j` is **always** excluded. This preserves `x[:i]+x[i:]` always being equal to `x`.
+For `i` on the interval `[0, n)` (where `n` is the axis size), `j` on the interval `(0, n]`, `i` less than `j`, and positive step `k`, a starting index `i` is **always** included, while the stopping index `j` is **always** excluded. This preserves `x[:i]+x[i:]` always being equal to `x`.
+```
 
-.. note::
+```{note}
 
-    Using a slice to index into a single array axis should select the same elements as using a slice to index a Python list of the same size.
+Using a slice to index into a single array axis should select the same elements as using a slice to index a Python list of the same size.
+```
 
 Slice syntax must have the following defaults. Let `n` be the axis (dimension) size.
 
@@ -106,17 +112,19 @@ Using a slice to index a single array axis must adhere to the following rules. L
 
 -   Indexing via `:` and `::` must be equivalent and have defaults derived from the rules above. Both `:` and `::` indicate to select all elements along a single axis (dimension).
 
-.. note::
+```{note}
 
-    This specification does not require "clipping" out-of-bounds indices (i.e., requiring the starting and stopping indices `i` and `j` be bound by `0` and `n`, respectively).
+This specification does not require "clipping" out-of-bounds indices (i.e., requiring the starting and stopping indices `i` and `j` be bound by `0` and `n`, respectively).
 
-    _Rationale: this is consistent with bounds checking for integer indexing; the behavior of out-of-bounds indices is left unspecified. Implementations may choose to clip, raise an exception, return junk values, or some other behavior depending on device requirements and performance considerations._
+_Rationale: this is consistent with bounds checking for integer indexing; the behavior of out-of-bounds indices is left unspecified. Implementations may choose to clip, raise an exception, return junk values, or some other behavior depending on device requirements and performance considerations._
+```
 
-.. note::
+```{note}
 
-    This specification leaves unspecified the behavior of indexing a single array axis with an out-of-bounds slice (i.e., a slice which does not select any array axis elements).
+This specification leaves unspecified the behavior of indexing a single array axis with an out-of-bounds slice (i.e., a slice which does not select any array axis elements).
 
-    _Rationale: this is consistent with bounds checking for integer indexing; the behavior of out-of-bounds indices is left unspecified. Implementations may choose to return an empty array (whose axis (dimension) size along the indexed axis is `0`), raise an exception, or some other behavior depending on device requirements and performance considerations._
+_Rationale: this is consistent with bounds checking for integer indexing; the behavior of out-of-bounds indices is left unspecified. Implementations may choose to return an empty array (whose axis (dimension) size along the indexed axis is `0`), raise an exception, or some other behavior depending on device requirements and performance considerations._
+```
 
 ## Multi-axis Indexing
 
@@ -124,9 +132,10 @@ Multi-dimensional arrays must extend the concept of single-axis indexing to mult
 
 -   Each axis may be independently indexed via single-axis indexing by providing a comma-separated sequence ("selection tuple") of single-axis indexing expressions (e.g., `A[:, 2:10, :, 5]`).
 
-    .. note::
+    ```{note}
 
-        In Python, `x[(exp1, exp2, ..., expN)]` is equivalent to `x[exp1, exp2, ..., expN]`; the latter is syntactic sugar for the former.
+    In Python, `x[(exp1, exp2, ..., expN)]` is equivalent to `x[exp1, exp2, ..., expN]`; the latter is syntactic sugar for the former.
+    ```
 
 -   Providing a single nonnegative integer `i` as a single-axis index must index the same elements as the slice `i:i+1`.
 
@@ -144,11 +153,12 @@ Multi-dimensional arrays must extend the concept of single-axis indexing to mult
 
 -   The result of multi-axis indexing must be an array of the same data type as the indexed array.
 
-.. note::
+```{note}
 
-    This specification leaves unspecified the behavior of providing a slice which attempts to select elements along a particular axis, but whose starting index is out-of-bounds.
+This specification leaves unspecified the behavior of providing a slice which attempts to select elements along a particular axis, but whose starting index is out-of-bounds.
 
-    _Rationale: this is consistent with bounds-checking for single-axis indexing. An implementation may choose to set the axis (dimension) size of the result array to `0`, raise an exception, return junk values, or some other behavior depending on device requirements and performance considerations._
+_Rationale: this is consistent with bounds-checking for single-axis indexing. An implementation may choose to set the axis (dimension) size of the result array to `0`, raise an exception, return junk values, or some other behavior depending on device requirements and performance considerations._
+```
 
 ## Boolean Array Indexing
 
@@ -156,9 +166,10 @@ An array must support indexing via a **single** `M`-dimensional boolean array `B
 
 -   If `N >= M`, then `A[B]` must replace the first `M` dimensions of `A` with a single dimension having a size equal to the number of `True` elements in `B`. The values in the resulting array must be in row-major (C-style order); this is equivalent to `A[nonzero(B)]`.
 
-    .. note::
+    ```{note}
 
-        For example, if `N == M == 2`, indexing `A` via a boolean array `B` will return a one-dimensional array whose size is equal to the number of `True` elements in `B`.
+    For example, if `N == M == 2`, indexing `A` via a boolean array `B` will return a one-dimensional array whose size is equal to the number of `True` elements in `B`.
+    ```
 
 -   If `N < M`, then an `IndexError` exception must be raised.
 

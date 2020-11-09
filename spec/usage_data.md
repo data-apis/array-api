@@ -1,4 +1,4 @@
-.. _usage-data:
+(usage-data)=
 
 # Usage Data
 

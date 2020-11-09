@@ -6,6 +6,8 @@ A conforming implementation of the array API standard must provide and support t
 
 <!-- NOTE: please keep the constants in alphabetical order -->
 
+## Objects in API
+
 ### <a name="e" href="#e">#</a> e
 
 Euler's constant.

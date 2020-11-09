@@ -1,4 +1,4 @@
-.. _use-cases:
+(use-cases)=
 
 # Use cases
 
@@ -21,13 +21,13 @@ considered, and then works out a few concrete use cases in more detail.
 
 ## Concrete use cases
 
-- :ref:`use-case-scipy`
-- :ref:`use-case-einops`
-- :ref:`use-case-xtensor`
-- :ref:`use-case-numba`
+- {ref}`use-case-scipy`
+- {ref}`use-case-einops`
+- {ref}`use-case-xtensor`
+- {ref}`use-case-numba`
 
 
-.. _use-case-scipy:
+(use-case-scipy)=
 
 ### Use case 1: add hardware accelerator and distributed support to SciPy
 
@@ -59,7 +59,7 @@ array implementation as a dependency.
 
 It's clear that SciPy functionality that relies on compiled extensions (C,
 C++, Cython, Fortran) directly can't easily be run on another array library
-than NumPy (see :ref:`C-api` for more details about this topic). Pure Python
+than NumPy (see [C API](design_topics/C_API.md) for more details about this topic). Pure Python
 code can work though. There's two main possibilities:
 
 1. Testing with another package, manually or in CI, and simply provide a list
@@ -115,14 +115,14 @@ freq, Pxx = signal.welch(x)
 ```
 and have `freq`, `Pxx` be arrays of the same type and on the same device as `x`.
 
-.. note::
+```{note}
 
-    This type of use case applies to many other libraries, from scikit-learn
-    and scikit-image to domain-specific libraries like AstroPy and
-    scikit-bio, to code written for a single purpose or user.
+This type of use case applies to many other libraries, from scikit-learn
+and scikit-image to domain-specific libraries like AstroPy and
+scikit-bio, to code written for a single purpose or user.
+```
 
-
-.. _use-case-einops:
+(use-case-einops)=
 
 ### Use case 2: simplify einops by removing the backend system
 
@@ -149,17 +149,19 @@ because the purpose it serves (providing a unified interface to array operations
 of the supported backends) is already addressed by the array API standard.
 Hence the complete `einops` code base could be close to 50% smaller, and easier to maintain or add to.
 
-.. note::
+```{note}
 
-    Other libraries that have a similar backend system to support many array libraries
-    include [TensorLy](https://github.com/tensorly/tensorly), the (now discontinued)
-    multi-backend version of [Keras](https://github.com/keras-team/keras),
-    [Unumpy](https://github.com/Quansight-Labs/unumpy) and
-    [EagerPy](https://github.com/jonasrauber/eagerpy). Many end users and organizations will also have such glue code - it tends to be needed whenever one tries to support multiple
-    array types in a single API.
+Other libraries that have a similar backend system to support many array libraries
+include [TensorLy](https://github.com/tensorly/tensorly), the (now discontinued)
+multi-backend version of [Keras](https://github.com/keras-team/keras),
+[Unumpy](https://github.com/Quansight-Labs/unumpy) and
+[EagerPy](https://github.com/jonasrauber/eagerpy). Many end users and
+organizations will also have such glue code - it tends to be needed whenever
+one tries to support multiple array types in a single API.
+```
 
 
-.. _use-case-xtensor:
+(use-case-xtensor)=
 
 ### Use case 3: adding a Python API to xtensor
 
@@ -183,14 +185,15 @@ don't fit their execution model.
 This array API standard aims to provide an API that can be readily adopted,
 without having to make the above-mentioned choices.
 
-.. note::
+```{note}
 
-    XND is another array library, written in C, that still needs a Python API.
-    Array implementations in other languages are often in a similar situation,
-    and could translate this array API standard 1:1 to their language.
+XND is another array library, written in C, that still needs a Python API.
+Array implementations in other languages are often in a similar situation,
+and could translate this array API standard 1:1 to their language.
+```
 
 
-.. _use-case-numba:
+(use-case-numba)=
 
 ### Use case 4: make JIT compilation of array computations easier and more robust
 
