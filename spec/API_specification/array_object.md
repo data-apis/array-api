@@ -136,11 +136,6 @@ A conforming implementation of the array API standard must provide and support a
     -   [`operator.abs(x)`](https://docs.python.org/3/library/operator.html#operator.abs)
     -   [`operator.__abs__(x)`](https://docs.python.org/3/library/operator.html#operator.__abs__)
 
--   `x[key]`: [`__getitem__(x, key)`](#__getitem__)
-
-    -   [`operator.getitem(x, key)`](https://docs.python.org/3/library/operator.html#operator.getitem)
-    -   [`operator.__getitem__(x, key)`](https://docs.python.org/3/library/operator.html#operator.__getitem__)
-
 * * *
 
 ## Attributes
