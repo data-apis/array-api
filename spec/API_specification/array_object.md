@@ -136,6 +136,17 @@ A conforming implementation of the array API standard must provide and support a
     -   [`operator.abs(x)`](https://docs.python.org/3/library/operator.html#operator.abs)
     -   [`operator.__abs__(x)`](https://docs.python.org/3/library/operator.html#operator.__abs__)
 
+### In-place operators
+
+As discussed in :ref:`copyview-mutability`, in-place operators need to be
+supported. The following operators must be supported:
+
+- `+=`, implemented via `__iadd__`.
+- `-=`, implemented via `__isub__`.
+- `*=`, implemented via `__imul__`.
+- `/=`, implemented via `__idiv__`.
+
+
 * * *
 
 ## Attributes
