@@ -137,19 +137,19 @@ A conforming implementation of the array API standard must provide and support a
 As discussed in :ref:`copyview-mutability`, in-place operators need to be
 supported. The following operators must be supported:
 
-- `+=`, implemented via `__iadd__`.
-- `-=`, implemented via `__isub__`.
-- `*=`, implemented via `__imul__`.
-- `/=`, implemented via `__idiv__`.
-- `//=`, implemented via `__ifloordiv__`.
-- `**=`, implemented via `__ipow__`.
-- `@=`, implemented via `__imatmul__`.
-- `%=`, implemented via `__imod__`.
-- `&=`, implemented via `__iand__`.
-- `|=`, implemented via `__ior__`.
-- `^=`, implemented via `__ixor__`.
-- `<<=`, implemented via `__ilshift__`.
-- `>>=`, implemented via `__irshift__`.
+- `+=`. May be (but does not have to be) implemented via `__iadd__`.
+- `-=`. May be (but does not have to be) implemented via `__isub__`.
+- `*=`. May be (but does not have to be) implemented via `__imul__`.
+- `/=`. May be (but does not have to be) implemented via `__idiv__`.
+- `//=`. May be (but does not have to be) implemented via `__ifloordiv__`.
+- `**=`. May be (but does not have to be) implemented via `__ipow__`.
+- `@=`. May be (but does not have to be) implemented via `__imatmul__`.
+- `%=`. May be (but does not have to be) implemented via `__imod__`.
+- `&=`. May be (but does not have to be) implemented via `__iand__`.
+- `|=`. May be (but does not have to be) implemented via `__ior__`.
+- `^=`. May be (but does not have to be) implemented via `__ixor__`.
+- `<<=`. May be (but does not have to be) implemented via `__ilshift__`.
+- `>>=`. May be (but does not have to be) implemented via `__irshift__`.
 
 
 ### Right-hand side dunder methods
