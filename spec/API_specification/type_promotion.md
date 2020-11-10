@@ -18,6 +18,11 @@ In code, use the data type objects specified in {ref}`data-types` (e.g., `int16`
 
 <!-- Note: please keep table columns aligned -->
 
+The following type promotion tables specify the casting behaviour for
+operations involving two arrays. In situations where more than two arrays
+participate, the table can be used repeatedy on pairs of input arrays (the
+result does not depend on the order in which the arrays are given).
+
 ### Signed integer type promotion table
 
 |        | i1 | i2 | i4 | i8 |
@@ -81,4 +86,28 @@ where
 
 Mixed integer and floating-point type promotion rules are not specified
 because behavior varies between implementations.
+```
+
+### Mixing arrays with Python scalars
+
+Using Python scalars (i.e. instances of `bool`, `int`, `float`) together with arrays must be supported for:
+
+- `array <op> scalar`,
+- `scalar <op> array`,
+
+where `<op>` is a built-in operator (see {ref}`operators` for operators
+supported by the array object), and `scalar` is of the same kind as the array
+dtype (e.g. a `float` scalar if the array's dtype is `float32` or `float64`).
+The expected behaviour is then equivalent to:
+
+1. Convert the scalar to a 0-D array with the same dtype as that of the array
+   used in the expression.
+2. Execute the operation for `array <op> 0-D array` (or `0-D array <op>
+   array` if `scalar` was the left-hand argument).
+
+```{note}
+
+Note again that mixed integer and floating-point behaviour is not specified.
+Mixing an integer array with a Python float may give `float32`, `float64`,
+or raise an exception - behaviour of implementations will differ.
 ```
