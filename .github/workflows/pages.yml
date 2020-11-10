@@ -2,6 +2,9 @@ on:
   push:
     branches: 
     - master
+  pull_request:
+    branches:
+    - "**"
 jobs:
   run:
     runs-on: ubuntu-18.04
@@ -13,12 +16,23 @@ jobs:
         python-version: '3.8' # Version range or exact version of a Python version to use, using semvers version range syntax.
         architecture: 'x64' # (x64 or x86)
     - run: |
-        sudo apt install pandoc
         # add dependencies based on the conf.py
         pip install sphinx myst-parser sphinx-copybutton sphinx-markdown-tables
+    - name: Single html
+      if: ${{ github.event_name == 'pull_request'}}
+      run: sphinx-build -b singlehtml spec build
+    - uses: actions/upload-artifact@v2
+      if: ${{ github.event_name == 'pull_request'}}
+      with:
+        name: singlehtml
+        path: build/latest
+    - name: Multi page html
+      if: ${{ github.event_name == 'push'}}
+      run: |
         sphinx-build spec build
         touch build/.nojekyll
     - name: Build and Deploy
+      if: ${{ github.event_name == 'push'}}
       uses: JamesIves/github-pages-deploy-action@master
       env:
         ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
