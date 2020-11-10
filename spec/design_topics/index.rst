@@ -6,9 +6,9 @@ Design topics & constraints
    :maxdepth: 1
 
    copies_views_and_mutation
-   parallelism
-   static_typing
    data_interchange
-   accuracy
    device_support
+   static_typing
+   accuracy
    C_API
+   parallelism
