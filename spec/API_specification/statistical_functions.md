@@ -15,7 +15,8 @@ A conforming implementation of the array API standard must provide and support t
 
 <!-- NOTE: please keep the functions in alphabetical order -->
 
-### <a name="max" href="#max">#</a> max(x, /, *, axis=None, keepdims=False)
+(function-max)=
+### max(x, /, *, axis=None, keepdims=False)
 
 Calculates the maximum value of the input array `x`.
 
@@ -39,7 +40,8 @@ Calculates the maximum value of the input array `x`.
 
     -   if the maximum value was computed over the entire array, a zero-dimensional array containing the maximum value; otherwise, a non-zero-dimensional array containing the maximum values. The returned array must have the same data type as `x`.
 
-### <a name="mean" href="#mean">#</a> mean(x, /, *, axis=None, keepdims=False)
+(function-mean)=
+### mean(x, /, *, axis=None, keepdims=False)
 
 Calculates the arithmetic mean of the input array `x`.
 
@@ -63,7 +65,8 @@ Calculates the arithmetic mean of the input array `x`.
 
     -   if the arithmetic mean was computed over the entire array, a zero-dimensional array containing the arithmetic mean; otherwise, a non-zero-dimensional array containing the arithmetic means. The returned array must have be the default floating-point data type.
 
-### <a name="min" href="#min">#</a> min(x, /, *, axis=None, keepdims=False)
+(function-min)=
+### min(x, /, *, axis=None, keepdims=False)
 
 Calculates the minimum value of the input array `x`.
 
@@ -87,7 +90,8 @@ Calculates the minimum value of the input array `x`.
 
     -   if the minimum value was computed over the entire array, a zero-dimensional array containing the minimum value; otherwise, a non-zero-dimensional array containing the minimum values. The returned array must have the same data type as `x`.
 
-### <a name="prod" href="#prod">#</a> prod(x, /, *, axis=None, keepdims=False)
+(function-prod)=
+### prod(x, /, *, axis=None, keepdims=False)
 
 Calculates the product of input array `x` elements.
 
@@ -111,7 +115,8 @@ Calculates the product of input array `x` elements.
 
     -   if the product was computed over the entire array, a zero-dimensional array containing the product; otherwise, a non-zero-dimensional array containing the products. The returned array must have the same data type as `x`.
 
-### <a name="std" href="#std">#</a> std(x, /, *, axis=None, correction=0.0, keepdims=False)
+(function-std)=
+### std(x, /, *, axis=None, correction=0.0, keepdims=False)
 
 Calculates the standard deviation of the input array `x`.
 
@@ -139,7 +144,8 @@ Calculates the standard deviation of the input array `x`.
 
     -   if the standard deviation was computed over the entire array, a zero-dimensional array containing the standard deviation; otherwise, a non-zero-dimensional array containing the standard deviations. The returned array must have the default floating-point data type.
 
-### <a name="sum" href="#sum">#</a> sum(x, /, *, axis=None, keepdims=False)
+(function-sum)=
+### sum(x, /, *, axis=None, keepdims=False)
 
 Calculates the sum of the input array `x`.
 
@@ -163,7 +169,8 @@ Calculates the sum of the input array `x`.
 
     -   if the sum was computed over the entire array, a zero-dimensional array containing the sum; otherwise, an array containing the sums. The returned array must have the same data type as `x`.
 
-### <a name="var" href="#var">#</a> var(x, /, *, axis=None, correction=0.0, keepdims=False)
+(function-var)=
+### var(x, /, *, axis=None, correction=0.0, keepdims=False)
 
 Calculates the variance of the input array `x`.
 

@@ -12,7 +12,8 @@ A conforming implementation of the array API standard must provide and support t
 
 <!-- NOTE: please keep the functions in alphabetical order -->
 
-### <a name="unique" href="#unique">#</a> unique(x, /, *, return_counts=False, return_index=False, return_inverse=False, sorted=True)
+(function-unique)=
+### unique(x, /, *, return_counts=False, return_index=False, return_inverse=False, sorted=True)
 
 Returns the unique elements of an input array `x`.
 

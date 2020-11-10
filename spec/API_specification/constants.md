@@ -8,7 +8,8 @@ A conforming implementation of the array API standard must provide and support t
 
 ## Objects in API
 
-### <a name="e" href="#e">#</a> e
+(constant-e)=
+### e
 
 Euler's constant.
 
@@ -16,15 +17,18 @@ Euler's constant.
 e = 2.71828182845904523536028747135266249775724709369995...
 ```
 
-### <a name="inf" href="#inf">#</a> inf
+(constant-inf)=
+### inf
 
 IEEE 754 floating point representation of (positive) infinity.
 
-### <a name="nan" href="#nan">#</a> nan
+(constant-nan)=
+### nan
 
 IEEE 754 floating point representation of Not a Number (`NaN`).
 
-### <a name="pi" href="#pi">#</a> pi
+(constant-pi)=
+### pi
 
 The mathematical constant `π`.
 
