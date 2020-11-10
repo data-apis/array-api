@@ -15,6 +15,7 @@ A conforming implementation of the array API standard must provide and support t
 
 <!-- NOTE: please keep the functions in alphabetical order -->
 
+(function-all)=
 ### all(x, /, *, axis=None, keepdims=False)
 
 Tests whether all input array elements evaluate to `True` along a specified axis.
@@ -39,6 +40,7 @@ Tests whether all input array elements evaluate to `True` along a specified axis
 
     -   if a logical AND reduction was performed over the entire array, a zero-dimensional array containing the test result; otherwise, a non-zero-dimensional array containing the test results. The returned array must have a data type of `bool` (i.e., must be a boolean array).
 
+(function-any)=
 ### any(x, /, *, axis=None, keepdims=False)
 
 Tests whether any input array element evaluates to `True` along a specified axis.

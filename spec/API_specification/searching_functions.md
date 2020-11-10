@@ -16,6 +16,7 @@ A conforming implementation of the array API standard must provide and support t
 
 <!-- NOTE: please keep the functions in alphabetical order -->
 
+(function-argmax)=
 ### argmax(x, /, *, axis=None, keepdims=False)
 
 Returns the indices of the maximum values along a specified axis. When the maximum value occurs multiple times, only the indices corresponding to the first occurrence are returned.
@@ -40,6 +41,7 @@ Returns the indices of the maximum values along a specified axis. When the maxim
 
     -   if `axis` is `None`, a zero-dimensional array containing the index of the first occurrence of the maximum value; otherwise, a non-zero-dimensional array containing the indices of the maximum values. The returned array must have be the default array index data type.
 
+(function-argmin)=
 ### argmin(x, /, *, axis=None, keepdims=False)
 
 Returns the indices of the minimum values along a specified axis. When the minimum value occurs multiple times, only the indices corresponding to the first occurrence are returned.
@@ -64,6 +66,7 @@ Returns the indices of the minimum values along a specified axis. When the minim
 
     -   if `axis` is `None`, a zero-dimensional array containing the index of the first occurrence of the minimum value; otherwise, a non-zero-dimensional array containing the indices of the minimum values. The returned array must have the default array index data type.
 
+(function-nonzero)=
 ### nonzero(x, /)
 
 Returns the indices of the array elements which are non-zero.
@@ -80,6 +83,7 @@ Returns the indices of the array elements which are non-zero.
 
     -   a tuple of `k` arrays, one for each dimension of `x` and each of size `n` (where `n` is the total number of non-zero elements), containing the indices of the non-zero elements in that dimension. The indices must be returned in row-major, C-style order. The returned array must have the default array index data type.
 
+(function-where)=
 ### where(condition, x1, x2, /)
 
 Returns elements chosen from `x1` or `x2` depending on `condition`.

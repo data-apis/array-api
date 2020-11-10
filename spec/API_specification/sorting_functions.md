@@ -12,6 +12,7 @@ A conforming implementation of the array API standard must provide and support t
 
 <!-- NOTE: please keep the functions in alphabetical order -->
 
+(function-argsort)=
 ### argsort(x, /, *, axis=-1, descending=False, stable=True)
 
 Returns the indices that sort an array `x` along a specified axis.
@@ -40,6 +41,7 @@ Returns the indices that sort an array `x` along a specified axis.
 
     -   an array of indices. The returned array must have the same shape as `x`. The returned array must have the default array index data type.
 
+(function-sort)=
 ### sort(x, /, *, axis=-1, descending=False, stable=True)
 
 Returns a sorted copy of an input array `x`.

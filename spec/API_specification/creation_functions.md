@@ -11,6 +11,7 @@ A conforming implementation of the array API standard must provide and support t
 
 <!-- NOTE: please keep the functions in alphabetical order -->
 
+(function-arange)=
 ### arange(start, /, *, stop=None, step=1, dtype=None)
 
 Returns evenly spaced values within the half-open interval `[start, stop)` as a one-dimensional array.
@@ -44,6 +45,7 @@ This function cannot guarantee that the interval does not include the `stop` val
 
     -   a one-dimensional array containing evenly spaced values. The length of the output array must be `ceil((stop-start)/step)`.
 
+(function-empty)=
 ### empty(shape, /, *, dtype=None)
 
 Returns an uninitialized array having a specified `shape`.
@@ -64,6 +66,7 @@ Returns an uninitialized array having a specified `shape`.
 
     -   an array containing uninitialized data.
 
+(function-empty_like)=
 ### empty_like(x, /, *, dtype=None)
 
 Returns an uninitialized array with the same `shape` as an input array `x`.
@@ -84,6 +87,7 @@ Returns an uninitialized array with the same `shape` as an input array `x`.
 
     -   an array having the same shape as `x` and containing uninitialized data.
 
+(function-eye)=
 ### eye(N, /, *, M=None, k=0, dtype=None)
 
 Returns a two-dimensional array with ones on the `k`th diagonal and zeros elsewhere.
@@ -112,6 +116,7 @@ Returns a two-dimensional array with ones on the `k`th diagonal and zeros elsewh
 
     -   an array where all elements are equal to zero, except for the `k`th diagonal, whose values are equal to one.
 
+(function-full)=
 ### full(shape, fill_value, /, *, dtype=None)
 
 Returns a new array having a specified `shape` and filled with `fill_value`.
@@ -136,6 +141,7 @@ Returns a new array having a specified `shape` and filled with `fill_value`.
 
     -   an array where every element is equal to `fill_value`.
 
+(function-full_like)=
 ### full_like(x, fill_value, /, *, dtype=None)
 
 Returns a new array filled with `fill_value` and having the same `shape` as an input array `x`.
@@ -160,6 +166,7 @@ Returns a new array filled with `fill_value` and having the same `shape` as an i
 
     -   an array having the same shape as `x` and where every element is equal to `fill_value`.
 
+(function-linspace)=
 ### linspace(start, stop, num, /, *, dtype=None, endpoint=True)
 
 Returns evenly spaced numbers over a specified interval.
@@ -194,6 +201,7 @@ Returns evenly spaced numbers over a specified interval.
 
     -   a one-dimensional array containing evenly spaced values.
 
+(function-ones)=
 ### ones(shape, /, *, dtype=None)
 
 Returns a new array having a specified `shape` and filled with ones.
@@ -214,6 +222,7 @@ Returns a new array having a specified `shape` and filled with ones.
 
     -   an array containing ones.
 
+(function-ones_like)=
 ### ones_like(x, /, *, dtype=None)
 
 Returns a new array filled with ones and having the same `shape` as an input array `x`.
@@ -234,6 +243,7 @@ Returns a new array filled with ones and having the same `shape` as an input arr
 
     -   an array having the same shape as `x` and filled with ones.
 
+(function-zeros)=
 ### zeros(shape, /, *, dtype=None)
 
 Returns a new array having a specified `shape` and filled with zeros.
@@ -254,6 +264,7 @@ Returns a new array having a specified `shape` and filled with zeros.
 
     -   an array containing zeros.
 
+(function-zeros_like)=
 ### zeros_like(x, /, *, dtype=None)
 
 Returns a new array filled with zeros and having the same `shape` as an input array `x`.

@@ -18,6 +18,7 @@ A conforming implementation of the array API standard must provide and support t
 
 <!-- NOTE: please keep the functions in alphabetical order -->
 
+(function-abs)=
 ### abs(x, /)
 
 Calculates the absolute value for each element `x_i` of the input array `x` (i.e., the element-wise result has the same magnitude as the respective element in `x` but has positive sign).
@@ -40,6 +41,7 @@ Calculates the absolute value for each element `x_i` of the input array `x` (i.e
 
     -   an array containing the absolute value of each element in `x`. The returned array must have the same data type as `x`.
 
+(function-acos)=
 ### acos(x, /)
 
 Calculates an implementation-dependent approximation of the principal value of the inverse cosine, having domain `[-1, +1]` and codomain `[+0, +π]`, for each element `x_i` of the input array `x`. Each element-wise result is expressed in radians.
@@ -63,6 +65,7 @@ Calculates an implementation-dependent approximation of the principal value of t
 
     -   an array containing the inverse cosine of each element in `x`. The returned array must have a floating-point data type determined by {ref}`type-promotion`.
 
+(function-acosh)=
 ### acosh(x, /)
 
 Calculates an implementation-dependent approximation to the inverse hyperbolic cosine, having domain `[+1, +infinity]` and codomain `[+0, +infinity]`, for each element `x_i` of the input array `x`.
@@ -86,6 +89,7 @@ Calculates an implementation-dependent approximation to the inverse hyperbolic c
 
     -   an array containing the inverse hyperbolic cosine of each element in `x`. The returned array must have a floating-point data type determined by {ref}`type-promotion`.
 
+(function-add)=
 ### add(x1, x2, /)
 
 Calculates the sum for each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`. For floating-point arithmetic,
@@ -131,6 +135,7 @@ Floating-point addition is a commutative operation, but not always associative.
 
     -   an array containing the element-wise sums. The returned array must have a data type determined by {ref}`type-promotion`.
 
+(function-asin)=
 ### asin(x, /)
 
 Calculates an implementation-dependent approximation of the principal value of the inverse sine, having domain `[-1, +1]` and codomain `[-π/2, +π/2]` for each element `x_i` of the input array `x`. Each element-wise result is expressed in radians.
@@ -155,6 +160,7 @@ Calculates an implementation-dependent approximation of the principal value of t
 
     -   an array containing the inverse sine of each element in `x`. The returned array must have a floating-point data type determined by {ref}`type-promotion`.
 
+(function-asinh)=
 ### asinh(x, /)
 
 Calculates an implementation-dependent approximation to the inverse hyperbolic sine, having domain `[-infinity, +infinity]` and codomain `[-infinity, +infinity]`, for each element `x_i` in the input array `x`.
@@ -179,6 +185,7 @@ Calculates an implementation-dependent approximation to the inverse hyperbolic s
 
     -   an array containing the inverse hyperbolic sine of each element in `x`. The returned array must have a floating-point data type determined by {ref}`type-promotion`.
 
+(function-atan)=
 ### atan(x, /)
 
 Calculates an implementation-dependent approximation of the principal value of the inverse tangent, having domain `[-infinity, +infinity]` and codomain `[-π/2, +π/2]`, for each element `x_i` of the input array `x`. Each element-wise result is expressed in radians.
@@ -203,6 +210,7 @@ Calculates an implementation-dependent approximation of the principal value of t
 
     -   an array containing the inverse tangent of each element in `x`. The returned array must have a floating-point data type determined by {ref}`type-promotion`.
 
+(function-atan2)=
 ### atan2(x1, x2, /)
 
 Calculates an implementation-dependent approximation of the inverse tangent of the quotient `x1/x2`, having domain `[-infinity, +infinity] x [-infinity, +infinity]` (where the `x` notation denotes the set of ordered pairs of elements `(x1_i, x2_i)`) and codomain `[-π, +π]`, for each pair of elements `(x1_i, x2_i)` of the input arrays `x1` and `x2`, respectively. Each element-wise result is expressed in radians.
@@ -258,6 +266,7 @@ By IEEE 754 convention, the inverse tangent of the quotient `x1/x2` is defined f
 
     -   an array containing the inverse tangent of the quotient `x1/x2`. The returned array must have a floating-point data type determined by {ref}`type-promotion`.
 
+(function-atanh)=
 ### atanh(x, /)
 
 Calculates an implementation-dependent approximation to the inverse hyperbolic tangent, having domain `[-1, +1]` and codomain `[-infinity, +infinity]`, for each element `x_i` of the input array `x`.
@@ -284,6 +293,7 @@ Calculates an implementation-dependent approximation to the inverse hyperbolic t
 
     -   an array containing the inverse hyperbolic tangent of each element in `x`. The returned array must have a floating-point data type determined by {ref}`type-promotion`.
 
+(function-bitwise_and)=
 ### bitwise_and(x1, x2, /)
 
 Computes the bitwise AND of the underlying binary representation of each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`.
@@ -304,6 +314,7 @@ Computes the bitwise AND of the underlying binary representation of each element
 
     -   an array containing the element-wise results. The returned array must have a data type determined by {ref}`type-promotion`.
 
+(function-bitwise_left_shift)=
 ### bitwise_left_shift(x1, x2, /)
 
 Shifts the bits of each element `x1_i` of the input array `x1` to the left by appending `x2_i` (i.e., the respective element in the input array `x2`) zeros to the right of `x1_i`.
@@ -324,6 +335,7 @@ Shifts the bits of each element `x1_i` of the input array `x1` to the left by ap
 
     -   an array containing the element-wise results. The returned array must have the same data type as `x1`.
 
+(function-bitwise_invert)=
 ### bitwise_invert(x, /)
 
 Inverts (flips) each bit for each element `x_i` of the input array `x`.
@@ -340,6 +352,7 @@ Inverts (flips) each bit for each element `x_i` of the input array `x`.
 
     -   an array containing the element-wise results. The returned array must have the same data type as `x`.
 
+(function-bitwise_or)=
 ### bitwise_or(x1, x2, /)
 
 Computes the bitwise OR of the underlying binary representation of each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`.
@@ -360,6 +373,7 @@ Computes the bitwise OR of the underlying binary representation of each element 
 
     -   an array containing the element-wise results. The returned array must have a data type determined by {ref}`type-promotion`.
 
+(function-bitwise_right_shift)=
 ### bitwise_right_shift(x1, x2, /)
 
 Shifts the bits of each element `x1_i` of the input array `x1` to the right according to the respective element `x2_i` of the input array `x2`.
@@ -380,6 +394,7 @@ Shifts the bits of each element `x1_i` of the input array `x1` to the right acco
 
     -   an array containing the element-wise results. The returned array must have the same data type as `x1`.
 
+(function-bitwise_xor)=
 ### bitwise_xor(x1, x2, /)
 
 Computes the bitwise XOR of the underlying binary representation of each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`.
@@ -400,6 +415,7 @@ Computes the bitwise XOR of the underlying binary representation of each element
 
     -   an array containing the element-wise results. The returned array must have a data type determined by {ref}`type-promotion`.
 
+(function-ceil)=
 ### ceil(x, /)
 
 Rounds each element `x_i` of the input array `x` to the smallest (i.e., closest to `-infinity`) integer-valued number that is not less than `x_i`.
@@ -420,6 +436,7 @@ Rounds each element `x_i` of the input array `x` to the smallest (i.e., closest 
 
     -   an array containing the rounded result for each element in `x`. The returned array must have the same data type as `x`.
 
+(function-cos)=
 ### cos(x, /)
 
 Calculates an implementation-dependent approximation to the cosine, having domain `(-infinity, +infinity)` and codomain `[-1, +1]`, for each element `x_i` of the input array `x`. Each element `x_i` is assumed to be expressed in radians.
@@ -444,6 +461,7 @@ Calculates an implementation-dependent approximation to the cosine, having domai
 
     -   an array containing the cosine of each element in `x`. The returned array must have a floating-point data type determined by {ref}`type-promotion`.
 
+(function-cosh)=
 ### cosh(x, /)
 
 Calculates an implementation-dependent approximation to the hyperbolic cosine, having domain `[-infinity, +infinity]` and codomain `[-infinity, +infinity]`, for each element `x_i` in the input array `x`.
@@ -466,6 +484,7 @@ Calculates an implementation-dependent approximation to the hyperbolic cosine, h
 
     -   an array containing the hyperbolic cosine of each element in `x`. The returned array must have a floating-point data type determined by {ref}`type-promotion`.
 
+(function-divide)=
 ### divide(x1, x2, /)
 
 Calculates the division for each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`. For floating-point arithmetic,
@@ -511,6 +530,7 @@ Calculates the division for each element `x1_i` of the input array `x1` with the
 
     -   an array containing the element-wise results. The returned array must have a floating-point data type determined by {ref}`type-promotion`.
 
+(function-equal)=
 ### equal(x1, x2, /)
 
 Computes the truth value of `x1_i == x2_i` for each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`.
@@ -531,6 +551,7 @@ Computes the truth value of `x1_i == x2_i` for each element `x1_i` of the input 
 
     -   an array containing the element-wise results. The returned array must have a data type of `bool` (i.e., must be a boolean array).
 
+(function-exp)=
 ### exp(x, /)
 
 Calculates an implementation-dependent approximation to the exponential function, having domain `[-infinity, +infinity]` and codomain `[+0, +infinity]`, for each element `x_i` of the input array `x` (`e` raised to the power of `x_i`, where `e` is the base of the natural logarithm).
@@ -555,6 +576,7 @@ Calculates an implementation-dependent approximation to the exponential function
 
     -   an array containing the evaluated exponential function result for each element in `x`. The returned array must have a floating-point data type determined by {ref}`type-promotion`.
 
+(function-expm1)=
 ### expm1(x, /)
 
 Calculates an implementation-dependent approximation to `exp(x)-1`, having domain `[-infinity, +infinity]` and codomain `[-1, +infinity]`, for each element `x_i` of the input array `x`.
@@ -584,6 +606,7 @@ The purpose of this function is to calculate `exp(x)-1.0` more accurately when `
 
     -   an array containing the evaluated result for each element in `x`. The returned array must have a floating-point data type determined by {ref}`type-promotion`.
 
+(function-floor)=
 ### floor(x, /)
 
 Rounds each element `x_i` of the input array `x` to the greatest (i.e., closest to `+infinity`) integer-valued number that is not greater than `x_i`.
@@ -604,6 +627,7 @@ Rounds each element `x_i` of the input array `x` to the greatest (i.e., closest 
 
     -   an array containing the rounded result for each element in `x`. The returned array must have the same data type as `x`.
 
+(function-floor_divide)=
 ### floor_divide(x1, x2, /)
 
 Rounds the result of dividing each element `x1_i` of the input array `x1` by the respective element `x2_i` of the input array `x2` to the greatest (i.e., closest to `+infinity`) integer-value number that is not greater than the division result.
@@ -624,6 +648,7 @@ Rounds the result of dividing each element `x1_i` of the input array `x1` by the
 
     -   an array containing the element-wise results. The returned array must have a floating-point data type determined by {ref}`type-promotion`.
 
+(function-greater)=
 ### greater(x1, x2, /)
 
 Computes the truth value of `x1_i > x2_i` for each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`.
@@ -644,6 +669,7 @@ Computes the truth value of `x1_i > x2_i` for each element `x1_i` of the input a
 
     -   an array containing the element-wise results. The returned array must have a data type of `bool` (i.e., must be a boolean array).
 
+(function-greater_equal)=
 ### greater_equal(x1, x2, /)
 
 Computes the truth value of `x1_i >= x2_i` for each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`.
@@ -664,6 +690,7 @@ Computes the truth value of `x1_i >= x2_i` for each element `x1_i` of the input 
 
     -   an array containing the element-wise results. The returned array must have a data type of `bool` (i.e., must be a boolean array).
 
+(function-isfinite)=
 ### isfinite(x, /)
 
 Tests each element `x_i` of the input array `x` to determine if finite (i.e., not `NaN` and not equal to positive or negative infinity).
@@ -680,6 +707,7 @@ Tests each element `x_i` of the input array `x` to determine if finite (i.e., no
 
     -   an array containing test results. An element `out_i` is `True` if `x_i` is finite and `False` otherwise. The returned array must have a data type of `bool` (i.e., must be a boolean array).
 
+(function-isinf)=
 ### isinf(x, /)
 
 Tests each element `x_i` of the input array `x` to determine if equal to positive or negative infinity.
@@ -696,6 +724,7 @@ Tests each element `x_i` of the input array `x` to determine if equal to positiv
 
     -   an array containing test results. An element `out_i` is `True` if `x_i` is either positive or negative infinity and `False` otherwise. The returned array must have a data type of `bool` (i.e., must be a boolean array).
 
+(function-isnan)=
 ### isnan(x, /)
 
 Tests each element `x_i` of the input array `x` to determine whether the element is `NaN`.
@@ -712,6 +741,7 @@ Tests each element `x_i` of the input array `x` to determine whether the element
 
     -   an array containing test results. An element `out_i` is `True` if `x_i` is `NaN` and `False` otherwise. The returned array must have a data type of `bool` (i.e., must be a boolean array).
 
+(function-less)=
 ### less(x1, x2, /)
 
 Computes the truth value of `x1_i < x2_i` for each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`.
@@ -732,6 +762,7 @@ Computes the truth value of `x1_i < x2_i` for each element `x1_i` of the input a
 
     -   an array containing the element-wise results. The returned array must have a data type of `bool` (i.e., must be a boolean array).
 
+(function-less_equal)=
 ### less_equal(x1, x2, /)
 
 Computes the truth value of `x1_i <= x2_i` for each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`.
@@ -752,6 +783,7 @@ Computes the truth value of `x1_i <= x2_i` for each element `x1_i` of the input 
 
     -   an array containing the element-wise results. The returned array must have a data type of `bool` (i.e., must be a boolean array).
 
+(function-log)=
 ### log(x, /)
 
 Calculates an implementation-dependent approximation to the natural (base `e`) logarithm, having domain `[0, +infinity]` and codomain `[-infinity, +infinity]`, for each element `x_i` of the input array `x`.
@@ -776,6 +808,7 @@ Calculates an implementation-dependent approximation to the natural (base `e`) l
 
     -   an array containing the evaluated natural logarithm for each element in `x`. The returned array must have a floating-point data type determined by {ref}`type-promotion`.
 
+(function-log1p)=
 ### log1p(x, /)
 
 Calculates an implementation-dependent approximation to `log(1+x)`, where `log` refers to the natural (base `e`) logarithm, having domain `[-1, +infinity]` and codomain `[-infinity, +infinity]`, for each element `x_i` of the input array `x`.
@@ -806,6 +839,7 @@ The purpose of this function is to calculate `log(1+x)` more accurately when `x`
 
     -   an array containing the evaluated result for each element in `x`. The returned array must have a floating-point data type determined by {ref}`type-promotion`.
 
+(function-log2)=
 ### log2(x, /)
 
 Calculates an implementation-dependent approximation to the base `2` logarithm, having domain `[0, +infinity]` and codomain `[-infinity, +infinity]`, for each element `x_i` of the input array `x`.
@@ -830,6 +864,7 @@ Calculates an implementation-dependent approximation to the base `2` logarithm, 
 
     -   an array containing the evaluated base `2` logarithm for each element in `x`. The returned array must have a floating-point data type determined by {ref}`type-promotion`.
 
+(function-log10)=
 ### log10(x, /)
 
 Calculates an implementation-dependent approximation to the base `10` logarithm, having domain `[0, +infinity]` and codomain `[-infinity, +infinity]`, for each element `x_i` of the input array `x`.
@@ -854,6 +889,7 @@ Calculates an implementation-dependent approximation to the base `10` logarithm,
 
     -   an array containing the evaluated base `10` logarithm for each element in `x`. The returned array must have a floating-point data type determined by {ref}`type-promotion`.
 
+(function-logical_and)=
 ### logical_and(x1, x2, /)
 
 Computes the logical AND for each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`. Zeros should be considered the equivalent of `False`, while non-zeros should be considered the equivalent of `True`.
@@ -874,6 +910,7 @@ Computes the logical AND for each element `x1_i` of the input array `x1` with th
 
     -   an array containing the element-wise results. The returned array must have a data type of `bool` (i.e., must be a boolean array).
 
+(function-logical_not)=
 ### logical_not(x, /)
 
 Computes the logical NOT for each element `x_i` of the input array `x`. Zeros should be considered the equivalent of `False`, while non-zeros should be considered the equivalent of `True`.
@@ -890,6 +927,7 @@ Computes the logical NOT for each element `x_i` of the input array `x`. Zeros sh
 
     -   an array containing the element-wise results. The returned array must have a data type of `bool` (i.e., must be a boolean array).
 
+(function-logical_or)=
 ### logical_or(x1, x2, /)
 
 Computes the logical OR for each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`. Zeros should be considered the equivalent of `False`, while non-zeros should be considered the equivalent of `True`.
@@ -910,6 +948,7 @@ Computes the logical OR for each element `x1_i` of the input array `x1` with the
 
     -   an array containing the element-wise results. The returned array must have a data type of `bool` (i.e., must be a boolean array).
 
+(function-logical_xor)=
 ### logical_xor(x1, x2, /)
 
 Computes the logical XOR for each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`. Zeros should be considered the equivalent of `False`, while non-zeros should be considered the equivalent of `True`.
@@ -930,6 +969,7 @@ Computes the logical XOR for each element `x1_i` of the input array `x1` with th
 
     -   an array containing the element-wise results. The returned array must have a data type of `bool` (i.e., must be a boolean array).
 
+(function-multiply)=
 ### multiply(x1, x2, /)
 
 Calculates the product for each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`. For floating-point arithmetic,
@@ -967,6 +1007,7 @@ Floating-point multiplication is not always associative due to finite precision.
 
     -   an array containing the element-wise products. The returned array must have a data type determined by {ref}`type-promotion`.
 
+(function-negative)=
 ### negative(x, /)
 
 Computes the numerical negative of each element `x_i` (i.e., `y_i = -x_i`) of the input array `x`.
@@ -983,6 +1024,7 @@ Computes the numerical negative of each element `x_i` (i.e., `y_i = -x_i`) of th
 
     -   an array containing the evaluated result for each element in `x`. The returned array must have a data type determined by {ref}`type-promotion`.
 
+(function-not_equal)=
 ### not_equal(x1, x2, /)
 
 Computes the truth value of `x1_i != x2_i` for each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`.
@@ -1003,6 +1045,7 @@ Computes the truth value of `x1_i != x2_i` for each element `x1_i` of the input 
 
     -   an array containing the element-wise results. The returned array must have a data type of `bool` (i.e., must be a boolean array).
 
+(function-positive)=
 ### positive(x, /)
 
 Computes the numerical positive of each element `x_i` (i.e., `y_i = +x_i`) of the input array `x`.
@@ -1019,6 +1062,7 @@ Computes the numerical positive of each element `x_i` (i.e., `y_i = +x_i`) of th
 
     -   an array containing the evaluated result for each element in `x`. The returned array must have the same data type as `x`.
 
+(function-pow)=
 ### pow(x1, x2, /)
 
 Calculates an implementation-dependent approximation of exponentiation by raising each element `x1_i` (the base) of the input array `x1` to the power of `x2_i` (the exponent), where `x2_i` is the corresponding element of the input array `x2`.
@@ -1066,6 +1110,7 @@ Calculates an implementation-dependent approximation of exponentiation by raisin
 
     -   an array containing the element-wise results. The returned array must have a data type determined by {ref}`type-promotion`.
 
+(function-remainder)=
 ### remainder(x1, x2, /)
 
 Returns the remainder of division for each element `x1_i` of the input array `x1` and the respective element `x2_i` of the input array `x2`.
@@ -1086,6 +1131,7 @@ Returns the remainder of division for each element `x1_i` of the input array `x1
 
     -   an array containing the element-wise results. Each element-wise result must have the same sign as the respective element `x2_i`. The returned array must have a floating-point data type determined by {ref}`type-promotion`.
 
+(function-round)=
 ### round(x, /)
 
 Rounds each element `x_i` of the input array `x` to the nearest integer-valued number.
@@ -1107,6 +1153,7 @@ Rounds each element `x_i` of the input array `x` to the nearest integer-valued n
 
     -   an array containing the rounded result for each element in `x`. The returned array must have the same data type as `x`.
 
+(function-sign)=
 ### sign(x, /)
 
 Returns an indication of the sign of a number for each element `x_i` of the input array `x`.
@@ -1129,6 +1176,7 @@ Returns an indication of the sign of a number for each element `x_i` of the inpu
 
     -   an array containing the evaluated result for each element in `x`. The returned array must have the same data type as `x`.
 
+(function-sin)=
 ### sin(x, /)
 
 Calculates an implementation-dependent approximation to the sine, having domain `(-infinity, +infinity)` and codomain `[-1, +1]`, for each element `x_i` of the input array `x`. Each element `x_i` is assumed to be expressed in radians.
@@ -1152,6 +1200,7 @@ Calculates an implementation-dependent approximation to the sine, having domain 
 
     -   an array containing the sine of each element in `x`. The returned array must have a floating-point data type determined by {ref}`type-promotion`.
 
+(function-sinh)=
 ### sinh(x, /)
 
 Calculates an implementation-dependent approximation to the hyperbolic sine, having domain `[-infinity, +infinity]` and codomain `[-infinity, +infinity]`, for each element `x_i` of the input array `x`.
@@ -1176,6 +1225,7 @@ Calculates an implementation-dependent approximation to the hyperbolic sine, hav
 
     -   an array containing the hyperbolic sine of each element in `x`. The returned array must have a floating-point data type determined by {ref}`type-promotion`.
 
+(function-square)=
 ### square(x, /)
 
 Squares (`x_i * x_i`) each element `x_i` of the input array `x`.
@@ -1192,6 +1242,7 @@ Squares (`x_i * x_i`) each element `x_i` of the input array `x`.
 
     -   an array containing the evaluated result for each element in `x`. The returned array must have a data type determined by {ref}`type-promotion`.
 
+(function-sqrt)=
 ### sqrt(x, /)
 
 Calculates the square root, having domain `[0, +infinity]` and codomain `[0, +infinity]`, for each element `x_i` of the input array `x`. After rounding, each result should be indistinguishable from the infinitely precise result (as required by IEEE 754).
@@ -1216,6 +1267,7 @@ Calculates the square root, having domain `[0, +infinity]` and codomain `[0, +in
 
     -   an array containing the square root of each element in `x`. The returned array must have a floating-point data type determined by {ref}`type-promotion`.
 
+(function-subtract)=
 ### subtract(x1, x2, /)
 
 Calculates the difference for each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`. The result of `x1_i - x2_i` must be the same as `x1_i + (-x2_i)` and is thus governed by the same floating-point rules as addition (see [`add()`](#addx1-x2-)).
@@ -1236,6 +1288,7 @@ Calculates the difference for each element `x1_i` of the input array `x1` with t
 
     -   an array containing the element-wise differences. The returned array must have a data type determined by {ref}`type-promotion`.
 
+(function-tan)=
 ### tan(x, /)
 
 Calculates an implementation-dependent approximation to the tangent, having domain `(-infinity, +infinity)` and codomain `(-infinity, +infinity)`, for each element `x_i` of the input array `x`. Each element `x_i` is assumed to be expressed in radians.
@@ -1259,6 +1312,7 @@ Calculates an implementation-dependent approximation to the tangent, having doma
 
     -   an array containing the tangent of each element in `x`. The returned array must have a floating-point data type determined by {ref}`type-promotion`.
 
+(function-tanh)=
 ### tanh(x, /)
 
 Calculates an implementation-dependent approximation to the hyperbolic tangent, having domain `[-infinity, +infinity]` and codomain `[-1, +1]`, for each element `x_i` of the input array `x`.
@@ -1283,6 +1337,7 @@ Calculates an implementation-dependent approximation to the hyperbolic tangent, 
 
     -   an array containing the hyperbolic tangent of each element in `x`. The returned array must have a floating-point data type determined by {ref}`type-promotion`.
 
+(function-trunc)=
 ### trunc(x, /)
 
 Rounds each element `x_i` of the input array `x` to the integer-valued number that is closest to but no greater than `x_i`.

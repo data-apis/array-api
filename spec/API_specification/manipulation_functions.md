@@ -12,6 +12,7 @@ A conforming implementation of the array API standard must provide and support t
 
 <!-- NOTE: please keep the functions in alphabetical order -->
 
+(function-concat)=
 ### concat(arrays, /, *, axis=0)
 
 Joins a sequence of arrays along an existing axis.
@@ -37,6 +38,7 @@ Joins a sequence of arrays along an existing axis.
         This specification leaves type promotion between data type families (i.e., `intxx` and `floatxx`) unspecified.
         ```
 
+(function-expand_dims)=
 ### expand_dims(x, axis, /)
 
 Expands the shape of an array by inserting a new axis (dimension) of size one at the position specified by `axis`.
@@ -57,6 +59,7 @@ Expands the shape of an array by inserting a new axis (dimension) of size one at
 
     -   an expanded output array having the same data type and shape as `x`.
 
+(function-flip)=
 ### flip(x, /, *, axis=None)
 
 Reverses the order of elements in an array along the given axis. The shape of the array must be preserved.
@@ -77,6 +80,7 @@ Reverses the order of elements in an array along the given axis. The shape of th
 
     -   an output array having the same data type and shape as `x` and whose elements, relative to `x`, are reordered.
 
+(function-reshape)=
 ### reshape(x, shape, /)
 
 Reshapes an array without changing its data.
@@ -97,6 +101,7 @@ Reshapes an array without changing its data.
 
     -   an output array having the same data type, elements, and underlying element order as `x`.
 
+(function-roll)=
 ### roll(x, shift, /, *, axis=None)
 
 Rolls array elements along a specified axis. Array elements that roll beyond the last position are re-introduced at the first position. Array elements that roll beyond the first position are re-introduced at the last position.
@@ -121,6 +126,7 @@ Rolls array elements along a specified axis. Array elements that roll beyond the
 
     -   an output array having the same data type as `x` and whose elements, relative to `x`, are shifted.
 
+(function-squeeze)=
 ### squeeze(x, /, *, axis=None)
 
 Removes singleton dimensions (axes) from `x`.
@@ -141,6 +147,7 @@ Removes singleton dimensions (axes) from `x`.
 
     -   an output array having the same data type and elements as `x`.
 
+(function-stack)=
 ### stack(arrays, /, *, axis=0)
 
 Joins a sequence of arrays along a new axis.

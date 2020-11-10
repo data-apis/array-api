@@ -15,10 +15,12 @@ A conforming implementation of the array API standard must provide and support t
 
 <!-- NOTE: please keep the functions in alphabetical order -->
 
+(function-cholesky)=
 ### cholesky()
 
 TODO
 
+(function-cross)=
 ### cross(x1, x2, /, *, axis=-1)
 
 Returns the cross product of 3-element vectors. If `x1` and `x2` are multi-dimensional arrays (i.e., both have a rank greater than `1`), then the cross-product of each pair of corresponding 3-element vectors is independently computed.
@@ -43,6 +45,7 @@ Returns the cross product of 3-element vectors. If `x1` and `x2` are multi-dimen
 
     -   an array containing the cross products. The returned array must have a data type determined by {ref}`type-promotion` rules.
 
+(function-det)=
 ### det(x, /)
 
 Returns the determinant of a square matrix (or stack of square matrices) `x`.
@@ -59,6 +62,7 @@ Returns the determinant of a square matrix (or stack of square matrices) `x`.
 
     -   if `x` is a two-dimensional array, a zero-dimensional array containing the determinant; otherwise, a non-zero dimensional array containing the determinant for each square matrix. The returned array must have a data type determined by {ref}`type-promotion` rules.
 
+(function-diagonal)=
 ### diagonal(x, /, *, axis1=0, axis2=1, offset=0)
 
 Returns the specified diagonals. If `x` has more than two dimensions, then the axes (dimensions) specified by `axis1` and `axis2` are used to determine the two-dimensional sub-arrays from which to return diagonals.
@@ -93,22 +97,27 @@ Returns the specified diagonals. If `x` has more than two dimensions, then the a
 
     -   if `x` is a two-dimensional array, a one-dimensional array containing the diagonal; otherwise, a multi-dimensional array containing the diagonals and whose shape is determined by removing `axis1` and `axis2` and appending a dimension equal to the size of the resulting diagonals. The returned array must have the same data type as `x`.
 
+(function-dot)=
 ### dot()
 
 TODO
 
+(function-eig)=
 ### eig()
 
 TODO
 
+(function-eigvalsh)=
 ### eigvalsh()
 
 TODO
 
+(function-einsum)=
 ### einsum()
 
 TODO
 
+(function-inv)=
 ### inv(x, /)
 
 Computes the multiplicative inverse of a square matrix (or stack of square matrices) `x`.
@@ -125,22 +134,27 @@ Computes the multiplicative inverse of a square matrix (or stack of square matri
 
     -   an array containing the multiplicative inverses. The returned array must have the same data type and shape as `x`.
 
+(function-lstsq)=
 ### lstsq()
 
 TODO
 
+(function-matmul)=
 ### matmul()
 
 TODO
 
+(function-matrix_power)=
 ### matrix_power()
 
 TODO
 
+(function-matrix_rank)=
 ### matrix_rank()
 
 TODO
 
+(function-norm)=
 ### norm(x, /, *, axis=None, keepdims=False, ord=None)
 
 Computes the matrix or vector norm of `x`.
@@ -219,6 +233,7 @@ Computes the matrix or vector norm of `x`.
 
     -   an array containing the norms. If `axis` is `None`, the output array is a zero-dimensional array containing a vector norm. If `axis` is a scalar value (`int` or `float`), the output array has a rank which is one less than the rank of `x`. If `axis` is a 2-tuple, the output array has a rank which is two less than the rank of `x`. The returned array must have the same data type as `x`.
 
+(function-outer)=
 ### outer(x1, x2, /)
 
 Computes the outer product of two vectors `x1` and `x2`.
@@ -239,26 +254,32 @@ Computes the outer product of two vectors `x1` and `x2`.
 
     -   a two-dimensional array containing the outer product and whose shape is `NxM`. The returned array must have a data type determined by {ref}`type-promotion` rules.
 
+(function-pinv)=
 ### pinv()
 
 TODO
 
+(function-qr)=
 ### qr()
 
 TODO
 
+(function-slogdet)=
 ### slogdet()
 
 TODO
 
+(function-solve)=
 ### solve()
 
 TODO
 
+(function-svd)=
 ### svd()
 
 TODO
 
+(function-trace)=
 ### trace(x, /, *, axis1=0, axis2=1, offset=0)
 
 Returns the sum along the specified diagonals. If `x` has more than two dimensions, then the axes (dimensions) specified by `axis1` and `axis2` are used to determine the two-dimensional sub-arrays for which to compute the trace.
@@ -301,6 +322,7 @@ Returns the sum along the specified diagonals. If `x` has more than two dimensio
 
         The returned array must have the same data type as `x`.
 
+(function-transpose)=
 ### transpose(x, /, *, axes=None)
 
 Transposes (or permutes the axes (dimensions)) of an array `x`.

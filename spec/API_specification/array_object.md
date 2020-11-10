@@ -179,6 +179,7 @@ For the expected numerical behaviour, see their left-hand equivalents.
 
 <!-- NOTE: please keep the attributes in alphabetical order -->
 
+(attribute-dtype)=
 ### dtype
 
 Data type of the array elements.
@@ -189,6 +190,7 @@ Data type of the array elements.
 
     -   array data type.
 
+(attribute-ndim)=
 ### ndim
 
 Number of array dimensions (axes).
@@ -201,6 +203,7 @@ Number of array dimensions (axes).
 
 _TODO: need to more carefully consider this in order to accommodate, e.g., graph tensors where the number of dimensions may be dynamic._
 
+(attribute-shape)=
 ### shape
 
 Array dimensions.
@@ -213,6 +216,7 @@ Array dimensions.
 
 _TODO: need to more carefully consider this in order to accommodate, e.g., graph tensors where a shape may be dynamic._
 
+(attribute-size)=
 ### size
 
 Number of elements in an array. This should equal the product of the array's dimensions.
@@ -225,6 +229,7 @@ Number of elements in an array. This should equal the product of the array's dim
 
 _TODO: need to more carefully consider this in order to accommodate, e.g., graph tensors where the number of elements may be dynamic._
 
+(attribute-T)=
 ### T
 
 Transpose of the array.
@@ -241,6 +246,7 @@ Transpose of the array.
 
 <!-- NOTE: please keep the methods in alphabetical order -->
 
+(method-__abs__)=
 ### \_\_abs\_\_(x, /)
 
 Calculates the absolute value for each element `x_i` of an array instance `x` (i.e., the element-wise result has the same magnitude as the respective element in `x` but has positive sign).
@@ -268,6 +274,7 @@ Calculates the absolute value for each element `x_i` of an array instance `x` (i
 Element-wise results must equal the results returned by the equivalent element-wise function [`abs(x)`](elementwise_functions.md#absx-).
 ```
 
+(method-__add__)=
 ### \_\_add\_\_(x1, x2, /)
 
 Calculates the sum for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`. For floating-point arithmetic,
@@ -318,6 +325,7 @@ Floating-point addition is a commutative operation, but not always associative.
 Element-wise results must equal the results returned by the equivalent element-wise function [`add(x1, x2)`](elementwise_functions.md#addx1-x2-).
 ```
 
+(method-__and__)=
 ### \_\_and\_\_(x1, x2, /)
 
 Evaluates `x1_i & x2_i` for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`.
@@ -343,6 +351,7 @@ Evaluates `x1_i & x2_i` for each element `x1_i` of an array instance `x1` with t
 Element-wise results must equal the results returned by the equivalent element-wise function [`bitwise_and(x1, x2)`](elementwise_functions.md#logical_andx1-x2-).
 ```
 
+(method-__eq__)=
 ### \_\_eq\_\_(x1, x2, /)
 
 Computes the truth value of `x1_i == x2_i` for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`.
@@ -368,6 +377,7 @@ Computes the truth value of `x1_i == x2_i` for each element `x1_i` of an array i
 Element-wise results must equal the results returned by the equivalent element-wise function [`equal(x1, x2)`](elementwise_functions.md#equalx1-x2-).
 ```
 
+(method-__floordiv__)=
 ### \_\_floordiv\_\_(x1, x2, /)
 
 Evaluates `x1_i // x2_i` for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`.
@@ -393,6 +403,7 @@ Evaluates `x1_i // x2_i` for each element `x1_i` of an array instance `x1` with 
 Element-wise results must equal the results returned by the equivalent element-wise function [`floor_divide(x1, x2)`](elementwise_functions.md#floor_dividex1-x2-).
 ```
 
+(method-__ge__)=
 ### \_\_ge\_\_(x1, x2, /)
 
 Computes the truth value of `x1_i >= x2_i` for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`.
@@ -418,10 +429,12 @@ Computes the truth value of `x1_i >= x2_i` for each element `x1_i` of an array i
 Element-wise results must equal the results returned by the equivalent element-wise function [`greater_equal(x1, x2)`](elementwise_functions.md#greater_equalx1-x2-).
 ```
 
+(method-__getitem__)=
 ### \_\_getitem\_\_(x, key, /)
 
 _TODO: dependent on the indexing specification._
 
+(method-__gt__)=
 ### \_\_gt\_\_(x1, x2, /)
 
 Computes the truth value of `x1_i > x2_i` for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`.
@@ -447,6 +460,7 @@ Computes the truth value of `x1_i > x2_i` for each element `x1_i` of an array in
 Element-wise results must equal the results returned by the equivalent element-wise function [`greater(x1, x2)`](elementwise_functions.md#greaterx1-x2-).
 ```
 
+(method-__invert__)=
 ### \_\_invert\_\_(x, /)
 
 Evaluates `~x_i` for each element `x_i` of an array instance `x`.
@@ -468,6 +482,7 @@ Evaluates `~x_i` for each element `x_i` of an array instance `x`.
 Element-wise results must equal the results returned by the equivalent element-wise function [`bitwise_invert(x)`](elementwise_functions.md#bitwise_invertx-).
 ```
 
+(method-__le__)=
 ### \_\_le\_\_(x1, x2, /)
 
 Computes the truth value of `x1_i <= x2_i` for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`.
@@ -493,10 +508,12 @@ Computes the truth value of `x1_i <= x2_i` for each element `x1_i` of an array i
 Element-wise results must equal the results returned by the equivalent element-wise function [`less_equal(x1, x2)`](elementwise_functions.md#less_equalx1-x2-).
 ```
 
+(method-__len__)=
 ### \_\_len\_\_(x, /)
 
 _TODO: need to more carefully consider this in order to accommodate, e.g., graph tensors where a shape may be dynamic._
 
+(method-__lshift__)=
 ### \_\_lshift\_\_(x1, x2, /)
 
 Evaluates `x1_i << x2_i` for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`.
@@ -522,6 +539,7 @@ Evaluates `x1_i << x2_i` for each element `x1_i` of an array instance `x1` with 
 Element-wise results must equal the results returned by the equivalent element-wise function [`less_equal(x1, x2)`](elementwise_functions.md#bitwise_left_shiftx1-x2-).
 ```
 
+(method-__lt__)=
 ### \_\_lt\_\_(x1, x2, /)
 
 Computes the truth value of `x1_i < x2_i` for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`.
@@ -547,6 +565,7 @@ Computes the truth value of `x1_i < x2_i` for each element `x1_i` of an array in
 Element-wise results must equal the results returned by the equivalent element-wise function [`less(x1, x2)`](elementwise_functions.md#lessx1-x2-).
 ```
 
+(method-__matmul__)=
 ### \_\_matmul\_\_(x1, x2, /)
 
 _TODO: awaiting `matmul` functional equivalent._
@@ -567,6 +586,7 @@ _TODO: awaiting `matmul` functional equivalent._
 
     -   _TODO_
 
+(method-__mod__)=
 ### \_\_mod\_\_(x1, x2, /)
 
 Evaluates `x1_i % x2_i` for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`.
@@ -592,6 +612,7 @@ Evaluates `x1_i % x2_i` for each element `x1_i` of an array instance `x1` with t
 Element-wise results must equal the results returned by the equivalent element-wise function [`remainder(x1, x2)`](elementwise_functions.md#remainderx1-x2-).
 ```
 
+(method-__mul__)=
 ### \_\_mul\_\_(x1, x2, /)
 
 Calculates the product for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`. For floating-point arithmetic,
@@ -634,6 +655,7 @@ Floating-point multiplication is not always associative due to finite precision.
 Element-wise results must equal the results returned by the equivalent element-wise function [`multiply(x1, x2)`](elementwise_functions.md#multiplyx1-x2-).
 ```
 
+(method-__ne__)=
 ### \_\_ne\_\_(x1, x2, /)
 
 Computes the truth value of `x1_i != x2_i` for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`.
@@ -659,6 +681,7 @@ Computes the truth value of `x1_i != x2_i` for each element `x1_i` of an array i
 Element-wise results must equal the results returned by the equivalent element-wise function [`not_equal(x1, x2)`](elementwise_functions.md#not_equalx1-x2-).
 ```
 
+(method-__neg__)=
 ### \_\_neg\_\_(x, /)
 
 Evaluates `-x_i` for each element `x_i` of an array instance `x`.
@@ -680,6 +703,7 @@ Evaluates `-x_i` for each element `x_i` of an array instance `x`.
 Element-wise results must equal the results returned by the equivalent element-wise function [`negative(x)`](elementwise_functions.md#negativex-).
 ```
 
+(method-__or__)=
 ### \_\_or\_\_(x1, x2, /)
 
 Evaluates `x1_i | x2_i` for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`.
@@ -705,6 +729,7 @@ Evaluates `x1_i | x2_i` for each element `x1_i` of an array instance `x1` with t
 Element-wise results must equal the results returned by the equivalent element-wise function [`positive(x1, x2)`](elementwise_functions.md#bitwise_orx1-x2-).
 ```
 
+(method-__pos__)=
 ### \_\_pos\_\_(x, /)
 
 Evaluates `+x_i` for each element `x_i` of an array instance `x`.
@@ -726,6 +751,7 @@ Evaluates `+x_i` for each element `x_i` of an array instance `x`.
 Element-wise results must equal the results returned by the equivalent element-wise function [`positive(x)`](elementwise_functions.md#positivex-).
 ```
 
+(method-__pow__)=
 ### \_\_pow\_\_(x1, x2, /)
 
 Calculates an implementation-dependent approximation of exponentiation by raising each element `x1_i` (the base) of an array instance `x1` to the power of `x2_i` (the exponent), where `x2_i` is the corresponding element of the array `x2`.
@@ -778,6 +804,7 @@ Calculates an implementation-dependent approximation of exponentiation by raisin
 Element-wise results must equal the results returned by the equivalent element-wise function [`pow(x1, x2)`](elementwise_functions.md#powx1-x2-).
 ```
 
+(method-__rshift__)=
 ### \_\_rshift\_\_(x1, x2, /)
 
 Evaluates `x1_i >> x2_i` for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`.
@@ -803,10 +830,12 @@ Evaluates `x1_i >> x2_i` for each element `x1_i` of an array instance `x1` with 
 Element-wise results must equal the results returned by the equivalent element-wise function [`bitwise_right_shift(x1, x2)`](elementwise_functions.md#bitwise_right_shiftx1-x2-).
 ```
 
+(method-__setitem__)=
 ### \_\_setitem\_\_(x, key, value, /)
 
 _TODO: dependent on the indexing specification._
 
+(method-__sub__)=
 ### \_\_sub\_\_(x1, x2, /)
 
 Calculates the difference for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`. The result of `x1_i - x2_i` must be the same as `x1_i + (-x2_i)` and is thus governed by the same floating-point rules as addition (see [`__add__()`](#__add__x1-x2-)).
@@ -832,6 +861,7 @@ Calculates the difference for each element `x1_i` of an array instance `x1` with
 Element-wise results must equal the results returned by the equivalent element-wise function [`subtract(x1, x2)`](elementwise_functions.md#subtractx1-x2-).
 ```
 
+(method-__truediv__)=
 ### \_\_truediv\_\_(x1, x2, /)
 
 Evaluates `x1_i / x2_i` for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`. For floating-point arithmetic,
@@ -882,6 +912,7 @@ Evaluates `x1_i / x2_i` for each element `x1_i` of an array instance `x1` with t
 Element-wise results must equal the results returned by the equivalent element-wise function [`divide(x1, x2)`](elementwise_functions.md#dividex1-x2-).
 ```
 
+(method-__xor__)=
 ### \_\_xor\_\_(x1, x2, /)
 
 Evaluates `x1_i ^ x2_i` for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`.
