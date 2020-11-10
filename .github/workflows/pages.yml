@@ -1,9 +1,6 @@
 on: 
   push:
     branches: 
-    - master
-  pull_request:
-    branches:
     - "**"
 jobs:
   run:
@@ -18,21 +15,18 @@ jobs:
     - run: |
         # add dependencies based on the conf.py
         pip install sphinx myst-parser sphinx-copybutton sphinx-markdown-tables
-    - name: Single html
+    - name: Build docs
       if: ${{ github.event_name == 'pull_request'}}
-      run: sphinx-build -b singlehtml spec build
-    - uses: actions/upload-artifact@v2
-      if: ${{ github.event_name == 'pull_request'}}
-      with:
-        name: singlehtml
-        path: build/latest
-    - name: Multi page html
-      if: ${{ github.event_name == 'push'}}
       run: |
+        sphinx-build -b singlehtml spec single
         sphinx-build spec build
         touch build/.nojekyll
+    - uses: actions/upload-artifact@v2
+      with:
+        name: singlehtml
+        path: single/latest
     - name: Build and Deploy
-      if: ${{ github.event_name == 'push'}}
+      if: ${{ github.ref == 'refs/heads/master'}}
       uses: JamesIves/github-pages-deploy-action@master
       env:
         ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
