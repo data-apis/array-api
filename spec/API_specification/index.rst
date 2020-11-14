@@ -5,7 +5,7 @@ API specification
 
 .. toctree::
    :caption: API specification
-   :maxdepth: 1
+   :maxdepth: 3
 
    function_and_method_signatures
    array_object
