@@ -12,14 +12,13 @@ This simple example illustrates that:
 
 ```python
 x = ones(1)
-x += 2
-y = x   # `y` *may* be a view
+y = x[:]  # `y` *may* be a view on the data of `x`
 y -= 1  # if `y` is a view, this modifies `x`
 ```
 
 Code as simple as the above example will not be portable between array
-libraries - for NumPy/PyTorch/CuPy/MXNet `x` will contain the value `2`,
-while for TensorFlow/JAX/Dask it will contain the value `3`. The combination
+libraries - for NumPy/PyTorch/CuPy/MXNet `x` will contain the value `0`,
+while for TensorFlow/JAX/Dask it will contain the value `1`. The combination
 of views and mutability is fundamentally problematic here if the goal is to
 be able to write code with unambiguous semantics.
 
