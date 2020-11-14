@@ -495,7 +495,7 @@ Calculates the division for each element `x1_i` of the input array `x1` with the
 -   If `x1_i` is either `+infinity` or `-infinity` and `x2_i` is either `+infinity` or `-infinity`, the result is `NaN`.
 -   If `x1_i` is either `+0` or `-0` and `x2_i` is either `+0` or `-0`, the result is `NaN`.
 -   If `x1_i` is `+0` and `x2_i` is greater than `0`, the result is `+0`.
--   If `x1_i` is `-0` and `x2_i` is greater than `0`, the result `-0`.
+-   If `x1_i` is `-0` and `x2_i` is greater than `0`, the result is `-0`.
 -   If `x1_i` is `+0` and `x2_i` is less than `0`, the result is `-0`.
 -   If `x1_i` is `-0` and `x2_i` is less than `0`, the result is `+0`.
 -   If `x1_i` is greater than `0` and `x2_i` is `+0`, the result is `+infinity`.
