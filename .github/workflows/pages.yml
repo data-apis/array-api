@@ -20,7 +20,8 @@ jobs:
         pip install -r requirements.txt
     - name: Build docs
       run: |
-        sphinx-build -b html -WT --keep-going spec build/latest
+        # Turn warnings into errors; ensure .doctrees doesn't get deployed
+        sphinx-build -b html -WT --keep-going spec build/latest -d doctrees
         touch build/.nojekyll
     - uses: actions/upload-artifact@v2
       if: ${{ github.event_name == 'pull_request'}}
