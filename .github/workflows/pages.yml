@@ -1,7 +1,7 @@
 on: 
   push:
     branches:
-      - master
+      - main
   pull_request:
     branches: 
     - "**"
@@ -30,10 +30,10 @@ jobs:
         path: build/
         if-no-files-found: error
     - name: Deploy
-      if: ${{ github.ref == 'refs/heads/master'}}
+      if: ${{ github.ref == 'refs/heads/main'}}
       uses: JamesIves/github-pages-deploy-action@master
       env:
         ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        BASE_BRANCH: master # The branch the action should deploy from.
+        BASE_BRANCH: main # The branch the action should deploy from.
         BRANCH: gh-pages # The branch the action should deploy to.
         FOLDER: build
