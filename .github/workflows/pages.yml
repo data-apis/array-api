@@ -21,13 +21,13 @@ jobs:
     - name: Build docs
       if: ${{ github.event_name == 'pull_request'}}
       run: |
-        sphinx-build -b singlehtml spec single
-        sphinx-build spec build
+        sphinx-build -b html -WT --keep-going spec build/latest
         touch build/.nojekyll
     - uses: actions/upload-artifact@v2
       with:
-        name: singlehtml
-        path: single/latest
+        name: html
+        path: build/
+        if-no-files-found: error
     - name: Build and Deploy
       if: ${{ github.ref == 'refs/heads/master'}}
       uses: JamesIves/github-pages-deploy-action@master
