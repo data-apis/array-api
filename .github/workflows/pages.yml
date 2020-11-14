@@ -14,7 +14,7 @@ jobs:
         architecture: 'x64' # (x64 or x86)
     - run: |
         # add dependencies based on the conf.py
-        pip install sphinx myst-parser sphinx-copybutton sphinx-markdown-tables
+        pip install -r requirements.txt
     - name: Build docs
       if: ${{ github.event_name == 'pull_request'}}
       run: |
