@@ -36,7 +36,7 @@ The default array index data type should be clearly defined in a conforming libr
 
 ## bool
 
-Boolean (`True` or `False`) stored as a byte.
+Boolean (`True` or `False`).
 
 ## int8
 
