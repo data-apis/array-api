@@ -977,8 +977,8 @@ Calculates the product for each element `x1_i` of the input array `x1` with the 
 #### Special Cases
 
 -   If either `x1_i` or `x2_i` is `NaN`, the result is `NaN`.
--   If `x1_i` and `x2_i` have the same mathematical sign, the result has a positive mathematical sign.
--   If `x1_i` and `x2_i` have different mathematical signs, the result has a negative mathematical sign.
+-   If `x1_i` and `x2_i` have the same mathematical sign, the result has a positive mathematical sign, except where it is `NaN` as in the rules below.
+-   If `x1_i` and `x2_i` have different mathematical signs, the result has a negative mathematical sign, except where it is `NaN` as in the rules below.
 -   If `x1_i` is either `+infinity` or `-infinity` and `x2_i` is either `+0` or `-0`, the result is `NaN`.
 -   If `x1_i` is either `+0` or `-0` and `x2_i` is either `+infinity` or `-infinity`, the result is `NaN`.
 -   If `x1_i` is either `+infinity` or `-infinity` and `x2_i` is either `+infinity` or `-infinity`, the result is a signed infinity with the mathematical sign determined by the rule already stated above.
