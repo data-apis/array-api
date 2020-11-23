@@ -173,9 +173,9 @@ Computes the matrix or vector norm of `x`.
 
         If `None`,
 
-        -   if `x` is one-dimensional, the function computes the vector norm.
-        -   if `x` is two-dimensional, the function computes the matrix norm.
-        -   if `x` has more than two dimensions, the function computes the vector norm over all array values (i.e., equivalent to computing the vector norm of a flattened array).
+        -   if `x` is one-dimensional, the function must compute the vector norm.
+        -   if `x` is two-dimensional, the function must compute the matrix norm.
+        -   if `x` has more than two dimensions, the function must compute the vector norm over all array values (i.e., equivalent to computing the vector norm of a flattened array).
 
         Negative indices must be supported. Default: `None`.
 
@@ -222,8 +222,8 @@ Computes the matrix or vector norm of `x`.
 
         If `None`,
 
-        -   if matrix (or matrices), the function computes the Frobenius norm.
-        -   if vector (or vectors), the function computes the L2-norm (Euclidean norm).
+        -   if matrix (or matrices), the function must compute the Frobenius norm.
+        -   if vector (or vectors), the function must compute the L2-norm (Euclidean norm).
 
         Default: `None`.
 
@@ -231,7 +231,7 @@ Computes the matrix or vector norm of `x`.
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the norms. If `axis` is `None`, the output array is a zero-dimensional array containing a vector norm. If `axis` is a scalar value (`int` or `float`), the output array has a rank which is one less than the rank of `x`. If `axis` is a 2-tuple, the output array has a rank which is two less than the rank of `x`. The returned array must have the same data type as `x`.
+    -   an array containing the norms. If `axis` is `None`, the output array must be a zero-dimensional array containing a vector norm. If `axis` is a scalar value (`int` or `float`), the output array must have a rank which is one less than the rank of `x`. If `axis` is a 2-tuple, the output array must have a rank which is two less than the rank of `x`. The returned array must have the same data type as `x`.
 
 (function-outer)=
 ### outer(x1, x2, /)
@@ -312,7 +312,7 @@ Returns the sum along the specified diagonals. If `x` has more than two dimensio
 
 -   **out**: _&lt;array&gt;_
 
-    -   if `x` is a two-dimensional array, a zero-dimensional array containing the trace; otherwise, a multi-dimensional array containing the traces.
+    -   if `x` is a two-dimensional array, the returned array must be a zero-dimensional array containing the trace; otherwise, the returned array must be a multi-dimensional array containing the traces.
 
         The shape of a multi-dimensional output array is determined by removing `axis1` and `axis2` and storing the traces in the last array dimension. For example, if `x` has rank `k` and shape `(I, J, K, ..., L, M, N)` and `axis1=-2` and `axis1=-1`, then a multi-dimensional output array has rank `k-2` and shape `(I, J, K, ..., L)` where
 
@@ -335,7 +335,7 @@ Transposes (or permutes the axes (dimensions)) of an array `x`.
 
 -   **axes**: _Optional\[ Tuple\[ int, ... ] ]_
 
-    -   tuple containing a permutation of `(0, 1, ..., N-1)` where `N` is the number of axes (dimensions) of `x`. If `None`, the axes (dimensions) are permuted in reverse order (i.e., equivalent to setting `axes=(N-1, ..., 1, 0)`). Default: `None`.
+    -   tuple containing a permutation of `(0, 1, ..., N-1)` where `N` is the number of axes (dimensions) of `x`. If `None`, the axes (dimensions) must be permuted in reverse order (i.e., equivalent to setting `axes=(N-1, ..., 1, 0)`). Default: `None`.
 
 #### Returns
 
