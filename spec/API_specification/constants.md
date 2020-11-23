@@ -20,12 +20,12 @@ e = 2.71828182845904523536028747135266249775724709369995...
 (constant-inf)=
 ### inf
 
-IEEE 754 floating point representation of (positive) infinity.
+IEEE 754 floating-point representation of (positive) infinity.
 
 (constant-nan)=
 ### nan
 
-IEEE 754 floating point representation of Not a Number (`NaN`).
+IEEE 754 floating-point representation of Not a Number (`NaN`).
 
 (constant-pi)=
 ### pi
