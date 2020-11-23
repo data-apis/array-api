@@ -183,7 +183,7 @@ Returns evenly spaced numbers over a specified interval.
 
         ```{note}
 
-        Note: that the step size changes when `endpoint` is `False`.
+        The step size changes when `endpoint` is `False`.
         ```
 
 -   **num**: _int_
