@@ -1136,10 +1136,17 @@ Returns the remainder of division for each element `x1_i` of the input array `x1
 
 Rounds each element `x_i` of the input array `x` to the nearest integer-valued number.
 
+```{note}
+
+The default rounding mode must be round half to even (i.e., rounding ties to the nearest even integer).
+```
+
+_TODO: consider supporting alternative rounding modes, such as round half away from zero, round half toward zero, etc. This is possible in other environments, such as Julia, where users can control the rounding mode._
+
 #### Special Cases
 
 -   If `x_i` is already integer-valued, the result is `x_i`.
--   If two integers are equally close to `x_i`, the result is whichever integer is farthest from `0`.
+-   If two integers are equally close to `x_i`, the result is the even integer closest to `x_i`.
 
 #### Parameters
 
