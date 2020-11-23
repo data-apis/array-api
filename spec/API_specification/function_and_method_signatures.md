@@ -32,7 +32,7 @@ Function signatures in this standard adhere to the following:
    is called `x`. For functions that have multiple array parameters, those
    parameters are called `xi` with `i = 1, 2, ...` (i.e., `x1`, `x2`).
 
-4. Type annotations are left out of the signatures themselves for readability; hower,
+4. Type annotations are left out of the signatures themselves for readability; however,
    they are added to individual parameter descriptions. For code which aims to
    adhere to the standard, adding type annotations is strongly recommended.
 
