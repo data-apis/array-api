@@ -432,4 +432,4 @@ a one-dimensional array.
 The following referenced documents are indispensable for the application of this specification.
 
 -   __IEEE 754-2019: IEEE Standard for Floating-Point Arithmetic.__ Institute of Electrical and Electronic Engineers, New York (2019).
--   Scott Bradner. 1997. "Keys words for use in RFCs to Indicate Requirement Levels". RFC 2119. doi:[10.17487/rfc2119](https://tools.ietf.org/html/rfc2119).
+-   Scott Bradner. 1997. "Key words for use in RFCs to Indicate Requirement Levels". RFC 2119. doi:[10.17487/rfc2119](https://tools.ietf.org/html/rfc2119).
