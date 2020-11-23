@@ -260,9 +260,11 @@ Transpose of the array.
 (method-__abs__)=
 ### \_\_abs\_\_(x, /)
 
-Calculates the absolute value for each element `x_i` of an array instance `x` (i.e., the element-wise result has the same magnitude as the respective element in `x` but has positive sign). For floating-point operands,
+Calculates the absolute value for each element `x_i` of an array instance `x` (i.e., the element-wise result has the same magnitude as the respective element in `x` but has positive sign).
 
 #### Special Cases
+ 
+For floating-point operands,
 
 -   If `x_i` is `NaN`, the result is `NaN`.
 -   If `x_i` is `-0`, the result is `+0`.
@@ -288,9 +290,11 @@ Element-wise results must equal the results returned by the equivalent element-w
 (method-__add__)=
 ### \_\_add\_\_(x1, x2, /)
 
-Calculates the sum for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`. For floating-point operands,
+Calculates the sum for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`.
 
 #### Special Cases
+
+For floating-point operands,
 
 -   If either `x1_i` or `x2_i` is `NaN`, the result is `NaN`.
 -   If `x1_i` is `+infinity` and `x2_i` is `-infinity`, the result is `NaN`.
@@ -626,9 +630,11 @@ Element-wise results must equal the results returned by the equivalent element-w
 (method-__mul__)=
 ### \_\_mul\_\_(x1, x2, /)
 
-Calculates the product for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`. For floating-point operands,
+Calculates the product for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`.
 
 #### Special Cases
+
+For floating-point operands,
 
 -   If either `x1_i` or `x2_i` is `NaN`, the result is `NaN`.
 -   If `x1_i` and `x2_i` are not `NaN` and have the same mathematical sign, the result has a positive mathematical sign.
@@ -765,9 +771,11 @@ Element-wise results must equal the results returned by the equivalent element-w
 (method-__pow__)=
 ### \_\_pow\_\_(x1, x2, /)
 
-Calculates an implementation-dependent approximation of exponentiation by raising each element `x1_i` (the base) of an array instance `x1` to the power of `x2_i` (the exponent), where `x2_i` is the corresponding element of the array `x2`. For floating-point operands,
+Calculates an implementation-dependent approximation of exponentiation by raising each element `x1_i` (the base) of an array instance `x1` to the power of `x2_i` (the exponent), where `x2_i` is the corresponding element of the array `x2`.
 
 #### Special Cases
+
+For floating-point operands,
 
 -   If `x1_i` is not equal to `1` and `x2_i` is `NaN`, the result is `NaN`.
 -   If `x2_i` is `+0`, the result is `1`, even if `x1_i` is `NaN`.
@@ -849,7 +857,7 @@ _TODO: dependent on the indexing specification._
 (method-__sub__)=
 ### \_\_sub\_\_(x1, x2, /)
 
-Calculates the difference for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`. The result of `x1_i - x2_i` must be the same as `x1_i + (-x2_i)` and must thus governed by the same floating-point rules as addition (see [`__add__()`](#__add__x1-x2-)).
+Calculates the difference for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`. The result of `x1_i - x2_i` must be the same as `x1_i + (-x2_i)` and must be governed by the same floating-point rules as addition (see [`__add__()`](#__add__x1-x2-)).
 
 #### Parameters
 
@@ -875,9 +883,11 @@ Element-wise results must equal the results returned by the equivalent element-w
 (method-__truediv__)=
 ### \_\_truediv\_\_(x1, x2, /)
 
-Evaluates `x1_i / x2_i` for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`. For floating-point operands,
+Evaluates `x1_i / x2_i` for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`.
 
 #### Special Cases
+
+For floating-point operands,
 
 -   If either `x1_i` or `x2_i` is `NaN`, the result is `NaN`.
 -   If `x1_i` is either `+infinity` or `-infinity` and `x2_i` is either `+infinity` or `-infinity`, the result is `NaN`.
