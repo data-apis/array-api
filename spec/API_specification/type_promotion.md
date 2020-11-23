@@ -21,7 +21,7 @@ In code, use the data type objects specified in {ref}`data-types` (e.g., `int16`
 The following type promotion tables specify the casting behavior for
 operations involving two arrays. When more than two arrays participate,
 application of the promotion tables is associative (i.e., the result does not
-depend on array order.
+depend on array order).
 
 ### Signed integer type promotion table
 
