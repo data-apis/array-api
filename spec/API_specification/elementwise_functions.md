@@ -1139,7 +1139,7 @@ Rounds each element `x_i` of the input array `x` to the nearest integer-valued n
 #### Special Cases
 
 -   If `x_i` is already integer-valued, the result is `x_i`.
--   If two integers are equally close to `x_i`, the result is whichever integer is farthest from `0`.
+-   If two integers are equally close to `x_i`, the result is the even integer closest to `x_i`.
 
 #### Parameters
 
