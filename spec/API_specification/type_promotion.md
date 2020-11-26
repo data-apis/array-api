@@ -18,10 +18,10 @@ In code, use the data type objects specified in {ref}`data-types` (e.g., `int16`
 
 <!-- Note: please keep table columns aligned -->
 
-The following type promotion tables specify the casting behaviour for
-operations involving two arrays. In situations where more than two arrays
-participate, the table can be used repeatedy on pairs of input arrays (the
-result does not depend on the order in which the arrays are given).
+The following type promotion tables specify the casting behavior for
+operations involving two array operands. When more than two array operands
+participate, application of the promotion tables is associative (i.e., the
+result does not depend on operand order).
 
 ### Signed integer type promotion table
 
@@ -77,7 +77,7 @@ where
 
 ### Notes
 
--   Type promotion rules **strictly** apply when determining the common result type for two **array** operands during an arithmetic operation, regardless of array dimension. Accordingly, zero-dimensional arrays are subject to the same type promotion rules as dimensional arrays.
+-   Type promotion rules must apply when determining the common result type for two **array** operands during an arithmetic operation, regardless of array dimension. Accordingly, zero-dimensional arrays must be subject to the same type promotion rules as dimensional arrays.
 -   Type promotion of non-numerical data types to numerical data types is unspecified (e.g., `bool` to `intxx` or `floatxx`).
 -   Non-array ("scalar") operands must not participate in type promotion.
 
@@ -90,15 +90,16 @@ because behavior varies between implementations.
 
 ### Mixing arrays with Python scalars
 
-Using Python scalars (i.e. instances of `bool`, `int`, `float`) together with arrays must be supported for:
+Using Python scalars (i.e., instances of `bool`, `int`, `float`) together with
+arrays must be supported for:
 
-- `array <op> scalar`,
-- `scalar <op> array`,
+- `array <op> scalar`
+- `scalar <op> array`
 
 where `<op>` is a built-in operator (see {ref}`operators` for operators
-supported by the array object), and `scalar` is of the same kind as the array
-dtype (e.g. a `float` scalar if the array's dtype is `float32` or `float64`).
-The expected behaviour is then equivalent to:
+supported by the array object) and `scalar` is of the same kind as the array
+dtype (e.g., a `float` scalar if the array's dtype is `float32` or `float64`).
+The expected behavior is then equivalent to:
 
 1. Convert the scalar to a 0-D array with the same dtype as that of the array
    used in the expression.
@@ -107,7 +108,7 @@ The expected behaviour is then equivalent to:
 
 ```{note}
 
-Note again that mixed integer and floating-point behaviour is not specified.
-Mixing an integer array with a Python float may give `float32`, `float64`,
-or raise an exception - behaviour of implementations will differ.
+Mixed integer and floating-point behavior is not specified. Mixing an integer
+array with a Python float may give `float32`, `float64`, or raise an exception -
+behavior of implementations will differ.
 ```

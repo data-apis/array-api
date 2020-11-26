@@ -25,7 +25,7 @@ Returns the indices that sort an array `x` along a specified axis.
 
 -   **axis**: _int_
 
-    -   axis along which to sort. If set to `-1`, the function sorts along the last axis. Default: `-1`.
+    -   axis along which to sort. If set to `-1`, the function must sort along the last axis. Default: `-1`.
 
 -   **descending**: _bool_
 
@@ -54,11 +54,11 @@ Returns a sorted copy of an input array `x`.
 
 -   **axis**: _int_
 
-    -   axis along which to sort. If set to `-1`, the function sorts along the last axis. Default: `-1`.
+    -   axis along which to sort. If set to `-1`, the function must sort along the last axis. Default: `-1`.
 
 -   **descending**: _bool_
 
-    -   sort order. If `True`, the array is sorted in descending order (by value). If `False`, the array is sorted in ascending order (by value). Default: `False`.
+    -   sort order. If `True`, the array must be sorted in descending order (by value). If `False`, the array must be sorted in ascending order (by value). Default: `False`.
 
 -   **stable**: _bool_
 

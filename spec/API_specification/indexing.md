@@ -61,7 +61,7 @@ A[i:j:k]
 
 ```{note}
 
-Slice syntax can be equivalently achieved using the Python built-in [`slice()`](https://docs.python.org/3/library/functions.html#slice) API. From the perspective from `A`, the behavior of `A[i:j:k]` and `A[slice(i, j, k)]` is indistinguishable (i.e., both retrieve the same set of items from `__getitem__`).
+Slice syntax can be equivalently achieved using the Python built-in [`slice()`](https://docs.python.org/3/library/functions.html#slice) API. From the perspective of `A`, the behavior of `A[i:j:k]` and `A[slice(i, j, k)]` is indistinguishable (i.e., both retrieve the same set of items from `__getitem__`).
 ```
 
 Using a slice to index a single array axis must select `m` elements with index values

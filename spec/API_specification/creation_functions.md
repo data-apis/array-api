@@ -181,7 +181,10 @@ Returns evenly spaced numbers over a specified interval.
 
     -   the end of the interval. If `endpoint` is `False`, the function must generate a sequence of `num+1` evenly spaced numbers starting with `start` and ending with `stop` and exclude the `stop` from the returned array such that the returned array consists of evenly spaced numbers over the half-open interval `[start, stop)`. If `endpoint` is `True`, the output array must consist of evenly spaced numbers over the closed interval `[start, stop]`. Default: `True`.
 
-        _Note: that the step size changes when `endpoint` is `False`._
+        ```{note}
+
+        The step size changes when `endpoint` is `False`.
+        ```
 
 -   **num**: _int_
 

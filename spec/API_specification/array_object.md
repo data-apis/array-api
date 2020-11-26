@@ -134,30 +134,34 @@ A conforming implementation of the array API standard must provide and support a
     -   [`operator.__rshift__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__rshift__)
 
 
-### In-place operators
+### In-place Operators
 
-As discussed in {ref}`copyview-mutability`, in-place operators need to be
-supported. The following operators must be supported:
+A conforming implementation of the array API standard must provide and support
+an array object supporting the following in-place Python operators:
 
-- `+=`. May be (but does not have to be) implemented via `__iadd__`.
-- `-=`. May be (but does not have to be) implemented via `__isub__`.
-- `*=`. May be (but does not have to be) implemented via `__imul__`.
-- `/=`. May be (but does not have to be) implemented via `__idiv__`.
-- `//=`. May be (but does not have to be) implemented via `__ifloordiv__`.
-- `**=`. May be (but does not have to be) implemented via `__ipow__`.
-- `@=`. May be (but does not have to be) implemented via `__imatmul__`.
-- `%=`. May be (but does not have to be) implemented via `__imod__`.
-- `&=`. May be (but does not have to be) implemented via `__iand__`.
-- `|=`. May be (but does not have to be) implemented via `__ior__`.
-- `^=`. May be (but does not have to be) implemented via `__ixor__`.
-- `<<=`. May be (but does not have to be) implemented via `__ilshift__`.
-- `>>=`. May be (but does not have to be) implemented via `__irshift__`.
+- `+=`. May be implemented via `__iadd__`.
+- `-=`. May be implemented via `__isub__`.
+- `*=`. May be implemented via `__imul__`.
+- `/=`. May be implemented via `__idiv__`.
+- `//=`. May be implemented via `__ifloordiv__`.
+- `**=`. May be implemented via `__ipow__`.
+- `@=`. May be implemented via `__imatmul__`.
+- `%=`. May be implemented via `__imod__`.
+- `&=`. May be implemented via `__iand__`.
+- `|=`. May be implemented via `__ior__`.
+- `^=`. May be implemented via `__ixor__`.
+- `<<=`. May be implemented via `__ilshift__`.
+- `>>=`. May be implemented via `__irshift__`.
 
+```{note}
 
-### Right-hand side dunder methods
+In-place operators must be supported as discussed in {ref}`copyview-mutability`.
+```
 
-All supported operators for which `array <op> scalar` is implemented also need a right-hand
-size dunder method. The following methods must be supported:
+### Reflected Operators
+
+A conforming implementation of the array API standard must provide and support
+an array object supporting the following reflected operators:
 
 - `__radd__`
 - `__rsub__`
@@ -173,7 +177,12 @@ size dunder method. The following methods must be supported:
 - `__rlshift__`
 - `__rrshift__`
 
-For the expected numerical behaviour, see their left-hand equivalents.
+The results of applying reflected operators must match their non-reflected equivalents.
+
+```{note}
+
+All operators for which `array <op> scalar` is implemented must have an equivalent reflected operator implementation.
+```
 
 * * *
 
@@ -221,7 +230,7 @@ _TODO: need to more carefully consider this in order to accommodate, e.g., graph
 (attribute-size)=
 ### size
 
-Number of elements in an array. This should equal the product of the array's dimensions.
+Number of elements in an array. This must equal the product of the array's dimensions.
 
 #### Returns
 
@@ -254,6 +263,8 @@ Transpose of the array.
 Calculates the absolute value for each element `x_i` of an array instance `x` (i.e., the element-wise result has the same magnitude as the respective element in `x` but has positive sign).
 
 #### Special Cases
+ 
+For floating-point operands,
 
 -   If `x_i` is `NaN`, the result is `NaN`.
 -   If `x_i` is `-0`, the result is `+0`.
@@ -279,9 +290,11 @@ Element-wise results must equal the results returned by the equivalent element-w
 (method-__add__)=
 ### \_\_add\_\_(x1, x2, /)
 
-Calculates the sum for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`. For floating-point arithmetic,
+Calculates the sum for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`.
 
 #### Special Cases
+
+For floating-point operands,
 
 -   If either `x1_i` or `x2_i` is `NaN`, the result is `NaN`.
 -   If `x1_i` is `+infinity` and `x2_i` is `-infinity`, the result is `NaN`.
@@ -372,7 +385,7 @@ Computes the truth value of `x1_i == x2_i` for each element `x1_i` of an array i
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the element-wise results. The returned array must have a data type of `bool` (i.e., must be a boolean array).
+    -   an array containing the element-wise results. The returned array must have a data type of `bool`.
 
 ```{note}
 
@@ -424,7 +437,7 @@ Computes the truth value of `x1_i >= x2_i` for each element `x1_i` of an array i
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the element-wise results. The returned array must have a data type of `bool` (i.e., must be a boolean array).
+    -   an array containing the element-wise results. The returned array must have a data type of `bool`.
 
 ```{note}
 
@@ -455,7 +468,7 @@ Computes the truth value of `x1_i > x2_i` for each element `x1_i` of an array in
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the element-wise results. The returned array must have a data type of `bool` (i.e., must be a boolean array).
+    -   an array containing the element-wise results. The returned array must have a data type of `bool`.
 
 ```{note}
 
@@ -503,7 +516,7 @@ Computes the truth value of `x1_i <= x2_i` for each element `x1_i` of an array i
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the element-wise results. The returned array must have a data type of `bool` (i.e., must be a boolean array).
+    -   an array containing the element-wise results. The returned array must have a data type of `bool`.
 
 ```{note}
 
@@ -513,7 +526,7 @@ Element-wise results must equal the results returned by the equivalent element-w
 (method-__len__)=
 ### \_\_len\_\_(x, /)
 
-_TODO: need to more carefully consider this in order to accommodate, e.g., graph tensors where a shape may be dynamic._
+_TODO: need to more carefully consider this in order to accommodate, e.g., graph tensors where a shape may be dynamic. Furthermore, not clear whether this should be implemented, as, e.g., NumPy's behavior of returning the size of the first dimension is not necessarily intuitive, as opposed to, say, the total number of elements._
 
 (method-__lshift__)=
 ### \_\_lshift\_\_(x1, x2, /)
@@ -560,7 +573,7 @@ Computes the truth value of `x1_i < x2_i` for each element `x1_i` of an array in
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the element-wise results. The returned array must have a data type of `bool` (i.e., must be a boolean array).
+    -   an array containing the element-wise results. The returned array must have a data type of `bool`.
 
 ```{note}
 
@@ -617,15 +630,17 @@ Element-wise results must equal the results returned by the equivalent element-w
 (method-__mul__)=
 ### \_\_mul\_\_(x1, x2, /)
 
-Calculates the product for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`. For floating-point arithmetic,
+Calculates the product for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`.
 
 #### Special Cases
 
+For floating-point operands,
+
 -   If either `x1_i` or `x2_i` is `NaN`, the result is `NaN`.
--   If `x1_i` and `x2_i` have the same mathematical sign, the result has a positive mathematical sign.
--   If `x1_i` and `x2_i` have different mathematical signs, the result has a negative mathematical sign.
 -   If `x1_i` is either `+infinity` or `-infinity` and `x2_i` is either `+0` or `-0`, the result is `NaN`.
 -   If `x1_i` is either `+0` or `-0` and `x2_i` is either `+infinity` or `-infinity`, the result is `NaN`.
+-   If `x1_i` and `x2_i` have the same mathematical sign, the result has a positive mathematical sign, unless the result is `NaN`. If the result is `NaN`, the "sign" of `NaN` is implementation-defined.
+-   If `x1_i` and `x2_i` have different mathematical signs, the result has a negative mathematical sign, unless the result is `NaN`. If the result is `NaN`, the "sign" of `NaN` is implementation-defined.
 -   If `x1_i` is either `+infinity` or `-infinity` and `x2_i` is either `+infinity` or `-infinity`, the result is a signed infinity with the mathematical sign determined by the rule already stated above.
 -   If `x1_i` is either `+infinity` or `-infinity` and `x2_i` is a nonzero finite number, the result is a signed infinity with the mathematical sign determined by the rule already stated above.
 -   If `x1_i` is a nonzero finite number and `x2_i` is either `+infinity` or `-infinity`, the result is a signed infinity with the mathematical sign determined by the rule already stated above.
@@ -760,6 +775,8 @@ Calculates an implementation-dependent approximation of exponentiation by raisin
 
 #### Special Cases
 
+For floating-point operands,
+
 -   If `x1_i` is not equal to `1` and `x2_i` is `NaN`, the result is `NaN`.
 -   If `x2_i` is `+0`, the result is `1`, even if `x1_i` is `NaN`.
 -   If `x2_i` is `-0`, the result is `1`, even if `x1_i` is `NaN`.
@@ -840,7 +857,7 @@ _TODO: dependent on the indexing specification._
 (method-__sub__)=
 ### \_\_sub\_\_(x1, x2, /)
 
-Calculates the difference for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`. The result of `x1_i - x2_i` must be the same as `x1_i + (-x2_i)` and is thus governed by the same floating-point rules as addition (see [`__add__()`](#__add__x1-x2-)).
+Calculates the difference for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`. The result of `x1_i - x2_i` must be the same as `x1_i + (-x2_i)` and must be governed by the same floating-point rules as addition (see [`__add__()`](#__add__x1-x2-)).
 
 #### Parameters
 
@@ -866,9 +883,11 @@ Element-wise results must equal the results returned by the equivalent element-w
 (method-__truediv__)=
 ### \_\_truediv\_\_(x1, x2, /)
 
-Evaluates `x1_i / x2_i` for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`. For floating-point arithmetic,
+Evaluates `x1_i / x2_i` for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`.
 
 #### Special Cases
+
+For floating-point operands,
 
 -   If either `x1_i` or `x2_i` is `NaN`, the result is `NaN`.
 -   If `x1_i` is either `+infinity` or `-infinity` and `x2_i` is either `+infinity` or `-infinity`, the result is `NaN`.

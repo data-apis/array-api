@@ -25,6 +25,8 @@ Calculates the absolute value for each element `x_i` of the input array `x` (i.e
 
 #### Special Cases
 
+For floating-point operands,
+
 -   If `x_i` is `NaN`, the result is `NaN`.
 -   If `x_i` is `-0`, the result is `+0`.
 -   If `x_i` is `-infinity`, the result is `+infinity`.
@@ -47,6 +49,8 @@ Calculates the absolute value for each element `x_i` of the input array `x` (i.e
 Calculates an implementation-dependent approximation of the principal value of the inverse cosine, having domain `[-1, +1]` and codomain `[+0, +π]`, for each element `x_i` of the input array `x`. Each element-wise result is expressed in radians.
 
 #### Special Cases
+
+For floating-point operands,
 
 -   If `x_i` is `NaN`, the result is `NaN`.
 -   If `x_i` is greater than `1`, the result is `NaN`.
@@ -72,6 +76,8 @@ Calculates an implementation-dependent approximation to the inverse hyperbolic c
 
 #### Special Cases
 
+For floating-point operands,
+
 -   If `x_i` is `NaN`, the result is `NaN`.
 -   If `x_i` is less than `1`, the result is `NaN`.
 -   If `x_i` is `1`, the result is `+0`.
@@ -92,9 +98,11 @@ Calculates an implementation-dependent approximation to the inverse hyperbolic c
 (function-add)=
 ### add(x1, x2, /)
 
-Calculates the sum for each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`. For floating-point arithmetic,
+Calculates the sum for each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`.
 
 #### Special Cases
+
+For floating-point operands,
 
 -   If either `x1_i` or `x2_i` is `NaN`, the result is `NaN`.
 -   If `x1_i` is `+infinity` and `x2_i` is `-infinity`, the result is `NaN`.
@@ -142,6 +150,8 @@ Calculates an implementation-dependent approximation of the principal value of t
 
 #### Special Cases
 
+For floating-point operands,
+
 -   If `x_i` is `NaN`, the result is `NaN`.
 -   If `x_i` is greater than `1`, the result is `NaN`.
 -   If `x_i` is less than `-1`, the result is `NaN`.
@@ -167,6 +177,8 @@ Calculates an implementation-dependent approximation to the inverse hyperbolic s
 
 #### Special Cases
 
+For floating-point operands,
+
 -   If `x_i` is `NaN`, the result is `NaN`.
 -   If `x_i` is `+0`, the result is `+0`.
 -   If `x_i` is `-0`, the result is `-0`.
@@ -191,6 +203,8 @@ Calculates an implementation-dependent approximation to the inverse hyperbolic s
 Calculates an implementation-dependent approximation of the principal value of the inverse tangent, having domain `[-infinity, +infinity]` and codomain `[-π/2, +π/2]`, for each element `x_i` of the input array `x`. Each element-wise result is expressed in radians.
 
 #### Special Cases
+
+For floating-point operands,
 
 -   If `x_i` is `NaN`, the result is `NaN`.
 -   If `x_i` is `+0`, the result is `+0`.
@@ -225,6 +239,8 @@ Note the role reversal: the "y-coordinate" is the first function parameter; the 
 By IEEE 754 convention, the inverse tangent of the quotient `x1/x2` is defined for `x2_i` equal to positive or negative zero and for either or both of `x1_i` and `x2_i` equal to positive or negative `infinity`.
 
 #### Special Cases
+
+For floating-point operands,
 
 -   If either `x1_i` or `x2_i` is `NaN`, the result is `NaN`.
 -   If `x1_i` is greater than `0` and `x2_i` is `+0`, the result is an implementation-dependent approximation to `+π/2`.
@@ -272,6 +288,8 @@ By IEEE 754 convention, the inverse tangent of the quotient `x1/x2` is defined f
 Calculates an implementation-dependent approximation to the inverse hyperbolic tangent, having domain `[-1, +1]` and codomain `[-infinity, +infinity]`, for each element `x_i` of the input array `x`.
 
 #### Special Cases
+
+For floating-point operands,
 
 -   If `x_i` is `NaN`, the result is `NaN`.
 -   If `x_i` is less than `-1`, the result is `NaN`.
@@ -443,6 +461,8 @@ Calculates an implementation-dependent approximation to the cosine, having domai
 
 #### Special Cases
 
+For floating-point operands,
+
 -   If `x_i` is `NaN`, the result is `NaN`.
 -   If `x_i` is `+0`, the result is `1`.
 -   If `x_i` is `-0`, the result is `1`.
@@ -466,6 +486,10 @@ Calculates an implementation-dependent approximation to the cosine, having domai
 
 Calculates an implementation-dependent approximation to the hyperbolic cosine, having domain `[-infinity, +infinity]` and codomain `[-infinity, +infinity]`, for each element `x_i` in the input array `x`.
 
+#### Special Cases
+
+For floating-point operands,
+
 -   If `x_i` is `NaN`, the result is `NaN`.
 -   If `x_i` is `+0`, the result is `1`.
 -   If `x_i` is `-0`, the result is `1`.
@@ -487,9 +511,11 @@ Calculates an implementation-dependent approximation to the hyperbolic cosine, h
 (function-divide)=
 ### divide(x1, x2, /)
 
-Calculates the division for each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`. For floating-point arithmetic,
+Calculates the division for each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`.
 
 #### Special Cases
+
+For floating-point operands,
 
 -   If either `x1_i` or `x2_i` is `NaN`, the result is `NaN`.
 -   If `x1_i` is either `+infinity` or `-infinity` and `x2_i` is either `+infinity` or `-infinity`, the result is `NaN`.
@@ -549,7 +575,7 @@ Computes the truth value of `x1_i == x2_i` for each element `x1_i` of the input 
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the element-wise results. The returned array must have a data type of `bool` (i.e., must be a boolean array).
+    -   an array containing the element-wise results. The returned array must have a data type of `bool`.
 
 (function-exp)=
 ### exp(x, /)
@@ -557,6 +583,8 @@ Computes the truth value of `x1_i == x2_i` for each element `x1_i` of the input 
 Calculates an implementation-dependent approximation to the exponential function, having domain `[-infinity, +infinity]` and codomain `[+0, +infinity]`, for each element `x_i` of the input array `x` (`e` raised to the power of `x_i`, where `e` is the base of the natural logarithm).
 
 #### Special Cases
+
+For floating-point operands,
 
 -   If `x_i` is `NaN`, the result is `NaN`.
 -   If `x_i` is `+0`, the result is `1`.
@@ -587,6 +615,8 @@ The purpose of this function is to calculate `exp(x)-1.0` more accurately when `
 ```
 
 #### Special Cases
+
+For floating-point operands,
 
 -   If `x_i` is `NaN`, the result is `NaN`.
 -   If `x_i` is `+0`, the result is `+0`.
@@ -646,7 +676,7 @@ Rounds the result of dividing each element `x1_i` of the input array `x1` by the
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the element-wise results. The returned array must have a floating-point data type determined by {ref}`type-promotion`.
+    -   an array containing the element-wise results. The returned array must have a data type determined by {ref}`type-promotion`.
 
 (function-greater)=
 ### greater(x1, x2, /)
@@ -667,7 +697,7 @@ Computes the truth value of `x1_i > x2_i` for each element `x1_i` of the input a
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the element-wise results. The returned array must have a data type of `bool` (i.e., must be a boolean array).
+    -   an array containing the element-wise results. The returned array must have a data type of `bool`.
 
 (function-greater_equal)=
 ### greater_equal(x1, x2, /)
@@ -688,7 +718,7 @@ Computes the truth value of `x1_i >= x2_i` for each element `x1_i` of the input 
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the element-wise results. The returned array must have a data type of `bool` (i.e., must be a boolean array).
+    -   an array containing the element-wise results. The returned array must have a data type of `bool`.
 
 (function-isfinite)=
 ### isfinite(x, /)
@@ -705,7 +735,7 @@ Tests each element `x_i` of the input array `x` to determine if finite (i.e., no
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing test results. An element `out_i` is `True` if `x_i` is finite and `False` otherwise. The returned array must have a data type of `bool` (i.e., must be a boolean array).
+    -   an array containing test results. An element `out_i` is `True` if `x_i` is finite and `False` otherwise. The returned array must have a data type of `bool`.
 
 (function-isinf)=
 ### isinf(x, /)
@@ -722,7 +752,7 @@ Tests each element `x_i` of the input array `x` to determine if equal to positiv
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing test results. An element `out_i` is `True` if `x_i` is either positive or negative infinity and `False` otherwise. The returned array must have a data type of `bool` (i.e., must be a boolean array).
+    -   an array containing test results. An element `out_i` is `True` if `x_i` is either positive or negative infinity and `False` otherwise. The returned array must have a data type of `bool`.
 
 (function-isnan)=
 ### isnan(x, /)
@@ -739,7 +769,7 @@ Tests each element `x_i` of the input array `x` to determine whether the element
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing test results. An element `out_i` is `True` if `x_i` is `NaN` and `False` otherwise. The returned array must have a data type of `bool` (i.e., must be a boolean array).
+    -   an array containing test results. An element `out_i` is `True` if `x_i` is `NaN` and `False` otherwise. The returned array must have a data type of `bool`.
 
 (function-less)=
 ### less(x1, x2, /)
@@ -760,7 +790,7 @@ Computes the truth value of `x1_i < x2_i` for each element `x1_i` of the input a
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the element-wise results. The returned array must have a data type of `bool` (i.e., must be a boolean array).
+    -   an array containing the element-wise results. The returned array must have a data type of `bool`.
 
 (function-less_equal)=
 ### less_equal(x1, x2, /)
@@ -781,7 +811,7 @@ Computes the truth value of `x1_i <= x2_i` for each element `x1_i` of the input 
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the element-wise results. The returned array must have a data type of `bool` (i.e., must be a boolean array).
+    -   an array containing the element-wise results. The returned array must have a data type of `bool`.
 
 (function-log)=
 ### log(x, /)
@@ -789,6 +819,8 @@ Computes the truth value of `x1_i <= x2_i` for each element `x1_i` of the input 
 Calculates an implementation-dependent approximation to the natural (base `e`) logarithm, having domain `[0, +infinity]` and codomain `[-infinity, +infinity]`, for each element `x_i` of the input array `x`.
 
 #### Special Cases
+
+For floating-point operands,
 
 -   If `x_i` is `NaN`, the result is `NaN`.
 -   If `x_i` is less than `0`, the result is `NaN`.
@@ -820,6 +852,8 @@ The purpose of this function is to calculate `log(1+x)` more accurately when `x`
 
 #### Special Cases
 
+For floating-point operands,
+
 -   If `x_i` is `NaN`, the result is `NaN`.
 -   If `x_i` is less than `-1`, the result is `NaN`.
 -   If `x_i` is `-1`, the result is `-infinity`.
@@ -846,6 +880,8 @@ Calculates an implementation-dependent approximation to the base `2` logarithm, 
 
 #### Special Cases
 
+For floating-point operands,
+
 -   If `x_i` is `NaN`, the result is `NaN`.
 -   If `x_i` is less than `0`, the result is `NaN`.
 -   If `x_i` is either `+0` or `-0`, the result is `-infinity`.
@@ -871,6 +907,8 @@ Calculates an implementation-dependent approximation to the base `10` logarithm,
 
 #### Special Cases
 
+For floating-point operands,
+
 -   If `x_i` is `NaN`, the result is `NaN`.
 -   If `x_i` is less than `0`, the result is `NaN`.
 -   If `x_i` is either `+0` or `-0`, the result is `-infinity`.
@@ -892,7 +930,7 @@ Calculates an implementation-dependent approximation to the base `10` logarithm,
 (function-logical_and)=
 ### logical_and(x1, x2, /)
 
-Computes the logical AND for each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`. Zeros should be considered the equivalent of `False`, while non-zeros should be considered the equivalent of `True`.
+Computes the logical AND for each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`. Zeros are considered the equivalent of `False`, while non-zeros are considered the equivalent of `True`.
 
 #### Parameters
 
@@ -908,12 +946,12 @@ Computes the logical AND for each element `x1_i` of the input array `x1` with th
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the element-wise results. The returned array must have a data type of `bool` (i.e., must be a boolean array).
+    -   an array containing the element-wise results. The returned array must have a data type of `bool`.
 
 (function-logical_not)=
 ### logical_not(x, /)
 
-Computes the logical NOT for each element `x_i` of the input array `x`. Zeros should be considered the equivalent of `False`, while non-zeros should be considered the equivalent of `True`.
+Computes the logical NOT for each element `x_i` of the input array `x`. Zeros are considered the equivalent of `False`, while non-zeros are considered the equivalent of `True`.
 
 #### Parameters
 
@@ -925,12 +963,12 @@ Computes the logical NOT for each element `x_i` of the input array `x`. Zeros sh
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the element-wise results. The returned array must have a data type of `bool` (i.e., must be a boolean array).
+    -   an array containing the element-wise results. The returned array must have a data type of `bool`.
 
 (function-logical_or)=
 ### logical_or(x1, x2, /)
 
-Computes the logical OR for each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`. Zeros should be considered the equivalent of `False`, while non-zeros should be considered the equivalent of `True`.
+Computes the logical OR for each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`. Zeros are considered the equivalent of `False`, while non-zeros are considered the equivalent of `True`.
 
 #### Parameters
 
@@ -946,12 +984,12 @@ Computes the logical OR for each element `x1_i` of the input array `x1` with the
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the element-wise results. The returned array must have a data type of `bool` (i.e., must be a boolean array).
+    -   an array containing the element-wise results. The returned array must have a data type of `bool`.
 
 (function-logical_xor)=
 ### logical_xor(x1, x2, /)
 
-Computes the logical XOR for each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`. Zeros should be considered the equivalent of `False`, while non-zeros should be considered the equivalent of `True`.
+Computes the logical XOR for each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`. Zeros are considered the equivalent of `False`, while non-zeros are considered the equivalent of `True`.
 
 #### Parameters
 
@@ -967,20 +1005,22 @@ Computes the logical XOR for each element `x1_i` of the input array `x1` with th
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the element-wise results. The returned array must have a data type of `bool` (i.e., must be a boolean array).
+    -   an array containing the element-wise results. The returned array must have a data type of `bool`.
 
 (function-multiply)=
 ### multiply(x1, x2, /)
 
-Calculates the product for each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`. For floating-point arithmetic,
+Calculates the product for each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`.
 
 #### Special Cases
 
+For floating-point operands,
+
 -   If either `x1_i` or `x2_i` is `NaN`, the result is `NaN`.
--   If `x1_i` and `x2_i` have the same mathematical sign, the result has a positive mathematical sign.
--   If `x1_i` and `x2_i` have different mathematical signs, the result has a negative mathematical sign.
 -   If `x1_i` is either `+infinity` or `-infinity` and `x2_i` is either `+0` or `-0`, the result is `NaN`.
 -   If `x1_i` is either `+0` or `-0` and `x2_i` is either `+infinity` or `-infinity`, the result is `NaN`.
+-   If `x1_i` and `x2_i` have the same mathematical sign, the result has a positive mathematical sign, unless the result is `NaN`. If the result is `NaN`, the "sign" of `NaN` is implementation-defined.
+-   If `x1_i` and `x2_i` have different mathematical signs, the result has a negative mathematical sign, unless the result is `NaN`. If the result is `NaN`, the "sign" of `NaN` is implementation-defined.
 -   If `x1_i` is either `+infinity` or `-infinity` and `x2_i` is either `+infinity` or `-infinity`, the result is a signed infinity with the mathematical sign determined by the rule already stated above.
 -   If `x1_i` is either `+infinity` or `-infinity` and `x2_i` is a nonzero finite number, the result is a signed infinity with the mathematical sign determined by the rule already stated above.
 -   If `x1_i` is a nonzero finite number and `x2_i` is either `+infinity` or `-infinity`, the result is a signed infinity with the mathematical sign determined by the rule already stated above.
@@ -1043,7 +1083,7 @@ Computes the truth value of `x1_i != x2_i` for each element `x1_i` of the input 
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the element-wise results. The returned array must have a data type of `bool` (i.e., must be a boolean array).
+    -   an array containing the element-wise results. The returned array must have a data type of `bool`.
 
 (function-positive)=
 ### positive(x, /)
@@ -1068,6 +1108,8 @@ Computes the numerical positive of each element `x_i` (i.e., `y_i = +x_i`) of th
 Calculates an implementation-dependent approximation of exponentiation by raising each element `x1_i` (the base) of the input array `x1` to the power of `x2_i` (the exponent), where `x2_i` is the corresponding element of the input array `x2`.
 
 #### Special Cases
+
+For floating-point operands,
 
 -   If `x1_i` is not equal to `1` and `x2_i` is `NaN`, the result is `NaN`.
 -   If `x2_i` is `+0`, the result is `1`, even if `x1_i` is `NaN`.
@@ -1183,6 +1225,8 @@ Calculates an implementation-dependent approximation to the sine, having domain 
 
 #### Special Cases
 
+For floating-point operands,
+
 -   If `x_i` is `NaN`, the result is `NaN`.
 -   If `x_i` is `+0`, the result is `+0`.
 -   If `x_i` is `-0`, the result is `-0`.
@@ -1206,6 +1250,8 @@ Calculates an implementation-dependent approximation to the sine, having domain 
 Calculates an implementation-dependent approximation to the hyperbolic sine, having domain `[-infinity, +infinity]` and codomain `[-infinity, +infinity]`, for each element `x_i` of the input array `x`.
 
 #### Special Cases
+
+For floating-point operands,
 
 -   If `x_i` is `NaN`, the result is `NaN`.
 -   If `x_i` is `+0`, the result is `+0`.
@@ -1245,9 +1291,11 @@ Squares (`x_i * x_i`) each element `x_i` of the input array `x`.
 (function-sqrt)=
 ### sqrt(x, /)
 
-Calculates the square root, having domain `[0, +infinity]` and codomain `[0, +infinity]`, for each element `x_i` of the input array `x`. After rounding, each result should be indistinguishable from the infinitely precise result (as required by IEEE 754).
+Calculates the square root, having domain `[0, +infinity]` and codomain `[0, +infinity]`, for each element `x_i` of the input array `x`. After rounding, each result must be indistinguishable from the infinitely precise result (as required by IEEE 754).
 
 #### Special Cases
+
+For floating-point operands,
 
 -   If `x_i` is `NaN`, the result is `NaN`.
 -   If `x_i` is less than `0`, the result is `NaN`.
@@ -1270,7 +1318,7 @@ Calculates the square root, having domain `[0, +infinity]` and codomain `[0, +in
 (function-subtract)=
 ### subtract(x1, x2, /)
 
-Calculates the difference for each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`. The result of `x1_i - x2_i` must be the same as `x1_i + (-x2_i)` and is thus governed by the same floating-point rules as addition (see [`add()`](#addx1-x2-)).
+Calculates the difference for each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`. The result of `x1_i - x2_i` must be the same as `x1_i + (-x2_i)` and must be governed by the same floating-point rules as addition (see [`add()`](#addx1-x2-)).
 
 #### Parameters
 
@@ -1295,6 +1343,8 @@ Calculates an implementation-dependent approximation to the tangent, having doma
 
 #### Special Cases
 
+For floating-point operands,
+
 -   If `x_i` is `NaN`, the result is `NaN`.
 -   If `x_i` is `+0`, the result is `+0`.
 -   If `x_i` is `-0`, the result is `-0`.
@@ -1304,7 +1354,7 @@ Calculates an implementation-dependent approximation to the tangent, having doma
 
 -   **x**: _&lt;array&gt;_
 
-    -   input array whose elements are each expressed in radians.
+    -   input array whose elements are expressed in radians.
 
 #### Returns
 
@@ -1318,6 +1368,8 @@ Calculates an implementation-dependent approximation to the tangent, having doma
 Calculates an implementation-dependent approximation to the hyperbolic tangent, having domain `[-infinity, +infinity]` and codomain `[-1, +1]`, for each element `x_i` of the input array `x`.
 
 #### Special Cases
+
+For floating-point operands,
 
 -   If `x_i` is `NaN`, the result is `NaN`.
 -   If `x_i` is `+0`, the result is `+0`.

@@ -114,11 +114,11 @@ Rolls array elements along a specified axis. Array elements that roll beyond the
 
 -   **shift**: _Union\[ int, Tuple\[ int, ... ] ]_
 
-    -   number of places by which the elements are shifted. If `shift` is a tuple, then `axis` must be a tuple of the same size, and each of the given axes must be shifted by the corresponding element in `shift`. If `shift` is an `int` and `axis` a tuple, then the same `shift` is used for all specified axes. If a shift is positive, then array elements are shifted positively (toward larger indices) along the dimension of `axis`. If a shift is negative, then array elements are shifted negatively (toward smaller indices) along the dimension of `axis`.
+    -   number of places by which the elements are shifted. If `shift` is a tuple, then `axis` must be a tuple of the same size, and each of the given axes must be shifted by the corresponding element in `shift`. If `shift` is an `int` and `axis` a tuple, then the same `shift` must be used for all specified axes. If a shift is positive, then array elements must be shifted positively (toward larger indices) along the dimension of `axis`. If a shift is negative, then array elements must be shifted negatively (toward smaller indices) along the dimension of `axis`.
 
 -   **axis**: _Optional\[ Union\[ int, Tuple\[ int, ... ] ] ]_
 
-    -   axis (or axes) along which elements to shift. If `axis` is `None`, the array is flattened, shifted, and then restored to its original shape. Default: `None`.
+    -   axis (or axes) along which elements to shift. If `axis` is `None`, the array must be flattened, shifted, and then restored to its original shape. Default: `None`.
 
 #### Returns
 
