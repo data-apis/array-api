@@ -201,6 +201,17 @@ Data type of the array elements.
 
     -   array data type.
 
+(attribute-device)=
+### device
+
+Hardware device the array data resides on.
+
+#### Returns
+
+-   **out**: _&lt;device&gt;_
+
+    -   a `device` object instance.
+
 (attribute-ndim)=
 ### ndim
 
