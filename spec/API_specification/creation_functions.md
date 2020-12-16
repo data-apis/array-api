@@ -41,7 +41,7 @@ This function cannot guarantee that the interval does not include the `stop` val
 
 -   **device**: _Optional\[ &lt;device&gt; ]_
 
-    -   device to place the created array on. If `device` is `None`, the array data type must be placed on the default device. Default: `None`.
+    -   device to place the created array on, if given. Default: `None`.
 
 #### Returns
 
@@ -66,7 +66,7 @@ Returns an uninitialized array having a specified `shape`.
 
 -   **device**: _Optional\[ &lt;device&gt; ]_
 
-    -   device to place the created array on. If `device` is `None`, the array data type must be placed on the default device. Default: `None`.
+    -   device to place the created array on, if given. Default: `None`.
 
 #### Returns
 
@@ -91,7 +91,7 @@ Returns an uninitialized array with the same `shape` as an input array `x`.
 
 -   **device**: _Optional\[ &lt;device&gt; ]_
 
-    -   device to place the created array on. If `device` is `None`, the array data type must be placed on the default device. Default: `None`.
+    -   device to place the created array on, if given. Default: `None`.
 
 #### Returns
 
@@ -124,7 +124,7 @@ Returns a two-dimensional array with ones on the `k`th diagonal and zeros elsewh
 
 -   **device**: _Optional\[ &lt;device&gt; ]_
 
-    -   device to place the created array on. If `device` is `None`, the array data type must be placed on the default device. Default: `None`.
+    -   device to place the created array on, if given. Default: `None`.
 
 #### Returns
 
@@ -153,7 +153,7 @@ Returns a new array having a specified `shape` and filled with `fill_value`.
 
 -   **device**: _Optional\[ &lt;device&gt; ]_
 
-    -   device to place the created array on. If `device` is `None`, the array data type must be placed on the default device. Default: `None`.
+    -   device to place the created array on, if given. Default: `None`.
 
 #### Returns
 
@@ -182,7 +182,7 @@ Returns a new array filled with `fill_value` and having the same `shape` as an i
 
 -   **device**: _Optional\[ &lt;device&gt; ]_
 
-    -   device to place the created array on. If `device` is `None`, the array data type must be placed on the default device. Default: `None`.
+    -   device to place the created array on, if given. Default: `None`.
 
 #### Returns
 
@@ -220,7 +220,7 @@ Returns evenly spaced numbers over a specified interval.
 
 -   **device**: _Optional\[ &lt;device&gt; ]_
 
-    -   device to place the created array on. If `device` is `None`, the array data type must be placed on the default device. Default: `None`.
+    -   device to place the created array on, if given. Default: `None`.
 
 -   **endpoint**: _Optional\[ bool ]_
 
@@ -249,7 +249,7 @@ Returns a new array having a specified `shape` and filled with ones.
 
 -   **device**: _Optional\[ &lt;device&gt; ]_
 
-    -   device to place the created array on. If `device` is `None`, the array data type must be placed on the default device. Default: `None`.
+    -   device to place the created array on, if given. Default: `None`.
 
 #### Returns
 
@@ -274,7 +274,7 @@ Returns a new array filled with ones and having the same `shape` as an input arr
 
 -   **device**: _Optional\[ &lt;device&gt; ]_
 
-    -   device to place the created array on. If `device` is `None`, the array data type must be placed on the default device. Default: `None`.
+    -   device to place the created array on, if given. Default: `None`.
 
 #### Returns
 
@@ -299,7 +299,7 @@ Returns a new array having a specified `shape` and filled with zeros.
 
 -   **device**: _Optional\[ &lt;device&gt; ]_
 
-    -   device to place the created array on. If `device` is `None`, the array data type must be placed on the default device. Default: `None`.
+    -   device to place the created array on, if given. Default: `None`.
 
 #### Returns
 
@@ -324,7 +324,7 @@ Returns a new array filled with zeros and having the same `shape` as an input ar
 
 -   **device**: _Optional\[ &lt;device&gt; ]_
 
-    -   device to place the created array on. If `device` is `None`, the array data type must be placed on the default device. Default: `None`.
+    -   device to place the created array on, if given. Default: `None`.
 
 #### Returns
 

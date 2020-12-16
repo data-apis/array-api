@@ -11,7 +11,6 @@ API specification
    array_object
    indexing
    data_types
-   device_object
    type_promotion
    broadcasting
    creation_functions

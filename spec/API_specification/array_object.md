@@ -210,7 +210,7 @@ Hardware device the array data resides on.
 
 -   **out**: _&lt;device&gt;_
 
-    -   a `device` object instance.
+    -   a `device` object (see {ref}`device-support`).
 
 (attribute-ndim)=
 ### ndim
