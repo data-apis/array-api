@@ -127,7 +127,7 @@ Rolls array elements along a specified axis. Array elements that roll beyond the
     -   an output array having the same data type as `x` and whose elements, relative to `x`, are shifted.
 
 (function-squeeze)=
-### squeeze(x, /, *, axis=None)
+### squeeze(x, /, axis)
 
 Removes singleton dimensions (axes) from `x`.
 
@@ -137,9 +137,9 @@ Removes singleton dimensions (axes) from `x`.
 
     -   input array.
 
--   **axis**: _Optional\[ Union\[ int, Tuple\[ int, ... ] ] ]_
+-   **axis**: _Union\[ int, Tuple\[ int, ... ] ]_
 
-    -   axis (or axes) to squeeze. If provided, only the specified axes must be squeezed. If `axis` is `None`, all singleton dimensions (axes) must be removed. If a specified axis has a size greater than one, the specified axis must be left unchanged. Default: `None`.
+    -   axis (or axes) to squeeze. If a specified axis has a size greater than one, a `ValueError` must be raised.
 
 #### Returns
 
