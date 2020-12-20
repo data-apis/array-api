@@ -4,6 +4,16 @@
 
 > Array API specification for type promotion rules.
 
+Type promotion rules can be understood at a high level from the following
+diagram:
+
+![Type promotion diagram](/_static/images/dtype_promotion_lattice.png)
+
+_Type promotion diagram. Promotion between any two types is given by their join on this lattice. Only the types of participating arrays matter, not their values). Dashed lines indicate that behaviour for Python scalars is undefined on overflow. Boolean, integer and floating-point dtypes are not connected, indicating mixed-kind promotion is undefined._
+
+
+## Rules
+
 A conforming implementation of the array API standard must implement the following type promotion rules governing the common result type for two **array** operands during an arithmetic operation.
 
 A conforming implementation of the array API standard may support additional type promotion rules beyond those described in this specification.
@@ -13,8 +23,6 @@ A conforming implementation of the array API standard may support additional typ
 Type codes are used here to keep tables readable; they are not part of the standard.
 In code, use the data type objects specified in {ref}`data-types` (e.g., `int16` rather than `'i2'`).
 ```
-
-## Rules
 
 <!-- Note: please keep table columns aligned -->
 
@@ -79,8 +87,6 @@ where
 
 -   Type promotion rules must apply when determining the common result type for two **array** operands during an arithmetic operation, regardless of array dimension. Accordingly, zero-dimensional arrays must be subject to the same type promotion rules as dimensional arrays.
 -   Type promotion of non-numerical data types to numerical data types is unspecified (e.g., `bool` to `intxx` or `floatxx`).
--   Non-array ("scalar") operands must not participate in type promotion.
-
 
 ```{note}
 
@@ -97,8 +103,12 @@ arrays must be supported for:
 - `scalar <op> array`
 
 where `<op>` is a built-in operator (see {ref}`operators` for operators
-supported by the array object) and `scalar` is of the same kind as the array
-dtype (e.g., a `float` scalar if the array's dtype is `float32` or `float64`).
+supported by the array object) and `scalar` has a compatible type and value
+to the array dtype:
+- Python `bool` for a `bool` array dtype,
+- a positive Python `int` for unsigned integer array dtypes,
+- a Python `int` for integer array dtypes,
+- a Python `int` or `float` for floating-point array dtypes
 The expected behavior is then equivalent to:
 
 1. Convert the scalar to a 0-D array with the same dtype as that of the array
@@ -108,7 +118,7 @@ The expected behavior is then equivalent to:
 
 ```{note}
 
-Mixed integer and floating-point behavior is not specified. Mixing an integer
-array with a Python float may give `float32`, `float64`, or raise an exception -
+Behaviour is not specified when mixing a Python `float` and an array with an
+integer dtype; this may give `float32`, `float64`, or raise an exception -
 behavior of implementations will differ.
 ```
