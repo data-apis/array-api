@@ -71,6 +71,11 @@ rather than hard requirements:
   (i.e. avoid implicit data transfer between devices).
 - Use a default for `device=None` which is consistent between functions
   within the same library.
+- If a library has multiple ways of controlling device placement, the most
+  explicit method should have the highest priority. For example:
+    1. If `device=` keyword is specified, that always takes precedence
+    2. If `device=None`, then use the setting from a context manager, if set.
+    3. If no context manager was used, then use the global default device/strategy
 
 
 (device-out-of-scope)=

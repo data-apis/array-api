@@ -91,7 +91,7 @@ Returns an uninitialized array with the same `shape` as an input array `x`.
 
 -   **device**: _Optional\[ &lt;device&gt; ]_
 
-    -   device to place the created array on, if given. Default: `None`.
+    -   device to place the created array on, if given. If `device` is `None`, the default device must be used, not `x.device`. Default: `None`.
 
 #### Returns
 
@@ -182,7 +182,7 @@ Returns a new array filled with `fill_value` and having the same `shape` as an i
 
 -   **device**: _Optional\[ &lt;device&gt; ]_
 
-    -   device to place the created array on, if given. Default: `None`.
+    -   device to place the created array on, if given. If `device` is `None`, the default device must be used, not `x.device`. Default: `None`.
 
 #### Returns
 
@@ -274,7 +274,7 @@ Returns a new array filled with ones and having the same `shape` as an input arr
 
 -   **device**: _Optional\[ &lt;device&gt; ]_
 
-    -   device to place the created array on, if given. Default: `None`.
+    -   device to place the created array on, if given. If `device` is `None`, the default device must be used, not `x.device`. Default: `None`.
 
 #### Returns
 
@@ -324,7 +324,7 @@ Returns a new array filled with zeros and having the same `shape` as an input ar
 
 -   **device**: _Optional\[ &lt;device&gt; ]_
 
-    -   device to place the created array on, if given. Default: `None`.
+    -   device to place the created array on, if given. If `device` is `None`, the default device must be used, not `x.device`. Default: `None`.
 
 #### Returns
 
