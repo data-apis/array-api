@@ -50,6 +50,7 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
 # MyST options
 myst_heading_anchors = 3
+myst_enable_extensions = ["colon_fence"]
 
 # -- Options for HTML output -------------------------------------------------
 
