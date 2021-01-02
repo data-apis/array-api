@@ -366,6 +366,23 @@ Evaluates `x1_i & x2_i` for each element `x1_i` of an array instance `x1` with t
 Element-wise results must equal the results returned by the equivalent element-wise function [`bitwise_and(x1, x2)`](elementwise_functions.md#logical_andx1-x2-).
 ```
 
+(method-__dlpack__)=
+### \_\_dlpack\_\_(/, *, stream=None)
+
+Exports the array as a DLPack capsule, for consumption by {ref}`function-from_dlpack`.
+
+#### Parameters
+
+-   **stream**: _Optional\[int\]_
+
+    -   If given, the CUDA or ROCm stream number the consumer will use. Default is `None`, which means the legacy default stream.
+
+#### Returns
+
+-   **capsule**: _&lt;PyCapsule&gt;_
+
+    -   A DLPack capsule for the array. See {ref}`data-interchange` for details.
+
 (method-__eq__)=
 ### \_\_eq\_\_(x1, x2, /)
 

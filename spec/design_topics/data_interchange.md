@@ -63,10 +63,11 @@ containing the data the object holds).
 
 The array API will offer the following syntax for data interchange:
 
-1. A `__dlpack__()` method on the array object.
-2. A `from_dlpack(x)` function, which accept (array) objects with a
-   `__dlpack__` method and use that method to construct a new array
+1. A `from_dlpack(x)` function, which accepts (array) objects with a
+   `__dlpack__` method and uses that method to construct a new array
    containing the data from `x`.
+2. A `__dlpack__(self, stream=None)` method on the array object, which
+   will be called from within `from_dlpack`.
 
 
 ## Semantics
@@ -87,8 +88,14 @@ If an array that is accessed via the interchange protocol lives on a
 device that the requesting library does not support, it is recommended to
 raise a `TypeError`.
 
+Stream handling through the `stream` keyword applies to CUDA and ROCm. The
+producer must pass the stream it will use to the consumer, the consumer must
+synchronize only when necessary. In the common case of the default stream
+being used, synchronization will be unnecessary so asynchronous execution is
+enabled.
 
-### Implementation
+
+## Implementation
 
 _Note that while this API standard largely tries to avoid discussing implementation details, some discussion and requirements are needed here because data interchange requires coordination between implementers on, e.g., memory management._
 
@@ -114,11 +121,3 @@ It is recommended that implementers of this array API document whether the
 `.device` attribute of the array returned from `from_dlpack` is guaranteed to
 be a certain order or not.
 :::
-
-## Out of scope for data interchange
-
-- Stream handling, e.g. for CUDA streams. TBD: if DLPack gains
-  synchronization semantics support (see
-  [dlpack/issues/57](https://github.com/dmlc/dlpack/issues/57)), details on
-  semantics can be added here. It may be necessary for correctness to at
-  least have a way to check which stream is in use.
