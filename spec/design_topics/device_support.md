@@ -39,10 +39,10 @@ The array API will offer the following syntax for device assignment and
 cross-device data transfer:
 
 1. A `.device` property on the array object, which returns a `Device` object
-  representing the device the data in the array is stored on, and has an
-  `__eq__` and a `__neq__` method so that devices can be compared for
-  equality (within the same library at least; comparing device objects from
-  different libraries is out of scope).
+  representing the device the data in the array is stored on, and supports
+  comparing devices for equality with `==` and `!=` within the same library
+  (e.g., by implementing `__eq__`); comparing device objects from different
+  libraries is out of scope).
 2. A `device=None` keyword for array creation functions, which takes an
    instance of a `Device` object.
 3. A `.to_device(device)` method on the array object, with `device` again being
