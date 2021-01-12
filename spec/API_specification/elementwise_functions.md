@@ -1124,7 +1124,7 @@ For floating-point operands,
 -   If `abs(x1_i)` is less than `1` and `x2_i` is `-infinity`, the result is `+infinity`.
 -   If `x1_i` is `+infinity` and `x2_i` is greater than `0`, the result is `+infinity`.
 -   If `x1_i` is `+infinity` and `x2_i` is less than `0`, the result is `+0`.
--   If `x1_i` is `-infinity` and `x2_i` is greater than `0`, the result is `-infinity`.
+-   If `x1_i` is `-infinity`, `x2_i` is greater than `0`, and `x2_i` is an odd integer value, the result is `-infinity`.
 -   If `x1_i` is `-infinity`, `x2_i` is greater than `0`, and `x2_i` is not an odd integer value, the result is `+infinity`.
 -   If `x1_i` is `-infinity`, `x2_i` is less than `0`, and `x2_i` is an odd integer value, the result is `-0`.
 -   If `x1_i` is `-infinity`, `x2_i` is less than `0`, and `x2_i` is not an odd integer value, the result is `+0`.
