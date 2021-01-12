@@ -375,7 +375,13 @@ Exports the array as a DLPack capsule, for consumption by {ref}`function-from_dl
 
 -   **stream**: _Optional\[int\]_
 
-    -   If given, the CUDA or ROCm stream number the consumer will use. Default is `None`, which means the legacy default stream.
+    -   If given, the CUDA or ROCm stream number the consumer will use. Options are:
+        - `None`: no synchronization (default),
+        - `1`: the legacy default stream,
+        - `2`: the per-thread default stream,
+        - `> 2`: stream number represented as a Python integer.
+
+        Note that `0` is disallowed (it's ambiguous, it could mean either `None`, `1` or `2`).
 
 #### Returns
 
