@@ -62,7 +62,12 @@ IEEE 754 double-precision (64-bit) binary floating-point number (see IEEE 754-20
 :::{admonition} Future extension
 :class: hint
 It is expected that in the next version of this standard, `complex64` and `complex128`
-dtypes will be added. See [array-api/issues/102](https://github.com/data-apis/array-api/issues/102) for details.
+dtypes will be added, with these casting rules (will be added to {ref}`type-promotion`):
+
+![Type promotion diagram for complex dtypes in next version](/_static/images/dtype_promotion_complex.png)
+
+See [array-api/issues/102](https://github.com/data-apis/array-api/issues/102)
+for more details.
 :::
 
 ```{note}
