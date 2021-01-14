@@ -16,9 +16,27 @@ A conforming implementation of the array API standard must provide and support t
 <!-- NOTE: please keep the functions in alphabetical order -->
 
 (function-cholesky)=
-### cholesky()
+### cholesky(x, /, *, upper=False)
 
-TODO
+Returns the Cholesky decomposition of a symmetric positive-definite matrix (or a stack of symmetric positive-definite matrices) `x`.
+
+<!-- NOTE: once complex numbers are supported, each square matrix must be Hermitian. -->
+
+#### Parameters
+
+-   **x**: _&lt;array&gt;_
+
+    -   input array having shape `(..., M, M)` and whose innermost two dimensions form square matrices. Must have a data type of either `float32` or `float64`.
+
+-   **upper**: _bool_
+
+    -   If `True`, the result must be the upper-triangular Cholesky factor. If `False`, the result must be the lower-triangular Cholesky factor. Default: `False`.
+
+#### Returns
+
+-   **out**: _Tuple\[ &lt;array&gt;, ... ]_
+
+    -   a named tuple whose first element has the field name `c` and is an array containing the Cholesky factors for each square matrix. The array containing the Cholesky factors must have the same data type and shape as `x`.
 
 (function-cross)=
 ### cross(x1, x2, /, *, axis=-1)
