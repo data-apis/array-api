@@ -267,7 +267,7 @@ TODO
 (function-slogdet)=
 ### slogdet(x, /)
 
-Returns the sign and the natural logarithm of the determinant of a square matrix (or stack of square matrices) `x`.
+Returns the sign and the natural logarithm of the absolute value of the determinant of a square matrix (or stack of square matrices) `x`.
 
 ```{note}
 
