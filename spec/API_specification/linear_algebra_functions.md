@@ -145,9 +145,25 @@ TODO
 TODO
 
 (function-matrix_power)=
-### matrix_power()
+### matrix_power(x, n, /)
 
-TODO
+Raises a square matrix (or stack of square matrices) `x` to the integer power `n`.
+
+#### Parameters
+
+-   **x**: _&lt;array&gt;_
+
+    -   input array having shape `(..., M, M)` and whose innermost two dimensions form square matrices. Must have a data type of either `float32` or `float64`.
+
+-   **n**: _int_
+
+    -   integer exponent.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   if `n` is equal to zero, an array containing the identity matrix for each square matrix. If `n` is less than zero, an array containing the inverse of each square matrix raised to the absolute value of `n`, provided that each square matrix is invertible. If `n` is greater than zero, an array containing the result of raising each square matrix to the power `n`. The returned array must have the same data type and shape as `x`.
 
 (function-matrix_rank)=
 ### matrix_rank()
