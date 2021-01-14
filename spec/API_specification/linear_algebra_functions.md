@@ -269,6 +269,11 @@ TODO
 
 Returns the sign and the natural logarithm of the determinant of a square matrix (or stack of square matrices) `x`.
 
+```{note}
+
+The purpose of this function is to calculate the determinant more accurately when the determinant is either very small or very large, as calling `det` may overflow or underflow.
+```
+
 #### Parameters
 
 -   **x**: _&lt;array&gt;_
