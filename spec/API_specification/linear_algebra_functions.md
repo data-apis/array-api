@@ -265,9 +265,25 @@ TODO
 TODO
 
 (function-slogdet)=
-### slogdet()
+### slogdet(x, /)
 
-TODO
+Returns the sign and the natural logarithm of the determinant of a square matrix (or stack of square matrices) `x`.
+
+#### Parameters
+
+-   **x**: _&lt;array&gt;_
+
+    -   input array having shape `(..., M, M)` and whose innermost two dimensions form square matrices. Must have a data type of either `float32` or `float64`.
+
+#### Returns
+
+-   **out**: _Tuple\[ &lt;array&gt;, ... ]_
+
+    -   if `x` is a two-dimensional array, a namedtuple (`sign`, `logabsdet`) whose first element must be zero-dimensional array containing a number representing the sign of the determinant and whose second element is a zero-dimensional array containing the determinant. Otherwise, a namedtuple (`sign`, `logabsdet`) whose first element must be a non-zero dimensional array containing the sign for each square matrix and whose second element must be a non-zero dimensional array containing the determinant for each square matrix.
+    
+        For a real matrix, the sign of the determinant must be either `1`, `0`, or `-1`. If a determinant is zero, then the corresponding `sign` must be `0` and `logabsdet` must be `-infinity`. In all cases, the determinant must be equal to `sign * exp(logsabsdet)`.
+
+        The returned array must have a data type determined by {ref}`type-promotion` rules.
 
 (function-solve)=
 ### solve()
