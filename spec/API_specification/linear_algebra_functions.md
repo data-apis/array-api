@@ -270,9 +270,25 @@ TODO
 TODO
 
 (function-solve)=
-### solve()
+### solve(x1, x2, /)
 
-TODO
+Returns the solution to the system of linear equations represented by the well-determined (i.e., full rank) linear matrix equation `AX = B`.
+
+#### Parameters
+
+-   **x1**: _&lt;array&gt;_
+
+    -   coefficient array `A` having shape `(..., M, M)` and whose innermost two dimensions form square matrices. Must be of full rank (i.e., all rows or, equivalently, columns must be linearly independent). Must have a data type of either `float32` or `float64`.
+
+-   **x2**: _&lt;array&gt;_
+
+    -   ordinate (or "dependent variable") array `B` having shape `(..., M, K)`. Must have a data type of either `float32` or `float64`. Must be compatible with `x1` (see {ref}`broadcasting`).
+
+#### Returns
+
+-   **out**: _Tuple\[ &lt;array&gt;, ... ]_
+
+    -   a namedtuple whose first element must have the field name `x` and must be an array containing the solution to the system `AX = B` for each square matrix. The array containing the solutions must have the same shape as `x2` (i.e., the array corresponding to `B`) and must have a data type determined by {ref}`type-promotion` rules.
 
 (function-svd)=
 ### svd()
