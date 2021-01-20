@@ -143,7 +143,7 @@ Returns a new array having a specified `shape` and filled with `fill_value`.
 
     -   output array shape.
 
--   **fill_value**: _Union\[ int, float ] ]_
+-   **fill_value**: _Union\[ int, float ]_
 
     -   fill value.
 
@@ -172,7 +172,7 @@ Returns a new array filled with `fill_value` and having the same `shape` as an i
 
     -   input array from which to derive the output array shape.
 
--   **fill_value**: _Union\[ int, float ] ]_
+-   **fill_value**: _Union\[ int, float ]_
 
     -   fill value.
 
