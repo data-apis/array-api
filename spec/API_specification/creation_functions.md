@@ -222,7 +222,7 @@ Returns evenly spaced numbers over a specified interval.
 
     -   device to place the created array on, if given. Default: `None`.
 
--   **endpoint**: _Optional\[ bool ]_
+-   **endpoint**: _bool_
 
     -   boolean indicating whether to include `stop` in the interval. Default: `True`.
 
