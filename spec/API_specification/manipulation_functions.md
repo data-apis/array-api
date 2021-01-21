@@ -158,7 +158,7 @@ Joins a sequence of arrays along a new axis.
 
     -   input arrays to join. Each array must have the same shape.
 
--   **axis**: _Optional\[ int ]_
+-   **axis**: _int_
 
     -   axis along which the arrays will be joined. Providing an `axis` specifies the index of the new axis in the dimensions of the result. For example, if `axis` is `0`, the new axis will be the first dimension and the output array will have shape `(N, A, B, C)`; if `axis` is `1`, the new axis will be the second dimension and the output array will have shape `(A, N, B, C)`; and, if `axis` is `-1`, the new axis will be the last dimension and the output array will have shape `(A, B, C, N)`. A valid `axis` must be on the interval `[-N, N)`, where `N` is the rank (number of dimensions) of `x`. If provided an `axis` outside of the required interval, the function must raise an exception. Default: `0`.
 

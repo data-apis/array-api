@@ -143,7 +143,7 @@ Returns a new array having a specified `shape` and filled with `fill_value`.
 
     -   output array shape.
 
--   **fill_value**: _Union\[ int, float ] ]_
+-   **fill_value**: _Union\[ int, float ]_
 
     -   fill value.
 
@@ -172,7 +172,7 @@ Returns a new array filled with `fill_value` and having the same `shape` as an i
 
     -   input array from which to derive the output array shape.
 
--   **fill_value**: _Union\[ int, float ] ]_
+-   **fill_value**: _Union\[ int, float ]_
 
     -   fill value.
 
@@ -222,7 +222,7 @@ Returns evenly spaced numbers over a specified interval.
 
     -   device to place the created array on, if given. Default: `None`.
 
--   **endpoint**: _Optional\[ bool ]_
+-   **endpoint**: _bool_
 
     -   boolean indicating whether to include `stop` in the interval. Default: `True`.
 
