@@ -265,7 +265,7 @@ Computes the (Moore-Penrose) pseudo-inverse of a matrix (or stack of square matr
 
     -   input array having shape `(..., M, N)` and whose innermost two dimensions form `MxN` matrices. Must have a data type of either `float32` or `float64`.
 
--   **rcond**: _&lt;array&gt;_
+-   **rcond**: _Optional\[ &lt;array&gt; ]_
     
     -   Cutoffs for small singular values. Singular values less than or equal to `rcond * largest_singular_value` are set to zero. Must be compatible with `shape(x)[:-2]` (see {ref}`broadcasting`). If `None`, the default value is `10.0 * max(M, N) * eps`, where `eps` must be the floating-point epsilon associated with the data type of `x`. Default: `None`.
 
