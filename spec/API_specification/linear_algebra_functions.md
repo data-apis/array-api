@@ -255,9 +255,25 @@ Computes the outer product of two vectors `x1` and `x2`.
     -   a two-dimensional array containing the outer product and whose shape is `NxM`. The returned array must have a data type determined by {ref}`type-promotion` rules.
 
 (function-pinv)=
-### pinv()
+### pinv(x, /, *, rcond=None)
 
-TODO
+Computes the (Moore-Penrose) pseudo-inverse of a matrix (or stack of square matrices) `x`.
+
+#### Parameters
+
+-   **x**: _&lt;array&gt;_
+
+    -   input array having shape `(..., M, N)` and whose innermost two dimensions form `MxN` matrices. Must have a data type of either `float32` or `float64`.
+
+-   **rcond**: _&lt;array&gt;_
+    
+    -   Cutoffs for small singular values. Singular values less than or equal to `rcond * largest_singular_value` are set to zero. Must be compatible with `x` (see {ref}`broadcasting`). If `None`, the default value is `10.0 * max(M, N) * eps`, where `eps` must be the floating-point epsilon associated with the data type of `x`. Default: `None`.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the pseudo-inverses. The returned array must have the same data type and must have shape `(..., N, M)` (i.e., must have the same shape as `x`, except the innermost two dimensions must be transposed).
 
 (function-qr)=
 ### qr()
