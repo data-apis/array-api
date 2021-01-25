@@ -149,6 +149,16 @@ Returns the least-squares solution to a linear matrix equation `Ax = b`.
 
     -   ordinate (or "dependent variable") array `b` having shape `(..., M, K)`. Must have a data type of either `float32` or `float64`.
 
+-   **rcond**: _&lt;array&gt;_
+
+    -   Cutoffs for small singular values. Singular values less than or equal to `rcond * largest_singular_value` are set to zero. Must be compatible with `shape(x)[:-2]` (see {ref}`broadcasting`). If `None`, the default value is `10.0 * max(M, N) * eps`, where `eps` must be the floating-point epsilon associated with the data type of `x`. Default: `None`.
+
+#### Returns
+
+-   **out**: _Tuple\[ &lt;array&gt;, ... ]_
+
+    -   a namedtuple whose first element must have the field name `x` and must be an array containing the solution to the system `AX = B` for each square matrix. The array containing the solutions must have the same shape as `x2` (i.e., the array corresponding to `B`) and must have a data type determined by {ref}`type-promotion` rules.
+
 (function-matmul)=
 ### matmul()
 
