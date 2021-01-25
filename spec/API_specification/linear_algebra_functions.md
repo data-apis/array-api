@@ -135,9 +135,19 @@ Computes the multiplicative inverse of a square matrix (or stack of square matri
     -   an array containing the multiplicative inverses. The returned array must have the same data type and shape as `x`.
 
 (function-lstsq)=
-### lstsq()
+### lstsq(x1, x2, /, *, rcond=None)
 
-TODO
+Returns the least-squares solution to a linear matrix equation `Ax = b`.
+
+#### Parameters
+
+-   **x1**: _&lt;array&gt;_
+
+    -   coefficient array `A` having shape `(..., M, N)` and whose innermost two dimensions form `MxN` matrices. Must have a data type of either `float32` or `float64`.
+
+-   **x2**: _&lt;array&gt;_
+
+    -   ordinate (or "dependent variable") array `b` having shape `(..., M, K)`. Must have a data type of either `float32` or `float64`.
 
 (function-matmul)=
 ### matmul()
