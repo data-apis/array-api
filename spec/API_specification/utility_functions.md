@@ -79,7 +79,7 @@ If mixed dtypes (e.g. integer and floating-point) are used, the output of
 
 #### Parameters
 
--   **arrays_and_dtypes**: _List\[Union\[&lt;array&gt;, &lt;dtype&gt;\]\];_
+-   **arrays_and_dtypes**: _Sequence\[Union\[&lt;array&gt;, &lt;dtype&gt;\]\];_
 
     -   input arrays and dtypes.
 
