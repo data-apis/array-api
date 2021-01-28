@@ -64,3 +64,27 @@ Tests whether any input array element evaluates to `True` along a specified axis
 -   **out**: _&lt;array&gt;_
 
     -   if a logical OR reduction was performed over the entire array, the returned array must be a zero-dimensional array containing the test result; otherwise, the returned array must be a non-zero-dimensional array containing the test results. The returned array must have a data type of `bool`.
+
+
+(function-result_type)=
+### result_type(*arrays_and_dtypes)
+
+Returns the dtype that results from applying the type promotion rules
+(see {ref}`type-promotion`) to the arguments.
+
+```{note}
+If mixed dtypes (e.g. integer and floating-point) are used, the output of
+`result_type` will be implementation-specific.
+```
+
+#### Parameters
+
+-   **arrays_and_dtypes**: _Sequence\[Union\[&lt;array&gt;, &lt;dtype&gt;\]\];_
+
+    -   input arrays and dtypes.
+
+#### Returns
+
+-   **out**: _&lt;dtype&gt;_
+
+    -   the dtype resulting from an operation involving the input arrays and dtypes.
