@@ -545,11 +545,11 @@ For floating-point operands,
 
 -   **x1**: _&lt;array&gt;_
 
-    -   dividend input array. Should have a numeric data type.
+    -   dividend input array. Should have a floating-point data type.
 
 -   **x2**: _&lt;array&gt;_
 
-    -   divisor input array. Must be compatible with `x1` (see {ref}`broadcasting`). Should have a numeric data type.
+    -   divisor input array. Must be compatible with `x1` (see {ref}`broadcasting`). Should have a floating-point data type.
 
 #### Returns
 
@@ -1141,11 +1141,11 @@ For floating-point operands,
 
 -   **x1**: _&lt;array&gt;_
 
-    -   first input array whose elements correspond to the exponentiation base. Should have a numeric data type.
+    -   first input array whose elements correspond to the exponentiation base. Should have a floating-point data type.
 
 -   **x2**: _&lt;array&gt;_
 
-    -   second input array whose elements correspond to the exponentiation exponent. Must be compatible with `x1` (see {ref}`broadcasting`). Should have a numeric data type.
+    -   second input array whose elements correspond to the exponentiation exponent. Must be compatible with `x1` (see {ref}`broadcasting`). Should have a floating-point data type.
 
 #### Returns
 
