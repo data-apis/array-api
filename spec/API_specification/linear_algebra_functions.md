@@ -162,7 +162,7 @@ Returns the least-squares solution to a linear matrix equation `Ax = b`.
         -   whose first element must have the field name `x` and must be an array containing the least-squares solution for each `MxN` matrix in `x1`. The array containing the solutions must have shape `(N, K)` and must have a data type determined by {ref}`type-promotion` rules.
         -   whose second element must have the field name `residuals` and must be an array containing the sum of squares residuals (i.e., the squared Euclidean 2-norm for each column in `b - Ax`). The array containing the residuals must have shape `(K,)` and must have a data type determined by {ref}`type-promotion` rules.
         -   whose third element must have the field name `rank` and must be an array containing the effective rank of each `MxN` matrix. The array containing the ranks must have shape `shape(x1)[:-2]` and must have an integer data type.
-        -   whose fourth element must have the field name `s` and must be an array containing the singular values for each `MxN` matrix in `x1`. The array containing the singular values must have shape `(..., min(M, N)` and must have a data type determined by {ref}`type-promotion` rules.
+        -   whose fourth element must have the field name `s` and must be an array containing the singular values for each `MxN` matrix in `x1`. The array containing the singular values must have shape `(..., min(M, N))` and must have a data type determined by {ref}`type-promotion` rules.
 
 (function-matmul)=
 ### matmul()
