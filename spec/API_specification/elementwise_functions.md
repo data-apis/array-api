@@ -1040,7 +1040,7 @@ Floating-point multiplication is not always associative due to finite precision.
 
 -   **x2**: _&lt;array&gt;_
 
-    -   second input array. Must be compatible with `x1` (see {ref}`broadcasting`). Should have a numeri
+    -   second input array. Must be compatible with `x1` (see {ref}`broadcasting`). Should have a numeric data type.
 
 #### Returns
 
