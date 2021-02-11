@@ -927,6 +927,37 @@ For floating-point operands,
 
     -   an array containing the evaluated base `10` logarithm for each element in `x`. The returned array must have a floating-point data type determined by {ref}`type-promotion`.
 
+(function-logaddexp)=
+### logaddexp(x1, x2)
+
+Calculates the logarithm of the sum of exponentiations `log(exp(x1) + exp(x2))` for
+each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array
+`x2`.
+
+#### Special Cases
+
+For floating-point operands,
+
+- If `x1_i` or `x2_i` is `NaN`, the result is `NaN`.
+- If `x1_i` or `x2_i` is `+infinity`, the result is `+infinity`.
+
+#### Parameters
+
+-   **x1**: _&lt;array&gt;_
+
+    -   first input array.
+
+-   **x2**: _&lt;array&gt;_
+
+    -   second input array. Must be compatible with `x1` (see {ref}`broadcasting`).
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the element-wise results. The returned array must have a floating-point
+    data type determined by {ref}`type-promotion`.
+
 (function-logical_and)=
 ### logical_and(x1, x2, /)
 
