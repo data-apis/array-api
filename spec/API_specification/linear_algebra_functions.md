@@ -277,7 +277,7 @@ TODO
 (function-svd)=
 ### svd(x, /, *, compute_uv=True, full_matrices=True)
 
-Computes the singular value decomposition of a matrix (or stack of matrices) `x`.
+Computes the singular value decomposition `A = USV` of a matrix (or stack of matrices) `x`.
 
 #### Parameters
 
@@ -297,11 +297,11 @@ Computes the singular value decomposition of a matrix (or stack of matrices) `x`
 
 -   **out**: _&lt;array&gt;_
 
-    -   a namedtuple `(s, u, v)` whose
+    -   a namedtuple `(u, s, v)` whose
     
-        -   first element must be an array having shape `(..., K)` and contain the vector(s) containing the singular values. For each vector, the values must be sorted in descending order according to magnitude, such that `s[..., 0]` is the largest value, `s[..., 1]` is the second largest value, et cetera. The first `x.ndim-2` dimensions must have the same size as those of the input `x`.
-        -   second element must be an array whose shape depends on the value of `full_matrices` and contain unitary array(s) (i.e., the left singular vectors). The left singular vectors must be stored as columns. If `full_matrices` is `True`, the array must have shape `(..., M, M)`. If `full_matrices` is `False`, the array must have shape `(..., M, K)`, where `K = min(M, N)`. The first `x.ndim-2` dimensions must have the same size as those of the input `x`. The second element is only returned when `compute_uv` is `True`.
-        -   third element must be an array whose shape depends on the value of `full_matrices` and contain unitary array(s) (i.e., the right singular vectors). The right singular vectors must be stored as columns. If `full_matrices` is `True`, the array must have shape `(..., N, N)`. If `full_matrices` is `False`, the array must have shape `(..., N, K)` where `K = min(M, N)`. The first `x.ndim-2` dimensions must have the same size as those of the input `x`. The third element is only returned when `compute_uv` is `True`. 
+        -   first element must be an array whose shape depends on the value of `full_matrices` and contain unitary array(s) (i.e., the left singular vectors). The left singular vectors must be stored as columns. If `full_matrices` is `True`, the array must have shape `(..., M, M)`. If `full_matrices` is `False`, the array must have shape `(..., M, K)`, where `K = min(M, N)`. The first `x.ndim-2` dimensions must have the same size as those of the input `x`. The second element is only returned when `compute_uv` is `True`.
+        -   second element must be an array having shape `(..., K)` and contain the vector(s) containing the singular values. For each vector, the values must be sorted in descending order according to magnitude, such that `s[..., 0]` is the largest value, `s[..., 1]` is the second largest value, et cetera. The first `x.ndim-2` dimensions must have the same size as those of the input `x`.
+        -   third element must be an array whose shape depends on the value of `full_matrices` and contain unitary array(s) (i.e., the right singular vectors). The right singular vectors must be stored as rows (i.e., the array is the adjoint). If `full_matrices` is `True`, the array must have shape `(..., N, N)`. If `full_matrices` is `False`, the array must have shape `(..., K, N)` where `K = min(M, N)`. The first `x.ndim-2` dimensions must have the same size as those of the input `x`. The third element is only returned when `compute_uv` is `True`. 
 
 (function-trace)=
 ### trace(x, /, *, axis1=0, axis2=1, offset=0)
