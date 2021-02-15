@@ -274,7 +274,7 @@ Transpose of the array.
 Calculates the absolute value for each element `x_i` of an array instance `x` (i.e., the element-wise result has the same magnitude as the respective element in `x` but has positive sign).
 
 #### Special Cases
- 
+
 For floating-point operands,
 
 -   If `x_i` is `NaN`, the result is `NaN`.
@@ -377,6 +377,23 @@ Evaluates `x1_i & x2_i` for each element `x1_i` of an array instance `x1` with t
 Element-wise results must equal the results returned by the equivalent element-wise function [`bitwise_and(x1, x2)`](elementwise_functions.md#logical_andx1-x2-).
 ```
 
+(method-__bool__)=
+### \_\_int\_\_(x, /)
+
+Converts a dimension-0 integer array into a Python `bool` object.
+
+#### Parameters
+
+-   **x**: _&lt;array&gt;_
+
+    -   dimension 0 array. Must have boolean data type.
+
+#### Returns
+
+-   **out**: _&lt;int&gt;_
+
+    -   a Python `bool` object representing the single element of the array `x`.
+
 (method-__eq__)=
 ### \_\_eq\_\_(x1, x2, /)
 
@@ -402,6 +419,23 @@ Computes the truth value of `x1_i == x2_i` for each element `x1_i` of an array i
 
 Element-wise results must equal the results returned by the equivalent element-wise function [`equal(x1, x2)`](elementwise_functions.md#equalx1-x2-).
 ```
+
+(method-__float__)=
+### \_\_int\_\_(x, /)
+
+Converts a dimension-0 integer array into a Python `float` object.
+
+#### Parameters
+
+-   **x**: _&lt;array&gt;_
+
+    -   dimension 0 array. Must have an floating-point data type.
+
+#### Returns
+
+-   **out**: _&lt;float&gt;_
+
+    -   a Python `float` object representing the single element of the array `x`.
 
 (method-__floordiv__)=
 ### \_\_floordiv\_\_(x1, x2, /)
@@ -485,6 +519,24 @@ Computes the truth value of `x1_i > x2_i` for each element `x1_i` of an array in
 
 Element-wise results must equal the results returned by the equivalent element-wise function [`greater(x1, x2)`](elementwise_functions.md#greaterx1-x2-).
 ```
+
+(method-__int__)=
+### \_\_int\_\_(x, /)
+
+Converts a dimension-0 integer array into a Python `int` object.
+
+#### Parameters
+
+-   **x**: _&lt;array&gt;_
+
+    -   dimension 0 array. Must have an integer data type.
+
+#### Returns
+
+-   **out**: _&lt;int&gt;_
+
+    -   a Python `int` object representing the single element of the array `x`.
+
 
 (method-__invert__)=
 ### \_\_invert\_\_(x, /)
