@@ -260,9 +260,33 @@ Computes the outer product of two vectors `x1` and `x2`.
 TODO
 
 (function-qr)=
-### qr()
+### qr(x, /, *, mode='reduced')
 
-TODO
+Computes the qr factorization of a matrix (or stack of matrices), where `q` is an orthonormal matrix (or stack of matrices) and `r` is an upper-triangular matrix (or stack of matrices).
+
+#### Parameters
+
+-   **x**: _&lt;array&gt;_
+
+    -   input array having shape `(..., M, N)` and whose innermost two dimensions form `MxN` matrices. Must have a data type of either `float32` or `float64`.
+
+-   **mode**: _str_
+
+    -   factorization mode. Should be one of the following modes:
+
+        -   `'reduced'`: compute only the leading `K` columns of `q`, such that `q` and `r` have dimensions `(..., M, K)` and `(..., K, N)`, respectively, and where `K = min(M, N)`.
+        -   `'complete'`: compute `q` and `r` with dimensions `(..., M, M)` and `(..., M, N)`, respectively.
+
+        Default: `'reduced'`.
+
+#### Returns
+
+-   **out**: _Tuple\[ &lt;array&gt;, ... ]_
+
+    -   a namedtuple `(q, r)` whose
+
+        -   first element must be an array whose shape depends on the value of `mode` and contain orthonormal matrices. If `mode` is `'complete'`, the array must have shape `(..., M, M)`. If `mode` is `'reduced'`, the array must have shape `(..., M, K)`, where `K = min(M, N)`. The first `x.ndim-2` dimensions must have the same size as those of the input `x`.
+        -   second element must be an array whose shape depends on the value of `mode` and contain upper-triangular matrices. If `mode` is `'complete'`, the array must have shape `(..., M, M)`. If `mode` is `'reduced'`, the array must have shape `(..., K, N)`, where `K = min(M, N)`. The first `x.ndim-2` dimensions must have the same size as those of the input `x`.
 
 (function-slogdet)=
 ### slogdet()
