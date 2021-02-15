@@ -380,7 +380,7 @@ Element-wise results must equal the results returned by the equivalent element-w
 (method-__bool__)=
 ### \_\_int\_\_(x, /)
 
-Converts a dimension-0 integer array into a Python `bool` object.
+Converts a dimension-0 boolean array into a Python `bool` object.
 
 #### Parameters
 
@@ -423,7 +423,7 @@ Element-wise results must equal the results returned by the equivalent element-w
 (method-__float__)=
 ### \_\_int\_\_(x, /)
 
-Converts a dimension-0 integer array into a Python `float` object.
+Converts a dimension-0 floating-point array into a Python `float` object.
 
 #### Parameters
 
