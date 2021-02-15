@@ -390,7 +390,7 @@ Converts a dimension-0 integer array into a Python `bool` object.
 
 #### Returns
 
--   **out**: _&lt;int&gt;_
+-   **out**: _&lt;bool&gt;_
 
     -   a Python `bool` object representing the single element of the array `x`.
 
