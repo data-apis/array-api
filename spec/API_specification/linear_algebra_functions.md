@@ -295,7 +295,7 @@ Computes the singular value decomposition `A = USV` of a matrix (or stack of mat
 
 #### Returns
 
--   **out**: _Tuple\[ Union\[ &lt;array&gt;, None ] ]_
+-   **out**: _Tuple\[ Union\[ &lt;array&gt;, None ], ... ]_
 
     -   a namedtuple `(u, s, v)` whose
     
