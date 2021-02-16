@@ -255,7 +255,7 @@ Computes the outer product of two vectors `x1` and `x2`.
     -   a two-dimensional array containing the outer product and whose shape is `NxM`. The returned array must have a data type determined by {ref}`type-promotion` rules.
 
 (function-pinv)=
-### pinv(x, /, *, rcond=None)
+### pinv(x, /, *, tol=None)
 
 Computes the (Moore-Penrose) pseudo-inverse of a matrix (or stack of square matrices) `x`.
 
@@ -265,9 +265,9 @@ Computes the (Moore-Penrose) pseudo-inverse of a matrix (or stack of square matr
 
     -   input array having shape `(..., M, N)` and whose innermost two dimensions form `MxN` matrices. Must have a data type of either `float32` or `float64`.
 
--   **rcond**: _Optional\[ &lt;array&gt; ]_
+-   **tol**: _Optional\[ Union\[ float, &lt;array&gt; ] ]_
     
-    -   Cutoffs for small singular values. Singular values less than or equal to `rcond * largest_singular_value` are set to zero. Must be compatible with `shape(x)[:-2]` (see {ref}`broadcasting`). If `None`, the default value is `10.0 * max(M, N) * eps`, where `eps` must be the floating-point epsilon associated with the data type of `x`. Default: `None`.
+    -   cutoffs for small singular values. Singular values less than or equal to `tol * largest_singular_value` are set to zero. Must be compatible with `shape(x)[:-2]` (see {ref}`broadcasting`). If a `float`, the value is equivalent to a zero-dimensional array having the same data type as `x` and is broadcast against each matrix. If `None`, the default value is `max(M, N) * eps`, where `eps` must be the floating-point epsilon associated with the data type of `x`. Default: `None`.
 
 #### Returns
 
