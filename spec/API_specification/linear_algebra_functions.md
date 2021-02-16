@@ -168,7 +168,7 @@ Computes the rank (i.e., number of non-zero singular values) of a matrix (or sta
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the ranks. The returned array must have the same data type and must have shape `(...)` (i.e., must have the same shape as `shape(x)[:-2]`).
+    -   an array containing the ranks. The returned array must have the same data type and must have shape `(...)` (i.e., must have a shape equal to `shape(x)[:-2]`).
 
 (function-norm)=
 ### norm(x, /, *, axis=None, keepdims=False, ord=None)
