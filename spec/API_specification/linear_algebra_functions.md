@@ -295,7 +295,7 @@ Computes the singular value decomposition `A = USV` of a matrix (or stack of mat
 
 #### Returns
 
--   **out**: _Union\[ &lt;array&gt;, Tuple\[ Union\[ &lt;array&gt;, None ], ... ] ]_
+-   **out**: _Union\[ &lt;array&gt;, Tuple\[ &lt;array&gt;, ... ] ]_
 
     -   if `compute_uv` is `False`, an array having shape `(..., K)` and containing the vector(s) containing the singular values. For each vector, the values must be sorted in descending order according to magnitude, such that `s[..., 0]` is the largest value, `s[..., 1]` is the second largest value, et cetera. The first `x.ndim-2` dimensions must have the same size as those of the input `x`.
 
