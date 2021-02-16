@@ -150,9 +150,25 @@ TODO
 TODO
 
 (function-matrix_rank)=
-### matrix_rank()
+### matrix_rank(x, /, *, tol=None)
 
-TODO
+Computes the rank (i.e., number of non-zero singular values) of a matrix (or stack of matrices).
+
+#### Parameters
+
+-   **x**: _&lt;array&gt;_
+
+    -   input array having shape `(..., M, N)` and whose innermost two dimensions form `MxN` matrices. Must have a data type of either `float32` or `float64`.
+
+-   **tol**: _Optional\[ Union\[ float, &lt;array&gt; ] ]_
+
+    -   cutoffs for small singular values. Singular values less than or equal to `tol * largest_singular_value` are set to zero. If a `float`, the value is equivalent to a zero-dimensional array having the same data type as `x` and is broadcast against each matrix. Must be compatible with `shape(x)[:-2]` (see {ref}`broadcasting`). If `None`, the default value is `max(M, N) * eps`, where `eps` must be the floating-point epsilon associated with the data type of `x`. Default: `None`.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the ranks. The returned array must have the same data type and must have shape `(...)` (i.e., must have the same shape as `shape(x)[:-2]`).
 
 (function-norm)=
 ### norm(x, /, *, axis=None, keepdims=False, ord=None)
