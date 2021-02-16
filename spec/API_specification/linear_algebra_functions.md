@@ -135,7 +135,7 @@ Computes the multiplicative inverse of a square matrix (or stack of square matri
     -   an array containing the multiplicative inverses. The returned array must have the same data type and shape as `x`.
 
 (function-lstsq)=
-### lstsq(x1, x2, /, *, rcond=None)
+### lstsq(x1, x2, /, *, tol=None)
 
 Returns the least-squares solution to a linear matrix equation `Ax = b`.
 
@@ -149,9 +149,9 @@ Returns the least-squares solution to a linear matrix equation `Ax = b`.
 
     -   ordinate (or "dependent variable") array `b` having shape `(..., M, K)`. Must have a data type of either `float32` or `float64`.
 
--   **rcond**: _Optional\[ &lt;array&gt; ]_
+-   **tol**: _Optional\[ Union\[ float, &lt;array&gt; ] ]_
 
-    -   Cutoffs for small singular values. Singular values less than or equal to `rcond * largest_singular_value` are set to zero. Must be compatible with `shape(x)[:-2]` (see {ref}`broadcasting`). If `None`, the default value is `max(M, N) * eps`, where `eps` must be the floating-point epsilon associated with the data type determined by {ref}`type-promotion` rules. Default: `None`.
+    -   cutoffs for small singular values. Singular values less than or equal to `tol * largest_singular_value` are set to zero. If a `float`, the value is equivalent to a zero-dimensional array having the same data type as `x` and is broadcast against each matrix. Must be compatible with `shape(x)[:-2]` (see {ref}`broadcasting`). If `None`, the default value is `max(M, N) * eps`, where `eps` must be the floating-point epsilon associated with the data type determined by {ref}`type-promotion` rules. Default: `None`.
 
 #### Returns
 
