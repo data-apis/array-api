@@ -466,7 +466,7 @@ Returns `x[key]`.
 
     -   array instance.
 
--   **key**: _TODO_
+-   **key**: _Union\[ int, slice, Tuple\[ Union\[ int, slice ] ], &lt;array&gt; ]_
 
     -   index key.
 
