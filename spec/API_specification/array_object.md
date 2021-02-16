@@ -376,18 +376,38 @@ Exports the array as a DLPack capsule, for consumption by {ref}`function-from_dl
 -   **stream**: _Optional\[int\]_
 
     -   If given, the CUDA or ROCm stream number the consumer will use. Options are:
-        - `None`: no synchronization (default),
+        - `None`: producer must assume the legacy default stream (default),
         - `1`: the legacy default stream,
         - `2`: the per-thread default stream,
         - `> 2`: stream number represented as a Python integer.
 
         Note that `0` is disallowed (it's ambiguous, it could mean either `None`, `1` or `2`).
 
+        ```{note}
+        It is recommended that implementers explicitly handle streams. If
+        they use the legacy default stream, specifying `1` is preferred.
+        `None` is a safe default for developers who do not want to think
+        about stream handling at all, potentially at the cost of more
+        synchronization than necessary.
+        ```
+
 #### Returns
 
 -   **capsule**: _&lt;PyCapsule&gt;_
 
     -   A DLPack capsule for the array. See {ref}`data-interchange` for details.
+
+(method-__dlpack_device__)=
+### \_\_dlpack\_device\_\_()
+
+Returns device type and device ID in DLPack format. Meant for use within {ref}`function-from_dlpack`.
+
+#### Returns
+
+-   **device**: _Tuple\[int, int\]_
+
+    -   A tuple `(device_type, device_id)` in DLPack format.
+
 
 (method-__eq__)=
 ### \_\_eq\_\_(x1, x2, /)

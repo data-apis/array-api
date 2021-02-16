@@ -66,8 +66,10 @@ The array API will offer the following syntax for data interchange:
 1. A `from_dlpack(x)` function, which accepts (array) objects with a
    `__dlpack__` method and uses that method to construct a new array
    containing the data from `x`.
-2. A `__dlpack__(self, stream=None)` method on the array object, which
-   will be called from within `from_dlpack`.
+2. `__dlpack__(self, stream=None)` and `__dlpack_device__` methods on the
+   array object, which will be called from within `from_dlpack`, to query
+   what device the array is on (may be needed to pass in the correct
+   stream, e.g. in the case of multiple GPUs) and to access the data.
 
 
 ## Semantics
