@@ -162,7 +162,7 @@ Computes the rank (i.e., number of non-zero singular values) of a matrix (or sta
 
 -   **tol**: _Optional\[ Union\[ float, &lt;array&gt; ] ]_
 
-    -   cutoffs for small singular values. Singular values less than or equal to `tol * largest_singular_value` are set to zero. If a `float`, the value is equivalent to a zero-dimensional array having the same data type as `x` and is broadcast against each matrix. Must be compatible with `shape(x)[:-2]` (see {ref}`broadcasting`). If `None`, the default value is `max(M, N) * eps`, where `eps` must be the floating-point epsilon associated with the data type of `x`. Default: `None`.
+    -   cutoffs for small singular values. Singular values less than or equal to `tol * largest_singular_value` are set to zero. Must be compatible with `shape(x)[:-2]` (see {ref}`broadcasting`). If a `float`, the value is equivalent to a zero-dimensional array having the same data type as `x` and is broadcast against each matrix. If `None`, the default value is `max(M, N) * eps`, where `eps` must be the floating-point epsilon associated with the data type of `x`. Default: `None`.
 
 #### Returns
 
