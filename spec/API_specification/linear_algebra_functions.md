@@ -151,7 +151,7 @@ Returns the least-squares solution to a linear matrix equation `Ax = b`.
 
 -   **tol**: _Optional\[ Union\[ float, &lt;array&gt; ] ]_
 
-    -   cutoffs for small singular values. Singular values less than or equal to `tol * largest_singular_value` are set to zero. If a `float`, the value is equivalent to a zero-dimensional array having the same data type as `x` and is broadcast against each matrix. Must be compatible with `shape(x)[:-2]` (see {ref}`broadcasting`). If `None`, the default value is `max(M, N) * eps`, where `eps` must be the floating-point epsilon associated with the data type determined by {ref}`type-promotion` rules. Default: `None`.
+    -   cutoffs for small singular values. Singular values less than or equal to `tol * largest_singular_value` are set to zero. If a `float`, the value is equivalent to a zero-dimensional array having a data type determined by {ref}`type-promotion` rules and is broadcast against each matrix. Must be compatible with `shape(x)[:-2]` (see {ref}`broadcasting`). If `None`, the default value is `max(M, N) * eps`, where `eps` must be the floating-point epsilon associated with the data type determined by {ref}`type-promotion` rules. Default: `None`.
 
 #### Returns
 
