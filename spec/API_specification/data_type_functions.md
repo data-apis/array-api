@@ -15,7 +15,7 @@ Defines the machine limits for floating point types.
 
 #### Parameters
 
--   **type**: _Union\[ float, &lt;dtype&gt, instance ]_
+-   **type**: _Union\[ &lt;dtype&gt, instance ]_
 
     -   the kind of floating point data-type about which to get information
 
@@ -35,8 +35,6 @@ Defines the machine limits for floating point types.
             -   The smallest representable number.
         -   **tiny**: _float_
             -   The smallest positive representable number.
-        -   **resolution**: _float_
-            -   The approximate decimal resolution of this type.
 
 (iinfo)=
 ### iinfo(type)
@@ -45,7 +43,7 @@ Defines the machine limits for integer types.
 
 #### Parameters
 
--   **type**: _Union\[ integer, &lt;dtype&gt, instance ]_
+-   **type**: _Union\[ &lt;dtype&gt, instance ]_
 
     -   the kind of integer data-type about which to get information
 
@@ -61,3 +59,26 @@ Defines the machine limits for integer types.
             -   The largest representable number.
         -   **min**: _int_
             -   The smallest representable number.
+
+(function-result_type)=
+### result_type(*arrays_and_dtypes)
+
+Returns the dtype that results from applying the type promotion rules
+(see {ref}`type-promotion`) to the arguments.
+
+```{note}
+If mixed dtypes (e.g. integer and floating-point) are used, the output of
+`result_type` will be implementation-specific.
+```
+
+#### Parameters
+
+-   **arrays_and_dtypes**: _Sequence\[Union\[&lt;array&gt;, &lt;dtype&gt;\]\];_
+
+    -   input arrays and dtypes.
+
+#### Returns
+
+-   **out**: _&lt;dtype&gt;_
+
+    -   the dtype resulting from an operation involving the input arrays and dtypes.
