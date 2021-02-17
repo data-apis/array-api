@@ -51,7 +51,7 @@ This function cannot guarantee that the interval does not include the `stop` val
 
 
 (function-asarray)=
-### asarray(obj, /, *, dtype=None, device=None, copy=False)
+### asarray(obj, /, *, dtype=None, device=None, copy=None)
 
 Convert the input to an array.
 
@@ -76,7 +76,7 @@ Convert the input to an array.
 
 -   **copy**: _bool_
 
-    -   Whether or not to make a copy of the input. If `True`, always copies. If `False`, reuses existing memory buffer if possible. Default: `False`.
+    -   Whether or not to make a copy of the input. If `True`, always copies. If `False`, never copies. If `None`, reuses existing memory buffer if possible. Default: `None`.
 
 #### Returns
 
