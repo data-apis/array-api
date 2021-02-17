@@ -375,20 +375,31 @@ Exports the array as a DLPack capsule, for consumption by {ref}`function-from_dl
 
 -   **stream**: _Optional\[int\]_
 
-    -   If given, the CUDA or ROCm stream number the consumer will use. Options are:
+    -   If given, the stream number the consumer will use on the device the array is present on, as a Python integer. Device-specific notes:
+
+        :::{admonition} CUDA
         - `None`: producer must assume the legacy default stream (default),
         - `1`: the legacy default stream,
         - `2`: the per-thread default stream,
         - `> 2`: stream number represented as a Python integer.
 
         Note that `0` is disallowed (it's ambiguous, it could mean either `None`, `1` or `2`).
+        :::
 
-        ```{note}
+        :::{admonition} ROCm
+        - `None`: producer must assume the legacy default stream (default),
+        - `0`: the default stream,
+        - `> 2`: stream number represented as a Python integer.
+
+        Using `1` and `2` is not supported.
+        :::
+
+        ```{tip}
         It is recommended that implementers explicitly handle streams. If
-        they use the legacy default stream, specifying `1` is preferred.
-        `None` is a safe default for developers who do not want to think
-        about stream handling at all, potentially at the cost of more
-        synchronization than necessary.
+        they use the legacy default stream, specifying `1` (CUDA) or `0`
+        (ROCm) is preferred. `None` is a safe default for developers who do
+        not want to think about stream handling at all, potentially at the
+        cost of more synchronization than necessary.
         ```
 
 #### Returns

@@ -90,11 +90,12 @@ If an array that is accessed via the interchange protocol lives on a
 device that the requesting library does not support, it is recommended to
 raise a `TypeError`.
 
-Stream handling through the `stream` keyword applies to CUDA and ROCm. The
-producer must pass the stream it will use to the consumer, the consumer must
-synchronize only when necessary. In the common case of the default stream
-being used, synchronization will be unnecessary so asynchronous execution is
-enabled.
+Stream handling through the `stream` keyword applies to CUDA and ROCm (perhaps
+to other devices that have a stream concept as well, however those haven't been
+considered in detail). The producer must pass the stream it will use to the
+consumer, the consumer must synchronize only when necessary. In the common case
+of the default stream being used, synchronization will be unnecessary so
+asynchronous execution is enabled.
 
 
 ## Implementation
