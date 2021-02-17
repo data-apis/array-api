@@ -49,6 +49,42 @@ This function cannot guarantee that the interval does not include the `stop` val
 
     -   a one-dimensional array containing evenly spaced values. The length of the output array must be `ceil((stop-start)/step)`.
 
+
+(function-asarray)=
+### asarray(obj, /, *, dtype=None, device=None, copy=False)
+
+Convert the input to an array.
+
+#### Parameters
+
+-   **obj**: _Union\[ float, NestedSequence\[ bool | int | float ], SupportsDLPack, SupportsBufferProtocol, memoryview ]_
+
+    -   Object to be converted to an array. Can be a Python scalar, a (possibly nested) sequence of Python scalars, or an object supporting DLPack or the Python buffer protocol.
+
+    :::{tip}
+    An object supporting DLPack has `__dlpack__` and `__dlpack_device__` methods.
+    An object supporting the buffer protocol can be turned into a memoryview through `memoryview(obj)`.
+    :::
+
+-   **dtype**: _Optional\[ &lt;dtype&gt; ]_
+
+    -   output array data type. If `dtype` is `None`, the output array data type must be inferred from the data type(s) in `obj`. Default: `None`.
+
+-   **device**: _Optional\[ &lt;device&gt; ]_
+
+    -   device to place the created array on, if given. Default: `None`.
+
+-   **copy**: _bool_
+
+    -   Whether or not to make a copy of the input. If `True`, always copies. If `False`, reuses existing memory buffer if possible. Default: `False`.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   An array containing the data from `obj`.
+
+
 (function-empty)=
 ### empty(shape, /, *, dtype=None, device=None)
 
