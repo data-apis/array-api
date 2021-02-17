@@ -7,6 +7,26 @@ A conforming implementation of the array API standard must provide and support t
 <!-- NOTE: please keep the constants in alphabetical order -->
 
 ## Objects in API
+(can_cast)=
+### can_cast(from_, to)
+
+Determines if a type conversion is allowed under the rules described by {ref}`type-promotion`.
+
+#### Parameters
+
+-   **from_**: _Union\[ &lt;dtype&gt ]_
+
+    -   the data type, scalar or array to cast from.
+
+-   **to**: _&lt;dtype&gt_
+
+    -   the data type to cast to.
+
+#### Returns
+
+-   **out**: _bool_
+
+    -   True if the cast can occur according to the {ref}`type-promotion`.
 
 (finfo)=
 ### finfo(type)
