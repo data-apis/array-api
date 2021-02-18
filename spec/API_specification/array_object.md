@@ -378,15 +378,15 @@ Element-wise results must equal the results returned by the equivalent element-w
 ```
 
 (method-__bool__)=
-### \_\_int\_\_(x, /)
+### \_\_bool\_\_(x, /)
 
-Converts a dimension-0 boolean array into a Python `bool` object.
+Converts a zero-dimensional boolean array to a Python `bool` object.
 
 #### Parameters
 
 -   **x**: _&lt;array&gt;_
 
-    -   dimension 0 array. Must have boolean data type.
+    -   zero-dimensional array instance. Must have a boolean data type.
 
 #### Returns
 
@@ -421,15 +421,15 @@ Element-wise results must equal the results returned by the equivalent element-w
 ```
 
 (method-__float__)=
-### \_\_int\_\_(x, /)
+### \_\_float\_\_(x, /)
 
-Converts a dimension-0 floating-point array into a Python `float` object.
+Converts a zero-dimensional floating-point array to a Python `float` object.
 
 #### Parameters
 
 -   **x**: _&lt;array&gt;_
 
-    -   dimension 0 array. Must have an floating-point data type.
+    -   zero-dimensional array instance. Must have a floating-point data type.
 
 #### Returns
 
@@ -523,20 +523,19 @@ Element-wise results must equal the results returned by the equivalent element-w
 (method-__int__)=
 ### \_\_int\_\_(x, /)
 
-Converts a dimension-0 integer array into a Python `int` object.
+Converts a zero-dimensional integer array to a Python `int` object.
 
 #### Parameters
 
 -   **x**: _&lt;array&gt;_
 
-    -   dimension 0 array. Must have an integer data type.
+    -   zero-dimensional array instance. Must have an integer data type.
 
 #### Returns
 
 -   **out**: _&lt;int&gt;_
 
     -   a Python `int` object representing the single element of the array `x`.
-
 
 (method-__invert__)=
 ### \_\_invert\_\_(x, /)
