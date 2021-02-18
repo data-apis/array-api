@@ -57,7 +57,7 @@ Convert the input to an array.
 
 #### Parameters
 
--   **obj**: _Union\[ float, NestedSequence\[ bool | int | float ], SupportsDLPack, SupportsBufferProtocol, memoryview ]_
+-   **obj**: _Union\[ float, NestedSequence\[ bool | int | float ], SupportsDLPack, SupportsBufferProtocol ]_
 
     -   Object to be converted to an array. Can be a Python scalar, a (possibly nested) sequence of Python scalars, or an object supporting DLPack or the Python buffer protocol.
 
@@ -74,9 +74,9 @@ Convert the input to an array.
 
     -   device to place the created array on, if given. Default: `None`.
 
--   **copy**: _bool_
+-   **copy**: _Optional\[ bool ]_
 
-    -   Whether or not to make a copy of the input. If `True`, always copies. If `False`, never copies. If `None`, reuses existing memory buffer if possible. Default: `None`.
+    -   Whether or not to make a copy of the input. If `True`, always copies. If `False`, never copies for input which supports DLPack or the buffer protocol, and raises `ValueError` in case that would be necessary. If `None`, reuses existing memory buffer if possible, copies otherwise. Default: `None`.
 
 #### Returns
 
