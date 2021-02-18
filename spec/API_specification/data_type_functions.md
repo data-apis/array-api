@@ -11,41 +11,39 @@ A conforming implementation of the array API standard must provide and support t
 (finfo)=
 ### finfo(type)
 
-Defines the machine limits for floating point types.
+Machine limits for floating-point data types.
 
 #### Parameters
 
--   **type**: _Union\[ &lt;dtype&gt, instance ]_
+-   **type**: _Union\[ &lt;dtype&gt, &lt;array&gt; ]_
 
-    -   the kind of floating point data-type about which to get information
+    -   the kind of floating-point data-type about which to get information.
 
 #### Returns
 
 -   **out**: _&lt;class&gt;_
 
-    -   a class with that encapsules the following attributes:
+    -   an object having the following attributes:
 
         -   **bits**: _int_
-            -   The number of bits occupied by the type
+            -   number of bits occupied by the floating-point data type.
         -   **eps**: _float_
-            -   The difference between 1.0 and the next smallest representable float larger than 1.0 following the IEEE 754 standard.
+            -   difference between 1.0 and the next smallest representable floating-point number larger than 1.0 according to the IEEE-754 standard.
         -   **max**: _float_
-            -   The largest representable number.
+            -   largest representable number.
         -   **min**: _float_
-            -   The smallest representable number.
-        -   **tiny**: _float_
-            -   The smallest positive representable number.
+            -   smallest representable number.
 
 (iinfo)=
 ### iinfo(type)
 
-Defines the machine limits for integer types.
+Machine limits for integer data types.
 
 #### Parameters
 
--   **type**: _Union\[ &lt;dtype&gt, instance ]_
+-   **type**: _Union\[ &lt;dtype&gt, &lt;array&gt; ]_
 
-    -   the kind of integer data-type about which to get information
+    -   the kind of integer data-type about which to get information.
 
 #### Returns
 
@@ -54,11 +52,11 @@ Defines the machine limits for integer types.
     -   a class with that encapsules the following attributes:
 
         -   **bits**: _int_
-            -   The number of bits occupied by the type
+            -   number of bits occupied by the type
         -   **max**: _int_
-            -   The largest representable number.
+            -   largest representable number.
         -   **min**: _int_
-            -   The smallest representable number.
+            -   smallest representable number.
 
 (function-result_type)=
 ### result_type(*arrays_and_dtypes)
@@ -67,13 +65,12 @@ Returns the dtype that results from applying the type promotion rules
 (see {ref}`type-promotion`) to the arguments.
 
 ```{note}
-If mixed dtypes (e.g. integer and floating-point) are used, the output of
-`result_type` will be implementation-specific.
+If provided mixed dtypes (e.g., integer and floating-point), the returned dtype will be implementation-specific.
 ```
 
 #### Parameters
 
--   **arrays_and_dtypes**: _Sequence\[Union\[&lt;array&gt;, &lt;dtype&gt;\]\];_
+-   **arrays_and_dtypes**: _Sequence\[ Union\[ &lt;array&gt;, &lt;dtype&gt; \] \];_
 
     -   input arrays and dtypes.
 
