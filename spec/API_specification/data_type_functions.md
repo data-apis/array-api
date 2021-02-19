@@ -7,6 +7,30 @@ A conforming implementation of the array API standard must provide and support t
 <!-- NOTE: please keep the constants in alphabetical order -->
 
 ## Objects in API
+(broadcast_to)=
+### broadcast_to(array, shape)
+
+Broadcast an array to a new shape.
+
+-   A `ValueError` exception must be raised if the array is not compatible with the new shape according  to the semantics defined in {ref}`broadcasting`.
+
+#### Parameters
+
+-   **array**: _&lt;array&gt;_
+
+    -   array to broadcast.
+
+-   **shape**: _&lt;dtype&gt_
+
+    -   shape of the desired array.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   a readonly view on the original array with the given shape where more than one element of a broadcasted array may refer to a single memory location.
+
+
 (can_cast)=
 ### can_cast(from_, to)
 
@@ -16,11 +40,11 @@ Determines if a type conversion is allowed under the rules described by {ref}`ty
 
 -   **from_**: _Union\[ &lt;dtype&gt ]_
 
-    -   the data type, scalar or array to cast from.
+    -   data type, scalar or array to cast from.
 
 -   **to**: _&lt;dtype&gt_
 
-    -   the data type to cast to.
+    -   data type to cast to.
 
 #### Returns
 
