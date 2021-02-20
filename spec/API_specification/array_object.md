@@ -375,7 +375,7 @@ Exports the array as a DLPack capsule, for consumption by {ref}`function-from_dl
 
 -   **stream**: _Optional\[int\]_
 
-    -   An optional pointer to a stream, as a Python integer, provided by the consumer that the producer will use to make the array safe to operate on. Device-specific notes:
+    -   An optional pointer to a stream, as a Python integer, provided by the consumer that the producer will use to make the array safe to operate on. The pointer is a positive integer. `-1` is a special value that may be used by the consumer to signal "producer must not do any synchronization". Device-specific notes:
 
         :::{admonition} CUDA
         - `None`: producer must assume the legacy default stream (default),
