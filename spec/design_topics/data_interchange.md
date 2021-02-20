@@ -114,7 +114,8 @@ visible to users of the Python API.
 The consumer must set the PyCapsule name to `"used_dltensor"`, and call the
 `deleter` of the `DLPackManagedTensor` when it no longer needs the data.
 
-For further details on DLPack design and how to implement support for it,
+DLPack version used must be `0.2 <= DLPACK_VERSION < 1.0`. For further
+details on DLPack design and how to implement support for it,
 refer to [github.com/dmlc/dlpack](https://github.com/dmlc/dlpack).
 
 :::{warning}
