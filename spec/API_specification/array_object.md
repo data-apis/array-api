@@ -415,10 +415,20 @@ Returns device type and device ID in DLPack format. Meant for use within {ref}`f
 
 #### Returns
 
--   **device**: _Tuple\[int, int\]_
+-   **device**: _Tuple\[enum.IntEnum, int\]_
 
-    -   A tuple `(device_type, device_id)` in DLPack format.
+    -   A tuple `(device_type, device_id)` in DLPack format. Valid device type enum members are:
 
+        ```
+        CPU = 1
+        CUDA = 2
+        CPU_PINNED = 3
+        OPENCL = 4
+        VULKAN = 7
+        METAL = 8
+        VPI = 9
+        ROCM = 10
+        ```
 
 (method-__eq__)=
 ### \_\_eq\_\_(x1, x2, /)
