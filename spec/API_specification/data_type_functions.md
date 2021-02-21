@@ -9,7 +9,7 @@ A conforming implementation of the array API standard must provide and support t
 ## Objects in API
 
 (finfo)=
-### finfo(type)
+### finfo(type, /)
 
 Machine limits for floating-point data types.
 
@@ -35,7 +35,7 @@ Machine limits for floating-point data types.
             -   smallest representable number.
 
 (iinfo)=
-### iinfo(type)
+### iinfo(type, /)
 
 Machine limits for integer data types.
 
