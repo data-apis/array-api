@@ -10,7 +10,7 @@ A conforming implementation of the array API standard must provide and support t
 -   Optional parameters must be [keyword-only](https://www.python.org/dev/peps/pep-3102/) arguments.
 -   Broadcasting semantics must follow the semantics defined in {ref}`broadcasting`.
 -   Unless stated otherwise, functions must support the data types defined in {ref}`data-types`.
--   Functions may only be required for a subset of input data type. Libraries may chose to implement functions for additional data types, but that behavior is not required by the spec. See {ref}`data-type-categories`.
+-   Functions may only be required for a subset of input data type. Libraries may choose to implement functions for additional data types, but that behavior is not required by the specification. See {ref}`data-type-categories`.
 -   Unless stated otherwise, functions must adhere to the type promotion rules defined in {ref}`type-promotion`.
 -   Unless stated otherwise, floating-point operations must adhere to IEEE 754-2019.
 -   Unless stated otherwise, element-wise mathematical functions must satisfy the minimum accuracy requirements defined in {ref}`accuracy`.
@@ -271,7 +271,7 @@ For floating-point operands,
 
 -   **x1**: _&lt;array&gt;_
 
-    -   input array corresponding to the y-coordinates. Should have a floating-point data type
+    -   input array corresponding to the y-coordinates. Should have a floating-point data type.
 
 -   **x2**: _&lt;array&gt;_
 
@@ -770,7 +770,7 @@ Tests each element `x_i` of the input array `x` to determine whether the element
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing test results. An element `out_i` is `True` if `x_i` is `NaN` and `False` otherwise. The returned array Should have a data type of `bool`.
+    -   an array containing test results. An element `out_i` is `True` if `x_i` is `NaN` and `False` otherwise. The returned array should have a data type of `bool`.
 
 (function-less)=
 ### less(x1, x2, /)

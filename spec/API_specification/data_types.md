@@ -82,10 +82,10 @@ A conforming implementation of the array API standard may provide and support ad
 (data-type-categories)=
 ## Data Type Categories
 
-For the purposes of this spec, the following data type categories are defined.
+For the purposes of this specification, the following data type categories are defined.
 Libraries do not need to organize dtypes according to these categories. These
-are only for organizing the functions in this spec itself. Future versions of
-the spec will include additional categories for complex data types.
+are only for organizing the functions in this specification itself. Future versions of
+the specification will include additional categories for complex data types.
 
 ### Numeric Data Types
 
