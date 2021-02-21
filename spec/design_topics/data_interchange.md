@@ -114,6 +114,10 @@ visible to users of the Python API.
 The consumer must set the PyCapsule name to `"used_dltensor"`, and call the
 `deleter` of the `DLPackManagedTensor` when it no longer needs the data.
 
+When the `strides` field in the `DLTensor` struct is `NULL`, it indicates a
+row-major compact array. If the array is of size zero, the data pointer in
+`DLTensor` should be set to either `NULL` or `0`.
+
 DLPack version used must be `0.2 <= DLPACK_VERSION < 1.0`. For further
 details on DLPack design and how to implement support for it,
 refer to [github.com/dmlc/dlpack](https://github.com/dmlc/dlpack).
@@ -121,7 +125,7 @@ refer to [github.com/dmlc/dlpack](https://github.com/dmlc/dlpack).
 :::{warning}
 DLPack contains a `device_id`, which will be the device ID (an integer, `0, 1, ...`) which the producer library uses. In practice this will likely be the same numbering as that of the consumer, however that is not guaranteed. Depending on the hardware type, it may be possible for the consumer library implementation to look up the actual device from the pointer to the data - this is possible for example for CUDA device pointers.
 
-It is recommended that implementers of this array API document whether the
-`.device` attribute of the array returned from `from_dlpack` is guaranteed to
-be a certain order or not.
+It is recommended that implementers of this array API consider and document
+whether the `.device` attribute of the array returned from `from_dlpack` is
+guaranteed to be in a certain order or not.
 :::
