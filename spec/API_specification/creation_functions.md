@@ -132,6 +132,27 @@ Returns a two-dimensional array with ones on the `k`th diagonal and zeros elsewh
 
     -   an array where all elements are equal to zero, except for the `k`th diagonal, whose values are equal to one.
 
+(function-from_dlpack)=
+### from_dlpack(x, /)
+
+Returns a new array containing the data from another (array) object with a `__dlpack__` method.
+
+#### Parameters
+
+-   **x**: _object_
+
+    -   input (array) object.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the data in `x`.
+
+        ```{note}
+        The returned array may be either a copy or a view. See {ref}`data-interchange` for details.
+        ```
+
 (function-full)=
 ### full(shape, fill_value, /, *, dtype=None, device=None)
 
