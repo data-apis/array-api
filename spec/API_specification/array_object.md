@@ -558,7 +558,23 @@ Element-wise results must equal the results returned by the equivalent element-w
 (method-__getitem__)=
 ### \_\_getitem\_\_(x, key, /)
 
-_TODO: dependent on the indexing specification._
+Returns `x[key]`.
+
+#### Parameters
+
+-   **x**: _&lt;array;&gt;_
+
+    -   array instance.
+
+-   **key**: _Union\[ int, slice, Tuple\[ Union\[ int, slice ], ... ], &lt;array&gt; ]_
+
+    -   index key.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the accessed value(s). The returned array must have the same data type as `x`.
 
 (method-__gt__)=
 ### \_\_gt\_\_(x1, x2, /)
