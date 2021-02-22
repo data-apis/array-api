@@ -7,8 +7,26 @@ A conforming implementation of the array API standard must provide and support t
 <!-- NOTE: please keep the constants in alphabetical order -->
 
 ## Objects in API
-(broadcast_to)=
-### broadcast_to(array, shape)
+(broadcast-arrays)=
+### broadcast_arrays(args, /, *)
+
+Broadcast any number of arrays against each other.
+
+#### Parameters
+
+-   **args**: [_&lt;array&gt;_]
+
+    -   arrays to broadcast.
+
+#### Returns
+
+-   **out**: [_&lt;array&gt;_]
+
+    -   readonly views on the original arrays. Furthermore, more than one element of a broadcasted array may refer to a single memory location.
+
+
+(broadcast-to)=
+### broadcast_to(array, /, shape, /)
 
 Broadcast an array to a new shape.
 
@@ -30,9 +48,8 @@ Broadcast an array to a new shape.
 
     -   a readonly view on the original array with the given shape where more than one element of a broadcasted array may refer to a single memory location.
 
-
-(can_cast)=
-### can_cast(from_, to)
+(can-cast)=
+### can_cast(from_, /, to, /)
 
 Determines if a type conversion is allowed under the rules described by {ref}`type-promotion`.
 
@@ -52,8 +69,6 @@ Determines if a type conversion is allowed under the rules described by {ref}`ty
 
     -   True if the cast can occur according to the {ref}`type-promotion`.
 
-(finfo)=
-### finfo(type)
 
 (finfo)=
 ### finfo(type, /)
