@@ -274,7 +274,7 @@ Transpose of the array.
 Calculates the absolute value for each element `x_i` of an array instance `x` (i.e., the element-wise result has the same magnitude as the respective element in `x` but has positive sign).
 
 #### Special Cases
- 
+
 For floating-point operands,
 
 -   If `x_i` is `NaN`, the result is `NaN`.
@@ -377,6 +377,89 @@ Evaluates `x1_i & x2_i` for each element `x1_i` of an array instance `x1` with t
 Element-wise results must equal the results returned by the equivalent element-wise function [`bitwise_and(x1, x2)`](elementwise_functions.md#logical_andx1-x2-).
 ```
 
+(method-__bool__)=
+### \_\_bool\_\_(x, /)
+
+Converts a zero-dimensional boolean array to a Python `bool` object.
+
+#### Parameters
+
+-   **x**: _&lt;array&gt;_
+
+    -   zero-dimensional array instance. Must have a boolean data type.
+
+#### Returns
+
+-   **out**: _&lt;bool&gt;_
+
+    -   a Python `bool` object representing the single element of the array `x`.
+
+
+(method-__dlpack__)=
+### \_\_dlpack\_\_(/, *, stream=None)
+
+Exports the array as a DLPack capsule, for consumption by {ref}`function-from_dlpack`.
+
+#### Parameters
+
+-   **stream**: _Optional\[int\]_
+
+    -   An optional pointer to a stream, as a Python integer, provided by the consumer that the producer will use to make the array safe to operate on. The pointer is a positive integer. `-1` is a special value that may be used by the consumer to signal "producer must not do any synchronization". Device-specific notes:
+
+        :::{admonition} CUDA
+        - `None`: producer must assume the legacy default stream (default),
+        - `1`: the legacy default stream,
+        - `2`: the per-thread default stream,
+        - `> 2`: stream number represented as a Python integer.
+
+        Note that `0` is disallowed (it's ambiguous, it could mean either `None`, `1` or `2`).
+        :::
+
+        :::{admonition} ROCm
+        - `None`: producer must assume the legacy default stream (default),
+        - `0`: the default stream,
+        - `> 2`: stream number represented as a Python integer.
+
+        Using `1` and `2` is not supported.
+        :::
+
+        ```{tip}
+        It is recommended that implementers explicitly handle streams. If
+        they use the legacy default stream, specifying `1` (CUDA) or `0`
+        (ROCm) is preferred. `None` is a safe default for developers who do
+        not want to think about stream handling at all, potentially at the
+        cost of more synchronization than necessary.
+        ```
+
+#### Returns
+
+-   **capsule**: _&lt;PyCapsule&gt;_
+
+    -   A DLPack capsule for the array. See {ref}`data-interchange` for details.
+
+
+(method-__dlpack_device__)=
+### \_\_dlpack\_device\_\_()
+
+Returns device type and device ID in DLPack format. Meant for use within {ref}`function-from_dlpack`.
+
+#### Returns
+
+-   **device**: _Tuple\[enum.IntEnum, int\]_
+
+    -   A tuple `(device_type, device_id)` in DLPack format. Valid device type enum members are:
+
+        ```
+        CPU = 1
+        CUDA = 2
+        CPU_PINNED = 3
+        OPENCL = 4
+        VULKAN = 7
+        METAL = 8
+        VPI = 9
+        ROCM = 10
+        ```
+
 (method-__eq__)=
 ### \_\_eq\_\_(x1, x2, /)
 
@@ -402,6 +485,23 @@ Computes the truth value of `x1_i == x2_i` for each element `x1_i` of an array i
 
 Element-wise results must equal the results returned by the equivalent element-wise function [`equal(x1, x2)`](elementwise_functions.md#equalx1-x2-).
 ```
+
+(method-__float__)=
+### \_\_float\_\_(x, /)
+
+Converts a zero-dimensional floating-point array to a Python `float` object.
+
+#### Parameters
+
+-   **x**: _&lt;array&gt;_
+
+    -   zero-dimensional array instance. Must have a floating-point data type.
+
+#### Returns
+
+-   **out**: _&lt;float&gt;_
+
+    -   a Python `float` object representing the single element of the array `x`.
 
 (method-__floordiv__)=
 ### \_\_floordiv\_\_(x1, x2, /)
@@ -458,7 +558,23 @@ Element-wise results must equal the results returned by the equivalent element-w
 (method-__getitem__)=
 ### \_\_getitem\_\_(x, key, /)
 
-_TODO: dependent on the indexing specification._
+Returns `x[key]`.
+
+#### Parameters
+
+-   **x**: _&lt;array;&gt;_
+
+    -   array instance.
+
+-   **key**: _Union\[ int, slice, Tuple\[ Union\[ int, slice ], ... ], &lt;array&gt; ]_
+
+    -   index key.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the accessed value(s). The returned array must have the same data type as `x`.
 
 (method-__gt__)=
 ### \_\_gt\_\_(x1, x2, /)
@@ -485,6 +601,23 @@ Computes the truth value of `x1_i > x2_i` for each element `x1_i` of an array in
 
 Element-wise results must equal the results returned by the equivalent element-wise function [`greater(x1, x2)`](elementwise_functions.md#greaterx1-x2-).
 ```
+
+(method-__int__)=
+### \_\_int\_\_(x, /)
+
+Converts a zero-dimensional integer array to a Python `int` object.
+
+#### Parameters
+
+-   **x**: _&lt;array&gt;_
+
+    -   zero-dimensional array instance. Must have an integer data type.
+
+#### Returns
+
+-   **out**: _&lt;int&gt;_
+
+    -   a Python `int` object representing the single element of the array `x`.
 
 (method-__invert__)=
 ### \_\_invert\_\_(x, /)

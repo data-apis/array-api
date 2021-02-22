@@ -55,6 +55,9 @@ Determines if a type conversion is allowed under the rules described by {ref}`ty
 (finfo)=
 ### finfo(type)
 
+(finfo)=
+### finfo(type, /)
+
 Machine limits for floating-point data types.
 
 #### Parameters
@@ -79,7 +82,7 @@ Machine limits for floating-point data types.
             -   smallest representable number.
 
 (iinfo)=
-### iinfo(type)
+### iinfo(type, /)
 
 Machine limits for integer data types.
 

@@ -10,6 +10,7 @@ A conforming implementation of the array API standard must provide and support t
 -   Optional parameters must be [keyword-only](https://www.python.org/dev/peps/pep-3102/) arguments.
 -   Broadcasting semantics must follow the semantics defined in {ref}`broadcasting`.
 -   Unless stated otherwise, functions must support the data types defined in {ref}`data-types`.
+-   Functions may only be required for a subset of input data type. Libraries may choose to implement functions for additional data types, but that behavior is not required by the specification. See {ref}`data-type-categories`.
 -   Unless stated otherwise, functions must adhere to the type promotion rules defined in {ref}`type-promotion`.
 -   Unless stated otherwise, floating-point operations must adhere to IEEE 754-2019.
 -   Unless stated otherwise, element-wise mathematical functions must satisfy the minimum accuracy requirements defined in {ref}`accuracy`.
@@ -35,7 +36,7 @@ For floating-point operands,
 
 -   **x**: _&lt;array&gt;_
 
-    -   input array.
+    -   input array. Should have a numeric data type.
 
 #### Returns
 
@@ -61,7 +62,7 @@ For floating-point operands,
 
 -   **x**: _&lt;array&gt;_
 
-    -   input array.
+    -   input array. Should have a floating-point data type.
 
 #### Returns
 
@@ -87,7 +88,7 @@ For floating-point operands,
 
 -   **x**: _&lt;array&gt;_
 
-    -   input array whose elements each represent the area of a hyperbolic sector.
+    -   input array whose elements each represent the area of a hyperbolic sector. Should have a floating-point data type.
 
 #### Returns
 
@@ -131,11 +132,11 @@ Floating-point addition is a commutative operation, but not always associative.
 
 -   **x1**: _&lt;array&gt;_
 
-    -   first input array.
+    -   first input array. Should have a numeric data type.
 
 -   **x2**: _&lt;array&gt;_
 
-    -   second input array. Must be compatible with `x1` (see {ref}`broadcasting`).
+    -   second input array. Must be compatible with `x1` (see {ref}`broadcasting`). Should have a numeric data type.
 
 #### Returns
 
@@ -162,7 +163,7 @@ For floating-point operands,
 
 -   **x**: _&lt;array&gt;_
 
-    -   input array.
+    -   input array. Should have a floating-point data type.
 
 #### Returns
 
@@ -189,7 +190,7 @@ For floating-point operands,
 
 -   **x**: _&lt;array&gt;_
 
-    -   input array whose elements each represent the area of a hyperbolic sector.
+    -   input array whose elements each represent the area of a hyperbolic sector. Should have a floating-point data type.
 
 #### Returns
 
@@ -216,7 +217,7 @@ For floating-point operands,
 
 -   **x**: _&lt;array&gt;_
 
-    -   input array.
+    -   input array. Should have a floating-point data type.
 
 #### Returns
 
@@ -270,11 +271,11 @@ For floating-point operands,
 
 -   **x1**: _&lt;array&gt;_
 
-    -   input array corresponding to the y-coordinates.
+    -   input array corresponding to the y-coordinates. Should have a floating-point data type.
 
 -   **x2**: _&lt;array&gt;_
 
-    -   input array corresponding to the x-coordinates. Must be compatible with `x1` (see {ref}`broadcasting`).
+    -   input array corresponding to the x-coordinates. Must be compatible with `x1` (see {ref}`broadcasting`). Should have a floating-point data type.
 
 #### Returns
 
@@ -303,7 +304,7 @@ For floating-point operands,
 
 -   **x**: _&lt;array&gt;_
 
-    -   input array whose elements each represent the area of a hyperbolic sector.
+    -   input array whose elements each represent the area of a hyperbolic sector. Should have a floating-point data type.
 
 #### Returns
 
@@ -320,11 +321,11 @@ Computes the bitwise AND of the underlying binary representation of each element
 
 -   **x1**: _&lt;array&gt;_
 
-    -   first input array. Must have an integer or boolean data type.
+    -   first input array. Should have an integer or boolean data type.
 
 -   **x2**: _&lt;array&gt;_
 
-    -   second input array. Must be compatible with `x1` (see {ref}`broadcasting`). Must have an integer or boolean data type.
+    -   second input array. Must be compatible with `x1` (see {ref}`broadcasting`). Should have an integer or boolean data type.
 
 #### Returns
 
@@ -341,11 +342,11 @@ Shifts the bits of each element `x1_i` of the input array `x1` to the left by ap
 
 -   **x1**: _&lt;array&gt;_
 
-    -   first input array. Must have an integer data type.
+    -   first input array. Should have an integer data type.
 
 -   **x2**: _&lt;array&gt;_
 
-    -   second input array. Must be compatible with `x1` (see {ref}`broadcasting`). Must have an integer data type. Each element must be greater than or equal to `0`.
+    -   second input array. Must be compatible with `x1` (see {ref}`broadcasting`). Should have an integer data type. Each element must be greater than or equal to `0`.
 
 #### Returns
 
@@ -362,7 +363,7 @@ Inverts (flips) each bit for each element `x_i` of the input array `x`.
 
 -   **x**: _&lt;array&gt;_
 
-    -   input array. Must have an integer or boolean data type.
+    -   input array. Should have an integer or boolean data type.
 
 #### Returns
 
@@ -379,11 +380,11 @@ Computes the bitwise OR of the underlying binary representation of each element 
 
 -   **x1**: _&lt;array&gt;_
 
-    -   first input array. Must have an integer or boolean data type.
+    -   first input array. Should have an integer or boolean data type.
 
 -   **x2**: _&lt;array&gt;_
 
-    -   second input array. Must be compatible with `x1` (see {ref}`broadcasting`). Must have an integer or boolean data type.
+    -   second input array. Must be compatible with `x1` (see {ref}`broadcasting`). Should have an integer or boolean data type.
 
 #### Returns
 
@@ -400,11 +401,11 @@ Shifts the bits of each element `x1_i` of the input array `x1` to the right acco
 
 -   **x1**: _&lt;array&gt;_
 
-    -   first input array. Must have an integer data type.
+    -   first input array. Should have an integer data type.
 
 -   **x2**: _&lt;array&gt;_
 
-    -   second input array. Must be compatible with `x1` (see {ref}`broadcasting`). Must have an integer data type. Each element must be greater than or equal to `0`.
+    -   second input array. Must be compatible with `x1` (see {ref}`broadcasting`). Should have an integer data type. Each element must be greater than or equal to `0`.
 
 #### Returns
 
@@ -421,11 +422,11 @@ Computes the bitwise XOR of the underlying binary representation of each element
 
 -   **x1**: _&lt;array&gt;_
 
-    -   first input array. Must have an integer or boolean data type.
+    -   first input array. Should have an integer or boolean data type.
 
 -   **x2**: _&lt;array&gt;_
 
-    -   second input array. Must be compatible with `x1` (see {ref}`broadcasting`). Must have an integer or boolean data type.
+    -   second input array. Must be compatible with `x1` (see {ref}`broadcasting`). Should have an integer or boolean data type.
 
 #### Returns
 
@@ -446,7 +447,7 @@ Rounds each element `x_i` of the input array `x` to the smallest (i.e., closest 
 
 -   **x**: _&lt;array&gt;_
 
-    -   input array.
+    -   input array. Should have a numeric data type.
 
 #### Returns
 
@@ -473,7 +474,7 @@ For floating-point operands,
 
 -   **x**: _&lt;array&gt;_
 
-    -   input array whose elements are each expressed in radians.
+    -   input array whose elements are each expressed in radians. Should have a floating-point data type.
 
 #### Returns
 
@@ -500,7 +501,7 @@ For floating-point operands,
 
 -   **x**: _&lt;array&gt;_
 
-    -   input array whose elements each represent a hyperbolic angle.
+    -   input array whose elements each represent a hyperbolic angle. Should have a floating-point data type.
 
 #### Returns
 
@@ -544,11 +545,11 @@ For floating-point operands,
 
 -   **x1**: _&lt;array&gt;_
 
-    -   dividend input array.
+    -   dividend input array. Should have a floating-point data type.
 
 -   **x2**: _&lt;array&gt;_
 
-    -   divisor input array. Must be compatible with `x1` (see {ref}`broadcasting`).
+    -   divisor input array. Must be compatible with `x1` (see {ref}`broadcasting`). Should have a floating-point data type.
 
 #### Returns
 
@@ -565,7 +566,7 @@ Computes the truth value of `x1_i == x2_i` for each element `x1_i` of the input 
 
 -   **x1**: _&lt;array&gt;_
 
-    -   first input array.
+    -   first input array. May have any data type.
 
 -   **x2**: _&lt;array&gt;_
 
@@ -596,7 +597,7 @@ For floating-point operands,
 
 -   **x**: _&lt;array&gt;_
 
-    -   input array.
+    -   input array. Should have a floating-point data type.
 
 #### Returns
 
@@ -628,7 +629,7 @@ For floating-point operands,
 
 -   **x**: _&lt;array&gt;_
 
-    -   input array.
+    -   input array. Should have a numeric data type.
 
 #### Returns
 
@@ -649,7 +650,7 @@ Rounds each element `x_i` of the input array `x` to the greatest (i.e., closest 
 
 -   **x**: _&lt;array&gt;_
 
-    -   input array.
+    -   input array. Should have a numeric data type.
 
 #### Returns
 
@@ -666,11 +667,11 @@ Rounds the result of dividing each element `x1_i` of the input array `x1` by the
 
 -   **x1**: _&lt;array&gt;_
 
-    -   dividend input array.
+    -   dividend input array. Should have a numeric data type.
 
 -   **x2**: _&lt;array&gt;_
 
-    -   divisor input array. Must be compatible with `x1` (see {ref}`broadcasting`).
+    -   divisor input array. Must be compatible with `x1` (see {ref}`broadcasting`). Should have a numeric data type.
 
 #### Returns
 
@@ -687,11 +688,11 @@ Computes the truth value of `x1_i > x2_i` for each element `x1_i` of the input a
 
 -   **x1**: _&lt;array&gt;_
 
-    -   first input array.
+    -   first input array. Should have a numeric data type.
 
 -   **x2**: _&lt;array&gt;_
 
-    -   second input array. Must be compatible with `x1` (see {ref}`broadcasting`).
+    -   second input array. Must be compatible with `x1` (see {ref}`broadcasting`). Should have a numeric data type.
 
 #### Returns
 
@@ -708,11 +709,11 @@ Computes the truth value of `x1_i >= x2_i` for each element `x1_i` of the input 
 
 -   **x1**: _&lt;array&gt;_
 
-    -   first input array.
+    -   first input array. Should have a numeric data type.
 
 -   **x2**: _&lt;array&gt;_
 
-    -   second input array. Must be compatible with `x1` (see {ref}`broadcasting`).
+    -   second input array. Must be compatible with `x1` (see {ref}`broadcasting`). Should have a numeric data type.
 
 #### Returns
 
@@ -729,7 +730,7 @@ Tests each element `x_i` of the input array `x` to determine if finite (i.e., no
 
 -   **x**: _&lt;array&gt;_
 
-    -   input array.
+    -   input array. Should have a numeric data type.
 
 #### Returns
 
@@ -746,7 +747,7 @@ Tests each element `x_i` of the input array `x` to determine if equal to positiv
 
 -   **x**: _&lt;array&gt;_
 
-    -   input array.
+    -   input array. Should have a numeric data type.
 
 #### Returns
 
@@ -763,13 +764,13 @@ Tests each element `x_i` of the input array `x` to determine whether the element
 
 -   **x**: _&lt;array&gt;_
 
-    -   input array.
+    -   input array. Should have a numeric data type.
 
 #### Returns
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing test results. An element `out_i` is `True` if `x_i` is `NaN` and `False` otherwise. The returned array must have a data type of `bool`.
+    -   an array containing test results. An element `out_i` is `True` if `x_i` is `NaN` and `False` otherwise. The returned array should have a data type of `bool`.
 
 (function-less)=
 ### less(x1, x2, /)
@@ -780,11 +781,11 @@ Computes the truth value of `x1_i < x2_i` for each element `x1_i` of the input a
 
 -   **x1**: _&lt;array&gt;_
 
-    -   first input array.
+    -   first input array. Should have a numeric data type.
 
 -   **x2**: _&lt;array&gt;_
 
-    -   second input array. Must be compatible with `x1` (see {ref}`broadcasting`).
+    -   second input array. Must be compatible with `x1` (see {ref}`broadcasting`). Should have a numeric data type.
 
 #### Returns
 
@@ -801,11 +802,11 @@ Computes the truth value of `x1_i <= x2_i` for each element `x1_i` of the input 
 
 -   **x1**: _&lt;array&gt;_
 
-    -   first input array.
+    -   first input array. Should have a numeric data type.
 
 -   **x2**: _&lt;array&gt;_
 
-    -   second input array. Must be compatible with `x1` (see {ref}`broadcasting`).
+    -   second input array. Must be compatible with `x1` (see {ref}`broadcasting`). Should have a numeric data type.
 
 #### Returns
 
@@ -832,7 +833,7 @@ For floating-point operands,
 
 -   **x**: _&lt;array&gt;_
 
-    -   input array.
+    -   input array. Should have a floating-point data type.
 
 #### Returns
 
@@ -865,7 +866,7 @@ For floating-point operands,
 
 -   **x**: _&lt;array&gt;_
 
-    -   input array.
+    -   input array. Should have a floating-point data type.
 
 #### Returns
 
@@ -892,7 +893,7 @@ For floating-point operands,
 
 -   **x**: _&lt;array&gt;_
 
-    -   input array.
+    -   input array. Should have a floating-point data type.
 
 #### Returns
 
@@ -919,7 +920,7 @@ For floating-point operands,
 
 -   **x**: _&lt;array&gt;_
 
-    -   input array.
+    -   input array. Should have a floating-point data type.
 
 #### Returns
 
@@ -967,11 +968,11 @@ Computes the logical AND for each element `x1_i` of the input array `x1` with th
 
 -   **x1**: _&lt;array&gt;_
 
-    -   first input array.
+    -   first input array. Should have a boolean data type.
 
 -   **x2**: _&lt;array&gt;_
 
-    -   second input array. Must be compatible with `x1` (see {ref}`broadcasting`).
+    -   second input array. Must be compatible with `x1` (see {ref}`broadcasting`). Should have a boolean data type.
 
 #### Returns
 
@@ -988,7 +989,7 @@ Computes the logical NOT for each element `x_i` of the input array `x`. Zeros ar
 
 -   **x**: _&lt;array&gt;_
 
-    -   input array.
+    -   input array. Should have a boolean data type.
 
 #### Returns
 
@@ -1005,11 +1006,11 @@ Computes the logical OR for each element `x1_i` of the input array `x1` with the
 
 -   **x1**: _&lt;array&gt;_
 
-    -   first input array.
+    -   first input array. Should have a boolean data type.
 
 -   **x2**: _&lt;array&gt;_
 
-    -   second input array. Must be compatible with `x1` (see {ref}`broadcasting`).
+    -   second input array. Must be compatible with `x1` (see {ref}`broadcasting`). Should have a boolean data type.
 
 #### Returns
 
@@ -1026,11 +1027,11 @@ Computes the logical XOR for each element `x1_i` of the input array `x1` with th
 
 -   **x1**: _&lt;array&gt;_
 
-    -   first input array.
+    -   first input array. Should have a boolean data type.
 
 -   **x2**: _&lt;array&gt;_
 
-    -   second input array. Must be compatible with `x1` (see {ref}`broadcasting`).
+    -   second input array. Must be compatible with `x1` (see {ref}`broadcasting`). Should have a boolean data type.
 
 #### Returns
 
@@ -1066,11 +1067,11 @@ Floating-point multiplication is not always associative due to finite precision.
 
 -   **x1**: _&lt;array&gt;_
 
-    -   first input array.
+    -   first input array. Should have a numeric data type.
 
 -   **x2**: _&lt;array&gt;_
 
-    -   second input array. Must be compatible with `x1` (see {ref}`broadcasting`).
+    -   second input array. Must be compatible with `x1` (see {ref}`broadcasting`). Should have a numeric data type.
 
 #### Returns
 
@@ -1087,7 +1088,7 @@ Computes the numerical negative of each element `x_i` (i.e., `y_i = -x_i`) of th
 
 -   **x**: _&lt;array&gt;_
 
-    -   input array.
+    -   input array. Should have a numeric data type.
 
 #### Returns
 
@@ -1104,7 +1105,7 @@ Computes the truth value of `x1_i != x2_i` for each element `x1_i` of the input 
 
 -   **x1**: _&lt;array&gt;_
 
-    -   first input array.
+    -   first input array. May have any data type.
 
 -   **x2**: _&lt;array&gt;_
 
@@ -1125,7 +1126,7 @@ Computes the numerical positive of each element `x_i` (i.e., `y_i = +x_i`) of th
 
 -   **x**: _&lt;array&gt;_
 
-    -   input array.
+    -   input array. Should have a numeric data type.
 
 #### Returns
 
@@ -1171,11 +1172,11 @@ For floating-point operands,
 
 -   **x1**: _&lt;array&gt;_
 
-    -   first input array whose elements correspond to the exponentiation base.
+    -   first input array whose elements correspond to the exponentiation base. Should have a floating-point data type.
 
 -   **x2**: _&lt;array&gt;_
 
-    -   second input array whose elements correspond to the exponentiation exponent. Must be compatible with `x1` (see {ref}`broadcasting`).
+    -   second input array whose elements correspond to the exponentiation exponent. Must be compatible with `x1` (see {ref}`broadcasting`). Should have a floating-point data type.
 
 #### Returns
 
@@ -1192,11 +1193,11 @@ Returns the remainder of division for each element `x1_i` of the input array `x1
 
 -   **x1**: _&lt;array&gt;_
 
-    -   dividend input array.
+    -   dividend input array. Should have a numeric data type.
 
 -   **x2**: _&lt;array&gt;_
 
-    -   divisor input array. Must be compatible with `x1` (see {ref}`broadcasting`).
+    -   divisor input array. Must be compatible with `x1` (see {ref}`broadcasting`). Should have a numeric data type.
 
 #### Returns
 
@@ -1218,7 +1219,7 @@ Rounds each element `x_i` of the input array `x` to the nearest integer-valued n
 
 -   **x**: _&lt;array&gt;_
 
-    -   input array.
+    -   input array. Should have a numeric data type.
 
 #### Returns
 
@@ -1241,7 +1242,7 @@ Returns an indication of the sign of a number for each element `x_i` of the inpu
 
 -   **x**: _&lt;array&gt;_
 
-    -   input array.
+    -   input array. Should have a numeric data type.
 
 #### Returns
 
@@ -1267,7 +1268,7 @@ For floating-point operands,
 
 -   **x**: _&lt;array&gt;_
 
-    -   input array whose elements are each expressed in radians.
+    -   input array whose elements are each expressed in radians. Should have a floating-point data type.
 
 #### Returns
 
@@ -1294,7 +1295,7 @@ For floating-point operands,
 
 -   **x**: _&lt;array&gt;_
 
-    -   input array whose elements each represent a hyperbolic angle.
+    -   input array whose elements each represent a hyperbolic angle. Should have a floating-point data type.
 
 #### Returns
 
@@ -1311,7 +1312,7 @@ Squares (`x_i * x_i`) each element `x_i` of the input array `x`.
 
 -   **x**: _&lt;array&gt;_
 
-    -   input array.
+    -   input array. Should have a numeric data type.
 
 #### Returns
 
@@ -1338,7 +1339,7 @@ For floating-point operands,
 
 -   **x**: _&lt;array&gt;_
 
-    -   input array.
+    -   input array. Should have a floating-point data type.
 
 #### Returns
 
@@ -1355,11 +1356,11 @@ Calculates the difference for each element `x1_i` of the input array `x1` with t
 
 -   **x1**: _&lt;array&gt;_
 
-    -   first input array.
+    -   first input array. Should have a numeric data type.
 
 -   **x2**: _&lt;array&gt;_
 
-    -   second input array. Must be compatible with `x1` (see {ref}`broadcasting`).
+    -   second input array. Must be compatible with `x1` (see {ref}`broadcasting`). Should have a numeric data type.
 
 #### Returns
 
@@ -1385,7 +1386,7 @@ For floating-point operands,
 
 -   **x**: _&lt;array&gt;_
 
-    -   input array whose elements are expressed in radians.
+    -   input array whose elements are expressed in radians. Should have a floating-point data type.
 
 #### Returns
 
@@ -1412,7 +1413,7 @@ For floating-point operands,
 
 -   **x**: _&lt;array&gt;_
 
-    -   input array whose elements each represent a hyperbolic angle.
+    -   input array whose elements each represent a hyperbolic angle. Should have a floating-point data type.
 
 #### Returns
 
@@ -1433,7 +1434,7 @@ Rounds each element `x_i` of the input array `x` to the integer-valued number th
 
 -   **x**: _&lt;array&gt;_
 
-    -   input array.
+    -   input array. Should have a numeric data type.
 
 #### Returns
 

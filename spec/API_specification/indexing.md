@@ -151,8 +151,6 @@ Multi-dimensional arrays must extend the concept of single-axis indexing to mult
 
 -   Providing [ellipsis](https://docs.python.org/3/library/constants.html#Ellipsis) must apply `:` to each dimension necessary to index all dimensions (e.g., if `A` has rank `4`, `A[1:, ..., 2:5] == A[1:, :, :, 2:5]`). Only a single ellipsis must be allowed. An `IndexError` exception must be raised if more than one ellipsis is provided.
 
--   The result of multi-axis indexing must be an array of the same data type as the indexed array.
-
 ```{note}
 
 This specification leaves unspecified the behavior of providing a slice which attempts to select elements along a particular axis, but whose starting index is out-of-bounds.
@@ -179,4 +177,11 @@ An array must support indexing via a **single** `M`-dimensional boolean array `B
 
 -   A zero-dimensional boolean index array (equivalent to `True` or `False`) must follow the same axis replacement rules stated above. Namely, a zero-dimensional boolean index array removes zero dimensions and adds a single dimension of length `1` if the index array's value is `True` and of length `0` if the index array's value is `False`. Accordingly, for a zero-dimensional boolean index array `B`, the result of `A[B]` has shape `S = (1, s1, ..., sN)` if the index array's value is `True` and has shape `S = (0, s1, ..., sN)` if the index array's value is `False`.
 
--   The result of indexing into an array via a boolean index array must be an array of the same data type as the indexed array.
+## Return Values
+
+The result of an indexing operation (e.g., multi-axis indexing, boolean array indexing, etc) must be an array of the same data type as the indexed array.
+
+```{note}
+
+The specified return value behavior includes indexing operations which return a single value (e.g., accessing a single element within a one-dimensional array).
+```
