@@ -15,13 +15,13 @@ Machine limits for floating-point data types.
 
 #### Parameters
 
--   **type**: _Union\[ &lt;dtype&gt, &lt;array&gt; ]_
+-   **type**: _Union\[ &lt;dtype&gt;, &lt;array&gt; ]_
 
     -   the kind of floating-point data-type about which to get information.
 
 #### Returns
 
--   **out**: _&lt;ffinfo&gt;_
+-   **out**: _&lt;finfo&gt;_
 
     -   an object having the following attributes:
 
@@ -41,7 +41,7 @@ Machine limits for integer data types.
 
 #### Parameters
 
--   **type**: _Union\[ &lt;dtype&gt, &lt;array&gt; ]_
+-   **type**: _Union\[ &lt;dtype&gt;, &lt;array&gt; ]_
 
     -   the kind of integer data-type about which to get information.
 
