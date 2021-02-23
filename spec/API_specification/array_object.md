@@ -142,7 +142,7 @@ an array object supporting the following in-place Python operators:
 - `+=`. May be implemented via `__iadd__`.
 - `-=`. May be implemented via `__isub__`.
 - `*=`. May be implemented via `__imul__`.
-- `/=`. May be implemented via `__idiv__`.
+- `/=`. May be implemented via `__itruediv__`.
 - `//=`. May be implemented via `__ifloordiv__`.
 - `**=`. May be implemented via `__ipow__`.
 - `@=`. May be implemented via `__imatmul__`.
@@ -166,10 +166,10 @@ an array object supporting the following reflected operators:
 - `__radd__`
 - `__rsub__`
 - `__rmul__`
-- `__rdiv__`
-- `__rfloordiv__`
 - `__rtruediv__`
+- `__rfloordiv__`
 - `__rpow__`
+- `__rmatmul__`
 - `__rmod__`
 - `__rand__`
 - `__ror__`
