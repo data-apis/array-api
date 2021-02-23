@@ -8,7 +8,7 @@ A conforming implementation of the array API standard must provide and support t
 
 ## Objects in API
 
-(finfo)=
+(function-finfo)=
 ### finfo(type, /)
 
 Machine limits for floating-point data types.
@@ -21,7 +21,7 @@ Machine limits for floating-point data types.
 
 #### Returns
 
--   **out**: _&lt;class&gt;_
+-   **out**: _&lt;ffinfo&gt;_
 
     -   an object having the following attributes:
 
@@ -34,7 +34,7 @@ Machine limits for floating-point data types.
         -   **min**: _float_
             -   smallest representable number.
 
-(iinfo)=
+(function-iinfo)=
 ### iinfo(type, /)
 
 Machine limits for integer data types.
@@ -47,7 +47,7 @@ Machine limits for integer data types.
 
 #### Returns
 
--   **out**: _&lt;class&gt;_
+-   **out**: _&lt;iinfo&gt;_
 
     -   a class with that encapsules the following attributes:
 
@@ -70,7 +70,7 @@ If provided mixed dtypes (e.g., integer and floating-point), the returned dtype 
 
 #### Parameters
 
--   **arrays_and_dtypes**: _Sequence\[ Union\[ &lt;array&gt;, &lt;dtype&gt; \] \];_
+-   **arrays_and_dtypes**: _Sequence\[ Union\[ &lt;array&gt;, &lt;dtype&gt; \] \]_
 
     -   input arrays and dtypes.
 
