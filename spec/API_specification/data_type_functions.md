@@ -4,29 +4,30 @@
 
 A conforming implementation of the array API standard must provide and support the following data type functions.
 
+
 <!-- NOTE: please keep the constants in alphabetical order -->
 
 ## Objects in API
-(broadcast-arrays)=
-### broadcast_arrays(args, /, *)
+(function-broadcast-arrays)=
+### broadcast_arrays(*args, /)
 
 Broadcast any number of arrays against each other.
 
 #### Parameters
 
--   **args**: [_&lt;array&gt;_]
+-   ***args**: _\[&lt;array&gt;\]_
 
     -   arrays to broadcast.
 
 #### Returns
 
--   **out**: [_&lt;array&gt;_]
+-   **out**: _\[&lt;array&gt;\]_
 
-    -   readonly views on the original arrays. Furthermore, more than one element of a broadcasted array may refer to a single memory location.
+    -   a list of arrays where more than one element of a broadcasted array may refer to a single memory location.
 
 
-(broadcast-to)=
-### broadcast_to(array, /, shape, /)
+(function-broadcast-to)=
+### broadcast_to(array, /, shape)
 
 Broadcast an array to a new shape.
 
@@ -38,7 +39,7 @@ Broadcast an array to a new shape.
 
     -   array to broadcast.
 
--   **shape**: _&lt;dtype&gt_
+-   **shape**: Tuple[int, …]
 
     -   shape of the desired array.
 
@@ -46,20 +47,20 @@ Broadcast an array to a new shape.
 
 -   **out**: _&lt;array&gt;_
 
-    -   a readonly view on the original array with the given shape where more than one element of a broadcasted array may refer to a single memory location.
+    -   an array with the given shape where more than one element may refer to a single memory location.
 
-(can-cast)=
-### can_cast(from_, /, to, /)
+(function-can-cast)=
+### can_cast(from_, /, *, to)
 
 Determines if a type conversion is allowed under the rules described by {ref}`type-promotion`.
 
 #### Parameters
 
--   **from_**: _Union\[ &lt;dtype&gt ]_
+-   **from_**: _Union\[ &lt;dtype&gt, &lt;array&gt;]_
 
     -   data type, scalar or array to cast from.
 
--   **to**: _&lt;dtype&gt_
+-   **to**: _&lt;dtype&gt;_
 
     -   data type to cast to.
 
