@@ -396,11 +396,15 @@ Converts a zero-dimensional boolean array to a Python `bool` object.
 
 
 (method-__dlpack__)=
-### \_\_dlpack\_\_(*, stream=None)
+### \_\_dlpack\_\_(x, *, stream=None)
 
 Exports the array as a DLPack capsule, for consumption by {ref}`function-from_dlpack`.
 
 #### Parameters
+
+-   **x**: _&lt;array&gt;_
+
+    -   array instance.
 
 -   **stream**: _Optional\[int\]_
 
@@ -439,9 +443,15 @@ Exports the array as a DLPack capsule, for consumption by {ref}`function-from_dl
 
 
 (method-__dlpack_device__)=
-### \_\_dlpack\_device\_\_()
+### \_\_dlpack\_device\_\_(x, /)
 
 Returns device type and device ID in DLPack format. Meant for use within {ref}`function-from_dlpack`.
+
+#### Parameters
+
+-   **x**: _&lt;array&gt;_
+
+    -   array instance.
 
 #### Returns
 
