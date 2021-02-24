@@ -396,7 +396,7 @@ Converts a zero-dimensional boolean array to a Python `bool` object.
 
 
 (method-__dlpack__)=
-### \_\_dlpack\_\_(x, *, stream=None)
+### \_\_dlpack\_\_(x, /, *, stream=None)
 
 Exports the array as a DLPack capsule, for consumption by {ref}`function-from_dlpack`.
 
