@@ -727,23 +727,34 @@ Element-wise results must equal the results returned by the equivalent element-w
 (method-__matmul__)=
 ### \_\_matmul\_\_(x1, x2, /)
 
-_TODO: awaiting `matmul` functional equivalent._
+Computes the matrix product.
+
+```{note}
+
+The `matmul` function must implement the same semantics as the built-in `@` operator (see [PEP 465](https://www.python.org/dev/peps/pep-0465)).
+```
 
 #### Parameters
 
 -   **x1**: _&lt;array&gt;_
 
-    -   array instance.
+    -   array instance. If `x1` is one-dimensional having shape `(M)` and `x2` has more than one dimension, `x1` must be promoted to a two-dimensional array by prepending `1` to its dimensions (i.e., must have shape `(1, M)`). After matrix multiplication, the prepended dimensions in the returned array must be removed. If `x1` has more than one dimension (including after vector-to-matrix promotion), `x1` must be compatible with `x2` (see {ref}`broadcasting`). If `x1` has shape `(..., M, K)`, the innermost two dimensions form matrices on which to perform matrix multiplication. 
 
 -   **x2**: _&lt;array&gt;_
 
-    -   other array. Must be compatible with `x1` (see {ref}`broadcasting`).
+    -   other array. If `x2` is one-dimensional having shape `(N)` and `x1` has more than one dimension, `x1` must be promoted to a two-dimensional array by appending `1` to its dimensions (i.e., must have shape `(N, 1)`). After matrix multiplication, the appended dimensions in the returned array must be removed. If `x2` has more than one dimension (including after vector-to-matrix promotion), `x2` must be compatible with `x1` (see {ref}`broadcasting`). If `x2` has shape `(..., K, N)`, the innermost two dimensions form matrices on which to perform matrix multiplication.
 
 #### Returns
 
 -   **out**: _&lt;array&gt;_
 
-    -   _TODO_
+    -   if both `x1` and `x2` are one-dimensional arrays having shape `(N)`, a zero-dimensional array containing the inner product as its only element.
+    -   if `x1` is a two-dimensional array having shape `(M, K)` and `x2` is a two-dimensional array having shape `(K, N)`, a two-dimensional array containing the [conventional matrix product](https://en.wikipedia.org/wiki/Matrix_multiplication) and having shape `(M, N)`.
+    -   if `x1` is a one-dimensional array having shape `(K)` and `x2` is an array having shape `(..., K, N)`, an array having shape `(..., N)` (i.e., prepended dimensions during vector-to-matrix promotion must be removed) and containing the [conventional matrix product](https://en.wikipedia.org/wiki/Matrix_multiplication).
+    -   if `x1` is an array having shape `(..., M, K)` and `x2` is a one-dimensional array having shape `(K)`, an array having shape `(..., M)` (i.e., appended dimensions during vector-to-matrix promotion must be removed) and containing the [conventional matrix product](https://en.wikipedia.org/wiki/Matrix_multiplication).
+    -   if `x1` is a two-dimensional array having shape `(M, K)` and `x2` is an array having shape `(..., K, N)`, an array having shape `(..., M, N)` and containing the [conventional matrix product](https://en.wikipedia.org/wiki/Matrix_multiplication) for each stacked matrix.
+    -   if `x1` is an array having shape `(..., M, K)` and `x2` is a two-dimensional array having shape `(K, N)`, an array having shape `(..., M, N)` and containing the [conventional matrix product](https://en.wikipedia.org/wiki/Matrix_multiplication) for each stacked matrix.
+    -   if either `x1` or `x2` has more than two dimensions, an array having a shape determined by {ref}`broadcasting` `x1` against `x2` and containing the [conventional matrix product](https://en.wikipedia.org/wiki/Matrix_multiplication) for each stacked matrix.
 
 (method-__mod__)=
 ### \_\_mod\_\_(x1, x2, /)
