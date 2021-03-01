@@ -291,7 +291,7 @@ Computes the singular value decomposition `A = USV` of a matrix (or stack of mat
 
 -   **full_matrices**: _bool_
 
-    -   If `True`, compute full-sized `u` and `v`, such that `u` has shape `(..., M, M)` and `v` has shape `(..., N, N)`. If `False`, compute on the leading `K` singular vectors, such that `u` has shape `(..., M, K)` and `v` has shape `(..., N, K)` and where `K = min(M, N)`. This option must be ignored if `compute_uv` is `False`. Default: `True`.
+    -   If `True`, compute full-sized `u` and `v`, such that `u` has shape `(..., M, M)` and `v` has shape `(..., N, N)`. If `False`, compute on the leading `K` singular vectors, such that `u` has shape `(..., M, K)` and `v` has shape `(..., K, N)` and where `K = min(M, N)`. This option must be ignored if `compute_uv` is `False`. Default: `True`.
 
 #### Returns
 
