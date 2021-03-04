@@ -149,9 +149,9 @@ Returns the least-squares solution to a linear matrix equation `Ax = b`.
 
     -   ordinate (or "dependent variable") array `b` having shape `(..., M, K)`. Must have a data type of either `float32` or `float64`.
 
--   **tol**: _Optional\[ Union\[ float, &lt;array&gt; ] ]_
+-   **rtol**: _Optional\[ Union\[ float, &lt;array&gt; ] ]_
 
-    -   cutoffs for small singular values. Singular values less than or equal to `tol * largest_singular_value` are set to zero. Must be compatible with `shape(x)[:-2]` (see {ref}`broadcasting`). If a `float`, the value is equivalent to a zero-dimensional array having a data type determined by {ref}`type-promotion` rules and is broadcast against each matrix. If `None`, the default value is `max(M, N) * eps`, where `eps` must be the floating-point epsilon associated with the data type determined by {ref}`type-promotion` rules. Default: `None`.
+    -   relative tolerance for small singular values. Singular values less than or equal to `rtol * largest_singular_value` are set to zero. Must be compatible with `shape(x)[:-2]` (see {ref}`broadcasting`). If a `float`, the value is equivalent to a zero-dimensional array having a data type determined by {ref}`type-promotion` rules and is broadcast against each matrix. If `None`, the default value is `max(M, N) * eps`, where `eps` must be the machine epsilon associated with the data type determined by {ref}`type-promotion` rules. Default: `None`.
 
 #### Returns
 
