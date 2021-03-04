@@ -153,11 +153,11 @@ The `matmul` function must implement the same semantics as the built-in `@` oper
 
 -   **x1**: _&lt;array&gt;_
 
-    -   first input array. Should have a numeric data type. If `x1` is one-dimensional having shape `(M)` and `x2` has more than one dimension, `x1` must be promoted to a two-dimensional array by prepending `1` to its dimensions (i.e., must have shape `(1, M)`). After matrix multiplication, the prepended dimensions in the returned array must be removed. If `x1` has more than one dimension (including after vector-to-matrix promotion), `x1` must be compatible with `x2` (see {ref}`broadcasting`). If `x1` has shape `(..., M, K)`, the innermost two dimensions form matrices on which to perform matrix multiplication. 
+    -   first input array. Should have a numeric data type. Must have at least one dimension. If `x1` is one-dimensional having shape `(M)` and `x2` has more than one dimension, `x1` must be promoted to a two-dimensional array by prepending `1` to its dimensions (i.e., must have shape `(1, M)`). After matrix multiplication, the prepended dimensions in the returned array must be removed. If `x1` has more than one dimension (including after vector-to-matrix promotion), `x1` must be compatible with `x2` (see {ref}`broadcasting`). If `x1` has shape `(..., M, K)`, the innermost two dimensions form matrices on which to perform matrix multiplication. 
 
 -   **x2**: _&lt;array&gt;_
 
-    -   second input array. Should have a numeric data type. If `x2` is one-dimensional having shape `(N)` and `x1` has more than one dimension, `x1` must be promoted to a two-dimensional array by appending `1` to its dimensions (i.e., must have shape `(N, 1)`). After matrix multiplication, the appended dimensions in the returned array must be removed. If `x2` has more than one dimension (including after vector-to-matrix promotion), `x2` must be compatible with `x1` (see {ref}`broadcasting`). If `x2` has shape `(..., K, N)`, the innermost two dimensions form matrices on which to perform matrix multiplication.
+    -   second input array. Should have a numeric data type. Must have at least one dimension. If `x2` is one-dimensional having shape `(N)` and `x1` has more than one dimension, `x1` must be promoted to a two-dimensional array by appending `1` to its dimensions (i.e., must have shape `(N, 1)`). After matrix multiplication, the appended dimensions in the returned array must be removed. If `x2` has more than one dimension (including after vector-to-matrix promotion), `x2` must be compatible with `x1` (see {ref}`broadcasting`). If `x2` has shape `(..., K, N)`, the innermost two dimensions form matrices on which to perform matrix multiplication.
 
 #### Returns
 
