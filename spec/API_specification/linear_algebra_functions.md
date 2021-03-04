@@ -255,7 +255,7 @@ Computes the outer product of two vectors `x1` and `x2`.
     -   a two-dimensional array containing the outer product and whose shape is `NxM`. The returned array must have a data type determined by {ref}`type-promotion` rules.
 
 (function-pinv)=
-### pinv(x, /, *, tol=None)
+### pinv(x, /, *, rtol=None)
 
 Computes the (Moore-Penrose) pseudo-inverse of a matrix (or stack of square matrices) `x`.
 
