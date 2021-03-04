@@ -758,6 +758,11 @@ The `matmul` function must implement the same semantics as the built-in `@` oper
 
     The returned array must have a data type determined by {ref}`type-promotion`.
 
+```{note}
+
+Results must equal the results returned by the equivalent function [`matmul(x1, x2)`](linear_algebra_functions.md#matmulx1-x2-).
+```
+
 (method-__mod__)=
 ### \_\_mod\_\_(x1, x2, /)
 
