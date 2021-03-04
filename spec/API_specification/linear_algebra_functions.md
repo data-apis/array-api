@@ -173,6 +173,12 @@ The `matmul` function must implement the same semantics as the built-in `@` oper
 
     The returned array must have a data type determined by {ref}`type-promotion`.
 
+#### Raises
+
+-   if either `x1` or `x2` is a zero-dimensional array.
+-   if `x1` is a one-dimensional array having shape `(N)`, `x2` is a one-dimensional array having shape `(M)`, and `N != M`.
+-   if `x1` is an array having shape `(..., M, K)`, `x2` is an array having shape `(..., L, N)`, and `K != L`. 
+
 (function-matrix_power)=
 ### matrix_power()
 
