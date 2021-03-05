@@ -105,11 +105,6 @@ Slice syntax must have the following defaults. Let `n` be the axis (dimension) s
 -   If `k` is greater than `0` and `j` is not provided (e.g., `0::2`), `j` must equal `n`.
 -   If `k` is less than `0` and `i` is not provided (e.g., `:10:-2`), `i` must equal `n-1`.
 -   If `k` is less than `0` and `j` is not provided (e.g., `0::-2`), `j` must equal `-n-1`.
-
-Using a slice to index a single array axis must adhere to the following rules. Let `n` be the axis (dimension) size.
-
--   If `i` equals `j`, a slice must return an empty array, whose axis (dimension) size along the indexed axis is `0`.
-
 -   Indexing via `:` and `::` must be equivalent and have defaults derived from the rules above. Both `:` and `::` indicate to select all elements along a single axis (dimension).
 
 ```{note}
