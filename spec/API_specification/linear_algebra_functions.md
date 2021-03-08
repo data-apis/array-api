@@ -98,9 +98,29 @@ Returns the specified diagonals. If `x` has more than two dimensions, then the a
     -   if `x` is a two-dimensional array, a one-dimensional array containing the diagonal; otherwise, a multi-dimensional array containing the diagonals and whose shape is determined by removing `axis1` and `axis2` and appending a dimension equal to the size of the resulting diagonals. The returned array must have the same data type as `x`.
 
 (function-dot)=
-### dot()
+### dot(x1, x2, /, *, axis=0)
 
-TODO
+Computes the dot product of two arrays (or stacks of arrays).
+
+#### Parameters
+
+-   **x1**: _&lt;array&gt;_
+
+    -   first input array. Must have a data type of either `float32` or `float64`.
+
+-   **x2**: _&lt;array&gt;_
+
+    -   second input array. Must be compatible with `x1` (see {ref}`broadcasting`). Must have a data type of either `float32` or `float64`.
+
+-   **axis**: _int_
+
+    -   axis over which to compute the dot product. If `axis` is `0`, the dot product must be computed over the last axis (dimension). If `axis` is `1`, the dot product must be computed over the second-to-last axis (dimension). Default: `0`.
+
+#### Returns
+
+-   **out**: _&lt;array;&gt;_
+
+    -   an array containing the dot product(s). Must have shape `shape(x1)[:-1]`. The returned array must have a data type determined by {ref}`type-promotion`.
 
 (function-eig)=
 ### eig()
