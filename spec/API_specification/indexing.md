@@ -114,16 +114,18 @@ Using a slice to index a single array axis must adhere to the following rules. L
 
 ```{note}
 
-This specification does not require "clipping" out-of-bounds indices (i.e., requiring the starting and stopping indices `i` and `j` be bound by `0` and `n`, respectively).
+This specification does not require "clipping" out-of-bounds slice indices (for example, in Python slice semantics, `0:100` and `0:10` are equivalent on a list of length `10`).
 
-_Rationale: this is consistent with bounds checking for integer indexing; the behavior of out-of-bounds indices is left unspecified. Implementations may choose to clip, raise an exception, return junk values, or some other behavior depending on device requirements and performance considerations._
-```
+As such, only the following ranges for the start and stop values of a slice are required. Let `n` be the axis (dimension) size being sliced. For a slice `i:j:k`, the behavior specified above should be implemented for the following:
 
-```{note}
+- `i` or `j` omitted (`None`).
+- `-n <= i <= max(0, n - 1)`.
+- For `k > 0` or `k` omitted (`None`), `-n <= j <= n`.
+- For `k < 0`, `-n - 1 <= j <= max(0, n - 1)`.
 
-This specification leaves unspecified the behavior of indexing a single array axis with an out-of-bounds slice (i.e., a slice which does not select any array axis elements).
+The behavior outside of these bounds is unspecified.
 
-_Rationale: this is consistent with bounds checking for integer indexing; the behavior of out-of-bounds indices is left unspecified. Implementations may choose to return an empty array (whose axis (dimension) size along the indexed axis is `0`), raise an exception, or some other behavior depending on device requirements and performance considerations._
+_Rationale: this is consistent with bounds checking for integer indexing; the behavior of out-of-bounds indices is left unspecified. Implementations may choose to clip (consistent with Python `list` slicing semantics), raise an exception, return junk values, or some other behavior depending on device requirements and performance considerations._
 ```
 
 ## Multi-axis Indexing
