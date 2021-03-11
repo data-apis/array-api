@@ -125,7 +125,7 @@ Computes the dot product of two arrays.
 #### Raises
 
 -   if provided an invalid `axis`.
--   if the size of the axis over which to compute the inner product is not equal for both `x1` and `x2`.
+-   if the size of the axis over which to compute the inner product is not the same for both `x1` and `x2`.
 
 (function-eig)=
 ### eig()
