@@ -98,7 +98,7 @@ Returns the specified diagonals. If `x` has more than two dimensions, then the a
     -   if `x` is a two-dimensional array, a one-dimensional array containing the diagonal; otherwise, a multi-dimensional array containing the diagonals and whose shape is determined by removing `axis1` and `axis2` and appending a dimension equal to the size of the resulting diagonals. The returned array must have the same data type as `x`.
 
 (function-dot)=
-### dot(x1, x2, /, *, axis=0)
+### dot(x1, x2, /, *, axis=None)
 
 Computes the dot product of two arrays (or stacks of arrays).
 
@@ -106,21 +106,21 @@ Computes the dot product of two arrays (or stacks of arrays).
 
 -   **x1**: _&lt;array&gt;_
 
-    -   first input array. Must have a data type of either `float32` or `float64`.
+    -   first input array. Must have a numeric data type.
 
 -   **x2**: _&lt;array&gt;_
 
-    -   second input array. Must be compatible with `x1` (see {ref}`broadcasting`). Must have a data type of either `float32` or `float64`.
+    -   second input array. Must be compatible with `x1` (see {ref}`broadcasting`). Must have a numeric data type.
 
--   **axis**: _int_
+-   **axis**: _Optional\[ int ]_
 
-    -   axis over which to compute the dot product. If `axis` is `0`, the dot product must be computed over the last axis (dimension). If `axis` is `1`, the dot product must be computed over the second-to-last axis (dimension). Default: `0`.
+    -   axis over which to compute the dot product. Must be an integer on the interval `[-N, N)`, where `N` is the rank (number of dimensions) of the shape determined according to {ref}`broadcasting`. If specified as a negative integer, the function must determine the axis along which to perform a reduction by counting backward from the last dimension (where `-1` refers to the last dimension). If `None`, the function must compute the dot product over the last axis. If provided an invalid `axis`, the function must raise an exception. Default: `None`.
 
 #### Returns
 
 -   **out**: _&lt;array;&gt;_
 
-    -   an array containing the dot product(s). Must have shape `shape(x1)[:-1]`. The returned array must have a data type determined by {ref}`type-promotion`.
+    -   an array containing the dot product(s). Must have a shape determined according to {ref}`broadcasting`. Must have a data type determined by {ref}`type-promotion`.
 
 (function-eig)=
 ### eig()
