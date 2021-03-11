@@ -114,13 +114,18 @@ Computes the dot product of two arrays (or stacks of arrays).
 
 -   **axis**: _Optional\[ int ]_
 
-    -   axis over which to compute the dot product. Must be an integer on the interval `[-N, N)`, where `N` is the rank (number of dimensions) of the shape determined according to {ref}`broadcasting`. If specified as a negative integer, the function must determine the axis along which to perform a reduction by counting backward from the last dimension (where `-1` refers to the last dimension). If `None`, the function must compute the dot product over the last axis. If provided an invalid `axis`, the function must raise an exception. Default: `None`.
+    -   axis over which to compute the dot product. Must be an integer on the interval `[-N, N)`, where `N` is the rank (number of dimensions) of the shape determined according to {ref}`broadcasting`. If specified as a negative integer, the function must determine the axis along which to perform a reduction by counting backward from the last dimension (where `-1` refers to the last dimension). If `None`, the function must compute the dot product over the last axis. Default: `None`.
 
 #### Returns
 
 -   **out**: _&lt;array;&gt;_
 
-    -   an array containing the dot product(s). Must have a shape determined according to {ref}`broadcasting`. Must have a data type determined by {ref}`type-promotion`.
+    -   if `x1` and `x2` are both one-dimensional arrays, a zero-dimensional containing the dot product; otherwise, a non-zero-dimensional array containing the dot products and having rank `N-1`, where `N` is the rank (number of dimensions) of the shape determined according to {ref}`broadcasting`. Must have a data type determined by {ref}`type-promotion`.
+
+#### Raises
+
+-   if provided an invalid `axis`.
+-   if the size of the axis over which to compute the inner product is not equal for both `x1` and `x2`.
 
 (function-eig)=
 ### eig()
