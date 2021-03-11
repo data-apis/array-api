@@ -100,7 +100,7 @@ Returns the specified diagonals. If `x` has more than two dimensions, then the a
 (function-dot)=
 ### dot(x1, x2, /, *, axis=None)
 
-Computes the dot product of two arrays (or stacks of arrays).
+Computes the dot product of two arrays.
 
 #### Parameters
 
