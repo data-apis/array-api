@@ -289,6 +289,33 @@ Returns evenly spaced numbers over a specified interval.
 
     -   a one-dimensional array containing evenly spaced values.
 
+(function-meshgrid)=
+### meshgrid(x, /, *, indexing='xy')
+
+Returns coordinate matrices from coordinate vectors.
+
+### Special cases
+
+-    For `n` one dimensional arrays `x1, x2, ..., xn` with lengths `Ni = len(xi)`, this function returns `(N1, N2, N3, ..., Nn)` shaped arrays if the indexing is 'ij' or `(N2, N1, N3, ..., Nn)` shaped arrays if indexing 'xy'.
+
+-    The 0-D and 1-D case, the indexing keyword has no effect.
+
+### Parameters
+
+-    **x**: _&lt;array&gt;_
+
+     -   One dimensional array representing the coordinates of the grid.
+
+-    **indexing**: _Optional\[str]_
+
+     -   Cartesian 'xy' by default or 'ij' for matrix indexing of the output.
+
+### Returns
+
+-    **out**: _\[&lt;array&gt;\]_
+
+      -    List of N arrays with rank N.
+
 (function-ones)=
 ### ones(shape, /, *, dtype=None, device=None)
 
