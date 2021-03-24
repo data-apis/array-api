@@ -26,7 +26,7 @@ Returns the Cholesky decomposition of a symmetric positive-definite matrix (or a
 
 -   **x**: _&lt;array&gt;_
 
-    -   input array having shape `(..., M, M)` and whose innermost two dimensions form square matrices. Must have a data type of either `float32` or `float64`.
+    -   input array having shape `(..., M, M)` and whose innermost two dimensions form square matrices. Should have a floating-point data type.
 
 -   **upper**: _bool_
 
@@ -36,7 +36,7 @@ Returns the Cholesky decomposition of a symmetric positive-definite matrix (or a
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the Cholesky factors for each square matrix. Must have the same data type and shape as `x`.
+    -   an array containing the Cholesky factors for each square matrix. The returned array must have the same data type and shape as `x`.
 
 (function-cross)=
 ### cross(x1, x2, /, *, axis=-1)
