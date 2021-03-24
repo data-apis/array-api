@@ -167,6 +167,7 @@ Raises a square matrix (or a stack of square matrices) `x` to an integer power `
 
 #### Raises
 
+-   if the innermost two dimensions of `x` are not the same size (i.e., form square matrices).
 -   if `n` is less than zero and a square matrix is not invertible.
 
 (function-matrix_rank)=
