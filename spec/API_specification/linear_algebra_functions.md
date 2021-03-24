@@ -29,11 +29,11 @@ Returns the cross product of 3-element vectors. If `x1` and `x2` are multi-dimen
 
 -   **x1**: _&lt;array&gt;_
 
-    -   first input array. Must have a numeric data type.
+    -   first input array. Should have a numeric data type.
 
 -   **x2**: _&lt;array&gt;_
 
-    -   second input array. Must have the same shape as `x1`.  Must have a numeric data type.
+    -   second input array. Must have the same shape as `x1`.  Should have a numeric data type.
 
 -   **axis**: _int_
 
@@ -54,7 +54,7 @@ Returns the determinant of a square matrix (or stack of square matrices) `x`.
 
 -   **x**: _&lt;array&gt;_
 
-    -   input array having shape `(..., M, M)` and whose innermost two dimensions form square matrices. Must have a numeric data type.
+    -   input array having shape `(..., M, M)` and whose innermost two dimensions form square matrices. Should have a numeric data type.
 
 #### Returns
 
@@ -120,13 +120,13 @@ TODO
 (function-inv)=
 ### inv(x, /)
 
-Computes the multiplicative inverse of a square matrix (or stack of square matrices) `x`.
+Computes the multiplicative inverse of a square matrix (or a stack of square matrices) `x`.
 
 #### Parameters
 
 -   **x**: _&lt;array&gt;_
 
-    -   input array having shape `(..., M, M)` and whose innermost two dimensions form square matrices. Must have a data type of either `float32` or `float64`.
+    -   input array having shape `(..., M, M)` and whose innermost two dimensions form square matrices. Should have a floating-point data type.
 
 #### Returns
 
@@ -163,7 +163,7 @@ Computes the matrix or vector norm of `x`.
 
 -   **x**: _&lt;array&gt;_
 
-    -   input array. Must have a data type of either `float32` or `float64`.
+    -   input array. Should have a floating-point data type.
 
 -   **axis**: _Optional\[ Union\[ int, Tuple\[ int, int ] ] ]_
 
@@ -242,17 +242,17 @@ Computes the outer product of two vectors `x1` and `x2`.
 
 -   **x1**: _&lt;array&gt;_
 
-    -   first one-dimensional input array of size `N`. Must have a numeric data type.
+    -   first one-dimensional input array of size `N`. Should have a numeric data type.
 
 -   **x2**: _&lt;array&gt;_
 
-    -   second one-dimensional input array of size `M`. Must have a numeric data type.
+    -   second one-dimensional input array of size `M`. Should have a numeric data type.
 
 #### Returns
 
 -   **out**: _&lt;array&gt;_
 
-    -   a two-dimensional array containing the outer product and whose shape is `NxM`. The returned array must have a data type determined by {ref}`type-promotion` rules.
+    -   a two-dimensional array containing the outer product and whose shape is `(N, M)`. The returned array must have a data type determined by {ref}`type-promotion` rules.
 
 (function-pinv)=
 ### pinv()
@@ -288,7 +288,7 @@ Returns the sum along the specified diagonals. If `x` has more than two dimensio
 
 -   **x**: _&lt;array&gt;_
 
-    -   input array. Must have at least `2` dimensions. Must have a numeric data type.
+    -   input array. Must have at least `2` dimensions. Should have a numeric data type.
 
 -   **axis1**: _int_
 
