@@ -286,8 +286,8 @@ The purpose of this function is to calculate the determinant more accurately whe
 
     -   a namedtuple (`sign`, `logabsdet`) whose
     
-        -   first element must be an array containing a number representing the sign of the determinant.
-        -   second element must be an array containing the determinant.
+        -   first element must be an array containing a number representing the sign of the determinant for each square matrix.
+        -   second element must be an array containing the determinant for each square matrix.
     
         For a real matrix, the sign of the determinant must be either `1`, `0`, or `-1`. If a determinant is zero, then the corresponding `sign` must be `0` and `logabsdet` must be `-infinity`. In all cases, the determinant must be equal to `sign * exp(logsabsdet)`.
 
