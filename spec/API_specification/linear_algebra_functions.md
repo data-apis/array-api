@@ -282,7 +282,7 @@ Returns the solution to the system of linear equations represented by the well-d
 
 -   **x2**: _&lt;array&gt;_
 
-    -   ordinate (or "dependent variable") array `B` having shape `(..., M, K)`, where each column `k` defines a set of ordinate values for which to compute a solution. Must be compatible with `shape(x1)[:-1]` (see {ref}`broadcasting`). Must have a data type of either `float32` or `float64`.
+    -   ordinate (or "dependent variable") array `B`. If `x2` has shape `(..., M)`, `x2` is equivalent to an array having shape `(..., M, 1)`, and `shape(x2)` must be compatible with `shape(x1)[:-1]` (see {ref}`broadcasting`). If `x2` has shape `(..., M, K)`, each column `k` defines a set of ordinate values for which to compute a solution, and `shape(x2)[:-1]` must be compatible with `shape(x1)[:-1]` (see {ref}`broadcasting`). Must have a data type of either `float32` or `float64`.
 
 #### Returns
 
