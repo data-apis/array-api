@@ -58,18 +58,74 @@ means the object it is attached to must return a `numpy.ndarray`
 containing the data the object holds).
 ```
 
-TODO: design an appropriate Python API for DLPACK (`to_dlpack` followed by `from_dlpack` is a little clunky, we'd like it to work more like the buffer protocol does on CPU, with a single constructor function).
 
-TODO: specify the expected behaviour with copy/view/move/shared-memory semantics in detail.
+## Syntax for data interchange with DLPack
+
+The array API will offer the following syntax for data interchange:
+
+1. A `from_dlpack(x)` function, which accepts (array) objects with a
+   `__dlpack__` method and uses that method to construct a new array
+   containing the data from `x`.
+2. `__dlpack__(self, stream=None)` and `__dlpack_device__` methods on the
+   array object, which will be called from within `from_dlpack`, to query
+   what device the array is on (may be needed to pass in the correct
+   stream, e.g. in the case of multiple GPUs) and to access the data.
 
 
-```{note}
+## Semantics
+
+DLPack describe the memory layout of strided, n-dimensional arrays.
+When a user calls `y = from_dlpack(x)`, the library implementing `x` (the
+"producer") will provide access to the data from `x` to the library
+containing `from_dlpack` (the "consumer"). If possible, this must be
+zero-copy (i.e. `y` will be a _view_ on `x`). If not possible, that library
+may make a copy of the data. In both cases:
+- the producer keeps owning the memory
+- `y` may or may not be a view, therefore the user must keep the
+   recommendation to avoid mutating `y` in mind - see
+   {ref}`copyview-mutability`.
+- Both `x` and `y` may continue to be used just like arrays created in other ways.
 
 If an array that is accessed via the interchange protocol lives on a
-device that the requesting library does not support, one of two things
-must happen: moving data to another device, or raising an exception.
-Device transfers are typically expensive, hence doing that silently can
-lead to hard to detect performance issues. Hence it is recommended to
-raise an exception, and let the user explicitly enable device transfers
-via, e.g., a `force=False` keyword that they can set to `True`.
-```
+device that the requesting library does not support, it is recommended to
+raise a `TypeError`.
+
+Stream handling through the `stream` keyword applies to CUDA and ROCm (perhaps
+to other devices that have a stream concept as well, however those haven't been
+considered in detail). The consumer must pass the stream it will use to the
+producer; the producer must synchronize or wait on the stream when necessary.
+In the common case of the default stream being used, synchronization will be
+unnecessary so asynchronous execution is enabled.
+
+
+## Implementation
+
+_Note that while this API standard largely tries to avoid discussing implementation details, some discussion and requirements are needed here because data interchange requires coordination between implementers on, e.g., memory management._
+
+![Diagram of DLPack structs](/_static/images/DLPack_diagram.png)
+
+_DLPack diagram. Dark blue are the structs it defines, light blue struct members, gray text enum values of supported devices and data types._
+
+The `__dlpack__` method will produce a `PyCapsule` containing a
+`DLPackManagedTensor`, which will be consumed immediately within
+`from_dlpack` - therefore it is consumed exactly once, and it will not be
+visible to users of the Python API.
+
+The consumer must set the PyCapsule name to `"used_dltensor"`, and call the
+`deleter` of the `DLPackManagedTensor` when it no longer needs the data.
+
+When the `strides` field in the `DLTensor` struct is `NULL`, it indicates a
+row-major compact array. If the array is of size zero, the data pointer in
+`DLTensor` should be set to either `NULL` or `0`.
+
+DLPack version used must be `0.2 <= DLPACK_VERSION < 1.0`. For further
+details on DLPack design and how to implement support for it,
+refer to [github.com/dmlc/dlpack](https://github.com/dmlc/dlpack).
+
+:::{warning}
+DLPack contains a `device_id`, which will be the device ID (an integer, `0, 1, ...`) which the producer library uses. In practice this will likely be the same numbering as that of the consumer, however that is not guaranteed. Depending on the hardware type, it may be possible for the consumer library implementation to look up the actual device from the pointer to the data - this is possible for example for CUDA device pointers.
+
+It is recommended that implementers of this array API consider and document
+whether the `.device` attribute of the array returned from `from_dlpack` is
+guaranteed to be in a certain order or not.
+:::

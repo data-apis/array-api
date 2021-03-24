@@ -13,7 +13,7 @@ A conforming implementation of the array API standard must provide and support t
 <!-- NOTE: please keep the functions in alphabetical order -->
 
 (function-unique)=
-### unique(x, /, *, return_counts=False, return_index=False, return_inverse=False, sorted=True)
+### unique(x, /, *, return_counts=False, return_index=False, return_inverse=False)
 
 Returns the unique elements of an input array `x`.
 
@@ -35,12 +35,6 @@ Returns the unique elements of an input array `x`.
 
     -   If `True`, the function must also return the indices of the unique array that reconstruct `x`. Default: `False`.
 
--   **sorted**: _bool_
-
-    -   If `True`, the function must sort the unique elements in ascending order before returning as output. If `False`, the function must sort the unique elements in the same order that they occur in `x`. Default: `False`.
-
-        _TODO: sort order needs discussion. See [gh-40](https://github.com/data-apis/array-api/issues/40)_
-
 #### Returns
 
 -   **out**: _Union\[ &lt;array&gt;, Tuple\[ &lt;array&gt;, ... ] ]_
@@ -50,6 +44,10 @@ Returns the unique elements of an input array `x`.
         -   **unique**: _&lt;array&gt;_
 
             -   an array containing the set of unique elements in `x`. The returned array must have the same data type as `x`.
+
+            ```{note}
+            The order of elements is not specified, and may vary between implementations.
+            ```
 
         -   **indices**: _&lt;array&gt;_
 
