@@ -97,8 +97,23 @@ Returns the specified diagonals. If `x` has more than two dimensions, then the a
 
     -   if `x` is a two-dimensional array, a one-dimensional array containing the diagonal; otherwise, a multi-dimensional array containing the diagonals and whose shape is determined by removing `axis1` and `axis2` and appending a dimension equal to the size of the resulting diagonals. The returned array must have the same data type as `x`.
 
-(function-dot)=
-### dot(x1, x2, /, *, axis=None)
+(function-eig)=
+### eig()
+
+TODO
+
+(function-eigvalsh)=
+### eigvalsh()
+
+TODO
+
+(function-einsum)=
+### einsum()
+
+TODO
+
+(function-inner_dot)=
+### inner_dot(x1, x2, /, *, axis=None)
 
 Computes the dot product of two arrays.
 
@@ -126,21 +141,6 @@ Computes the dot product of two arrays.
 
 -   if provided an invalid `axis`.
 -   if the size of the axis over which to compute the inner product is not the same for both `x1` and `x2`.
-
-(function-eig)=
-### eig()
-
-TODO
-
-(function-eigvalsh)=
-### eigvalsh()
-
-TODO
-
-(function-einsum)=
-### einsum()
-
-TODO
 
 (function-inv)=
 ### inv(x, /)
