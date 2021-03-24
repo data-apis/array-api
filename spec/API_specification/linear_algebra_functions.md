@@ -147,11 +147,11 @@ Returns the least-squares solution to a linear matrix equation `Ax = b`.
 
 -   **x2**: _&lt;array&gt;_
 
-    -   ordinate (or "dependent variable") array `b` having shape `(..., M, K)`, where each column `k` defines a set of ordinate values for which to compute a solution. Must be compatible with `shape(x1)[:-1]` (see {ref}`broadcasting`). Must have a data type of either `float32` or `float64`.
+    -   ordinate (or "dependent variable") array `b`. If `x2` has shape `(..., M)`, `x2` is equivalent to an array having shape `(..., M, 1)`, and `shape(x2)` must be compatible with `shape(x1)[:-1]` (see {ref}`broadcasting`). If `x2` has shape `(..., M, K)`, each column `k` defines a set of ordinate values for which to compute a solution, and `shape(x2)[:-1]` must be compatible with `shape(x1)[:-1]` (see {ref}`broadcasting`). Must have a data type of either `float32` or `float64`.
 
 -   **rtol**: _Optional\[ Union\[ float, &lt;array&gt; ] ]_
 
-    -   relative tolerance for small singular values. Singular values less than or equal to `rtol * largest_singular_value` are set to zero. Must be compatible with `shape(x1)[:-2]` (see {ref}`broadcasting`). If a `float`, the value is equivalent to a zero-dimensional array having a data type determined by {ref}`type-promotion` rules and is broadcast against each matrix. If `None`, the default value is `max(M, N) * eps`, where `eps` must be the machine epsilon associated with the data type determined by {ref}`type-promotion` rules. Default: `None`.
+    -   relative tolerance for small singular values. Singular values less than or equal to `rtol * largest_singular_value` are set to zero. If a `float`, the value is equivalent to a zero-dimensional array having a data type determined by {ref}`type-promotion` rules and must be broadcast against each matrix. If an `array`, must have a data type of either `float32` or `float64` and must be compatible with `shape(x1)[:-2]` (see {ref}`broadcasting`). If `None`, the default value is `max(M, N) * eps`, where `eps` must be the machine epsilon associated with the data type determined by {ref}`type-promotion` rules. Default: `None`.
 
 #### Returns
 
