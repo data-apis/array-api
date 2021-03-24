@@ -278,17 +278,17 @@ Returns the solution to the system of linear equations represented by the well-d
 
 -   **x1**: _&lt;array&gt;_
 
-    -   coefficient array `A` having shape `(..., M, M)` and whose innermost two dimensions form square matrices. Must be of full rank (i.e., all rows or, equivalently, columns must be linearly independent). Must have a data type of either `float32` or `float64`.
+    -   coefficient array `A` having shape `(..., M, M)` and whose innermost two dimensions form square matrices. Must be of full rank (i.e., all rows or, equivalently, columns must be linearly independent). Should have a floating-point data type.
 
 -   **x2**: _&lt;array&gt;_
 
-    -   ordinate (or "dependent variable") array `B`. If `x2` has shape `(..., M)`, `x2` is equivalent to an array having shape `(..., M, 1)`, and `shape(x2)` must be compatible with `shape(x1)[:-1]` (see {ref}`broadcasting`). If `x2` has shape `(..., M, K)`, each column `k` defines a set of ordinate values for which to compute a solution, and `shape(x2)[:-1]` must be compatible with `shape(x1)[:-1]` (see {ref}`broadcasting`). Must have a data type of either `float32` or `float64`.
+    -   ordinate (or "dependent variable") array `B`. If `x2` has shape `(..., M)`, `x2` is equivalent to an array having shape `(..., M, 1)`, and `shape(x2)` must be compatible with `shape(x1)[:-1]` (see {ref}`broadcasting`). If `x2` has shape `(..., M, K)`, each column `k` defines a set of ordinate values for which to compute a solution, and `shape(x2)[:-1]` must be compatible with `shape(x1)[:-1]` (see {ref}`broadcasting`). Should have a floating-point data type.
 
 #### Returns
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the solution to the system `AX = B` for each square matrix. Must have the same shape as `x2` (i.e., the array corresponding to `B`). Must have a data type determined by {ref}`type-promotion` rules.
+    -   an array containing the solution to the system `AX = B` for each square matrix. The returned array must have the same shape as `x2` (i.e., the array corresponding to `B`) and must have a floating-point data type determined by {ref}`type-promotion` rules.
 
 (function-svd)=
 ### svd()
