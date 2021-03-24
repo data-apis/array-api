@@ -282,9 +282,17 @@ The purpose of this function is to calculate the determinant more accurately whe
 
 #### Returns
 
--   **out**: _Tuple\[ &lt;array&gt;, ... ]_
+-   **out**: _Tuple\[ &lt;array&gt;, &lt;array&gt; ]_
 
-    -   if `x` is a two-dimensional array, a namedtuple (`sign`, `logabsdet`) whose first element must be zero-dimensional array containing a number representing the sign of the determinant and whose second element is a zero-dimensional array containing the determinant. Otherwise, a namedtuple (`sign`, `logabsdet`) whose first element must be a non-zero dimensional array containing the sign for each square matrix and whose second element must be a non-zero dimensional array containing the determinant for each square matrix.
+    -   if `x` is a two-dimensional array, a namedtuple (`sign`, `logabsdet`) whose
+    
+        -   first element must be zero-dimensional array containing a number representing the sign of the determinant.
+        -   second element is a zero-dimensional array containing the determinant.
+    
+        Otherwise, a namedtuple (`sign`, `logabsdet`) whose
+    
+        -   first element must be a non-zero dimensional array containing the sign for each square matrix.
+        -   second element must be a non-zero dimensional array containing the determinant for each square matrix.
     
         For a real matrix, the sign of the determinant must be either `1`, `0`, or `-1`. If a determinant is zero, then the corresponding `sign` must be `0` and `logabsdet` must be `-infinity`. In all cases, the determinant must be equal to `sign * exp(logsabsdet)`.
 
