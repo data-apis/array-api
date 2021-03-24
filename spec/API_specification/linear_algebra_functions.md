@@ -288,7 +288,7 @@ Returns the solution to the system of linear equations represented by the well-d
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the solution to the system `AX = B` for each square matrix. Must be the same shape as `x2` (i.e., the array corresponding to `B`) and must have a data type determined by {ref}`type-promotion` rules.
+    -   an array containing the solution to the system `AX = B` for each square matrix. Must have the same shape as `x2` (i.e., the array corresponding to `B`) and must have a data type determined by {ref}`type-promotion` rules.
 
 (function-svd)=
 ### svd()
