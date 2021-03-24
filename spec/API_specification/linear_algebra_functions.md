@@ -152,7 +152,7 @@ TODO
 (function-matrix_rank)=
 ### matrix_rank(x, /, *, rtol=None)
 
-Computes the rank (i.e., number of non-zero singular values) of a matrix (or stack of matrices).
+Computes the rank (i.e., number of non-zero singular values) of a matrix (or a stack of matrices).
 
 #### Parameters
 
