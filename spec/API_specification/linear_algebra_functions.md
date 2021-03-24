@@ -286,12 +286,12 @@ The purpose of this function is to calculate the determinant more accurately whe
 
     -   a namedtuple (`sign`, `logabsdet`) whose
     
-        -   first element must be an array containing a number representing the sign of the determinant. Must have shape `shape(x)[:-2]`.
-        -   second element must be an array containing the determinant. Must have shape `shape(x)[:-2]`.
+        -   first element must be an array containing a number representing the sign of the determinant.
+        -   second element must be an array containing the determinant.
     
         For a real matrix, the sign of the determinant must be either `1`, `0`, or `-1`. If a determinant is zero, then the corresponding `sign` must be `0` and `logabsdet` must be `-infinity`. In all cases, the determinant must be equal to `sign * exp(logsabsdet)`.
 
-        The returned array must have a data type determined by {ref}`type-promotion` rules.
+        Each returned array must have shape `shape(x)[:-2]` and a data type determined by {ref}`type-promotion` rules.
 
 (function-solve)=
 ### solve()
