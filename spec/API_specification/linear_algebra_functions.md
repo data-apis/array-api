@@ -282,7 +282,7 @@ Returns the solution to the system of linear equations represented by the well-d
 
 -   **x2**: _&lt;array&gt;_
 
-    -   ordinate (or "dependent variable") array `B` having shape `(..., M, K)`. Must have a data type of either `float32` or `float64`.
+    -   ordinate (or "dependent variable") array `B` having shape `(..., M, K)`, where each column `k` defines a set of ordinate values for which to compute a solution. Must have a data type of either `float32` or `float64`.
 
 #### Returns
 
