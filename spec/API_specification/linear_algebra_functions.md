@@ -29,11 +29,11 @@ Returns the cross product of 3-element vectors. If `x1` and `x2` are multi-dimen
 
 -   **x1**: _&lt;array&gt;_
 
-    -   first input array. Must have a data type of either `float32` or `float64`.
+    -   first input array. Must have a numeric data type.
 
 -   **x2**: _&lt;array&gt;_
 
-    -   second input array. Must have the same shape as `x1`.  Must have a data type of either `float32` or `float64`.
+    -   second input array. Must have the same shape as `x1`.  Must have a numeric data type.
 
 -   **axis**: _int_
 
@@ -54,13 +54,13 @@ Returns the determinant of a square matrix (or stack of square matrices) `x`.
 
 -   **x**: _&lt;array&gt;_
 
-    -   input array having shape `(..., M, M)` and whose innermost two dimensions form square matrices. Must have a data type of either `float32` or `float64`.
+    -   input array having shape `(..., M, M)` and whose innermost two dimensions form square matrices. Must have a numeric data type.
 
 #### Returns
 
 -   **out**: _&lt;array&gt;_
 
-    -   if `x` is a two-dimensional array, a zero-dimensional array containing the determinant; otherwise, a non-zero dimensional array containing the determinant for each square matrix. The returned array must have a data type determined by {ref}`type-promotion` rules.
+    -   if `x` is a two-dimensional array, a zero-dimensional array containing the determinant; otherwise, a non-zero dimensional array containing the determinant for each square matrix. The returned array must have the same data type as `x`.
 
 (function-diagonal)=
 ### diagonal(x, /, *, axis1=0, axis2=1, offset=0)
@@ -242,11 +242,11 @@ Computes the outer product of two vectors `x1` and `x2`.
 
 -   **x1**: _&lt;array&gt;_
 
-    -   first one-dimensional input array of size `N`. Must have a data type of either `float32` or `float64`.
+    -   first one-dimensional input array of size `N`. Must have a numeric data type.
 
 -   **x2**: _&lt;array&gt;_
 
-    -   second one-dimensional input array of size `M`. Must have a data type of either `float32` or `float64`.
+    -   second one-dimensional input array of size `M`. Must have a numeric data type.
 
 #### Returns
 
@@ -288,7 +288,7 @@ Returns the sum along the specified diagonals. If `x` has more than two dimensio
 
 -   **x**: _&lt;array&gt;_
 
-    -   input array. Must have at least `2` dimensions.
+    -   input array. Must have at least `2` dimensions. Must have a numeric data type.
 
 -   **axis1**: _int_
 
