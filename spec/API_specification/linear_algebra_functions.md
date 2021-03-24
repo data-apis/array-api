@@ -286,9 +286,9 @@ Returns the solution to the system of linear equations represented by the well-d
 
 #### Returns
 
--   **out**: _Tuple\[ &lt;array&gt;, ... ]_
+-   **out**: _&lt;array&gt;_
 
-    -   a namedtuple whose first element must have the field name `x` and must be an array containing the solution to the system `AX = B` for each square matrix. The array containing the solutions must have the same shape as `x2` (i.e., the array corresponding to `B`) and must have a data type determined by {ref}`type-promotion` rules.
+    -   an array containing the solution to the system `AX = B` for each square matrix. Must be the same shape as `x2` (i.e., the array corresponding to `B`) and must have a data type determined by {ref}`type-promotion` rules.
 
 (function-svd)=
 ### svd()
