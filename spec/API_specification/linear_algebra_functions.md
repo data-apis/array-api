@@ -34,9 +34,9 @@ Returns the Cholesky decomposition of a symmetric positive-definite matrix (or a
 
 #### Returns
 
--   **out**: _Tuple\[ &lt;array&gt;, ... ]_
+-   **out**: _&lt;array&gt;_
 
-    -   a namedtuple whose first element must have the field name `c` and must be an array containing the Cholesky factors for each square matrix. The array containing the Cholesky factors must have the same data type and shape as `x`.
+    -   an array containing the Cholesky factors for each square matrix. Must have the same data type and shape as `x`.
 
 (function-cross)=
 ### cross(x1, x2, /, *, axis=-1)
