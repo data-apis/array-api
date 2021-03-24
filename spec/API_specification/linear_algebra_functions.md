@@ -262,7 +262,7 @@ TODO
 (function-qr)=
 ### qr(x, /, *, mode='reduced')
 
-Computes the qr factorization of a matrix (or stack of matrices), where `q` is an orthonormal matrix (or stack of matrices) and `r` is an upper-triangular matrix (or stack of matrices).
+Computes the qr factorization of a matrix (or a stack of matrices), where `q` is an orthonormal matrix (or a stack of matrices) and `r` is an upper-triangular matrix (or a stack of matrices).
 
 #### Parameters
 
