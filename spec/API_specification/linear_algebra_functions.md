@@ -147,7 +147,7 @@ TODO
 (function-matrix_power)=
 ### matrix_power(x, n, /)
 
-Raises a square matrix (or stack of square matrices) `x` to an integer power `n`.
+Raises a square matrix (or a stack of square matrices) `x` to an integer power `n`.
 
 #### Parameters
 
