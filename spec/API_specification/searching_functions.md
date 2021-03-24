@@ -90,7 +90,7 @@ Returns elements chosen from `x1` or `x2` depending on `condition`.
 
 #### Parameters
 
--   **condition**: _&lt;array&lt;bool&gt;&gt;_
+-   **condition**: _&lt;array&gt;_
 
     -   when `True`, yield `x1_i`; otherwise, yield `x2_i`. Must be compatible with `x1` and `x2` (see {ref}`broadcasting`).
 
