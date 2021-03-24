@@ -278,7 +278,7 @@ The purpose of this function is to calculate the determinant more accurately whe
 
 -   **x**: _&lt;array&gt;_
 
-    -   input array having shape `(..., M, M)` and whose innermost two dimensions form square matrices. Must have a data type of either `float32` or `float64`.
+    -   input array having shape `(..., M, M)` and whose innermost two dimensions form square matrices. Should have a floating-point data type.
 
 #### Returns
 
