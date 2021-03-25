@@ -155,7 +155,7 @@ Returns the least-squares solution to a linear matrix equation `Ax = b`.
 
 #### Returns
 
--   **out**: _Tuple\[ &lt;array&gt;, ... ]_
+-   **out**: _Tuple\[ &lt;array&gt;, &lt;array&gt;, &lt;array&gt;, &lt;array&gt; ]_
 
     -   a namedtuple `(x, residuals, rank, s)` whose
     
