@@ -51,7 +51,33 @@ Accordingly, the standardization process affords the opportunity to reduce inter
 
     Historically, at a time when all array computing happened on CPUs, BLAS and LAPACK underpinned most numerical computing libraries and environments. Naturally, language and library abstractions catered to the parameterization of those libraries, often exposing low-level implementation details verbatim in their higher-level interfaces, even if such choices would be considered poor or ill-advised by today's standards (e.g., NumPy's use of `UPLO` in `eigh`). However, the present day is considerably different. While still important, BLAS and LAPACK no longer hold a monopoly over linear algebra operations, especially given the proliferation of devices and hardware on which such operations must be performed. Accordingly, interfaces must be conservative in the parameterization they support in order to best ensure universality. Such conservatism applies even to performance optimization parameters afforded by certain hardware.
 
+5.  **Orthogonality**: an interface should have clearly defined and delineated functionality which, ideally, has no overlap with the functionality of other interfaces in the specification. Providing multiple interfaces which can all perform the same operation creates unnecessary confusion regarding interface applicability (i.e., which interface is best at which time) and decreases readability of both library and user code. Where overlap is possible, the specification must be parsimonious in the number of interfaces, ensuring that each interface provides a unique and compelling abstraction. Examples of related interfaces which provide distinct levels of abstraction (and generality) include:
+
+    -   `vecdot`: computing the dot product of two vectors.
+    -   `matmul`: performing matrix multiplication (including between two vectors and thus the dot product).
+    -   `tensordot`: computing tensor contractions (generalized sum-products).
+    -   `einsum`: expressing operations in terms of Einstein summation convention, including dot products and tensor contractions.
+
+    The above can be contrasted with, e.g., NumPy, which provides the following interfaces for computing the dot product or related operations:
+
+    -   `dot`: dot product, matrix multiplication, and tensor contraction.
+    -   `inner`: dot product.
+    -   `vdot`: dot product with flattening and complex conjugation.
+    -   `multi_dot`: chained dot product.
+    -   `tensordot`: tensor contraction.
+    -   `matmul`: matrix multiplication (dot product for two vectors).
+    -   `einsum`: Einstein summation convention.
+
+    where `dot` is overloaded based on input array dimensionality and `vdot` and `inner` exhibit a high degree of overlap with other interfaces. By consolidating interfaces and more clearly delineating behavior, this specification aims to ensure that each interface has a unique purpose and defined use case.
+
 ## Objects in API
+
+```{note}
+
+Historically, linear algebra functionality has been split across interfaces belonging to different namespaces. For example, NumPy exposes linear algebra interfaces in both its top-level namespace and its `linalg` sub-namespace. The determination of which linear algebra interface belongs to which namespace is often unintuitive and a common source of confusion.
+
+As this specification has both the benefit of hindsight and the ability to ensure unique identifiers for each interface in an intentionally limited top-level namespace, the need for a dedicated `linalg` sub-namespace is less necessary and has been avoided here.
+```
 
 <!-- NOTE: please keep the functions in alphabetical order -->
 
