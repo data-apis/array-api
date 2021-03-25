@@ -263,7 +263,7 @@ Computes the (Moore-Penrose) pseudo-inverse of a matrix (or a stack of square ma
 
 -   **x**: _&lt;array&gt;_
 
-    -   input array having shape `(..., M, N)` and whose innermost two dimensions form `MxN` matrices. Should have a floating-point data type
+    -   input array having shape `(..., M, N)` and whose innermost two dimensions form `MxN` matrices. Should have a floating-point data type.
 
 -   **rtol**: _Optional\[ Union\[ float, &lt;array&gt; ] ]_
     
