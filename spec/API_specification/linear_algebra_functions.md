@@ -43,7 +43,7 @@ Returns the cross product of 3-element vectors. If `x1` and `x2` are multi-dimen
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the cross products. The returned array must have a data type determined by {ref}`type-promotion` rules.
+    -   an array containing the cross products. The returned array must have a data type determined by {ref}`type-promotion`.
 
 (function-det)=
 ### det(x, /)
@@ -132,7 +132,7 @@ Computes the multiplicative inverse of a square matrix (or a stack of square mat
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the multiplicative inverses. The returned array must have the same data type and shape as `x`.
+    -   an array containing the multiplicative inverses. The returned array must have a floating-point data type determined by {ref}`type-promotion` and must have the same shape as `x`.
 
 (function-lstsq)=
 ### lstsq()
@@ -231,7 +231,7 @@ Computes the matrix or vector norm of `x`.
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the norms. If `axis` is `None`, the output array must be a zero-dimensional array containing a vector norm. If `axis` is a scalar value (`int` or `float`), the output array must have a rank which is one less than the rank of `x`. If `axis` is a 2-tuple, the output array must have a rank which is two less than the rank of `x`. The returned array must have the same data type as `x`.
+    -   an array containing the norms. If `axis` is `None`, the returned array must be a zero-dimensional array containing a vector norm. If `axis` is a scalar value (`int` or `float`), the returned array must have a rank which is one less than the rank of `x`. If `axis` is a 2-tuple, the returned array must have a rank which is two less than the rank of `x`. The returned array must have a floating-point data type determined by {ref}`type-promotion`.
 
 (function-outer)=
 ### outer(x1, x2, /)
@@ -252,7 +252,7 @@ Computes the outer product of two vectors `x1` and `x2`.
 
 -   **out**: _&lt;array&gt;_
 
-    -   a two-dimensional array containing the outer product and whose shape is `(N, M)`. The returned array must have a data type determined by {ref}`type-promotion` rules.
+    -   a two-dimensional array containing the outer product and whose shape is `(N, M)`. The returned array must have a data type determined by {ref}`type-promotion`.
 
 (function-pinv)=
 ### pinv()
