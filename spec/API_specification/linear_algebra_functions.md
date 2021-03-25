@@ -163,7 +163,7 @@ Raises a square matrix (or a stack of square matrices) `x` to an integer power `
 
 -   **out**: _&lt;array&gt;_
 
-    -   if `n` is equal to zero, an array containing the identity matrix for each square matrix. If `n` is less than zero, an array containing the inverse of each square matrix raised to the absolute value of `n`, provided that each square matrix is invertible. If `n` is greater than zero, an array containing the result of raising each square matrix to the power `n`. The returned array must have the same shape as `x` and a floating-point data type determined by {ref}`type-promotion` rules.
+    -   if `n` is equal to zero, an array containing the identity matrix for each square matrix. If `n` is less than zero, an array containing the inverse of each square matrix raised to the absolute value of `n`, provided that each square matrix is invertible. If `n` is greater than zero, an array containing the result of raising each square matrix to the power `n`. The returned array must have the same shape as `x` and a floating-point data type determined by {ref}`type-promotion`.
 
 #### Raises
 
