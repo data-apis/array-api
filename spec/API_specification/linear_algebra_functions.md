@@ -297,7 +297,7 @@ Computes the singular value decomposition `A = USV` of a matrix (or stack of mat
 
 -   **out**: _Union\[ &lt;array&gt;, Tuple\[ &lt;array&gt;, ... ] ]_
 
-    -   if `compute_uv` is `False`, an array with shape `(..., K)` that contains the vector(s) of singular values of length `K`. For each vector, the singular values must be sorted in descending order by magnitude, such that `s[..., 0]` is the largest value, `s[..., 1]` is the second largest value, et cetera. The first `x.ndim-2` dimensions must have the same shape as those of the input `x`. The returned array must have a floating-point data type determined by {ref}`type-promotion` rules.
+    -   if `compute_uv` is `False`, an array with shape `(..., K)` that contains the vector(s) of singular values of length `K`. For each vector, the singular values must be sorted in descending order by magnitude, such that `s[..., 0]` is the largest value, `s[..., 1]` is the second largest value, et cetera. The first `x.ndim-2` dimensions must have the same shape as those of the input `x`. The returned array must have a floating-point data type determined by {ref}`type-promotion`.
 
     -   if `compute_uv` is `True`, a namedtuple `(u, s, v)` whose
     
@@ -305,7 +305,7 @@ Computes the singular value decomposition `A = USV` of a matrix (or stack of mat
         -   second element must be an array with shape `(..., K)` that contains the vector(s) of singular values of length `K`. For each vector, the singular values must be sorted in descending order by magnitude, such that `s[..., 0]` is the largest value, `s[..., 1]` is the second largest value, et cetera. The first `x.ndim-2` dimensions must have the same shape as those of the input `x`.
         -   third element must be an array whose shape depends on the value of `full_matrices` and contain unitary array(s) (i.e., the right singular vectors). The right singular vectors must be stored as rows (i.e., the array is the adjoint). If `full_matrices` is `True`, the array must have shape `(..., N, N)`. If `full_matrices` is `False`, the array must have shape `(..., K, N)` where `K = min(M, N)`. The first `x.ndim-2` dimensions must have the same shape as those of the input `x`.
 
-        Each returned array must have the same floating-point data type as determined by {ref}`type-promotion` rules.
+        Each returned array must have the same floating-point data type as determined by {ref}`type-promotion`.
 
 (function-trace)=
 ### trace(x, /, *, axis1=0, axis2=1, offset=0)
