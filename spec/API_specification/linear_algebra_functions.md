@@ -151,7 +151,7 @@ Returns the least-squares solution to a linear matrix equation `Ax = b`.
 
 -   **rtol**: _Optional\[ Union\[ float, &lt;array&gt; ] ]_
 
-    -   relative tolerance for small singular values. Singular values less than or equal to `rtol * largest_singular_value` are set to zero. If a `float`, the value is equivalent to a zero-dimensional array having a data type determined by {ref}`type-promotion` rules and must be broadcast against each matrix. If an `array`, must have a floating-point data type and must be compatible with `shape(x1)[:-2]` (see {ref}`broadcasting`). If `None`, the default value is `max(M, N) * eps`, where `eps` must be the machine epsilon associated with the floating-point data type determined by {ref}`type-promotion` rules. Default: `None`.
+    -   relative tolerance for small singular values. Singular values less than or equal to `rtol * largest_singular_value` are set to zero. If a `float`, the value is equivalent to a zero-dimensional array having a data type determined by {ref}`type-promotion` rules (as applied to `x1` and `x2`) and must be broadcast against each matrix. If an `array`, must have a floating-point data type and must be compatible with `shape(x1)[:-2]` (see {ref}`broadcasting`). If `None`, the default value is `max(M, N) * eps`, where `eps` must be the machine epsilon associated with the floating-point data type determined by {ref}`type-promotion` rules (as applied to `x1` and `x2`). Default: `None`.
 
 #### Returns
 
