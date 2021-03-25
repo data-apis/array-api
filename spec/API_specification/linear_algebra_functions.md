@@ -121,11 +121,11 @@ Computes the dot product of two arrays.
 
 -   **x1**: _&lt;array&gt;_
 
-    -   first input array. Must have a numeric data type.
+    -   first input array. Should have a numeric data type.
 
 -   **x2**: _&lt;array&gt;_
 
-    -   second input array. Must be compatible with `x1` (see {ref}`broadcasting`). Must have a numeric data type.
+    -   second input array. Must be compatible with `x1` (see {ref}`broadcasting`). Should have a numeric data type.
 
 -   **axis**: _Optional\[ int ]_
 
@@ -135,7 +135,7 @@ Computes the dot product of two arrays.
 
 -   **out**: _&lt;array;&gt;_
 
-    -   if `x1` and `x2` are both one-dimensional arrays, a zero-dimensional containing the dot product; otherwise, a non-zero-dimensional array containing the dot products and having rank `N-1`, where `N` is the rank (number of dimensions) of the shape determined according to {ref}`broadcasting`. Must have a data type determined by {ref}`type-promotion`.
+    -   if `x1` and `x2` are both one-dimensional arrays, a zero-dimensional containing the dot product; otherwise, a non-zero-dimensional array containing the dot products and having rank `N-1`, where `N` is the rank (number of dimensions) of the shape determined according to {ref}`broadcasting`. The returned array must have a data type determined by {ref}`type-promotion`.
 
 #### Raises
 
