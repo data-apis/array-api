@@ -21,7 +21,7 @@ Machine limits for floating-point data types.
 
 #### Returns
 
--   **out**: _&lt;class&gt;_
+-   **out**: _&lt;finfo object&gt;_
 
     -   an object having the following attributes:
 
@@ -47,7 +47,7 @@ Machine limits for integer data types.
 
 #### Returns
 
--   **out**: _&lt;class&gt;_
+-   **out**: _&lt;iinfo object&gt;_
 
     -   a class with that encapsules the following attributes:
 

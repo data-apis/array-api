@@ -377,6 +377,29 @@ Evaluates `x1_i & x2_i` for each element `x1_i` of an array instance `x1` with t
 Element-wise results must equal the results returned by the equivalent element-wise function [`bitwise_and(x1, x2)`](elementwise_functions.md#logical_andx1-x2-).
 ```
 
+
+(method-__array_namespace__)=
+### \_\_array_namespace\_\_(self, /, *, api_version=None)
+
+Returns an object that has all the array API functions on it.
+
+#### Parameters
+
+-   **self**: _&lt;array&gt;_
+
+    -   array instance.
+
+-   **api_version**: _&lt;Optional\[str\]&gt;_
+
+    -   string representing the version of the array API specification to be returned, in `'YYYY.MM'` form, for example, `'2020.10'`. If it is `None`, it should return the namespace corresponding to latest version of the array API specification.  If the given version is invalid or not implemented for the given module, an error should be raised. Default: `None`.
+
+#### Returns
+
+-   **out**: _&lt;object&gt;_
+
+    -   an object representing the array API namespace. It should have every top-level function defined in the specification as an attribute. It may contain other public names as well, but it is recommended to only include those names that are part of the specification.
+
+
 (method-__bool__)=
 ### \_\_bool\_\_(x, /)
 
@@ -566,7 +589,7 @@ Returns `x[key]`.
 
     -   array instance.
 
--   **key**: _Union\[ int, slice, Tuple\[ Union\[ int, slice ], ... ], &lt;array&gt; ]_
+-   **key**: _Union\[ int, slice, ellipsis, Tuple\[ Union\[ int, slice, ellipsis ], ... ], &lt;array&gt; ]_
 
     -   index key.
 
