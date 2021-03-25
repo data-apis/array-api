@@ -273,7 +273,7 @@ Computes the (Moore-Penrose) pseudo-inverse of a matrix (or a stack of square ma
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the pseudo-inverses. The returned array must have the same data type as `x` and must have shape `(..., N, M)` (i.e., must have the same shape as `x`, except the innermost two dimensions must be transposed).
+    -   an array containing the pseudo-inverses. The returned array must have a floating-point data type as determined by {ref}`type-promotion` rules and must have shape `(..., N, M)` (i.e., must have the same shape as `x`, except the innermost two dimensions must be transposed).
 
 (function-qr)=
 ### qr()
