@@ -257,23 +257,23 @@ Computes the outer product of two vectors `x1` and `x2`.
 (function-pinv)=
 ### pinv(x, /, *, rtol=None)
 
-Computes the (Moore-Penrose) pseudo-inverse of a matrix (or stack of square matrices) `x`.
+Computes the (Moore-Penrose) pseudo-inverse of a matrix (or a stack of square matrices) `x`.
 
 #### Parameters
 
 -   **x**: _&lt;array&gt;_
 
-    -   input array having shape `(..., M, N)` and whose innermost two dimensions form `MxN` matrices. Must have a data type of either `float32` or `float64`.
+    -   input array having shape `(..., M, N)` and whose innermost two dimensions form `MxN` matrices. Should have a floating-point data type
 
 -   **rtol**: _Optional\[ Union\[ float, &lt;array&gt; ] ]_
     
-    -   relative tolerance for small singular values. Singular values less than or equal to `rtol * largest_singular_value` are set to zero. Must be compatible with `shape(x)[:-2]` (see {ref}`broadcasting`). If a `float`, the value is equivalent to a zero-dimensional array having the same data type as `x` and is broadcast against each matrix. If `None`, the default value is `max(M, N) * eps`, where `eps` must be the machine epsilon associated with the data type of `x`. Default: `None`.
+    -   relative tolerance for small singular values. Singular values less than or equal to `rtol * largest_singular_value` are set to zero. If a `float`, the value is equivalent to a zero-dimensional array having the same data type as `x` and must be broadcast against each matrix. If an `array`, must have a floating-point data type and must be compatible with `shape(x)[:-2]` (see {ref}`broadcasting`). If `None`, the default value is `max(M, N) * eps`, where `eps` must be the machine epsilon associated with the data type of `x`. Default: `None`.
 
 #### Returns
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the pseudo-inverses. The returned array must have the same data type and must have shape `(..., N, M)` (i.e., must have the same shape as `x`, except the innermost two dimensions must be transposed).
+    -   an array containing the pseudo-inverses. The returned array must have the same data type as `x` and must have shape `(..., N, M)` (i.e., must have the same shape as `x`, except the innermost two dimensions must be transposed).
 
 (function-qr)=
 ### qr()
