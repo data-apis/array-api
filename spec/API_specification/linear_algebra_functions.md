@@ -11,6 +11,46 @@ A conforming implementation of the array API standard must provide and support t
 -   Unless stated otherwise, functions must adhere to the type promotion rules defined in {ref}`type-promotion`.
 -   Unless stated otherwise, floating-point operations must adhere to IEEE 754-2019.
 
+## Design Principles
+
+A principle goal of this specification is to standardize commonly implemented interfaces among array libraries. While this specification endeavors to avoid straying too far from common practice, this specification does, with due restraint, seek to address design decisions arising more from historical accident than first principles. This is especially true for linear algebra APIs, which have arisen and evolved organically over time and have often been tied to particular underlying implementations (e.g., to BLAS and LAPACK).
+
+Accordingly, the standardization process affords the opportunity to reduce interface complexity among linear algebra APIs by inferring and subsequently codifying common design themes, thus allowing more consistent APIs. What follows is the set of design principles governing the APIs which follow:
+
+1.  **Batching**: if an operation is explicitly defined in terms of matrices (i.e., two-dimensional arrays), then the associated interface should support "batching" (i.e., the ability to perform the operation over a "stack" of matrices). Example operations include:
+
+    -   `inv`: computing the multiplicative inverse of a square matrix.
+    -   `cholesky`: performing Cholesky decomposition.
+    -   `matmul`: performing matrix multiplication.
+
+2.  **Data types**: if an operation requires decimal operations and {ref}`type-promotion` semantics are undefined (e.g., as is the case for mixed-kind promotions), then the associated interface should be specified as being restricted to floating-point data types. While the specification uses the term "SHOULD" rather than "MUST", a conforming implementation of the array API standard should only ignore the restriction provided overly compelling reasons for doing so. Example operations which should be limited to floating-point data types include:
+
+    -   `inv`: computing the multiplicative inverse.
+    -   `slogdet`: computing the natural logarithm of the absolute value of the determinant.
+    -   `norm`: computing the matrix or vector norm.
+
+    Certain operations are solely comprised of multiplications and additions. Accordingly, associated interfaces need not be restricted to floating-point data types. However, careful consideration should be given to overflow, and use of floating-point data types may be more prudent in practice. Example operations include:
+
+    -   `matmul`: performing matrix multiplication.
+    -   `trace`: computing the sum along the diagonal.
+    -   `cross`: computing the vector cross product.
+
+    Lastly, certain operations may be performed independent of data type, and, thus, the associated interfaces should support all data types specified in this standard. Example operations include:
+
+    -   `transpose`: computing the transpose.
+    -   `diagonal`: returning the diagonal.
+
+3.  **Return values**: if an interface has more than one return value, the interface should return a namedtuple consisting of each value.
+
+    In general, interfaces should avoid polymorphic return values (e.g., returning an array **or** a namedtuple, dependent on, e.g., an optional keyword argument). Dedicated interfaces for each return value type are preferred, as dedicated interfaces are easier to reason about at both the implementation level and user level. Example interfaces which could be combined into a single overloaded interface, but are not, include:
+
+    -   `eig`: computing both eigenvalues and eignvectors.
+    -   `eigvals`: computing only eigenvalues.
+
+4.  **Implementation agnosticism**: a standardized interface should eschew parameterization (including keyword arguments) biased toward particular implementations.
+
+    Historically, at a time when all array computing happened on CPUs, BLAS and LAPACK underpinned most numerical computing libraries and environments. Naturally, language and library abstractions catered to the parameterization of those libraries, often exposing low-level implementation details verbatim in their higher-level interfaces, even if such choices would be considered poor or ill-advised by today's standards (e.g., NumPy's use of `UPLO` in `eigh`). However, the present day is considerably different. While still important, BLAS and LAPACK no longer hold a monopoly over linear algebra operations, especially given the proliferation of devices and hardware on which such operations must be performed. Accordingly, interfaces must be conservative in the parameterization they support in order to best ensure universality. Such conservatism applies even to performance optimization parameters afforded by certain hardware.
+
 ## Objects in API
 
 <!-- NOTE: please keep the functions in alphabetical order -->
