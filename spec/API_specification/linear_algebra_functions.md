@@ -286,11 +286,11 @@ Returns a tensor contraction of `x1` and `x2` over specific axes.
 
 -   **x1**: _&lt;array&gt;_
 
-    -   first input array. Must have a numeric data type.
+    -   first input array. Should have a numeric data type.
 
 -   **x2**: _&lt;array&gt;_
 
-    -   second input array. Must be compatible with `x1` (see {ref}`broadcasting`). Must have a numeric data type.
+    -   second input array. Must be compatible with `x1` (see {ref}`broadcasting`). Should have a numeric data type.
 
 -   **axes**: _Union\[ int, Tuple\[ Sequence\[ int ], Sequence\[ int ] ] ]_
 
