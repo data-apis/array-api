@@ -151,7 +151,7 @@ Returns the least-squares solution to a linear matrix equation `Ax = b`.
 
 -   **rtol**: _Optional\[ Union\[ float, &lt;array&gt; ] ]_
 
-    -   relative tolerance for small singular values. Singular values less than or equal to `rtol * largest_singular_value` are set to zero. If a `float`, the value is equivalent to a zero-dimensional array having a data type determined by {ref}`type-promotion` rules (as applied to `x1` and `x2`) and must be broadcast against each matrix. If an `array`, must have a floating-point data type and must be compatible with `shape(x1)[:-2]` (see {ref}`broadcasting`). If `None`, the default value is `max(M, N) * eps`, where `eps` must be the machine epsilon associated with the floating-point data type determined by {ref}`type-promotion` rules (as applied to `x1` and `x2`). Default: `None`.
+    -   relative tolerance for small singular values. Singular values less than or equal to `rtol * largest_singular_value` are set to zero. If a `float`, the value is equivalent to a zero-dimensional array having a data type determined by {ref}`type-promotion` (as applied to `x1` and `x2`) and must be broadcast against each matrix. If an `array`, must have a floating-point data type and must be compatible with `shape(x1)[:-2]` (see {ref}`broadcasting`). If `None`, the default value is `max(M, N) * eps`, where `eps` must be the machine epsilon associated with the floating-point data type determined by {ref}`type-promotion` (as applied to `x1` and `x2`). Default: `None`.
 
 #### Returns
 
@@ -159,10 +159,10 @@ Returns the least-squares solution to a linear matrix equation `Ax = b`.
 
     -   a namedtuple `(x, residuals, rank, s)` whose
     
-        -   first element must have the field name `x` and must be an array containing the least-squares solution for each `MxN` matrix in `x1`. The array containing the solutions must have shape `(N, K)` and must have a floating-point data type determined by {ref}`type-promotion` rules.
-        -   second element must have the field name `residuals` and must be an array containing the sum of squares residuals (i.e., the squared Euclidean 2-norm for each column in `b - Ax`). The array containing the residuals must have shape `(K,)` and must have a floating-point data type determined by {ref}`type-promotion` rules.
+        -   first element must have the field name `x` and must be an array containing the least-squares solution for each `MxN` matrix in `x1`. The array containing the solutions must have shape `(N, K)` and must have a floating-point data type determined by {ref}`type-promotion`.
+        -   second element must have the field name `residuals` and must be an array containing the sum of squares residuals (i.e., the squared Euclidean 2-norm for each column in `b - Ax`). The array containing the residuals must have shape `(K,)` and must have a floating-point data type determined by {ref}`type-promotion`.
         -   third element must have the field name `rank` and must be an array containing the effective rank of each `MxN` matrix. The array containing the ranks must have shape `shape(x1)[:-2]` and must have an integer data type.
-        -   fourth element must have the field name `s` and must be an array containing the singular values for each `MxN` matrix in `x1`. The array containing the singular values must have shape `(..., min(M, N))` and must have a floating-point data type determined by {ref}`type-promotion` rules.
+        -   fourth element must have the field name `s` and must be an array containing the singular values for each `MxN` matrix in `x1`. The array containing the singular values must have shape `(..., min(M, N))` and must have a floating-point data type determined by {ref}`type-promotion`.
 
 (function-matmul)=
 ### matmul()
