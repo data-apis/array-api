@@ -335,7 +335,8 @@ namespace (e.g. `import package_name.array_api`). This has two issues though:
    {ref}`api-versioning`).
 
 To address both issues, a uniform way must be provided by a conforming
-implementation to access the API namespace, namely a method on the array object:
+implementation to access the API namespace, namely a [method on the array
+object](method-__array_namespace__):
 
 ```
 xp = x.__array_namespace__()
@@ -362,11 +363,10 @@ standard can become final. We prefer to delay this decision, to see how
 NEP 37 adoption will work out.
 ```
 
-The `xp` namespace must contain the array object and all functionality
-specified in {ref}`api-specification`. It may contain other functionality,
-however it is recommended not to add other functions or objects, because that
-may make it harder for users to write code that will work with multiple array
-libraries.
+The `xp` namespace must contain all functionality specified in
+{ref}`api-specification`. It may contain other functionality, however it is
+recommended not to add other functions or objects, because that may make it
+harder for users to write code that will work with multiple array libraries.
 
 
 * * *

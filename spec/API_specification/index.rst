@@ -11,6 +11,7 @@ API specification
    array_object
    indexing
    data_types
+   data_type_functions
    type_promotion
    broadcasting
    creation_functions
