@@ -291,7 +291,7 @@ The purpose of this function is to calculate the determinant more accurately whe
     
         For a real matrix, the sign of the determinant must be either `1`, `0`, or `-1`. If a determinant is zero, then the corresponding `sign` must be `0` and `logabsdet` must be `-infinity`. In all cases, the determinant must be equal to `sign * exp(logsabsdet)`.
 
-        Each returned array must have shape `shape(x)[:-2]` and a floating-point data type determined by {ref}`type-promotion` rules.
+        Each returned array must have shape `shape(x)[:-2]` and a floating-point data type determined by {ref}`type-promotion`.
 
 (function-solve)=
 ### solve()
