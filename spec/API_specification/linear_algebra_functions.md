@@ -54,7 +54,7 @@ Returns the determinant of a square matrix (or stack of square matrices) `x`.
 
 -   **x**: _&lt;array&gt;_
 
-    -   input array having shape `(..., M, M)` and whose innermost two dimensions form square matrices. Should have a numeric data type.
+    -   input array having shape `(..., M, M)` and whose innermost two dimensions form square matrices. Should have a floating-point data type.
 
 #### Returns
 
