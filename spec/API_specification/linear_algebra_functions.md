@@ -112,36 +112,6 @@ TODO
 
 TODO
 
-(function-inner_dot)=
-### inner_dot(x1, x2, /, *, axis=None)
-
-Computes the dot product of two arrays.
-
-#### Parameters
-
--   **x1**: _&lt;array&gt;_
-
-    -   first input array. Should have a numeric data type.
-
--   **x2**: _&lt;array&gt;_
-
-    -   second input array. Must be compatible with `x1` (see {ref}`broadcasting`). Should have a numeric data type.
-
--   **axis**: _Optional\[ int ]_
-
-    -   axis over which to compute the dot product. Must be an integer on the interval `[-N, N)`, where `N` is the rank (number of dimensions) of the shape determined according to {ref}`broadcasting`. If specified as a negative integer, the function must determine the axis along which to compute the dot product by counting backward from the last dimension (where `-1` refers to the last dimension). If `None`, the function must compute the dot product over the last axis. Default: `None`.
-
-#### Returns
-
--   **out**: _&lt;array;&gt;_
-
-    -   if `x1` and `x2` are both one-dimensional arrays, a zero-dimensional containing the dot product; otherwise, a non-zero-dimensional array containing the dot products and having rank `N-1`, where `N` is the rank (number of dimensions) of the shape determined according to {ref}`broadcasting`. The returned array must have a data type determined by {ref}`type-promotion`.
-
-#### Raises
-
--   if provided an invalid `axis`.
--   if the size of the axis over which to compute the inner product is not the same for both `x1` and `x2`.
-
 (function-inv)=
 ### inv(x, /)
 
@@ -367,3 +337,33 @@ Transposes (or permutes the axes (dimensions)) of an array `x`.
 -   **out**: _&lt;array&gt;_
 
     -   an array containing the transpose. The returned array must have the same data type as `x`.
+
+(function-vecdot)=
+### vecdot(x1, x2, /, *, axis=None)
+
+Computes the (vector) dot product of two arrays.
+
+#### Parameters
+
+-   **x1**: _&lt;array&gt;_
+
+    -   first input array. Should have a numeric data type.
+
+-   **x2**: _&lt;array&gt;_
+
+    -   second input array. Must be compatible with `x1` (see {ref}`broadcasting`). Should have a numeric data type.
+
+-   **axis**: _Optional\[ int ]_
+
+    -   axis over which to compute the dot product. Must be an integer on the interval `[-N, N)`, where `N` is the rank (number of dimensions) of the shape determined according to {ref}`broadcasting`. If specified as a negative integer, the function must determine the axis along which to compute the dot product by counting backward from the last dimension (where `-1` refers to the last dimension). If `None`, the function must compute the dot product over the last axis. Default: `None`.
+
+#### Returns
+
+-   **out**: _&lt;array;&gt;_
+
+    -   if `x1` and `x2` are both one-dimensional arrays, a zero-dimensional containing the dot product; otherwise, a non-zero-dimensional array containing the dot products and having rank `N-1`, where `N` is the rank (number of dimensions) of the shape determined according to {ref}`broadcasting`. The returned array must have a data type determined by {ref}`type-promotion`.
+
+#### Raises
+
+-   if provided an invalid `axis`.
+-   if the size of the axis over which to compute the dot product is not the same for both `x1` and `x2`.
