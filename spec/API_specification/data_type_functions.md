@@ -4,72 +4,71 @@
 
 A conforming implementation of the array API standard must provide and support the following data type functions.
 
-
 <!-- NOTE: please keep the constants in alphabetical order -->
 
 ## Objects in API
 (function-broadcast-arrays)=
-### broadcast_arrays(*args, /)
+### broadcast_arrays(\*args, /)
 
-Broadcast any number of arrays against each other.
+Broadcasts one or more arrays against one another.
 
 #### Parameters
 
--   ***args**: _\[&lt;array&gt;\]_
+-   **\*args**: _Sequence\[ &lt;array&gt; ]_
 
     -   arrays to broadcast.
 
 #### Returns
 
--   **out**: _\[&lt;array&gt;\]_
+-   **out**: _List\[ &lt;array&gt; ]_
 
-    -   a list of arrays where more than one element of a broadcasted array may refer to a single memory location.
-
+    -   a list of broadcasted arrays. Each array must have the same shape. Each array must have the same dtype as its corresponding input array.
 
 (function-broadcast-to)=
-### broadcast_to(array, /, shape)
+### broadcast_to(x, shape, /)
 
-Broadcast an array to a new shape.
-
--   A `ValueError` exception must be raised if the array is not compatible with the new shape according  to the semantics defined in {ref}`broadcasting`.
+Broadcasts an array to a specified shape.
 
 #### Parameters
 
--   **array**: _&lt;array&gt;_
+-   **x**: _&lt;array&gt;_
 
     -   array to broadcast.
 
--   **shape**: Tuple[int, …]
+-   **shape**: _Tuple\[int, ...]_
 
-    -   shape of the desired array.
+    -   array shape. Must be compatible with `x` (see {ref}`broadcasting`).
 
 #### Returns
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array with the given shape where more than one element may refer to a single memory location.
+    -   an array having a specified shape. Must have the same data type as `x`.
+
+#### Raises
+
+	-   if the array is incompatible with the specified shape (see {ref}`broadcasting`).
 
 (function-can-cast)=
-### can_cast(from_, /, *, to)
+### can_cast(from, to, /)
 
-Determines if a type conversion is allowed under the rules described by {ref}`type-promotion`.
+Determines if one data type can be cast to another data type according {ref}`type-promotion` rules.
 
 #### Parameters
 
--   **from_**: _Union\[ &lt;dtype&gt, &lt;array&gt;]_
+-   **from**: _Union\[ &lt;dtype&gt;, &lt;array&gt;]_
 
-    -   data type, scalar or array to cast from.
+    -   input data type or array from which to cast.
 
 -   **to**: _&lt;dtype&gt;_
 
-    -   data type to cast to.
+    -   desired data type.
 
 #### Returns
 
 -   **out**: _bool_
 
-    -   True if the cast can occur according to the {ref}`type-promotion`.
-
+    -   `True` if the cast can occur according to {ref}`type-promotion` rules; otherwise, `False`.
 
 (finfo)=
 ### finfo(type, /)
