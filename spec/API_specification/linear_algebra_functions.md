@@ -284,6 +284,8 @@ TODO
 
 Returns a tensor contraction of `x1` and `x2` over specific axes.
 
+#### Parameters
+
 -   **x1**: _&lt;array&gt;_
 
     -   first input array. Should have a numeric data type.
