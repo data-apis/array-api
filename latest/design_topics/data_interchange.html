@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="Docutils 0.17: http://docutils.sourceforge.net/" name="generator"/>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <meta content="ie=edge" http-equiv="x-ua-compatible"/>
+  <meta content="Copy to clipboard" name="lang:clipboard.copy"/>
+  <meta content="Copied to clipboard" name="lang:clipboard.copied"/>
+  <meta content="en" name="lang:search.language"/>
+  <meta content="True" name="lang:search.pipeline.stopwords"/>
+  <meta content="True" name="lang:search.pipeline.trimmer"/>
+  <meta content="No matching documents" name="lang:search.result.none"/>
+  <meta content="1 matching document" name="lang:search.result.one"/>
+  <meta content="# matching documents" name="lang:search.result.other"/>
+  <meta content="[\s\-]+" name="lang:search.tokenizer"/>
+  <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700|Roboto:300,400,400i,700&amp;display=fallback" rel="stylesheet"/>
+  <style>
+   body,
+      input {
+        font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif
+      }
+
+      code,
+      kbd,
+      pre {
+        font-family: "Roboto Mono", "Courier New", Courier, monospace
+      }
+  </style>
+  <link href="../_static/stylesheets/application.css" rel="stylesheet"/>
+  <link href="../_static/stylesheets/application-palette.css" rel="stylesheet"/>
+  <link href="../_static/stylesheets/application-fixes.css" rel="stylesheet"/>
+  <link href="../_static/fonts/material-icons.css" rel="stylesheet"/>
+  <meta content="#2196f3" name="theme-color"/>
+  <script src="../_static/javascripts/modernizr.js">
+  </script>
+  <link href="../_static/images/apple-icon-152x152.png" rel="apple-touch-icon"/>
+  <title>
+   Data interchange mechanisms — Python array API standard 2021.01-DRAFT documentation
+  </title>
+  <link href="../_static/material.css" rel="stylesheet" type="text/css"/>
+  <link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+  <link href="../_static/copybutton.css" rel="stylesheet" type="text/css"/>
+  <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js">
+  </script>
+  <script src="../_static/jquery.js">
+  </script>
+  <script src="../_static/underscore.js">
+  </script>
+  <script src="../_static/doctools.js">
+  </script>
+  <script src="../_static/language_data.js">
+  </script>
+  <script src="../_static/clipboard.min.js">
+  </script>
+  <script src="../_static/copybutton.js">
+  </script>
+  <link href="../genindex.html" rel="index" title="Index"/>
+  <link href="../search.html" rel="search" title="Search"/>
+  <link href="device_support.html" rel="next" title="Device support"/>
+  <link href="copies_views_and_mutation.html" rel="prev" title="Copy-view behaviour and mutability"/>
+  <link href="../_static/images/apple-icon-152x152.png" rel="apple-touch-icon"/>
+ </head>
+ <body data-md-color-accent="green" data-md-color-primary="indigo" dir="ltr">
+  <svg class="md-svg">
+   <defs data-children-count="0">
+    <svg height="448" id="__github" viewbox="0 0 416 448" width="416" xmlns="http://www.w3.org/2000/svg">
+     <path d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z" fill="currentColor">
+     </path>
+    </svg>
+   </defs>
+  </svg>
+  <input class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+  <input class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+  <label class="md-overlay" data-md-component="overlay" for="__drawer">
+  </label>
+  <a class="md-skip" href="#design_topics/data_interchange" tabindex="1">
+   Skip to content
+  </a>
+  <header class="md-header" data-md-component="header">
+   <nav class="md-header-nav md-grid">
+    <div class="md-flex navheader">
+     <div class="md-flex__cell md-flex__cell--shrink">
+      <a class="md-header-nav__button md-logo" href="../index.html" title="Python array API standard 2021.01-DRAFT documentation">
+       <i class="md-icon">
+        
+       </i>
+      </a>
+     </div>
+     <div class="md-flex__cell md-flex__cell--shrink">
+      <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer">
+      </label>
+     </div>
+     <div class="md-flex__cell md-flex__cell--stretch">
+      <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+       <span class="md-header-nav__topic">
+        Python array API standard
+       </span>
+       <span class="md-header-nav__topic">
+        Data interchange mechanisms
+       </span>
+      </div>
+     </div>
+     <div class="md-flex__cell md-flex__cell--shrink">
+      <label class="md-icon md-icon--search md-header-nav__button" for="__search">
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+       <label class="md-search__overlay" for="__search">
+       </label>
+       <div class="md-search__inner" role="search">
+        <form action="../search.html" class="md-search__form" method="GET" name="search">
+         <input autocapitalize="off" autocomplete="off" class="md-search__input" data-md-component="query" data-md-state="active" name="q" placeholder="Search" spellcheck="false" type="text"/>
+         <label class="md-icon md-search__icon" for="__search">
+         </label>
+         <button class="md-icon md-search__icon" data-md-component="reset" tabindex="-1" type="reset">
+          
+         </button>
+        </form>
+        <div class="md-search__output">
+         <div class="md-search__scrollwrap" data-md-scrollfix="">
+          <div class="md-search-result" data-md-component="result">
+           <div class="md-search-result__meta">
+            Type to start searching
+           </div>
+           <ol class="md-search-result__list">
+           </ol>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+     <script src="../_static/javascripts/version_dropdown.js">
+     </script>
+     <script>
+      var json_loc = "../"versions.json"",
+        target_loc = "../../",
+        text = "Versions";
+    $( document ).ready( add_version_dropdown(json_loc, target_loc, text));
+     </script>
+    </div>
+   </nav>
+  </header>
+  <div class="md-container">
+   <nav class="md-tabs" data-md-component="tabs">
+    <div class="md-tabs__inner md-grid">
+     <ul class="md-tabs__list">
+      <li class="md-tabs__item">
+       <a class="md-tabs__link" href="../index.html">
+        Array API standard
+       </a>
+      </li>
+      <li class="md-tabs__item">
+       <a class="md-tabs__link" href="https://data-apis.org">
+        Consortium for Python Data API Standards
+       </a>
+      </li>
+      <li class="md-tabs__item">
+       <a class="md-tabs__link" href="index.html">
+        Design topics &amp; constraints
+       </a>
+      </li>
+     </ul>
+    </div>
+   </nav>
+   <main class="md-main">
+    <div class="md-main__inner md-grid" data-md-component="container">
+     <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+      <div class="md-sidebar__scrollwrap">
+       <div class="md-sidebar__inner">
+        <nav class="md-nav md-nav--primary" data-md-level="0">
+         <label class="md-nav__title md-nav__title--site" for="__drawer">
+          <a class="md-nav__button md-logo" href="../index.html" title="Python array API standard 2021.01-DRAFT documentation">
+           <i class="md-icon">
+            
+           </i>
+          </a>
+          <a href="../index.html" title="Python array API standard 2021.01-DRAFT documentation">
+           Python array API standard
+          </a>
+         </label>
+         <ul class="md-nav__list">
+          <li class="md-nav__item">
+           <span class="md-nav__link caption">
+            <span class="caption-text">
+             Context
+            </span>
+           </span>
+          </li>
+          <li class="md-nav__item">
+           <a class="md-nav__link" href="../purpose_and_scope.html">
+            Purpose and scope
+           </a>
+          </li>
+          <li class="md-nav__item">
+           <a class="md-nav__link" href="../use_cases.html">
+            Use cases
+           </a>
+          </li>
+          <li class="md-nav__item">
+           <a class="md-nav__link" href="../assumptions.html">
+            Assumptions
+           </a>
+          </li>
+          <li class="md-nav__item">
+           <span class="md-nav__link caption">
+            <span class="caption-text">
+             API
+            </span>
+           </span>
+          </li>
+          <li class="md-nav__item">
+           <a class="md-nav__link" href="index.html">
+            Design topics &amp; constraints
+           </a>
+           <ul class="md-nav__list">
+            <li class="md-nav__item">
+             <a class="md-nav__link" href="copies_views_and_mutation.html">
+              Copy-view behaviour and mutability
+             </a>
+            </li>
+            <li class="md-nav__item">
+             <input class="md-toggle md-nav__toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+             <label class="md-nav__link md-nav__link--active" for="__toc">
+              Data interchange mechanisms
+             </label>
+             <a class="md-nav__link md-nav__link--active" href="#">
+              Data interchange mechanisms
+             </a>
+             <nav class="md-nav md-nav--secondary">
+              <label class="md-nav__title" for="__toc">
+               Contents
+              </label>
+              <ul class="md-nav__list" data-md-scrollfix="">
+               <li class="md-nav__item">
+                <a class="md-nav__link" href="#design-topics-data-interchange--page-root">
+                 Data interchange mechanisms
+                </a>
+                <nav class="md-nav">
+                 <ul class="md-nav__list">
+                  <li class="md-nav__item">
+                   <a class="md-nav__link" href="#syntax-for-data-interchange-with-dlpack">
+                    Syntax for data interchange with DLPack
+                   </a>
+                  </li>
+                  <li class="md-nav__item">
+                   <a class="md-nav__link" href="#semantics">
+                    Semantics
+                   </a>
+                  </li>
+                  <li class="md-nav__item">
+                   <a class="md-nav__link" href="#implementation">
+                    Implementation
+                   </a>
+                  </li>
+                 </ul>
+                </nav>
+               </li>
+              </ul>
+             </nav>
+            </li>
+            <li class="md-nav__item">
+             <a class="md-nav__link" href="device_support.html">
+              Device support
+             </a>
+            </li>
+            <li class="md-nav__item">
+             <a class="md-nav__link" href="static_typing.html">
+              Static typing
+             </a>
+            </li>
+            <li class="md-nav__item">
+             <a class="md-nav__link" href="accuracy.html">
+              Accuracy
+             </a>
+            </li>
+            <li class="md-nav__item">
+             <a class="md-nav__link" href="C_API.html">
+              C API
+             </a>
+            </li>
+            <li class="md-nav__item">
+             <a class="md-nav__link" href="parallelism.html">
+              Parallelism
+             </a>
+            </li>
+           </ul>
+          </li>
+          <li class="md-nav__item">
+           <a class="md-nav__link" href="../future_API_evolution.html">
+            Future API standard evolution
+           </a>
+          </li>
+          <li class="md-nav__item">
+           <a class="md-nav__link" href="../API_specification/index.html">
+            API specification
+           </a>
+          </li>
+          <li class="md-nav__item">
+           <span class="md-nav__link caption">
+            <span class="caption-text">
+             Methodology and Usage
+            </span>
+           </span>
+          </li>
+          <li class="md-nav__item">
+           <a class="md-nav__link" href="../usage_data.html">
+            Usage Data
+           </a>
+          </li>
+          <li class="md-nav__item">
+           <a class="md-nav__link" href="../verification_test_suite.html">
+            Verification - test suite
+           </a>
+          </li>
+          <li class="md-nav__item">
+           <a class="md-nav__link" href="../benchmark_suite.html">
+            Benchmark suite
+           </a>
+          </li>
+         </ul>
+        </nav>
+       </div>
+      </div>
+     </div>
+     <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+      <div class="md-sidebar__scrollwrap">
+       <div class="md-sidebar__inner">
+        <nav class="md-nav md-nav--secondary">
+         <label class="md-nav__title" for="__toc">
+          Contents
+         </label>
+         <ul class="md-nav__list" data-md-scrollfix="">
+          <li class="md-nav__item">
+           <a class="md-nav__link" href="#design-topics-data-interchange--page-root">
+            Data interchange mechanisms
+           </a>
+           <nav class="md-nav">
+            <ul class="md-nav__list">
+             <li class="md-nav__item">
+              <a class="md-nav__link" href="#syntax-for-data-interchange-with-dlpack">
+               Syntax for data interchange with DLPack
+              </a>
+             </li>
+             <li class="md-nav__item">
+              <a class="md-nav__link" href="#semantics">
+               Semantics
+              </a>
+             </li>
+             <li class="md-nav__item">
+              <a class="md-nav__link" href="#implementation">
+               Implementation
+              </a>
+             </li>
+            </ul>
+           </nav>
+          </li>
+         </ul>
+        </nav>
+       </div>
+      </div>
+     </div>
+     <div class="md-content">
+      <article class="md-content__inner md-typeset" role="main">
+       <section id="data-interchange-mechanisms">
+        <span id="data-interchange">
+        </span>
+        <h1 id="design-topics-data-interchange--page-root">
+         Data interchange mechanisms
+         <a class="headerlink" href="#design-topics-data-interchange--page-root" title="Permalink to this headline">
+          ¶
+         </a>
+        </h1>
+        <p>
+         This section discusses the mechanism to convert one type of array into another.
+As discussed in the
+         <a class="reference internal" href="../assumptions.html#assumptions">
+          <span class="std std-ref">
+           assumptions-dependencies
+          </span>
+         </a>
+         section,
+         <em>
+          functions
+         </em>
+         provided by an array library are not expected to operate on
+         <em>
+          array types
+         </em>
+         implemented by another library. Instead, the array can be
+converted to a “native” array type.
+        </p>
+        <p>
+         The interchange mechanism must offer the following:
+        </p>
+        <ol class="simple">
+         <li>
+          <p>
+           Data access via a protocol that describes the memory layout of the array
+in an implementation-independent manner.
+           <em>
+            Rationale: any number of libraries must be able to exchange data, and no
+particular package must be needed to do so.
+           </em>
+          </p>
+         </li>
+         <li>
+          <p>
+           Support for all dtypes in this API standard (see
+           <a class="reference internal" href="../API_specification/data_types.html#data-types">
+            <span class="std std-ref">
+             Data Types
+            </span>
+           </a>
+           ).
+          </p>
+         </li>
+         <li>
+          <p>
+           Device support. It must be possible to determine on what device the array
+that is to be converted lives.
+           <em>
+            Rationale: there are CPU-only, GPU-only, and multi-device array types;
+it’s best to support these with a single protocol (with separate
+per-device protocols it’s hard to figure out unambiguous rules for which
+protocol gets used, and the situation will get more complex over time
+as TPU’s and other accelerators become more widely available).
+           </em>
+          </p>
+         </li>
+         <li>
+          <p>
+           Zero-copy semantics where possible, making a copy only if needed (e.g.
+when data is not contiguous in memory).
+           <em>
+            Rationale: performance.
+           </em>
+          </p>
+         </li>
+         <li>
+          <p>
+           A Python-side and a C-side interface, the latter with a stable C ABI.
+           <em>
+            Rationale: all prominent existing array libraries are implemented in
+C/C++, and are released independently from each other. Hence a stable C
+ABI is required for packages to work well together.
+           </em>
+          </p>
+         </li>
+        </ol>
+        <p>
+         The best candidate for this protocol is DLPack. See the
+         <a class="reference external" href="https://github.com/data-apis/consortium-feedback/issues/1">
+          RFC to adopt DLPack
+         </a>
+         for details.
+        </p>
+        <div class="admonition note">
+         <p class="admonition-title">
+          Note
+         </p>
+         <p>
+          The main alternatives to DLPack are device-specific methods:
+         </p>
+         <ul class="simple">
+          <li>
+           <p>
+            The
+            <a class="reference external" href="https://docs.python.org/dev/c-api/buffer.html">
+             buffer protocol
+            </a>
+            on CPU
+           </p>
+          </li>
+          <li>
+           <p>
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              __cuda_array_interface__
+             </span>
+            </code>
+            for CUDA, specified in the Numba documentation
+            <a class="reference external" href="https://numba.pydata.org/numba-doc/0.43.0/cuda/cuda_array_interface.html">
+             here
+            </a>
+            (Python-side only at the moment)
+           </p>
+          </li>
+         </ul>
+         <p>
+          An issue with device-specific protocols are: if two libraries both
+support multiple device types, in which order should the protocols be
+tried? A growth in the number of protocols to support each time a new
+device gets supported by array libraries (e.g. TPUs, AMD GPUs, emerging
+hardware accelerators) also seems undesirable.
+         </p>
+         <p>
+          In addition to the above argument, it is also clear from adoption
+patterns that DLPack has the widest support. The buffer protocol, despite
+being a lot older and standardized as part of Python itself via PEP 3118,
+hardly has any support from array libraries. CPU interoperability is
+mostly dealt with via the NumPy-specific
+          <code class="docutils literal notranslate">
+           <span class="pre">
+            __array__
+           </span>
+          </code>
+          (which, when called,
+means the object it is attached to must return a
+          <code class="docutils literal notranslate">
+           <span class="pre">
+            numpy.ndarray
+           </span>
+          </code>
+          containing the data the object holds).
+         </p>
+        </div>
+        <section id="syntax-for-data-interchange-with-dlpack">
+         <h2 id="syntax-for-data-interchange-with-dlpack">
+          Syntax for data interchange with DLPack
+          <a class="headerlink" href="#syntax-for-data-interchange-with-dlpack" title="Permalink to this headline">
+           ¶
+          </a>
+         </h2>
+         <p>
+          The array API will offer the following syntax for data interchange:
+         </p>
+         <ol class="simple">
+          <li>
+           <p>
+            A
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              from_dlpack(x)
+             </span>
+            </code>
+            function, which accepts (array) objects with a
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              __dlpack__
+             </span>
+            </code>
+            method and uses that method to construct a new array
+containing the data from
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              x
+             </span>
+            </code>
+            .
+           </p>
+          </li>
+          <li>
+           <p>
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              __dlpack__(self,
+             </span>
+             <span class="pre">
+              stream=None)
+             </span>
+            </code>
+            and
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              __dlpack_device__
+             </span>
+            </code>
+            methods on the
+array object, which will be called from within
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              from_dlpack
+             </span>
+            </code>
+            , to query
+what device the array is on (may be needed to pass in the correct
+stream, e.g. in the case of multiple GPUs) and to access the data.
+           </p>
+          </li>
+         </ol>
+        </section>
+        <section id="semantics">
+         <h2 id="semantics">
+          Semantics
+          <a class="headerlink" href="#semantics" title="Permalink to this headline">
+           ¶
+          </a>
+         </h2>
+         <p>
+          DLPack describe the memory layout of strided, n-dimensional arrays.
+When a user calls
+          <code class="docutils literal notranslate">
+           <span class="pre">
+            y
+           </span>
+           <span class="pre">
+            =
+           </span>
+           <span class="pre">
+            from_dlpack(x)
+           </span>
+          </code>
+          , the library implementing
+          <code class="docutils literal notranslate">
+           <span class="pre">
+            x
+           </span>
+          </code>
+          (the
+“producer”) will provide access to the data from
+          <code class="docutils literal notranslate">
+           <span class="pre">
+            x
+           </span>
+          </code>
+          to the library
+containing
+          <code class="docutils literal notranslate">
+           <span class="pre">
+            from_dlpack
+           </span>
+          </code>
+          (the “consumer”). If possible, this must be
+zero-copy (i.e.
+          <code class="docutils literal notranslate">
+           <span class="pre">
+            y
+           </span>
+          </code>
+          will be a
+          <em>
+           view
+          </em>
+          on
+          <code class="docutils literal notranslate">
+           <span class="pre">
+            x
+           </span>
+          </code>
+          ). If not possible, that library
+may make a copy of the data. In both cases:
+         </p>
+         <ul class="simple">
+          <li>
+           <p>
+            the producer keeps owning the memory
+           </p>
+          </li>
+          <li>
+           <p>
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              y
+             </span>
+            </code>
+            may or may not be a view, therefore the user must keep the
+recommendation to avoid mutating
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              y
+             </span>
+            </code>
+            in mind - see
+            <a class="reference internal" href="copies_views_and_mutation.html#copyview-mutability">
+             <span class="std std-ref">
+              Copy-view behaviour and mutability
+             </span>
+            </a>
+            .
+           </p>
+          </li>
+          <li>
+           <p>
+            Both
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              x
+             </span>
+            </code>
+            and
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              y
+             </span>
+            </code>
+            may continue to be used just like arrays created in other ways.
+           </p>
+          </li>
+         </ul>
+         <p>
+          If an array that is accessed via the interchange protocol lives on a
+device that the requesting library does not support, it is recommended to
+raise a
+          <code class="docutils literal notranslate">
+           <span class="pre">
+            TypeError
+           </span>
+          </code>
+          .
+         </p>
+         <p>
+          Stream handling through the
+          <code class="docutils literal notranslate">
+           <span class="pre">
+            stream
+           </span>
+          </code>
+          keyword applies to CUDA and ROCm (perhaps
+to other devices that have a stream concept as well, however those haven’t been
+considered in detail). The consumer must pass the stream it will use to the
+producer; the producer must synchronize or wait on the stream when necessary.
+In the common case of the default stream being used, synchronization will be
+unnecessary so asynchronous execution is enabled.
+         </p>
+        </section>
+        <section id="implementation">
+         <h2 id="implementation">
+          Implementation
+          <a class="headerlink" href="#implementation" title="Permalink to this headline">
+           ¶
+          </a>
+         </h2>
+         <p>
+          <em>
+           Note that while this API standard largely tries to avoid discussing implementation details, some discussion and requirements are needed here because data interchange requires coordination between implementers on, e.g., memory management.
+          </em>
+         </p>
+         <p>
+          <img alt="Diagram of DLPack structs" src="../_images/DLPack_diagram.png"/>
+         </p>
+         <p>
+          <em>
+           DLPack diagram. Dark blue are the structs it defines, light blue struct members, gray text enum values of supported devices and data types.
+          </em>
+         </p>
+         <p>
+          The
+          <code class="docutils literal notranslate">
+           <span class="pre">
+            __dlpack__
+           </span>
+          </code>
+          method will produce a
+          <code class="docutils literal notranslate">
+           <span class="pre">
+            PyCapsule
+           </span>
+          </code>
+          containing a
+          <code class="docutils literal notranslate">
+           <span class="pre">
+            DLPackManagedTensor
+           </span>
+          </code>
+          , which will be consumed immediately within
+          <code class="docutils literal notranslate">
+           <span class="pre">
+            from_dlpack
+           </span>
+          </code>
+          - therefore it is consumed exactly once, and it will not be
+visible to users of the Python API.
+         </p>
+         <p>
+          The consumer must set the PyCapsule name to
+          <code class="docutils literal notranslate">
+           <span class="pre">
+            "used_dltensor"
+           </span>
+          </code>
+          , and call the
+          <code class="docutils literal notranslate">
+           <span class="pre">
+            deleter
+           </span>
+          </code>
+          of the
+          <code class="docutils literal notranslate">
+           <span class="pre">
+            DLPackManagedTensor
+           </span>
+          </code>
+          when it no longer needs the data.
+         </p>
+         <p>
+          When the
+          <code class="docutils literal notranslate">
+           <span class="pre">
+            strides
+           </span>
+          </code>
+          field in the
+          <code class="docutils literal notranslate">
+           <span class="pre">
+            DLTensor
+           </span>
+          </code>
+          struct is
+          <code class="docutils literal notranslate">
+           <span class="pre">
+            NULL
+           </span>
+          </code>
+          , it indicates a
+row-major compact array. If the array is of size zero, the data pointer in
+          <code class="docutils literal notranslate">
+           <span class="pre">
+            DLTensor
+           </span>
+          </code>
+          should be set to either
+          <code class="docutils literal notranslate">
+           <span class="pre">
+            NULL
+           </span>
+          </code>
+          or
+          <code class="docutils literal notranslate">
+           <span class="pre">
+            0
+           </span>
+          </code>
+          .
+         </p>
+         <p>
+          DLPack version used must be
+          <code class="docutils literal notranslate">
+           <span class="pre">
+            0.2
+           </span>
+           <span class="pre">
+            &lt;=
+           </span>
+           <span class="pre">
+            DLPACK_VERSION
+           </span>
+           <span class="pre">
+            &lt;
+           </span>
+           <span class="pre">
+            1.0
+           </span>
+          </code>
+          . For further
+details on DLPack design and how to implement support for it,
+refer to
+          <a class="reference external" href="https://github.com/dmlc/dlpack">
+           github.com/dmlc/dlpack
+          </a>
+          .
+         </p>
+         <div class="admonition warning">
+          <p class="admonition-title">
+           Warning
+          </p>
+          <p>
+           DLPack contains a
+           <code class="docutils literal notranslate">
+            <span class="pre">
+             device_id
+            </span>
+           </code>
+           , which will be the device ID (an integer,
+           <code class="docutils literal notranslate">
+            <span class="pre">
+             0,
+            </span>
+            <span class="pre">
+             1,
+            </span>
+            <span class="pre">
+             ...
+            </span>
+           </code>
+           ) which the producer library uses. In practice this will likely be the same numbering as that of the consumer, however that is not guaranteed. Depending on the hardware type, it may be possible for the consumer library implementation to look up the actual device from the pointer to the data - this is possible for example for CUDA device pointers.
+          </p>
+          <p>
+           It is recommended that implementers of this array API consider and document
+whether the
+           <code class="docutils literal notranslate">
+            <span class="pre">
+             .device
+            </span>
+           </code>
+           attribute of the array returned from
+           <code class="docutils literal notranslate">
+            <span class="pre">
+             from_dlpack
+            </span>
+           </code>
+           is
+guaranteed to be in a certain order or not.
+          </p>
+         </div>
+        </section>
+       </section>
+      </article>
+     </div>
+    </div>
+   </main>
+  </div>
+  <footer class="md-footer">
+   <div class="md-footer-nav">
+    <nav class="md-footer-nav__inner md-grid">
+     <a class="md-flex md-footer-nav__link md-footer-nav__link--prev" href="copies_views_and_mutation.html" rel="prev" title="Copy-view behaviour and mutability">
+      <div class="md-flex__cell md-flex__cell--shrink">
+       <i class="md-icon md-icon--arrow-back md-footer-nav__button">
+       </i>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+       <span class="md-flex__ellipsis">
+        <span class="md-footer-nav__direction">
+         Previous
+        </span>
+        Copy-view behaviour and mutability
+       </span>
+      </div>
+     </a>
+     <a class="md-flex md-footer-nav__link md-footer-nav__link--next" href="device_support.html" rel="next" title="Device support">
+      <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+       <span class="md-flex__ellipsis">
+        <span class="md-footer-nav__direction">
+         Next
+        </span>
+        Device support
+       </span>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+       <i class="md-icon md-icon--arrow-forward md-footer-nav__button">
+       </i>
+      </div>
+     </a>
+    </nav>
+   </div>
+   <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+     <div class="md-footer-copyright">
+      <div class="md-footer-copyright__highlight">
+       © Copyright 2020, Consortium for Python Data API Standards.
+      </div>
+      Created using
+      <a href="http://www.sphinx-doc.org/">
+       Sphinx
+      </a>
+      3.1.1.
+             and
+      <a href="https://github.com/bashtage/sphinx-material/">
+       Material for
+              Sphinx
+      </a>
+     </div>
+    </div>
+   </div>
+  </footer>
+  <script src="../_static/javascripts/application.js">
+  </script>
+  <script>
+   app.initialize({version: "1.0.4", url: {base: ".."}})
+  </script>
+ </body>
+</html>

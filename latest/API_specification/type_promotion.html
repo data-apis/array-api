@@ -1,0 +1,1373 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="Docutils 0.17: http://docutils.sourceforge.net/" name="generator"/>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <meta content="ie=edge" http-equiv="x-ua-compatible"/>
+  <meta content="Copy to clipboard" name="lang:clipboard.copy"/>
+  <meta content="Copied to clipboard" name="lang:clipboard.copied"/>
+  <meta content="en" name="lang:search.language"/>
+  <meta content="True" name="lang:search.pipeline.stopwords"/>
+  <meta content="True" name="lang:search.pipeline.trimmer"/>
+  <meta content="No matching documents" name="lang:search.result.none"/>
+  <meta content="1 matching document" name="lang:search.result.one"/>
+  <meta content="# matching documents" name="lang:search.result.other"/>
+  <meta content="[\s\-]+" name="lang:search.tokenizer"/>
+  <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700|Roboto:300,400,400i,700&amp;display=fallback" rel="stylesheet"/>
+  <style>
+   body,
+      input {
+        font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif
+      }
+
+      code,
+      kbd,
+      pre {
+        font-family: "Roboto Mono", "Courier New", Courier, monospace
+      }
+  </style>
+  <link href="../_static/stylesheets/application.css" rel="stylesheet"/>
+  <link href="../_static/stylesheets/application-palette.css" rel="stylesheet"/>
+  <link href="../_static/stylesheets/application-fixes.css" rel="stylesheet"/>
+  <link href="../_static/fonts/material-icons.css" rel="stylesheet"/>
+  <meta content="#2196f3" name="theme-color"/>
+  <script src="../_static/javascripts/modernizr.js">
+  </script>
+  <link href="../_static/images/apple-icon-152x152.png" rel="apple-touch-icon"/>
+  <title>
+   Type Promotion Rules — Python array API standard 2021.01-DRAFT documentation
+  </title>
+  <link href="../_static/material.css" rel="stylesheet" type="text/css"/>
+  <link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+  <link href="../_static/copybutton.css" rel="stylesheet" type="text/css"/>
+  <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js">
+  </script>
+  <script src="../_static/jquery.js">
+  </script>
+  <script src="../_static/underscore.js">
+  </script>
+  <script src="../_static/doctools.js">
+  </script>
+  <script src="../_static/language_data.js">
+  </script>
+  <script src="../_static/clipboard.min.js">
+  </script>
+  <script src="../_static/copybutton.js">
+  </script>
+  <link href="../genindex.html" rel="index" title="Index"/>
+  <link href="../search.html" rel="search" title="Search"/>
+  <link href="broadcasting.html" rel="next" title="Broadcasting"/>
+  <link href="data_type_functions.html" rel="prev" title="Data type functions"/>
+  <link href="../_static/images/apple-icon-152x152.png" rel="apple-touch-icon"/>
+ </head>
+ <body data-md-color-accent="green" data-md-color-primary="indigo" dir="ltr">
+  <svg class="md-svg">
+   <defs data-children-count="0">
+    <svg height="448" id="__github" viewbox="0 0 416 448" width="416" xmlns="http://www.w3.org/2000/svg">
+     <path d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z" fill="currentColor">
+     </path>
+    </svg>
+   </defs>
+  </svg>
+  <input class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+  <input class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+  <label class="md-overlay" data-md-component="overlay" for="__drawer">
+  </label>
+  <a class="md-skip" href="#API_specification/type_promotion" tabindex="1">
+   Skip to content
+  </a>
+  <header class="md-header" data-md-component="header">
+   <nav class="md-header-nav md-grid">
+    <div class="md-flex navheader">
+     <div class="md-flex__cell md-flex__cell--shrink">
+      <a class="md-header-nav__button md-logo" href="../index.html" title="Python array API standard 2021.01-DRAFT documentation">
+       <i class="md-icon">
+        
+       </i>
+      </a>
+     </div>
+     <div class="md-flex__cell md-flex__cell--shrink">
+      <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer">
+      </label>
+     </div>
+     <div class="md-flex__cell md-flex__cell--stretch">
+      <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+       <span class="md-header-nav__topic">
+        Python array API standard
+       </span>
+       <span class="md-header-nav__topic">
+        Type Promotion Rules
+       </span>
+      </div>
+     </div>
+     <div class="md-flex__cell md-flex__cell--shrink">
+      <label class="md-icon md-icon--search md-header-nav__button" for="__search">
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+       <label class="md-search__overlay" for="__search">
+       </label>
+       <div class="md-search__inner" role="search">
+        <form action="../search.html" class="md-search__form" method="GET" name="search">
+         <input autocapitalize="off" autocomplete="off" class="md-search__input" data-md-component="query" data-md-state="active" name="q" placeholder="Search" spellcheck="false" type="text"/>
+         <label class="md-icon md-search__icon" for="__search">
+         </label>
+         <button class="md-icon md-search__icon" data-md-component="reset" tabindex="-1" type="reset">
+          
+         </button>
+        </form>
+        <div class="md-search__output">
+         <div class="md-search__scrollwrap" data-md-scrollfix="">
+          <div class="md-search-result" data-md-component="result">
+           <div class="md-search-result__meta">
+            Type to start searching
+           </div>
+           <ol class="md-search-result__list">
+           </ol>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+     <script src="../_static/javascripts/version_dropdown.js">
+     </script>
+     <script>
+      var json_loc = "../"versions.json"",
+        target_loc = "../../",
+        text = "Versions";
+    $( document ).ready( add_version_dropdown(json_loc, target_loc, text));
+     </script>
+    </div>
+   </nav>
+  </header>
+  <div class="md-container">
+   <nav class="md-tabs" data-md-component="tabs">
+    <div class="md-tabs__inner md-grid">
+     <ul class="md-tabs__list">
+      <li class="md-tabs__item">
+       <a class="md-tabs__link" href="../index.html">
+        Array API standard
+       </a>
+      </li>
+      <li class="md-tabs__item">
+       <a class="md-tabs__link" href="https://data-apis.org">
+        Consortium for Python Data API Standards
+       </a>
+      </li>
+      <li class="md-tabs__item">
+       <a class="md-tabs__link" href="index.html">
+        API specification
+       </a>
+      </li>
+     </ul>
+    </div>
+   </nav>
+   <main class="md-main">
+    <div class="md-main__inner md-grid" data-md-component="container">
+     <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+      <div class="md-sidebar__scrollwrap">
+       <div class="md-sidebar__inner">
+        <nav class="md-nav md-nav--primary" data-md-level="0">
+         <label class="md-nav__title md-nav__title--site" for="__drawer">
+          <a class="md-nav__button md-logo" href="../index.html" title="Python array API standard 2021.01-DRAFT documentation">
+           <i class="md-icon">
+            
+           </i>
+          </a>
+          <a href="../index.html" title="Python array API standard 2021.01-DRAFT documentation">
+           Python array API standard
+          </a>
+         </label>
+         <ul class="md-nav__list">
+          <li class="md-nav__item">
+           <span class="md-nav__link caption">
+            <span class="caption-text">
+             Context
+            </span>
+           </span>
+          </li>
+          <li class="md-nav__item">
+           <a class="md-nav__link" href="../purpose_and_scope.html">
+            Purpose and scope
+           </a>
+          </li>
+          <li class="md-nav__item">
+           <a class="md-nav__link" href="../use_cases.html">
+            Use cases
+           </a>
+          </li>
+          <li class="md-nav__item">
+           <a class="md-nav__link" href="../assumptions.html">
+            Assumptions
+           </a>
+          </li>
+          <li class="md-nav__item">
+           <span class="md-nav__link caption">
+            <span class="caption-text">
+             API
+            </span>
+           </span>
+          </li>
+          <li class="md-nav__item">
+           <a class="md-nav__link" href="../design_topics/index.html">
+            Design topics &amp; constraints
+           </a>
+          </li>
+          <li class="md-nav__item">
+           <a class="md-nav__link" href="../future_API_evolution.html">
+            Future API standard evolution
+           </a>
+          </li>
+          <li class="md-nav__item">
+           <a class="md-nav__link" href="index.html">
+            API specification
+           </a>
+           <ul class="md-nav__list">
+            <li class="md-nav__item">
+             <a class="md-nav__link" href="function_and_method_signatures.html">
+              Function and method signatures
+             </a>
+            </li>
+            <li class="md-nav__item">
+             <a class="md-nav__link" href="array_object.html">
+              Array object
+             </a>
+            </li>
+            <li class="md-nav__item">
+             <a class="md-nav__link" href="indexing.html">
+              Indexing
+             </a>
+            </li>
+            <li class="md-nav__item">
+             <a class="md-nav__link" href="data_types.html">
+              Data Types
+             </a>
+            </li>
+            <li class="md-nav__item">
+             <a class="md-nav__link" href="data_type_functions.html">
+              Data type functions
+             </a>
+            </li>
+            <li class="md-nav__item">
+             <input class="md-toggle md-nav__toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+             <label class="md-nav__link md-nav__link--active" for="__toc">
+              Type Promotion Rules
+             </label>
+             <a class="md-nav__link md-nav__link--active" href="#">
+              Type Promotion Rules
+             </a>
+             <nav class="md-nav md-nav--secondary">
+              <label class="md-nav__title" for="__toc">
+               Contents
+              </label>
+              <ul class="md-nav__list" data-md-scrollfix="">
+               <li class="md-nav__item">
+                <a class="md-nav__link" href="#api-specification-type-promotion--page-root">
+                 Type Promotion Rules
+                </a>
+                <nav class="md-nav">
+                 <ul class="md-nav__list">
+                  <li class="md-nav__item">
+                   <a class="md-nav__link" href="#rules">
+                    Rules
+                   </a>
+                   <nav class="md-nav">
+                    <ul class="md-nav__list">
+                     <li class="md-nav__item">
+                      <a class="md-nav__link" href="#signed-integer-type-promotion-table">
+                       Signed integer type promotion table
+                      </a>
+                     </li>
+                     <li class="md-nav__item">
+                      <a class="md-nav__link" href="#unsigned-integer-type-promotion-table">
+                       Unsigned integer type promotion table
+                      </a>
+                     </li>
+                     <li class="md-nav__item">
+                      <a class="md-nav__link" href="#mixed-unsigned-and-signed-integer-type-promotion-table">
+                       Mixed unsigned and signed integer type promotion table
+                      </a>
+                     </li>
+                     <li class="md-nav__item">
+                      <a class="md-nav__link" href="#floating-point-type-promotion-table">
+                       Floating-point type promotion table
+                      </a>
+                     </li>
+                     <li class="md-nav__item">
+                      <a class="md-nav__link" href="#notes">
+                       Notes
+                      </a>
+                     </li>
+                     <li class="md-nav__item">
+                      <a class="md-nav__link" href="#mixing-arrays-with-python-scalars">
+                       Mixing arrays with Python scalars
+                      </a>
+                     </li>
+                    </ul>
+                   </nav>
+                  </li>
+                 </ul>
+                </nav>
+               </li>
+              </ul>
+             </nav>
+            </li>
+            <li class="md-nav__item">
+             <a class="md-nav__link" href="broadcasting.html">
+              Broadcasting
+             </a>
+            </li>
+            <li class="md-nav__item">
+             <a class="md-nav__link" href="creation_functions.html">
+              Creation Functions
+             </a>
+            </li>
+            <li class="md-nav__item">
+             <a class="md-nav__link" href="manipulation_functions.html">
+              Manipulation Functions
+             </a>
+            </li>
+            <li class="md-nav__item">
+             <a class="md-nav__link" href="elementwise_functions.html">
+              Element-wise Functions
+             </a>
+            </li>
+            <li class="md-nav__item">
+             <a class="md-nav__link" href="statistical_functions.html">
+              Statistical Functions
+             </a>
+            </li>
+            <li class="md-nav__item">
+             <a class="md-nav__link" href="linear_algebra_functions.html">
+              Linear Algebra Functions
+             </a>
+            </li>
+            <li class="md-nav__item">
+             <a class="md-nav__link" href="searching_functions.html">
+              Searching Functions
+             </a>
+            </li>
+            <li class="md-nav__item">
+             <a class="md-nav__link" href="sorting_functions.html">
+              Sorting Functions
+             </a>
+            </li>
+            <li class="md-nav__item">
+             <a class="md-nav__link" href="set_functions.html">
+              Set Functions
+             </a>
+            </li>
+            <li class="md-nav__item">
+             <a class="md-nav__link" href="utility_functions.html">
+              Utility Functions
+             </a>
+            </li>
+            <li class="md-nav__item">
+             <a class="md-nav__link" href="constants.html">
+              Constants
+             </a>
+            </li>
+           </ul>
+          </li>
+          <li class="md-nav__item">
+           <span class="md-nav__link caption">
+            <span class="caption-text">
+             Methodology and Usage
+            </span>
+           </span>
+          </li>
+          <li class="md-nav__item">
+           <a class="md-nav__link" href="../usage_data.html">
+            Usage Data
+           </a>
+          </li>
+          <li class="md-nav__item">
+           <a class="md-nav__link" href="../verification_test_suite.html">
+            Verification - test suite
+           </a>
+          </li>
+          <li class="md-nav__item">
+           <a class="md-nav__link" href="../benchmark_suite.html">
+            Benchmark suite
+           </a>
+          </li>
+         </ul>
+        </nav>
+       </div>
+      </div>
+     </div>
+     <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+      <div class="md-sidebar__scrollwrap">
+       <div class="md-sidebar__inner">
+        <nav class="md-nav md-nav--secondary">
+         <label class="md-nav__title" for="__toc">
+          Contents
+         </label>
+         <ul class="md-nav__list" data-md-scrollfix="">
+          <li class="md-nav__item">
+           <a class="md-nav__link" href="#api-specification-type-promotion--page-root">
+            Type Promotion Rules
+           </a>
+           <nav class="md-nav">
+            <ul class="md-nav__list">
+             <li class="md-nav__item">
+              <a class="md-nav__link" href="#rules">
+               Rules
+              </a>
+              <nav class="md-nav">
+               <ul class="md-nav__list">
+                <li class="md-nav__item">
+                 <a class="md-nav__link" href="#signed-integer-type-promotion-table">
+                  Signed integer type promotion table
+                 </a>
+                </li>
+                <li class="md-nav__item">
+                 <a class="md-nav__link" href="#unsigned-integer-type-promotion-table">
+                  Unsigned integer type promotion table
+                 </a>
+                </li>
+                <li class="md-nav__item">
+                 <a class="md-nav__link" href="#mixed-unsigned-and-signed-integer-type-promotion-table">
+                  Mixed unsigned and signed integer type promotion table
+                 </a>
+                </li>
+                <li class="md-nav__item">
+                 <a class="md-nav__link" href="#floating-point-type-promotion-table">
+                  Floating-point type promotion table
+                 </a>
+                </li>
+                <li class="md-nav__item">
+                 <a class="md-nav__link" href="#notes">
+                  Notes
+                 </a>
+                </li>
+                <li class="md-nav__item">
+                 <a class="md-nav__link" href="#mixing-arrays-with-python-scalars">
+                  Mixing arrays with Python scalars
+                 </a>
+                </li>
+               </ul>
+              </nav>
+             </li>
+            </ul>
+           </nav>
+          </li>
+         </ul>
+        </nav>
+       </div>
+      </div>
+     </div>
+     <div class="md-content">
+      <article class="md-content__inner md-typeset" role="main">
+       <section id="type-promotion-rules">
+        <span id="type-promotion">
+        </span>
+        <h1 id="api-specification-type-promotion--page-root">
+         Type Promotion Rules
+         <a class="headerlink" href="#api-specification-type-promotion--page-root" title="Permalink to this headline">
+          ¶
+         </a>
+        </h1>
+        <blockquote>
+         <div>
+          <p>
+           Array API specification for type promotion rules.
+          </p>
+         </div>
+        </blockquote>
+        <p>
+         Type promotion rules can be understood at a high level from the following
+diagram:
+        </p>
+        <p>
+         <img alt="Type promotion diagram" src="../_images/dtype_promotion_lattice.png"/>
+        </p>
+        <p>
+         <em>
+          Type promotion diagram. Promotion between any two types is given by their join on this lattice. Only the types of participating arrays matter, not their values. Dashed lines indicate that behavior for Python scalars is undefined on overflow. Boolean, integer and floating-point dtypes are not connected, indicating mixed-kind promotion is undefined.
+         </em>
+        </p>
+        <section id="rules">
+         <h2 id="rules">
+          Rules
+          <a class="headerlink" href="#rules" title="Permalink to this headline">
+           ¶
+          </a>
+         </h2>
+         <p>
+          A conforming implementation of the array API standard must implement the following type promotion rules governing the common result type for two
+          <strong>
+           array
+          </strong>
+          operands during an arithmetic operation.
+         </p>
+         <p>
+          A conforming implementation of the array API standard may support additional type promotion rules beyond those described in this specification.
+         </p>
+         <div class="admonition note">
+          <p class="admonition-title">
+           Note
+          </p>
+          <p>
+           Type codes are used here to keep tables readable; they are not part of the standard.
+In code, use the data type objects specified in
+           <a class="reference internal" href="data_types.html#data-types">
+            <span class="std std-ref">
+             Data Types
+            </span>
+           </a>
+           (e.g.,
+           <code class="docutils literal notranslate">
+            <span class="pre">
+             int16
+            </span>
+           </code>
+           rather than
+           <code class="docutils literal notranslate">
+            <span class="pre">
+             'i2'
+            </span>
+           </code>
+           ).
+          </p>
+         </div>
+         <!-- Note: please keep table columns aligned -->
+         <p>
+          The following type promotion tables specify the casting behavior for
+operations involving two array operands. When more than two array operands
+participate, application of the promotion tables is associative (i.e., the
+result does not depend on operand order).
+         </p>
+         <section id="signed-integer-type-promotion-table">
+          <h3 id="signed-integer-type-promotion-table">
+           Signed integer type promotion table
+           <a class="headerlink" href="#signed-integer-type-promotion-table" title="Permalink to this headline">
+            ¶
+           </a>
+          </h3>
+          <table border="1">
+           <thead>
+            <tr>
+             <th>
+             </th>
+             <th>
+              i1
+             </th>
+             <th>
+              i2
+             </th>
+             <th>
+              i4
+             </th>
+             <th>
+              i8
+             </th>
+            </tr>
+           </thead>
+           <tbody>
+            <tr>
+             <td>
+              <strong>
+               i1
+              </strong>
+             </td>
+             <td>
+              i1
+             </td>
+             <td>
+              i2
+             </td>
+             <td>
+              i4
+             </td>
+             <td>
+              i8
+             </td>
+            </tr>
+            <tr>
+             <td>
+              <strong>
+               i2
+              </strong>
+             </td>
+             <td>
+              i2
+             </td>
+             <td>
+              i2
+             </td>
+             <td>
+              i4
+             </td>
+             <td>
+              i8
+             </td>
+            </tr>
+            <tr>
+             <td>
+              <strong>
+               i4
+              </strong>
+             </td>
+             <td>
+              i4
+             </td>
+             <td>
+              i4
+             </td>
+             <td>
+              i4
+             </td>
+             <td>
+              i8
+             </td>
+            </tr>
+            <tr>
+             <td>
+              <strong>
+               i8
+              </strong>
+             </td>
+             <td>
+              i8
+             </td>
+             <td>
+              i8
+             </td>
+             <td>
+              i8
+             </td>
+             <td>
+              i8
+             </td>
+            </tr>
+           </tbody>
+          </table>
+          <p>
+           where
+          </p>
+          <ul class="simple">
+           <li>
+            <p>
+             <strong>
+              i1
+             </strong>
+             : 8-bit signed integer (i.e.,
+             <code class="docutils literal notranslate">
+              <span class="pre">
+               int8
+              </span>
+             </code>
+             )
+            </p>
+           </li>
+           <li>
+            <p>
+             <strong>
+              i2
+             </strong>
+             : 16-bit signed integer (i.e.,
+             <code class="docutils literal notranslate">
+              <span class="pre">
+               int16
+              </span>
+             </code>
+             )
+            </p>
+           </li>
+           <li>
+            <p>
+             <strong>
+              i4
+             </strong>
+             : 32-bit signed integer (i.e.,
+             <code class="docutils literal notranslate">
+              <span class="pre">
+               int32
+              </span>
+             </code>
+             )
+            </p>
+           </li>
+           <li>
+            <p>
+             <strong>
+              i8
+             </strong>
+             : 64-bit signed integer (i.e.,
+             <code class="docutils literal notranslate">
+              <span class="pre">
+               int64
+              </span>
+             </code>
+             )
+            </p>
+           </li>
+          </ul>
+         </section>
+         <section id="unsigned-integer-type-promotion-table">
+          <h3 id="unsigned-integer-type-promotion-table">
+           Unsigned integer type promotion table
+           <a class="headerlink" href="#unsigned-integer-type-promotion-table" title="Permalink to this headline">
+            ¶
+           </a>
+          </h3>
+          <table border="1">
+           <thead>
+            <tr>
+             <th>
+             </th>
+             <th>
+              u1
+             </th>
+             <th>
+              u2
+             </th>
+             <th>
+              u4
+             </th>
+             <th>
+              u8
+             </th>
+            </tr>
+           </thead>
+           <tbody>
+            <tr>
+             <td>
+              <strong>
+               u1
+              </strong>
+             </td>
+             <td>
+              u1
+             </td>
+             <td>
+              u2
+             </td>
+             <td>
+              u4
+             </td>
+             <td>
+              u8
+             </td>
+            </tr>
+            <tr>
+             <td>
+              <strong>
+               u2
+              </strong>
+             </td>
+             <td>
+              u2
+             </td>
+             <td>
+              u2
+             </td>
+             <td>
+              u4
+             </td>
+             <td>
+              u8
+             </td>
+            </tr>
+            <tr>
+             <td>
+              <strong>
+               u4
+              </strong>
+             </td>
+             <td>
+              u4
+             </td>
+             <td>
+              u4
+             </td>
+             <td>
+              u4
+             </td>
+             <td>
+              u8
+             </td>
+            </tr>
+            <tr>
+             <td>
+              <strong>
+               u8
+              </strong>
+             </td>
+             <td>
+              u8
+             </td>
+             <td>
+              u8
+             </td>
+             <td>
+              u8
+             </td>
+             <td>
+              u8
+             </td>
+            </tr>
+           </tbody>
+          </table>
+          <p>
+           where
+          </p>
+          <ul class="simple">
+           <li>
+            <p>
+             <strong>
+              u1
+             </strong>
+             : 8-bit unsigned integer (i.e.,
+             <code class="docutils literal notranslate">
+              <span class="pre">
+               uint8
+              </span>
+             </code>
+             )
+            </p>
+           </li>
+           <li>
+            <p>
+             <strong>
+              u2
+             </strong>
+             : 16-bit unsigned integer (i.e.,
+             <code class="docutils literal notranslate">
+              <span class="pre">
+               uint16
+              </span>
+             </code>
+             )
+            </p>
+           </li>
+           <li>
+            <p>
+             <strong>
+              u4
+             </strong>
+             : 32-bit unsigned integer (i.e.,
+             <code class="docutils literal notranslate">
+              <span class="pre">
+               uint32
+              </span>
+             </code>
+             )
+            </p>
+           </li>
+           <li>
+            <p>
+             <strong>
+              u8
+             </strong>
+             : 64-bit unsigned integer (i.e.,
+             <code class="docutils literal notranslate">
+              <span class="pre">
+               uint64
+              </span>
+             </code>
+             )
+            </p>
+           </li>
+          </ul>
+         </section>
+         <section id="mixed-unsigned-and-signed-integer-type-promotion-table">
+          <h3 id="mixed-unsigned-and-signed-integer-type-promotion-table">
+           Mixed unsigned and signed integer type promotion table
+           <a class="headerlink" href="#mixed-unsigned-and-signed-integer-type-promotion-table" title="Permalink to this headline">
+            ¶
+           </a>
+          </h3>
+          <table border="1">
+           <thead>
+            <tr>
+             <th>
+             </th>
+             <th>
+              u1
+             </th>
+             <th>
+              u2
+             </th>
+             <th>
+              u4
+             </th>
+            </tr>
+           </thead>
+           <tbody>
+            <tr>
+             <td>
+              <strong>
+               i1
+              </strong>
+             </td>
+             <td>
+              i2
+             </td>
+             <td>
+              i4
+             </td>
+             <td>
+              i8
+             </td>
+            </tr>
+            <tr>
+             <td>
+              <strong>
+               i2
+              </strong>
+             </td>
+             <td>
+              i2
+             </td>
+             <td>
+              i4
+             </td>
+             <td>
+              i8
+             </td>
+            </tr>
+            <tr>
+             <td>
+              <strong>
+               i4
+              </strong>
+             </td>
+             <td>
+              i4
+             </td>
+             <td>
+              i4
+             </td>
+             <td>
+              i8
+             </td>
+            </tr>
+           </tbody>
+          </table>
+         </section>
+         <section id="floating-point-type-promotion-table">
+          <h3 id="floating-point-type-promotion-table">
+           Floating-point type promotion table
+           <a class="headerlink" href="#floating-point-type-promotion-table" title="Permalink to this headline">
+            ¶
+           </a>
+          </h3>
+          <table border="1">
+           <thead>
+            <tr>
+             <th>
+             </th>
+             <th>
+              f4
+             </th>
+             <th>
+              f8
+             </th>
+            </tr>
+           </thead>
+           <tbody>
+            <tr>
+             <td>
+              <strong>
+               f4
+              </strong>
+             </td>
+             <td>
+              f4
+             </td>
+             <td>
+              f8
+             </td>
+            </tr>
+            <tr>
+             <td>
+              <strong>
+               f8
+              </strong>
+             </td>
+             <td>
+              f8
+             </td>
+             <td>
+              f8
+             </td>
+            </tr>
+           </tbody>
+          </table>
+          <p>
+           where
+          </p>
+          <ul class="simple">
+           <li>
+            <p>
+             <strong>
+              f4
+             </strong>
+             : single-precision (32-bit) floating-point number (i.e.,
+             <code class="docutils literal notranslate">
+              <span class="pre">
+               float32
+              </span>
+             </code>
+             )
+            </p>
+           </li>
+           <li>
+            <p>
+             <strong>
+              f8
+             </strong>
+             : double-precision (64-bit) floating-point number (i.e.,
+             <code class="docutils literal notranslate">
+              <span class="pre">
+               float64
+              </span>
+             </code>
+             )
+            </p>
+           </li>
+          </ul>
+         </section>
+         <section id="notes">
+          <h3 id="notes">
+           Notes
+           <a class="headerlink" href="#notes" title="Permalink to this headline">
+            ¶
+           </a>
+          </h3>
+          <ul class="simple">
+           <li>
+            <p>
+             Type promotion rules must apply when determining the common result type for two
+             <strong>
+              array
+             </strong>
+             operands during an arithmetic operation, regardless of array dimension. Accordingly, zero-dimensional arrays must be subject to the same type promotion rules as dimensional arrays.
+            </p>
+           </li>
+           <li>
+            <p>
+             Type promotion of non-numerical data types to numerical data types is unspecified (e.g.,
+             <code class="docutils literal notranslate">
+              <span class="pre">
+               bool
+              </span>
+             </code>
+             to
+             <code class="docutils literal notranslate">
+              <span class="pre">
+               intxx
+              </span>
+             </code>
+             or
+             <code class="docutils literal notranslate">
+              <span class="pre">
+               floatxx
+              </span>
+             </code>
+             ).
+            </p>
+           </li>
+          </ul>
+          <div class="admonition note">
+           <p class="admonition-title">
+            Note
+           </p>
+           <p>
+            Mixed integer and floating-point type promotion rules are not specified
+because behavior varies between implementations.
+           </p>
+          </div>
+         </section>
+         <section id="mixing-arrays-with-python-scalars">
+          <h3 id="mixing-arrays-with-python-scalars">
+           Mixing arrays with Python scalars
+           <a class="headerlink" href="#mixing-arrays-with-python-scalars" title="Permalink to this headline">
+            ¶
+           </a>
+          </h3>
+          <p>
+           Using Python scalars (i.e., instances of
+           <code class="docutils literal notranslate">
+            <span class="pre">
+             bool
+            </span>
+           </code>
+           ,
+           <code class="docutils literal notranslate">
+            <span class="pre">
+             int
+            </span>
+           </code>
+           ,
+           <code class="docutils literal notranslate">
+            <span class="pre">
+             float
+            </span>
+           </code>
+           ) together with
+arrays must be supported for:
+          </p>
+          <ul class="simple">
+           <li>
+            <p>
+             <code class="docutils literal notranslate">
+              <span class="pre">
+               array
+              </span>
+              <span class="pre">
+               &lt;op&gt;
+              </span>
+              <span class="pre">
+               scalar
+              </span>
+             </code>
+            </p>
+           </li>
+           <li>
+            <p>
+             <code class="docutils literal notranslate">
+              <span class="pre">
+               scalar
+              </span>
+              <span class="pre">
+               &lt;op&gt;
+              </span>
+              <span class="pre">
+               array
+              </span>
+             </code>
+            </p>
+           </li>
+          </ul>
+          <p>
+           where
+           <code class="docutils literal notranslate">
+            <span class="pre">
+             &lt;op&gt;
+            </span>
+           </code>
+           is a built-in operator (see
+           <a class="reference internal" href="array_object.html#operators">
+            <span class="std std-ref">
+             Operators
+            </span>
+           </a>
+           for operators
+supported by the array object) and
+           <code class="docutils literal notranslate">
+            <span class="pre">
+             scalar
+            </span>
+           </code>
+           has a compatible type and value
+to the array dtype:
+          </p>
+          <ul class="simple">
+           <li>
+            <p>
+             Python
+             <code class="docutils literal notranslate">
+              <span class="pre">
+               bool
+              </span>
+             </code>
+             for a
+             <code class="docutils literal notranslate">
+              <span class="pre">
+               bool
+              </span>
+             </code>
+             array dtype,
+            </p>
+           </li>
+           <li>
+            <p>
+             a Python
+             <code class="docutils literal notranslate">
+              <span class="pre">
+               int
+              </span>
+             </code>
+             within the
+             <a class="reference internal" href="data_types.html#data-types">
+              <span class="std std-ref">
+               bounds
+              </span>
+             </a>
+             of the given dtype for integer array dtypes,
+            </p>
+           </li>
+           <li>
+            <p>
+             a Python
+             <code class="docutils literal notranslate">
+              <span class="pre">
+               int
+              </span>
+             </code>
+             or
+             <code class="docutils literal notranslate">
+              <span class="pre">
+               float
+              </span>
+             </code>
+             for floating-point array dtypes
+The expected behavior is then equivalent to:
+            </p>
+           </li>
+          </ul>
+          <ol class="simple">
+           <li>
+            <p>
+             Convert the scalar to a 0-D array with the same dtype as that of the array
+used in the expression.
+            </p>
+           </li>
+           <li>
+            <p>
+             Execute the operation for
+             <code class="docutils literal notranslate">
+              <span class="pre">
+               array
+              </span>
+              <span class="pre">
+               &lt;op&gt;
+              </span>
+              <span class="pre">
+               0-D
+              </span>
+              <span class="pre">
+               array
+              </span>
+             </code>
+             (or
+             <code class="docutils literal notranslate">
+              <span class="pre">
+               0-D
+              </span>
+              <span class="pre">
+               array
+              </span>
+              <span class="pre">
+               &lt;op&gt;
+              </span>
+              <span class="pre">
+               array
+              </span>
+             </code>
+             if
+             <code class="docutils literal notranslate">
+              <span class="pre">
+               scalar
+              </span>
+             </code>
+             was the left-hand argument).
+            </p>
+           </li>
+          </ol>
+          <div class="admonition note">
+           <p class="admonition-title">
+            Note
+           </p>
+           <p>
+            Behaviour is not specified when mixing a Python
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              float
+             </span>
+            </code>
+            and an array with an
+integer dtype; this may give
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              float32
+             </span>
+            </code>
+            ,
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              float64
+             </span>
+            </code>
+            , or raise an exception -
+behavior of implementations will differ.
+           </p>
+           <p>
+            The behavior is also not specified for integers outside of the bounds of a
+given integer dtype. It may overflow, or result in an error.
+           </p>
+          </div>
+         </section>
+        </section>
+       </section>
+      </article>
+     </div>
+    </div>
+   </main>
+  </div>
+  <footer class="md-footer">
+   <div class="md-footer-nav">
+    <nav class="md-footer-nav__inner md-grid">
+     <a class="md-flex md-footer-nav__link md-footer-nav__link--prev" href="data_type_functions.html" rel="prev" title="Data type functions">
+      <div class="md-flex__cell md-flex__cell--shrink">
+       <i class="md-icon md-icon--arrow-back md-footer-nav__button">
+       </i>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+       <span class="md-flex__ellipsis">
+        <span class="md-footer-nav__direction">
+         Previous
+        </span>
+        Data type functions
+       </span>
+      </div>
+     </a>
+     <a class="md-flex md-footer-nav__link md-footer-nav__link--next" href="broadcasting.html" rel="next" title="Broadcasting">
+      <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+       <span class="md-flex__ellipsis">
+        <span class="md-footer-nav__direction">
+         Next
+        </span>
+        Broadcasting
+       </span>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+       <i class="md-icon md-icon--arrow-forward md-footer-nav__button">
+       </i>
+      </div>
+     </a>
+    </nav>
+   </div>
+   <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+     <div class="md-footer-copyright">
+      <div class="md-footer-copyright__highlight">
+       © Copyright 2020, Consortium for Python Data API Standards.
+      </div>
+      Created using
+      <a href="http://www.sphinx-doc.org/">
+       Sphinx
+      </a>
+      3.1.1.
+             and
+      <a href="https://github.com/bashtage/sphinx-material/">
+       Material for
+              Sphinx
+      </a>
+     </div>
+    </div>
+   </div>
+  </footer>
+  <script src="../_static/javascripts/application.js">
+  </script>
+  <script>
+   app.initialize({version: "1.0.4", url: {base: ".."}})
+  </script>
+ </body>
+</html>

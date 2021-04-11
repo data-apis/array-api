@@ -1,0 +1,1629 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="Docutils 0.17: http://docutils.sourceforge.net/" name="generator"/>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <meta content="ie=edge" http-equiv="x-ua-compatible"/>
+  <meta content="Copy to clipboard" name="lang:clipboard.copy"/>
+  <meta content="Copied to clipboard" name="lang:clipboard.copied"/>
+  <meta content="en" name="lang:search.language"/>
+  <meta content="True" name="lang:search.pipeline.stopwords"/>
+  <meta content="True" name="lang:search.pipeline.trimmer"/>
+  <meta content="No matching documents" name="lang:search.result.none"/>
+  <meta content="1 matching document" name="lang:search.result.one"/>
+  <meta content="# matching documents" name="lang:search.result.other"/>
+  <meta content="[\s\-]+" name="lang:search.tokenizer"/>
+  <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700|Roboto:300,400,400i,700&amp;display=fallback" rel="stylesheet"/>
+  <style>
+   body,
+      input {
+        font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif
+      }
+
+      code,
+      kbd,
+      pre {
+        font-family: "Roboto Mono", "Courier New", Courier, monospace
+      }
+  </style>
+  <link href="../_static/stylesheets/application.css" rel="stylesheet"/>
+  <link href="../_static/stylesheets/application-palette.css" rel="stylesheet"/>
+  <link href="../_static/stylesheets/application-fixes.css" rel="stylesheet"/>
+  <link href="../_static/fonts/material-icons.css" rel="stylesheet"/>
+  <meta content="#2196f3" name="theme-color"/>
+  <script src="../_static/javascripts/modernizr.js">
+  </script>
+  <link href="../_static/images/apple-icon-152x152.png" rel="apple-touch-icon"/>
+  <title>
+   API specification — Python array API standard 2021.01-DRAFT documentation
+  </title>
+  <link href="../_static/material.css" rel="stylesheet" type="text/css"/>
+  <link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+  <link href="../_static/copybutton.css" rel="stylesheet" type="text/css"/>
+  <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js">
+  </script>
+  <script src="../_static/jquery.js">
+  </script>
+  <script src="../_static/underscore.js">
+  </script>
+  <script src="../_static/doctools.js">
+  </script>
+  <script src="../_static/language_data.js">
+  </script>
+  <script src="../_static/clipboard.min.js">
+  </script>
+  <script src="../_static/copybutton.js">
+  </script>
+  <link href="../genindex.html" rel="index" title="Index"/>
+  <link href="../search.html" rel="search" title="Search"/>
+  <link href="function_and_method_signatures.html" rel="next" title="Function and method signatures"/>
+  <link href="../future_API_evolution.html" rel="prev" title="Future API standard evolution"/>
+  <link href="../_static/images/apple-icon-152x152.png" rel="apple-touch-icon"/>
+ </head>
+ <body data-md-color-accent="green" data-md-color-primary="indigo" dir="ltr">
+  <svg class="md-svg">
+   <defs data-children-count="0">
+    <svg height="448" id="__github" viewbox="0 0 416 448" width="416" xmlns="http://www.w3.org/2000/svg">
+     <path d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z" fill="currentColor">
+     </path>
+    </svg>
+   </defs>
+  </svg>
+  <input class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+  <input class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+  <label class="md-overlay" data-md-component="overlay" for="__drawer">
+  </label>
+  <a class="md-skip" href="#API_specification/index" tabindex="1">
+   Skip to content
+  </a>
+  <header class="md-header" data-md-component="header">
+   <nav class="md-header-nav md-grid">
+    <div class="md-flex navheader">
+     <div class="md-flex__cell md-flex__cell--shrink">
+      <a class="md-header-nav__button md-logo" href="../index.html" title="Python array API standard 2021.01-DRAFT documentation">
+       <i class="md-icon">
+        
+       </i>
+      </a>
+     </div>
+     <div class="md-flex__cell md-flex__cell--shrink">
+      <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer">
+      </label>
+     </div>
+     <div class="md-flex__cell md-flex__cell--stretch">
+      <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+       <span class="md-header-nav__topic">
+        Python array API standard
+       </span>
+       <span class="md-header-nav__topic">
+        API specification
+       </span>
+      </div>
+     </div>
+     <div class="md-flex__cell md-flex__cell--shrink">
+      <label class="md-icon md-icon--search md-header-nav__button" for="__search">
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+       <label class="md-search__overlay" for="__search">
+       </label>
+       <div class="md-search__inner" role="search">
+        <form action="../search.html" class="md-search__form" method="GET" name="search">
+         <input autocapitalize="off" autocomplete="off" class="md-search__input" data-md-component="query" data-md-state="active" name="q" placeholder="Search" spellcheck="false" type="text"/>
+         <label class="md-icon md-search__icon" for="__search">
+         </label>
+         <button class="md-icon md-search__icon" data-md-component="reset" tabindex="-1" type="reset">
+          
+         </button>
+        </form>
+        <div class="md-search__output">
+         <div class="md-search__scrollwrap" data-md-scrollfix="">
+          <div class="md-search-result" data-md-component="result">
+           <div class="md-search-result__meta">
+            Type to start searching
+           </div>
+           <ol class="md-search-result__list">
+           </ol>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+     <script src="../_static/javascripts/version_dropdown.js">
+     </script>
+     <script>
+      var json_loc = "../"versions.json"",
+        target_loc = "../../",
+        text = "Versions";
+    $( document ).ready( add_version_dropdown(json_loc, target_loc, text));
+     </script>
+    </div>
+   </nav>
+  </header>
+  <div class="md-container">
+   <nav class="md-tabs" data-md-component="tabs">
+    <div class="md-tabs__inner md-grid">
+     <ul class="md-tabs__list">
+      <li class="md-tabs__item">
+       <a class="md-tabs__link" href="../index.html">
+        Array API standard
+       </a>
+      </li>
+      <li class="md-tabs__item">
+       <a class="md-tabs__link" href="https://data-apis.org">
+        Consortium for Python Data API Standards
+       </a>
+      </li>
+     </ul>
+    </div>
+   </nav>
+   <main class="md-main">
+    <div class="md-main__inner md-grid" data-md-component="container">
+     <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+      <div class="md-sidebar__scrollwrap">
+       <div class="md-sidebar__inner">
+        <nav class="md-nav md-nav--primary" data-md-level="0">
+         <label class="md-nav__title md-nav__title--site" for="__drawer">
+          <a class="md-nav__button md-logo" href="../index.html" title="Python array API standard 2021.01-DRAFT documentation">
+           <i class="md-icon">
+            
+           </i>
+          </a>
+          <a href="../index.html" title="Python array API standard 2021.01-DRAFT documentation">
+           Python array API standard
+          </a>
+         </label>
+         <ul class="md-nav__list">
+          <li class="md-nav__item">
+           <span class="md-nav__link caption">
+            <span class="caption-text">
+             Context
+            </span>
+           </span>
+          </li>
+          <li class="md-nav__item">
+           <a class="md-nav__link" href="../purpose_and_scope.html">
+            Purpose and scope
+           </a>
+          </li>
+          <li class="md-nav__item">
+           <a class="md-nav__link" href="../use_cases.html">
+            Use cases
+           </a>
+          </li>
+          <li class="md-nav__item">
+           <a class="md-nav__link" href="../assumptions.html">
+            Assumptions
+           </a>
+          </li>
+          <li class="md-nav__item">
+           <span class="md-nav__link caption">
+            <span class="caption-text">
+             API
+            </span>
+           </span>
+          </li>
+          <li class="md-nav__item">
+           <a class="md-nav__link" href="../design_topics/index.html">
+            Design topics &amp; constraints
+           </a>
+          </li>
+          <li class="md-nav__item">
+           <a class="md-nav__link" href="../future_API_evolution.html">
+            Future API standard evolution
+           </a>
+          </li>
+          <li class="md-nav__item">
+           <input class="md-toggle md-nav__toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+           <label class="md-nav__link md-nav__link--active" for="__toc">
+            API specification
+           </label>
+           <a class="md-nav__link md-nav__link--active" href="#">
+            API specification
+           </a>
+           <nav class="md-nav md-nav--secondary">
+            <ul class="md-nav__list" data-md-scrollfix="">
+            </ul>
+           </nav>
+           <ul class="md-nav__list">
+            <li class="md-nav__item">
+             <a class="md-nav__link" href="function_and_method_signatures.html">
+              Function and method signatures
+             </a>
+            </li>
+            <li class="md-nav__item">
+             <a class="md-nav__link" href="array_object.html">
+              Array object
+             </a>
+            </li>
+            <li class="md-nav__item">
+             <a class="md-nav__link" href="indexing.html">
+              Indexing
+             </a>
+            </li>
+            <li class="md-nav__item">
+             <a class="md-nav__link" href="data_types.html">
+              Data Types
+             </a>
+            </li>
+            <li class="md-nav__item">
+             <a class="md-nav__link" href="data_type_functions.html">
+              Data type functions
+             </a>
+            </li>
+            <li class="md-nav__item">
+             <a class="md-nav__link" href="type_promotion.html">
+              Type Promotion Rules
+             </a>
+            </li>
+            <li class="md-nav__item">
+             <a class="md-nav__link" href="broadcasting.html">
+              Broadcasting
+             </a>
+            </li>
+            <li class="md-nav__item">
+             <a class="md-nav__link" href="creation_functions.html">
+              Creation Functions
+             </a>
+            </li>
+            <li class="md-nav__item">
+             <a class="md-nav__link" href="manipulation_functions.html">
+              Manipulation Functions
+             </a>
+            </li>
+            <li class="md-nav__item">
+             <a class="md-nav__link" href="elementwise_functions.html">
+              Element-wise Functions
+             </a>
+            </li>
+            <li class="md-nav__item">
+             <a class="md-nav__link" href="statistical_functions.html">
+              Statistical Functions
+             </a>
+            </li>
+            <li class="md-nav__item">
+             <a class="md-nav__link" href="linear_algebra_functions.html">
+              Linear Algebra Functions
+             </a>
+            </li>
+            <li class="md-nav__item">
+             <a class="md-nav__link" href="searching_functions.html">
+              Searching Functions
+             </a>
+            </li>
+            <li class="md-nav__item">
+             <a class="md-nav__link" href="sorting_functions.html">
+              Sorting Functions
+             </a>
+            </li>
+            <li class="md-nav__item">
+             <a class="md-nav__link" href="set_functions.html">
+              Set Functions
+             </a>
+            </li>
+            <li class="md-nav__item">
+             <a class="md-nav__link" href="utility_functions.html">
+              Utility Functions
+             </a>
+            </li>
+            <li class="md-nav__item">
+             <a class="md-nav__link" href="constants.html">
+              Constants
+             </a>
+            </li>
+           </ul>
+          </li>
+          <li class="md-nav__item">
+           <span class="md-nav__link caption">
+            <span class="caption-text">
+             Methodology and Usage
+            </span>
+           </span>
+          </li>
+          <li class="md-nav__item">
+           <a class="md-nav__link" href="../usage_data.html">
+            Usage Data
+           </a>
+          </li>
+          <li class="md-nav__item">
+           <a class="md-nav__link" href="../verification_test_suite.html">
+            Verification - test suite
+           </a>
+          </li>
+          <li class="md-nav__item">
+           <a class="md-nav__link" href="../benchmark_suite.html">
+            Benchmark suite
+           </a>
+          </li>
+         </ul>
+        </nav>
+       </div>
+      </div>
+     </div>
+     <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+      <div class="md-sidebar__scrollwrap">
+       <div class="md-sidebar__inner">
+        <nav class="md-nav md-nav--secondary">
+         <ul class="md-nav__list" data-md-scrollfix="">
+         </ul>
+        </nav>
+       </div>
+      </div>
+     </div>
+     <div class="md-content">
+      <article class="md-content__inner md-typeset" role="main">
+       <section id="api-specification">
+        <span id="id1">
+        </span>
+        <h1 id="api-specification-index--page-root">
+         API specification
+         <a class="headerlink" href="#api-specification-index--page-root" title="Permalink to this headline">
+          ¶
+         </a>
+        </h1>
+        <div class="toctree-wrapper compound">
+         <p>
+          <span class="caption-text">
+           API specification
+          </span>
+         </p>
+         <ul>
+          <li class="toctree-l1">
+           <a class="reference internal" href="function_and_method_signatures.html">
+            Function and method signatures
+           </a>
+          </li>
+          <li class="toctree-l1">
+           <a class="reference internal" href="array_object.html">
+            Array object
+           </a>
+           <ul>
+            <li class="toctree-l2">
+             <a class="reference internal" href="array_object.html#operators">
+              Operators
+             </a>
+             <ul>
+              <li class="toctree-l3">
+               <a class="reference internal" href="array_object.html#in-place-operators">
+                In-place Operators
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="array_object.html#reflected-operators">
+                Reflected Operators
+               </a>
+              </li>
+             </ul>
+            </li>
+            <li class="toctree-l2">
+             <a class="reference internal" href="array_object.html#attributes">
+              Attributes
+             </a>
+             <ul>
+              <li class="toctree-l3">
+               <a class="reference internal" href="array_object.html#dtype">
+                dtype
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="array_object.html#device">
+                device
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="array_object.html#ndim">
+                ndim
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="array_object.html#shape">
+                shape
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="array_object.html#size">
+                size
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="array_object.html#t">
+                T
+               </a>
+              </li>
+             </ul>
+            </li>
+            <li class="toctree-l2">
+             <a class="reference internal" href="array_object.html#methods">
+              Methods
+             </a>
+             <ul>
+              <li class="toctree-l3">
+               <a class="reference internal" href="array_object.html#abs-self">
+                __abs__(self, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="array_object.html#add-self-other">
+                __add__(self, other, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="array_object.html#and-self-other">
+                __and__(self, other, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="array_object.html#array-namespace-self-api-version-none">
+                __array_namespace__(self, /, *, api_version=None)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="array_object.html#bool-self">
+                __bool__(self, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="array_object.html#dlpack-self-stream-none">
+                __dlpack__(self, /, *, stream=None)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="array_object.html#dlpack-device-self">
+                __dlpack_device__(self, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="array_object.html#eq-self-other">
+                __eq__(self, other, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="array_object.html#float-self">
+                __float__(self, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="array_object.html#floordiv-self-other">
+                __floordiv__(self, other, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="array_object.html#ge-self-other">
+                __ge__(self, other, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="array_object.html#getitem-self-key">
+                __getitem__(self, key, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="array_object.html#gt-self-other">
+                __gt__(self, other, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="array_object.html#int-self">
+                __int__(self, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="array_object.html#invert-self">
+                __invert__(self, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="array_object.html#le-self-other">
+                __le__(self, other, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="array_object.html#len-self">
+                __len__(self, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="array_object.html#lshift-self-other">
+                __lshift__(self, other, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="array_object.html#lt-self-other">
+                __lt__(self, other, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="array_object.html#matmul-self-other">
+                __matmul__(self, other, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="array_object.html#mod-self-other">
+                __mod__(self, other, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="array_object.html#mul-self-other">
+                __mul__(self, other, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="array_object.html#ne-self-other">
+                __ne__(self, other, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="array_object.html#neg-self">
+                __neg__(self, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="array_object.html#or-self-other">
+                __or__(self, other, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="array_object.html#pos-self">
+                __pos__(self, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="array_object.html#pow-self-other">
+                __pow__(self, other, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="array_object.html#rshift-self-other">
+                __rshift__(self, other, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="array_object.html#setitem-self-key-value">
+                __setitem__(self, key, value, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="array_object.html#sub-self-other">
+                __sub__(self, other, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="array_object.html#truediv-self-other">
+                __truediv__(self, other, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="array_object.html#xor-self-other">
+                __xor__(self, other, /)
+               </a>
+              </li>
+             </ul>
+            </li>
+           </ul>
+          </li>
+          <li class="toctree-l1">
+           <a class="reference internal" href="indexing.html">
+            Indexing
+           </a>
+           <ul>
+            <li class="toctree-l2">
+             <a class="reference internal" href="indexing.html#single-axis-indexing">
+              Single-axis Indexing
+             </a>
+             <ul>
+              <li class="toctree-l3">
+               <a class="reference internal" href="indexing.html#slice-syntax">
+                Slice Syntax
+               </a>
+              </li>
+             </ul>
+            </li>
+            <li class="toctree-l2">
+             <a class="reference internal" href="indexing.html#multi-axis-indexing">
+              Multi-axis Indexing
+             </a>
+            </li>
+            <li class="toctree-l2">
+             <a class="reference internal" href="indexing.html#boolean-array-indexing">
+              Boolean Array Indexing
+             </a>
+            </li>
+            <li class="toctree-l2">
+             <a class="reference internal" href="indexing.html#return-values">
+              Return Values
+             </a>
+            </li>
+           </ul>
+          </li>
+          <li class="toctree-l1">
+           <a class="reference internal" href="data_types.html">
+            Data Types
+           </a>
+           <ul>
+            <li class="toctree-l2">
+             <a class="reference internal" href="data_types.html#bool">
+              bool
+             </a>
+            </li>
+            <li class="toctree-l2">
+             <a class="reference internal" href="data_types.html#int8">
+              int8
+             </a>
+            </li>
+            <li class="toctree-l2">
+             <a class="reference internal" href="data_types.html#int16">
+              int16
+             </a>
+            </li>
+            <li class="toctree-l2">
+             <a class="reference internal" href="data_types.html#int32">
+              int32
+             </a>
+            </li>
+            <li class="toctree-l2">
+             <a class="reference internal" href="data_types.html#int64">
+              int64
+             </a>
+            </li>
+            <li class="toctree-l2">
+             <a class="reference internal" href="data_types.html#uint8">
+              uint8
+             </a>
+            </li>
+            <li class="toctree-l2">
+             <a class="reference internal" href="data_types.html#uint16">
+              uint16
+             </a>
+            </li>
+            <li class="toctree-l2">
+             <a class="reference internal" href="data_types.html#uint32">
+              uint32
+             </a>
+            </li>
+            <li class="toctree-l2">
+             <a class="reference internal" href="data_types.html#uint64">
+              uint64
+             </a>
+            </li>
+            <li class="toctree-l2">
+             <a class="reference internal" href="data_types.html#float32">
+              float32
+             </a>
+            </li>
+            <li class="toctree-l2">
+             <a class="reference internal" href="data_types.html#float64">
+              float64
+             </a>
+            </li>
+            <li class="toctree-l2">
+             <a class="reference internal" href="data_types.html#data-type-categories">
+              Data Type Categories
+             </a>
+             <ul>
+              <li class="toctree-l3">
+               <a class="reference internal" href="data_types.html#numeric-data-types">
+                Numeric Data Types
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="data_types.html#integer-data-types">
+                Integer Data Types
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="data_types.html#floating-point-data-types">
+                Floating-point Data Types
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="data_types.html#boolean-data-types">
+                Boolean Data Types
+               </a>
+              </li>
+             </ul>
+            </li>
+           </ul>
+          </li>
+          <li class="toctree-l1">
+           <a class="reference internal" href="data_type_functions.html">
+            Data type functions
+           </a>
+           <ul>
+            <li class="toctree-l2">
+             <a class="reference internal" href="data_type_functions.html#objects-in-api">
+              Objects in API
+             </a>
+             <ul>
+              <li class="toctree-l3">
+               <a class="reference internal" href="data_type_functions.html#finfo-type">
+                finfo(type, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="data_type_functions.html#iinfo-type">
+                iinfo(type, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="data_type_functions.html#result-type-arrays-and-dtypes">
+                result_type(*arrays_and_dtypes)
+               </a>
+              </li>
+             </ul>
+            </li>
+           </ul>
+          </li>
+          <li class="toctree-l1">
+           <a class="reference internal" href="type_promotion.html">
+            Type Promotion Rules
+           </a>
+           <ul>
+            <li class="toctree-l2">
+             <a class="reference internal" href="type_promotion.html#rules">
+              Rules
+             </a>
+             <ul>
+              <li class="toctree-l3">
+               <a class="reference internal" href="type_promotion.html#signed-integer-type-promotion-table">
+                Signed integer type promotion table
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="type_promotion.html#unsigned-integer-type-promotion-table">
+                Unsigned integer type promotion table
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="type_promotion.html#mixed-unsigned-and-signed-integer-type-promotion-table">
+                Mixed unsigned and signed integer type promotion table
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="type_promotion.html#floating-point-type-promotion-table">
+                Floating-point type promotion table
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="type_promotion.html#notes">
+                Notes
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="type_promotion.html#mixing-arrays-with-python-scalars">
+                Mixing arrays with Python scalars
+               </a>
+              </li>
+             </ul>
+            </li>
+           </ul>
+          </li>
+          <li class="toctree-l1">
+           <a class="reference internal" href="broadcasting.html">
+            Broadcasting
+           </a>
+           <ul>
+            <li class="toctree-l2">
+             <a class="reference internal" href="broadcasting.html#overview">
+              Overview
+             </a>
+            </li>
+            <li class="toctree-l2">
+             <a class="reference internal" href="broadcasting.html#algorithm">
+              Algorithm
+             </a>
+             <ul>
+              <li class="toctree-l3">
+               <a class="reference internal" href="broadcasting.html#examples">
+                Examples
+               </a>
+              </li>
+             </ul>
+            </li>
+            <li class="toctree-l2">
+             <a class="reference internal" href="broadcasting.html#in-place-semantics">
+              In-place Semantics
+             </a>
+            </li>
+           </ul>
+          </li>
+          <li class="toctree-l1">
+           <a class="reference internal" href="creation_functions.html">
+            Creation Functions
+           </a>
+           <ul>
+            <li class="toctree-l2">
+             <a class="reference internal" href="creation_functions.html#objects-in-api">
+              Objects in API
+             </a>
+             <ul>
+              <li class="toctree-l3">
+               <a class="reference internal" href="creation_functions.html#arange-start-stop-none-step-1-dtype-none-device-none">
+                arange(start, /, *, stop=None, step=1, dtype=None, device=None)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="creation_functions.html#asarray-obj-dtype-none-device-none-copy-none">
+                asarray(obj, /, *, dtype=None, device=None, copy=None)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="creation_functions.html#empty-shape-dtype-none-device-none">
+                empty(shape, /, *, dtype=None, device=None)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="creation_functions.html#empty-like-x-dtype-none-device-none">
+                empty_like(x, /, *, dtype=None, device=None)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="creation_functions.html#eye-n-m-none-k-0-dtype-none-device-none">
+                eye(N, /, *, M=None, k=0, dtype=None, device=None)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="creation_functions.html#from-dlpack-x">
+                from_dlpack(x, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="creation_functions.html#full-shape-fill-value-dtype-none-device-none">
+                full(shape, fill_value, /, *, dtype=None, device=None)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="creation_functions.html#full-like-x-fill-value-dtype-none-device-none">
+                full_like(x, fill_value, /, *, dtype=None, device=None)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="creation_functions.html#linspace-start-stop-num-dtype-none-device-none-endpoint-true">
+                linspace(start, stop, num, /, *, dtype=None, device=None, endpoint=True)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="creation_functions.html#ones-shape-dtype-none-device-none">
+                ones(shape, /, *, dtype=None, device=None)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="creation_functions.html#ones-like-x-dtype-none-device-none">
+                ones_like(x, /, *, dtype=None, device=None)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="creation_functions.html#zeros-shape-dtype-none-device-none">
+                zeros(shape, /, *, dtype=None, device=None)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="creation_functions.html#zeros-like-x-dtype-none-device-none">
+                zeros_like(x, /, *, dtype=None, device=None)
+               </a>
+              </li>
+             </ul>
+            </li>
+           </ul>
+          </li>
+          <li class="toctree-l1">
+           <a class="reference internal" href="manipulation_functions.html">
+            Manipulation Functions
+           </a>
+           <ul>
+            <li class="toctree-l2">
+             <a class="reference internal" href="manipulation_functions.html#objects-in-api">
+              Objects in API
+             </a>
+             <ul>
+              <li class="toctree-l3">
+               <a class="reference internal" href="manipulation_functions.html#concat-arrays-axis-0">
+                concat(arrays, /, *, axis=0)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="manipulation_functions.html#expand-dims-x-axis">
+                expand_dims(x, axis, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="manipulation_functions.html#flip-x-axis-none">
+                flip(x, /, *, axis=None)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="manipulation_functions.html#reshape-x-shape">
+                reshape(x, shape, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="manipulation_functions.html#roll-x-shift-axis-none">
+                roll(x, shift, /, *, axis=None)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="manipulation_functions.html#squeeze-x-axis-none">
+                squeeze(x, /, *, axis=None)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="manipulation_functions.html#stack-arrays-axis-0">
+                stack(arrays, /, *, axis=0)
+               </a>
+              </li>
+             </ul>
+            </li>
+           </ul>
+          </li>
+          <li class="toctree-l1">
+           <a class="reference internal" href="elementwise_functions.html">
+            Element-wise Functions
+           </a>
+           <ul>
+            <li class="toctree-l2">
+             <a class="reference internal" href="elementwise_functions.html#objects-in-api">
+              Objects in API
+             </a>
+             <ul>
+              <li class="toctree-l3">
+               <a class="reference internal" href="elementwise_functions.html#abs-x">
+                abs(x, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="elementwise_functions.html#acos-x">
+                acos(x, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="elementwise_functions.html#acosh-x">
+                acosh(x, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="elementwise_functions.html#add-x1-x2">
+                add(x1, x2, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="elementwise_functions.html#asin-x">
+                asin(x, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="elementwise_functions.html#asinh-x">
+                asinh(x, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="elementwise_functions.html#atan-x">
+                atan(x, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="elementwise_functions.html#atan2-x1-x2">
+                atan2(x1, x2, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="elementwise_functions.html#atanh-x">
+                atanh(x, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="elementwise_functions.html#bitwise-and-x1-x2">
+                bitwise_and(x1, x2, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="elementwise_functions.html#bitwise-left-shift-x1-x2">
+                bitwise_left_shift(x1, x2, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="elementwise_functions.html#bitwise-invert-x">
+                bitwise_invert(x, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="elementwise_functions.html#bitwise-or-x1-x2">
+                bitwise_or(x1, x2, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="elementwise_functions.html#bitwise-right-shift-x1-x2">
+                bitwise_right_shift(x1, x2, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="elementwise_functions.html#bitwise-xor-x1-x2">
+                bitwise_xor(x1, x2, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="elementwise_functions.html#ceil-x">
+                ceil(x, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="elementwise_functions.html#cos-x">
+                cos(x, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="elementwise_functions.html#cosh-x">
+                cosh(x, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="elementwise_functions.html#divide-x1-x2">
+                divide(x1, x2, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="elementwise_functions.html#equal-x1-x2">
+                equal(x1, x2, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="elementwise_functions.html#exp-x">
+                exp(x, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="elementwise_functions.html#expm1-x">
+                expm1(x, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="elementwise_functions.html#floor-x">
+                floor(x, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="elementwise_functions.html#floor-divide-x1-x2">
+                floor_divide(x1, x2, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="elementwise_functions.html#greater-x1-x2">
+                greater(x1, x2, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="elementwise_functions.html#greater-equal-x1-x2">
+                greater_equal(x1, x2, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="elementwise_functions.html#isfinite-x">
+                isfinite(x, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="elementwise_functions.html#isinf-x">
+                isinf(x, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="elementwise_functions.html#isnan-x">
+                isnan(x, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="elementwise_functions.html#less-x1-x2">
+                less(x1, x2, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="elementwise_functions.html#less-equal-x1-x2">
+                less_equal(x1, x2, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="elementwise_functions.html#log-x">
+                log(x, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="elementwise_functions.html#log1p-x">
+                log1p(x, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="elementwise_functions.html#log2-x">
+                log2(x, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="elementwise_functions.html#log10-x">
+                log10(x, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="elementwise_functions.html#logaddexp-x1-x2">
+                logaddexp(x1, x2)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="elementwise_functions.html#logical-and-x1-x2">
+                logical_and(x1, x2, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="elementwise_functions.html#logical-not-x">
+                logical_not(x, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="elementwise_functions.html#logical-or-x1-x2">
+                logical_or(x1, x2, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="elementwise_functions.html#logical-xor-x1-x2">
+                logical_xor(x1, x2, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="elementwise_functions.html#multiply-x1-x2">
+                multiply(x1, x2, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="elementwise_functions.html#negative-x">
+                negative(x, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="elementwise_functions.html#not-equal-x1-x2">
+                not_equal(x1, x2, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="elementwise_functions.html#positive-x">
+                positive(x, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="elementwise_functions.html#pow-x1-x2">
+                pow(x1, x2, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="elementwise_functions.html#remainder-x1-x2">
+                remainder(x1, x2, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="elementwise_functions.html#round-x">
+                round(x, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="elementwise_functions.html#sign-x">
+                sign(x, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="elementwise_functions.html#sin-x">
+                sin(x, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="elementwise_functions.html#sinh-x">
+                sinh(x, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="elementwise_functions.html#square-x">
+                square(x, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="elementwise_functions.html#sqrt-x">
+                sqrt(x, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="elementwise_functions.html#subtract-x1-x2">
+                subtract(x1, x2, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="elementwise_functions.html#tan-x">
+                tan(x, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="elementwise_functions.html#tanh-x">
+                tanh(x, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="elementwise_functions.html#trunc-x">
+                trunc(x, /)
+               </a>
+              </li>
+             </ul>
+            </li>
+           </ul>
+          </li>
+          <li class="toctree-l1">
+           <a class="reference internal" href="statistical_functions.html">
+            Statistical Functions
+           </a>
+           <ul>
+            <li class="toctree-l2">
+             <a class="reference internal" href="statistical_functions.html#objects-in-api">
+              Objects in API
+             </a>
+             <ul>
+              <li class="toctree-l3">
+               <a class="reference internal" href="statistical_functions.html#max-x-axis-none-keepdims-false">
+                max(x, /, *, axis=None, keepdims=False)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="statistical_functions.html#mean-x-axis-none-keepdims-false">
+                mean(x, /, *, axis=None, keepdims=False)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="statistical_functions.html#min-x-axis-none-keepdims-false">
+                min(x, /, *, axis=None, keepdims=False)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="statistical_functions.html#prod-x-axis-none-keepdims-false">
+                prod(x, /, *, axis=None, keepdims=False)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="statistical_functions.html#std-x-axis-none-correction-0-0-keepdims-false">
+                std(x, /, *, axis=None, correction=0.0, keepdims=False)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="statistical_functions.html#sum-x-axis-none-keepdims-false">
+                sum(x, /, *, axis=None, keepdims=False)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="statistical_functions.html#var-x-axis-none-correction-0-0-keepdims-false">
+                var(x, /, *, axis=None, correction=0.0, keepdims=False)
+               </a>
+              </li>
+             </ul>
+            </li>
+           </ul>
+          </li>
+          <li class="toctree-l1">
+           <a class="reference internal" href="linear_algebra_functions.html">
+            Linear Algebra Functions
+           </a>
+           <ul>
+            <li class="toctree-l2">
+             <a class="reference internal" href="linear_algebra_functions.html#objects-in-api">
+              Objects in API
+             </a>
+             <ul>
+              <li class="toctree-l3">
+               <a class="reference internal" href="linear_algebra_functions.html#cholesky">
+                cholesky()
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="linear_algebra_functions.html#cross-x1-x2-axis-1">
+                cross(x1, x2, /, *, axis=-1)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="linear_algebra_functions.html#det-x">
+                det(x, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="linear_algebra_functions.html#diagonal-x-axis1-0-axis2-1-offset-0">
+                diagonal(x, /, *, axis1=0, axis2=1, offset=0)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="linear_algebra_functions.html#dot">
+                dot()
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="linear_algebra_functions.html#eig">
+                eig()
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="linear_algebra_functions.html#eigvalsh">
+                eigvalsh()
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="linear_algebra_functions.html#einsum">
+                einsum()
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="linear_algebra_functions.html#inv-x">
+                inv(x, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="linear_algebra_functions.html#lstsq">
+                lstsq()
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="linear_algebra_functions.html#matmul">
+                matmul()
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="linear_algebra_functions.html#matrix-power">
+                matrix_power()
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="linear_algebra_functions.html#matrix-rank">
+                matrix_rank()
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="linear_algebra_functions.html#norm-x-axis-none-keepdims-false-ord-none">
+                norm(x, /, *, axis=None, keepdims=False, ord=None)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="linear_algebra_functions.html#outer-x1-x2">
+                outer(x1, x2, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="linear_algebra_functions.html#pinv">
+                pinv()
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="linear_algebra_functions.html#qr">
+                qr()
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="linear_algebra_functions.html#slogdet">
+                slogdet()
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="linear_algebra_functions.html#solve">
+                solve()
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="linear_algebra_functions.html#svd">
+                svd()
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="linear_algebra_functions.html#trace-x-axis1-0-axis2-1-offset-0">
+                trace(x, /, *, axis1=0, axis2=1, offset=0)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="linear_algebra_functions.html#transpose-x-axes-none">
+                transpose(x, /, *, axes=None)
+               </a>
+              </li>
+             </ul>
+            </li>
+           </ul>
+          </li>
+          <li class="toctree-l1">
+           <a class="reference internal" href="searching_functions.html">
+            Searching Functions
+           </a>
+           <ul>
+            <li class="toctree-l2">
+             <a class="reference internal" href="searching_functions.html#objects-in-api">
+              Objects in API
+             </a>
+             <ul>
+              <li class="toctree-l3">
+               <a class="reference internal" href="searching_functions.html#argmax-x-axis-none-keepdims-false">
+                argmax(x, /, *, axis=None, keepdims=False)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="searching_functions.html#argmin-x-axis-none-keepdims-false">
+                argmin(x, /, *, axis=None, keepdims=False)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="searching_functions.html#nonzero-x">
+                nonzero(x, /)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="searching_functions.html#where-condition-x1-x2">
+                where(condition, x1, x2, /)
+               </a>
+              </li>
+             </ul>
+            </li>
+           </ul>
+          </li>
+          <li class="toctree-l1">
+           <a class="reference internal" href="sorting_functions.html">
+            Sorting Functions
+           </a>
+           <ul>
+            <li class="toctree-l2">
+             <a class="reference internal" href="sorting_functions.html#objects-in-api">
+              Objects in API
+             </a>
+             <ul>
+              <li class="toctree-l3">
+               <a class="reference internal" href="sorting_functions.html#argsort-x-axis-1-descending-false-stable-true">
+                argsort(x, /, *, axis=-1, descending=False, stable=True)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="sorting_functions.html#sort-x-axis-1-descending-false-stable-true">
+                sort(x, /, *, axis=-1, descending=False, stable=True)
+               </a>
+              </li>
+             </ul>
+            </li>
+           </ul>
+          </li>
+          <li class="toctree-l1">
+           <a class="reference internal" href="set_functions.html">
+            Set Functions
+           </a>
+           <ul>
+            <li class="toctree-l2">
+             <a class="reference internal" href="set_functions.html#objects-in-api">
+              Objects in API
+             </a>
+             <ul>
+              <li class="toctree-l3">
+               <a class="reference internal" href="set_functions.html#unique-x-return-counts-false-return-index-false-return-inverse-false">
+                unique(x, /, *, return_counts=False, return_index=False, return_inverse=False)
+               </a>
+              </li>
+             </ul>
+            </li>
+           </ul>
+          </li>
+          <li class="toctree-l1">
+           <a class="reference internal" href="utility_functions.html">
+            Utility Functions
+           </a>
+           <ul>
+            <li class="toctree-l2">
+             <a class="reference internal" href="utility_functions.html#objects-in-api">
+              Objects in API
+             </a>
+             <ul>
+              <li class="toctree-l3">
+               <a class="reference internal" href="utility_functions.html#all-x-axis-none-keepdims-false">
+                all(x, /, *, axis=None, keepdims=False)
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="utility_functions.html#any-x-axis-none-keepdims-false">
+                any(x, /, *, axis=None, keepdims=False)
+               </a>
+              </li>
+             </ul>
+            </li>
+           </ul>
+          </li>
+          <li class="toctree-l1">
+           <a class="reference internal" href="constants.html">
+            Constants
+           </a>
+           <ul>
+            <li class="toctree-l2">
+             <a class="reference internal" href="constants.html#objects-in-api">
+              Objects in API
+             </a>
+             <ul>
+              <li class="toctree-l3">
+               <a class="reference internal" href="constants.html#e">
+                e
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="constants.html#inf">
+                inf
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="constants.html#nan">
+                nan
+               </a>
+              </li>
+              <li class="toctree-l3">
+               <a class="reference internal" href="constants.html#pi">
+                pi
+               </a>
+              </li>
+             </ul>
+            </li>
+           </ul>
+          </li>
+         </ul>
+        </div>
+       </section>
+      </article>
+     </div>
+    </div>
+   </main>
+  </div>
+  <footer class="md-footer">
+   <div class="md-footer-nav">
+    <nav class="md-footer-nav__inner md-grid">
+     <a class="md-flex md-footer-nav__link md-footer-nav__link--prev" href="../future_API_evolution.html" rel="prev" title="Future API standard evolution">
+      <div class="md-flex__cell md-flex__cell--shrink">
+       <i class="md-icon md-icon--arrow-back md-footer-nav__button">
+       </i>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+       <span class="md-flex__ellipsis">
+        <span class="md-footer-nav__direction">
+         Previous
+        </span>
+        Future API standard evolution
+       </span>
+      </div>
+     </a>
+     <a class="md-flex md-footer-nav__link md-footer-nav__link--next" href="function_and_method_signatures.html" rel="next" title="Function and method signatures">
+      <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+       <span class="md-flex__ellipsis">
+        <span class="md-footer-nav__direction">
+         Next
+        </span>
+        Function and method signatures
+       </span>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+       <i class="md-icon md-icon--arrow-forward md-footer-nav__button">
+       </i>
+      </div>
+     </a>
+    </nav>
+   </div>
+   <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+     <div class="md-footer-copyright">
+      <div class="md-footer-copyright__highlight">
+       © Copyright 2020, Consortium for Python Data API Standards.
+      </div>
+      Created using
+      <a href="http://www.sphinx-doc.org/">
+       Sphinx
+      </a>
+      3.1.1.
+             and
+      <a href="https://github.com/bashtage/sphinx-material/">
+       Material for
+              Sphinx
+      </a>
+     </div>
+    </div>
+   </div>
+  </footer>
+  <script src="../_static/javascripts/application.js">
+  </script>
+  <script>
+   app.initialize({version: "1.0.4", url: {base: ".."}})
+  </script>
+ </body>
+</html>

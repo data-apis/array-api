@@ -1,0 +1,2723 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <meta content="Docutils 0.17: http://docutils.sourceforge.net/" name="generator"/>
+  <meta content="width=device-width,initial-scale=1" name="viewport"/>
+  <meta content="ie=edge" http-equiv="x-ua-compatible"/>
+  <meta content="Copy to clipboard" name="lang:clipboard.copy"/>
+  <meta content="Copied to clipboard" name="lang:clipboard.copied"/>
+  <meta content="en" name="lang:search.language"/>
+  <meta content="True" name="lang:search.pipeline.stopwords"/>
+  <meta content="True" name="lang:search.pipeline.trimmer"/>
+  <meta content="No matching documents" name="lang:search.result.none"/>
+  <meta content="1 matching document" name="lang:search.result.one"/>
+  <meta content="# matching documents" name="lang:search.result.other"/>
+  <meta content="[\s\-]+" name="lang:search.tokenizer"/>
+  <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700|Roboto:300,400,400i,700&amp;display=fallback" rel="stylesheet"/>
+  <style>
+   body,
+      input {
+        font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif
+      }
+
+      code,
+      kbd,
+      pre {
+        font-family: "Roboto Mono", "Courier New", Courier, monospace
+      }
+  </style>
+  <link href="../_static/stylesheets/application.css" rel="stylesheet"/>
+  <link href="../_static/stylesheets/application-palette.css" rel="stylesheet"/>
+  <link href="../_static/stylesheets/application-fixes.css" rel="stylesheet"/>
+  <link href="../_static/fonts/material-icons.css" rel="stylesheet"/>
+  <meta content="#2196f3" name="theme-color"/>
+  <script src="../_static/javascripts/modernizr.js">
+  </script>
+  <link href="../_static/images/apple-icon-152x152.png" rel="apple-touch-icon"/>
+  <title>
+   Linear Algebra Functions — Python array API standard 2021.01-DRAFT documentation
+  </title>
+  <link href="../_static/material.css" rel="stylesheet" type="text/css"/>
+  <link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+  <link href="../_static/copybutton.css" rel="stylesheet" type="text/css"/>
+  <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js">
+  </script>
+  <script src="../_static/jquery.js">
+  </script>
+  <script src="../_static/underscore.js">
+  </script>
+  <script src="../_static/doctools.js">
+  </script>
+  <script src="../_static/language_data.js">
+  </script>
+  <script src="../_static/clipboard.min.js">
+  </script>
+  <script src="../_static/copybutton.js">
+  </script>
+  <link href="../genindex.html" rel="index" title="Index"/>
+  <link href="../search.html" rel="search" title="Search"/>
+  <link href="searching_functions.html" rel="next" title="Searching Functions"/>
+  <link href="statistical_functions.html" rel="prev" title="Statistical Functions"/>
+  <link href="../_static/images/apple-icon-152x152.png" rel="apple-touch-icon"/>
+ </head>
+ <body data-md-color-accent="green" data-md-color-primary="indigo" dir="ltr">
+  <svg class="md-svg">
+   <defs data-children-count="0">
+    <svg height="448" id="__github" viewbox="0 0 416 448" width="416" xmlns="http://www.w3.org/2000/svg">
+     <path d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z" fill="currentColor">
+     </path>
+    </svg>
+   </defs>
+  </svg>
+  <input class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+  <input class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+  <label class="md-overlay" data-md-component="overlay" for="__drawer">
+  </label>
+  <a class="md-skip" href="#API_specification/linear_algebra_functions" tabindex="1">
+   Skip to content
+  </a>
+  <header class="md-header" data-md-component="header">
+   <nav class="md-header-nav md-grid">
+    <div class="md-flex navheader">
+     <div class="md-flex__cell md-flex__cell--shrink">
+      <a class="md-header-nav__button md-logo" href="../index.html" title="Python array API standard 2021.01-DRAFT documentation">
+       <i class="md-icon">
+        
+       </i>
+      </a>
+     </div>
+     <div class="md-flex__cell md-flex__cell--shrink">
+      <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer">
+      </label>
+     </div>
+     <div class="md-flex__cell md-flex__cell--stretch">
+      <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+       <span class="md-header-nav__topic">
+        Python array API standard
+       </span>
+       <span class="md-header-nav__topic">
+        Linear Algebra Functions
+       </span>
+      </div>
+     </div>
+     <div class="md-flex__cell md-flex__cell--shrink">
+      <label class="md-icon md-icon--search md-header-nav__button" for="__search">
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+       <label class="md-search__overlay" for="__search">
+       </label>
+       <div class="md-search__inner" role="search">
+        <form action="../search.html" class="md-search__form" method="GET" name="search">
+         <input autocapitalize="off" autocomplete="off" class="md-search__input" data-md-component="query" data-md-state="active" name="q" placeholder="Search" spellcheck="false" type="text"/>
+         <label class="md-icon md-search__icon" for="__search">
+         </label>
+         <button class="md-icon md-search__icon" data-md-component="reset" tabindex="-1" type="reset">
+          
+         </button>
+        </form>
+        <div class="md-search__output">
+         <div class="md-search__scrollwrap" data-md-scrollfix="">
+          <div class="md-search-result" data-md-component="result">
+           <div class="md-search-result__meta">
+            Type to start searching
+           </div>
+           <ol class="md-search-result__list">
+           </ol>
+          </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+     <script src="../_static/javascripts/version_dropdown.js">
+     </script>
+     <script>
+      var json_loc = "../"versions.json"",
+        target_loc = "../../",
+        text = "Versions";
+    $( document ).ready( add_version_dropdown(json_loc, target_loc, text));
+     </script>
+    </div>
+   </nav>
+  </header>
+  <div class="md-container">
+   <nav class="md-tabs" data-md-component="tabs">
+    <div class="md-tabs__inner md-grid">
+     <ul class="md-tabs__list">
+      <li class="md-tabs__item">
+       <a class="md-tabs__link" href="../index.html">
+        Array API standard
+       </a>
+      </li>
+      <li class="md-tabs__item">
+       <a class="md-tabs__link" href="https://data-apis.org">
+        Consortium for Python Data API Standards
+       </a>
+      </li>
+      <li class="md-tabs__item">
+       <a class="md-tabs__link" href="index.html">
+        API specification
+       </a>
+      </li>
+     </ul>
+    </div>
+   </nav>
+   <main class="md-main">
+    <div class="md-main__inner md-grid" data-md-component="container">
+     <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+      <div class="md-sidebar__scrollwrap">
+       <div class="md-sidebar__inner">
+        <nav class="md-nav md-nav--primary" data-md-level="0">
+         <label class="md-nav__title md-nav__title--site" for="__drawer">
+          <a class="md-nav__button md-logo" href="../index.html" title="Python array API standard 2021.01-DRAFT documentation">
+           <i class="md-icon">
+            
+           </i>
+          </a>
+          <a href="../index.html" title="Python array API standard 2021.01-DRAFT documentation">
+           Python array API standard
+          </a>
+         </label>
+         <ul class="md-nav__list">
+          <li class="md-nav__item">
+           <span class="md-nav__link caption">
+            <span class="caption-text">
+             Context
+            </span>
+           </span>
+          </li>
+          <li class="md-nav__item">
+           <a class="md-nav__link" href="../purpose_and_scope.html">
+            Purpose and scope
+           </a>
+          </li>
+          <li class="md-nav__item">
+           <a class="md-nav__link" href="../use_cases.html">
+            Use cases
+           </a>
+          </li>
+          <li class="md-nav__item">
+           <a class="md-nav__link" href="../assumptions.html">
+            Assumptions
+           </a>
+          </li>
+          <li class="md-nav__item">
+           <span class="md-nav__link caption">
+            <span class="caption-text">
+             API
+            </span>
+           </span>
+          </li>
+          <li class="md-nav__item">
+           <a class="md-nav__link" href="../design_topics/index.html">
+            Design topics &amp; constraints
+           </a>
+          </li>
+          <li class="md-nav__item">
+           <a class="md-nav__link" href="../future_API_evolution.html">
+            Future API standard evolution
+           </a>
+          </li>
+          <li class="md-nav__item">
+           <a class="md-nav__link" href="index.html">
+            API specification
+           </a>
+           <ul class="md-nav__list">
+            <li class="md-nav__item">
+             <a class="md-nav__link" href="function_and_method_signatures.html">
+              Function and method signatures
+             </a>
+            </li>
+            <li class="md-nav__item">
+             <a class="md-nav__link" href="array_object.html">
+              Array object
+             </a>
+            </li>
+            <li class="md-nav__item">
+             <a class="md-nav__link" href="indexing.html">
+              Indexing
+             </a>
+            </li>
+            <li class="md-nav__item">
+             <a class="md-nav__link" href="data_types.html">
+              Data Types
+             </a>
+            </li>
+            <li class="md-nav__item">
+             <a class="md-nav__link" href="data_type_functions.html">
+              Data type functions
+             </a>
+            </li>
+            <li class="md-nav__item">
+             <a class="md-nav__link" href="type_promotion.html">
+              Type Promotion Rules
+             </a>
+            </li>
+            <li class="md-nav__item">
+             <a class="md-nav__link" href="broadcasting.html">
+              Broadcasting
+             </a>
+            </li>
+            <li class="md-nav__item">
+             <a class="md-nav__link" href="creation_functions.html">
+              Creation Functions
+             </a>
+            </li>
+            <li class="md-nav__item">
+             <a class="md-nav__link" href="manipulation_functions.html">
+              Manipulation Functions
+             </a>
+            </li>
+            <li class="md-nav__item">
+             <a class="md-nav__link" href="elementwise_functions.html">
+              Element-wise Functions
+             </a>
+            </li>
+            <li class="md-nav__item">
+             <a class="md-nav__link" href="statistical_functions.html">
+              Statistical Functions
+             </a>
+            </li>
+            <li class="md-nav__item">
+             <input class="md-toggle md-nav__toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+             <label class="md-nav__link md-nav__link--active" for="__toc">
+              Linear Algebra Functions
+             </label>
+             <a class="md-nav__link md-nav__link--active" href="#">
+              Linear Algebra Functions
+             </a>
+             <nav class="md-nav md-nav--secondary">
+              <label class="md-nav__title" for="__toc">
+               Contents
+              </label>
+              <ul class="md-nav__list" data-md-scrollfix="">
+               <li class="md-nav__item">
+                <a class="md-nav__link" href="#api-specification-linear-algebra-functions--page-root">
+                 Linear Algebra Functions
+                </a>
+                <nav class="md-nav">
+                 <ul class="md-nav__list">
+                  <li class="md-nav__item">
+                   <a class="md-nav__link" href="#objects-in-api">
+                    Objects in API
+                   </a>
+                   <nav class="md-nav">
+                    <ul class="md-nav__list">
+                     <li class="md-nav__item">
+                      <a class="md-nav__link" href="#cholesky">
+                       cholesky()
+                      </a>
+                     </li>
+                     <li class="md-nav__item">
+                      <a class="md-nav__link" href="#cross-x1-x2-axis-1">
+                       cross(x1, x2, /, *, axis=-1)
+                      </a>
+                      <nav class="md-nav">
+                       <ul class="md-nav__list">
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#parameters">
+                          Parameters
+                         </a>
+                        </li>
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#returns">
+                          Returns
+                         </a>
+                        </li>
+                       </ul>
+                      </nav>
+                     </li>
+                     <li class="md-nav__item">
+                      <a class="md-nav__link" href="#det-x">
+                       det(x, /)
+                      </a>
+                      <nav class="md-nav">
+                       <ul class="md-nav__list">
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#id1">
+                          Parameters
+                         </a>
+                        </li>
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#id2">
+                          Returns
+                         </a>
+                        </li>
+                       </ul>
+                      </nav>
+                     </li>
+                     <li class="md-nav__item">
+                      <a class="md-nav__link" href="#diagonal-x-axis1-0-axis2-1-offset-0">
+                       diagonal(x, /, *, axis1=0, axis2=1, offset=0)
+                      </a>
+                      <nav class="md-nav">
+                       <ul class="md-nav__list">
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#id3">
+                          Parameters
+                         </a>
+                        </li>
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#id4">
+                          Returns
+                         </a>
+                        </li>
+                       </ul>
+                      </nav>
+                     </li>
+                     <li class="md-nav__item">
+                      <a class="md-nav__link" href="#dot">
+                       dot()
+                      </a>
+                     </li>
+                     <li class="md-nav__item">
+                      <a class="md-nav__link" href="#eig">
+                       eig()
+                      </a>
+                     </li>
+                     <li class="md-nav__item">
+                      <a class="md-nav__link" href="#eigvalsh">
+                       eigvalsh()
+                      </a>
+                     </li>
+                     <li class="md-nav__item">
+                      <a class="md-nav__link" href="#einsum">
+                       einsum()
+                      </a>
+                     </li>
+                     <li class="md-nav__item">
+                      <a class="md-nav__link" href="#inv-x">
+                       inv(x, /)
+                      </a>
+                      <nav class="md-nav">
+                       <ul class="md-nav__list">
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#id5">
+                          Parameters
+                         </a>
+                        </li>
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#id6">
+                          Returns
+                         </a>
+                        </li>
+                       </ul>
+                      </nav>
+                     </li>
+                     <li class="md-nav__item">
+                      <a class="md-nav__link" href="#lstsq">
+                       lstsq()
+                      </a>
+                     </li>
+                     <li class="md-nav__item">
+                      <a class="md-nav__link" href="#matmul">
+                       matmul()
+                      </a>
+                     </li>
+                     <li class="md-nav__item">
+                      <a class="md-nav__link" href="#matrix-power">
+                       matrix_power()
+                      </a>
+                     </li>
+                     <li class="md-nav__item">
+                      <a class="md-nav__link" href="#matrix-rank">
+                       matrix_rank()
+                      </a>
+                     </li>
+                     <li class="md-nav__item">
+                      <a class="md-nav__link" href="#norm-x-axis-none-keepdims-false-ord-none">
+                       norm(x, /, *, axis=None, keepdims=False, ord=None)
+                      </a>
+                      <nav class="md-nav">
+                       <ul class="md-nav__list">
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#id7">
+                          Parameters
+                         </a>
+                        </li>
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#id8">
+                          Returns
+                         </a>
+                        </li>
+                       </ul>
+                      </nav>
+                     </li>
+                     <li class="md-nav__item">
+                      <a class="md-nav__link" href="#outer-x1-x2">
+                       outer(x1, x2, /)
+                      </a>
+                      <nav class="md-nav">
+                       <ul class="md-nav__list">
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#id9">
+                          Parameters
+                         </a>
+                        </li>
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#id10">
+                          Returns
+                         </a>
+                        </li>
+                       </ul>
+                      </nav>
+                     </li>
+                     <li class="md-nav__item">
+                      <a class="md-nav__link" href="#pinv">
+                       pinv()
+                      </a>
+                     </li>
+                     <li class="md-nav__item">
+                      <a class="md-nav__link" href="#qr">
+                       qr()
+                      </a>
+                     </li>
+                     <li class="md-nav__item">
+                      <a class="md-nav__link" href="#slogdet">
+                       slogdet()
+                      </a>
+                     </li>
+                     <li class="md-nav__item">
+                      <a class="md-nav__link" href="#solve">
+                       solve()
+                      </a>
+                     </li>
+                     <li class="md-nav__item">
+                      <a class="md-nav__link" href="#svd">
+                       svd()
+                      </a>
+                     </li>
+                     <li class="md-nav__item">
+                      <a class="md-nav__link" href="#trace-x-axis1-0-axis2-1-offset-0">
+                       trace(x, /, *, axis1=0, axis2=1, offset=0)
+                      </a>
+                      <nav class="md-nav">
+                       <ul class="md-nav__list">
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#id11">
+                          Parameters
+                         </a>
+                        </li>
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#id12">
+                          Returns
+                         </a>
+                        </li>
+                       </ul>
+                      </nav>
+                     </li>
+                     <li class="md-nav__item">
+                      <a class="md-nav__link" href="#transpose-x-axes-none">
+                       transpose(x, /, *, axes=None)
+                      </a>
+                      <nav class="md-nav">
+                       <ul class="md-nav__list">
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#id13">
+                          Parameters
+                         </a>
+                        </li>
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#id14">
+                          Returns
+                         </a>
+                        </li>
+                       </ul>
+                      </nav>
+                     </li>
+                    </ul>
+                   </nav>
+                  </li>
+                 </ul>
+                </nav>
+               </li>
+              </ul>
+             </nav>
+            </li>
+            <li class="md-nav__item">
+             <a class="md-nav__link" href="searching_functions.html">
+              Searching Functions
+             </a>
+            </li>
+            <li class="md-nav__item">
+             <a class="md-nav__link" href="sorting_functions.html">
+              Sorting Functions
+             </a>
+            </li>
+            <li class="md-nav__item">
+             <a class="md-nav__link" href="set_functions.html">
+              Set Functions
+             </a>
+            </li>
+            <li class="md-nav__item">
+             <a class="md-nav__link" href="utility_functions.html">
+              Utility Functions
+             </a>
+            </li>
+            <li class="md-nav__item">
+             <a class="md-nav__link" href="constants.html">
+              Constants
+             </a>
+            </li>
+           </ul>
+          </li>
+          <li class="md-nav__item">
+           <span class="md-nav__link caption">
+            <span class="caption-text">
+             Methodology and Usage
+            </span>
+           </span>
+          </li>
+          <li class="md-nav__item">
+           <a class="md-nav__link" href="../usage_data.html">
+            Usage Data
+           </a>
+          </li>
+          <li class="md-nav__item">
+           <a class="md-nav__link" href="../verification_test_suite.html">
+            Verification - test suite
+           </a>
+          </li>
+          <li class="md-nav__item">
+           <a class="md-nav__link" href="../benchmark_suite.html">
+            Benchmark suite
+           </a>
+          </li>
+         </ul>
+        </nav>
+       </div>
+      </div>
+     </div>
+     <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+      <div class="md-sidebar__scrollwrap">
+       <div class="md-sidebar__inner">
+        <nav class="md-nav md-nav--secondary">
+         <label class="md-nav__title" for="__toc">
+          Contents
+         </label>
+         <ul class="md-nav__list" data-md-scrollfix="">
+          <li class="md-nav__item">
+           <a class="md-nav__link" href="#api-specification-linear-algebra-functions--page-root">
+            Linear Algebra Functions
+           </a>
+           <nav class="md-nav">
+            <ul class="md-nav__list">
+             <li class="md-nav__item">
+              <a class="md-nav__link" href="#objects-in-api">
+               Objects in API
+              </a>
+              <nav class="md-nav">
+               <ul class="md-nav__list">
+                <li class="md-nav__item">
+                 <a class="md-nav__link" href="#cholesky">
+                  cholesky()
+                 </a>
+                </li>
+                <li class="md-nav__item">
+                 <a class="md-nav__link" href="#cross-x1-x2-axis-1">
+                  cross(x1, x2, /, *, axis=-1)
+                 </a>
+                 <nav class="md-nav">
+                  <ul class="md-nav__list">
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#parameters">
+                     Parameters
+                    </a>
+                   </li>
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#returns">
+                     Returns
+                    </a>
+                   </li>
+                  </ul>
+                 </nav>
+                </li>
+                <li class="md-nav__item">
+                 <a class="md-nav__link" href="#det-x">
+                  det(x, /)
+                 </a>
+                 <nav class="md-nav">
+                  <ul class="md-nav__list">
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#id1">
+                     Parameters
+                    </a>
+                   </li>
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#id2">
+                     Returns
+                    </a>
+                   </li>
+                  </ul>
+                 </nav>
+                </li>
+                <li class="md-nav__item">
+                 <a class="md-nav__link" href="#diagonal-x-axis1-0-axis2-1-offset-0">
+                  diagonal(x, /, *, axis1=0, axis2=1, offset=0)
+                 </a>
+                 <nav class="md-nav">
+                  <ul class="md-nav__list">
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#id3">
+                     Parameters
+                    </a>
+                   </li>
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#id4">
+                     Returns
+                    </a>
+                   </li>
+                  </ul>
+                 </nav>
+                </li>
+                <li class="md-nav__item">
+                 <a class="md-nav__link" href="#dot">
+                  dot()
+                 </a>
+                </li>
+                <li class="md-nav__item">
+                 <a class="md-nav__link" href="#eig">
+                  eig()
+                 </a>
+                </li>
+                <li class="md-nav__item">
+                 <a class="md-nav__link" href="#eigvalsh">
+                  eigvalsh()
+                 </a>
+                </li>
+                <li class="md-nav__item">
+                 <a class="md-nav__link" href="#einsum">
+                  einsum()
+                 </a>
+                </li>
+                <li class="md-nav__item">
+                 <a class="md-nav__link" href="#inv-x">
+                  inv(x, /)
+                 </a>
+                 <nav class="md-nav">
+                  <ul class="md-nav__list">
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#id5">
+                     Parameters
+                    </a>
+                   </li>
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#id6">
+                     Returns
+                    </a>
+                   </li>
+                  </ul>
+                 </nav>
+                </li>
+                <li class="md-nav__item">
+                 <a class="md-nav__link" href="#lstsq">
+                  lstsq()
+                 </a>
+                </li>
+                <li class="md-nav__item">
+                 <a class="md-nav__link" href="#matmul">
+                  matmul()
+                 </a>
+                </li>
+                <li class="md-nav__item">
+                 <a class="md-nav__link" href="#matrix-power">
+                  matrix_power()
+                 </a>
+                </li>
+                <li class="md-nav__item">
+                 <a class="md-nav__link" href="#matrix-rank">
+                  matrix_rank()
+                 </a>
+                </li>
+                <li class="md-nav__item">
+                 <a class="md-nav__link" href="#norm-x-axis-none-keepdims-false-ord-none">
+                  norm(x, /, *, axis=None, keepdims=False, ord=None)
+                 </a>
+                 <nav class="md-nav">
+                  <ul class="md-nav__list">
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#id7">
+                     Parameters
+                    </a>
+                   </li>
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#id8">
+                     Returns
+                    </a>
+                   </li>
+                  </ul>
+                 </nav>
+                </li>
+                <li class="md-nav__item">
+                 <a class="md-nav__link" href="#outer-x1-x2">
+                  outer(x1, x2, /)
+                 </a>
+                 <nav class="md-nav">
+                  <ul class="md-nav__list">
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#id9">
+                     Parameters
+                    </a>
+                   </li>
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#id10">
+                     Returns
+                    </a>
+                   </li>
+                  </ul>
+                 </nav>
+                </li>
+                <li class="md-nav__item">
+                 <a class="md-nav__link" href="#pinv">
+                  pinv()
+                 </a>
+                </li>
+                <li class="md-nav__item">
+                 <a class="md-nav__link" href="#qr">
+                  qr()
+                 </a>
+                </li>
+                <li class="md-nav__item">
+                 <a class="md-nav__link" href="#slogdet">
+                  slogdet()
+                 </a>
+                </li>
+                <li class="md-nav__item">
+                 <a class="md-nav__link" href="#solve">
+                  solve()
+                 </a>
+                </li>
+                <li class="md-nav__item">
+                 <a class="md-nav__link" href="#svd">
+                  svd()
+                 </a>
+                </li>
+                <li class="md-nav__item">
+                 <a class="md-nav__link" href="#trace-x-axis1-0-axis2-1-offset-0">
+                  trace(x, /, *, axis1=0, axis2=1, offset=0)
+                 </a>
+                 <nav class="md-nav">
+                  <ul class="md-nav__list">
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#id11">
+                     Parameters
+                    </a>
+                   </li>
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#id12">
+                     Returns
+                    </a>
+                   </li>
+                  </ul>
+                 </nav>
+                </li>
+                <li class="md-nav__item">
+                 <a class="md-nav__link" href="#transpose-x-axes-none">
+                  transpose(x, /, *, axes=None)
+                 </a>
+                 <nav class="md-nav">
+                  <ul class="md-nav__list">
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#id13">
+                     Parameters
+                    </a>
+                   </li>
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#id14">
+                     Returns
+                    </a>
+                   </li>
+                  </ul>
+                 </nav>
+                </li>
+               </ul>
+              </nav>
+             </li>
+            </ul>
+           </nav>
+          </li>
+         </ul>
+        </nav>
+       </div>
+      </div>
+     </div>
+     <div class="md-content">
+      <article class="md-content__inner md-typeset" role="main">
+       <section id="linear-algebra-functions">
+        <h1 id="api-specification-linear-algebra-functions--page-root">
+         Linear Algebra Functions
+         <a class="headerlink" href="#api-specification-linear-algebra-functions--page-root" title="Permalink to this headline">
+          ¶
+         </a>
+        </h1>
+        <blockquote>
+         <div>
+          <p>
+           Array API specification for linear algebra functions.
+          </p>
+         </div>
+        </blockquote>
+        <p>
+         A conforming implementation of the array API standard must provide and support the following functions adhering to the following conventions.
+        </p>
+        <ul class="simple">
+         <li>
+          <p>
+           Positional parameters must be
+           <a class="reference external" href="https://www.python.org/dev/peps/pep-0570/">
+            positional-only
+           </a>
+           parameters. Positional-only parameters have no externally-usable name. When a function accepting positional-only parameters is called, positional arguments are mapped to these parameters based solely on their order.
+          </p>
+         </li>
+         <li>
+          <p>
+           Optional parameters must be
+           <a class="reference external" href="https://www.python.org/dev/peps/pep-3102/">
+            keyword-only
+           </a>
+           arguments.
+          </p>
+         </li>
+         <li>
+          <p>
+           Broadcasting semantics must follow the semantics defined in
+           <a class="reference internal" href="broadcasting.html#broadcasting">
+            <span class="std std-ref">
+             Broadcasting
+            </span>
+           </a>
+           .
+          </p>
+         </li>
+         <li>
+          <p>
+           Unless stated otherwise, functions must support the data types defined in
+           <a class="reference internal" href="data_types.html#data-types">
+            <span class="std std-ref">
+             Data Types
+            </span>
+           </a>
+           .
+          </p>
+         </li>
+         <li>
+          <p>
+           Unless stated otherwise, functions must adhere to the type promotion rules defined in
+           <a class="reference internal" href="type_promotion.html#type-promotion">
+            <span class="std std-ref">
+             Type Promotion Rules
+            </span>
+           </a>
+           .
+          </p>
+         </li>
+         <li>
+          <p>
+           Unless stated otherwise, floating-point operations must adhere to IEEE 754-2019.
+          </p>
+         </li>
+        </ul>
+        <section id="objects-in-api">
+         <h2 id="objects-in-api">
+          Objects in API
+          <a class="headerlink" href="#objects-in-api" title="Permalink to this headline">
+           ¶
+          </a>
+         </h2>
+         <!-- NOTE: please keep the functions in alphabetical order -->
+         <section id="cholesky">
+          <span id="function-cholesky">
+          </span>
+          <h3 id="cholesky">
+           cholesky()
+           <a class="headerlink" href="#cholesky" title="Permalink to this headline">
+            ¶
+           </a>
+          </h3>
+          <p>
+           TODO
+          </p>
+         </section>
+         <section id="cross-x1-x2-axis-1">
+          <span id="function-cross">
+          </span>
+          <h3 id="cross-x1-x2-axis-1">
+           cross(x1, x2, /, *, axis=-1)
+           <a class="headerlink" href="#cross-x1-x2-axis-1" title="Permalink to this headline">
+            ¶
+           </a>
+          </h3>
+          <p>
+           Returns the cross product of 3-element vectors. If
+           <code class="docutils literal notranslate">
+            <span class="pre">
+             x1
+            </span>
+           </code>
+           and
+           <code class="docutils literal notranslate">
+            <span class="pre">
+             x2
+            </span>
+           </code>
+           are multi-dimensional arrays (i.e., both have a rank greater than
+           <code class="docutils literal notranslate">
+            <span class="pre">
+             1
+            </span>
+           </code>
+           ), then the cross-product of each pair of corresponding 3-element vectors is independently computed.
+          </p>
+          <section id="parameters">
+           <h4 id="parameters">
+            Parameters
+            <a class="headerlink" href="#parameters" title="Permalink to this headline">
+             ¶
+            </a>
+           </h4>
+           <ul class="simple">
+            <li>
+             <p>
+              <strong>
+               x1
+              </strong>
+              :
+              <em>
+               &lt;array&gt;
+              </em>
+             </p>
+             <ul>
+              <li>
+               <p>
+                first input array. Should have a numeric data type.
+               </p>
+              </li>
+             </ul>
+            </li>
+            <li>
+             <p>
+              <strong>
+               x2
+              </strong>
+              :
+              <em>
+               &lt;array&gt;
+              </em>
+             </p>
+             <ul>
+              <li>
+               <p>
+                second input array. Must have the same shape as
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  x1
+                 </span>
+                </code>
+                .  Should have a numeric data type.
+               </p>
+              </li>
+             </ul>
+            </li>
+            <li>
+             <p>
+              <strong>
+               axis
+              </strong>
+              :
+              <em>
+               int
+              </em>
+             </p>
+             <ul>
+              <li>
+               <p>
+                the axis (dimension) of
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  x1
+                 </span>
+                </code>
+                and
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  x2
+                 </span>
+                </code>
+                containing the vectors for which to compute the cross product. If set to
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  -1
+                 </span>
+                </code>
+                , the function computes the cross product for vectors defined by the last axis (dimension). Default:
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  -1
+                 </span>
+                </code>
+                .
+               </p>
+              </li>
+             </ul>
+            </li>
+           </ul>
+          </section>
+          <section id="returns">
+           <h4 id="returns">
+            Returns
+            <a class="headerlink" href="#returns" title="Permalink to this headline">
+             ¶
+            </a>
+           </h4>
+           <ul class="simple">
+            <li>
+             <p>
+              <strong>
+               out
+              </strong>
+              :
+              <em>
+               &lt;array&gt;
+              </em>
+             </p>
+             <ul>
+              <li>
+               <p>
+                an array containing the cross products. The returned array must have a data type determined by
+                <a class="reference internal" href="type_promotion.html#type-promotion">
+                 <span class="std std-ref">
+                  Type Promotion Rules
+                 </span>
+                </a>
+                .
+               </p>
+              </li>
+             </ul>
+            </li>
+           </ul>
+          </section>
+         </section>
+         <section id="det-x">
+          <span id="function-det">
+          </span>
+          <h3 id="det-x">
+           det(x, /)
+           <a class="headerlink" href="#det-x" title="Permalink to this headline">
+            ¶
+           </a>
+          </h3>
+          <p>
+           Returns the determinant of a square matrix (or stack of square matrices)
+           <code class="docutils literal notranslate">
+            <span class="pre">
+             x
+            </span>
+           </code>
+           .
+          </p>
+          <section id="id1">
+           <h4 id="id1">
+            Parameters
+            <a class="headerlink" href="#id1" title="Permalink to this headline">
+             ¶
+            </a>
+           </h4>
+           <ul class="simple">
+            <li>
+             <p>
+              <strong>
+               x
+              </strong>
+              :
+              <em>
+               &lt;array&gt;
+              </em>
+             </p>
+             <ul>
+              <li>
+               <p>
+                input array having shape
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  (...,
+                 </span>
+                 <span class="pre">
+                  M,
+                 </span>
+                 <span class="pre">
+                  M)
+                 </span>
+                </code>
+                and whose innermost two dimensions form square matrices. Should have a floating-point data type.
+               </p>
+              </li>
+             </ul>
+            </li>
+           </ul>
+          </section>
+          <section id="id2">
+           <h4 id="id2">
+            Returns
+            <a class="headerlink" href="#id2" title="Permalink to this headline">
+             ¶
+            </a>
+           </h4>
+           <ul class="simple">
+            <li>
+             <p>
+              <strong>
+               out
+              </strong>
+              :
+              <em>
+               &lt;array&gt;
+              </em>
+             </p>
+             <ul>
+              <li>
+               <p>
+                if
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  x
+                 </span>
+                </code>
+                is a two-dimensional array, a zero-dimensional array containing the determinant; otherwise, a non-zero dimensional array containing the determinant for each square matrix. The returned array must have the same data type as
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  x
+                 </span>
+                </code>
+                .
+               </p>
+              </li>
+             </ul>
+            </li>
+           </ul>
+          </section>
+         </section>
+         <section id="diagonal-x-axis1-0-axis2-1-offset-0">
+          <span id="function-diagonal">
+          </span>
+          <h3 id="diagonal-x-axis1-0-axis2-1-offset-0">
+           diagonal(x, /, *, axis1=0, axis2=1, offset=0)
+           <a class="headerlink" href="#diagonal-x-axis1-0-axis2-1-offset-0" title="Permalink to this headline">
+            ¶
+           </a>
+          </h3>
+          <p>
+           Returns the specified diagonals. If
+           <code class="docutils literal notranslate">
+            <span class="pre">
+             x
+            </span>
+           </code>
+           has more than two dimensions, then the axes (dimensions) specified by
+           <code class="docutils literal notranslate">
+            <span class="pre">
+             axis1
+            </span>
+           </code>
+           and
+           <code class="docutils literal notranslate">
+            <span class="pre">
+             axis2
+            </span>
+           </code>
+           are used to determine the two-dimensional sub-arrays from which to return diagonals.
+          </p>
+          <section id="id3">
+           <h4 id="id3">
+            Parameters
+            <a class="headerlink" href="#id3" title="Permalink to this headline">
+             ¶
+            </a>
+           </h4>
+           <ul>
+            <li>
+             <p>
+              <strong>
+               x
+              </strong>
+              :
+              <em>
+               &lt;array&gt;
+              </em>
+             </p>
+             <ul class="simple">
+              <li>
+               <p>
+                input array. Must have at least
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  2
+                 </span>
+                </code>
+                dimensions.
+               </p>
+              </li>
+             </ul>
+            </li>
+            <li>
+             <p>
+              <strong>
+               axis1
+              </strong>
+              :
+              <em>
+               int
+              </em>
+             </p>
+             <ul class="simple">
+              <li>
+               <p>
+                first axis (dimension) with respect to which to take diagonal. Default:
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  0
+                 </span>
+                </code>
+                .
+               </p>
+              </li>
+             </ul>
+            </li>
+            <li>
+             <p>
+              <strong>
+               axis2
+              </strong>
+              :
+              <em>
+               int
+              </em>
+             </p>
+             <ul class="simple">
+              <li>
+               <p>
+                second axis (dimension) with respect to which to take diagonal. Default:
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  1
+                 </span>
+                </code>
+                .
+               </p>
+              </li>
+             </ul>
+            </li>
+            <li>
+             <p>
+              <strong>
+               offset
+              </strong>
+              :
+              <em>
+               int
+              </em>
+             </p>
+             <ul>
+              <li>
+               <p>
+                offset specifying the off-diagonal relative to the main diagonal.
+               </p>
+               <ul class="simple">
+                <li>
+                 <p>
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    offset
+                   </span>
+                   <span class="pre">
+                    =
+                   </span>
+                   <span class="pre">
+                    0
+                   </span>
+                  </code>
+                  : the main diagonal.
+                 </p>
+                </li>
+                <li>
+                 <p>
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    offset
+                   </span>
+                   <span class="pre">
+                    &gt;
+                   </span>
+                   <span class="pre">
+                    0
+                   </span>
+                  </code>
+                  : off-diagonal above the main diagonal.
+                 </p>
+                </li>
+                <li>
+                 <p>
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    offset
+                   </span>
+                   <span class="pre">
+                    &lt;
+                   </span>
+                   <span class="pre">
+                    0
+                   </span>
+                  </code>
+                  : off-diagonal below the main diagonal.
+                 </p>
+                </li>
+               </ul>
+               <p>
+                Default:
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  0
+                 </span>
+                </code>
+                .
+               </p>
+              </li>
+             </ul>
+            </li>
+           </ul>
+          </section>
+          <section id="id4">
+           <h4 id="id4">
+            Returns
+            <a class="headerlink" href="#id4" title="Permalink to this headline">
+             ¶
+            </a>
+           </h4>
+           <ul class="simple">
+            <li>
+             <p>
+              <strong>
+               out
+              </strong>
+              :
+              <em>
+               &lt;array&gt;
+              </em>
+             </p>
+             <ul>
+              <li>
+               <p>
+                if
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  x
+                 </span>
+                </code>
+                is a two-dimensional array, a one-dimensional array containing the diagonal; otherwise, a multi-dimensional array containing the diagonals and whose shape is determined by removing
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  axis1
+                 </span>
+                </code>
+                and
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  axis2
+                 </span>
+                </code>
+                and appending a dimension equal to the size of the resulting diagonals. The returned array must have the same data type as
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  x
+                 </span>
+                </code>
+                .
+               </p>
+              </li>
+             </ul>
+            </li>
+           </ul>
+          </section>
+         </section>
+         <section id="dot">
+          <span id="function-dot">
+          </span>
+          <h3 id="dot">
+           dot()
+           <a class="headerlink" href="#dot" title="Permalink to this headline">
+            ¶
+           </a>
+          </h3>
+          <p>
+           TODO
+          </p>
+         </section>
+         <section id="eig">
+          <span id="function-eig">
+          </span>
+          <h3 id="eig">
+           eig()
+           <a class="headerlink" href="#eig" title="Permalink to this headline">
+            ¶
+           </a>
+          </h3>
+          <p>
+           TODO
+          </p>
+         </section>
+         <section id="eigvalsh">
+          <span id="function-eigvalsh">
+          </span>
+          <h3 id="eigvalsh">
+           eigvalsh()
+           <a class="headerlink" href="#eigvalsh" title="Permalink to this headline">
+            ¶
+           </a>
+          </h3>
+          <p>
+           TODO
+          </p>
+         </section>
+         <section id="einsum">
+          <span id="function-einsum">
+          </span>
+          <h3 id="einsum">
+           einsum()
+           <a class="headerlink" href="#einsum" title="Permalink to this headline">
+            ¶
+           </a>
+          </h3>
+          <p>
+           TODO
+          </p>
+         </section>
+         <section id="inv-x">
+          <span id="function-inv">
+          </span>
+          <h3 id="inv-x">
+           inv(x, /)
+           <a class="headerlink" href="#inv-x" title="Permalink to this headline">
+            ¶
+           </a>
+          </h3>
+          <p>
+           Computes the multiplicative inverse of a square matrix (or a stack of square matrices)
+           <code class="docutils literal notranslate">
+            <span class="pre">
+             x
+            </span>
+           </code>
+           .
+          </p>
+          <section id="id5">
+           <h4 id="id5">
+            Parameters
+            <a class="headerlink" href="#id5" title="Permalink to this headline">
+             ¶
+            </a>
+           </h4>
+           <ul class="simple">
+            <li>
+             <p>
+              <strong>
+               x
+              </strong>
+              :
+              <em>
+               &lt;array&gt;
+              </em>
+             </p>
+             <ul>
+              <li>
+               <p>
+                input array having shape
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  (...,
+                 </span>
+                 <span class="pre">
+                  M,
+                 </span>
+                 <span class="pre">
+                  M)
+                 </span>
+                </code>
+                and whose innermost two dimensions form square matrices. Should have a floating-point data type.
+               </p>
+              </li>
+             </ul>
+            </li>
+           </ul>
+          </section>
+          <section id="id6">
+           <h4 id="id6">
+            Returns
+            <a class="headerlink" href="#id6" title="Permalink to this headline">
+             ¶
+            </a>
+           </h4>
+           <ul class="simple">
+            <li>
+             <p>
+              <strong>
+               out
+              </strong>
+              :
+              <em>
+               &lt;array&gt;
+              </em>
+             </p>
+             <ul>
+              <li>
+               <p>
+                an array containing the multiplicative inverses. The returned array must have a floating-point data type determined by
+                <a class="reference internal" href="type_promotion.html#type-promotion">
+                 <span class="std std-ref">
+                  Type Promotion Rules
+                 </span>
+                </a>
+                and must have the same shape as
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  x
+                 </span>
+                </code>
+                .
+               </p>
+              </li>
+             </ul>
+            </li>
+           </ul>
+          </section>
+         </section>
+         <section id="lstsq">
+          <span id="function-lstsq">
+          </span>
+          <h3 id="lstsq">
+           lstsq()
+           <a class="headerlink" href="#lstsq" title="Permalink to this headline">
+            ¶
+           </a>
+          </h3>
+          <p>
+           TODO
+          </p>
+         </section>
+         <section id="matmul">
+          <span id="function-matmul">
+          </span>
+          <h3 id="matmul">
+           matmul()
+           <a class="headerlink" href="#matmul" title="Permalink to this headline">
+            ¶
+           </a>
+          </h3>
+          <p>
+           TODO
+          </p>
+         </section>
+         <section id="matrix-power">
+          <span id="function-matrix-power">
+          </span>
+          <h3 id="matrix-power">
+           matrix_power()
+           <a class="headerlink" href="#matrix-power" title="Permalink to this headline">
+            ¶
+           </a>
+          </h3>
+          <p>
+           TODO
+          </p>
+         </section>
+         <section id="matrix-rank">
+          <span id="function-matrix-rank">
+          </span>
+          <h3 id="matrix-rank">
+           matrix_rank()
+           <a class="headerlink" href="#matrix-rank" title="Permalink to this headline">
+            ¶
+           </a>
+          </h3>
+          <p>
+           TODO
+          </p>
+         </section>
+         <section id="norm-x-axis-none-keepdims-false-ord-none">
+          <span id="function-norm">
+          </span>
+          <h3 id="norm-x-axis-none-keepdims-false-ord-none">
+           norm(x, /, *, axis=None, keepdims=False, ord=None)
+           <a class="headerlink" href="#norm-x-axis-none-keepdims-false-ord-none" title="Permalink to this headline">
+            ¶
+           </a>
+          </h3>
+          <p>
+           Computes the matrix or vector norm of
+           <code class="docutils literal notranslate">
+            <span class="pre">
+             x
+            </span>
+           </code>
+           .
+          </p>
+          <section id="id7">
+           <h4 id="id7">
+            Parameters
+            <a class="headerlink" href="#id7" title="Permalink to this headline">
+             ¶
+            </a>
+           </h4>
+           <ul>
+            <li>
+             <p>
+              <strong>
+               x
+              </strong>
+              :
+              <em>
+               &lt;array&gt;
+              </em>
+             </p>
+             <ul class="simple">
+              <li>
+               <p>
+                input array. Should have a floating-point data type.
+               </p>
+              </li>
+             </ul>
+            </li>
+            <li>
+             <p>
+              <strong>
+               axis
+              </strong>
+              :
+              <em>
+               Optional[ Union[ int, Tuple[ int, int ] ] ]
+              </em>
+             </p>
+             <ul>
+              <li>
+               <p>
+                If an integer,
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  axis
+                 </span>
+                </code>
+                specifies the axis (dimension) along which to compute vector norms.
+               </p>
+               <p>
+                If a 2-tuple,
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  axis
+                 </span>
+                </code>
+                specifies the axes (dimensions) defining two-dimensional matrices for which to compute matrix norms.
+               </p>
+               <p>
+                If
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  None
+                 </span>
+                </code>
+                ,
+               </p>
+               <ul class="simple">
+                <li>
+                 <p>
+                  if
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    x
+                   </span>
+                  </code>
+                  is one-dimensional, the function must compute the vector norm.
+                 </p>
+                </li>
+                <li>
+                 <p>
+                  if
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    x
+                   </span>
+                  </code>
+                  is two-dimensional, the function must compute the matrix norm.
+                 </p>
+                </li>
+                <li>
+                 <p>
+                  if
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    x
+                   </span>
+                  </code>
+                  has more than two dimensions, the function must compute the vector norm over all array values (i.e., equivalent to computing the vector norm of a flattened array).
+                 </p>
+                </li>
+               </ul>
+               <p>
+                Negative indices must be supported. Default:
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  None
+                 </span>
+                </code>
+                .
+               </p>
+              </li>
+             </ul>
+            </li>
+            <li>
+             <p>
+              <strong>
+               keepdims
+              </strong>
+              :
+              <em>
+               bool
+              </em>
+             </p>
+             <ul class="simple">
+              <li>
+               <p>
+                If
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  True
+                 </span>
+                </code>
+                , the axes (dimensions) specified by
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  axis
+                 </span>
+                </code>
+                must be included in the result as singleton dimensions, and, accordingly, the result must be compatible with the input array (see
+                <a class="reference internal" href="broadcasting.html#broadcasting">
+                 <span class="std std-ref">
+                  Broadcasting
+                 </span>
+                </a>
+                ). Otherwise, if
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  False
+                 </span>
+                </code>
+                , the axes (dimensions) specified by
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  axis
+                 </span>
+                </code>
+                must not be included in the result. Default:
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  False
+                 </span>
+                </code>
+                .
+               </p>
+              </li>
+             </ul>
+            </li>
+            <li>
+             <p>
+              <strong>
+               ord
+              </strong>
+              :
+              <em>
+               Optional[ Union[  int, float, Literal[ inf, -inf, ‘fro’, ‘nuc’ ] ] ]
+              </em>
+             </p>
+             <ul class="simple">
+              <li>
+               <p>
+                order of the norm. The following mathematical norms must be supported:
+               </p>
+              </li>
+             </ul>
+            </li>
+           </ul>
+           <pre><code>    | ord              | matrix                          | vector                     |
+    | ---------------- | ------------------------------- | -------------------------- |
+    | 'fro'            | 'fro'                           | -                          |
+    | 'nuc'            | 'nuc'                           | -                          |
+    | 1                | max(sum(abs(x), axis=0))        | L1-norm (Manhattan)        |
+    | 2                | largest singular value          | L2-norm (Euclidean)        |
+    | inf              | max(sum(abs(x), axis=1))        | infinity norm              |
+    | (int,float &gt;= 1) | -                               | p-norm                     |
+</code></pre>
+           <div class="highlight-none notranslate">
+            <div class="highlight">
+             <pre><span></span>    The following non-mathematical "norms" must be supported:
+</pre>
+            </div>
+           </div>
+           <pre><code>    | ord              | matrix                          | vector                         |
+    | ---------------- | ------------------------------- | ------------------------------ |
+    | 0                | -                               | sum(a != 0)                    |
+    | -1               | min(sum(abs(x), axis=0))        | 1./sum(1./abs(a))              |
+    | -2               | smallest singular value         | 1./sqrt(sum(1./abs(a)\*\*2))   |
+    | -inf             | min(sum(abs(x), axis=1))        | min(abs(a))                    |
+    | (int,float &lt; 1)  | -                               | sum(abs(a)\*\*ord)\*\*(1./ord) |
+</code></pre>
+           <div class="highlight-none notranslate">
+            <div class="highlight">
+             <pre><span></span>    When `ord` is `None`, the following norms must be the default norms:
+</pre>
+            </div>
+           </div>
+           <pre><code>    | ord              | matrix                          | vector                     |
+    | ---------------- | ------------------------------- | -------------------------- |
+    | None             | 'fro'                           | L2-norm (Euclidean)        |
+</code></pre>
+           <div class="highlight-none notranslate">
+            <div class="highlight">
+             <pre><span></span>    where `fro` corresponds to the **Frobenius norm**, `nuc` corresponds to the **nuclear norm**, and `-` indicates that the norm is **not** supported.
+
+    For matrices,
+
+    -   if `ord=1`, the norm corresponds to the induced matrix norm where `p=1` (i.e., the maximum absolute value column sum).
+    -   if `ord=2`, the norm corresponds to the induced matrix norm where `p=inf` (i.e., the maximum absolute value row sum).
+    -   if `ord=inf`, the norm corresponds to the induced matrix norm where `p=2` (i.e., the largest singular value).
+
+    If `None`,
+
+    -   if matrix (or matrices), the function must compute the Frobenius norm.
+    -   if vector (or vectors), the function must compute the L2-norm (Euclidean norm).
+
+    Default: `None`.
+</pre>
+            </div>
+           </div>
+          </section>
+          <section id="id8">
+           <h4 id="id8">
+            Returns
+            <a class="headerlink" href="#id8" title="Permalink to this headline">
+             ¶
+            </a>
+           </h4>
+           <ul class="simple">
+            <li>
+             <p>
+              <strong>
+               out
+              </strong>
+              :
+              <em>
+               &lt;array&gt;
+              </em>
+             </p>
+             <ul>
+              <li>
+               <p>
+                an array containing the norms. If
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  axis
+                 </span>
+                </code>
+                is
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  None
+                 </span>
+                </code>
+                , the returned array must be a zero-dimensional array containing a vector norm. If
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  axis
+                 </span>
+                </code>
+                is a scalar value (
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  int
+                 </span>
+                </code>
+                or
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  float
+                 </span>
+                </code>
+                ), the returned array must have a rank which is one less than the rank of
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  x
+                 </span>
+                </code>
+                . If
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  axis
+                 </span>
+                </code>
+                is a 2-tuple, the returned array must have a rank which is two less than the rank of
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  x
+                 </span>
+                </code>
+                . The returned array must have a floating-point data type determined by
+                <a class="reference internal" href="type_promotion.html#type-promotion">
+                 <span class="std std-ref">
+                  Type Promotion Rules
+                 </span>
+                </a>
+                .
+               </p>
+              </li>
+             </ul>
+            </li>
+           </ul>
+          </section>
+         </section>
+         <section id="outer-x1-x2">
+          <span id="function-outer">
+          </span>
+          <h3 id="outer-x1-x2">
+           outer(x1, x2, /)
+           <a class="headerlink" href="#outer-x1-x2" title="Permalink to this headline">
+            ¶
+           </a>
+          </h3>
+          <p>
+           Computes the outer product of two vectors
+           <code class="docutils literal notranslate">
+            <span class="pre">
+             x1
+            </span>
+           </code>
+           and
+           <code class="docutils literal notranslate">
+            <span class="pre">
+             x2
+            </span>
+           </code>
+           .
+          </p>
+          <section id="id9">
+           <h4 id="id9">
+            Parameters
+            <a class="headerlink" href="#id9" title="Permalink to this headline">
+             ¶
+            </a>
+           </h4>
+           <ul class="simple">
+            <li>
+             <p>
+              <strong>
+               x1
+              </strong>
+              :
+              <em>
+               &lt;array&gt;
+              </em>
+             </p>
+             <ul>
+              <li>
+               <p>
+                first one-dimensional input array of size
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  N
+                 </span>
+                </code>
+                . Should have a numeric data type.
+               </p>
+              </li>
+             </ul>
+            </li>
+            <li>
+             <p>
+              <strong>
+               x2
+              </strong>
+              :
+              <em>
+               &lt;array&gt;
+              </em>
+             </p>
+             <ul>
+              <li>
+               <p>
+                second one-dimensional input array of size
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  M
+                 </span>
+                </code>
+                . Should have a numeric data type.
+               </p>
+              </li>
+             </ul>
+            </li>
+           </ul>
+          </section>
+          <section id="id10">
+           <h4 id="id10">
+            Returns
+            <a class="headerlink" href="#id10" title="Permalink to this headline">
+             ¶
+            </a>
+           </h4>
+           <ul class="simple">
+            <li>
+             <p>
+              <strong>
+               out
+              </strong>
+              :
+              <em>
+               &lt;array&gt;
+              </em>
+             </p>
+             <ul>
+              <li>
+               <p>
+                a two-dimensional array containing the outer product and whose shape is
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  (N,
+                 </span>
+                 <span class="pre">
+                  M)
+                 </span>
+                </code>
+                . The returned array must have a data type determined by
+                <a class="reference internal" href="type_promotion.html#type-promotion">
+                 <span class="std std-ref">
+                  Type Promotion Rules
+                 </span>
+                </a>
+                .
+               </p>
+              </li>
+             </ul>
+            </li>
+           </ul>
+          </section>
+         </section>
+         <section id="pinv">
+          <span id="function-pinv">
+          </span>
+          <h3 id="pinv">
+           pinv()
+           <a class="headerlink" href="#pinv" title="Permalink to this headline">
+            ¶
+           </a>
+          </h3>
+          <p>
+           TODO
+          </p>
+         </section>
+         <section id="qr">
+          <span id="function-qr">
+          </span>
+          <h3 id="qr">
+           qr()
+           <a class="headerlink" href="#qr" title="Permalink to this headline">
+            ¶
+           </a>
+          </h3>
+          <p>
+           TODO
+          </p>
+         </section>
+         <section id="slogdet">
+          <span id="function-slogdet">
+          </span>
+          <h3 id="slogdet">
+           slogdet()
+           <a class="headerlink" href="#slogdet" title="Permalink to this headline">
+            ¶
+           </a>
+          </h3>
+          <p>
+           TODO
+          </p>
+         </section>
+         <section id="solve">
+          <span id="function-solve">
+          </span>
+          <h3 id="solve">
+           solve()
+           <a class="headerlink" href="#solve" title="Permalink to this headline">
+            ¶
+           </a>
+          </h3>
+          <p>
+           TODO
+          </p>
+         </section>
+         <section id="svd">
+          <span id="function-svd">
+          </span>
+          <h3 id="svd">
+           svd()
+           <a class="headerlink" href="#svd" title="Permalink to this headline">
+            ¶
+           </a>
+          </h3>
+          <p>
+           TODO
+          </p>
+         </section>
+         <section id="trace-x-axis1-0-axis2-1-offset-0">
+          <span id="function-trace">
+          </span>
+          <h3 id="trace-x-axis1-0-axis2-1-offset-0">
+           trace(x, /, *, axis1=0, axis2=1, offset=0)
+           <a class="headerlink" href="#trace-x-axis1-0-axis2-1-offset-0" title="Permalink to this headline">
+            ¶
+           </a>
+          </h3>
+          <p>
+           Returns the sum along the specified diagonals. If
+           <code class="docutils literal notranslate">
+            <span class="pre">
+             x
+            </span>
+           </code>
+           has more than two dimensions, then the axes (dimensions) specified by
+           <code class="docutils literal notranslate">
+            <span class="pre">
+             axis1
+            </span>
+           </code>
+           and
+           <code class="docutils literal notranslate">
+            <span class="pre">
+             axis2
+            </span>
+           </code>
+           are used to determine the two-dimensional sub-arrays for which to compute the trace.
+          </p>
+          <section id="id11">
+           <h4 id="id11">
+            Parameters
+            <a class="headerlink" href="#id11" title="Permalink to this headline">
+             ¶
+            </a>
+           </h4>
+           <ul>
+            <li>
+             <p>
+              <strong>
+               x
+              </strong>
+              :
+              <em>
+               &lt;array&gt;
+              </em>
+             </p>
+             <ul class="simple">
+              <li>
+               <p>
+                input array. Must have at least
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  2
+                 </span>
+                </code>
+                dimensions. Should have a numeric data type.
+               </p>
+              </li>
+             </ul>
+            </li>
+            <li>
+             <p>
+              <strong>
+               axis1
+              </strong>
+              :
+              <em>
+               int
+              </em>
+             </p>
+             <ul class="simple">
+              <li>
+               <p>
+                first axis (dimension) with respect to which to compute the trace. Default:
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  0
+                 </span>
+                </code>
+                .
+               </p>
+              </li>
+             </ul>
+            </li>
+            <li>
+             <p>
+              <strong>
+               axis2
+              </strong>
+              :
+              <em>
+               int
+              </em>
+             </p>
+             <ul class="simple">
+              <li>
+               <p>
+                second axis (dimension) with respect to which to compute the trace. Default:
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  1
+                 </span>
+                </code>
+                .
+               </p>
+              </li>
+             </ul>
+            </li>
+            <li>
+             <p>
+              <strong>
+               offset
+              </strong>
+              :
+              <em>
+               int
+              </em>
+             </p>
+             <ul>
+              <li>
+               <p>
+                offset specifying the off-diagonal relative to the main diagonal.
+               </p>
+               <ul class="simple">
+                <li>
+                 <p>
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    offset
+                   </span>
+                   <span class="pre">
+                    =
+                   </span>
+                   <span class="pre">
+                    0
+                   </span>
+                  </code>
+                  : the main diagonal.
+                 </p>
+                </li>
+                <li>
+                 <p>
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    offset
+                   </span>
+                   <span class="pre">
+                    &gt;
+                   </span>
+                   <span class="pre">
+                    0
+                   </span>
+                  </code>
+                  : off-diagonal above the main diagonal.
+                 </p>
+                </li>
+                <li>
+                 <p>
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    offset
+                   </span>
+                   <span class="pre">
+                    &lt;
+                   </span>
+                   <span class="pre">
+                    0
+                   </span>
+                  </code>
+                  : off-diagonal below the main diagonal.
+                 </p>
+                </li>
+               </ul>
+               <p>
+                Default:
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  0
+                 </span>
+                </code>
+                .
+               </p>
+              </li>
+             </ul>
+            </li>
+           </ul>
+          </section>
+          <section id="id12">
+           <h4 id="id12">
+            Returns
+            <a class="headerlink" href="#id12" title="Permalink to this headline">
+             ¶
+            </a>
+           </h4>
+           <ul>
+            <li>
+             <p>
+              <strong>
+               out
+              </strong>
+              :
+              <em>
+               &lt;array&gt;
+              </em>
+             </p>
+             <ul>
+              <li>
+               <p>
+                if
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  x
+                 </span>
+                </code>
+                is a two-dimensional array, the returned array must be a zero-dimensional array containing the trace; otherwise, the returned array must be a multi-dimensional array containing the traces.
+               </p>
+               <p>
+                The shape of a multi-dimensional output array is determined by removing
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  axis1
+                 </span>
+                </code>
+                and
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  axis2
+                 </span>
+                </code>
+                and storing the traces in the last array dimension. For example, if
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  x
+                 </span>
+                </code>
+                has rank
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  k
+                 </span>
+                </code>
+                and shape
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  (I,
+                 </span>
+                 <span class="pre">
+                  J,
+                 </span>
+                 <span class="pre">
+                  K,
+                 </span>
+                 <span class="pre">
+                  ...,
+                 </span>
+                 <span class="pre">
+                  L,
+                 </span>
+                 <span class="pre">
+                  M,
+                 </span>
+                 <span class="pre">
+                  N)
+                 </span>
+                </code>
+                and
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  axis1=-2
+                 </span>
+                </code>
+                and
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  axis1=-1
+                 </span>
+                </code>
+                , then a multi-dimensional output array has rank
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  k-2
+                 </span>
+                </code>
+                and shape
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  (I,
+                 </span>
+                 <span class="pre">
+                  J,
+                 </span>
+                 <span class="pre">
+                  K,
+                 </span>
+                 <span class="pre">
+                  ...,
+                 </span>
+                 <span class="pre">
+                  L)
+                 </span>
+                </code>
+                where
+               </p>
+               <div class="highlight-text notranslate">
+                <div class="highlight">
+                 <pre><span></span>out[i, j, k, ..., l] = trace(a[i, j, k, ..., l, :, :])
+</pre>
+                </div>
+               </div>
+               <p>
+                The returned array must have the same data type as
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  x
+                 </span>
+                </code>
+                .
+               </p>
+              </li>
+             </ul>
+            </li>
+           </ul>
+          </section>
+         </section>
+         <section id="transpose-x-axes-none">
+          <span id="function-transpose">
+          </span>
+          <h3 id="transpose-x-axes-none">
+           transpose(x, /, *, axes=None)
+           <a class="headerlink" href="#transpose-x-axes-none" title="Permalink to this headline">
+            ¶
+           </a>
+          </h3>
+          <p>
+           Transposes (or permutes the axes (dimensions)) of an array
+           <code class="docutils literal notranslate">
+            <span class="pre">
+             x
+            </span>
+           </code>
+           .
+          </p>
+          <section id="id13">
+           <h4 id="id13">
+            Parameters
+            <a class="headerlink" href="#id13" title="Permalink to this headline">
+             ¶
+            </a>
+           </h4>
+           <ul class="simple">
+            <li>
+             <p>
+              <strong>
+               x
+              </strong>
+              :
+              <em>
+               &lt;array&gt;
+              </em>
+             </p>
+             <ul>
+              <li>
+               <p>
+                input array.
+               </p>
+              </li>
+             </ul>
+            </li>
+            <li>
+             <p>
+              <strong>
+               axes
+              </strong>
+              :
+              <em>
+               Optional[ Tuple[ int, … ] ]
+              </em>
+             </p>
+             <ul>
+              <li>
+               <p>
+                tuple containing a permutation of
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  (0,
+                 </span>
+                 <span class="pre">
+                  1,
+                 </span>
+                 <span class="pre">
+                  ...,
+                 </span>
+                 <span class="pre">
+                  N-1)
+                 </span>
+                </code>
+                where
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  N
+                 </span>
+                </code>
+                is the number of axes (dimensions) of
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  x
+                 </span>
+                </code>
+                . If
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  None
+                 </span>
+                </code>
+                , the axes (dimensions) must be permuted in reverse order (i.e., equivalent to setting
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  axes=(N-1,
+                 </span>
+                 <span class="pre">
+                  ...,
+                 </span>
+                 <span class="pre">
+                  1,
+                 </span>
+                 <span class="pre">
+                  0)
+                 </span>
+                </code>
+                ). Default:
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  None
+                 </span>
+                </code>
+                .
+               </p>
+              </li>
+             </ul>
+            </li>
+           </ul>
+          </section>
+          <section id="id14">
+           <h4 id="id14">
+            Returns
+            <a class="headerlink" href="#id14" title="Permalink to this headline">
+             ¶
+            </a>
+           </h4>
+           <ul class="simple">
+            <li>
+             <p>
+              <strong>
+               out
+              </strong>
+              :
+              <em>
+               &lt;array&gt;
+              </em>
+             </p>
+             <ul>
+              <li>
+               <p>
+                an array containing the transpose. The returned array must have the same data type as
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  x
+                 </span>
+                </code>
+                .
+               </p>
+              </li>
+             </ul>
+            </li>
+           </ul>
+          </section>
+         </section>
+        </section>
+       </section>
+      </article>
+     </div>
+    </div>
+   </main>
+  </div>
+  <footer class="md-footer">
+   <div class="md-footer-nav">
+    <nav class="md-footer-nav__inner md-grid">
+     <a class="md-flex md-footer-nav__link md-footer-nav__link--prev" href="statistical_functions.html" rel="prev" title="Statistical Functions">
+      <div class="md-flex__cell md-flex__cell--shrink">
+       <i class="md-icon md-icon--arrow-back md-footer-nav__button">
+       </i>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+       <span class="md-flex__ellipsis">
+        <span class="md-footer-nav__direction">
+         Previous
+        </span>
+        Statistical Functions
+       </span>
+      </div>
+     </a>
+     <a class="md-flex md-footer-nav__link md-footer-nav__link--next" href="searching_functions.html" rel="next" title="Searching Functions">
+      <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+       <span class="md-flex__ellipsis">
+        <span class="md-footer-nav__direction">
+         Next
+        </span>
+        Searching Functions
+       </span>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+       <i class="md-icon md-icon--arrow-forward md-footer-nav__button">
+       </i>
+      </div>
+     </a>
+    </nav>
+   </div>
+   <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+     <div class="md-footer-copyright">
+      <div class="md-footer-copyright__highlight">
+       © Copyright 2020, Consortium for Python Data API Standards.
+      </div>
+      Created using
+      <a href="http://www.sphinx-doc.org/">
+       Sphinx
+      </a>
+      3.1.1.
+             and
+      <a href="https://github.com/bashtage/sphinx-material/">
+       Material for
+              Sphinx
+      </a>
+     </div>
+    </div>
+   </div>
+  </footer>
+  <script src="../_static/javascripts/application.js">
+  </script>
+  <script>
+   app.initialize({version: "1.0.4", url: {base: ".."}})
+  </script>
+ </body>
+</html>
