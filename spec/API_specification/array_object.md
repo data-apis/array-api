@@ -466,13 +466,13 @@ Exports the array for consumption by {ref}`function-from_dlpack` as a DLPack cap
 
 
 (method-__dlpack_device__)=
-### \_\_dlpack\_device\_\_(x, /)
+### \_\_dlpack\_device\_\_(self, /)
 
 Returns device type and device ID in DLPack format. Meant for use within {ref}`function-from_dlpack`.
 
 #### Parameters
 
--   **x**: _&lt;array&gt;_
+-   **self**: _&lt;array&gt;_
 
     -   array instance.
 
