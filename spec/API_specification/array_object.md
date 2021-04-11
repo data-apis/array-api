@@ -142,7 +142,7 @@ an array object supporting the following in-place Python operators:
 - `+=`. May be implemented via `__iadd__`.
 - `-=`. May be implemented via `__isub__`.
 - `*=`. May be implemented via `__imul__`.
-- `/=`. May be implemented via `__idiv__`.
+- `/=`. May be implemented via `__itruediv__`.
 - `//=`. May be implemented via `__ifloordiv__`.
 - `**=`. May be implemented via `__ipow__`.
 - `@=`. May be implemented via `__imatmul__`.
@@ -166,10 +166,10 @@ an array object supporting the following reflected operators:
 - `__radd__`
 - `__rsub__`
 - `__rmul__`
-- `__rdiv__`
-- `__rfloordiv__`
 - `__rtruediv__`
+- `__rfloordiv__`
 - `__rpow__`
+- `__rmatmul__`
 - `__rmod__`
 - `__rand__`
 - `__ror__`
@@ -425,6 +425,10 @@ Exports the array for consumption by {ref}`function-from_dlpack` as a DLPack cap
 
 #### Parameters
 
+-   **self**: _&lt;array&gt;_
+
+    -   array instance.
+
 -   **stream**: _Optional\[ int ]_
 
     -   a Python integer representing a pointer to a stream. `stream` is provided by the consumer to the producer to instruct the producer to ensure that operations can safely be performed on the array. The pointer must be a positive integer or `-1`. If `stream` is `-1`, the value may be used by the consumer to signal "producer must not perform any synchronization". Device-specific notes:
@@ -462,9 +466,15 @@ Exports the array for consumption by {ref}`function-from_dlpack` as a DLPack cap
 
 
 (method-__dlpack_device__)=
-### \_\_dlpack\_device\_\_()
+### \_\_dlpack\_device\_\_(self, /)
 
 Returns device type and device ID in DLPack format. Meant for use within {ref}`function-from_dlpack`.
+
+#### Parameters
+
+-   **self**: _&lt;array&gt;_
+
+    -   array instance.
 
 #### Returns
 
