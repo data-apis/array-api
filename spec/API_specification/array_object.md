@@ -21,114 +21,114 @@ A conforming implementation of the array API standard must provide and support a
 
 A conforming implementation of the array API standard must provide and support an array object supporting the following Python operators:
 
--   `x1 < x2`: [`__lt__(x1, x2)`](#__lt__x1-x2-)
+-   `x1 < x2`: [`__lt__(x1, x2)`](#__lt__self-other-)
 
     -   [`operator.lt(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.lt)
     -   [`operator.__lt__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__lt__)
 
--   `x1 <= x2`: [`__le__(x1, x2)`](#__le__x1-x2-)
+-   `x1 <= x2`: [`__le__(x1, x2)`](#__le__self-other-)
 
     -   [`operator.le(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.le)
     -   [`operator.__le__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__le__)
 
--   `x1 > x2`: [`__gt__(x1, x2)`](#__gt__x1-x2-)
+-   `x1 > x2`: [`__gt__(x1, x2)`](#__gt__self-other-)
 
     -   [`operator.gt(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.gt)
     -   [`operator.__gt__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__gt__)
 
--   `x1 >= x2`: [`__ge__(x1, x2)`](#__ge__x1-x2-)
+-   `x1 >= x2`: [`__ge__(x1, x2)`](#__ge__self-other-)
 
     -   [`operator.ge(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.ge)
     -   [`operator.__ge__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__ge__)
 
--   `x1 == x2`: [`__eq__(x1, x2)`](#__eq__x1-x2-)
+-   `x1 == x2`: [`__eq__(x1, x2)`](#__eq__self-other-)
 
     -   [`operator.eq(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.eq)
     -   [`operator.__eq__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__eq__)
 
--   `x1 != x2`: [`__ne__(x1, x2)`](#__ne__x1-x2-)
+-   `x1 != x2`: [`__ne__(x1, x2)`](#__ne__self-other-)
 
     -   [`operator.ne(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.ne)
     -   [`operator.__ne__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__ne__)
 
--   `+x`: [`__pos__(x)`](#__pos__x-)
+-   `+x`: [`__pos__(x)`](#__pos__self-)
 
     -   [`operator.pos(x)`](https://docs.python.org/3/library/operator.html#operator.pos)
     -   [`operator.__pos__(x)`](https://docs.python.org/3/library/operator.html#operator.__pos__)
 
--   `-x`: [`__neg__(x)`](#__neg__x-)
+-   `-x`: [`__neg__(x)`](#__neg__self-)
 
     -   [`operator.neg(x)`](https://docs.python.org/3/library/operator.html#operator.neg)
     -   [`operator.__neg__(x)`](https://docs.python.org/3/library/operator.html#operator.__neg__)
 
--   `x1 + x2`: [`__add__(x1, x2)`](#__add__x1-x2-)
+-   `x1 + x2`: [`__add__(x1, x2)`](#__add__self-other-)
 
     -   [`operator.add(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.add)
     -   [`operator.__add__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__add__)
 
--   `x1 - x2`: [`__sub__(x1, x2)`](#__sub__x1-x2-)
+-   `x1 - x2`: [`__sub__(x1, x2)`](#__sub__self-other-)
 
     -   [`operator.sub(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.sub)
     -   [`operator.__sub__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__sub__)
 
--   `x1 * x2`: [`__mul__(x1, x2)`](#__mul__x1-x2-)
+-   `x1 * x2`: [`__mul__(x1, x2)`](#__mul__self-other-)
 
     -   [`operator.mul(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.mul)
     -   [`operator.__mul__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__mul__)
 
--   `x1 / x2`: [`__truediv__(x1, x2)`](#__truediv__x1-x2-)
+-   `x1 / x2`: [`__truediv__(x1, x2)`](#__truediv__self-other-)
 
     -   [`operator.truediv(x1,x2)`](https://docs.python.org/3/library/operator.html#operator.truediv)
     -   [`operator.__truediv__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__truediv__)
 
--   `x1 // x2`: [`__floordiv__(x1, x2)`](#__floordiv__x1-x2-)
+-   `x1 // x2`: [`__floordiv__(x1, x2)`](#__floordiv__self-other-)
 
     -   [`operator.floordiv(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.floordiv)
     -   [`operator.__floordiv__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__floordiv__)
 
--   `x1 % x2`: [`__mod__(x1, x2)`](#__mod__x1-x2-)
+-   `x1 % x2`: [`__mod__(x1, x2)`](#__mod__self-other-)
 
     -   [`operator.mod(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.mod)
     -   [`operator.__mod__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__mod__)
 
--   `x1 ** x2`: [`__pow__(x1, x2)`](#__pow__x1-x2-)
+-   `x1 ** x2`: [`__pow__(x1, x2)`](#__pow__self-other-)
 
     -   [`operator.pow(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.pow)
     -   [`operator.__pow__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__pow__)
 
--   `x1 @ x2`: [`__matmul__(x1, x2)`](#__matmul__x1-x2-)
+-   `x1 @ x2`: [`__matmul__(x1, x2)`](#__matmul__self-other-)
 
     -   [`operator.matmul(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.matmul)
     -   [`operator.__matmul__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__matmul__)
 
--   `~x`: [`__invert__(x)`](#__invert__x-)
+-   `~x`: [`__invert__(x)`](#__invert__self-)
 
     -   [`operator.inv(x)`](https://docs.python.org/3/library/operator.html#operator.inv)
     -   [`operator.invert(x)`](https://docs.python.org/3/library/operator.html#operator.invert)
     -   [`operator.__inv__(x)`](https://docs.python.org/3/library/operator.html#operator.__inv__)
     -   [`operator.__invert__(x)`](https://docs.python.org/3/library/operator.html#operator.__invert__)
 
--   `x1 & x2`: [`__and__(x1, x2)`](#__and__x1-x2-)
+-   `x1 & x2`: [`__and__(x1, x2)`](#__and__self-other-)
 
     -   [`operator.and(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.and)
     -   [`operator.__and__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__and__)
 
--   `x1 | x2`: [`__or__(x1, x2)`](#__or__x1-x2-)
+-   `x1 | x2`: [`__or__(x1, x2)`](#__or__self-other-)
 
     -   [`operator.or(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.or)
     -   [`operator.__or__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__or__)
 
--   `x1 ^ x2`: [`__xor__(x1, x2)`](#__xor__x1-x2-)
+-   `x1 ^ x2`: [`__xor__(x1, x2)`](#__xor__self-other-)
 
     -   [`operator.xor(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.xor)
     -   [`operator.__xor__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__xor__)
 
--   `x1 << x2`: [`__lshift__(x1, x2)`](#__lshift__x1-x2-)
+-   `x1 << x2`: [`__lshift__(x1, x2)`](#__lshift__self-other-)
 
     -   [`operator.lshift(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.lshift)
     -   [`operator.__lshift__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__lshift__)
 
--   `x1 >> x2`: [`__rshift__(x1, x2)`](#__rshift__x1-x2-)
+-   `x1 >> x2`: [`__rshift__(x1, x2)`](#__rshift__self-other-)
 
     -   [`operator.rshift(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.rshift)
     -   [`operator.__rshift__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__rshift__)
@@ -1024,7 +1024,7 @@ _TODO: dependent on the indexing specification._
 (method-__sub__)=
 ### \_\_sub\_\_(self, other, /)
 
-Calculates the difference for each element of an array instance with the respective element of the array `other`. The result of `self_i - other_i` must be the same as `self_i + (-other_i)` and must be governed by the same floating-point rules as addition (see [`__add__()`](#__add__x1-x2-)).
+Calculates the difference for each element of an array instance with the respective element of the array `other`. The result of `self_i - other_i` must be the same as `self_i + (-other_i)` and must be governed by the same floating-point rules as addition (see [`__add__()`](#__add__self-other-)).
 
 #### Parameters
 
