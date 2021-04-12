@@ -277,7 +277,7 @@ TODO
 (function-svd)=
 ### svd(x, /, *, full_matrices=True)
 
-Computes the singular value decomposition `A = USV` of a matrix (or stack of matrices) `x`.
+Computes the singular value decomposition `A = USV` of a matrix (or a stack of matrices) `x`.
 
 #### Parameters
 
