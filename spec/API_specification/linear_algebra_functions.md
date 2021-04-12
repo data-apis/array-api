@@ -275,7 +275,7 @@ TODO
 TODO
 
 (function-svd)=
-### svd(x, /, *, compute_uv=True, full_matrices=True)
+### svd(x, /, *, full_matrices=True)
 
 Computes the singular value decomposition `A = USV` of a matrix (or stack of matrices) `x`.
 
@@ -285,21 +285,15 @@ Computes the singular value decomposition `A = USV` of a matrix (or stack of mat
 
     -   input array having shape `(..., M, N)` and whose innermost two dimensions form matrices on which to perform singular value decomposition. Should have a floating-point data type.
 
--   **compute_uv**: _bool_
-
-    -   If `True`, compute the left and right singular vectors and return as `u` and `v`, respectively. Default: `True`.
-
 -   **full_matrices**: _bool_
 
-    -   If `True`, compute full-sized `u` and `v`, such that `u` has shape `(..., M, M)` and `v` has shape `(..., N, N)`. If `False`, compute on the leading `K` singular vectors, such that `u` has shape `(..., M, K)` and `v` has shape `(..., K, N)` and where `K = min(M, N)`. This option must be ignored if `compute_uv` is `False`. Default: `True`.
+    -   If `True`, compute full-sized `u` and `v`, such that `u` has shape `(..., M, M)` and `v` has shape `(..., N, N)`. If `False`, compute on the leading `K` singular vectors, such that `u` has shape `(..., M, K)` and `v` has shape `(..., K, N)` and where `K = min(M, N)`. Default: `True`.
 
 #### Returns
 
 -   **out**: _Union\[ &lt;array&gt;, Tuple\[ &lt;array&gt;, ... ] ]_
 
-    -   if `compute_uv` is `False`, an array with shape `(..., K)` that contains the vector(s) of singular values of length `K`. For each vector, the singular values must be sorted in descending order by magnitude, such that `s[..., 0]` is the largest value, `s[..., 1]` is the second largest value, et cetera. The first `x.ndim-2` dimensions must have the same shape as those of the input `x`. The returned array must have a floating-point data type determined by {ref}`type-promotion`.
-
-    -   if `compute_uv` is `True`, a namedtuple `(u, s, v)` whose
+    -   a namedtuple `(u, s, v)` whose
     
         -   first element must be an array whose shape depends on the value of `full_matrices` and contain unitary array(s) (i.e., the left singular vectors). The left singular vectors must be stored as columns. If `full_matrices` is `True`, the array must have shape `(..., M, M)`. If `full_matrices` is `False`, the array must have shape `(..., M, K)`, where `K = min(M, N)`. The first `x.ndim-2` dimensions must have the same shape as those of the input `x`.
         -   second element must be an array with shape `(..., K)` that contains the vector(s) of singular values of length `K`. For each vector, the singular values must be sorted in descending order by magnitude, such that `s[..., 0]` is the largest value, `s[..., 1]` is the second largest value, et cetera. The first `x.ndim-2` dimensions must have the same shape as those of the input `x`.
