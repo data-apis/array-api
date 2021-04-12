@@ -939,8 +939,8 @@ each element `x1_i` of the input array `x1` with the respective element `x2_i` o
 
 For floating-point operands,
 
-- If `x1_i` or `x2_i` is `NaN`, the result is `NaN`.
-- If `x1_i` or `x2_i` is `+infinity`, the result is `+infinity`.
+- If either `x1_i` or `x2_i` is `NaN`, the result is `NaN`.
+- If either `x1_i` or `x2_i` is `+infinity`, the result is `+infinity`.
 
 #### Parameters
 

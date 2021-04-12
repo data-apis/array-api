@@ -8,14 +8,14 @@ A conforming implementation of the array API standard must provide and support t
 
 ## Objects in API
 
-(finfo)=
+(function-finfo)=
 ### finfo(type, /)
 
 Machine limits for floating-point data types.
 
 #### Parameters
 
--   **type**: _Union\[ &lt;dtype&gt, &lt;array&gt; ]_
+-   **type**: _Union\[ &lt;dtype&gt;, &lt;array&gt; ]_
 
     -   the kind of floating-point data-type about which to get information.
 
@@ -34,14 +34,14 @@ Machine limits for floating-point data types.
         -   **min**: _float_
             -   smallest representable number.
 
-(iinfo)=
+(function-iinfo)=
 ### iinfo(type, /)
 
 Machine limits for integer data types.
 
 #### Parameters
 
--   **type**: _Union\[ &lt;dtype&gt, &lt;array&gt; ]_
+-   **type**: _Union\[ &lt;dtype&gt;, &lt;array&gt; ]_
 
     -   the kind of integer data-type about which to get information.
 
@@ -70,7 +70,7 @@ If provided mixed dtypes (e.g., integer and floating-point), the returned dtype 
 
 #### Parameters
 
--   **arrays_and_dtypes**: _Sequence\[ Union\[ &lt;array&gt;, &lt;dtype&gt; \] \];_
+-   **arrays_and_dtypes**: _Sequence\[ Union\[ &lt;array&gt;, &lt;dtype&gt; \] \]_
 
     -   input arrays and dtypes.
 
