@@ -78,3 +78,29 @@ Implementations may provide other ways to specify data types (e.g.,
 
 A conforming implementation of the array API standard may provide and support additional data types beyond those described in this specification.
 ```
+
+(data-type-categories)=
+## Data Type Categories
+
+For the purposes of this specification, the following data type categories are defined.
+Libraries do not need to organize dtypes according to these categories. These
+are only for organizing the functions in this specification itself. Future versions of
+the specification will include additional categories for complex data types.
+
+### Numeric Data Types
+
+`int8`, `int16`, `int32`, `int64`, `uint8`, `uint16`, `uint32`,
+`uint64`, `float32`, and `float64` (i.e., all dtypes except for `bool`).
+
+### Integer Data Types
+
+`int8`, `int16`, `int32`, `int64`, `uint8`, `uint16`, `uint32`, and
+`uint64`.
+
+### Floating-point Data Types
+
+`float32` and `float64`.
+
+### Boolean Data Types
+
+`bool`.

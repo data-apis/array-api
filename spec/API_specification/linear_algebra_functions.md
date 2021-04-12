@@ -29,11 +29,11 @@ Returns the cross product of 3-element vectors. If `x1` and `x2` are multi-dimen
 
 -   **x1**: _&lt;array&gt;_
 
-    -   first input array. Must have a data type of either `float32` or `float64`.
+    -   first input array. Should have a numeric data type.
 
 -   **x2**: _&lt;array&gt;_
 
-    -   second input array. Must have the same shape as `x1`.  Must have a data type of either `float32` or `float64`.
+    -   second input array. Must have the same shape as `x1`.  Should have a numeric data type.
 
 -   **axis**: _int_
 
@@ -43,7 +43,7 @@ Returns the cross product of 3-element vectors. If `x1` and `x2` are multi-dimen
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the cross products. The returned array must have a data type determined by {ref}`type-promotion` rules.
+    -   an array containing the cross products. The returned array must have a data type determined by {ref}`type-promotion`.
 
 (function-det)=
 ### det(x, /)
@@ -54,13 +54,13 @@ Returns the determinant of a square matrix (or stack of square matrices) `x`.
 
 -   **x**: _&lt;array&gt;_
 
-    -   input array having shape `(..., M, M)` and whose innermost two dimensions form square matrices. Must have a data type of either `float32` or `float64`.
+    -   input array having shape `(..., M, M)` and whose innermost two dimensions form square matrices. Should have a floating-point data type.
 
 #### Returns
 
 -   **out**: _&lt;array&gt;_
 
-    -   if `x` is a two-dimensional array, a zero-dimensional array containing the determinant; otherwise, a non-zero dimensional array containing the determinant for each square matrix. The returned array must have a data type determined by {ref}`type-promotion` rules.
+    -   if `x` is a two-dimensional array, a zero-dimensional array containing the determinant; otherwise, a non-zero dimensional array containing the determinant for each square matrix. The returned array must have the same data type as `x`.
 
 (function-diagonal)=
 ### diagonal(x, /, *, axis1=0, axis2=1, offset=0)
@@ -165,19 +165,19 @@ TODO
 (function-inv)=
 ### inv(x, /)
 
-Computes the multiplicative inverse of a square matrix (or stack of square matrices) `x`.
+Computes the multiplicative inverse of a square matrix (or a stack of square matrices) `x`.
 
 #### Parameters
 
 -   **x**: _&lt;array&gt;_
 
-    -   input array having shape `(..., M, M)` and whose innermost two dimensions form square matrices. Must have a data type of either `float32` or `float64`.
+    -   input array having shape `(..., M, M)` and whose innermost two dimensions form square matrices. Should have a floating-point data type.
 
 #### Returns
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the multiplicative inverses. The returned array must have the same data type and shape as `x`.
+    -   an array containing the multiplicative inverses. The returned array must have a floating-point data type determined by {ref}`type-promotion` and must have the same shape as `x`.
 
 (function-lstsq)=
 ### lstsq()
@@ -208,7 +208,7 @@ Computes the matrix or vector norm of `x`.
 
 -   **x**: _&lt;array&gt;_
 
-    -   input array. Must have a data type of either `float32` or `float64`.
+    -   input array. Should have a floating-point data type.
 
 -   **axis**: _Optional\[ Union\[ int, Tuple\[ int, int ] ] ]_
 
@@ -228,7 +228,7 @@ Computes the matrix or vector norm of `x`.
 
     -   If `True`, the axes (dimensions) specified by `axis` must be included in the result as singleton dimensions, and, accordingly, the result must be compatible with the input array (see {ref}`broadcasting`). Otherwise, if `False`, the axes (dimensions) specified by `axis` must not be included in the result. Default: `False`.
 
--   **ord**: _Optional\[ int, float, Literal\[ inf, -inf, 'fro', 'nuc' ] ]_
+-   **ord**: _Optional\[ Union\[  int, float, Literal\[ inf, -inf, 'fro', 'nuc' ] ] ]_
 
     -   order of the norm. The following mathematical norms must be supported:
 
@@ -276,7 +276,7 @@ Computes the matrix or vector norm of `x`.
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the norms. If `axis` is `None`, the output array must be a zero-dimensional array containing a vector norm. If `axis` is a scalar value (`int` or `float`), the output array must have a rank which is one less than the rank of `x`. If `axis` is a 2-tuple, the output array must have a rank which is two less than the rank of `x`. The returned array must have the same data type as `x`.
+    -   an array containing the norms. If `axis` is `None`, the returned array must be a zero-dimensional array containing a vector norm. If `axis` is a scalar value (`int` or `float`), the returned array must have a rank which is one less than the rank of `x`. If `axis` is a 2-tuple, the returned array must have a rank which is two less than the rank of `x`. The returned array must have a floating-point data type determined by {ref}`type-promotion`.
 
 (function-outer)=
 ### outer(x1, x2, /)
@@ -287,17 +287,17 @@ Computes the outer product of two vectors `x1` and `x2`.
 
 -   **x1**: _&lt;array&gt;_
 
-    -   first one-dimensional input array of size `N`. Must have a data type of either `float32` or `float64`.
+    -   first one-dimensional input array of size `N`. Should have a numeric data type.
 
 -   **x2**: _&lt;array&gt;_
 
-    -   second one-dimensional input array of size `M`. Must have a data type of either `float32` or `float64`.
+    -   second one-dimensional input array of size `M`. Should have a numeric data type.
 
 #### Returns
 
 -   **out**: _&lt;array&gt;_
 
-    -   a two-dimensional array containing the outer product and whose shape is `NxM`. The returned array must have a data type determined by {ref}`type-promotion` rules.
+    -   a two-dimensional array containing the outer product and whose shape is `(N, M)`. The returned array must have a data type determined by {ref}`type-promotion`.
 
 (function-pinv)=
 ### pinv()
@@ -333,7 +333,7 @@ Returns the sum along the specified diagonals. If `x` has more than two dimensio
 
 -   **x**: _&lt;array&gt;_
 
-    -   input array. Must have at least `2` dimensions.
+    -   input array. Must have at least `2` dimensions. Should have a numeric data type.
 
 -   **axis1**: _int_
 
