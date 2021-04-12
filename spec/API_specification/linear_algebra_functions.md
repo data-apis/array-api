@@ -282,7 +282,7 @@ TODO
 (function-svdvals)=
 ### svdvals(x, /)
 
-Computes the singular values of a matrix (or stack of matrices) `x`.
+Computes the singular values of a matrix (or a stack of matrices) `x`.
 
 #### Parameters
 
