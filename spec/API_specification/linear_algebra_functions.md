@@ -107,8 +107,8 @@ TODO
 
 TODO
 
-(function-eigvalsh)=
-### eigvalsh()
+(function-eigvals)=
+### eigvals()
 
 TODO
 
