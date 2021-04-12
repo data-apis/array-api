@@ -775,11 +775,7 @@ The `matmul` function must implement the same semantics as the built-in `@` oper
 
 -   **other**: _&lt;array&gt;_
 
-<<<<<<< HEAD
     -   other array. Should have a numeric data type. Must have at least one dimension. If `other` is one-dimensional having shape `(N)` and `self` has more than one dimension, `other` must be promoted to a two-dimensional array by appending `1` to its dimensions (i.e., must have shape `(N, 1)`). After matrix multiplication, the appended dimensions in the returned array must be removed. If `other` has more than one dimension (including after vector-to-matrix promotion), `other` must be compatible with `self` (see {ref}`broadcasting`). If `other` has shape `(..., K, N)`, the innermost two dimensions form matrices on which to perform matrix multiplication.
-=======
-    -   other array. Must be compatible with `self` (see {ref}`broadcasting`).
->>>>>>> f13b856651ac47706083c8563615f3f705d75a10
 
 #### Returns
 
