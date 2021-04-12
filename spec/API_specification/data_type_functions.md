@@ -47,7 +47,7 @@ Broadcasts an array to a specified shape.
 
 #### Raises
 
-	-   if the array is incompatible with the specified shape (see {ref}`broadcasting`).
+-   if the array is incompatible with the specified shape (see {ref}`broadcasting`).
 
 (function-can-cast)=
 ### can_cast(from, to, /)
