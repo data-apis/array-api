@@ -105,13 +105,13 @@ TODO
 (function-eig)=
 ### eig(x, /)
 
-Computes the eigenvalues and eigenvectors of a square matrix (or stack of square matrices) `x`.
+Computes the eigenvalues and eigenvectors of a square matrix (or a stack of square matrices) `x`.
 
 #### Parameters
 
 -   **x**: _&lt;array&gt;_
 
-    -   input array having shape `(..., M, M)` and whose innermost two dimensions form square matrices. Must have a data type of either `float32` or `float64`.
+    -   input array having shape `(..., M, M)` and whose innermost two dimensions form square matrices. Must have a floating-point data type.
 
         TODO: support complex numbers
 
@@ -119,37 +119,12 @@ Computes the eigenvalues and eigenvectors of a square matrix (or stack of square
 
 -   **out**: _Tuple\[ &lt;array&gt; ]_
 
-    -   a namedtuple (`e`, `v`) whose first element must have shape `(..., M)` and consist of computed eigenvalues and whose second element must have shape `(..., M, M)`and have the columns of the inner most matrices contain the computed eigenvectors.
+    -   a namedtuple (`e`, `v`) whose
+    
+        -   first element must have shape `(..., M)` and consist of computed eigenvalues
+        -   second element must have shape `(..., M, M)`and have the columns of the inner most matrices contain the computed eigenvectors.
 
-```{note}
-
-Eigenvalue sort order is left unspecified.
-```
-
-(function-eigh)=
-### eigh(x, /, *, upper=False)
-
-Returns the eigenvalues and eigenvectors of a symmetric matrix (or stack of symmetric matrices) `x`.
-
-<!-- NOTE: once complex number support, each matrix must be Hermitian -->
-
-#### Parameters
-
--   **x**: _&lt;array&gt;_
-
-    -   input array having shape `(..., M, M)` and whose innermost two dimensions form square matrices. Must have a data type of either `float32` or `float64`.
-
-        TODO: support complex numbers
-
--   **upper**: _bool_
-
-    -   If `True`, use the upper-triangular part to compute the eigenvalues and eigenvectors. If `False`, use the lower-triangular part to compute the eigenvalues and eigenvectors. Default: `False`.
-
-#### Returns
-
--   **out**: _Tuple\[ &lt;array&gt; ]_
-
-    -   a namedtuple (`e`, `v`) whose first element must have shape `(..., M)` and consist of computed eigenvalues and whose second element must have shape `(..., M, M)`and have the columns of the inner most matrices contain the computed eigenvectors.
+        TODO: add note regarding return types
 
 ```{note}
 
@@ -159,13 +134,13 @@ Eigenvalue sort order is left unspecified.
 (function-eigvals)=
 ### eigvals(x, /)
 
-Computes the eigenvalues of a square matrix (or stack of square matrices) `x`.
+Computes the eigenvalues of a square matrix (or a stack of square matrices) `x`.
 
 #### Parameters
 
 -   **x**: _&lt;array&gt;_
 
-    -   input array having shape `(..., M, M)` and whose innermost two dimensions form square matrices. Must have a data type of either `float32` or `float64`.
+    -   input array having shape `(..., M, M)` and whose innermost two dimensions form square matrices. Must have a floating-point data type.
 
         TODO: support complex numbers
 
@@ -175,33 +150,7 @@ Computes the eigenvalues of a square matrix (or stack of square matrices) `x`.
 
     -   an array containing the computed eigenvalues. The array must have shape `(..., M)`.
 
-```{note}
-
-Eigenvalue sort order is left unspecified.
-```
-
-(function-eigvalsh)=
-### eigvalsh(x, /, *, upper=False)
-
-Computes the eigenvalues of a square matrix (or stack of square matrices) `x`.
-
-#### Parameters
-
--   **x**: _&lt;array&gt;_
-
-    -   input array having shape `(..., M, M)` and whose innermost two dimensions form square matrices. Must have a data type of either `float32` or `float64`.
-
-        TODO: support complex numbers
-
--   **upper**: _bool_
-
-    -   If `True`, use the upper-triangular part to compute the eigenvalues. If `False`, use the lower-triangular part to compute the eigenvalues. Default: `False`.
-
-#### Returns
-
--   **out**: _&lt;array&gt;_
-
-    -   an array containing the computed eigenvalues. The array must have shape `(..., M)`.
+        TODO: add note regarding return data type.
 
 ```{note}
 
