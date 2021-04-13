@@ -294,31 +294,17 @@ Returns evenly spaced numbers over a specified interval.
 
 Returns coordinate matrices from coordinate vectors.
 
-### Special cases
+#### Parameters
 
--    For `n` one dimensional arrays `x1, x2, ..., xn` with lengths `Ni = len(xi)`, this function returns `(N1, N2, N3, ..., Nn)` shaped arrays if the indexing is 'ij' or `(N2, N1, N3, ..., Nn)` shaped arrays if indexing 'xy'.
+-    **arrays**: _Sequence\[ &lt;array&gt; ]_
 
--    The 0-D and 1-D case, the indexing keyword has no effect.
+     -   one-dimensional arrays representing grid coordinates. Must have a numeric data type.
 
-### Parameters
+-    **indexing**: _str_
 
--    **\*arrays**: _&lt;array&gt;_
+     -   Cartesian 'xy' or matrix 'ij' indexing of output. If provided zero or one one-dimensional vector(s) (i.e., the zero- and one-dimensional cases, respectively), the `indexing` keyword has no effect and should be ignored. Default: `'xy'`.
 
-     -   One dimensional arrays representing the coordinates of the grid.
-
--    **indexing**: _Optional\[ str ]_
-
-     -   Cartesian 'xy' by default or 'ij' for matrix indexing of the output.
-
-### Returns
-
--    **out**: _Tuple\[ &lt;array&gt;, ... ]_
-
-      -    List of N arrays with rank `max(2, N)`.
-
-### Notes
-
-This function supports indexing conventions using the `indexing` keyword. In the case of `xy` the function will return a meshgrid with cartesian indexing, while `ij` will use matrix indexing. The difference is illustrated by the following code snippet:
+     -   In the case of `xy` the function will return a meshgrid with cartesian indexing, while `ij` will use matrix indexing. The difference is illustrated by the following code snippet:
 
 ```
 xv, yv = meshgrid(x, y, indexing='xy')
@@ -331,6 +317,22 @@ for i in range(nx):
     for j in range(ny):
         # treat xv[i, j], yv[i, j]
 ```
+
+#### Returns
+
+-    **out**: _List \[ &lt;array&gt;, ... ]_
+
+      -    List of N arrays, where `N` is the number of provided one-dimensional input arrays. Each returned array must have rank `N`. For `N` one-dimensional arrays having lengths `Ni = len(xi)`,
+
+          -    if matrix indexing `ij` then each return array must have the shape `(N1, N2, N3, ..., Nn)`.
+
+          -    if Cartesian indexing `xy`, then each returned array must have shape `(N2, N1, N3, ..., Nn)`.
+
+     - Accordingly, for the two-dimensional case with input one-dimensional arrays of length `M` and `N`, if matrix indexing `ij`, then each returned array must have shape `(M, N)`, and, if Cartesian indexing `xy`, then each returned array must have shape `(N, M)`.
+
+     - Similarly, for the three-dimensional case with input one-dimensional arrays of length `M`, `N`, and `P`, if matrix indexing `ij`, then each returned array must have shape `(M, N, P)`, and, if Cartesian indexing `xy`, then each returned array must have shape `(N, M, P)`.
+
+     - The returned arrays must have a numeric data type determined by {ref}`type-promotion`.
 
 (function-ones)=
 ### ones(shape, /, *, dtype=None, device=None)
