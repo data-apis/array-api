@@ -290,7 +290,7 @@ Returns evenly spaced numbers over a specified interval.
     -   a one-dimensional array containing evenly spaced values.
 
 (function-meshgrid)=
-### meshgrid(*arrays, /, indexing='xy')
+### meshgrid(*arrays, /, *, indexing='xy')
 
 Returns coordinate matrices from coordinate vectors.
 
