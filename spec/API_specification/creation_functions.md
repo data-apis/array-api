@@ -308,7 +308,7 @@ Returns coordinate matrices from coordinate vectors.
 
 -    **out**: _List\[ &lt;array&gt;, ... ]_
 
-    -   List of N arrays, where `N` is the number of provided one-dimensional input arrays. Each returned array must have rank `N`. For `N` one-dimensional arrays having lengths `Ni = len(xi)`,
+    -   list of N arrays, where `N` is the number of provided one-dimensional input arrays. Each returned array must have rank `N`. For `N` one-dimensional arrays having lengths `Ni = len(xi)`,
 
         -   if matrix indexing `ij`, then each returned array must have the shape `(N1, N2, N3, ..., Nn)`.
 
