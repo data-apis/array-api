@@ -302,21 +302,7 @@ Returns coordinate matrices from coordinate vectors.
 
 -    **indexing**: _str_
 
-     -   Cartesian 'xy' or matrix 'ij' indexing of output. If provided zero or one one-dimensional vector(s) (i.e., the zero- and one-dimensional cases, respectively), the `indexing` keyword has no effect and should be ignored. Default: `'xy'`.
-
-     -   In the case of `xy` the function will return a meshgrid with cartesian indexing, while `ij` will use matrix indexing. The difference is illustrated by the following code snippet:
-
-```
-xv, yv = meshgrid(x, y, indexing='xy')
-for i in range(nx):
-    for j in range(ny):
-        # treat xv[j, i], yv[j, i]
-
-xv, yv = meshgrid(x, y, indexing='ij')
-for i in range(nx):
-    for j in range(ny):
-        # treat xv[i, j], yv[i, j]
-```
+    -   Cartesian 'xy' or matrix 'ij' indexing of output. If provided zero or one one-dimensional vector(s) (i.e., the zero- and one-dimensional cases, respectively), the `indexing` keyword has no effect and should be ignored. Default: `'xy'`.
 
 #### Returns
 
