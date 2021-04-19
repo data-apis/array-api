@@ -33,7 +33,7 @@ jobs:
         if-no-files-found: error
     - name: Deploy
       if: ${{ github.ref == 'refs/heads/main'}}
-      uses: JamesIves/github-pages-deploy-action@master
+      uses: JamesIves/github-pages-deploy-action@4.1.1
       env:
         ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         BASE_BRANCH: main # The branch the action should deploy from.
