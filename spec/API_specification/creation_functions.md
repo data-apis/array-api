@@ -310,7 +310,7 @@ Returns coordinate matrices from coordinate vectors.
 
     -   List of N arrays, where `N` is the number of provided one-dimensional input arrays. Each returned array must have rank `N`. For `N` one-dimensional arrays having lengths `Ni = len(xi)`,
 
-        -   if matrix indexing `ij` then each return array must have the shape `(N1, N2, N3, ..., Nn)`.
+        -   if matrix indexing `ij`, then each return array must have the shape `(N1, N2, N3, ..., Nn)`.
 
         -   if Cartesian indexing `xy`, then each returned array must have shape `(N2, N1, N3, ..., Nn)`.
 
