@@ -86,7 +86,7 @@ Convert the input to an array.
 
 
 (function-empty)=
-### empty(shape, /, *, dtype=None, device=None)
+### empty(shape, *, dtype=None, device=None)
 
 Returns an uninitialized array having a specified `shape`.
 
@@ -321,7 +321,7 @@ Returns coordinate matrices from coordinate vectors.
         The returned arrays must have a numeric data type determined by {ref}`type-promotion`.
 
 (function-ones)=
-### ones(shape, /, *, dtype=None, device=None)
+### ones(shape, *, dtype=None, device=None)
 
 Returns a new array having a specified `shape` and filled with ones.
 
@@ -371,7 +371,7 @@ Returns a new array filled with ones and having the same `shape` as an input arr
     -   an array having the same shape as `x` and filled with ones.
 
 (function-zeros)=
-### zeros(shape, /, *, dtype=None, device=None)
+### zeros(shape, *, dtype=None, device=None)
 
 Returns a new array having a specified `shape` and filled with zeros.
 
