@@ -190,7 +190,7 @@ Returns a new array containing the data from another (array) object with a `__dl
         ```
 
 (function-full)=
-### full(shape, fill_value, /, *, dtype=None, device=None)
+### full(shape, fill_value, *, dtype=None, device=None)
 
 Returns a new array having a specified `shape` and filled with `fill_value`.
 
@@ -206,7 +206,7 @@ Returns a new array having a specified `shape` and filled with `fill_value`.
 
 -   **dtype**: _Optional\[ &lt;dtype&gt; ]_
 
-    -   output array data type. If `dtype` is `None`, the output array data type must be the default floating-point data type. Default: `None`.
+    -   output array data type. If `dtype` is `None`, the output array data type must be inferred from `fill_value`. If it's an `int`, the output array dtype must be the default integer dtype; if it's a `float`, then the output array dtype must be the default floating-point data type; if it's a `bool` then the output array must have boolean dtype. Default: `None`.
 
 -   **device**: _Optional\[ &lt;device&gt; ]_
 
@@ -219,7 +219,7 @@ Returns a new array having a specified `shape` and filled with `fill_value`.
     -   an array where every element is equal to `fill_value`.
 
 (function-full_like)=
-### full_like(x, fill_value, /, *, dtype=None, device=None)
+### full_like(x, /, fill_value, *, dtype=None, device=None)
 
 Returns a new array filled with `fill_value` and having the same `shape` as an input array `x`.
 
@@ -235,7 +235,7 @@ Returns a new array filled with `fill_value` and having the same `shape` as an i
 
 -   **dtype**: _Optional\[ &lt;dtype&gt; ]_
 
-    -   output array data type. If `dtype` is `None`, the output array data type must be inferred from `x`. Default: `None`.
+    -   output array data type. If `dtype` is `None`, the output array data type must be inferred from `fill_value` (see {ref}`function-full`). Default: `None`.
 
 -   **device**: _Optional\[ &lt;device&gt; ]_
 
