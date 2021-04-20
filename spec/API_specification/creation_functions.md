@@ -136,19 +136,19 @@ Returns an uninitialized array with the same `shape` as an input array `x`.
     -   an array having the same shape as `x` and containing uninitialized data.
 
 (function-eye)=
-### eye(N, M=None, /, *, k=0, dtype=None, device=None)
+### eye(n_rows, n_cols=None, /, *, k=0, dtype=None, device=None)
 
 Returns a two-dimensional array with ones on the `k`th diagonal and zeros elsewhere.
 
 #### Parameters
 
--   **N**: _int_
+-   **n_rows**: _int_
 
     -   number of rows in the output array.
 
--   **M**: _Optional\[ int ]_
+-   **n_cols**: _Optional\[ int ]_
 
-    -   number of columns in the output array. If `None`, the default number of columns in the output array is `N`. Default: `None`.
+    -   number of columns in the output array. If `None`, the default number of columns in the output array is equal to `n_rows`. Default: `None`.
 
 -   **k**: _Optional\[ int ]_
 
