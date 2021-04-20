@@ -248,7 +248,7 @@ Returns a new array filled with `fill_value` and having the same `shape` as an i
     -   an array having the same shape as `x` and where every element is equal to `fill_value`.
 
 (function-linspace)=
-### linspace(start, stop, num, /, *, dtype=None, device=None, endpoint=True)
+### linspace(start, stop, /, num, *, dtype=None, device=None, endpoint=True)
 
 Returns evenly spaced numbers over a specified interval.
 
