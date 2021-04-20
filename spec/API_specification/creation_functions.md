@@ -68,7 +68,7 @@ Convert the input to an array.
 
 -   **dtype**: _Optional\[ &lt;dtype&gt; ]_
 
-    -   output array data type. If `dtype` is `None`, the output array data type must be inferred from the data type(s) in `obj`. Default: `None`.
+    -   output array data type. If `dtype` is `None`, the output array data type must be inferred from the data type(s) in `obj`. If all input values are Python scalars, then if they're all `bool` the output dtype will be `bool`; if they're a mix of `bool`s and `int` the output dtype will be the default integer data type; if they contain `float`s the output dtype will be the default floating-point data type. Default: `None`.
 
 -   **device**: _Optional\[ &lt;device&gt; ]_
 
