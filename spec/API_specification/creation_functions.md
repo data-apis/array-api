@@ -12,7 +12,7 @@ A conforming implementation of the array API standard must provide and support t
 <!-- NOTE: please keep the functions in alphabetical order -->
 
 (function-arange)=
-### arange(start, /, *, stop=None, step=1, dtype=None, device=None)
+### arange(start, /, stop=None, step=1, *, dtype=None, device=None)
 
 Returns evenly spaced values within the half-open interval `[start, stop)` as a one-dimensional array.
 
@@ -33,11 +33,11 @@ This function cannot guarantee that the interval does not include the `stop` val
 
 -   **step**: _Union\[ int, float ]_
 
-    -   the distance between two adjacent elements (`out[i+1] - out[i]`). Default: `1`.
+    -   the distance between two adjacent elements (`out[i+1] - out[i]`). Must not be `0`; may be negative, this results in an empty array if `stop >= start`. Default: `1`.
 
 -   **dtype**: _Optional\[ &lt;dtype&gt; ]_
 
-    -   output array data type. If `dtype` is `None`, the output array data type must be the default floating-point data type. Default: `None`.
+    -   output array data type. If `dtype` is `None`, the output array data type must be inferred from `start`, `stop` and `step`. If those are all integers, the output array dtype must be the default integer dtype; if one or more have type `float`, then the output array dtype must be the default floating-point data type. Default: `None`.
 
 -   **device**: _Optional\[ &lt;device&gt; ]_
 
@@ -47,7 +47,7 @@ This function cannot guarantee that the interval does not include the `stop` val
 
 -   **out**: _&lt;array&gt;_
 
-    -   a one-dimensional array containing evenly spaced values. The length of the output array must be `ceil((stop-start)/step)`.
+    -   a one-dimensional array containing evenly spaced values. The length of the output array must be `ceil((stop-start)/step)` if `stop - start` and `step` have the same sign, and length 0 otherwise.
 
 
 (function-asarray)=
