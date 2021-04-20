@@ -136,7 +136,7 @@ Returns an uninitialized array with the same `shape` as an input array `x`.
     -   an array having the same shape as `x` and containing uninitialized data.
 
 (function-eye)=
-### eye(N, /, *, M=None, k=0, dtype=None, device=None)
+### eye(N, M=None, /, *, k=0, dtype=None, device=None)
 
 Returns a two-dimensional array with ones on the `k`th diagonal and zeros elsewhere.
 
