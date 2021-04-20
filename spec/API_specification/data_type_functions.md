@@ -25,7 +25,7 @@ Broadcasts one or more arrays against one another.
     -   a list of broadcasted arrays. Each array must have the same shape. Each array must have the same dtype as its corresponding input array.
 
 (function-broadcast-to)=
-### broadcast_to(x, shape, /)
+### broadcast_to(x, /, shape)
 
 Broadcasts an array to a specified shape.
 
