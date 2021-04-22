@@ -15,6 +15,11 @@ A conforming implementation of the array API standard must provide and support t
 (function-unique)=
 ### unique(x, /, *, return_counts=False, return_index=False, return_inverse=False)
 
+```{note}
+
+This function does not support boolean array indexing.
+```
+
 Returns the unique elements of an input array `x`.
 
 #### Parameters

@@ -69,6 +69,11 @@ Returns the indices of the minimum values along a specified axis. When the minim
 (function-nonzero)=
 ### nonzero(x, /)
 
+```{note}
+
+This function does not support boolean array indexing.
+```
+
 Returns the indices of the array elements which are non-zero.
 
 #### Parameters
@@ -85,6 +90,11 @@ Returns the indices of the array elements which are non-zero.
 
 (function-where)=
 ### where(condition, x1, x2, /)
+
+```{note}
+
+This function does not support boolean array indexing.
+```
 
 Returns elements chosen from `x1` or `x2` depending on `condition`.
 
