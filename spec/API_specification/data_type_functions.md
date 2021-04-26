@@ -7,7 +7,7 @@ A conforming implementation of the array API standard must provide and support t
 <!-- NOTE: please keep the constants in alphabetical order -->
 
 ## Objects in API
-(function-broadcast-arrays)=
+(function-broadcast_arrays)=
 ### broadcast_arrays(*args)
 
 Broadcasts one or more arrays against one another.
@@ -24,7 +24,7 @@ Broadcasts one or more arrays against one another.
 
     -   a list of broadcasted arrays. Each array must have the same shape. Each array must have the same dtype as its corresponding input array.
 
-(function-broadcast-to)=
+(function-broadcast_to)=
 ### broadcast_to(x, shape, /)
 
 Broadcasts an array to a specified shape.
@@ -49,7 +49,7 @@ Broadcasts an array to a specified shape.
 
 -   if the array is incompatible with the specified shape (see {ref}`broadcasting`).
 
-(function-can-cast)=
+(function-can_cast)=
 ### can_cast(from_, to, /)
 
 Determines if one data type can be cast to another data type according {ref}`type-promotion` rules.
