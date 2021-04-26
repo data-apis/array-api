@@ -274,8 +274,8 @@ TODO
 
 TODO
 
-(function-svd)=
-### svd(x, /, *, full_matrices=True)
+(function-linalg-svd)=
+### linalg.svd(x, /, *, full_matrices=True)
 
 Computes the singular value decomposition `A = USV` of a matrix (or a stack of matrices) `x`.
 
