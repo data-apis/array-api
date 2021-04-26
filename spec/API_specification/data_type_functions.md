@@ -8,7 +8,7 @@ A conforming implementation of the array API standard must provide and support t
 
 ## Objects in API
 (function-broadcast-arrays)=
-### broadcast_arrays(\*args, /)
+### broadcast_arrays(*args)
 
 Broadcasts one or more arrays against one another.
 
@@ -50,13 +50,13 @@ Broadcasts an array to a specified shape.
 -   if the array is incompatible with the specified shape (see {ref}`broadcasting`).
 
 (function-can-cast)=
-### can_cast(from, to, /)
+### can_cast(from_, to, /)
 
 Determines if one data type can be cast to another data type according {ref}`type-promotion` rules.
 
 #### Parameters
 
--   **from**: _Union\[ &lt;dtype&gt;, &lt;array&gt;]_
+-   **from_**: _Union\[ &lt;dtype&gt;, &lt;array&gt;]_
 
     -   input data type or array from which to cast.
 
