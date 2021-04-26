@@ -107,8 +107,8 @@ TODO
 
 TODO
 
-(function-eigh)=
-### eigh(x, /, *, upper=False)
+(function-linalg-eigh)=
+### linalg.eigh(x, /, *, upper=False)
 
 Returns the eigenvalues and eigenvectors of a symmetric matrix (or a stack of symmetric matrices) `x`.
 
