@@ -134,8 +134,8 @@ Computes the multiplicative inverse of a square matrix (or stack of square matri
 
     -   an array containing the multiplicative inverses. The returned array must have the same data type and shape as `x`.
 
-(function-lstsq)=
-### lstsq(x1, x2, /, *, rtol=None)
+(function-linalg-lstsq)=
+### linalg.lstsq(x1, x2, /, *, rtol=None)
 
 Returns the least-squares solution to a linear matrix equation `Ax = b`.
 
