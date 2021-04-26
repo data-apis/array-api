@@ -269,8 +269,8 @@ TODO
 
 TODO
 
-(function-solve)=
-### solve(x1, x2, /)
+(function-linalg-solve)=
+### linalg.solve(x1, x2, /)
 
 Returns the solution to the system of linear equations represented by the well-determined (i.e., full rank) linear matrix equation `AX = B`.
 
