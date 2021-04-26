@@ -15,8 +15,8 @@ A conforming implementation of the array API standard must provide and support t
 
 <!-- NOTE: please keep the functions in alphabetical order -->
 
-(function-cholesky)=
-### cholesky(x, /, *, upper=False)
+(function-linalg-cholesky)=
+### linalg.cholesky(x, /, *, upper=False)
 
 Returns the Cholesky decomposition of a symmetric positive-definite matrix (or a stack of symmetric positive-definite matrices) `x`.
 
