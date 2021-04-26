@@ -8,13 +8,13 @@ A conforming implementation of the array API standard must provide and support t
 
 ## Objects in API
 (function-broadcast_arrays)=
-### broadcast_arrays(*args)
+### broadcast_arrays(*arrays)
 
 Broadcasts one or more arrays against one another.
 
 #### Parameters
 
--   **\*args**: _Sequence\[ &lt;array&gt; ]_
+-   **arrays**: _Sequence\[ &lt;array&gt; ]_
 
     -   arrays to broadcast.
 
