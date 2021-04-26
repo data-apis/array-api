@@ -259,8 +259,8 @@ Computes the outer product of two vectors `x1` and `x2`.
 
 TODO
 
-(function-qr)=
-### qr(x, /, *, mode='reduced')
+(function-linalg-qr)=
+### linalg.qr(x, /, *, mode='reduced')
 
 Computes the qr factorization of a matrix (or a stack of matrices), where `q` is an orthonormal matrix (or a stack of matrices) and `r` is an upper-triangular matrix (or a stack of matrices).
 
