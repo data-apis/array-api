@@ -144,8 +144,8 @@ TODO
 
 TODO
 
-(function-matrix_power)=
-### matrix_power(x, n, /)
+(function-linalg-matrix_power)=
+### linalg.matrix_power(x, n, /)
 
 Raises a square matrix (or a stack of square matrices) `x` to an integer power `n`.
 
