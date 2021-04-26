@@ -288,7 +288,7 @@ For floating-point operands, let `self` equal `x`.
 
 -   **self**: _&lt;array&gt;_
 
-    -   array instance.
+    -   array instance. Should have a numeric data type.
 
 #### Returns
 
@@ -337,11 +337,11 @@ Floating-point addition is a commutative operation, but not always associative.
 
 -   **self**: _&lt;array&gt;_
 
-    -   array instance (augend array).
+    -   array instance (augend array). Should have a numeric data type.
 
--   **other**: _&lt;array&gt;_
+-   **other**: _Union\[ int, float, &lt;array&gt; ]_
 
-    -   addend array. Must be compatible with `self` (see {ref}`broadcasting`).
+    -   addend array. Must be compatible with `self` (see {ref}`broadcasting`). Should have a numeric data type.
 
 #### Returns
 
@@ -363,11 +363,11 @@ Evaluates `self_i & other_i` for each element of an array instance with the resp
 
 -   **self**: _&lt;array&gt;_
 
-    -   array instance. Must have an integer or boolean data type.
+    -   array instance. Should have an integer or boolean data type.
 
--   **other**: _&lt;array&gt;_
+-   **other**: _Union\[ int, bool, &lt;array&gt; ]_
 
-    -   other array. Must be compatible with `self` (see {ref}`broadcasting`). Must have an integer or boolean data type.
+    -   other array. Must be compatible with `self` (see {ref}`broadcasting`). Should have an integer or boolean data type.
 
 #### Returns
 
@@ -505,11 +505,11 @@ Computes the truth value of `self_i == other_i` for each element of an array ins
 
 -   **self**: _&lt;array&gt;_
 
-    -   array instance.
+    -   array instance. May have any data type.
 
--   **other**: _&lt;array&gt;_
+-   **other**: _Union\[ int, float, bool, &lt;array&gt; ]_
 
-    -   other array. Must be compatible with `self` (see {ref}`broadcasting`).
+    -   other array. Must be compatible with `self` (see {ref}`broadcasting`). May have any data type.
 
 #### Returns
 
@@ -548,11 +548,11 @@ Evaluates `self_i // other_i` for each element of an array instance with the res
 
 -   **self**: _&lt;array&gt;_
 
-    -   array instance.
+    -   array instance. Should have a numeric data type.
 
--   **other**: _&lt;array&gt;_
+-   **other**: _Union\[ int, float, &lt;array&gt; ]_
 
-    -   other array. Must be compatible with `self` (see {ref}`broadcasting`).
+    -   other array. Must be compatible with `self` (see {ref}`broadcasting`). Should have a numeric data type.
 
 #### Returns
 
@@ -574,11 +574,11 @@ Computes the truth value of `self_i >= other_i` for each element of an array ins
 
 -   **self**: _&lt;array&gt;_
 
-    -   array instance.
+    -   array instance. Should have a numeric data type.
 
--   **other**: _&lt;array&gt;_
+-   **other**: _Union\[ int, float, &lt;array&gt; ]_
 
-    -   other array. Must be compatible with `self` (see {ref}`broadcasting`).
+    -   other array. Must be compatible with `self` (see {ref}`broadcasting`). Should have a numeric data type.
 
 #### Returns
 
@@ -621,11 +621,11 @@ Computes the truth value of `self_i > other_i` for each element of an array inst
 
 -   **self**: _&lt;array&gt;_
 
-    -   array instance.
+    -   array instance. Should have a numeric data type.
 
--   **other**: _&lt;array&gt;_
+-   **other**: _Union\[ int, float, &lt;array&gt; ]_
 
-    -   other array. Must be compatible with `self` (see {ref}`broadcasting`).
+    -   other array. Must be compatible with `self` (see {ref}`broadcasting`). Should have a numeric data type.
 
 #### Returns
 
@@ -664,7 +664,7 @@ Evaluates `~self_i` for each element of an array instance.
 
 -   **self**: _&lt;array&gt;_
 
-    -   array instance. Must have an integer or boolean data type.
+    -   array instance. Should have an integer or boolean data type.
 
 #### Returns
 
@@ -686,11 +686,11 @@ Computes the truth value of `self_i <= other_i` for each element of an array ins
 
 -   **self**: _&lt;array&gt;_
 
-    -   array instance.
+    -   array instance. Should have a numeric data type.
 
--   **other**: _&lt;array&gt;_
+-   **other**: _Union\[ int, float, &lt;array&gt; ]_
 
-    -   other array. Must be compatible with `self` (see {ref}`broadcasting`).
+    -   other array. Must be compatible with `self` (see {ref}`broadcasting`). Should have a numeric data type.
 
 #### Returns
 
@@ -717,11 +717,11 @@ Evaluates `self_i << other_i` for each element of an array instance with the res
 
 -   **self**: _&lt;array&gt;_
 
-    -   array instance. Must have an integer data type.
+    -   array instance. Should have an integer data type.
 
--   **other**: _&lt;array&gt;_
+-   **other**: _Union\[ int, &lt;array&gt; ]_
 
-    -   other array. Must be compatible with `self` (see {ref}`broadcasting`). Must have an integer data type. Each element must be greater than or equal to `0`.
+    -   other array. Must be compatible with `self` (see {ref}`broadcasting`). Should have an integer data type. Each element must be greater than or equal to `0`.
 
 #### Returns
 
@@ -743,11 +743,11 @@ Computes the truth value of `self_i < other_i` for each element of an array inst
 
 -   **self**: _&lt;array&gt;_
 
-    -   array instance.
+    -   array instance. Should have a numeric data type.
 
--   **other**: _&lt;array&gt;_
+-   **other**: _Union\[ int, float, &lt;array&gt; ]_
 
-    -   other array. Must be compatible with `self` (see {ref}`broadcasting`).
+    -   other array. Must be compatible with `self` (see {ref}`broadcasting`). Should have a numeric data type.
 
 #### Returns
 
@@ -790,11 +790,11 @@ Evaluates `self_i % other_i` for each element of an array instance with the resp
 
 -   **self**: _&lt;array&gt;_
 
-    -   array instance.
+    -   array instance. Should have a numeric data type.
 
--   **other**: _&lt;array&gt;_
+-   **other**: _Union\[ int, float, &lt;array&gt; ]_
 
-    -   other array. Must be compatible with `self` (see {ref}`broadcasting`).
+    -   other array. Must be compatible with `self` (see {ref}`broadcasting`). Should have a numeric data type.
 
 #### Returns
 
@@ -835,11 +835,11 @@ Floating-point multiplication is not always associative due to finite precision.
 
 -   **self**: _&lt;array&gt;_
 
-    -   array instance.
+    -   array instance. Should have a numeric data type.
 
--   **other**: _&lt;array&gt;_
+-   **other**: _Union\[ int, float, &lt;array&gt; ]_
 
-    -   other array. Must be compatible with `self` (see {ref}`broadcasting`).
+    -   other array. Must be compatible with `self` (see {ref}`broadcasting`). Should have a numeric data type.
 
 #### Returns
 
@@ -861,11 +861,11 @@ Computes the truth value of `self_i != other_i` for each element of an array ins
 
 -   **self**: _&lt;array&gt;_
 
-    -   array instance.
+    -   array instance. May have any data type.
 
--   **other**: _&lt;array&gt;_
+-   **other**: _Union\[ int, float, bool, &lt;array&gt; ]_
 
-    -   other array. Must be compatible with `self` (see {ref}`broadcasting`).
+    -   other array. Must be compatible with `self` (see {ref}`broadcasting`). May have any data type.
 
 #### Returns
 
@@ -887,7 +887,7 @@ Evaluates `-self_i` for each element of an array instance.
 
 -   **self**: _&lt;array&gt;_
 
-    -   array instance.
+    -   array instance. Should have a numeric data type.
 
 #### Returns
 
@@ -909,11 +909,11 @@ Evaluates `self_i | other_i` for each element of an array instance with the resp
 
 -   **self**: _&lt;array&gt;_
 
-    -   array instance. Must have an integer or boolean data type.
+    -   array instance. Should have an integer or boolean data type.
 
--   **other**: _&lt;array&gt;_
+-   **other**: _Union\[ int, bool, &lt;array&gt; ]_
 
-    -   other array. Must be compatible with `self` (see {ref}`broadcasting`). Must have an integer or boolean data type.
+    -   other array. Must be compatible with `self` (see {ref}`broadcasting`). Should have an integer or boolean data type.
 
 #### Returns
 
@@ -935,7 +935,7 @@ Evaluates `+self_i` for each element of an array instance.
 
 -   **self**: _&lt;array&gt;_
 
-    -   array instance.
+    -   array instance. Should have a numeric data type.
 
 #### Returns
 
@@ -986,11 +986,11 @@ For floating-point operands, let `self` equal `x1` and `other` equal `x2`.
 
 -   **self**: _&lt;array&gt;_
 
-    -   array instance whose elements correspond to the exponentiation base.
+    -   array instance whose elements correspond to the exponentiation base. Should have a numeric data type.
 
--   **other**: _&lt;array&gt;_
+-   **other**: _Union\[ int, float, &lt;array&gt; ]_
 
-    -   other array whose elements correspond to the exponentiation exponent. Must be compatible with `self` (see {ref}`broadcasting`).
+    -   other array whose elements correspond to the exponentiation exponent. Must be compatible with `self` (see {ref}`broadcasting`). Should have a numeric data type.
 
 #### Returns
 
@@ -1012,11 +1012,11 @@ Evaluates `self_i >> other_i` for each element of an array instance with the res
 
 -   **self**: _&lt;array&gt;_
 
-    -   array instance. Must have an integer data type.
+    -   array instance. Should have an integer data type.
 
--   **other**: _&lt;array&gt;_
+-   **other**: _Union\[ int, &lt;array&gt; ]_
 
-    -   other array. Must be compatible with `self` (see {ref}`broadcasting`). Must have an integer data type. Each element must be greater than or equal to `0`.
+    -   other array. Must be compatible with `self` (see {ref}`broadcasting`). Should have an integer data type. Each element must be greater than or equal to `0`.
 
 #### Returns
 
@@ -1043,11 +1043,11 @@ Calculates the difference for each element of an array instance with the respect
 
 -   **self**: _&lt;array&gt;_
 
-    -   array instance (minuend array).
+    -   array instance (minuend array). Should have a numeric data type.
 
--   **other**: _&lt;array&gt;_
+-   **other**: _Union\[ int, float, &lt;array&gt; ]_
 
-    -   subtrahend array. Must be compatible with `self` (see {ref}`broadcasting`).
+    -   subtrahend array. Must be compatible with `self` (see {ref}`broadcasting`). Should have a numeric data type.
 
 #### Returns
 
@@ -1096,11 +1096,11 @@ For floating-point operands, let `self` equal `x1` and `other` equal `x2`.
 
 -   **self**: _&lt;array&gt;_
 
-    -   array instance.
+    -   array instance. Should have a numeric data type.
 
--   **other**: _&lt;array&gt;_
+-   **other**: _Union\[ int, float, &lt;array&gt; ]_
 
-    -   other array. Must be compatible with `self` (see {ref}`broadcasting`).
+    -   other array. Must be compatible with `self` (see {ref}`broadcasting`). Should have a numeric data type.
 
 #### Returns
 
@@ -1122,11 +1122,11 @@ Evaluates `self_i ^ other_i` for each element of an array instance with the resp
 
 -   **self**: _&lt;array&gt;_
 
-    -   array instance. Must have an integer or boolean data type.
+    -   array instance. Should have an integer or boolean data type.
 
--   **other**: _&lt;array&gt;_
+-   **other**: _Union\[ int, bool, &lt;array&gt; ]_
 
-    -   other array. Must be compatible with `self` (see {ref}`broadcasting`). Must have an integer or boolean data type.
+    -   other array. Must be compatible with `self` (see {ref}`broadcasting`). Should have an integer or boolean data type.
 
 #### Returns
 
