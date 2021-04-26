@@ -1046,7 +1046,7 @@ Sets `self[key]` to `value`.
 
 -   **value**: _Union\[ int, float, bool, &lt;array&gt; ]_
 
-    -   value(s) to set.
+    -   value(s) to set. Must be compatible with `self[key]` (see {ref}`broadcasting`).
 
 ```{note}
 
