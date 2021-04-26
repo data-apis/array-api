@@ -279,8 +279,8 @@ TODO
 
 TODO
 
-(function-svdvals)=
-### svdvals(x, /)
+(function-linalg-svdvals)=
+### linalg.svdvals(x, /)
 
 Computes the singular values of a matrix (or a stack of matrices) `x`.
 
