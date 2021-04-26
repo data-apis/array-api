@@ -71,7 +71,7 @@ Returns the indices of the minimum values along a specified axis. When the minim
 
 ```{note}
 
-This function does not support boolean array indexing.
+This function is not compatible with static memory allocation and, thus, just-in-time compilation (JIT) as the shape of each output array is data-dependent (i.e., dependent on the contents of `x`).
 ```
 
 Returns the indices of the array elements which are non-zero.
@@ -93,7 +93,7 @@ Returns the indices of the array elements which are non-zero.
 
 ```{note}
 
-This function does not support boolean array indexing.
+This function is not compatible with static memory allocation and, thus, just-in-time compilation (JIT) as the shape of each output array is data-dependent (i.e., dependent on the contents of `x`).
 ```
 
 Returns elements chosen from `x1` or `x2` depending on `condition`.

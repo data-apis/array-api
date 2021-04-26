@@ -17,7 +17,7 @@ A conforming implementation of the array API standard must provide and support t
 
 ```{note}
 
-This function does not support boolean array indexing.
+This function is not compatible with static memory allocation and, thus, just-in-time compilation (JIT) as the shape of each output array is data-dependent (i.e., dependent on the contents of `x`).
 ```
 
 Returns the unique elements of an input array `x`.
