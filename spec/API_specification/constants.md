@@ -2,7 +2,9 @@
 
 > Array API specification for constants.
 
-A conforming implementation of the array API standard must provide and support the following constants.
+A conforming implementation of the array API standard must provide and support the following constants adhering to the following conventions.
+
+-   Each constant must have a Python numeric data type (i.e., `int`, `float`, or `complex`) and be provided as a Python scalar value.
 
 <!-- NOTE: please keep the constants in alphabetical order -->
 
@@ -11,7 +13,7 @@ A conforming implementation of the array API standard must provide and support t
 (constant-e)=
 ### e
 
-Euler's constant.
+IEEE 754 floating-point representation of Euler's constant.
 
 ```text
 e = 2.71828182845904523536028747135266249775724709369995...
@@ -30,7 +32,7 @@ IEEE 754 floating-point representation of Not a Number (`NaN`).
 (constant-pi)=
 ### pi
 
-The mathematical constant `π`.
+IEEE 754 floating-point representation of the mathematical constant `π`.
 
 ```text
 pi = 3.1415926535897932384626433...
