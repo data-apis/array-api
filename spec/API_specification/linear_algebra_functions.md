@@ -112,8 +112,8 @@ TODO
 
 TODO
 
-(function-eigvalsh)=
-### eigvalsh(x, /, *, upper=False)
+(function-linalg-eigvalsh)=
+### linalg.eigvalsh(x, /, *, upper=False)
 
 Computes the eigenvalues of a symmetric matrix (or a stack of symmetric matrices) `x`.
 
