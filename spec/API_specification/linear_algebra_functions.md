@@ -264,8 +264,8 @@ TODO
 
 TODO
 
-(function-slogdet)=
-### slogdet(x, /)
+(function-linalg-slogdet)=
+### linalg.slogdet(x, /)
 
 Returns the sign and the natural logarithm of the absolute value of the determinant of a square matrix (or a stack of square matrices) `x`.
 
