@@ -91,11 +91,6 @@ Returns the indices of the array elements which are non-zero.
 (function-where)=
 ### where(condition, x1, x2, /)
 
-```{note}
-
-This function is not compatible with static memory allocation and, thus, just-in-time compilation (JIT) as the shape of each output array is data-dependent (i.e., dependent on the contents of `x`).
-```
-
 Returns elements chosen from `x1` or `x2` depending on `condition`.
 
 #### Parameters
