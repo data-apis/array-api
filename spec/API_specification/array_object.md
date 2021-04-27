@@ -598,7 +598,7 @@ Returns `self[key]`.
 
 #### Parameters
 
--   **self**: _&lt;array;&gt;_
+-   **self**: _&lt;array&gt;_
 
     -   array instance.
 
