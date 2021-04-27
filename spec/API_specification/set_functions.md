@@ -51,11 +51,11 @@ Returns the unique elements of an input array `x`.
 
         -   **indices**: _&lt;array&gt;_
 
-            -   an array containing the indices (first occurrences) of `x` that result in `unique`. The returned array must have the default array index data type.
+            -   an array containing the indices (first occurrences) of `x` that result in `unique`. The returned array must have the default integer data type.
 
         -   **inverse**: _&lt;array&gt;_
 
-            -   an array containing the indices of `unique` that reconstruct `x`. The returned array must have the default array index data type.
+            -   an array containing the indices of `unique` that reconstruct `x`. The returned array must have the default integer data type.
 
         -   **counts**: _&lt;array&gt;_
 
