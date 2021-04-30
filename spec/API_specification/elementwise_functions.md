@@ -946,11 +946,11 @@ For floating-point operands,
 
 -   **x1**: _&lt;array&gt;_
 
-    -   first input array.
+    -   first input array. Should have a floating-point data type.
 
 -   **x2**: _&lt;array&gt;_
 
-    -   second input array. Must be compatible with `x1` (see {ref}`broadcasting`).
+    -   second input array. Must be compatible with `x1` (see {ref}`broadcasting`). Should have a floating-point data type.
 
 #### Returns
 
