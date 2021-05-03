@@ -4004,7 +4004,7 @@ an array object supporting the following reflected operators:
              <ul>
               <li>
                <p>
-                array instance.
+                array instance. Should have a numeric data type.
                </p>
               </li>
              </ul>
@@ -4707,7 +4707,7 @@ an array object supporting the following reflected operators:
              <ul>
               <li>
                <p>
-                array instance (augend array).
+                array instance (augend array). Should have a numeric data type.
                </p>
               </li>
              </ul>
@@ -4719,7 +4719,7 @@ an array object supporting the following reflected operators:
               </strong>
               :
               <em>
-               &lt;array&gt;
+               Union[ int, float, &lt;array&gt; ]
               </em>
              </p>
              <ul>
@@ -4737,7 +4737,7 @@ an array object supporting the following reflected operators:
                   Broadcasting
                  </span>
                 </a>
-                ).
+                ). Should have a numeric data type.
                </p>
               </li>
              </ul>
@@ -4851,7 +4851,7 @@ an array object supporting the following reflected operators:
              <ul>
               <li>
                <p>
-                array instance. Must have an integer or boolean data type.
+                array instance. Should have an integer or boolean data type.
                </p>
               </li>
              </ul>
@@ -4863,7 +4863,7 @@ an array object supporting the following reflected operators:
               </strong>
               :
               <em>
-               &lt;array&gt;
+               Union[ int, bool, &lt;array&gt; ]
               </em>
              </p>
              <ul>
@@ -4881,7 +4881,7 @@ an array object supporting the following reflected operators:
                   Broadcasting
                  </span>
                 </a>
-                ). Must have an integer or boolean data type.
+                ). Should have an integer or boolean data type.
                </p>
               </li>
              </ul>
@@ -5573,7 +5573,7 @@ cost of more synchronization than necessary.
              <ul>
               <li>
                <p>
-                array instance.
+                array instance. May have any data type.
                </p>
               </li>
              </ul>
@@ -5585,7 +5585,7 @@ cost of more synchronization than necessary.
               </strong>
               :
               <em>
-               &lt;array&gt;
+               Union[ int, float, bool, &lt;array&gt; ]
               </em>
              </p>
              <ul>
@@ -5603,7 +5603,7 @@ cost of more synchronization than necessary.
                   Broadcasting
                  </span>
                 </a>
-                ).
+                ). May have any data type.
                </p>
               </li>
              </ul>
@@ -5798,7 +5798,7 @@ cost of more synchronization than necessary.
              <ul>
               <li>
                <p>
-                array instance.
+                array instance. Should have a numeric data type.
                </p>
               </li>
              </ul>
@@ -5810,7 +5810,7 @@ cost of more synchronization than necessary.
               </strong>
               :
               <em>
-               &lt;array&gt;
+               Union[ int, float, &lt;array&gt; ]
               </em>
              </p>
              <ul>
@@ -5828,7 +5828,7 @@ cost of more synchronization than necessary.
                   Broadcasting
                  </span>
                 </a>
-                ).
+                ). Should have a numeric data type.
                </p>
               </li>
              </ul>
@@ -5942,7 +5942,7 @@ cost of more synchronization than necessary.
              <ul>
               <li>
                <p>
-                array instance.
+                array instance. Should have a numeric data type.
                </p>
               </li>
              </ul>
@@ -5954,7 +5954,7 @@ cost of more synchronization than necessary.
               </strong>
               :
               <em>
-               &lt;array&gt;
+               Union[ int, float, &lt;array&gt; ]
               </em>
              </p>
              <ul>
@@ -5972,7 +5972,7 @@ cost of more synchronization than necessary.
                   Broadcasting
                  </span>
                 </a>
-                ).
+                ). Should have a numeric data type.
                </p>
               </li>
              </ul>
@@ -6185,7 +6185,7 @@ cost of more synchronization than necessary.
              <ul>
               <li>
                <p>
-                array instance.
+                array instance. Should have a numeric data type.
                </p>
               </li>
              </ul>
@@ -6197,7 +6197,7 @@ cost of more synchronization than necessary.
               </strong>
               :
               <em>
-               &lt;array&gt;
+               Union[ int, float, &lt;array&gt; ]
               </em>
              </p>
              <ul>
@@ -6215,7 +6215,7 @@ cost of more synchronization than necessary.
                   Broadcasting
                  </span>
                 </a>
-                ).
+                ). Should have a numeric data type.
                </p>
               </li>
              </ul>
@@ -6398,7 +6398,7 @@ cost of more synchronization than necessary.
              <ul>
               <li>
                <p>
-                array instance. Must have an integer or boolean data type.
+                array instance. Should have an integer or boolean data type.
                </p>
               </li>
              </ul>
@@ -6509,7 +6509,7 @@ cost of more synchronization than necessary.
              <ul>
               <li>
                <p>
-                array instance.
+                array instance. Should have a numeric data type.
                </p>
               </li>
              </ul>
@@ -6521,7 +6521,7 @@ cost of more synchronization than necessary.
               </strong>
               :
               <em>
-               &lt;array&gt;
+               Union[ int, float, &lt;array&gt; ]
               </em>
              </p>
              <ul>
@@ -6539,7 +6539,7 @@ cost of more synchronization than necessary.
                   Broadcasting
                  </span>
                 </a>
-                ).
+                ). Should have a numeric data type.
                </p>
               </li>
              </ul>
@@ -6668,7 +6668,7 @@ cost of more synchronization than necessary.
              <ul>
               <li>
                <p>
-                array instance. Must have an integer data type.
+                array instance. Should have an integer data type.
                </p>
               </li>
              </ul>
@@ -6680,7 +6680,7 @@ cost of more synchronization than necessary.
               </strong>
               :
               <em>
-               &lt;array&gt;
+               Union[ int, &lt;array&gt; ]
               </em>
              </p>
              <ul>
@@ -6698,7 +6698,7 @@ cost of more synchronization than necessary.
                   Broadcasting
                  </span>
                 </a>
-                ). Must have an integer data type. Each element must be greater than or equal to
+                ). Should have an integer data type. Each element must be greater than or equal to
                 <code class="docutils literal notranslate">
                  <span class="pre">
                   0
@@ -6818,7 +6818,7 @@ cost of more synchronization than necessary.
              <ul>
               <li>
                <p>
-                array instance.
+                array instance. Should have a numeric data type.
                </p>
               </li>
              </ul>
@@ -6830,7 +6830,7 @@ cost of more synchronization than necessary.
               </strong>
               :
               <em>
-               &lt;array&gt;
+               Union[ int, float, &lt;array&gt; ]
               </em>
              </p>
              <ul>
@@ -6848,7 +6848,7 @@ cost of more synchronization than necessary.
                   Broadcasting
                  </span>
                 </a>
-                ).
+                ). Should have a numeric data type.
                </p>
               </li>
              </ul>
@@ -7071,7 +7071,7 @@ cost of more synchronization than necessary.
              <ul>
               <li>
                <p>
-                array instance.
+                array instance. Should have a numeric data type.
                </p>
               </li>
              </ul>
@@ -7083,7 +7083,7 @@ cost of more synchronization than necessary.
               </strong>
               :
               <em>
-               &lt;array&gt;
+               Union[ int, float, &lt;array&gt; ]
               </em>
              </p>
              <ul>
@@ -7101,7 +7101,7 @@ cost of more synchronization than necessary.
                   Broadcasting
                  </span>
                 </a>
-                ).
+                ). Should have a numeric data type.
                </p>
               </li>
              </ul>
@@ -7569,7 +7569,7 @@ cost of more synchronization than necessary.
              <ul>
               <li>
                <p>
-                array instance.
+                array instance. Should have a numeric data type.
                </p>
               </li>
              </ul>
@@ -7581,7 +7581,7 @@ cost of more synchronization than necessary.
               </strong>
               :
               <em>
-               &lt;array&gt;
+               Union[ int, float, &lt;array&gt; ]
               </em>
              </p>
              <ul>
@@ -7599,7 +7599,7 @@ cost of more synchronization than necessary.
                   Broadcasting
                  </span>
                 </a>
-                ).
+                ). Should have a numeric data type.
                </p>
               </li>
              </ul>
@@ -7713,7 +7713,7 @@ cost of more synchronization than necessary.
              <ul>
               <li>
                <p>
-                array instance.
+                array instance. May have any data type.
                </p>
               </li>
              </ul>
@@ -7725,7 +7725,7 @@ cost of more synchronization than necessary.
               </strong>
               :
               <em>
-               &lt;array&gt;
+               Union[ int, float, bool, &lt;array&gt; ]
               </em>
              </p>
              <ul>
@@ -7743,7 +7743,7 @@ cost of more synchronization than necessary.
                   Broadcasting
                  </span>
                 </a>
-                ).
+                ). May have any data type.
                </p>
               </li>
              </ul>
@@ -7845,7 +7845,7 @@ cost of more synchronization than necessary.
              <ul>
               <li>
                <p>
-                array instance.
+                array instance. Should have a numeric data type.
                </p>
               </li>
              </ul>
@@ -7962,7 +7962,7 @@ cost of more synchronization than necessary.
              <ul>
               <li>
                <p>
-                array instance. Must have an integer or boolean data type.
+                array instance. Should have an integer or boolean data type.
                </p>
               </li>
              </ul>
@@ -7974,7 +7974,7 @@ cost of more synchronization than necessary.
               </strong>
               :
               <em>
-               &lt;array&gt;
+               Union[ int, bool, &lt;array&gt; ]
               </em>
              </p>
              <ul>
@@ -7992,7 +7992,7 @@ cost of more synchronization than necessary.
                   Broadcasting
                  </span>
                 </a>
-                ). Must have an integer or boolean data type.
+                ). Should have an integer or boolean data type.
                </p>
               </li>
              </ul>
@@ -8094,7 +8094,7 @@ cost of more synchronization than necessary.
              <ul>
               <li>
                <p>
-                array instance.
+                array instance. Should have a numeric data type.
                </p>
               </li>
              </ul>
@@ -9130,7 +9130,7 @@ cost of more synchronization than necessary.
              <ul>
               <li>
                <p>
-                array instance whose elements correspond to the exponentiation base.
+                array instance whose elements correspond to the exponentiation base. Should have a numeric data type.
                </p>
               </li>
              </ul>
@@ -9142,7 +9142,7 @@ cost of more synchronization than necessary.
               </strong>
               :
               <em>
-               &lt;array&gt;
+               Union[ int, float, &lt;array&gt; ]
               </em>
              </p>
              <ul>
@@ -9160,7 +9160,7 @@ cost of more synchronization than necessary.
                   Broadcasting
                  </span>
                 </a>
-                ).
+                ). Should have a numeric data type.
                </p>
               </li>
              </ul>
@@ -9274,7 +9274,7 @@ cost of more synchronization than necessary.
              <ul>
               <li>
                <p>
-                array instance. Must have an integer data type.
+                array instance. Should have an integer data type.
                </p>
               </li>
              </ul>
@@ -9286,7 +9286,7 @@ cost of more synchronization than necessary.
               </strong>
               :
               <em>
-               &lt;array&gt;
+               Union[ int, &lt;array&gt; ]
               </em>
              </p>
              <ul>
@@ -9304,7 +9304,7 @@ cost of more synchronization than necessary.
                   Broadcasting
                  </span>
                 </a>
-                ). Must have an integer data type. Each element must be greater than or equal to
+                ). Should have an integer data type. Each element must be greater than or equal to
                 <code class="docutils literal notranslate">
                  <span class="pre">
                   0
@@ -9461,7 +9461,7 @@ cost of more synchronization than necessary.
              <ul>
               <li>
                <p>
-                array instance (minuend array).
+                array instance (minuend array). Should have a numeric data type.
                </p>
               </li>
              </ul>
@@ -9473,7 +9473,7 @@ cost of more synchronization than necessary.
               </strong>
               :
               <em>
-               &lt;array&gt;
+               Union[ int, float, &lt;array&gt; ]
               </em>
              </p>
              <ul>
@@ -9491,7 +9491,7 @@ cost of more synchronization than necessary.
                   Broadcasting
                  </span>
                 </a>
-                ).
+                ). Should have a numeric data type.
                </p>
               </li>
              </ul>
@@ -10394,7 +10394,7 @@ cost of more synchronization than necessary.
              <ul>
               <li>
                <p>
-                array instance.
+                array instance. Should have a numeric data type.
                </p>
               </li>
              </ul>
@@ -10406,7 +10406,7 @@ cost of more synchronization than necessary.
               </strong>
               :
               <em>
-               &lt;array&gt;
+               Union[ int, float, &lt;array&gt; ]
               </em>
              </p>
              <ul>
@@ -10424,7 +10424,7 @@ cost of more synchronization than necessary.
                   Broadcasting
                  </span>
                 </a>
-                ).
+                ). Should have a numeric data type.
                </p>
               </li>
              </ul>
@@ -10538,7 +10538,7 @@ cost of more synchronization than necessary.
              <ul>
               <li>
                <p>
-                array instance. Must have an integer or boolean data type.
+                array instance. Should have an integer or boolean data type.
                </p>
               </li>
              </ul>
@@ -10550,7 +10550,7 @@ cost of more synchronization than necessary.
               </strong>
               :
               <em>
-               &lt;array&gt;
+               Union[ int, bool, &lt;array&gt; ]
               </em>
              </p>
              <ul>
@@ -10568,7 +10568,7 @@ cost of more synchronization than necessary.
                   Broadcasting
                  </span>
                 </a>
-                ). Must have an integer or boolean data type.
+                ). Should have an integer or boolean data type.
                </p>
               </li>
              </ul>
