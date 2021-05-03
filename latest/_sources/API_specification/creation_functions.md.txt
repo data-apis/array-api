@@ -12,7 +12,7 @@ A conforming implementation of the array API standard must provide and support t
 <!-- NOTE: please keep the functions in alphabetical order -->
 
 (function-arange)=
-### arange(start, /, *, stop=None, step=1, dtype=None, device=None)
+### arange(start, /, stop=None, step=1, *, dtype=None, device=None)
 
 Returns evenly spaced values within the half-open interval `[start, stop)` as a one-dimensional array.
 
@@ -33,11 +33,11 @@ This function cannot guarantee that the interval does not include the `stop` val
 
 -   **step**: _Union\[ int, float ]_
 
-    -   the distance between two adjacent elements (`out[i+1] - out[i]`). Default: `1`.
+    -   the distance between two adjacent elements (`out[i+1] - out[i]`). Must not be `0`; may be negative, this results in an empty array if `stop >= start`. Default: `1`.
 
 -   **dtype**: _Optional\[ &lt;dtype&gt; ]_
 
-    -   output array data type. If `dtype` is `None`, the output array data type must be the default floating-point data type. Default: `None`.
+    -   output array data type. If `dtype` is `None`, the output array data type must be inferred from `start`, `stop` and `step`. If those are all integers, the output array dtype must be the default integer dtype; if one or more have type `float`, then the output array dtype must be the default floating-point data type. Default: `None`.
 
 -   **device**: _Optional\[ &lt;device&gt; ]_
 
@@ -47,7 +47,7 @@ This function cannot guarantee that the interval does not include the `stop` val
 
 -   **out**: _&lt;array&gt;_
 
-    -   a one-dimensional array containing evenly spaced values. The length of the output array must be `ceil((stop-start)/step)`.
+    -   a one-dimensional array containing evenly spaced values. The length of the output array must be `ceil((stop-start)/step)` if `stop - start` and `step` have the same sign, and length 0 otherwise.
 
 
 (function-asarray)=
@@ -68,7 +68,7 @@ Convert the input to an array.
 
 -   **dtype**: _Optional\[ &lt;dtype&gt; ]_
 
-    -   output array data type. If `dtype` is `None`, the output array data type must be inferred from the data type(s) in `obj`. Default: `None`.
+    -   output array data type. If `dtype` is `None`, the output array data type must be inferred from the data type(s) in `obj`. If all input values are Python scalars, then if they're all `bool` the output dtype will be `bool`; if they're a mix of `bool`s and `int` the output dtype will be the default integer data type; if they contain `float`s the output dtype will be the default floating-point data type. Default: `None`.
 
 -   **device**: _Optional\[ &lt;device&gt; ]_
 
@@ -86,7 +86,7 @@ Convert the input to an array.
 
 
 (function-empty)=
-### empty(shape, /, *, dtype=None, device=None)
+### empty(shape, *, dtype=None, device=None)
 
 Returns an uninitialized array having a specified `shape`.
 
@@ -136,19 +136,19 @@ Returns an uninitialized array with the same `shape` as an input array `x`.
     -   an array having the same shape as `x` and containing uninitialized data.
 
 (function-eye)=
-### eye(N, /, *, M=None, k=0, dtype=None, device=None)
+### eye(n_rows, n_cols=None, /, *, k=0, dtype=None, device=None)
 
 Returns a two-dimensional array with ones on the `k`th diagonal and zeros elsewhere.
 
 #### Parameters
 
--   **N**: _int_
+-   **n_rows**: _int_
 
     -   number of rows in the output array.
 
--   **M**: _Optional\[ int ]_
+-   **n_cols**: _Optional\[ int ]_
 
-    -   number of columns in the output array. If `None`, the default number of columns in the output array is `N`. Default: `None`.
+    -   number of columns in the output array. If `None`, the default number of columns in the output array is equal to `n_rows`. Default: `None`.
 
 -   **k**: _Optional\[ int ]_
 
@@ -190,7 +190,7 @@ Returns a new array containing the data from another (array) object with a `__dl
         ```
 
 (function-full)=
-### full(shape, fill_value, /, *, dtype=None, device=None)
+### full(shape, fill_value, *, dtype=None, device=None)
 
 Returns a new array having a specified `shape` and filled with `fill_value`.
 
@@ -206,7 +206,7 @@ Returns a new array having a specified `shape` and filled with `fill_value`.
 
 -   **dtype**: _Optional\[ &lt;dtype&gt; ]_
 
-    -   output array data type. If `dtype` is `None`, the output array data type must be the default floating-point data type. Default: `None`.
+    -   output array data type. If `dtype` is `None`, the output array data type must be inferred from `fill_value`. If it's an `int`, the output array dtype must be the default integer dtype; if it's a `float`, then the output array dtype must be the default floating-point data type; if it's a `bool` then the output array must have boolean dtype. Default: `None`.
 
 -   **device**: _Optional\[ &lt;device&gt; ]_
 
@@ -219,7 +219,7 @@ Returns a new array having a specified `shape` and filled with `fill_value`.
     -   an array where every element is equal to `fill_value`.
 
 (function-full_like)=
-### full_like(x, fill_value, /, *, dtype=None, device=None)
+### full_like(x, /, fill_value, *, dtype=None, device=None)
 
 Returns a new array filled with `fill_value` and having the same `shape` as an input array `x`.
 
@@ -235,7 +235,7 @@ Returns a new array filled with `fill_value` and having the same `shape` as an i
 
 -   **dtype**: _Optional\[ &lt;dtype&gt; ]_
 
-    -   output array data type. If `dtype` is `None`, the output array data type must be inferred from `x`. Default: `None`.
+    -   output array data type. If `dtype` is `None`, the output array data type must be inferred from `fill_value` (see {ref}`function-full`). Default: `None`.
 
 -   **device**: _Optional\[ &lt;device&gt; ]_
 
@@ -248,7 +248,7 @@ Returns a new array filled with `fill_value` and having the same `shape` as an i
     -   an array having the same shape as `x` and where every element is equal to `fill_value`.
 
 (function-linspace)=
-### linspace(start, stop, num, /, *, dtype=None, device=None, endpoint=True)
+### linspace(start, stop, /, num, *, dtype=None, device=None, endpoint=True)
 
 Returns evenly spaced numbers over a specified interval.
 
@@ -289,8 +289,39 @@ Returns evenly spaced numbers over a specified interval.
 
     -   a one-dimensional array containing evenly spaced values.
 
+(function-meshgrid)=
+### meshgrid(*arrays, indexing='xy')
+
+Returns coordinate matrices from coordinate vectors.
+
+#### Parameters
+
+-    **arrays**: _Sequence\[ &lt;array&gt; ]_
+
+     -   one-dimensional arrays representing grid coordinates. Must have a numeric data type.
+
+-    **indexing**: _str_
+
+    -   Cartesian 'xy' or matrix 'ij' indexing of output. If provided zero or one one-dimensional vector(s) (i.e., the zero- and one-dimensional cases, respectively), the `indexing` keyword has no effect and should be ignored. Default: `'xy'`.
+
+#### Returns
+
+-    **out**: _List\[ &lt;array&gt;, ... ]_
+
+    -   list of N arrays, where `N` is the number of provided one-dimensional input arrays. Each returned array must have rank `N`. For `N` one-dimensional arrays having lengths `Ni = len(xi)`,
+
+        -   if matrix indexing `ij`, then each returned array must have the shape `(N1, N2, N3, ..., Nn)`.
+
+        -   if Cartesian indexing `xy`, then each returned array must have shape `(N2, N1, N3, ..., Nn)`.
+
+        Accordingly, for the two-dimensional case with input one-dimensional arrays of length `M` and `N`, if matrix indexing `ij`, then each returned array must have shape `(M, N)`, and, if Cartesian indexing `xy`, then each returned array must have shape `(N, M)`.
+
+        Similarly, for the three-dimensional case with input one-dimensional arrays of length `M`, `N`, and `P`, if matrix indexing `ij`, then each returned array must have shape `(M, N, P)`, and, if Cartesian indexing `xy`, then each returned array must have shape `(N, M, P)`.
+
+        The returned arrays must have a numeric data type determined by {ref}`type-promotion`.
+
 (function-ones)=
-### ones(shape, /, *, dtype=None, device=None)
+### ones(shape, *, dtype=None, device=None)
 
 Returns a new array having a specified `shape` and filled with ones.
 
@@ -340,7 +371,7 @@ Returns a new array filled with ones and having the same `shape` as an input arr
     -   an array having the same shape as `x` and filled with ones.
 
 (function-zeros)=
-### zeros(shape, /, *, dtype=None, device=None)
+### zeros(shape, *, dtype=None, device=None)
 
 Returns a new array having a specified `shape` and filled with zeros.
 

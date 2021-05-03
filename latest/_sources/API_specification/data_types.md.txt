@@ -6,10 +6,9 @@
 
 A conforming implementation of the array API standard must provide and support the following data types.
 
-A conforming implementation of the array API standard must define a default floating-point data type (either `float32` or `float64`), as well as a default data type for an array index (either `int32` or `int64`).
+A conforming implementation of the array API standard must define a default floating-point data type (either `float32` or `float64`), as well as a default integer data type (`int32` or `int64`). These default data types must be the same across platforms. The default integer data type may vary depending on whether Python is 32-bit or 64-bit.
 
 ```{note}
-
 The default floating-point and array index integer data types should be clearly defined in a conforming library's documentation.
 ```
 

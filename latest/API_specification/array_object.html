@@ -3,7 +3,7 @@
  <head>
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <meta content="Docutils 0.17: http://docutils.sourceforge.net/" name="generator"/>
+  <meta content="Docutils 0.17.1: http://docutils.sourceforge.net/" name="generator"/>
   <meta content="width=device-width,initial-scale=1" name="viewport"/>
   <meta content="ie=edge" http-equiv="x-ua-compatible"/>
   <meta content="Copy to clipboard" name="lang:clipboard.copy"/>
@@ -3399,6 +3399,22 @@ an array object supporting the following in-place Python operators:
             </p>
            </li>
           </ul>
+          <p>
+           An in-place operation must not change the dtype or shape of the in-place array
+as a result of
+           <a class="reference internal" href="type_promotion.html#type-promotion">
+            <span class="std std-ref">
+             Type Promotion Rules
+            </span>
+           </a>
+           or
+           <a class="reference internal" href="broadcasting.html#broadcasting">
+            <span class="std std-ref">
+             Broadcasting
+            </span>
+           </a>
+           .
+          </p>
           <div class="admonition note">
            <p class="admonition-title">
             Note
@@ -6052,7 +6068,7 @@ cost of more synchronization than necessary.
               </strong>
               :
               <em>
-               &lt;array;&gt;
+               &lt;array&gt;
               </em>
              </p>
              <ul>

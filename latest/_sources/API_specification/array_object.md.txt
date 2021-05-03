@@ -153,6 +153,9 @@ an array object supporting the following in-place Python operators:
 - `<<=`. May be implemented via `__ilshift__`.
 - `>>=`. May be implemented via `__irshift__`.
 
+An in-place operation must not change the dtype or shape of the in-place array
+as a result of {ref}`type-promotion` or {ref}`broadcasting`.
+
 ```{note}
 
 In-place operators must be supported as discussed in {ref}`copyview-mutability`.
@@ -595,7 +598,7 @@ Returns `self[key]`.
 
 #### Parameters
 
--   **self**: _&lt;array;&gt;_
+-   **self**: _&lt;array&gt;_
 
     -   array instance.
 

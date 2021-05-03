@@ -3,7 +3,7 @@
  <head>
   <meta charset="utf-8"/>
   <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <meta content="Docutils 0.17: http://docutils.sourceforge.net/" name="generator"/>
+  <meta content="Docutils 0.17.1: http://docutils.sourceforge.net/" name="generator"/>
   <meta content="width=device-width,initial-scale=1" name="viewport"/>
   <meta content="ie=edge" http-equiv="x-ua-compatible"/>
   <meta content="Copy to clipboard" name="lang:clipboard.copy"/>
@@ -288,7 +288,7 @@
                     <ul class="md-nav__list">
                      <li class="md-nav__item">
                       <a class="md-nav__link" href="#arange-start-stop-none-step-1-dtype-none-device-none">
-                       arange(start, /, *, stop=None, step=1, dtype=None, device=None)
+                       arange(start, /, stop=None, step=1, *, dtype=None, device=None)
                       </a>
                       <nav class="md-nav">
                        <ul class="md-nav__list">
@@ -326,7 +326,7 @@
                      </li>
                      <li class="md-nav__item">
                       <a class="md-nav__link" href="#empty-shape-dtype-none-device-none">
-                       empty(shape, /, *, dtype=None, device=None)
+                       empty(shape, *, dtype=None, device=None)
                       </a>
                       <nav class="md-nav">
                        <ul class="md-nav__list">
@@ -363,8 +363,8 @@
                       </nav>
                      </li>
                      <li class="md-nav__item">
-                      <a class="md-nav__link" href="#eye-n-m-none-k-0-dtype-none-device-none">
-                       eye(N, /, *, M=None, k=0, dtype=None, device=None)
+                      <a class="md-nav__link" href="#eye-n-rows-n-cols-none-k-0-dtype-none-device-none">
+                       eye(n_rows, n_cols=None, /, *, k=0, dtype=None, device=None)
                       </a>
                       <nav class="md-nav">
                        <ul class="md-nav__list">
@@ -402,7 +402,7 @@
                      </li>
                      <li class="md-nav__item">
                       <a class="md-nav__link" href="#full-shape-fill-value-dtype-none-device-none">
-                       full(shape, fill_value, /, *, dtype=None, device=None)
+                       full(shape, fill_value, *, dtype=None, device=None)
                       </a>
                       <nav class="md-nav">
                        <ul class="md-nav__list">
@@ -421,7 +421,7 @@
                      </li>
                      <li class="md-nav__item">
                       <a class="md-nav__link" href="#full-like-x-fill-value-dtype-none-device-none">
-                       full_like(x, fill_value, /, *, dtype=None, device=None)
+                       full_like(x, /, fill_value, *, dtype=None, device=None)
                       </a>
                       <nav class="md-nav">
                        <ul class="md-nav__list">
@@ -440,7 +440,7 @@
                      </li>
                      <li class="md-nav__item">
                       <a class="md-nav__link" href="#linspace-start-stop-num-dtype-none-device-none-endpoint-true">
-                       linspace(start, stop, num, /, *, dtype=None, device=None, endpoint=True)
+                       linspace(start, stop, /, num, *, dtype=None, device=None, endpoint=True)
                       </a>
                       <nav class="md-nav">
                        <ul class="md-nav__list">
@@ -458,8 +458,8 @@
                       </nav>
                      </li>
                      <li class="md-nav__item">
-                      <a class="md-nav__link" href="#ones-shape-dtype-none-device-none">
-                       ones(shape, /, *, dtype=None, device=None)
+                      <a class="md-nav__link" href="#meshgrid-arrays-indexing-xy">
+                       meshgrid(*arrays, indexing=’xy’)
                       </a>
                       <nav class="md-nav">
                        <ul class="md-nav__list">
@@ -477,8 +477,8 @@
                       </nav>
                      </li>
                      <li class="md-nav__item">
-                      <a class="md-nav__link" href="#ones-like-x-dtype-none-device-none">
-                       ones_like(x, /, *, dtype=None, device=None)
+                      <a class="md-nav__link" href="#ones-shape-dtype-none-device-none">
+                       ones(shape, *, dtype=None, device=None)
                       </a>
                       <nav class="md-nav">
                        <ul class="md-nav__list">
@@ -496,8 +496,8 @@
                       </nav>
                      </li>
                      <li class="md-nav__item">
-                      <a class="md-nav__link" href="#zeros-shape-dtype-none-device-none">
-                       zeros(shape, /, *, dtype=None, device=None)
+                      <a class="md-nav__link" href="#ones-like-x-dtype-none-device-none">
+                       ones_like(x, /, *, dtype=None, device=None)
                       </a>
                       <nav class="md-nav">
                        <ul class="md-nav__list">
@@ -515,8 +515,8 @@
                       </nav>
                      </li>
                      <li class="md-nav__item">
-                      <a class="md-nav__link" href="#zeros-like-x-dtype-none-device-none">
-                       zeros_like(x, /, *, dtype=None, device=None)
+                      <a class="md-nav__link" href="#zeros-shape-dtype-none-device-none">
+                       zeros(shape, *, dtype=None, device=None)
                       </a>
                       <nav class="md-nav">
                        <ul class="md-nav__list">
@@ -527,6 +527,25 @@
                         </li>
                         <li class="md-nav__item">
                          <a class="md-nav__link" href="#id24">
+                          Returns
+                         </a>
+                        </li>
+                       </ul>
+                      </nav>
+                     </li>
+                     <li class="md-nav__item">
+                      <a class="md-nav__link" href="#zeros-like-x-dtype-none-device-none">
+                       zeros_like(x, /, *, dtype=None, device=None)
+                      </a>
+                      <nav class="md-nav">
+                       <ul class="md-nav__list">
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#id25">
+                          Parameters
+                         </a>
+                        </li>
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#id26">
                           Returns
                          </a>
                         </li>
@@ -638,7 +657,7 @@
                <ul class="md-nav__list">
                 <li class="md-nav__item">
                  <a class="md-nav__link" href="#arange-start-stop-none-step-1-dtype-none-device-none">
-                  arange(start, /, *, stop=None, step=1, dtype=None, device=None)
+                  arange(start, /, stop=None, step=1, *, dtype=None, device=None)
                  </a>
                  <nav class="md-nav">
                   <ul class="md-nav__list">
@@ -676,7 +695,7 @@
                 </li>
                 <li class="md-nav__item">
                  <a class="md-nav__link" href="#empty-shape-dtype-none-device-none">
-                  empty(shape, /, *, dtype=None, device=None)
+                  empty(shape, *, dtype=None, device=None)
                  </a>
                  <nav class="md-nav">
                   <ul class="md-nav__list">
@@ -713,8 +732,8 @@
                  </nav>
                 </li>
                 <li class="md-nav__item">
-                 <a class="md-nav__link" href="#eye-n-m-none-k-0-dtype-none-device-none">
-                  eye(N, /, *, M=None, k=0, dtype=None, device=None)
+                 <a class="md-nav__link" href="#eye-n-rows-n-cols-none-k-0-dtype-none-device-none">
+                  eye(n_rows, n_cols=None, /, *, k=0, dtype=None, device=None)
                  </a>
                  <nav class="md-nav">
                   <ul class="md-nav__list">
@@ -752,7 +771,7 @@
                 </li>
                 <li class="md-nav__item">
                  <a class="md-nav__link" href="#full-shape-fill-value-dtype-none-device-none">
-                  full(shape, fill_value, /, *, dtype=None, device=None)
+                  full(shape, fill_value, *, dtype=None, device=None)
                  </a>
                  <nav class="md-nav">
                   <ul class="md-nav__list">
@@ -771,7 +790,7 @@
                 </li>
                 <li class="md-nav__item">
                  <a class="md-nav__link" href="#full-like-x-fill-value-dtype-none-device-none">
-                  full_like(x, fill_value, /, *, dtype=None, device=None)
+                  full_like(x, /, fill_value, *, dtype=None, device=None)
                  </a>
                  <nav class="md-nav">
                   <ul class="md-nav__list">
@@ -790,7 +809,7 @@
                 </li>
                 <li class="md-nav__item">
                  <a class="md-nav__link" href="#linspace-start-stop-num-dtype-none-device-none-endpoint-true">
-                  linspace(start, stop, num, /, *, dtype=None, device=None, endpoint=True)
+                  linspace(start, stop, /, num, *, dtype=None, device=None, endpoint=True)
                  </a>
                  <nav class="md-nav">
                   <ul class="md-nav__list">
@@ -808,8 +827,8 @@
                  </nav>
                 </li>
                 <li class="md-nav__item">
-                 <a class="md-nav__link" href="#ones-shape-dtype-none-device-none">
-                  ones(shape, /, *, dtype=None, device=None)
+                 <a class="md-nav__link" href="#meshgrid-arrays-indexing-xy">
+                  meshgrid(*arrays, indexing=’xy’)
                  </a>
                  <nav class="md-nav">
                   <ul class="md-nav__list">
@@ -827,8 +846,8 @@
                  </nav>
                 </li>
                 <li class="md-nav__item">
-                 <a class="md-nav__link" href="#ones-like-x-dtype-none-device-none">
-                  ones_like(x, /, *, dtype=None, device=None)
+                 <a class="md-nav__link" href="#ones-shape-dtype-none-device-none">
+                  ones(shape, *, dtype=None, device=None)
                  </a>
                  <nav class="md-nav">
                   <ul class="md-nav__list">
@@ -846,8 +865,8 @@
                  </nav>
                 </li>
                 <li class="md-nav__item">
-                 <a class="md-nav__link" href="#zeros-shape-dtype-none-device-none">
-                  zeros(shape, /, *, dtype=None, device=None)
+                 <a class="md-nav__link" href="#ones-like-x-dtype-none-device-none">
+                  ones_like(x, /, *, dtype=None, device=None)
                  </a>
                  <nav class="md-nav">
                   <ul class="md-nav__list">
@@ -865,8 +884,8 @@
                  </nav>
                 </li>
                 <li class="md-nav__item">
-                 <a class="md-nav__link" href="#zeros-like-x-dtype-none-device-none">
-                  zeros_like(x, /, *, dtype=None, device=None)
+                 <a class="md-nav__link" href="#zeros-shape-dtype-none-device-none">
+                  zeros(shape, *, dtype=None, device=None)
                  </a>
                  <nav class="md-nav">
                   <ul class="md-nav__list">
@@ -877,6 +896,25 @@
                    </li>
                    <li class="md-nav__item">
                     <a class="md-nav__link" href="#id24">
+                     Returns
+                    </a>
+                   </li>
+                  </ul>
+                 </nav>
+                </li>
+                <li class="md-nav__item">
+                 <a class="md-nav__link" href="#zeros-like-x-dtype-none-device-none">
+                  zeros_like(x, /, *, dtype=None, device=None)
+                 </a>
+                 <nav class="md-nav">
+                  <ul class="md-nav__list">
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#id25">
+                     Parameters
+                    </a>
+                   </li>
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#id26">
                      Returns
                     </a>
                    </li>
@@ -945,7 +983,7 @@
           <span id="function-arange">
           </span>
           <h3 id="arange-start-stop-none-step-1-dtype-none-device-none">
-           arange(start, /, *, stop=None, step=1, dtype=None, device=None)
+           arange(start, /, stop=None, step=1, *, dtype=None, device=None)
            <a class="headerlink" href="#arange-start-stop-none-step-1-dtype-none-device-none" title="Permalink to this headline">
             ¶
            </a>
@@ -1077,7 +1115,25 @@
                   out[i]
                  </span>
                 </code>
-                ). Default:
+                ). Must not be
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  0
+                 </span>
+                </code>
+                ; may be negative, this results in an empty array if
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  stop
+                 </span>
+                 <span class="pre">
+                  &gt;=
+                 </span>
+                 <span class="pre">
+                  start
+                 </span>
+                </code>
+                . Default:
                 <code class="docutils literal notranslate">
                  <span class="pre">
                   1
@@ -1113,7 +1169,31 @@
                   None
                  </span>
                 </code>
-                , the output array data type must be the default floating-point data type. Default:
+                , the output array data type must be inferred from
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  start
+                 </span>
+                </code>
+                ,
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  stop
+                 </span>
+                </code>
+                and
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  step
+                 </span>
+                </code>
+                . If those are all integers, the output array dtype must be the default integer dtype; if one or more have type
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  float
+                 </span>
+                </code>
+                , then the output array dtype must be the default floating-point data type. Default:
                 <code class="docutils literal notranslate">
                  <span class="pre">
                   None
@@ -1177,7 +1257,25 @@
                   ceil((stop-start)/step)
                  </span>
                 </code>
-                .
+                if
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  stop
+                 </span>
+                 <span class="pre">
+                  -
+                 </span>
+                 <span class="pre">
+                  start
+                 </span>
+                </code>
+                and
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  step
+                 </span>
+                </code>
+                have the same sign, and length 0 otherwise.
                </p>
               </li>
              </ul>
@@ -1281,7 +1379,37 @@ An object supporting the buffer protocol can be turned into a memoryview through
                   obj
                  </span>
                 </code>
-                . Default:
+                . If all input values are Python scalars, then if they’re all
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  bool
+                 </span>
+                </code>
+                the output dtype will be
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  bool
+                 </span>
+                </code>
+                ; if they’re a mix of
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  bool
+                 </span>
+                </code>
+                s and
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  int
+                 </span>
+                </code>
+                the output dtype will be the default integer data type; if they contain
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  float
+                 </span>
+                </code>
+                s the output dtype will be the default floating-point data type. Default:
                 <code class="docutils literal notranslate">
                  <span class="pre">
                   None
@@ -1405,7 +1533,7 @@ An object supporting the buffer protocol can be turned into a memoryview through
           <span id="function-empty">
           </span>
           <h3 id="empty-shape-dtype-none-device-none">
-           empty(shape, /, *, dtype=None, device=None)
+           empty(shape, *, dtype=None, device=None)
            <a class="headerlink" href="#empty-shape-dtype-none-device-none" title="Permalink to this headline">
             ¶
            </a>
@@ -1707,12 +1835,12 @@ An object supporting the buffer protocol can be turned into a memoryview through
            </ul>
           </section>
          </section>
-         <section id="eye-n-m-none-k-0-dtype-none-device-none">
+         <section id="eye-n-rows-n-cols-none-k-0-dtype-none-device-none">
           <span id="function-eye">
           </span>
-          <h3 id="eye-n-m-none-k-0-dtype-none-device-none">
-           eye(N, /, *, M=None, k=0, dtype=None, device=None)
-           <a class="headerlink" href="#eye-n-m-none-k-0-dtype-none-device-none" title="Permalink to this headline">
+          <h3 id="eye-n-rows-n-cols-none-k-0-dtype-none-device-none">
+           eye(n_rows, n_cols=None, /, *, k=0, dtype=None, device=None)
+           <a class="headerlink" href="#eye-n-rows-n-cols-none-k-0-dtype-none-device-none" title="Permalink to this headline">
             ¶
            </a>
           </h3>
@@ -1736,7 +1864,7 @@ An object supporting the buffer protocol can be turned into a memoryview through
             <li>
              <p>
               <strong>
-               N
+               n_rows
               </strong>
               :
               <em>
@@ -1754,7 +1882,7 @@ An object supporting the buffer protocol can be turned into a memoryview through
             <li>
              <p>
               <strong>
-               M
+               n_cols
               </strong>
               :
               <em>
@@ -1770,10 +1898,10 @@ An object supporting the buffer protocol can be turned into a memoryview through
                   None
                  </span>
                 </code>
-                , the default number of columns in the output array is
+                , the default number of columns in the output array is equal to
                 <code class="docutils literal notranslate">
                  <span class="pre">
-                  N
+                  n_rows
                  </span>
                 </code>
                 . Default:
@@ -2013,7 +2141,7 @@ An object supporting the buffer protocol can be turned into a memoryview through
           <span id="function-full">
           </span>
           <h3 id="full-shape-fill-value-dtype-none-device-none">
-           full(shape, fill_value, /, *, dtype=None, device=None)
+           full(shape, fill_value, *, dtype=None, device=None)
            <a class="headerlink" href="#full-shape-fill-value-dtype-none-device-none" title="Permalink to this headline">
             ¶
            </a>
@@ -2102,7 +2230,31 @@ An object supporting the buffer protocol can be turned into a memoryview through
                   None
                  </span>
                 </code>
-                , the output array data type must be the default floating-point data type. Default:
+                , the output array data type must be inferred from
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  fill_value
+                 </span>
+                </code>
+                . If it’s an
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  int
+                 </span>
+                </code>
+                , the output array dtype must be the default integer dtype; if it’s a
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  float
+                 </span>
+                </code>
+                , then the output array dtype must be the default floating-point data type; if it’s a
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  bool
+                 </span>
+                </code>
+                then the output array must have boolean dtype. Default:
                 <code class="docutils literal notranslate">
                  <span class="pre">
                   None
@@ -2178,7 +2330,7 @@ An object supporting the buffer protocol can be turned into a memoryview through
           <span id="function-full-like">
           </span>
           <h3 id="full-like-x-fill-value-dtype-none-device-none">
-           full_like(x, fill_value, /, *, dtype=None, device=None)
+           full_like(x, /, fill_value, *, dtype=None, device=None)
            <a class="headerlink" href="#full-like-x-fill-value-dtype-none-device-none" title="Permalink to this headline">
             ¶
            </a>
@@ -2276,10 +2428,16 @@ An object supporting the buffer protocol can be turned into a memoryview through
                 , the output array data type must be inferred from
                 <code class="docutils literal notranslate">
                  <span class="pre">
-                  x
+                  fill_value
                  </span>
                 </code>
-                . Default:
+                (see
+                <a class="reference internal" href="#function-full">
+                 <span class="std std-ref">
+                  full(shape, fill_value, *, dtype=None, device=None)
+                 </span>
+                </a>
+                ). Default:
                 <code class="docutils literal notranslate">
                  <span class="pre">
                   None
@@ -2379,7 +2537,7 @@ An object supporting the buffer protocol can be turned into a memoryview through
           <span id="function-linspace">
           </span>
           <h3 id="linspace-start-stop-num-dtype-none-device-none-endpoint-true">
-           linspace(start, stop, num, /, *, dtype=None, device=None, endpoint=True)
+           linspace(start, stop, /, num, *, dtype=None, device=None, endpoint=True)
            <a class="headerlink" href="#linspace-start-stop-num-dtype-none-device-none-endpoint-true" title="Permalink to this headline">
             ¶
            </a>
@@ -2662,11 +2820,106 @@ An object supporting the buffer protocol can be turned into a memoryview through
            </ul>
           </section>
          </section>
+         <section id="meshgrid-arrays-indexing-xy">
+          <span id="function-meshgrid">
+          </span>
+          <h3 id="meshgrid-arrays-indexing-xy">
+           meshgrid(*arrays, indexing=’xy’)
+           <a class="headerlink" href="#meshgrid-arrays-indexing-xy" title="Permalink to this headline">
+            ¶
+           </a>
+          </h3>
+          <p>
+           Returns coordinate matrices from coordinate vectors.
+          </p>
+          <section id="id17">
+           <h4 id="id17">
+            Parameters
+            <a class="headerlink" href="#id17" title="Permalink to this headline">
+             ¶
+            </a>
+           </h4>
+           <ul class="simple">
+            <li>
+             <p>
+              <strong>
+               arrays
+              </strong>
+              :
+              <em>
+               Sequence[ &lt;array&gt; ]
+              </em>
+             </p>
+             <ul>
+              <li>
+               <p>
+                one-dimensional arrays representing grid coordinates. Must have a numeric data type.
+               </p>
+              </li>
+             </ul>
+            </li>
+            <li>
+             <p>
+              <strong>
+               indexing
+              </strong>
+              :
+              <em>
+               str
+              </em>
+             </p>
+            </li>
+           </ul>
+           <div class="highlight-none notranslate">
+            <div class="highlight">
+             <pre><span></span>-   Cartesian 'xy' or matrix 'ij' indexing of output. If provided zero or one one-dimensional vector(s) (i.e., the zero- and one-dimensional cases, respectively), the `indexing` keyword has no effect and should be ignored. Default: `'xy'`.
+</pre>
+            </div>
+           </div>
+          </section>
+          <section id="id18">
+           <h4 id="id18">
+            Returns
+            <a class="headerlink" href="#id18" title="Permalink to this headline">
+             ¶
+            </a>
+           </h4>
+           <ul class="simple">
+            <li>
+             <p>
+              <strong>
+               out
+              </strong>
+              :
+              <em>
+               List[ &lt;array&gt;, … ]
+              </em>
+             </p>
+            </li>
+           </ul>
+           <div class="highlight-none notranslate">
+            <div class="highlight">
+             <pre><span></span>-   list of N arrays, where `N` is the number of provided one-dimensional input arrays. Each returned array must have rank `N`. For `N` one-dimensional arrays having lengths `Ni = len(xi)`,
+
+    -   if matrix indexing `ij`, then each returned array must have the shape `(N1, N2, N3, ..., Nn)`.
+
+    -   if Cartesian indexing `xy`, then each returned array must have shape `(N2, N1, N3, ..., Nn)`.
+
+    Accordingly, for the two-dimensional case with input one-dimensional arrays of length `M` and `N`, if matrix indexing `ij`, then each returned array must have shape `(M, N)`, and, if Cartesian indexing `xy`, then each returned array must have shape `(N, M)`.
+
+    Similarly, for the three-dimensional case with input one-dimensional arrays of length `M`, `N`, and `P`, if matrix indexing `ij`, then each returned array must have shape `(M, N, P)`, and, if Cartesian indexing `xy`, then each returned array must have shape `(N, M, P)`.
+
+    The returned arrays must have a numeric data type determined by {ref}`type-promotion`.
+</pre>
+            </div>
+           </div>
+          </section>
+         </section>
          <section id="ones-shape-dtype-none-device-none">
           <span id="function-ones">
           </span>
           <h3 id="ones-shape-dtype-none-device-none">
-           ones(shape, /, *, dtype=None, device=None)
+           ones(shape, *, dtype=None, device=None)
            <a class="headerlink" href="#ones-shape-dtype-none-device-none" title="Permalink to this headline">
             ¶
            </a>
@@ -2680,10 +2933,10 @@ An object supporting the buffer protocol can be turned into a memoryview through
            </code>
            and filled with ones.
           </p>
-          <section id="id17">
-           <h4 id="id17">
+          <section id="id19">
+           <h4 id="id19">
             Parameters
-            <a class="headerlink" href="#id17" title="Permalink to this headline">
+            <a class="headerlink" href="#id19" title="Permalink to this headline">
              ¶
             </a>
            </h4>
@@ -2768,10 +3021,10 @@ An object supporting the buffer protocol can be turned into a memoryview through
             </li>
            </ul>
           </section>
-          <section id="id18">
-           <h4 id="id18">
+          <section id="id20">
+           <h4 id="id20">
             Returns
-            <a class="headerlink" href="#id18" title="Permalink to this headline">
+            <a class="headerlink" href="#id20" title="Permalink to this headline">
              ¶
             </a>
            </h4>
@@ -2821,10 +3074,10 @@ An object supporting the buffer protocol can be turned into a memoryview through
            </code>
            .
           </p>
-          <section id="id19">
-           <h4 id="id19">
+          <section id="id21">
+           <h4 id="id21">
             Parameters
-            <a class="headerlink" href="#id19" title="Permalink to this headline">
+            <a class="headerlink" href="#id21" title="Permalink to this headline">
              ¶
             </a>
            </h4>
@@ -2933,10 +3186,10 @@ An object supporting the buffer protocol can be turned into a memoryview through
             </li>
            </ul>
           </section>
-          <section id="id20">
-           <h4 id="id20">
+          <section id="id22">
+           <h4 id="id22">
             Returns
-            <a class="headerlink" href="#id20" title="Permalink to this headline">
+            <a class="headerlink" href="#id22" title="Permalink to this headline">
              ¶
             </a>
            </h4>
@@ -2972,7 +3225,7 @@ An object supporting the buffer protocol can be turned into a memoryview through
           <span id="function-zeros">
           </span>
           <h3 id="zeros-shape-dtype-none-device-none">
-           zeros(shape, /, *, dtype=None, device=None)
+           zeros(shape, *, dtype=None, device=None)
            <a class="headerlink" href="#zeros-shape-dtype-none-device-none" title="Permalink to this headline">
             ¶
            </a>
@@ -2986,10 +3239,10 @@ An object supporting the buffer protocol can be turned into a memoryview through
            </code>
            and filled with zeros.
           </p>
-          <section id="id21">
-           <h4 id="id21">
+          <section id="id23">
+           <h4 id="id23">
             Parameters
-            <a class="headerlink" href="#id21" title="Permalink to this headline">
+            <a class="headerlink" href="#id23" title="Permalink to this headline">
              ¶
             </a>
            </h4>
@@ -3074,10 +3327,10 @@ An object supporting the buffer protocol can be turned into a memoryview through
             </li>
            </ul>
           </section>
-          <section id="id22">
-           <h4 id="id22">
+          <section id="id24">
+           <h4 id="id24">
             Returns
-            <a class="headerlink" href="#id22" title="Permalink to this headline">
+            <a class="headerlink" href="#id24" title="Permalink to this headline">
              ¶
             </a>
            </h4>
@@ -3127,10 +3380,10 @@ An object supporting the buffer protocol can be turned into a memoryview through
            </code>
            .
           </p>
-          <section id="id23">
-           <h4 id="id23">
+          <section id="id25">
+           <h4 id="id25">
             Parameters
-            <a class="headerlink" href="#id23" title="Permalink to this headline">
+            <a class="headerlink" href="#id25" title="Permalink to this headline">
              ¶
             </a>
            </h4>
@@ -3239,10 +3492,10 @@ An object supporting the buffer protocol can be turned into a memoryview through
             </li>
            </ul>
           </section>
-          <section id="id24">
-           <h4 id="id24">
+          <section id="id26">
+           <h4 id="id26">
             Returns
-            <a class="headerlink" href="#id24" title="Permalink to this headline">
+            <a class="headerlink" href="#id26" title="Permalink to this headline">
              ¶
             </a>
            </h4>
