@@ -15,10 +15,11 @@ A conforming implementation of the array API standard must provide and support t
 (function-unique)=
 ### unique(x, /, *, return_counts=False, return_index=False, return_inverse=False)
 
-```{note}
+:::{admonition} Data-dependent output shape
+:class: important
 
 This function is not compatible with static memory allocation and, thus, just-in-time compilation (JIT) as the shape of each output array is data-dependent (i.e., dependent on the contents of `x`).
-```
+:::
 
 Returns the unique elements of an input array `x`.
 
