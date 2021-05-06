@@ -72,7 +72,7 @@ Returns the indices of the minimum values along a specified axis. When the minim
 :::{admonition} Data-dependent output shape
 :class: important
 
-This function is not compatible with static memory allocation and, thus, just-in-time compilation (JIT) as the shape of each output array is data-dependent (i.e., dependent on the contents of `x`).
+The shape of the output array for this function depends on the data values in the input array, hence it can be difficult to implement for libraries that build computation graphs for arrays without knowing their values. See {ref}`indexing` section for more details.
 :::
 
 Returns the indices of the array elements which are non-zero.

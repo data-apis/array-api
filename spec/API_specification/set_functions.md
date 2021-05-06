@@ -18,7 +18,7 @@ A conforming implementation of the array API standard must provide and support t
 :::{admonition} Data-dependent output shape
 :class: important
 
-This function is not compatible with static memory allocation and, thus, just-in-time compilation (JIT) as the shape of each output array is data-dependent (i.e., dependent on the contents of `x`).
+The shape of the output array for this function depends on the data values in the input array, hence it can be difficult to implement for libraries that build computation graphs for arrays without knowing their values. See {ref}`indexing` section for more details.
 :::
 
 Returns the unique elements of an input array `x`.
