@@ -4,7 +4,7 @@
 
 A conforming implementation of the array API standard must provide and support the following constants adhering to the following conventions.
 
--   Each constant must have a Python floating-data type (i.e., `float`) and be provided as a Python scalar value.
+-   Each constant must have a Python floating-point data type (i.e., `float`) and be provided as a Python scalar value.
 
 <!-- NOTE: please keep the constants in alphabetical order -->
 
