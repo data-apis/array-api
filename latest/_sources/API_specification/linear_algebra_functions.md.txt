@@ -120,6 +120,39 @@ Returns the specified diagonals. If `x` has more than two dimensions, then the a
 
 TODO
 
+(function-linalg-eigh)=
+### linalg.eigh(x, /, *, upper=False)
+
+Returns the eigenvalues and eigenvectors of a symmetric matrix (or a stack of symmetric matrices) `x`.
+
+<!-- NOTE: once complex number support, each matrix must be Hermitian -->
+
+#### Parameters
+
+-   **x**: _&lt;array&gt;_
+
+    -   input array having shape `(..., M, M)` and whose innermost two dimensions form square matrices. Must have a floating-point data type.
+
+-   **upper**: _bool_
+
+    -   If `True`, use the upper-triangular part to compute the eigenvalues and eigenvectors. If `False`, use the lower-triangular part to compute the eigenvalues and eigenvectors. Default: `False`.
+
+#### Returns
+
+-   **out**: _Tuple\[ &lt;array&gt; ]_
+
+    -   a namedtuple (`e`, `v`) whose
+    
+        -   first element must have shape `(..., M)` and consist of computed eigenvalues.
+        -   second element must have shape `(..., M, M)`and have the columns of the inner most matrices contain the computed eigenvectors.
+
+        Each returned array must have the same floating-point data type as `x`.
+
+```{note}
+
+Eigenvalue sort order is left unspecified.
+```
+
 (function-eigvalsh)=
 ### eigvalsh()
 
