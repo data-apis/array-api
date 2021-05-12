@@ -15,10 +15,28 @@ A conforming implementation of the array API standard must provide and support t
 
 <!-- NOTE: please keep the functions in alphabetical order -->
 
-(function-cholesky)=
-### cholesky()
+(function-linalg-cholesky)=
+### linalg.cholesky(x, /, *, upper=False)
 
-TODO
+Returns the Cholesky decomposition of a symmetric positive-definite matrix (or a stack of symmetric positive-definite matrices) `x`.
+
+<!-- NOTE: once complex numbers are supported, each square matrix must be Hermitian. -->
+
+#### Parameters
+
+-   **x**: _&lt;array&gt;_
+
+    -   input array having shape `(..., M, M)` and whose innermost two dimensions form square matrices. Should have a floating-point data type.
+
+-   **upper**: _bool_
+
+    -   If `True`, the result must be the upper-triangular Cholesky factor. If `False`, the result must be the lower-triangular Cholesky factor. Default: `False`.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the Cholesky factors for each square matrix. The returned array must have a floating-point data type determined by {ref}`type-promotion` and shape as `x`.
 
 (function-cross)=
 ### cross(x1, x2, /, *, axis=-1)
