@@ -302,23 +302,23 @@ Returns coordinate matrices from coordinate vectors.
 
 -    **indexing**: _str_
 
-    -   Cartesian 'xy' or matrix 'ij' indexing of output. If provided zero or one one-dimensional vector(s) (i.e., the zero- and one-dimensional cases, respectively), the `indexing` keyword has no effect and should be ignored. Default: `'xy'`.
+     -   Cartesian 'xy' or matrix 'ij' indexing of output. If provided zero or one one-dimensional vector(s) (i.e., the zero- and one-dimensional cases, respectively), the `indexing` keyword has no effect and should be ignored. Default: `'xy'`.
 
 #### Returns
 
 -    **out**: _List\[ &lt;array&gt;, ... ]_
 
-    -   list of N arrays, where `N` is the number of provided one-dimensional input arrays. Each returned array must have rank `N`. For `N` one-dimensional arrays having lengths `Ni = len(xi)`,
+     -   list of N arrays, where `N` is the number of provided one-dimensional input arrays. Each returned array must have rank `N`. For `N` one-dimensional arrays having lengths `Ni = len(xi)`,
 
-        -   if matrix indexing `ij`, then each returned array must have the shape `(N1, N2, N3, ..., Nn)`.
+         -   if matrix indexing `ij`, then each returned array must have the shape `(N1, N2, N3, ..., Nn)`.
 
-        -   if Cartesian indexing `xy`, then each returned array must have shape `(N2, N1, N3, ..., Nn)`.
+         -   if Cartesian indexing `xy`, then each returned array must have shape `(N2, N1, N3, ..., Nn)`.
 
-        Accordingly, for the two-dimensional case with input one-dimensional arrays of length `M` and `N`, if matrix indexing `ij`, then each returned array must have shape `(M, N)`, and, if Cartesian indexing `xy`, then each returned array must have shape `(N, M)`.
+         Accordingly, for the two-dimensional case with input one-dimensional arrays of length `M` and `N`, if matrix indexing `ij`, then each returned array must have shape `(M, N)`, and, if Cartesian indexing `xy`, then each returned array must have shape `(N, M)`.
 
-        Similarly, for the three-dimensional case with input one-dimensional arrays of length `M`, `N`, and `P`, if matrix indexing `ij`, then each returned array must have shape `(M, N, P)`, and, if Cartesian indexing `xy`, then each returned array must have shape `(N, M, P)`.
+         Similarly, for the three-dimensional case with input one-dimensional arrays of length `M`, `N`, and `P`, if matrix indexing `ij`, then each returned array must have shape `(M, N, P)`, and, if Cartesian indexing `xy`, then each returned array must have shape `(N, M, P)`.
 
-        The returned arrays must have a numeric data type determined by {ref}`type-promotion`.
+         The returned arrays must have a numeric data type determined by {ref}`type-promotion`.
 
 (function-ones)=
 ### ones(shape, *, dtype=None, device=None)

@@ -2868,14 +2868,27 @@ An object supporting the buffer protocol can be turned into a memoryview through
                str
               </em>
              </p>
+             <ul>
+              <li>
+               <p>
+                Cartesian ‘xy’ or matrix ‘ij’ indexing of output. If provided zero or one one-dimensional vector(s) (i.e., the zero- and one-dimensional cases, respectively), the
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  indexing
+                 </span>
+                </code>
+                keyword has no effect and should be ignored. Default:
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  'xy'
+                 </span>
+                </code>
+                .
+               </p>
+              </li>
+             </ul>
             </li>
            </ul>
-           <div class="highlight-none notranslate">
-            <div class="highlight">
-             <pre><span></span>-   Cartesian 'xy' or matrix 'ij' indexing of output. If provided zero or one one-dimensional vector(s) (i.e., the zero- and one-dimensional cases, respectively), the `indexing` keyword has no effect and should be ignored. Default: `'xy'`.
-</pre>
-            </div>
-           </div>
           </section>
           <section id="id18">
            <h4 id="id18">
@@ -2884,7 +2897,7 @@ An object supporting the buffer protocol can be turned into a memoryview through
              ¶
             </a>
            </h4>
-           <ul class="simple">
+           <ul>
             <li>
              <p>
               <strong>
@@ -2895,24 +2908,216 @@ An object supporting the buffer protocol can be turned into a memoryview through
                List[ &lt;array&gt;, … ]
               </em>
              </p>
+             <ul>
+              <li>
+               <p>
+                list of N arrays, where
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  N
+                 </span>
+                </code>
+                is the number of provided one-dimensional input arrays. Each returned array must have rank
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  N
+                 </span>
+                </code>
+                . For
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  N
+                 </span>
+                </code>
+                one-dimensional arrays having lengths
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  Ni
+                 </span>
+                 <span class="pre">
+                  =
+                 </span>
+                 <span class="pre">
+                  len(xi)
+                 </span>
+                </code>
+                ,
+               </p>
+               <ul class="simple">
+                <li>
+                 <p>
+                  if matrix indexing
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    ij
+                   </span>
+                  </code>
+                  , then each returned array must have the shape
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    (N1,
+                   </span>
+                   <span class="pre">
+                    N2,
+                   </span>
+                   <span class="pre">
+                    N3,
+                   </span>
+                   <span class="pre">
+                    ...,
+                   </span>
+                   <span class="pre">
+                    Nn)
+                   </span>
+                  </code>
+                  .
+                 </p>
+                </li>
+                <li>
+                 <p>
+                  if Cartesian indexing
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    xy
+                   </span>
+                  </code>
+                  , then each returned array must have shape
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    (N2,
+                   </span>
+                   <span class="pre">
+                    N1,
+                   </span>
+                   <span class="pre">
+                    N3,
+                   </span>
+                   <span class="pre">
+                    ...,
+                   </span>
+                   <span class="pre">
+                    Nn)
+                   </span>
+                  </code>
+                  .
+                 </p>
+                </li>
+               </ul>
+               <p>
+                Accordingly, for the two-dimensional case with input one-dimensional arrays of length
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  M
+                 </span>
+                </code>
+                and
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  N
+                 </span>
+                </code>
+                , if matrix indexing
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  ij
+                 </span>
+                </code>
+                , then each returned array must have shape
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  (M,
+                 </span>
+                 <span class="pre">
+                  N)
+                 </span>
+                </code>
+                , and, if Cartesian indexing
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  xy
+                 </span>
+                </code>
+                , then each returned array must have shape
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  (N,
+                 </span>
+                 <span class="pre">
+                  M)
+                 </span>
+                </code>
+                .
+               </p>
+               <p>
+                Similarly, for the three-dimensional case with input one-dimensional arrays of length
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  M
+                 </span>
+                </code>
+                ,
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  N
+                 </span>
+                </code>
+                , and
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  P
+                 </span>
+                </code>
+                , if matrix indexing
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  ij
+                 </span>
+                </code>
+                , then each returned array must have shape
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  (M,
+                 </span>
+                 <span class="pre">
+                  N,
+                 </span>
+                 <span class="pre">
+                  P)
+                 </span>
+                </code>
+                , and, if Cartesian indexing
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  xy
+                 </span>
+                </code>
+                , then each returned array must have shape
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  (N,
+                 </span>
+                 <span class="pre">
+                  M,
+                 </span>
+                 <span class="pre">
+                  P)
+                 </span>
+                </code>
+                .
+               </p>
+               <p>
+                The returned arrays must have a numeric data type determined by
+                <a class="reference internal" href="type_promotion.html#type-promotion">
+                 <span class="std std-ref">
+                  Type Promotion Rules
+                 </span>
+                </a>
+                .
+               </p>
+              </li>
+             </ul>
             </li>
            </ul>
-           <div class="highlight-none notranslate">
-            <div class="highlight">
-             <pre><span></span>-   list of N arrays, where `N` is the number of provided one-dimensional input arrays. Each returned array must have rank `N`. For `N` one-dimensional arrays having lengths `Ni = len(xi)`,
-
-    -   if matrix indexing `ij`, then each returned array must have the shape `(N1, N2, N3, ..., Nn)`.
-
-    -   if Cartesian indexing `xy`, then each returned array must have shape `(N2, N1, N3, ..., Nn)`.
-
-    Accordingly, for the two-dimensional case with input one-dimensional arrays of length `M` and `N`, if matrix indexing `ij`, then each returned array must have shape `(M, N)`, and, if Cartesian indexing `xy`, then each returned array must have shape `(N, M)`.
-
-    Similarly, for the three-dimensional case with input one-dimensional arrays of length `M`, `N`, and `P`, if matrix indexing `ij`, then each returned array must have shape `(M, N, P)`, and, if Cartesian indexing `xy`, then each returned array must have shape `(N, M, P)`.
-
-    The returned arrays must have a numeric data type determined by {ref}`type-promotion`.
-</pre>
-            </div>
-           </div>
           </section>
          </section>
          <section id="ones-shape-dtype-none-device-none">
