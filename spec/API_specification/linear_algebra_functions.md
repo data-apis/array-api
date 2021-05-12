@@ -411,7 +411,6 @@ Computes the matrix or vector norm of `x`.
 -   **ord**: _Optional\[ Union\[  int, float, Literal\[ inf, -inf, 'fro', 'nuc' ] ] ]_
 
     -   order of the norm. The following mathematical norms must be supported:
-
         | ord              | matrix                          | vector                     |
         | ---------------- | ------------------------------- | -------------------------- |
         | 'fro'            | 'fro'                           | -                          |
@@ -422,7 +421,6 @@ Computes the matrix or vector norm of `x`.
         | (int,float >= 1) | -                               | p-norm                     |
 
         The following non-mathematical "norms" must be supported:
-
         | ord              | matrix                          | vector                         |
         | ---------------- | ------------------------------- | ------------------------------ |
         | 0                | -                               | sum(a != 0)                    |
@@ -432,7 +430,6 @@ Computes the matrix or vector norm of `x`.
         | (int,float < 1)  | -                               | sum(abs(a)\*\*ord)\*\*(1./ord) |
 
         When `ord` is `None`, the following norms must be the default norms:
-
         | ord              | matrix                          | vector                     |
         | ---------------- | ------------------------------- | -------------------------- |
         | None             | 'fro'                           | L2-norm (Euclidean)        |
