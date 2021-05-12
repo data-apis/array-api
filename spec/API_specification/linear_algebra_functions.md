@@ -282,10 +282,34 @@ TODO
 
 TODO
 
-(function-slogdet)=
-### slogdet()
+(function-linalg-slogdet)=
+### linalg.slogdet(x, /)
 
-TODO
+Returns the sign and the natural logarithm of the absolute value of the determinant of a square matrix (or a stack of square matrices) `x`.
+
+```{note}
+
+The purpose of this function is to calculate the determinant more accurately when the determinant is either very small or very large, as calling `det` may overflow or underflow.
+```
+
+#### Parameters
+
+-   **x**: _&lt;array&gt;_
+
+    -   input array having shape `(..., M, M)` and whose innermost two dimensions form square matrices. Should have a floating-point data type.
+
+#### Returns
+
+-   **out**: _Tuple\[ &lt;array&gt;, &lt;array&gt; ]_
+
+    -   a namedtuple (`sign`, `logabsdet`) whose
+    
+        -   first element must be an array containing a number representing the sign of the determinant for each square matrix.
+        -   second element must be an array containing the determinant for each square matrix.
+    
+        For a real matrix, the sign of the determinant must be either `1`, `0`, or `-1`. If a determinant is zero, then the corresponding `sign` must be `0` and `logabsdet` must be `-infinity`. In all cases, the determinant must be equal to `sign * exp(logsabsdet)`.
+
+        Each returned array must have shape `shape(x)[:-2]` and a floating-point data type determined by {ref}`type-promotion`.
 
 (function-solve)=
 ### solve()
