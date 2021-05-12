@@ -4686,67 +4686,425 @@
                Optional[ Union[  int, float, Literal[ inf, -inf, ‘fro’, ‘nuc’ ] ] ]
               </em>
              </p>
-             <ul class="simple">
+             <ul>
               <li>
                <p>
                 order of the norm. The following mathematical norms must be supported:
+               </p>
+               <table>
+                <thead>
+                 <tr class="row-odd">
+                  <th class="head">
+                   <p>
+                    ord
+                   </p>
+                  </th>
+                  <th class="head">
+                   <p>
+                    matrix
+                   </p>
+                  </th>
+                  <th class="head">
+                   <p>
+                    vector
+                   </p>
+                  </th>
+                 </tr>
+                </thead>
+                <tbody>
+                 <tr class="row-even">
+                  <td>
+                   <p>
+                    ‘fro’
+                   </p>
+                  </td>
+                  <td>
+                   <p>
+                    ‘fro’
+                   </p>
+                  </td>
+                  <td>
+                   <p>
+                    -
+                   </p>
+                  </td>
+                 </tr>
+                 <tr class="row-odd">
+                  <td>
+                   <p>
+                    ‘nuc’
+                   </p>
+                  </td>
+                  <td>
+                   <p>
+                    ‘nuc’
+                   </p>
+                  </td>
+                  <td>
+                   <p>
+                    -
+                   </p>
+                  </td>
+                 </tr>
+                 <tr class="row-even">
+                  <td>
+                   <p>
+                    1
+                   </p>
+                  </td>
+                  <td>
+                   <p>
+                    max(sum(abs(x), axis=0))
+                   </p>
+                  </td>
+                  <td>
+                   <p>
+                    L1-norm (Manhattan)
+                   </p>
+                  </td>
+                 </tr>
+                 <tr class="row-odd">
+                  <td>
+                   <p>
+                    2
+                   </p>
+                  </td>
+                  <td>
+                   <p>
+                    largest singular value
+                   </p>
+                  </td>
+                  <td>
+                   <p>
+                    L2-norm (Euclidean)
+                   </p>
+                  </td>
+                 </tr>
+                 <tr class="row-even">
+                  <td>
+                   <p>
+                    inf
+                   </p>
+                  </td>
+                  <td>
+                   <p>
+                    max(sum(abs(x), axis=1))
+                   </p>
+                  </td>
+                  <td>
+                   <p>
+                    infinity norm
+                   </p>
+                  </td>
+                 </tr>
+                 <tr class="row-odd">
+                  <td>
+                   <p>
+                    (int,float &gt;= 1)
+                   </p>
+                  </td>
+                  <td>
+                   <p>
+                    -
+                   </p>
+                  </td>
+                  <td>
+                   <p>
+                    p-norm
+                   </p>
+                  </td>
+                 </tr>
+                </tbody>
+               </table>
+               <p>
+                The following non-mathematical “norms” must be supported:
+               </p>
+               <table>
+                <thead>
+                 <tr class="row-odd">
+                  <th class="head">
+                   <p>
+                    ord
+                   </p>
+                  </th>
+                  <th class="head">
+                   <p>
+                    matrix
+                   </p>
+                  </th>
+                  <th class="head">
+                   <p>
+                    vector
+                   </p>
+                  </th>
+                 </tr>
+                </thead>
+                <tbody>
+                 <tr class="row-even">
+                  <td>
+                   <p>
+                    0
+                   </p>
+                  </td>
+                  <td>
+                   <p>
+                    -
+                   </p>
+                  </td>
+                  <td>
+                   <p>
+                    sum(a != 0)
+                   </p>
+                  </td>
+                 </tr>
+                 <tr class="row-odd">
+                  <td>
+                   <p>
+                    -1
+                   </p>
+                  </td>
+                  <td>
+                   <p>
+                    min(sum(abs(x), axis=0))
+                   </p>
+                  </td>
+                  <td>
+                   <p>
+                    1./sum(1./abs(a))
+                   </p>
+                  </td>
+                 </tr>
+                 <tr class="row-even">
+                  <td>
+                   <p>
+                    -2
+                   </p>
+                  </td>
+                  <td>
+                   <p>
+                    smallest singular value
+                   </p>
+                  </td>
+                  <td>
+                   <p>
+                    1./sqrt(sum(1./abs(a)**2))
+                   </p>
+                  </td>
+                 </tr>
+                 <tr class="row-odd">
+                  <td>
+                   <p>
+                    -inf
+                   </p>
+                  </td>
+                  <td>
+                   <p>
+                    min(sum(abs(x), axis=1))
+                   </p>
+                  </td>
+                  <td>
+                   <p>
+                    min(abs(a))
+                   </p>
+                  </td>
+                 </tr>
+                 <tr class="row-even">
+                  <td>
+                   <p>
+                    (int,float &lt; 1)
+                   </p>
+                  </td>
+                  <td>
+                   <p>
+                    -
+                   </p>
+                  </td>
+                  <td>
+                   <p>
+                    sum(abs(a)**ord)**(1./ord)
+                   </p>
+                  </td>
+                 </tr>
+                </tbody>
+               </table>
+               <p>
+                When
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  ord
+                 </span>
+                </code>
+                is
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  None
+                 </span>
+                </code>
+                , the following norms must be the default norms:
+               </p>
+               <table>
+                <thead>
+                 <tr class="row-odd">
+                  <th class="head">
+                   <p>
+                    ord
+                   </p>
+                  </th>
+                  <th class="head">
+                   <p>
+                    matrix
+                   </p>
+                  </th>
+                  <th class="head">
+                   <p>
+                    vector
+                   </p>
+                  </th>
+                 </tr>
+                </thead>
+                <tbody>
+                 <tr class="row-even">
+                  <td>
+                   <p>
+                    None
+                   </p>
+                  </td>
+                  <td>
+                   <p>
+                    ‘fro’
+                   </p>
+                  </td>
+                  <td>
+                   <p>
+                    L2-norm (Euclidean)
+                   </p>
+                  </td>
+                 </tr>
+                </tbody>
+               </table>
+               <p>
+                where
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  fro
+                 </span>
+                </code>
+                corresponds to the
+                <strong>
+                 Frobenius norm
+                </strong>
+                ,
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  nuc
+                 </span>
+                </code>
+                corresponds to the
+                <strong>
+                 nuclear norm
+                </strong>
+                , and
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  -
+                 </span>
+                </code>
+                indicates that the norm is
+                <strong>
+                 not
+                </strong>
+                supported.
+               </p>
+               <p>
+                For matrices,
+               </p>
+               <ul class="simple">
+                <li>
+                 <p>
+                  if
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    ord=1
+                   </span>
+                  </code>
+                  , the norm corresponds to the induced matrix norm where
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    p=1
+                   </span>
+                  </code>
+                  (i.e., the maximum absolute value column sum).
+                 </p>
+                </li>
+                <li>
+                 <p>
+                  if
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    ord=2
+                   </span>
+                  </code>
+                  , the norm corresponds to the induced matrix norm where
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    p=inf
+                   </span>
+                  </code>
+                  (i.e., the maximum absolute value row sum).
+                 </p>
+                </li>
+                <li>
+                 <p>
+                  if
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    ord=inf
+                   </span>
+                  </code>
+                  , the norm corresponds to the induced matrix norm where
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    p=2
+                   </span>
+                  </code>
+                  (i.e., the largest singular value).
+                 </p>
+                </li>
+               </ul>
+               <p>
+                If
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  None
+                 </span>
+                </code>
+                ,
+               </p>
+               <ul class="simple">
+                <li>
+                 <p>
+                  if matrix (or matrices), the function must compute the Frobenius norm.
+                 </p>
+                </li>
+                <li>
+                 <p>
+                  if vector (or vectors), the function must compute the L2-norm (Euclidean norm).
+                 </p>
+                </li>
+               </ul>
+               <p>
+                Default:
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  None
+                 </span>
+                </code>
+                .
                </p>
               </li>
              </ul>
             </li>
            </ul>
-           <pre><code>    | ord              | matrix                          | vector                     |
-    | ---------------- | ------------------------------- | -------------------------- |
-    | 'fro'            | 'fro'                           | -                          |
-    | 'nuc'            | 'nuc'                           | -                          |
-    | 1                | max(sum(abs(x), axis=0))        | L1-norm (Manhattan)        |
-    | 2                | largest singular value          | L2-norm (Euclidean)        |
-    | inf              | max(sum(abs(x), axis=1))        | infinity norm              |
-    | (int,float &gt;= 1) | -                               | p-norm                     |
-</code></pre>
-           <div class="highlight-none notranslate">
-            <div class="highlight">
-             <pre><span></span>    The following non-mathematical "norms" must be supported:
-</pre>
-            </div>
-           </div>
-           <pre><code>    | ord              | matrix                          | vector                         |
-    | ---------------- | ------------------------------- | ------------------------------ |
-    | 0                | -                               | sum(a != 0)                    |
-    | -1               | min(sum(abs(x), axis=0))        | 1./sum(1./abs(a))              |
-    | -2               | smallest singular value         | 1./sqrt(sum(1./abs(a)\*\*2))   |
-    | -inf             | min(sum(abs(x), axis=1))        | min(abs(a))                    |
-    | (int,float &lt; 1)  | -                               | sum(abs(a)\*\*ord)\*\*(1./ord) |
-</code></pre>
-           <div class="highlight-none notranslate">
-            <div class="highlight">
-             <pre><span></span>    When `ord` is `None`, the following norms must be the default norms:
-</pre>
-            </div>
-           </div>
-           <pre><code>    | ord              | matrix                          | vector                     |
-    | ---------------- | ------------------------------- | -------------------------- |
-    | None             | 'fro'                           | L2-norm (Euclidean)        |
-</code></pre>
-           <div class="highlight-none notranslate">
-            <div class="highlight">
-             <pre><span></span>    where `fro` corresponds to the **Frobenius norm**, `nuc` corresponds to the **nuclear norm**, and `-` indicates that the norm is **not** supported.
-
-    For matrices,
-
-    -   if `ord=1`, the norm corresponds to the induced matrix norm where `p=1` (i.e., the maximum absolute value column sum).
-    -   if `ord=2`, the norm corresponds to the induced matrix norm where `p=inf` (i.e., the maximum absolute value row sum).
-    -   if `ord=inf`, the norm corresponds to the induced matrix norm where `p=2` (i.e., the largest singular value).
-
-    If `None`,
-
-    -   if matrix (or matrices), the function must compute the Frobenius norm.
-    -   if vector (or vectors), the function must compute the L2-norm (Euclidean norm).
-
-    Default: `None`.
-</pre>
-            </div>
-           </div>
           </section>
           <section id="id23">
            <h4 id="id23">
