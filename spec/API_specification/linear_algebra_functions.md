@@ -454,6 +454,23 @@ Returns a tensor contraction of `x1` and `x2` over specific axes.
 
     -   an array containing the tensor contraction whose shape consists of the non-contracted axes (dimensions) of the first array `x1`, followed by the non-contracted axes (dimensions) of the second array `x2`. The returned array must have a data type determined by {ref}`type-promotion`.
 
+(function-linalg-svdvals)=
+### linalg.svdvals(x, /)
+
+Computes the singular values of a matrix (or a stack of matrices) `x`.
+
+#### Parameters
+
+-   **x**: _&lt;array&gt;_
+
+    -   input array having shape `(..., M, N)` and whose innermost two dimensions form matrices on which to perform singular value decomposition. Should have a floating-point data type.
+
+#### Returns
+
+-   **out**: _Union\[ &lt;array&gt;, Tuple\[ &lt;array&gt;, ... ] ]_
+
+    -   an array with shape `(..., K)` that contains the vector(s) of singular values of length `K`. For each vector, the singular values must be sorted in descending order by magnitude, such that `s[..., 0]` is the largest value, `s[..., 1]` is the second largest value, et cetera. The first `x.ndim-2` dimensions must have the same shape as those of the input `x`. The returned array must have the same floating-point data type as `x`.
+
 (function-trace)=
 ### trace(x, /, *, axis1=0, axis2=1, offset=0)
 
