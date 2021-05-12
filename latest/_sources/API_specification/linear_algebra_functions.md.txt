@@ -153,10 +153,33 @@ Returns the eigenvalues and eigenvectors of a symmetric matrix (or a stack of sy
 Eigenvalue sort order is left unspecified.
 ```
 
-(function-eigvalsh)=
-### eigvalsh()
+(function-linalg-eigvalsh)=
+### linalg.eigvalsh(x, /, *, upper=False)
 
-TODO
+Computes the eigenvalues of a symmetric matrix (or a stack of symmetric matrices) `x`.
+
+<!-- NOTE: once complex number support, each matrix must be Hermitian -->
+
+#### Parameters
+
+-   **x**: _&lt;array&gt;_
+
+    -   input array having shape `(..., M, M)` and whose innermost two dimensions form square matrices. Must have a floating-point data type.
+
+-   **upper**: _bool_
+
+    -   If `True`, use the upper-triangular part to compute the eigenvalues. If `False`, use the lower-triangular part to compute the eigenvalues. Default: `False`.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the computed eigenvalues. The returned array must have shape `(..., M)` and have the same data type as `x`.
+
+```{note}
+
+Eigenvalue sort order is left unspecified.
+```
 
 (function-einsum)=
 ### einsum()
