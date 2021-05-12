@@ -272,10 +272,26 @@ Computes the outer product of two vectors `x1` and `x2`.
 
     -   a two-dimensional array containing the outer product and whose shape is `(N, M)`. The returned array must have a data type determined by {ref}`type-promotion`.
 
-(function-pinv)=
-### pinv()
+(function-linalg-pinv)=
+### linalg.pinv(x, /, *, rtol=None)
 
-TODO
+Computes the (Moore-Penrose) pseudo-inverse of a matrix (or a stack of square matrices) `x`.
+
+#### Parameters
+
+-   **x**: _&lt;array&gt;_
+
+    -   input array having shape `(..., M, N)` and whose innermost two dimensions form `MxN` matrices. Should have a floating-point data type.
+
+-   **rtol**: _Optional\[ Union\[ float, &lt;array&gt; ] ]_
+    
+    -   relative tolerance for small singular values. Singular values less than or equal to `rtol * largest_singular_value` are set to zero. If a `float`, the value is equivalent to a zero-dimensional array having a floating-point data type determined by {ref}`type-promotion` (as applied to `x`) and must be broadcast against each matrix. If an `array`, must have a floating-point data type and must be compatible with `shape(x)[:-2]` (see {ref}`broadcasting`). If `None`, the default value is `max(M, N) * eps`, where `eps` must be the machine epsilon associated with the floating-point data type determined by {ref}`type-promotion` (as applied to `x`). Default: `None`.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the pseudo-inverses. The returned array must have a floating-point data type determined by {ref}`type-promotion` and must have shape `(..., N, M)` (i.e., must have the same shape as `x`, except the innermost two dimensions must be transposed).
 
 (function-qr)=
 ### qr()
