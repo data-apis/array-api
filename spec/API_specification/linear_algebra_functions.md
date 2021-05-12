@@ -273,10 +273,31 @@ The `matmul` function must implement the same semantics as the built-in `@` oper
 -   if `x1` is a one-dimensional array having shape `(N)`, `x2` is a one-dimensional array having shape `(M)`, and `N != M`.
 -   if `x1` is an array having shape `(..., M, K)`, `x2` is an array having shape `(..., L, N)`, and `K != L`. 
 
-(function-matrix_power)=
-### matrix_power()
+(function-linalg-matrix_power)=
+### linalg.matrix_power(x, n, /)
 
-TODO
+Raises a square matrix (or a stack of square matrices) `x` to an integer power `n`.
+
+#### Parameters
+
+-   **x**: _&lt;array&gt;_
+
+    -   input array having shape `(..., M, M)` and whose innermost two dimensions form square matrices. Should have a floating-point data type.
+
+-   **n**: _int_
+
+    -   integer exponent.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   if `n` is equal to zero, an array containing the identity matrix for each square matrix. If `n` is less than zero, an array containing the inverse of each square matrix raised to the absolute value of `n`, provided that each square matrix is invertible. If `n` is greater than zero, an array containing the result of raising each square matrix to the power `n`. The returned array must have the same shape as `x` and a floating-point data type determined by {ref}`type-promotion`.
+
+#### Raises
+
+-   if the innermost two dimensions of `x` are not the same size (i.e., form square matrices).
+-   if `n` is less than zero and a square matrix is not invertible.
 
 (function-linalg-matrix_rank)=
 ### linalg.matrix_rank(x, /, *, rtol=None)
