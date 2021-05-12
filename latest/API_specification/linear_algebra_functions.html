@@ -490,9 +490,23 @@
                       </a>
                      </li>
                      <li class="md-nav__item">
-                      <a class="md-nav__link" href="#slogdet">
-                       slogdet()
+                      <a class="md-nav__link" href="#linalg-slogdet-x">
+                       linalg.slogdet(x, /)
                       </a>
+                      <nav class="md-nav">
+                       <ul class="md-nav__list">
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#id13">
+                          Parameters
+                         </a>
+                        </li>
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#id14">
+                          Returns
+                         </a>
+                        </li>
+                       </ul>
+                      </nav>
                      </li>
                      <li class="md-nav__item">
                       <a class="md-nav__link" href="#solve">
@@ -511,12 +525,12 @@
                       <nav class="md-nav">
                        <ul class="md-nav__list">
                         <li class="md-nav__item">
-                         <a class="md-nav__link" href="#id13">
+                         <a class="md-nav__link" href="#id15">
                           Parameters
                          </a>
                         </li>
                         <li class="md-nav__item">
-                         <a class="md-nav__link" href="#id14">
+                         <a class="md-nav__link" href="#id16">
                           Returns
                          </a>
                         </li>
@@ -530,12 +544,12 @@
                       <nav class="md-nav">
                        <ul class="md-nav__list">
                         <li class="md-nav__item">
-                         <a class="md-nav__link" href="#id15">
+                         <a class="md-nav__link" href="#id17">
                           Parameters
                          </a>
                         </li>
                         <li class="md-nav__item">
-                         <a class="md-nav__link" href="#id16">
+                         <a class="md-nav__link" href="#id18">
                           Returns
                          </a>
                         </li>
@@ -809,9 +823,23 @@
                  </a>
                 </li>
                 <li class="md-nav__item">
-                 <a class="md-nav__link" href="#slogdet">
-                  slogdet()
+                 <a class="md-nav__link" href="#linalg-slogdet-x">
+                  linalg.slogdet(x, /)
                  </a>
+                 <nav class="md-nav">
+                  <ul class="md-nav__list">
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#id13">
+                     Parameters
+                    </a>
+                   </li>
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#id14">
+                     Returns
+                    </a>
+                   </li>
+                  </ul>
+                 </nav>
                 </li>
                 <li class="md-nav__item">
                  <a class="md-nav__link" href="#solve">
@@ -830,12 +858,12 @@
                  <nav class="md-nav">
                   <ul class="md-nav__list">
                    <li class="md-nav__item">
-                    <a class="md-nav__link" href="#id13">
+                    <a class="md-nav__link" href="#id15">
                      Parameters
                     </a>
                    </li>
                    <li class="md-nav__item">
-                    <a class="md-nav__link" href="#id14">
+                    <a class="md-nav__link" href="#id16">
                      Returns
                     </a>
                    </li>
@@ -849,12 +877,12 @@
                  <nav class="md-nav">
                   <ul class="md-nav__list">
                    <li class="md-nav__item">
-                    <a class="md-nav__link" href="#id15">
+                    <a class="md-nav__link" href="#id17">
                      Parameters
                     </a>
                    </li>
                    <li class="md-nav__item">
-                    <a class="md-nav__link" href="#id16">
+                    <a class="md-nav__link" href="#id18">
                      Returns
                     </a>
                    </li>
@@ -2287,18 +2315,202 @@
            TODO
           </p>
          </section>
-         <section id="slogdet">
-          <span id="function-slogdet">
+         <section id="linalg-slogdet-x">
+          <span id="function-linalg-slogdet">
           </span>
-          <h3 id="slogdet">
-           slogdet()
-           <a class="headerlink" href="#slogdet" title="Permalink to this headline">
+          <h3 id="linalg-slogdet-x">
+           linalg.slogdet(x, /)
+           <a class="headerlink" href="#linalg-slogdet-x" title="Permalink to this headline">
             ¶
            </a>
           </h3>
           <p>
-           TODO
+           Returns the sign and the natural logarithm of the absolute value of the determinant of a square matrix (or a stack of square matrices)
+           <code class="docutils literal notranslate">
+            <span class="pre">
+             x
+            </span>
+           </code>
+           .
           </p>
+          <div class="admonition note">
+           <p class="admonition-title">
+            Note
+           </p>
+           <p>
+            The purpose of this function is to calculate the determinant more accurately when the determinant is either very small or very large, as calling
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              det
+             </span>
+            </code>
+            may overflow or underflow.
+           </p>
+          </div>
+          <section id="id13">
+           <h4 id="id13">
+            Parameters
+            <a class="headerlink" href="#id13" title="Permalink to this headline">
+             ¶
+            </a>
+           </h4>
+           <ul class="simple">
+            <li>
+             <p>
+              <strong>
+               x
+              </strong>
+              :
+              <em>
+               &lt;array&gt;
+              </em>
+             </p>
+             <ul>
+              <li>
+               <p>
+                input array having shape
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  (...,
+                 </span>
+                 <span class="pre">
+                  M,
+                 </span>
+                 <span class="pre">
+                  M)
+                 </span>
+                </code>
+                and whose innermost two dimensions form square matrices. Should have a floating-point data type.
+               </p>
+              </li>
+             </ul>
+            </li>
+           </ul>
+          </section>
+          <section id="id14">
+           <h4 id="id14">
+            Returns
+            <a class="headerlink" href="#id14" title="Permalink to this headline">
+             ¶
+            </a>
+           </h4>
+           <ul>
+            <li>
+             <p>
+              <strong>
+               out
+              </strong>
+              :
+              <em>
+               Tuple[ &lt;array&gt;, &lt;array&gt; ]
+              </em>
+             </p>
+             <ul>
+              <li>
+               <p>
+                a namedtuple (
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  sign
+                 </span>
+                </code>
+                ,
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  logabsdet
+                 </span>
+                </code>
+                ) whose
+               </p>
+               <ul class="simple">
+                <li>
+                 <p>
+                  first element must be an array containing a number representing the sign of the determinant for each square matrix.
+                 </p>
+                </li>
+                <li>
+                 <p>
+                  second element must be an array containing the determinant for each square matrix.
+                 </p>
+                </li>
+               </ul>
+               <p>
+                For a real matrix, the sign of the determinant must be either
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  1
+                 </span>
+                </code>
+                ,
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  0
+                 </span>
+                </code>
+                , or
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  -1
+                 </span>
+                </code>
+                . If a determinant is zero, then the corresponding
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  sign
+                 </span>
+                </code>
+                must be
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  0
+                 </span>
+                </code>
+                and
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  logabsdet
+                 </span>
+                </code>
+                must be
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  -infinity
+                 </span>
+                </code>
+                . In all cases, the determinant must be equal to
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  sign
+                 </span>
+                 <span class="pre">
+                  *
+                 </span>
+                 <span class="pre">
+                  exp(logsabsdet)
+                 </span>
+                </code>
+                .
+               </p>
+               <p>
+                Each returned array must have shape
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  shape(x)[:-2]
+                 </span>
+                </code>
+                and a floating-point data type determined by
+                <a class="reference internal" href="type_promotion.html#type-promotion">
+                 <span class="std std-ref">
+                  Type Promotion Rules
+                 </span>
+                </a>
+                .
+               </p>
+              </li>
+             </ul>
+            </li>
+           </ul>
+          </section>
          </section>
          <section id="solve">
           <span id="function-solve">
@@ -2356,10 +2568,10 @@
            </code>
            are used to determine the two-dimensional sub-arrays for which to compute the trace.
           </p>
-          <section id="id13">
-           <h4 id="id13">
+          <section id="id15">
+           <h4 id="id15">
             Parameters
-            <a class="headerlink" href="#id13" title="Permalink to this headline">
+            <a class="headerlink" href="#id15" title="Permalink to this headline">
              ¶
             </a>
            </h4>
@@ -2515,10 +2727,10 @@
             </li>
            </ul>
           </section>
-          <section id="id14">
-           <h4 id="id14">
+          <section id="id16">
+           <h4 id="id16">
             Returns
-            <a class="headerlink" href="#id14" title="Permalink to this headline">
+            <a class="headerlink" href="#id16" title="Permalink to this headline">
              ¶
             </a>
            </h4>
@@ -2670,10 +2882,10 @@
            </code>
            .
           </p>
-          <section id="id15">
-           <h4 id="id15">
+          <section id="id17">
+           <h4 id="id17">
             Parameters
-            <a class="headerlink" href="#id15" title="Permalink to this headline">
+            <a class="headerlink" href="#id17" title="Permalink to this headline">
              ¶
             </a>
            </h4>
@@ -2770,10 +2982,10 @@
             </li>
            </ul>
           </section>
-          <section id="id16">
-           <h4 id="id16">
+          <section id="id18">
+           <h4 id="id18">
             Returns
-            <a class="headerlink" href="#id16" title="Permalink to this headline">
+            <a class="headerlink" href="#id18" title="Permalink to this headline">
              ¶
             </a>
            </h4>
