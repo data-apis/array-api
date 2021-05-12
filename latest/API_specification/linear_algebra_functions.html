@@ -3631,7 +3631,7 @@
              ¶
             </a>
            </h4>
-           <ul class="simple">
+           <ul>
             <li>
              <p>
               <strong>
@@ -3642,22 +3642,332 @@
                &lt;array&gt;
               </em>
              </p>
+             <ul class="simple">
+              <li>
+               <p>
+                if both
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  x1
+                 </span>
+                </code>
+                and
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  x2
+                 </span>
+                </code>
+                are one-dimensional arrays having shape
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  (N)
+                 </span>
+                </code>
+                , a zero-dimensional array containing the inner product as its only element.
+               </p>
+              </li>
+              <li>
+               <p>
+                if
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  x1
+                 </span>
+                </code>
+                is a two-dimensional array having shape
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  (M,
+                 </span>
+                 <span class="pre">
+                  K)
+                 </span>
+                </code>
+                and
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  x2
+                 </span>
+                </code>
+                is a two-dimensional array having shape
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  (K,
+                 </span>
+                 <span class="pre">
+                  N)
+                 </span>
+                </code>
+                , a two-dimensional array containing the
+                <a class="reference external" href="https://en.wikipedia.org/wiki/Matrix_multiplication">
+                 conventional matrix product
+                </a>
+                and having shape
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  (M,
+                 </span>
+                 <span class="pre">
+                  N)
+                 </span>
+                </code>
+                .
+               </p>
+              </li>
+              <li>
+               <p>
+                if
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  x1
+                 </span>
+                </code>
+                is a one-dimensional array having shape
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  (K)
+                 </span>
+                </code>
+                and
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  x2
+                 </span>
+                </code>
+                is an array having shape
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  (...,
+                 </span>
+                 <span class="pre">
+                  K,
+                 </span>
+                 <span class="pre">
+                  N)
+                 </span>
+                </code>
+                , an array having shape
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  (...,
+                 </span>
+                 <span class="pre">
+                  N)
+                 </span>
+                </code>
+                (i.e., prepended dimensions during vector-to-matrix promotion must be removed) and containing the
+                <a class="reference external" href="https://en.wikipedia.org/wiki/Matrix_multiplication">
+                 conventional matrix product
+                </a>
+                .
+               </p>
+              </li>
+              <li>
+               <p>
+                if
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  x1
+                 </span>
+                </code>
+                is an array having shape
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  (...,
+                 </span>
+                 <span class="pre">
+                  M,
+                 </span>
+                 <span class="pre">
+                  K)
+                 </span>
+                </code>
+                and
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  x2
+                 </span>
+                </code>
+                is a one-dimensional array having shape
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  (K)
+                 </span>
+                </code>
+                , an array having shape
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  (...,
+                 </span>
+                 <span class="pre">
+                  M)
+                 </span>
+                </code>
+                (i.e., appended dimensions during vector-to-matrix promotion must be removed) and containing the
+                <a class="reference external" href="https://en.wikipedia.org/wiki/Matrix_multiplication">
+                 conventional matrix product
+                </a>
+                .
+               </p>
+              </li>
+              <li>
+               <p>
+                if
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  x1
+                 </span>
+                </code>
+                is a two-dimensional array having shape
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  (M,
+                 </span>
+                 <span class="pre">
+                  K)
+                 </span>
+                </code>
+                and
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  x2
+                 </span>
+                </code>
+                is an array having shape
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  (...,
+                 </span>
+                 <span class="pre">
+                  K,
+                 </span>
+                 <span class="pre">
+                  N)
+                 </span>
+                </code>
+                , an array having shape
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  (...,
+                 </span>
+                 <span class="pre">
+                  M,
+                 </span>
+                 <span class="pre">
+                  N)
+                 </span>
+                </code>
+                and containing the
+                <a class="reference external" href="https://en.wikipedia.org/wiki/Matrix_multiplication">
+                 conventional matrix product
+                </a>
+                for each stacked matrix.
+               </p>
+              </li>
+              <li>
+               <p>
+                if
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  x1
+                 </span>
+                </code>
+                is an array having shape
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  (...,
+                 </span>
+                 <span class="pre">
+                  M,
+                 </span>
+                 <span class="pre">
+                  K)
+                 </span>
+                </code>
+                and
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  x2
+                 </span>
+                </code>
+                is a two-dimensional array having shape
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  (K,
+                 </span>
+                 <span class="pre">
+                  N)
+                 </span>
+                </code>
+                , an array having shape
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  (...,
+                 </span>
+                 <span class="pre">
+                  M,
+                 </span>
+                 <span class="pre">
+                  N)
+                 </span>
+                </code>
+                and containing the
+                <a class="reference external" href="https://en.wikipedia.org/wiki/Matrix_multiplication">
+                 conventional matrix product
+                </a>
+                for each stacked matrix.
+               </p>
+              </li>
+              <li>
+               <p>
+                if either
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  x1
+                 </span>
+                </code>
+                or
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  x2
+                 </span>
+                </code>
+                has more than two dimensions, an array having a shape determined by
+                <a class="reference internal" href="broadcasting.html#broadcasting">
+                 <span class="std std-ref">
+                  Broadcasting
+                 </span>
+                </a>
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  x1
+                 </span>
+                </code>
+                against
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  x2
+                 </span>
+                </code>
+                and containing the
+                <a class="reference external" href="https://en.wikipedia.org/wiki/Matrix_multiplication">
+                 conventional matrix product
+                </a>
+                for each stacked matrix.
+               </p>
+              </li>
+             </ul>
+             <p>
+              The returned array must have a data type determined by
+              <a class="reference internal" href="type_promotion.html#type-promotion">
+               <span class="std std-ref">
+                Type Promotion Rules
+               </span>
+              </a>
+              .
+             </p>
             </li>
            </ul>
-           <div class="highlight-none notranslate">
-            <div class="highlight">
-             <pre><span></span>-   if both `x1` and `x2` are one-dimensional arrays having shape `(N)`, a zero-dimensional array containing the inner product as its only element.
--   if `x1` is a two-dimensional array having shape `(M, K)` and `x2` is a two-dimensional array having shape `(K, N)`, a two-dimensional array containing the [conventional matrix product](https://en.wikipedia.org/wiki/Matrix_multiplication) and having shape `(M, N)`.
--   if `x1` is a one-dimensional array having shape `(K)` and `x2` is an array having shape `(..., K, N)`, an array having shape `(..., N)` (i.e., prepended dimensions during vector-to-matrix promotion must be removed) and containing the [conventional matrix product](https://en.wikipedia.org/wiki/Matrix_multiplication).
--   if `x1` is an array having shape `(..., M, K)` and `x2` is a one-dimensional array having shape `(K)`, an array having shape `(..., M)` (i.e., appended dimensions during vector-to-matrix promotion must be removed) and containing the [conventional matrix product](https://en.wikipedia.org/wiki/Matrix_multiplication).
--   if `x1` is a two-dimensional array having shape `(M, K)` and `x2` is an array having shape `(..., K, N)`, an array having shape `(..., M, N)` and containing the [conventional matrix product](https://en.wikipedia.org/wiki/Matrix_multiplication) for each stacked matrix.
--   if `x1` is an array having shape `(..., M, K)` and `x2` is a two-dimensional array having shape `(K, N)`, an array having shape `(..., M, N)` and containing the [conventional matrix product](https://en.wikipedia.org/wiki/Matrix_multiplication) for each stacked matrix.
--   if either `x1` or `x2` has more than two dimensions, an array having a shape determined by {ref}`broadcasting` `x1` against `x2` and containing the [conventional matrix product](https://en.wikipedia.org/wiki/Matrix_multiplication) for each stacked matrix.
-
-The returned array must have a data type determined by {ref}`type-promotion`.
-</pre>
-            </div>
-           </div>
           </section>
           <section id="raises">
            <h4 id="raises">
