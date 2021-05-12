@@ -9,7 +9,7 @@ diagram:
 
 ![Type promotion diagram](/_static/images/dtype_promotion_lattice.png)
 
-_Type promotion diagram. Promotion between any two types is given by their join on this lattice. Only the types of participating arrays matter, not their values). Dashed lines indicate that behaviour for Python scalars is undefined on overflow. Boolean, integer and floating-point dtypes are not connected, indicating mixed-kind promotion is undefined._
+_Type promotion diagram. Promotion between any two types is given by their join on this lattice. Only the types of participating arrays matter, not their values. Dashed lines indicate that behavior for Python scalars is undefined on overflow. Boolean, integer and floating-point dtypes are not connected, indicating mixed-kind promotion is undefined._
 
 
 ## Rules
@@ -102,12 +102,11 @@ arrays must be supported for:
 - `array <op> scalar`
 - `scalar <op> array`
 
-where `<op>` is a built-in operator (see {ref}`operators` for operators
-supported by the array object) and `scalar` has a compatible type and value
-to the array dtype:
+where `<op>` is a built-in operator, including in-place operators (see
+{ref}`operators` for operators supported by the array object) and `scalar` has
+a compatible type and value to the array dtype:
 - Python `bool` for a `bool` array dtype,
-- a positive Python `int` for unsigned integer array dtypes,
-- a Python `int` for integer array dtypes,
+- a Python `int` within the [bounds](data-types) of the given dtype for integer array dtypes,
 - a Python `int` or `float` for floating-point array dtypes
 The expected behavior is then equivalent to:
 
@@ -121,4 +120,7 @@ The expected behavior is then equivalent to:
 Behaviour is not specified when mixing a Python `float` and an array with an
 integer dtype; this may give `float32`, `float64`, or raise an exception -
 behavior of implementations will differ.
+
+The behavior is also not specified for integers outside of the bounds of a
+given integer dtype. It may overflow, or result in an error.
 ```

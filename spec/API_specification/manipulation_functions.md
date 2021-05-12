@@ -39,7 +39,7 @@ Joins a sequence of arrays along an existing axis.
         ```
 
 (function-expand_dims)=
-### expand_dims(x, axis, /)
+### expand_dims(x, /, *, axis)
 
 Expands the shape of an array by inserting a new axis (dimension) of size one at the position specified by `axis`.
 
@@ -81,7 +81,7 @@ Reverses the order of elements in an array along the given axis. The shape of th
     -   an output array having the same data type and shape as `x` and whose elements, relative to `x`, are reordered.
 
 (function-reshape)=
-### reshape(x, shape, /)
+### reshape(x, /, shape)
 
 Reshapes an array without changing its data.
 
@@ -102,7 +102,7 @@ Reshapes an array without changing its data.
     -   an output array having the same data type, elements, and underlying element order as `x`.
 
 (function-roll)=
-### roll(x, shift, /, *, axis=None)
+### roll(x, /, shift, *, axis=None)
 
 Rolls array elements along a specified axis. Array elements that roll beyond the last position are re-introduced at the first position. Array elements that roll beyond the first position are re-introduced at the last position.
 
@@ -127,7 +127,7 @@ Rolls array elements along a specified axis. Array elements that roll beyond the
     -   an output array having the same data type as `x` and whose elements, relative to `x`, are shifted.
 
 (function-squeeze)=
-### squeeze(x, /, *, axis=None)
+### squeeze(x, /, axis)
 
 Removes singleton dimensions (axes) from `x`.
 
@@ -137,9 +137,9 @@ Removes singleton dimensions (axes) from `x`.
 
     -   input array.
 
--   **axis**: _Optional\[ Union\[ int, Tuple\[ int, ... ] ] ]_
+-   **axis**: _Union\[ int, Tuple\[ int, ... ] ]_
 
-    -   axis (or axes) to squeeze. If provided, only the specified axes must be squeezed. If `axis` is `None`, all singleton dimensions (axes) must be removed. If a specified axis has a size greater than one, the specified axis must be left unchanged. Default: `None`.
+    -   axis (or axes) to squeeze. If a specified axis has a size greater than one, a `ValueError` must be raised.
 
 #### Returns
 

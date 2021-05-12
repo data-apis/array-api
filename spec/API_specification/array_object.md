@@ -21,114 +21,114 @@ A conforming implementation of the array API standard must provide and support a
 
 A conforming implementation of the array API standard must provide and support an array object supporting the following Python operators:
 
--   `x1 < x2`: [`__lt__(x1, x2)`](#__lt__x1-x2-)
+-   `x1 < x2`: [`__lt__(x1, x2)`](#__lt__self-other-)
 
     -   [`operator.lt(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.lt)
     -   [`operator.__lt__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__lt__)
 
--   `x1 <= x2`: [`__le__(x1, x2)`](#__le__x1-x2-)
+-   `x1 <= x2`: [`__le__(x1, x2)`](#__le__self-other-)
 
     -   [`operator.le(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.le)
     -   [`operator.__le__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__le__)
 
--   `x1 > x2`: [`__gt__(x1, x2)`](#__gt__x1-x2-)
+-   `x1 > x2`: [`__gt__(x1, x2)`](#__gt__self-other-)
 
     -   [`operator.gt(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.gt)
     -   [`operator.__gt__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__gt__)
 
--   `x1 >= x2`: [`__ge__(x1, x2)`](#__ge__x1-x2-)
+-   `x1 >= x2`: [`__ge__(x1, x2)`](#__ge__self-other-)
 
     -   [`operator.ge(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.ge)
     -   [`operator.__ge__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__ge__)
 
--   `x1 == x2`: [`__eq__(x1, x2)`](#__eq__x1-x2-)
+-   `x1 == x2`: [`__eq__(x1, x2)`](#__eq__self-other-)
 
     -   [`operator.eq(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.eq)
     -   [`operator.__eq__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__eq__)
 
--   `x1 != x2`: [`__ne__(x1, x2)`](#__ne__x1-x2-)
+-   `x1 != x2`: [`__ne__(x1, x2)`](#__ne__self-other-)
 
     -   [`operator.ne(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.ne)
     -   [`operator.__ne__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__ne__)
 
--   `+x`: [`__pos__(x)`](#__pos__x-)
+-   `+x`: [`__pos__(x)`](#__pos__self-)
 
     -   [`operator.pos(x)`](https://docs.python.org/3/library/operator.html#operator.pos)
     -   [`operator.__pos__(x)`](https://docs.python.org/3/library/operator.html#operator.__pos__)
 
--   `-x`: [`__neg__(x)`](#__neg__x-)
+-   `-x`: [`__neg__(x)`](#__neg__self-)
 
     -   [`operator.neg(x)`](https://docs.python.org/3/library/operator.html#operator.neg)
     -   [`operator.__neg__(x)`](https://docs.python.org/3/library/operator.html#operator.__neg__)
 
--   `x1 + x2`: [`__add__(x1, x2)`](#__add__x1-x2-)
+-   `x1 + x2`: [`__add__(x1, x2)`](#__add__self-other-)
 
     -   [`operator.add(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.add)
     -   [`operator.__add__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__add__)
 
--   `x1 - x2`: [`__sub__(x1, x2)`](#__sub__x1-x2-)
+-   `x1 - x2`: [`__sub__(x1, x2)`](#__sub__self-other-)
 
     -   [`operator.sub(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.sub)
     -   [`operator.__sub__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__sub__)
 
--   `x1 * x2`: [`__mul__(x1, x2)`](#__mul__x1-x2-)
+-   `x1 * x2`: [`__mul__(x1, x2)`](#__mul__self-other-)
 
     -   [`operator.mul(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.mul)
     -   [`operator.__mul__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__mul__)
 
--   `x1 / x2`: [`__truediv__(x1, x2)`](#__truediv__x1-x2-)
+-   `x1 / x2`: [`__truediv__(x1, x2)`](#__truediv__self-other-)
 
     -   [`operator.truediv(x1,x2)`](https://docs.python.org/3/library/operator.html#operator.truediv)
     -   [`operator.__truediv__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__truediv__)
 
--   `x1 // x2`: [`__floordiv__(x1, x2)`](#__floordiv__x1-x2-)
+-   `x1 // x2`: [`__floordiv__(x1, x2)`](#__floordiv__self-other-)
 
     -   [`operator.floordiv(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.floordiv)
     -   [`operator.__floordiv__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__floordiv__)
 
--   `x1 % x2`: [`__mod__(x1, x2)`](#__mod__x1-x2-)
+-   `x1 % x2`: [`__mod__(x1, x2)`](#__mod__self-other-)
 
     -   [`operator.mod(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.mod)
     -   [`operator.__mod__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__mod__)
 
--   `x1 ** x2`: [`__pow__(x1, x2)`](#__pow__x1-x2-)
+-   `x1 ** x2`: [`__pow__(x1, x2)`](#__pow__self-other-)
 
     -   [`operator.pow(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.pow)
     -   [`operator.__pow__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__pow__)
 
--   `x1 @ x2`: [`__matmul__(x1, x2)`](#__matmul__x1-x2-)
+-   `x1 @ x2`: [`__matmul__(x1, x2)`](#__matmul__self-other-)
 
     -   [`operator.matmul(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.matmul)
     -   [`operator.__matmul__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__matmul__)
 
--   `~x`: [`__invert__(x)`](#__invert__x-)
+-   `~x`: [`__invert__(x)`](#__invert__self-)
 
     -   [`operator.inv(x)`](https://docs.python.org/3/library/operator.html#operator.inv)
     -   [`operator.invert(x)`](https://docs.python.org/3/library/operator.html#operator.invert)
     -   [`operator.__inv__(x)`](https://docs.python.org/3/library/operator.html#operator.__inv__)
     -   [`operator.__invert__(x)`](https://docs.python.org/3/library/operator.html#operator.__invert__)
 
--   `x1 & x2`: [`__and__(x1, x2)`](#__and__x1-x2-)
+-   `x1 & x2`: [`__and__(x1, x2)`](#__and__self-other-)
 
     -   [`operator.and(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.and)
     -   [`operator.__and__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__and__)
 
--   `x1 | x2`: [`__or__(x1, x2)`](#__or__x1-x2-)
+-   `x1 | x2`: [`__or__(x1, x2)`](#__or__self-other-)
 
     -   [`operator.or(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.or)
     -   [`operator.__or__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__or__)
 
--   `x1 ^ x2`: [`__xor__(x1, x2)`](#__xor__x1-x2-)
+-   `x1 ^ x2`: [`__xor__(x1, x2)`](#__xor__self-other-)
 
     -   [`operator.xor(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.xor)
     -   [`operator.__xor__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__xor__)
 
--   `x1 << x2`: [`__lshift__(x1, x2)`](#__lshift__x1-x2-)
+-   `x1 << x2`: [`__lshift__(x1, x2)`](#__lshift__self-other-)
 
     -   [`operator.lshift(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.lshift)
     -   [`operator.__lshift__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__lshift__)
 
--   `x1 >> x2`: [`__rshift__(x1, x2)`](#__rshift__x1-x2-)
+-   `x1 >> x2`: [`__rshift__(x1, x2)`](#__rshift__self-other-)
 
     -   [`operator.rshift(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.rshift)
     -   [`operator.__rshift__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__rshift__)
@@ -142,7 +142,7 @@ an array object supporting the following in-place Python operators:
 - `+=`. May be implemented via `__iadd__`.
 - `-=`. May be implemented via `__isub__`.
 - `*=`. May be implemented via `__imul__`.
-- `/=`. May be implemented via `__idiv__`.
+- `/=`. May be implemented via `__itruediv__`.
 - `//=`. May be implemented via `__ifloordiv__`.
 - `**=`. May be implemented via `__ipow__`.
 - `@=`. May be implemented via `__imatmul__`.
@@ -152,6 +152,9 @@ an array object supporting the following in-place Python operators:
 - `^=`. May be implemented via `__ixor__`.
 - `<<=`. May be implemented via `__ilshift__`.
 - `>>=`. May be implemented via `__irshift__`.
+
+An in-place operation must not change the dtype or shape of the in-place array
+as a result of {ref}`type-promotion` or {ref}`broadcasting`.
 
 ```{note}
 
@@ -166,10 +169,10 @@ an array object supporting the following reflected operators:
 - `__radd__`
 - `__rsub__`
 - `__rmul__`
-- `__rdiv__`
-- `__rfloordiv__`
 - `__rtruediv__`
+- `__rfloordiv__`
 - `__rpow__`
+- `__rmatmul__`
 - `__rmod__`
 - `__rand__`
 - `__ror__`
@@ -269,13 +272,13 @@ Transpose of the array.
 <!-- NOTE: please keep the methods in alphabetical order -->
 
 (method-__abs__)=
-### \_\_abs\_\_(x, /)
+### \_\_abs\_\_(self, /)
 
-Calculates the absolute value for each element `x_i` of an array instance `x` (i.e., the element-wise result has the same magnitude as the respective element in `x` but has positive sign).
+Calculates the absolute value for each element of an array instance (i.e., the element-wise result has the same magnitude as the respective element but has positive sign).
 
 #### Special Cases
 
-For floating-point operands,
+For floating-point operands, let `self` equal `x`.
 
 -   If `x_i` is `NaN`, the result is `NaN`.
 -   If `x_i` is `-0`, the result is `+0`.
@@ -283,15 +286,15 @@ For floating-point operands,
 
 #### Parameters
 
--   **x**: _&lt;array&gt;_
+-   **self**: _&lt;array&gt;_
 
-    -   array instance.
+    -   array instance. Should have a numeric data type.
 
 #### Returns
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the element-wise absolute value. The returned array must have the same data type as `x`.
+    -   an array containing the element-wise absolute value. The returned array must have the same data type as `self`.
 
 ```{note}
 
@@ -299,13 +302,13 @@ Element-wise results must equal the results returned by the equivalent element-w
 ```
 
 (method-__add__)=
-### \_\_add\_\_(x1, x2, /)
+### \_\_add\_\_(self, other, /)
 
-Calculates the sum for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`.
+Calculates the sum for each element of an array instance with the respective element of the array `other`.
 
 #### Special Cases
 
-For floating-point operands,
+For floating-point operands, let `self` equal `x1` and `other` equal `x2`.
 
 -   If either `x1_i` or `x2_i` is `NaN`, the result is `NaN`.
 -   If `x1_i` is `+infinity` and `x2_i` is `-infinity`, the result is `NaN`.
@@ -332,13 +335,13 @@ Floating-point addition is a commutative operation, but not always associative.
 
 #### Parameters
 
--   **x1**: _&lt;array&gt;_
+-   **self**: _&lt;array&gt;_
 
-    -   array instance (augend array).
+    -   array instance (augend array). Should have a numeric data type.
 
--   **x2**: _&lt;array&gt;_
+-   **other**: _Union\[ int, float, &lt;array&gt; ]_
 
-    -   addend array. Must be compatible with `x1` (see {ref}`broadcasting`).
+    -   addend array. Must be compatible with `self` (see {ref}`broadcasting`). Should have a numeric data type.
 
 #### Returns
 
@@ -352,19 +355,19 @@ Element-wise results must equal the results returned by the equivalent element-w
 ```
 
 (method-__and__)=
-### \_\_and\_\_(x1, x2, /)
+### \_\_and\_\_(self, other, /)
 
-Evaluates `x1_i & x2_i` for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`.
+Evaluates `self_i & other_i` for each element of an array instance with the respective element of the array `other`.
 
 #### Parameters
 
--   **x1**: _&lt;array&gt;_
+-   **self**: _&lt;array&gt;_
 
-    -   array instance. Must have an integer or boolean data type.
+    -   array instance. Should have an integer or boolean data type.
 
--   **x2**: _&lt;array&gt;_
+-   **other**: _Union\[ int, bool, &lt;array&gt; ]_
 
-    -   other array. Must be compatible with `x1` (see {ref}`broadcasting`). Must have an integer or boolean data type.
+    -   other array. Must be compatible with `self` (see {ref}`broadcasting`). Should have an integer or boolean data type.
 
 #### Returns
 
@@ -401,13 +404,13 @@ Returns an object that has all the array API functions on it.
 
 
 (method-__bool__)=
-### \_\_bool\_\_(x, /)
+### \_\_bool\_\_(self, /)
 
 Converts a zero-dimensional boolean array to a Python `bool` object.
 
 #### Parameters
 
--   **x**: _&lt;array&gt;_
+-   **self**: _&lt;array&gt;_
 
     -   zero-dimensional array instance. Must have a boolean data type.
 
@@ -415,33 +418,37 @@ Converts a zero-dimensional boolean array to a Python `bool` object.
 
 -   **out**: _&lt;bool&gt;_
 
-    -   a Python `bool` object representing the single element of the array `x`.
+    -   a Python `bool` object representing the single element of the array.
 
 
 (method-__dlpack__)=
-### \_\_dlpack\_\_(/, *, stream=None)
+### \_\_dlpack\_\_(self, /, *, stream=None)
 
-Exports the array as a DLPack capsule, for consumption by {ref}`function-from_dlpack`.
+Exports the array for consumption by {ref}`function-from_dlpack` as a DLPack capsule.
 
 #### Parameters
 
--   **stream**: _Optional\[int\]_
+-   **self**: _&lt;array&gt;_
 
-    -   An optional pointer to a stream, as a Python integer, provided by the consumer that the producer will use to make the array safe to operate on. The pointer is a positive integer. `-1` is a special value that may be used by the consumer to signal "producer must not do any synchronization". Device-specific notes:
+    -   array instance.
+
+-   **stream**: _Optional\[ int ]_
+
+    -   a Python integer representing a pointer to a stream. `stream` is provided by the consumer to the producer to instruct the producer to ensure that operations can safely be performed on the array. The pointer must be a positive integer or `-1`. If `stream` is `-1`, the value may be used by the consumer to signal "producer must not perform any synchronization". Device-specific notes:
 
         :::{admonition} CUDA
-        - `None`: producer must assume the legacy default stream (default),
-        - `1`: the legacy default stream,
-        - `2`: the per-thread default stream,
-        - `> 2`: stream number represented as a Python integer.
+        -   `None`: producer must assume the legacy default stream (default).
+        -   `1`: the legacy default stream.
+        -   `2`: the per-thread default stream.
+        -   `> 2`: stream number represented as a Python integer.
 
-        Note that `0` is disallowed (it's ambiguous, it could mean either `None`, `1` or `2`).
+        `0` is disallowed due to its ambiguity: `0` could mean either `None`, `1`, or `2`.
         :::
 
         :::{admonition} ROCm
-        - `None`: producer must assume the legacy default stream (default),
-        - `0`: the default stream,
-        - `> 2`: stream number represented as a Python integer.
+        -   `None`: producer must assume the legacy default stream (default).
+        -   `0`: the default stream.
+        -   `> 2`: stream number represented as a Python integer.
 
         Using `1` and `2` is not supported.
         :::
@@ -458,19 +465,25 @@ Exports the array as a DLPack capsule, for consumption by {ref}`function-from_dl
 
 -   **capsule**: _&lt;PyCapsule&gt;_
 
-    -   A DLPack capsule for the array. See {ref}`data-interchange` for details.
+    -   a DLPack capsule for the array. See {ref}`data-interchange` for details.
 
 
 (method-__dlpack_device__)=
-### \_\_dlpack\_device\_\_()
+### \_\_dlpack\_device\_\_(self, /)
 
 Returns device type and device ID in DLPack format. Meant for use within {ref}`function-from_dlpack`.
+
+#### Parameters
+
+-   **self**: _&lt;array&gt;_
+
+    -   array instance.
 
 #### Returns
 
 -   **device**: _Tuple\[enum.IntEnum, int\]_
 
-    -   A tuple `(device_type, device_id)` in DLPack format. Valid device type enum members are:
+    -   a tuple `(device_type, device_id)` in DLPack format. Valid device type enum members are:
 
         ```
         CPU = 1
@@ -484,19 +497,19 @@ Returns device type and device ID in DLPack format. Meant for use within {ref}`f
         ```
 
 (method-__eq__)=
-### \_\_eq\_\_(x1, x2, /)
+### \_\_eq\_\_(self, other, /)
 
-Computes the truth value of `x1_i == x2_i` for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`.
+Computes the truth value of `self_i == other_i` for each element of an array instance with the respective element of the array `other`.
 
 #### Parameters
 
--   **x1**: _&lt;array&gt;_
+-   **self**: _&lt;array&gt;_
 
-    -   array instance.
+    -   array instance. May have any data type.
 
--   **x2**: _&lt;array&gt;_
+-   **other**: _Union\[ int, float, bool, &lt;array&gt; ]_
 
-    -   other array. Must be compatible with `x1` (see {ref}`broadcasting`).
+    -   other array. Must be compatible with `self` (see {ref}`broadcasting`). May have any data type.
 
 #### Returns
 
@@ -510,13 +523,13 @@ Element-wise results must equal the results returned by the equivalent element-w
 ```
 
 (method-__float__)=
-### \_\_float\_\_(x, /)
+### \_\_float\_\_(self, /)
 
 Converts a zero-dimensional floating-point array to a Python `float` object.
 
 #### Parameters
 
--   **x**: _&lt;array&gt;_
+-   **self**: _&lt;array&gt;_
 
     -   zero-dimensional array instance. Must have a floating-point data type.
 
@@ -524,22 +537,22 @@ Converts a zero-dimensional floating-point array to a Python `float` object.
 
 -   **out**: _&lt;float&gt;_
 
-    -   a Python `float` object representing the single element of the array `x`.
+    -   a Python `float` object representing the single element of the array instance.
 
 (method-__floordiv__)=
-### \_\_floordiv\_\_(x1, x2, /)
+### \_\_floordiv\_\_(self, other, /)
 
-Evaluates `x1_i // x2_i` for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`.
+Evaluates `self_i // other_i` for each element of an array instance with the respective element of the array `other`.
 
 #### Parameters
 
--   **x1**: _&lt;array&gt;_
+-   **self**: _&lt;array&gt;_
 
-    -   array instance.
+    -   array instance. Should have a numeric data type.
 
--   **x2**: _&lt;array&gt;_
+-   **other**: _Union\[ int, float, &lt;array&gt; ]_
 
-    -   other array. Must be compatible with `x1` (see {ref}`broadcasting`).
+    -   other array. Must be compatible with `self` (see {ref}`broadcasting`). Should have a numeric data type.
 
 #### Returns
 
@@ -553,19 +566,19 @@ Element-wise results must equal the results returned by the equivalent element-w
 ```
 
 (method-__ge__)=
-### \_\_ge\_\_(x1, x2, /)
+### \_\_ge\_\_(self, other, /)
 
-Computes the truth value of `x1_i >= x2_i` for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`.
+Computes the truth value of `self_i >= other_i` for each element of an array instance with the respective element of the array `other`.
 
 #### Parameters
 
--   **x1**: _&lt;array&gt;_
+-   **self**: _&lt;array&gt;_
 
-    -   array instance.
+    -   array instance. Should have a numeric data type.
 
--   **x2**: _&lt;array&gt;_
+-   **other**: _Union\[ int, float, &lt;array&gt; ]_
 
-    -   other array. Must be compatible with `x1` (see {ref}`broadcasting`).
+    -   other array. Must be compatible with `self` (see {ref}`broadcasting`). Should have a numeric data type.
 
 #### Returns
 
@@ -579,13 +592,13 @@ Element-wise results must equal the results returned by the equivalent element-w
 ```
 
 (method-__getitem__)=
-### \_\_getitem\_\_(x, key, /)
+### \_\_getitem\_\_(self, key, /)
 
-Returns `x[key]`.
+Returns `self[key]`.
 
 #### Parameters
 
--   **x**: _&lt;array;&gt;_
+-   **self**: _&lt;array&gt;_
 
     -   array instance.
 
@@ -597,22 +610,22 @@ Returns `x[key]`.
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the accessed value(s). The returned array must have the same data type as `x`.
+    -   an array containing the accessed value(s). The returned array must have the same data type as `self`.
 
 (method-__gt__)=
-### \_\_gt\_\_(x1, x2, /)
+### \_\_gt\_\_(self, other, /)
 
-Computes the truth value of `x1_i > x2_i` for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`.
+Computes the truth value of `self_i > other_i` for each element of an array instance with the respective element of the array `other`.
 
 #### Parameters
 
--   **x1**: _&lt;array&gt;_
+-   **self**: _&lt;array&gt;_
 
-    -   array instance.
+    -   array instance. Should have a numeric data type.
 
--   **x2**: _&lt;array&gt;_
+-   **other**: _Union\[ int, float, &lt;array&gt; ]_
 
-    -   other array. Must be compatible with `x1` (see {ref}`broadcasting`).
+    -   other array. Must be compatible with `self` (see {ref}`broadcasting`). Should have a numeric data type.
 
 #### Returns
 
@@ -626,13 +639,13 @@ Element-wise results must equal the results returned by the equivalent element-w
 ```
 
 (method-__int__)=
-### \_\_int\_\_(x, /)
+### \_\_int\_\_(self, /)
 
 Converts a zero-dimensional integer array to a Python `int` object.
 
 #### Parameters
 
--   **x**: _&lt;array&gt;_
+-   **self**: _&lt;array&gt;_
 
     -   zero-dimensional array instance. Must have an integer data type.
 
@@ -640,24 +653,24 @@ Converts a zero-dimensional integer array to a Python `int` object.
 
 -   **out**: _&lt;int&gt;_
 
-    -   a Python `int` object representing the single element of the array `x`.
+    -   a Python `int` object representing the single element of the array instance.
 
 (method-__invert__)=
-### \_\_invert\_\_(x, /)
+### \_\_invert\_\_(self, /)
 
-Evaluates `~x_i` for each element `x_i` of an array instance `x`.
+Evaluates `~self_i` for each element of an array instance.
 
 #### Parameters
 
--   **x**: _&lt;array&gt;_
+-   **self**: _&lt;array&gt;_
 
-    -   array instance. Must have an integer or boolean data type.
+    -   array instance. Should have an integer or boolean data type.
 
 #### Returns
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the element-wise results. The returned array must have the same data type as `x`.
+    -   an array containing the element-wise results. The returned array must have the same data type as `self`.
 
 ```{note}
 
@@ -665,19 +678,19 @@ Element-wise results must equal the results returned by the equivalent element-w
 ```
 
 (method-__le__)=
-### \_\_le\_\_(x1, x2, /)
+### \_\_le\_\_(self, other, /)
 
-Computes the truth value of `x1_i <= x2_i` for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`.
+Computes the truth value of `self_i <= other_i` for each element of an array instance with the respective element of the array `other`.
 
 #### Parameters
 
--   **x1**: _&lt;array&gt;_
+-   **self**: _&lt;array&gt;_
 
-    -   array instance.
+    -   array instance. Should have a numeric data type.
 
--   **x2**: _&lt;array&gt;_
+-   **other**: _Union\[ int, float, &lt;array&gt; ]_
 
-    -   other array. Must be compatible with `x1` (see {ref}`broadcasting`).
+    -   other array. Must be compatible with `self` (see {ref}`broadcasting`). Should have a numeric data type.
 
 #### Returns
 
@@ -691,30 +704,30 @@ Element-wise results must equal the results returned by the equivalent element-w
 ```
 
 (method-__len__)=
-### \_\_len\_\_(x, /)
+### \_\_len\_\_(self, /)
 
 _TODO: need to more carefully consider this in order to accommodate, e.g., graph tensors where a shape may be dynamic. Furthermore, not clear whether this should be implemented, as, e.g., NumPy's behavior of returning the size of the first dimension is not necessarily intuitive, as opposed to, say, the total number of elements._
 
 (method-__lshift__)=
-### \_\_lshift\_\_(x1, x2, /)
+### \_\_lshift\_\_(self, other, /)
 
-Evaluates `x1_i << x2_i` for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`.
+Evaluates `self_i << other_i` for each element of an array instance with the respective element  of the array `other`.
 
 #### Parameters
 
--   **x1**: _&lt;array&gt;_
+-   **self**: _&lt;array&gt;_
 
-    -   array instance. Must have an integer data type.
+    -   array instance. Should have an integer data type.
 
--   **x2**: _&lt;array&gt;_
+-   **other**: _Union\[ int, &lt;array&gt; ]_
 
-    -   other array. Must be compatible with `x1` (see {ref}`broadcasting`). Must have an integer data type. Each element must be greater than or equal to `0`.
+    -   other array. Must be compatible with `self` (see {ref}`broadcasting`). Should have an integer data type. Each element must be greater than or equal to `0`.
 
 #### Returns
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the element-wise results. The returned array must have the same data type as `x1`.
+    -   an array containing the element-wise results. The returned array must have the same data type as `self`.
 
 ```{note}
 
@@ -722,19 +735,19 @@ Element-wise results must equal the results returned by the equivalent element-w
 ```
 
 (method-__lt__)=
-### \_\_lt\_\_(x1, x2, /)
+### \_\_lt\_\_(self, other, /)
 
-Computes the truth value of `x1_i < x2_i` for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`.
+Computes the truth value of `self_i < other_i` for each element of an array instance with the respective element of the array `other`.
 
 #### Parameters
 
--   **x1**: _&lt;array&gt;_
+-   **self**: _&lt;array&gt;_
 
-    -   array instance.
+    -   array instance. Should have a numeric data type.
 
--   **x2**: _&lt;array&gt;_
+-   **other**: _Union\[ int, float, &lt;array&gt; ]_
 
-    -   other array. Must be compatible with `x1` (see {ref}`broadcasting`).
+    -   other array. Must be compatible with `self` (see {ref}`broadcasting`). Should have a numeric data type.
 
 #### Returns
 
@@ -748,46 +761,70 @@ Element-wise results must equal the results returned by the equivalent element-w
 ```
 
 (method-__matmul__)=
-### \_\_matmul\_\_(x1, x2, /)
+### \_\_matmul\_\_(self, other, /)
 
-_TODO: awaiting `matmul` functional equivalent._
+Computes the matrix product.
+
+```{note}
+
+The `matmul` function must implement the same semantics as the built-in `@` operator (see [PEP 465](https://www.python.org/dev/peps/pep-0465)).
+```
 
 #### Parameters
 
--   **x1**: _&lt;array&gt;_
+-   **self**: _&lt;array&gt;_
 
-    -   array instance.
+    -   array instance. Should have a numeric data type. Must have at least one dimension. If `self` is one-dimensional having shape `(M)` and `other` has more than one dimension, `self` must be promoted to a two-dimensional array by prepending `1` to its dimensions (i.e., must have shape `(1, M)`). After matrix multiplication, the prepended dimensions in the returned array must be removed. If `self` has more than one dimension (including after vector-to-matrix promotion), `self` must be compatible with `other` (see {ref}`broadcasting`). If `self` has shape `(..., M, K)`, the innermost two dimensions form matrices on which to perform matrix multiplication. 
 
--   **x2**: _&lt;array&gt;_
+-   **other**: _&lt;array&gt;_
 
-    -   other array. Must be compatible with `x1` (see {ref}`broadcasting`).
+    -   other array. Should have a numeric data type. Must have at least one dimension. If `other` is one-dimensional having shape `(N)` and `self` has more than one dimension, `other` must be promoted to a two-dimensional array by appending `1` to its dimensions (i.e., must have shape `(N, 1)`). After matrix multiplication, the appended dimensions in the returned array must be removed. If `other` has more than one dimension (including after vector-to-matrix promotion), `other` must be compatible with `self` (see {ref}`broadcasting`). If `other` has shape `(..., K, N)`, the innermost two dimensions form matrices on which to perform matrix multiplication.
 
 #### Returns
 
 -   **out**: _&lt;array&gt;_
 
-    -   _TODO_
+    -   if both `self` and `other` are one-dimensional arrays having shape `(N)`, a zero-dimensional array containing the inner product as its only element.
+    -   if `self` is a two-dimensional array having shape `(M, K)` and `other` is a two-dimensional array having shape `(K, N)`, a two-dimensional array containing the [conventional matrix product](https://en.wikipedia.org/wiki/Matrix_multiplication) and having shape `(M, N)`.
+    -   if `self` is a one-dimensional array having shape `(K)` and `other` is an array having shape `(..., K, N)`, an array having shape `(..., N)` (i.e., prepended dimensions during vector-to-matrix promotion must be removed) and containing the [conventional matrix product](https://en.wikipedia.org/wiki/Matrix_multiplication).
+    -   if `self` is an array having shape `(..., M, K)` and `other` is a one-dimensional array having shape `(K)`, an array having shape `(..., M)` (i.e., appended dimensions during vector-to-matrix promotion must be removed) and containing the [conventional matrix product](https://en.wikipedia.org/wiki/Matrix_multiplication).
+    -   if `self` is a two-dimensional array having shape `(M, K)` and `other` is an array having shape `(..., K, N)`, an array having shape `(..., M, N)` and containing the [conventional matrix product](https://en.wikipedia.org/wiki/Matrix_multiplication) for each stacked matrix.
+    -   if `self` is an array having shape `(..., M, K)` and `other` is a two-dimensional array having shape `(K, N)`, an array having shape `(..., M, N)` and containing the [conventional matrix product](https://en.wikipedia.org/wiki/Matrix_multiplication) for each stacked matrix.
+    -   if either `self` or `other` has more than two dimensions, an array having a shape determined by {ref}`broadcasting` `self` against `other` and containing the [conventional matrix product](https://en.wikipedia.org/wiki/Matrix_multiplication) for each stacked matrix.
+
+    The returned array must have a data type determined by {ref}`type-promotion`.
+
+    ```{note}
+
+    Results must equal the results returned by the equivalent function [`matmul(x1, x2)`](linear_algebra_functions.md#matmulx1-x2-).
+    ```
+
+#### Raises
+
+-   if either `self` or `other` is a zero-dimensional array.
+-   if `self` is a one-dimensional array having shape `(N)`, `other` is a one-dimensional array having shape `(M)`, and `N != M`.
+-   if `self` is an array having shape `(..., M, K)`, `other` is an array having shape `(..., L, N)`, and `K != L`. 
 
 (method-__mod__)=
-### \_\_mod\_\_(x1, x2, /)
+### \_\_mod\_\_(self, other, /)
 
-Evaluates `x1_i % x2_i` for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`.
+Evaluates `self_i % other_i` for each element of an array instance with the respective element of the array `other`.
 
 #### Parameters
 
--   **x1**: _&lt;array&gt;_
+-   **self**: _&lt;array&gt;_
 
-    -   array instance.
+    -   array instance. Should have a numeric data type.
 
--   **x2**: _&lt;array&gt;_
+-   **other**: _Union\[ int, float, &lt;array&gt; ]_
 
-    -   other array. Must be compatible with `x1` (see {ref}`broadcasting`).
+    -   other array. Must be compatible with `self` (see {ref}`broadcasting`). Should have a numeric data type.
 
 #### Returns
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the element-wise results. Each element-wise result must have the same sign as the respective element `x2_i`. The returned array must have a floating-point data type determined by {ref}`type-promotion`.
+    -   an array containing the element-wise results. Each element-wise result must have the same sign as the respective element `other_i`. The returned array must have a floating-point data type determined by {ref}`type-promotion`.
 
 ```{note}
 
@@ -795,13 +832,13 @@ Element-wise results must equal the results returned by the equivalent element-w
 ```
 
 (method-__mul__)=
-### \_\_mul\_\_(x1, x2, /)
+### \_\_mul\_\_(self, other, /)
 
-Calculates the product for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`.
+Calculates the product for each element of an array instance with the respective element of the array `other`.
 
 #### Special Cases
 
-For floating-point operands,
+For floating-point operands, let `self` equal `x1` and `other` equal `x2`.
 
 -   If either `x1_i` or `x2_i` is `NaN`, the result is `NaN`.
 -   If `x1_i` is either `+infinity` or `-infinity` and `x2_i` is either `+0` or `-0`, the result is `NaN`.
@@ -820,13 +857,13 @@ Floating-point multiplication is not always associative due to finite precision.
 
 #### Parameters
 
--   **x1**: _&lt;array&gt;_
+-   **self**: _&lt;array&gt;_
 
-    -   array instance.
+    -   array instance. Should have a numeric data type.
 
--   **x2**: _&lt;array&gt;_
+-   **other**: _Union\[ int, float, &lt;array&gt; ]_
 
-    -   other array. Must be compatible with `x1` (see {ref}`broadcasting`).
+    -   other array. Must be compatible with `self` (see {ref}`broadcasting`). Should have a numeric data type.
 
 #### Returns
 
@@ -840,19 +877,19 @@ Element-wise results must equal the results returned by the equivalent element-w
 ```
 
 (method-__ne__)=
-### \_\_ne\_\_(x1, x2, /)
+### \_\_ne\_\_(self, other, /)
 
-Computes the truth value of `x1_i != x2_i` for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`.
+Computes the truth value of `self_i != other_i` for each element of an array instance with the respective element of the array `other`.
 
 #### Parameters
 
--   **x1**: _&lt;array&gt;_
+-   **self**: _&lt;array&gt;_
 
-    -   array instance.
+    -   array instance. May have any data type.
 
--   **x2**: _&lt;array&gt;_
+-   **other**: _Union\[ int, float, bool, &lt;array&gt; ]_
 
-    -   other array. Must be compatible with `x1` (see {ref}`broadcasting`).
+    -   other array. Must be compatible with `self` (see {ref}`broadcasting`). May have any data type.
 
 #### Returns
 
@@ -866,21 +903,21 @@ Element-wise results must equal the results returned by the equivalent element-w
 ```
 
 (method-__neg__)=
-### \_\_neg\_\_(x, /)
+### \_\_neg\_\_(self, /)
 
-Evaluates `-x_i` for each element `x_i` of an array instance `x`.
+Evaluates `-self_i` for each element of an array instance.
 
 #### Parameters
 
--   **x**: _&lt;array&gt;_
+-   **self**: _&lt;array&gt;_
 
-    -   array instance.
+    -   array instance. Should have a numeric data type.
 
 #### Returns
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the evaluated result for each element in `x`. The returned array must have a data type determined by {ref}`type-promotion`.
+    -   an array containing the evaluated result for each element in `self`. The returned array must have a data type determined by {ref}`type-promotion`.
 
 ```{note}
 
@@ -888,19 +925,19 @@ Element-wise results must equal the results returned by the equivalent element-w
 ```
 
 (method-__or__)=
-### \_\_or\_\_(x1, x2, /)
+### \_\_or\_\_(self, other, /)
 
-Evaluates `x1_i | x2_i` for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`.
+Evaluates `self_i | other_i` for each element of an array instance with the respective element of the array `other`.
 
 #### Parameters
 
--   **x1**: _&lt;array&gt;_
+-   **self**: _&lt;array&gt;_
 
-    -   array instance. Must have an integer or boolean data type.
+    -   array instance. Should have an integer or boolean data type.
 
--   **x2**: _&lt;array&gt;_
+-   **other**: _Union\[ int, bool, &lt;array&gt; ]_
 
-    -   other array. Must be compatible with `x1` (see {ref}`broadcasting`). Must have an integer or boolean data type.
+    -   other array. Must be compatible with `self` (see {ref}`broadcasting`). Should have an integer or boolean data type.
 
 #### Returns
 
@@ -914,21 +951,21 @@ Element-wise results must equal the results returned by the equivalent element-w
 ```
 
 (method-__pos__)=
-### \_\_pos\_\_(x, /)
+### \_\_pos\_\_(self, /)
 
-Evaluates `+x_i` for each element `x_i` of an array instance `x`.
+Evaluates `+self_i` for each element of an array instance.
 
 #### Parameters
 
--   **x**: _&lt;array&gt;_
+-   **self**: _&lt;array&gt;_
 
-    -   array instance.
+    -   array instance. Should have a numeric data type.
 
 #### Returns
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the evaluated result for each element in `x`. The returned array must have the same data type as `x`.
+    -   an array containing the evaluated result for each element. The returned array must have the same data type as `self`.
 
 ```{note}
 
@@ -936,13 +973,13 @@ Element-wise results must equal the results returned by the equivalent element-w
 ```
 
 (method-__pow__)=
-### \_\_pow\_\_(x1, x2, /)
+### \_\_pow\_\_(self, other, /)
 
-Calculates an implementation-dependent approximation of exponentiation by raising each element `x1_i` (the base) of an array instance `x1` to the power of `x2_i` (the exponent), where `x2_i` is the corresponding element of the array `x2`.
+Calculates an implementation-dependent approximation of exponentiation by raising each element (the base) of an array instance to the power of `other_i` (the exponent), where `other_i` is the corresponding element of the array `other`.
 
 #### Special Cases
 
-For floating-point operands,
+For floating-point operands, let `self` equal `x1` and `other` equal `x2`.
 
 -   If `x1_i` is not equal to `1` and `x2_i` is `NaN`, the result is `NaN`.
 -   If `x2_i` is `+0`, the result is `1`, even if `x1_i` is `NaN`.
@@ -971,13 +1008,13 @@ For floating-point operands,
 
 #### Parameters
 
--   **x1**: _&lt;array&gt;_
+-   **self**: _&lt;array&gt;_
 
-    -   array instance whose elements correspond to the exponentiation base.
+    -   array instance whose elements correspond to the exponentiation base. Should have a numeric data type.
 
--   **x2**: _&lt;array&gt;_
+-   **other**: _Union\[ int, float, &lt;array&gt; ]_
 
-    -   other array whose elements correspond to the exponentiation exponent. Must be compatible with `x1` (see {ref}`broadcasting`).
+    -   other array whose elements correspond to the exponentiation exponent. Must be compatible with `self` (see {ref}`broadcasting`). Should have a numeric data type.
 
 #### Returns
 
@@ -991,25 +1028,25 @@ Element-wise results must equal the results returned by the equivalent element-w
 ```
 
 (method-__rshift__)=
-### \_\_rshift\_\_(x1, x2, /)
+### \_\_rshift\_\_(self, other, /)
 
-Evaluates `x1_i >> x2_i` for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`.
+Evaluates `self_i >> other_i` for each element of an array instance with the respective element of the array `other`.
 
 #### Parameters
 
--   **x1**: _&lt;array&gt;_
+-   **self**: _&lt;array&gt;_
 
-    -   array instance. Must have an integer data type.
+    -   array instance. Should have an integer data type.
 
--   **x2**: _&lt;array&gt;_
+-   **other**: _Union\[ int, &lt;array&gt; ]_
 
-    -   other array. Must be compatible with `x1` (see {ref}`broadcasting`). Must have an integer data type. Each element must be greater than or equal to `0`.
+    -   other array. Must be compatible with `self` (see {ref}`broadcasting`). Should have an integer data type. Each element must be greater than or equal to `0`.
 
 #### Returns
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the element-wise results. The returned array must have the same data type as `x1`.
+    -   an array containing the element-wise results. The returned array must have the same data type as `self`.
 
 ```{note}
 
@@ -1017,24 +1054,24 @@ Element-wise results must equal the results returned by the equivalent element-w
 ```
 
 (method-__setitem__)=
-### \_\_setitem\_\_(x, key, value, /)
+### \_\_setitem\_\_(self, key, value, /)
 
 _TODO: dependent on the indexing specification._
 
 (method-__sub__)=
-### \_\_sub\_\_(x1, x2, /)
+### \_\_sub\_\_(self, other, /)
 
-Calculates the difference for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`. The result of `x1_i - x2_i` must be the same as `x1_i + (-x2_i)` and must be governed by the same floating-point rules as addition (see [`__add__()`](#__add__x1-x2-)).
+Calculates the difference for each element of an array instance with the respective element of the array `other`. The result of `self_i - other_i` must be the same as `self_i + (-other_i)` and must be governed by the same floating-point rules as addition (see [`__add__()`](#__add__self-other-)).
 
 #### Parameters
 
--   **x1**: _&lt;array&gt;_
+-   **self**: _&lt;array&gt;_
 
-    -   array instance (minuend array).
+    -   array instance (minuend array). Should have a numeric data type.
 
--   **x2**: _&lt;array&gt;_
+-   **other**: _Union\[ int, float, &lt;array&gt; ]_
 
-    -   subtrahend array. Must be compatible with `x1` (see {ref}`broadcasting`).
+    -   subtrahend array. Must be compatible with `self` (see {ref}`broadcasting`). Should have a numeric data type.
 
 #### Returns
 
@@ -1048,13 +1085,13 @@ Element-wise results must equal the results returned by the equivalent element-w
 ```
 
 (method-__truediv__)=
-### \_\_truediv\_\_(x1, x2, /)
+### \_\_truediv\_\_(self, other, /)
 
-Evaluates `x1_i / x2_i` for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`.
+Evaluates `self_i / other_i` for each element of an array instance with the respective element of the array `other`.
 
 #### Special Cases
 
-For floating-point operands,
+For floating-point operands, let `self` equal `x1` and `other` equal `x2`.
 
 -   If either `x1_i` or `x2_i` is `NaN`, the result is `NaN`.
 -   If `x1_i` is either `+infinity` or `-infinity` and `x2_i` is either `+infinity` or `-infinity`, the result is `NaN`.
@@ -1081,13 +1118,13 @@ For floating-point operands,
 
 #### Parameters
 
--   **x1**: _&lt;array&gt;_
+-   **self**: _&lt;array&gt;_
 
-    -   array instance.
+    -   array instance. Should have a numeric data type.
 
--   **x2**: _&lt;array&gt;_
+-   **other**: _Union\[ int, float, &lt;array&gt; ]_
 
-    -   other array. Must be compatible with `x1` (see {ref}`broadcasting`).
+    -   other array. Must be compatible with `self` (see {ref}`broadcasting`). Should have a numeric data type.
 
 #### Returns
 
@@ -1101,19 +1138,19 @@ Element-wise results must equal the results returned by the equivalent element-w
 ```
 
 (method-__xor__)=
-### \_\_xor\_\_(x1, x2, /)
+### \_\_xor\_\_(self, other, /)
 
-Evaluates `x1_i ^ x2_i` for each element `x1_i` of an array instance `x1` with the respective element `x2_i` of the array `x2`.
+Evaluates `self_i ^ other_i` for each element of an array instance with the respective element of the array `other`.
 
 #### Parameters
 
--   **x1**: _&lt;array&gt;_
+-   **self**: _&lt;array&gt;_
 
-    -   array instance. Must have an integer or boolean data type.
+    -   array instance. Should have an integer or boolean data type.
 
--   **x2**: _&lt;array&gt;_
+-   **other**: _Union\[ int, bool, &lt;array&gt; ]_
 
-    -   other array. Must be compatible with `x1` (see {ref}`broadcasting`). Must have an integer or boolean data type.
+    -   other array. Must be compatible with `self` (see {ref}`broadcasting`). Should have an integer or boolean data type.
 
 #### Returns
 
