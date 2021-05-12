@@ -301,6 +301,11 @@
                 <nav class="md-nav">
                  <ul class="md-nav__list">
                   <li class="md-nav__item">
+                   <a class="md-nav__link" href="#design-principles">
+                    Design Principles
+                   </a>
+                  </li>
+                  <li class="md-nav__item">
                    <a class="md-nav__link" href="#objects-in-api">
                     Objects in API
                    </a>
@@ -845,6 +850,11 @@
            </a>
            <nav class="md-nav">
             <ul class="md-nav__list">
+             <li class="md-nav__item">
+              <a class="md-nav__link" href="#design-principles">
+               Design Principles
+              </a>
+             </li>
              <li class="md-nav__item">
               <a class="md-nav__link" href="#objects-in-api">
                Objects in API
@@ -1401,6 +1411,374 @@
           </p>
          </li>
         </ul>
+        <section id="design-principles">
+         <h2 id="design-principles">
+          Design Principles
+          <a class="headerlink" href="#design-principles" title="Permalink to this headline">
+           ¶
+          </a>
+         </h2>
+         <p>
+          A principal goal of this specification is to standardize commonly implemented interfaces among array libraries. While this specification endeavors to avoid straying too far from common practice, this specification does, with due restraint, seek to address design decisions arising more from historical accident than first principles. This is especially true for linear algebra APIs, which have arisen and evolved organically over time and have often been tied to particular underlying implementations (e.g., to BLAS and LAPACK).
+         </p>
+         <p>
+          Accordingly, the standardization process affords the opportunity to reduce interface complexity among linear algebra APIs by inferring and subsequently codifying common design themes, thus allowing more consistent APIs. What follows is the set of design principles governing the APIs which follow:
+         </p>
+         <ol>
+          <li>
+           <p>
+            <strong>
+             Batching
+            </strong>
+            : if an operation is explicitly defined in terms of matrices (i.e., two-dimensional arrays), then the associated interface should support “batching” (i.e., the ability to perform the operation over a “stack” of matrices). Example operations include:
+           </p>
+           <ul class="simple">
+            <li>
+             <p>
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                inv
+               </span>
+              </code>
+              : computing the multiplicative inverse of a square matrix.
+             </p>
+            </li>
+            <li>
+             <p>
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                cholesky
+               </span>
+              </code>
+              : performing Cholesky decomposition.
+             </p>
+            </li>
+            <li>
+             <p>
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                matmul
+               </span>
+              </code>
+              : performing matrix multiplication.
+             </p>
+            </li>
+           </ul>
+          </li>
+          <li>
+           <p>
+            <strong>
+             Data types
+            </strong>
+            : if an operation requires decimal operations and
+            <a class="reference internal" href="type_promotion.html#type-promotion">
+             <span class="std std-ref">
+              Type Promotion Rules
+             </span>
+            </a>
+            semantics are undefined (e.g., as is the case for mixed-kind promotions), then the associated interface should be specified as being restricted to floating-point data types. While the specification uses the term “SHOULD” rather than “MUST”, a conforming implementation of the array API standard should only ignore the restriction provided overly compelling reasons for doing so. Example operations which should be limited to floating-point data types include:
+           </p>
+           <ul class="simple">
+            <li>
+             <p>
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                inv
+               </span>
+              </code>
+              : computing the multiplicative inverse.
+             </p>
+            </li>
+            <li>
+             <p>
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                slogdet
+               </span>
+              </code>
+              : computing the natural logarithm of the absolute value of the determinant.
+             </p>
+            </li>
+            <li>
+             <p>
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                norm
+               </span>
+              </code>
+              : computing the matrix or vector norm.
+             </p>
+            </li>
+           </ul>
+           <p>
+            Certain operations are solely comprised of multiplications and additions. Accordingly, associated interfaces need not be restricted to floating-point data types. However, careful consideration should be given to overflow, and use of floating-point data types may be more prudent in practice. Example operations include:
+           </p>
+           <ul class="simple">
+            <li>
+             <p>
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                matmul
+               </span>
+              </code>
+              : performing matrix multiplication.
+             </p>
+            </li>
+            <li>
+             <p>
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                trace
+               </span>
+              </code>
+              : computing the sum along the diagonal.
+             </p>
+            </li>
+            <li>
+             <p>
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                cross
+               </span>
+              </code>
+              : computing the vector cross product.
+             </p>
+            </li>
+           </ul>
+           <p>
+            Lastly, certain operations may be performed independent of data type, and, thus, the associated interfaces should support all data types specified in this standard. Example operations include:
+           </p>
+           <ul class="simple">
+            <li>
+             <p>
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                transpose
+               </span>
+              </code>
+              : computing the transpose.
+             </p>
+            </li>
+            <li>
+             <p>
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                diagonal
+               </span>
+              </code>
+              : returning the diagonal.
+             </p>
+            </li>
+           </ul>
+          </li>
+          <li>
+           <p>
+            <strong>
+             Return values
+            </strong>
+            : if an interface has more than one return value, the interface should return a namedtuple consisting of each value.
+           </p>
+           <p>
+            In general, interfaces should avoid polymorphic return values (e.g., returning an array
+            <strong>
+             or
+            </strong>
+            a namedtuple, dependent on, e.g., an optional keyword argument). Dedicated interfaces for each return value type are preferred, as dedicated interfaces are easier to reason about at both the implementation level and user level. Example interfaces which could be combined into a single overloaded interface, but are not, include:
+           </p>
+           <ul class="simple">
+            <li>
+             <p>
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                eig
+               </span>
+              </code>
+              : computing both eigenvalues and eignvectors.
+             </p>
+            </li>
+            <li>
+             <p>
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                eigvals
+               </span>
+              </code>
+              : computing only eigenvalues.
+             </p>
+            </li>
+           </ul>
+          </li>
+          <li>
+           <p>
+            <strong>
+             Implementation agnosticism
+            </strong>
+            : a standardized interface should eschew parameterization (including keyword arguments) biased toward particular implementations.
+           </p>
+           <p>
+            Historically, at a time when all array computing happened on CPUs, BLAS and LAPACK underpinned most numerical computing libraries and environments. Naturally, language and library abstractions catered to the parameterization of those libraries, often exposing low-level implementation details verbatim in their higher-level interfaces, even if such choices would be considered poor or ill-advised by today’s standards (e.g., NumPy’s use of
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              UPLO
+             </span>
+            </code>
+            in
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              eigh
+             </span>
+            </code>
+            ). However, the present day is considerably different. While still important, BLAS and LAPACK no longer hold a monopoly over linear algebra operations, especially given the proliferation of devices and hardware on which such operations must be performed. Accordingly, interfaces must be conservative in the parameterization they support in order to best ensure universality. Such conservatism applies even to performance optimization parameters afforded by certain hardware.
+           </p>
+          </li>
+          <li>
+           <p>
+            <strong>
+             Orthogonality
+            </strong>
+            : an interface should have clearly defined and delineated functionality which, ideally, has no overlap with the functionality of other interfaces in the specification. Providing multiple interfaces which can all perform the same operation creates unnecessary confusion regarding interface applicability (i.e., which interface is best at which time) and decreases readability of both library and user code. Where overlap is possible, the specification must be parsimonious in the number of interfaces, ensuring that each interface provides a unique and compelling abstraction. Examples of related interfaces which provide distinct levels of abstraction (and generality) include:
+           </p>
+           <ul class="simple">
+            <li>
+             <p>
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                vecdot
+               </span>
+              </code>
+              : computing the dot product of two vectors.
+             </p>
+            </li>
+            <li>
+             <p>
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                matmul
+               </span>
+              </code>
+              : performing matrix multiplication (including between two vectors and thus the dot product).
+             </p>
+            </li>
+            <li>
+             <p>
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                tensordot
+               </span>
+              </code>
+              : computing tensor contractions (generalized sum-products).
+             </p>
+            </li>
+            <li>
+             <p>
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                einsum
+               </span>
+              </code>
+              : expressing operations in terms of Einstein summation convention, including dot products and tensor contractions.
+             </p>
+            </li>
+           </ul>
+           <p>
+            The above can be contrasted with, e.g., NumPy, which provides the following interfaces for computing the dot product or related operations:
+           </p>
+           <ul class="simple">
+            <li>
+             <p>
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                dot
+               </span>
+              </code>
+              : dot product, matrix multiplication, and tensor contraction.
+             </p>
+            </li>
+            <li>
+             <p>
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                inner
+               </span>
+              </code>
+              : dot product.
+             </p>
+            </li>
+            <li>
+             <p>
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                vdot
+               </span>
+              </code>
+              : dot product with flattening and complex conjugation.
+             </p>
+            </li>
+            <li>
+             <p>
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                multi_dot
+               </span>
+              </code>
+              : chained dot product.
+             </p>
+            </li>
+            <li>
+             <p>
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                tensordot
+               </span>
+              </code>
+              : tensor contraction.
+             </p>
+            </li>
+            <li>
+             <p>
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                matmul
+               </span>
+              </code>
+              : matrix multiplication (dot product for two vectors).
+             </p>
+            </li>
+            <li>
+             <p>
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                einsum
+               </span>
+              </code>
+              : Einstein summation convention.
+             </p>
+            </li>
+           </ul>
+           <p>
+            where
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              dot
+             </span>
+            </code>
+            is overloaded based on input array dimensionality and
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              vdot
+             </span>
+            </code>
+            and
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              inner
+             </span>
+            </code>
+            exhibit a high degree of overlap with other interfaces. By consolidating interfaces and more clearly delineating behavior, this specification aims to ensure that each interface has a unique purpose and defined use case.
+           </p>
+          </li>
+         </ol>
+        </section>
         <section id="objects-in-api">
          <h2 id="objects-in-api">
           Objects in API
