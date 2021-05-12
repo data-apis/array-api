@@ -603,8 +603,8 @@
                       </nav>
                      </li>
                      <li class="md-nav__item">
-                      <a class="md-nav__link" href="#trace-x-axis1-0-axis2-1-offset-0">
-                       trace(x, /, *, axis1=0, axis2=1, offset=0)
+                      <a class="md-nav__link" href="#linalg-svdvals-x">
+                       linalg.svdvals(x, /)
                       </a>
                       <nav class="md-nav">
                        <ul class="md-nav__list">
@@ -622,8 +622,8 @@
                       </nav>
                      </li>
                      <li class="md-nav__item">
-                      <a class="md-nav__link" href="#transpose-x-axes-none">
-                       transpose(x, /, *, axes=None)
+                      <a class="md-nav__link" href="#trace-x-axis1-0-axis2-1-offset-0">
+                       trace(x, /, *, axis1=0, axis2=1, offset=0)
                       </a>
                       <nav class="md-nav">
                        <ul class="md-nav__list">
@@ -641,8 +641,8 @@
                       </nav>
                      </li>
                      <li class="md-nav__item">
-                      <a class="md-nav__link" href="#vecdot-x1-x2-axis-none">
-                       vecdot(x1, x2, /, *, axis=None)
+                      <a class="md-nav__link" href="#transpose-x-axes-none">
+                       transpose(x, /, *, axes=None)
                       </a>
                       <nav class="md-nav">
                        <ul class="md-nav__list">
@@ -653,6 +653,25 @@
                         </li>
                         <li class="md-nav__item">
                          <a class="md-nav__link" href="#id32">
+                          Returns
+                         </a>
+                        </li>
+                       </ul>
+                      </nav>
+                     </li>
+                     <li class="md-nav__item">
+                      <a class="md-nav__link" href="#vecdot-x1-x2-axis-none">
+                       vecdot(x1, x2, /, *, axis=None)
+                      </a>
+                      <nav class="md-nav">
+                       <ul class="md-nav__list">
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#id33">
+                          Parameters
+                         </a>
+                        </li>
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#id34">
                           Returns
                          </a>
                         </li>
@@ -1044,8 +1063,8 @@
                  </nav>
                 </li>
                 <li class="md-nav__item">
-                 <a class="md-nav__link" href="#trace-x-axis1-0-axis2-1-offset-0">
-                  trace(x, /, *, axis1=0, axis2=1, offset=0)
+                 <a class="md-nav__link" href="#linalg-svdvals-x">
+                  linalg.svdvals(x, /)
                  </a>
                  <nav class="md-nav">
                   <ul class="md-nav__list">
@@ -1063,8 +1082,8 @@
                  </nav>
                 </li>
                 <li class="md-nav__item">
-                 <a class="md-nav__link" href="#transpose-x-axes-none">
-                  transpose(x, /, *, axes=None)
+                 <a class="md-nav__link" href="#trace-x-axis1-0-axis2-1-offset-0">
+                  trace(x, /, *, axis1=0, axis2=1, offset=0)
                  </a>
                  <nav class="md-nav">
                   <ul class="md-nav__list">
@@ -1082,8 +1101,8 @@
                  </nav>
                 </li>
                 <li class="md-nav__item">
-                 <a class="md-nav__link" href="#vecdot-x1-x2-axis-none">
-                  vecdot(x1, x2, /, *, axis=None)
+                 <a class="md-nav__link" href="#transpose-x-axes-none">
+                  transpose(x, /, *, axes=None)
                  </a>
                  <nav class="md-nav">
                   <ul class="md-nav__list">
@@ -1094,6 +1113,25 @@
                    </li>
                    <li class="md-nav__item">
                     <a class="md-nav__link" href="#id32">
+                     Returns
+                    </a>
+                   </li>
+                  </ul>
+                 </nav>
+                </li>
+                <li class="md-nav__item">
+                 <a class="md-nav__link" href="#vecdot-x1-x2-axis-none">
+                  vecdot(x1, x2, /, *, axis=None)
+                 </a>
+                 <nav class="md-nav">
+                  <ul class="md-nav__list">
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#id33">
+                     Parameters
+                    </a>
+                   </li>
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#id34">
                      Returns
                     </a>
                    </li>
@@ -4884,6 +4922,144 @@
            </ul>
           </section>
          </section>
+         <section id="linalg-svdvals-x">
+          <span id="function-linalg-svdvals">
+          </span>
+          <h3 id="linalg-svdvals-x">
+           linalg.svdvals(x, /)
+           <a class="headerlink" href="#linalg-svdvals-x" title="Permalink to this headline">
+            ¶
+           </a>
+          </h3>
+          <p>
+           Computes the singular values of a matrix (or a stack of matrices)
+           <code class="docutils literal notranslate">
+            <span class="pre">
+             x
+            </span>
+           </code>
+           .
+          </p>
+          <section id="id27">
+           <h4 id="id27">
+            Parameters
+            <a class="headerlink" href="#id27" title="Permalink to this headline">
+             ¶
+            </a>
+           </h4>
+           <ul class="simple">
+            <li>
+             <p>
+              <strong>
+               x
+              </strong>
+              :
+              <em>
+               &lt;array&gt;
+              </em>
+             </p>
+             <ul>
+              <li>
+               <p>
+                input array having shape
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  (...,
+                 </span>
+                 <span class="pre">
+                  M,
+                 </span>
+                 <span class="pre">
+                  N)
+                 </span>
+                </code>
+                and whose innermost two dimensions form matrices on which to perform singular value decomposition. Should have a floating-point data type.
+               </p>
+              </li>
+             </ul>
+            </li>
+           </ul>
+          </section>
+          <section id="id28">
+           <h4 id="id28">
+            Returns
+            <a class="headerlink" href="#id28" title="Permalink to this headline">
+             ¶
+            </a>
+           </h4>
+           <ul class="simple">
+            <li>
+             <p>
+              <strong>
+               out
+              </strong>
+              :
+              <em>
+               Union[ &lt;array&gt;, Tuple[ &lt;array&gt;, … ] ]
+              </em>
+             </p>
+             <ul>
+              <li>
+               <p>
+                an array with shape
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  (...,
+                 </span>
+                 <span class="pre">
+                  K)
+                 </span>
+                </code>
+                that contains the vector(s) of singular values of length
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  K
+                 </span>
+                </code>
+                . For each vector, the singular values must be sorted in descending order by magnitude, such that
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  s[...,
+                 </span>
+                 <span class="pre">
+                  0]
+                 </span>
+                </code>
+                is the largest value,
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  s[...,
+                 </span>
+                 <span class="pre">
+                  1]
+                 </span>
+                </code>
+                is the second largest value, et cetera. The first
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  x.ndim-2
+                 </span>
+                </code>
+                dimensions must have the same shape as those of the input
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  x
+                 </span>
+                </code>
+                . The returned array must have the same floating-point data type as
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  x
+                 </span>
+                </code>
+                .
+               </p>
+              </li>
+             </ul>
+            </li>
+           </ul>
+          </section>
+         </section>
          <section id="trace-x-axis1-0-axis2-1-offset-0">
           <span id="function-trace">
           </span>
@@ -4914,10 +5090,10 @@
            </code>
            are used to determine the two-dimensional sub-arrays for which to compute the trace.
           </p>
-          <section id="id27">
-           <h4 id="id27">
+          <section id="id29">
+           <h4 id="id29">
             Parameters
-            <a class="headerlink" href="#id27" title="Permalink to this headline">
+            <a class="headerlink" href="#id29" title="Permalink to this headline">
              ¶
             </a>
            </h4>
@@ -5073,10 +5249,10 @@
             </li>
            </ul>
           </section>
-          <section id="id28">
-           <h4 id="id28">
+          <section id="id30">
+           <h4 id="id30">
             Returns
-            <a class="headerlink" href="#id28" title="Permalink to this headline">
+            <a class="headerlink" href="#id30" title="Permalink to this headline">
              ¶
             </a>
            </h4>
@@ -5228,10 +5404,10 @@
            </code>
            .
           </p>
-          <section id="id29">
-           <h4 id="id29">
+          <section id="id31">
+           <h4 id="id31">
             Parameters
-            <a class="headerlink" href="#id29" title="Permalink to this headline">
+            <a class="headerlink" href="#id31" title="Permalink to this headline">
              ¶
             </a>
            </h4>
@@ -5328,10 +5504,10 @@
             </li>
            </ul>
           </section>
-          <section id="id30">
-           <h4 id="id30">
+          <section id="id32">
+           <h4 id="id32">
             Returns
-            <a class="headerlink" href="#id30" title="Permalink to this headline">
+            <a class="headerlink" href="#id32" title="Permalink to this headline">
              ¶
             </a>
            </h4>
@@ -5375,10 +5551,10 @@
           <p>
            Computes the (vector) dot product of two arrays.
           </p>
-          <section id="id31">
-           <h4 id="id31">
+          <section id="id33">
+           <h4 id="id33">
             Parameters
-            <a class="headerlink" href="#id31" title="Permalink to this headline">
+            <a class="headerlink" href="#id33" title="Permalink to this headline">
              ¶
             </a>
            </h4>
@@ -5490,10 +5666,10 @@
             </li>
            </ul>
           </section>
-          <section id="id32">
-           <h4 id="id32">
+          <section id="id34">
+           <h4 id="id34">
             Returns
-            <a class="headerlink" href="#id32" title="Permalink to this headline">
+            <a class="headerlink" href="#id34" title="Permalink to this headline">
              ¶
             </a>
            </h4>
