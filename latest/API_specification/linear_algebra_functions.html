@@ -528,8 +528,8 @@
                       </a>
                      </li>
                      <li class="md-nav__item">
-                      <a class="md-nav__link" href="#trace-x-axis1-0-axis2-1-offset-0">
-                       trace(x, /, *, axis1=0, axis2=1, offset=0)
+                      <a class="md-nav__link" href="#tensordot-x1-x2-axes-2">
+                       tensordot(x1, x2, /, *, axes=2)
                       </a>
                       <nav class="md-nav">
                        <ul class="md-nav__list">
@@ -547,8 +547,8 @@
                       </nav>
                      </li>
                      <li class="md-nav__item">
-                      <a class="md-nav__link" href="#transpose-x-axes-none">
-                       transpose(x, /, *, axes=None)
+                      <a class="md-nav__link" href="#trace-x-axis1-0-axis2-1-offset-0">
+                       trace(x, /, *, axis1=0, axis2=1, offset=0)
                       </a>
                       <nav class="md-nav">
                        <ul class="md-nav__list">
@@ -566,8 +566,8 @@
                       </nav>
                      </li>
                      <li class="md-nav__item">
-                      <a class="md-nav__link" href="#vecdot-x1-x2-axis-none">
-                       vecdot(x1, x2, /, *, axis=None)
+                      <a class="md-nav__link" href="#transpose-x-axes-none">
+                       transpose(x, /, *, axes=None)
                       </a>
                       <nav class="md-nav">
                        <ul class="md-nav__list">
@@ -578,6 +578,25 @@
                         </li>
                         <li class="md-nav__item">
                          <a class="md-nav__link" href="#id22">
+                          Returns
+                         </a>
+                        </li>
+                       </ul>
+                      </nav>
+                     </li>
+                     <li class="md-nav__item">
+                      <a class="md-nav__link" href="#vecdot-x1-x2-axis-none">
+                       vecdot(x1, x2, /, *, axis=None)
+                      </a>
+                      <nav class="md-nav">
+                       <ul class="md-nav__list">
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#id23">
+                          Parameters
+                         </a>
+                        </li>
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#id24">
                           Returns
                          </a>
                         </li>
@@ -894,8 +913,8 @@
                  </a>
                 </li>
                 <li class="md-nav__item">
-                 <a class="md-nav__link" href="#trace-x-axis1-0-axis2-1-offset-0">
-                  trace(x, /, *, axis1=0, axis2=1, offset=0)
+                 <a class="md-nav__link" href="#tensordot-x1-x2-axes-2">
+                  tensordot(x1, x2, /, *, axes=2)
                  </a>
                  <nav class="md-nav">
                   <ul class="md-nav__list">
@@ -913,8 +932,8 @@
                  </nav>
                 </li>
                 <li class="md-nav__item">
-                 <a class="md-nav__link" href="#transpose-x-axes-none">
-                  transpose(x, /, *, axes=None)
+                 <a class="md-nav__link" href="#trace-x-axis1-0-axis2-1-offset-0">
+                  trace(x, /, *, axis1=0, axis2=1, offset=0)
                  </a>
                  <nav class="md-nav">
                   <ul class="md-nav__list">
@@ -932,8 +951,8 @@
                  </nav>
                 </li>
                 <li class="md-nav__item">
-                 <a class="md-nav__link" href="#vecdot-x1-x2-axis-none">
-                  vecdot(x1, x2, /, *, axis=None)
+                 <a class="md-nav__link" href="#transpose-x-axes-none">
+                  transpose(x, /, *, axes=None)
                  </a>
                  <nav class="md-nav">
                   <ul class="md-nav__list">
@@ -944,6 +963,25 @@
                    </li>
                    <li class="md-nav__item">
                     <a class="md-nav__link" href="#id22">
+                     Returns
+                    </a>
+                   </li>
+                  </ul>
+                 </nav>
+                </li>
+                <li class="md-nav__item">
+                 <a class="md-nav__link" href="#vecdot-x1-x2-axis-none">
+                  vecdot(x1, x2, /, *, axis=None)
+                 </a>
+                 <nav class="md-nav">
+                  <ul class="md-nav__list">
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#id23">
+                     Parameters
+                    </a>
+                   </li>
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#id24">
                      Returns
                     </a>
                    </li>
@@ -2806,6 +2844,317 @@
            TODO
           </p>
          </section>
+         <section id="tensordot-x1-x2-axes-2">
+          <span id="function-tensordot">
+          </span>
+          <h3 id="tensordot-x1-x2-axes-2">
+           tensordot(x1, x2, /, *, axes=2)
+           <a class="headerlink" href="#tensordot-x1-x2-axes-2" title="Permalink to this headline">
+            ¶
+           </a>
+          </h3>
+          <p>
+           Returns a tensor contraction of
+           <code class="docutils literal notranslate">
+            <span class="pre">
+             x1
+            </span>
+           </code>
+           and
+           <code class="docutils literal notranslate">
+            <span class="pre">
+             x2
+            </span>
+           </code>
+           over specific axes.
+          </p>
+          <section id="id17">
+           <h4 id="id17">
+            Parameters
+            <a class="headerlink" href="#id17" title="Permalink to this headline">
+             ¶
+            </a>
+           </h4>
+           <ul>
+            <li>
+             <p>
+              <strong>
+               x1
+              </strong>
+              :
+              <em>
+               &lt;array&gt;
+              </em>
+             </p>
+             <ul class="simple">
+              <li>
+               <p>
+                first input array. Should have a numeric data type.
+               </p>
+              </li>
+             </ul>
+            </li>
+            <li>
+             <p>
+              <strong>
+               x2
+              </strong>
+              :
+              <em>
+               &lt;array&gt;
+              </em>
+             </p>
+             <ul class="simple">
+              <li>
+               <p>
+                second input array. Must be compatible with
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  x1
+                 </span>
+                </code>
+                (see
+                <a class="reference internal" href="broadcasting.html#broadcasting">
+                 <span class="std std-ref">
+                  Broadcasting
+                 </span>
+                </a>
+                ). Should have a numeric data type.
+               </p>
+              </li>
+             </ul>
+            </li>
+            <li>
+             <p>
+              <strong>
+               axes
+              </strong>
+              :
+              <em>
+               Union[ int, Tuple[ Sequence[ int ], Sequence[ int ] ] ]
+              </em>
+             </p>
+             <ul>
+              <li>
+               <p>
+                number of axes (dimensions) to contract or explicit sequences of axes (dimensions) for
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  x1
+                 </span>
+                </code>
+                and
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  x2
+                 </span>
+                </code>
+                , respectively.
+               </p>
+               <p>
+                If
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  axes
+                 </span>
+                </code>
+                is an
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  int
+                 </span>
+                </code>
+                equal to
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  N
+                 </span>
+                </code>
+                , then contraction must be performed over the last
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  N
+                 </span>
+                </code>
+                axes of
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  x1
+                 </span>
+                </code>
+                and the first
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  N
+                 </span>
+                </code>
+                axes of
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  x2
+                 </span>
+                </code>
+                in order. The size of each corresponding axis (dimension) must match. Must be nonnegative.
+               </p>
+               <ul class="simple">
+                <li>
+                 <p>
+                  If
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    N
+                   </span>
+                  </code>
+                  equals
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    0
+                   </span>
+                  </code>
+                  , the result is the tensor (outer) product.
+                 </p>
+                </li>
+                <li>
+                 <p>
+                  If
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    N
+                   </span>
+                  </code>
+                  equals
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    1
+                   </span>
+                  </code>
+                  , the result is the tensor dot product.
+                 </p>
+                </li>
+                <li>
+                 <p>
+                  If
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    N
+                   </span>
+                  </code>
+                  equals
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    2
+                   </span>
+                  </code>
+                  , the result is the tensor double contraction (default).
+                 </p>
+                </li>
+               </ul>
+               <p>
+                If
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  axes
+                 </span>
+                </code>
+                is a tuple of two sequences
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  (x1_axes,
+                 </span>
+                 <span class="pre">
+                  x2_axes)
+                 </span>
+                </code>
+                , the first sequence must apply to
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  x
+                 </span>
+                </code>
+                and the second sequence to
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  x2
+                 </span>
+                </code>
+                . Both sequences must have the same length. Each axis (dimension)
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  x1_axes[i]
+                 </span>
+                </code>
+                for
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  x1
+                 </span>
+                </code>
+                must have the same size as the respective axis (dimension)
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  x2_axes[i]
+                 </span>
+                </code>
+                for
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  x2
+                 </span>
+                </code>
+                . Each sequence must consist of unique (nonnegative) integers that specify valid axes for each respective array.
+               </p>
+              </li>
+             </ul>
+            </li>
+           </ul>
+          </section>
+          <section id="id18">
+           <h4 id="id18">
+            Returns
+            <a class="headerlink" href="#id18" title="Permalink to this headline">
+             ¶
+            </a>
+           </h4>
+           <ul class="simple">
+            <li>
+             <p>
+              <strong>
+               out
+              </strong>
+              :
+              <em>
+               &lt;array&gt;
+              </em>
+             </p>
+             <ul>
+              <li>
+               <p>
+                an array containing the tensor contraction whose shape consists of the non-contracted axes (dimensions) of the first array
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  x1
+                 </span>
+                </code>
+                , followed by the non-contracted axes (dimensions) of the second array
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  x2
+                 </span>
+                </code>
+                . The returned array must have a data type determined by
+                <a class="reference internal" href="type_promotion.html#type-promotion">
+                 <span class="std std-ref">
+                  Type Promotion Rules
+                 </span>
+                </a>
+                .
+               </p>
+              </li>
+             </ul>
+            </li>
+           </ul>
+          </section>
+         </section>
          <section id="trace-x-axis1-0-axis2-1-offset-0">
           <span id="function-trace">
           </span>
@@ -2836,10 +3185,10 @@
            </code>
            are used to determine the two-dimensional sub-arrays for which to compute the trace.
           </p>
-          <section id="id17">
-           <h4 id="id17">
+          <section id="id19">
+           <h4 id="id19">
             Parameters
-            <a class="headerlink" href="#id17" title="Permalink to this headline">
+            <a class="headerlink" href="#id19" title="Permalink to this headline">
              ¶
             </a>
            </h4>
@@ -2995,10 +3344,10 @@
             </li>
            </ul>
           </section>
-          <section id="id18">
-           <h4 id="id18">
+          <section id="id20">
+           <h4 id="id20">
             Returns
-            <a class="headerlink" href="#id18" title="Permalink to this headline">
+            <a class="headerlink" href="#id20" title="Permalink to this headline">
              ¶
             </a>
            </h4>
@@ -3150,10 +3499,10 @@
            </code>
            .
           </p>
-          <section id="id19">
-           <h4 id="id19">
+          <section id="id21">
+           <h4 id="id21">
             Parameters
-            <a class="headerlink" href="#id19" title="Permalink to this headline">
+            <a class="headerlink" href="#id21" title="Permalink to this headline">
              ¶
             </a>
            </h4>
@@ -3250,10 +3599,10 @@
             </li>
            </ul>
           </section>
-          <section id="id20">
-           <h4 id="id20">
+          <section id="id22">
+           <h4 id="id22">
             Returns
-            <a class="headerlink" href="#id20" title="Permalink to this headline">
+            <a class="headerlink" href="#id22" title="Permalink to this headline">
              ¶
             </a>
            </h4>
@@ -3297,10 +3646,10 @@
           <p>
            Computes the (vector) dot product of two arrays.
           </p>
-          <section id="id21">
-           <h4 id="id21">
+          <section id="id23">
+           <h4 id="id23">
             Parameters
-            <a class="headerlink" href="#id21" title="Permalink to this headline">
+            <a class="headerlink" href="#id23" title="Permalink to this headline">
              ¶
             </a>
            </h4>
@@ -3412,10 +3761,10 @@
             </li>
            </ul>
           </section>
-          <section id="id22">
-           <h4 id="id22">
+          <section id="id24">
+           <h4 id="id24">
             Returns
-            <a class="headerlink" href="#id22" title="Permalink to this headline">
+            <a class="headerlink" href="#id24" title="Permalink to this headline">
              ¶
             </a>
            </h4>
