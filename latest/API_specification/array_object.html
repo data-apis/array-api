@@ -741,6 +741,11 @@
                           Returns
                          </a>
                         </li>
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#raises">
+                          Raises
+                         </a>
+                        </li>
                        </ul>
                       </nav>
                      </li>
@@ -1589,6 +1594,11 @@
                    <li class="md-nav__item">
                     <a class="md-nav__link" href="#id45">
                      Returns
+                    </a>
+                   </li>
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#raises">
+                     Raises
                     </a>
                    </li>
                   </ul>
@@ -6921,16 +6931,32 @@ cost of more synchronization than necessary.
            </a>
           </h3>
           <p>
-           <em>
-            TODO: awaiting
+           Computes the matrix product.
+          </p>
+          <div class="admonition note">
+           <p class="admonition-title">
+            Note
+           </p>
+           <p>
+            The
             <code class="docutils literal notranslate">
              <span class="pre">
               matmul
              </span>
             </code>
-            functional equivalent.
-           </em>
-          </p>
+            function must implement the same semantics as the built-in
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              @
+             </span>
+            </code>
+            operator (see
+            <a class="reference external" href="https://www.python.org/dev/peps/pep-0465">
+             PEP 465
+            </a>
+            ).
+           </p>
+          </div>
           <section id="id44">
            <h4 id="id44">
             Parameters
@@ -6952,7 +6978,88 @@ cost of more synchronization than necessary.
              <ul>
               <li>
                <p>
-                array instance.
+                array instance. Should have a numeric data type. Must have at least one dimension. If
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  self
+                 </span>
+                </code>
+                is one-dimensional having shape
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  (M)
+                 </span>
+                </code>
+                and
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  other
+                 </span>
+                </code>
+                has more than one dimension,
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  self
+                 </span>
+                </code>
+                must be promoted to a two-dimensional array by prepending
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  1
+                 </span>
+                </code>
+                to its dimensions (i.e., must have shape
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  (1,
+                 </span>
+                 <span class="pre">
+                  M)
+                 </span>
+                </code>
+                ). After matrix multiplication, the prepended dimensions in the returned array must be removed. If
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  self
+                 </span>
+                </code>
+                has more than one dimension (including after vector-to-matrix promotion),
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  self
+                 </span>
+                </code>
+                must be compatible with
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  other
+                 </span>
+                </code>
+                (see
+                <a class="reference internal" href="broadcasting.html#broadcasting">
+                 <span class="std std-ref">
+                  Broadcasting
+                 </span>
+                </a>
+                ). If
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  self
+                 </span>
+                </code>
+                has shape
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  (...,
+                 </span>
+                 <span class="pre">
+                  M,
+                 </span>
+                 <span class="pre">
+                  K)
+                 </span>
+                </code>
+                , the innermost two dimensions form matrices on which to perform matrix multiplication.
                </p>
               </li>
              </ul>
@@ -6970,7 +7077,58 @@ cost of more synchronization than necessary.
              <ul>
               <li>
                <p>
-                other array. Must be compatible with
+                other array. Should have a numeric data type. Must have at least one dimension. If
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  other
+                 </span>
+                </code>
+                is one-dimensional having shape
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  (N)
+                 </span>
+                </code>
+                and
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  self
+                 </span>
+                </code>
+                has more than one dimension,
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  other
+                 </span>
+                </code>
+                must be promoted to a two-dimensional array by appending
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  1
+                 </span>
+                </code>
+                to its dimensions (i.e., must have shape
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  (N,
+                 </span>
+                 <span class="pre">
+                  1)
+                 </span>
+                </code>
+                ). After matrix multiplication, the appended dimensions in the returned array must be removed. If
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  other
+                 </span>
+                </code>
+                has more than one dimension (including after vector-to-matrix promotion),
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  other
+                 </span>
+                </code>
+                must be compatible with
                 <code class="docutils literal notranslate">
                  <span class="pre">
                   self
@@ -6982,7 +7140,25 @@ cost of more synchronization than necessary.
                   Broadcasting
                  </span>
                 </a>
-                ).
+                ). If
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  other
+                 </span>
+                </code>
+                has shape
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  (...,
+                 </span>
+                 <span class="pre">
+                  K,
+                 </span>
+                 <span class="pre">
+                  N)
+                 </span>
+                </code>
+                , the innermost two dimensions form matrices on which to perform matrix multiplication.
                </p>
               </li>
              </ul>
@@ -6996,7 +7172,7 @@ cost of more synchronization than necessary.
              ¶
             </a>
            </h4>
-           <ul class="simple">
+           <ul>
             <li>
              <p>
               <strong>
@@ -7007,15 +7183,472 @@ cost of more synchronization than necessary.
                &lt;array&gt;
               </em>
              </p>
-             <ul>
+             <ul class="simple">
               <li>
                <p>
-                <em>
-                 TODO
-                </em>
+                if both
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  self
+                 </span>
+                </code>
+                and
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  other
+                 </span>
+                </code>
+                are one-dimensional arrays having shape
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  (N)
+                 </span>
+                </code>
+                , a zero-dimensional array containing the inner product as its only element.
+               </p>
+              </li>
+              <li>
+               <p>
+                if
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  self
+                 </span>
+                </code>
+                is a two-dimensional array having shape
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  (M,
+                 </span>
+                 <span class="pre">
+                  K)
+                 </span>
+                </code>
+                and
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  other
+                 </span>
+                </code>
+                is a two-dimensional array having shape
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  (K,
+                 </span>
+                 <span class="pre">
+                  N)
+                 </span>
+                </code>
+                , a two-dimensional array containing the
+                <a class="reference external" href="https://en.wikipedia.org/wiki/Matrix_multiplication">
+                 conventional matrix product
+                </a>
+                and having shape
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  (M,
+                 </span>
+                 <span class="pre">
+                  N)
+                 </span>
+                </code>
+                .
+               </p>
+              </li>
+              <li>
+               <p>
+                if
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  self
+                 </span>
+                </code>
+                is a one-dimensional array having shape
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  (K)
+                 </span>
+                </code>
+                and
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  other
+                 </span>
+                </code>
+                is an array having shape
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  (...,
+                 </span>
+                 <span class="pre">
+                  K,
+                 </span>
+                 <span class="pre">
+                  N)
+                 </span>
+                </code>
+                , an array having shape
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  (...,
+                 </span>
+                 <span class="pre">
+                  N)
+                 </span>
+                </code>
+                (i.e., prepended dimensions during vector-to-matrix promotion must be removed) and containing the
+                <a class="reference external" href="https://en.wikipedia.org/wiki/Matrix_multiplication">
+                 conventional matrix product
+                </a>
+                .
+               </p>
+              </li>
+              <li>
+               <p>
+                if
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  self
+                 </span>
+                </code>
+                is an array having shape
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  (...,
+                 </span>
+                 <span class="pre">
+                  M,
+                 </span>
+                 <span class="pre">
+                  K)
+                 </span>
+                </code>
+                and
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  other
+                 </span>
+                </code>
+                is a one-dimensional array having shape
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  (K)
+                 </span>
+                </code>
+                , an array having shape
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  (...,
+                 </span>
+                 <span class="pre">
+                  M)
+                 </span>
+                </code>
+                (i.e., appended dimensions during vector-to-matrix promotion must be removed) and containing the
+                <a class="reference external" href="https://en.wikipedia.org/wiki/Matrix_multiplication">
+                 conventional matrix product
+                </a>
+                .
+               </p>
+              </li>
+              <li>
+               <p>
+                if
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  self
+                 </span>
+                </code>
+                is a two-dimensional array having shape
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  (M,
+                 </span>
+                 <span class="pre">
+                  K)
+                 </span>
+                </code>
+                and
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  other
+                 </span>
+                </code>
+                is an array having shape
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  (...,
+                 </span>
+                 <span class="pre">
+                  K,
+                 </span>
+                 <span class="pre">
+                  N)
+                 </span>
+                </code>
+                , an array having shape
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  (...,
+                 </span>
+                 <span class="pre">
+                  M,
+                 </span>
+                 <span class="pre">
+                  N)
+                 </span>
+                </code>
+                and containing the
+                <a class="reference external" href="https://en.wikipedia.org/wiki/Matrix_multiplication">
+                 conventional matrix product
+                </a>
+                for each stacked matrix.
+               </p>
+              </li>
+              <li>
+               <p>
+                if
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  self
+                 </span>
+                </code>
+                is an array having shape
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  (...,
+                 </span>
+                 <span class="pre">
+                  M,
+                 </span>
+                 <span class="pre">
+                  K)
+                 </span>
+                </code>
+                and
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  other
+                 </span>
+                </code>
+                is a two-dimensional array having shape
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  (K,
+                 </span>
+                 <span class="pre">
+                  N)
+                 </span>
+                </code>
+                , an array having shape
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  (...,
+                 </span>
+                 <span class="pre">
+                  M,
+                 </span>
+                 <span class="pre">
+                  N)
+                 </span>
+                </code>
+                and containing the
+                <a class="reference external" href="https://en.wikipedia.org/wiki/Matrix_multiplication">
+                 conventional matrix product
+                </a>
+                for each stacked matrix.
+               </p>
+              </li>
+              <li>
+               <p>
+                if either
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  self
+                 </span>
+                </code>
+                or
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  other
+                 </span>
+                </code>
+                has more than two dimensions, an array having a shape determined by
+                <a class="reference internal" href="broadcasting.html#broadcasting">
+                 <span class="std std-ref">
+                  Broadcasting
+                 </span>
+                </a>
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  self
+                 </span>
+                </code>
+                against
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  other
+                 </span>
+                </code>
+                and containing the
+                <a class="reference external" href="https://en.wikipedia.org/wiki/Matrix_multiplication">
+                 conventional matrix product
+                </a>
+                for each stacked matrix.
                </p>
               </li>
              </ul>
+             <p>
+              The returned array must have a data type determined by
+              <a class="reference internal" href="type_promotion.html#type-promotion">
+               <span class="std std-ref">
+                Type Promotion Rules
+               </span>
+              </a>
+              .
+             </p>
+             <div class="admonition note">
+              <p class="admonition-title">
+               Note
+              </p>
+              <p>
+               Results must equal the results returned by the equivalent function
+               <a class="reference internal" href="linear_algebra_functions.html#matmul-x1-x2">
+                <span class="std std-doc">
+                 <code class="docutils literal notranslate">
+                  <span class="pre">
+                   matmul(x1,
+                  </span>
+                  <span class="pre">
+                   x2)
+                  </span>
+                 </code>
+                </span>
+               </a>
+               .
+              </p>
+             </div>
+            </li>
+           </ul>
+          </section>
+          <section id="raises">
+           <h4 id="raises">
+            Raises
+            <a class="headerlink" href="#raises" title="Permalink to this headline">
+             ¶
+            </a>
+           </h4>
+           <ul class="simple">
+            <li>
+             <p>
+              if either
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                self
+               </span>
+              </code>
+              or
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                other
+               </span>
+              </code>
+              is a zero-dimensional array.
+             </p>
+            </li>
+            <li>
+             <p>
+              if
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                self
+               </span>
+              </code>
+              is a one-dimensional array having shape
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                (N)
+               </span>
+              </code>
+              ,
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                other
+               </span>
+              </code>
+              is a one-dimensional array having shape
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                (M)
+               </span>
+              </code>
+              , and
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                N
+               </span>
+               <span class="pre">
+                !=
+               </span>
+               <span class="pre">
+                M
+               </span>
+              </code>
+              .
+             </p>
+            </li>
+            <li>
+             <p>
+              if
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                self
+               </span>
+              </code>
+              is an array having shape
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                (...,
+               </span>
+               <span class="pre">
+                M,
+               </span>
+               <span class="pre">
+                K)
+               </span>
+              </code>
+              ,
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                other
+               </span>
+              </code>
+              is an array having shape
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                (...,
+               </span>
+               <span class="pre">
+                L,
+               </span>
+               <span class="pre">
+                N)
+               </span>
+              </code>
+              , and
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                K
+               </span>
+               <span class="pre">
+                !=
+               </span>
+               <span class="pre">
+                L
+               </span>
+              </code>
+              .
+             </p>
             </li>
            </ul>
           </section>
