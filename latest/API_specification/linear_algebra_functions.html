@@ -383,11 +383,6 @@
                       </nav>
                      </li>
                      <li class="md-nav__item">
-                      <a class="md-nav__link" href="#dot">
-                       dot()
-                      </a>
-                     </li>
-                     <li class="md-nav__item">
                       <a class="md-nav__link" href="#eig">
                        eig()
                       </a>
@@ -570,6 +565,30 @@
                        </ul>
                       </nav>
                      </li>
+                     <li class="md-nav__item">
+                      <a class="md-nav__link" href="#vecdot-x1-x2-axis-none">
+                       vecdot(x1, x2, /, *, axis=None)
+                      </a>
+                      <nav class="md-nav">
+                       <ul class="md-nav__list">
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#id21">
+                          Parameters
+                         </a>
+                        </li>
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#id22">
+                          Returns
+                         </a>
+                        </li>
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#raises">
+                          Raises
+                         </a>
+                        </li>
+                       </ul>
+                      </nav>
+                     </li>
                     </ul>
                    </nav>
                   </li>
@@ -728,11 +747,6 @@
                    </li>
                   </ul>
                  </nav>
-                </li>
-                <li class="md-nav__item">
-                 <a class="md-nav__link" href="#dot">
-                  dot()
-                 </a>
                 </li>
                 <li class="md-nav__item">
                  <a class="md-nav__link" href="#eig">
@@ -912,6 +926,30 @@
                    <li class="md-nav__item">
                     <a class="md-nav__link" href="#id20">
                      Returns
+                    </a>
+                   </li>
+                  </ul>
+                 </nav>
+                </li>
+                <li class="md-nav__item">
+                 <a class="md-nav__link" href="#vecdot-x1-x2-axis-none">
+                  vecdot(x1, x2, /, *, axis=None)
+                 </a>
+                 <nav class="md-nav">
+                  <ul class="md-nav__list">
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#id21">
+                     Parameters
+                    </a>
+                   </li>
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#id22">
+                     Returns
+                    </a>
+                   </li>
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#raises">
+                     Raises
                     </a>
                    </li>
                   </ul>
@@ -1648,19 +1686,6 @@
             </li>
            </ul>
           </section>
-         </section>
-         <section id="dot">
-          <span id="function-dot">
-          </span>
-          <h3 id="dot">
-           dot()
-           <a class="headerlink" href="#dot" title="Permalink to this headline">
-            ¶
-           </a>
-          </h3>
-          <p>
-           TODO
-          </p>
          </section>
          <section id="eig">
           <span id="function-eig">
@@ -3256,6 +3281,236 @@
                </p>
               </li>
              </ul>
+            </li>
+           </ul>
+          </section>
+         </section>
+         <section id="vecdot-x1-x2-axis-none">
+          <span id="function-vecdot">
+          </span>
+          <h3 id="vecdot-x1-x2-axis-none">
+           vecdot(x1, x2, /, *, axis=None)
+           <a class="headerlink" href="#vecdot-x1-x2-axis-none" title="Permalink to this headline">
+            ¶
+           </a>
+          </h3>
+          <p>
+           Computes the (vector) dot product of two arrays.
+          </p>
+          <section id="id21">
+           <h4 id="id21">
+            Parameters
+            <a class="headerlink" href="#id21" title="Permalink to this headline">
+             ¶
+            </a>
+           </h4>
+           <ul class="simple">
+            <li>
+             <p>
+              <strong>
+               x1
+              </strong>
+              :
+              <em>
+               &lt;array&gt;
+              </em>
+             </p>
+             <ul>
+              <li>
+               <p>
+                first input array. Should have a numeric data type.
+               </p>
+              </li>
+             </ul>
+            </li>
+            <li>
+             <p>
+              <strong>
+               x2
+              </strong>
+              :
+              <em>
+               &lt;array&gt;
+              </em>
+             </p>
+             <ul>
+              <li>
+               <p>
+                second input array. Must be compatible with
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  x1
+                 </span>
+                </code>
+                (see
+                <a class="reference internal" href="broadcasting.html#broadcasting">
+                 <span class="std std-ref">
+                  Broadcasting
+                 </span>
+                </a>
+                ). Should have a numeric data type.
+               </p>
+              </li>
+             </ul>
+            </li>
+            <li>
+             <p>
+              <strong>
+               axis
+              </strong>
+              :
+              <em>
+               Optional[ int ]
+              </em>
+             </p>
+             <ul>
+              <li>
+               <p>
+                axis over which to compute the dot product. Must be an integer on the interval
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  [-N,
+                 </span>
+                 <span class="pre">
+                  N)
+                 </span>
+                </code>
+                , where
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  N
+                 </span>
+                </code>
+                is the rank (number of dimensions) of the shape determined according to
+                <a class="reference internal" href="broadcasting.html#broadcasting">
+                 <span class="std std-ref">
+                  Broadcasting
+                 </span>
+                </a>
+                . If specified as a negative integer, the function must determine the axis along which to compute the dot product by counting backward from the last dimension (where
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  -1
+                 </span>
+                </code>
+                refers to the last dimension). If
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  None
+                 </span>
+                </code>
+                , the function must compute the dot product over the last axis. Default:
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  None
+                 </span>
+                </code>
+                .
+               </p>
+              </li>
+             </ul>
+            </li>
+           </ul>
+          </section>
+          <section id="id22">
+           <h4 id="id22">
+            Returns
+            <a class="headerlink" href="#id22" title="Permalink to this headline">
+             ¶
+            </a>
+           </h4>
+           <ul class="simple">
+            <li>
+             <p>
+              <strong>
+               out
+              </strong>
+              :
+              <em>
+               &lt;array;&gt;
+              </em>
+             </p>
+             <ul>
+              <li>
+               <p>
+                if
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  x1
+                 </span>
+                </code>
+                and
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  x2
+                 </span>
+                </code>
+                are both one-dimensional arrays, a zero-dimensional containing the dot product; otherwise, a non-zero-dimensional array containing the dot products and having rank
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  N-1
+                 </span>
+                </code>
+                , where
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  N
+                 </span>
+                </code>
+                is the rank (number of dimensions) of the shape determined according to
+                <a class="reference internal" href="broadcasting.html#broadcasting">
+                 <span class="std std-ref">
+                  Broadcasting
+                 </span>
+                </a>
+                . The returned array must have a data type determined by
+                <a class="reference internal" href="type_promotion.html#type-promotion">
+                 <span class="std std-ref">
+                  Type Promotion Rules
+                 </span>
+                </a>
+                .
+               </p>
+              </li>
+             </ul>
+            </li>
+           </ul>
+          </section>
+          <section id="raises">
+           <h4 id="raises">
+            Raises
+            <a class="headerlink" href="#raises" title="Permalink to this headline">
+             ¶
+            </a>
+           </h4>
+           <ul class="simple">
+            <li>
+             <p>
+              if provided an invalid
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                axis
+               </span>
+              </code>
+              .
+             </p>
+            </li>
+            <li>
+             <p>
+              if the size of the axis over which to compute the dot product is not the same for both
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                x1
+               </span>
+              </code>
+              and
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                x2
+               </span>
+              </code>
+              .
+             </p>
             </li>
            </ul>
           </section>
