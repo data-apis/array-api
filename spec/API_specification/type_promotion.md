@@ -102,9 +102,9 @@ arrays must be supported for:
 - `array <op> scalar`
 - `scalar <op> array`
 
-where `<op>` is a built-in operator (see {ref}`operators` for operators
-supported by the array object) and `scalar` has a compatible type and value
-to the array dtype:
+where `<op>` is a built-in operator, including in-place operators (see
+{ref}`operators` for operators supported by the array object) and `scalar` has
+a compatible type and value to the array dtype:
 - Python `bool` for a `bool` array dtype,
 - a Python `int` within the [bounds](data-types) of the given dtype for integer array dtypes,
 - a Python `int` or `float` for floating-point array dtypes

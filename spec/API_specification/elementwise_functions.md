@@ -570,7 +570,7 @@ Computes the truth value of `x1_i == x2_i` for each element `x1_i` of the input 
 
 -   **x2**: _&lt;array&gt;_
 
-    -   second input array. Must be compatible with `x1` (see {ref}`broadcasting`).
+    -   second input array. Must be compatible with `x1` (see {ref}`broadcasting`). May have any data type.
 
 #### Returns
 
@@ -946,11 +946,11 @@ For floating-point operands,
 
 -   **x1**: _&lt;array&gt;_
 
-    -   first input array.
+    -   first input array. Should have a floating-point data type.
 
 -   **x2**: _&lt;array&gt;_
 
-    -   second input array. Must be compatible with `x1` (see {ref}`broadcasting`).
+    -   second input array. Must be compatible with `x1` (see {ref}`broadcasting`). Should have a floating-point data type.
 
 #### Returns
 
