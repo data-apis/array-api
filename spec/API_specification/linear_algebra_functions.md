@@ -72,13 +72,6 @@ Accordingly, the standardization process affords the opportunity to reduce inter
 
 ## Objects in API
 
-```{note}
-
-Historically, linear algebra functionality has been split across interfaces belonging to different namespaces. For example, NumPy exposes linear algebra interfaces in both its top-level namespace and its `linalg` sub-namespace. The determination of which linear algebra interface belongs to which namespace is often unintuitive and a common source of confusion.
-
-As this specification has both the benefit of hindsight and the ability to ensure unique identifiers for each interface in an intentionally limited top-level namespace, the need for a dedicated `linalg` sub-namespace is less necessary and has been avoided here.
-```
-
 <!-- NOTE: please keep the functions in alphabetical order -->
 
 (function-linalg-cholesky)=
