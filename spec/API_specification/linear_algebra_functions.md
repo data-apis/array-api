@@ -257,15 +257,15 @@ The `matmul` function must implement the same semantics as the built-in `@` oper
 
 -    **out**: _&lt;array&gt;_
 
-    -   if both `x1` and `x2` are one-dimensional arrays having shape `(N)`, a zero-dimensional array containing the inner product as its only element.
-    -   if `x1` is a two-dimensional array having shape `(M, K)` and `x2` is a two-dimensional array having shape `(K, N)`, a two-dimensional array containing the [conventional matrix product](https://en.wikipedia.org/wiki/Matrix_multiplication) and having shape `(M, N)`.
-    -   if `x1` is a one-dimensional array having shape `(K)` and `x2` is an array having shape `(..., K, N)`, an array having shape `(..., N)` (i.e., prepended dimensions during vector-to-matrix promotion must be removed) and containing the [conventional matrix product](https://en.wikipedia.org/wiki/Matrix_multiplication).
-    -   if `x1` is an array having shape `(..., M, K)` and `x2` is a one-dimensional array having shape `(K)`, an array having shape `(..., M)` (i.e., appended dimensions during vector-to-matrix promotion must be removed) and containing the [conventional matrix product](https://en.wikipedia.org/wiki/Matrix_multiplication).
-    -   if `x1` is a two-dimensional array having shape `(M, K)` and `x2` is an array having shape `(..., K, N)`, an array having shape `(..., M, N)` and containing the [conventional matrix product](https://en.wikipedia.org/wiki/Matrix_multiplication) for each stacked matrix.
-    -   if `x1` is an array having shape `(..., M, K)` and `x2` is a two-dimensional array having shape `(K, N)`, an array having shape `(..., M, N)` and containing the [conventional matrix product](https://en.wikipedia.org/wiki/Matrix_multiplication) for each stacked matrix.
-    -   if either `x1` or `x2` has more than two dimensions, an array having a shape determined by {ref}`broadcasting` `x1` against `x2` and containing the [conventional matrix product](https://en.wikipedia.org/wiki/Matrix_multiplication) for each stacked matrix.
+     -   if both `x1` and `x2` are one-dimensional arrays having shape `(N)`, a zero-dimensional array containing the inner product as its only element.
+     -   if `x1` is a two-dimensional array having shape `(M, K)` and `x2` is a two-dimensional array having shape `(K, N)`, a two-dimensional array containing the [conventional matrix product](https://en.wikipedia.org/wiki/Matrix_multiplication) and having shape `(M, N)`.
+     -   if `x1` is a one-dimensional array having shape `(K)` and `x2` is an array having shape `(..., K, N)`, an array having shape `(..., N)` (i.e., prepended dimensions during vector-to-matrix promotion must be removed) and containing the [conventional matrix product](https://en.wikipedia.org/wiki/Matrix_multiplication).
+     -   if `x1` is an array having shape `(..., M, K)` and `x2` is a one-dimensional array having shape `(K)`, an array having shape `(..., M)` (i.e., appended dimensions during vector-to-matrix promotion must be removed) and containing the [conventional matrix product](https://en.wikipedia.org/wiki/Matrix_multiplication).
+     -   if `x1` is a two-dimensional array having shape `(M, K)` and `x2` is an array having shape `(..., K, N)`, an array having shape `(..., M, N)` and containing the [conventional matrix product](https://en.wikipedia.org/wiki/Matrix_multiplication) for each stacked matrix.
+     -   if `x1` is an array having shape `(..., M, K)` and `x2` is a two-dimensional array having shape `(K, N)`, an array having shape `(..., M, N)` and containing the [conventional matrix product](https://en.wikipedia.org/wiki/Matrix_multiplication) for each stacked matrix.
+     -   if either `x1` or `x2` has more than two dimensions, an array having a shape determined by {ref}`broadcasting` `x1` against `x2` and containing the [conventional matrix product](https://en.wikipedia.org/wiki/Matrix_multiplication) for each stacked matrix.
 
-    The returned array must have a data type determined by {ref}`type-promotion`.
+     The returned array must have a data type determined by {ref}`type-promotion`.
 
 #### Raises
 
