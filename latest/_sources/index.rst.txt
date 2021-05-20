@@ -19,6 +19,7 @@ Contents
    design_topics/index
    future_API_evolution
    API_specification/index
+   extensions/index
 
 .. toctree::
    :caption: Methodology and Usage
