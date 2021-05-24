@@ -434,7 +434,13 @@ Exports the array for consumption by {ref}`function-from_dlpack` as a DLPack cap
 
 -   **stream**: _Optional\[ int ]_
 
-    -   a Python integer representing a pointer to a stream. `stream` is provided by the consumer to the producer to instruct the producer to ensure that operations can safely be performed on the array. The pointer must be a positive integer or `-1`. If `stream` is `-1`, the value may be used by the consumer to signal "producer must not perform any synchronization". Device-specific notes:
+    -   for CUDA and ROCm, a Python integer representing a pointer to a stream, on devices that support streams. `stream` is provided by the consumer to the producer to instruct the producer to ensure that operations can safely be performed on the array (e.g., by inserting a dependency between streams via "wait for event"). The pointer must be a positive integer or `-1`. If `stream` is `-1`, the value may be used by the consumer to signal "producer must not perform any synchronization". The ownership of the stream stays with the consumer.
+
+        On CPU and other device types without streams, only `None` is accepted.
+
+        For other device types which do have a stream, queue or similar synchronization mechanism, the most appropriate type to use for `stream` is not yet determined. E.g., for SYCL one may want to use an object containing an in-order `cl::sycl::queue`. This is allowed when libraries agree on such a convention, and may be standardized in a future version of this API standard.
+
+        Device-specific notes:
 
         :::{admonition} CUDA
         -   `None`: producer must assume the legacy default stream (default).
