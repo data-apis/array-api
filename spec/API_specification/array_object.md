@@ -432,7 +432,7 @@ Exports the array for consumption by {ref}`function-from_dlpack` as a DLPack cap
 
     -   array instance.
 
--   **stream**: _Optional\[ int ]_
+-   **stream**: _Optional\[ Union\[ int, Any ]]_
 
     -   for CUDA and ROCm, a Python integer representing a pointer to a stream, on devices that support streams. `stream` is provided by the consumer to the producer to instruct the producer to ensure that operations can safely be performed on the array (e.g., by inserting a dependency between streams via "wait for event"). The pointer must be a positive integer or `-1`. If `stream` is `-1`, the value may be used by the consumer to signal "producer must not perform any synchronization". The ownership of the stream stays with the consumer.
 
