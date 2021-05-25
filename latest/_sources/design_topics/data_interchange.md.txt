@@ -111,6 +111,8 @@ The `__dlpack__` method will produce a `PyCapsule` containing a
 `from_dlpack` - therefore it is consumed exactly once, and it will not be
 visible to users of the Python API.
 
+The producer must set the PyCapsule name to ``"dltensor"`` so that it can
+be inspected by name.
 The consumer must set the PyCapsule name to `"used_dltensor"`, and call the
 `deleter` of the `DLPackManagedTensor` when it no longer needs the data.
 

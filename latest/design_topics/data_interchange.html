@@ -770,7 +770,15 @@ unnecessary so asynchronous execution is enabled.
 visible to users of the Python API.
          </p>
          <p>
-          The consumer must set the PyCapsule name to
+          The producer must set the PyCapsule name to
+          <code class="docutils literal notranslate">
+           <span class="pre">
+            "dltensor"
+           </span>
+          </code>
+          so that it can
+be inspected by name.
+The consumer must set the PyCapsule name to
           <code class="docutils literal notranslate">
            <span class="pre">
             "used_dltensor"
