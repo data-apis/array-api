@@ -5202,19 +5202,19 @@ an array object supporting the following reflected operators:
               </strong>
               :
               <em>
-               Optional[ int ]
+               Optional[ Union[ int, Any ]]
               </em>
              </p>
              <ul>
               <li>
                <p>
-                a Python integer representing a pointer to a stream.
+                for CUDA and ROCm, a Python integer representing a pointer to a stream, on devices that support streams.
                 <code class="docutils literal notranslate">
                  <span class="pre">
                   stream
                  </span>
                 </code>
-                is provided by the consumer to the producer to instruct the producer to ensure that operations can safely be performed on the array. The pointer must be a positive integer or
+                is provided by the consumer to the producer to instruct the producer to ensure that operations can safely be performed on the array (e.g., by inserting a dependency between streams via “wait for event”). The pointer must be a positive integer or
                 <code class="docutils literal notranslate">
                  <span class="pre">
                   -1
@@ -5232,7 +5232,34 @@ an array object supporting the following reflected operators:
                   -1
                  </span>
                 </code>
-                , the value may be used by the consumer to signal “producer must not perform any synchronization”. Device-specific notes:
+                , the value may be used by the consumer to signal “producer must not perform any synchronization”. The ownership of the stream stays with the consumer.
+               </p>
+               <p>
+                On CPU and other device types without streams, only
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  None
+                 </span>
+                </code>
+                is accepted.
+               </p>
+               <p>
+                For other device types which do have a stream, queue or similar synchronization mechanism, the most appropriate type to use for
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  stream
+                 </span>
+                </code>
+                is not yet determined. E.g., for SYCL one may want to use an object containing an in-order
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  cl::sycl::queue
+                 </span>
+                </code>
+                . This is allowed when libraries agree on such a convention, and may be standardized in a future version of this API standard.
+               </p>
+               <p>
+                Device-specific notes:
                </p>
                <div class="admonition-cuda admonition">
                 <p class="admonition-title">
