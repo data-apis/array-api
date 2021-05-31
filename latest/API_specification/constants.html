@@ -462,8 +462,21 @@
          </div>
         </blockquote>
         <p>
-         A conforming implementation of the array API standard must provide and support the following constants.
+         A conforming implementation of the array API standard must provide and support the following constants adhering to the following conventions.
         </p>
+        <ul class="simple">
+         <li>
+          <p>
+           Each constant must have a Python floating-point data type (i.e.,
+           <code class="docutils literal notranslate">
+            <span class="pre">
+             float
+            </span>
+           </code>
+           ) and be provided as a Python scalar value.
+          </p>
+         </li>
+        </ul>
         <!-- NOTE: please keep the constants in alphabetical order -->
         <section id="objects-in-api">
          <h2 id="objects-in-api">
@@ -482,7 +495,7 @@
            </a>
           </h3>
           <p>
-           Euler’s constant.
+           IEEE 754 floating-point representation of Euler’s constant.
           </p>
           <div class="highlight-text notranslate">
            <div class="highlight">
@@ -533,7 +546,7 @@
            </a>
           </h3>
           <p>
-           The mathematical constant
+           IEEE 754 floating-point representation of the mathematical constant
            <code class="docutils literal notranslate">
             <span class="pre">
              π
