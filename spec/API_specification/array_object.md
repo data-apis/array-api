@@ -737,7 +737,7 @@ Evaluates `self_i << other_i` for each element of an array instance with the res
 
 ```{note}
 
-Element-wise results must equal the results returned by the equivalent element-wise function [`less_equal(x1, x2)`](elementwise_functions.md#bitwise_left_shiftx1-x2-).
+Element-wise results must equal the results returned by the equivalent element-wise function [`bitwise_left_shift(x1, x2)`](elementwise_functions.md#bitwise_left_shiftx1-x2-).
 ```
 
 (method-__lt__)=
