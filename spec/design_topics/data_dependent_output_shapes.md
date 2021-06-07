@@ -2,7 +2,7 @@
 
 # Data-dependent output shapes
 
-Array libraries which build array computation graphs commonly employ static analysis that relies upon known shapes. For example, JAX requires known array sizes when compiling code, in order to perform static memory allocation. Functions and operations which are value-dependent present difficulties for such libraries, as array sizes cannot be inferred AOT without also knowing the contents of the respective arrays.
+Array libraries which build array computation graphs commonly employ static analysis that relies upon known shapes. For example, JAX requires known array sizes when compiling code, in order to perform static memory allocation. Functions and operations which are value-dependent present difficulties for such libraries, as array sizes cannot be inferred ahead of time without also knowing the contents of the respective arrays.
 
 While value-dependent functions and operations are not impossible for array computation graph libraries to implement, this specification does not want to impose an undue burden on such libraries and permits omission of value-dependent operations. All other array libraries are expected, however, to implement the value-dependent operations included in this specification in order to be array specification compliant.
 
