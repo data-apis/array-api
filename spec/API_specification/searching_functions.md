@@ -69,6 +69,12 @@ Returns the indices of the minimum values along a specified axis. When the minim
 (function-nonzero)=
 ### nonzero(x, /)
 
+:::{admonition} Data-dependent output shape
+:class: important
+
+The shape of the output array for this function depends on the data values in the input array, hence it can be difficult to implement for libraries that build computation graphs for arrays without knowing their values. See {ref}`indexing` section for more details.
+:::
+
 Returns the indices of the array elements which are non-zero.
 
 #### Parameters
