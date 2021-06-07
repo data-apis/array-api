@@ -18,7 +18,7 @@ A conforming implementation of the array API standard must provide and support t
 :::{admonition} Data-dependent output shape
 :class: important
 
-The shape of the output array for this function depends on the data values in the input array, hence it can be difficult to implement for libraries that build computation graphs for arrays without knowing their values. See {ref}`indexing` section for more details.
+The shapes of one or more of output arrays for this function depend on the data values in the input array; hence, libraries that build array computation graphs (e.g., JAX, Dask, etc.) may find this function difficult to implement without knowing array values. Accordingly, such libraries may choose to omit this function. See {ref}`indexing` section for more details.
 :::
 
 Returns the unique elements of an input array `x`.
