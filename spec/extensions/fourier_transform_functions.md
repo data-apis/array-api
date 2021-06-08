@@ -1,6 +1,6 @@
-# Fast Fourier Transform Functions
+# Fourier transform Functions
 
-> Array API specification for fast fourier transform functions.
+> Array API specification for Fourier transform functions.
 
 A conforming implementation of the array API standard must provide and support the following functions adhering to the following conventions.
 
@@ -17,7 +17,7 @@ A conforming implementation of the array API standard must provide and support t
 (function-fft)=
 ### fft(a, /, *, n=None, axis=-1, norm='backward')
 
-Computes the one-dimensional discrete Fourier Transform.
+Computes the one-dimensional discrete Fourier transform.
 
 #### Parameters
 
@@ -31,7 +31,7 @@ Computes the one-dimensional discrete Fourier Transform.
 
 -   **axis**: _int_
 
-    -  Axis used to compute the fast fourier transform. If it is not specified, the last axis is used. Default: `-1`.
+    -  Axis used to compute the Fourier transform. If it is not specified, the last axis is used. Default: `-1`.
 
 -   **norm**: _str_
 
@@ -56,7 +56,7 @@ Computes the one-dimensional discrete Fourier Transform.
 (function-fft2)=
 ### fft2(a, /, *, s=None, axes=(-2, -1), norm='backward')
 
-Computes the two-dimensional discrete Fourier Transform.
+Computes the two-dimensional discrete Fourier transform.
 
 #### Parameters
 
@@ -66,11 +66,11 @@ Computes the two-dimensional discrete Fourier Transform.
 
 -   **s**: _Union\[ Sequence\[ int ], Tuple\[ int, ... ] ]_
 
-    -   Size of each transformed axis of the output. If given, each axis will be either zero-padded or trimmed to the length `s[i]` before computing the fast fourier transform. Otherwise, no padding will be performed in each dimension. Default: `None`.
+    -   Size of each transformed axis of the output. If given, each axis will be either zero-padded or trimmed to the length `s[i]` before computing the Fourier transform. Otherwise, no padding will be performed in each dimension. Default: `None`.
 
 -   **axes**: _Union\[ Sequence\[ int ], Tuple\[ int, ... ] ]_
 
-    -  Axes over which to compute the fast fourier transform. If it is not specified, the last two axes are used. Default: `(-2, -1)`.
+    -  Axes over which to compute the Fourier transform. If it is not specified, the last two axes are used. Default: `(-2, -1)`.
 
 -   **norm**: _str_
 
@@ -97,7 +97,7 @@ Computes the two-dimensional discrete Fourier Transform.
 (function-fftfreq)=
 ### fftfreq(n, /, *, d=1.0)
 
-Returns the discrete Fourier Transform sample frequencies. For a Fourier Transform of length `n` and length unit of `d` the frequencies are described as:
+Returns the discrete Fourier transform sample frequencies. For a Fourier transform of length `n` and length unit of `d` the frequencies are described as:
 
 ```
 f = [0, 1, ..., n/2-1, -n/2, ..., -1] / (d*n) if n is even
@@ -112,7 +112,7 @@ f = [0, 1, ..., (n-1)/2, -(n-1)/2, ..., -1] / (d*n) if n is odd
 
 -   **d**: _float_
 
-    -   Sample spacing between individual samples of the FFT input. Default: `1.0`.
+    -   Sample spacing between individual samples of the Fourier transform input. Default: `1.0`.
 
 #### Returns
 
@@ -123,7 +123,7 @@ f = [0, 1, ..., (n-1)/2, -(n-1)/2, ..., -1] / (d*n) if n is odd
 (function-fftn)=
 ### fftn(a, /, *, s=None, axes=None, norm='backward')
 
-Computes the n-dimensional discrete Fourier Transform.
+Computes the n-dimensional discrete Fourier transform.
 
 #### Parameters
 
@@ -133,11 +133,11 @@ Computes the n-dimensional discrete Fourier Transform.
 
 -   **s**: _Union\[ Sequence\[ int ], Tuple\[ int, ... ] ]_
 
-    -   Size of each transformed axis of the output. If given, each axis will be either zero-padded or trimmed to the length `s[i]` before computing the fast fourier transform. Otherwise, no padding will be performed in each dimension. Default: `None`.
+    -   Size of each transformed axis of the output. If given, each axis will be either zero-padded or trimmed to the length `s[i]` before computing the fast Fourier transform. Otherwise, no padding will be performed in each dimension. Default: `None`.
 
 -   **axes**: _Union\[ Sequence\[ int ], Tuple\[ int, ... ] ]_
 
-    -  Axes over which to compute the fast fourier transform. If it is not specified, the last `len(s)` axes are used or all axes if `s` is also not specified. Default: `None`.
+    -  Axes over which to compute the Fourier transform. If it is not specified, the last `len(s)` axes are used or all axes if `s` is also not specified. Default: `None`.
 
 -   **norm**: _str_
 
@@ -184,7 +184,7 @@ Reorders n-dimensional FTT data to have negative frequency terms first. In this 
 (function-hfft)=
 ### hfft(a, /, *, n=None, axis=-1, norm='backward')
 
-Computes the one-dimensional discrete Fourier Transform of a signal with Hermitian symmetry.
+Computes the one-dimensional discrete Fourier transform of a signal with Hermitian symmetry.
 
 #### Parameters
 
@@ -194,11 +194,11 @@ Computes the one-dimensional discrete Fourier Transform of a signal with Hermiti
 
 -   **n**: _int_
 
-    -   Length of the transformed axis of the output. If given, the input will be either zero-padded or trimmed to this length before computing the Hermitian FFT. Otherwise, it will default to `2 * (m - 1)` where `m` is the length of the input along the axis given by the `axis` keyword. Default: `None`.
+    -   Length of the transformed axis of the output. If given, the input will be either zero-padded or trimmed to this length before computing the Hermitian Fourier transform. Otherwise, it will default to `2 * (m - 1)` where `m` is the length of the input along the axis given by the `axis` keyword. Default: `None`.
 
 -   **axis**: _int_
 
-    -  Axis used to compute the fast fourier transform. If it is not specified, the last axis is used. Default: `-1`.
+    -  Axis used to compute the Fourier transform. If it is not specified, the last axis is used. Default: `-1`.
 
 -   **norm**: _str_
 
@@ -223,7 +223,7 @@ Computes the one-dimensional discrete Fourier Transform of a signal with Hermiti
 (function-ifft)=
 ### ifft(a, /, *, n=None, axis=-1, norm='backward')
 
-Computes the one-dimensional inverse discrete Fourier Transform.
+Computes the one-dimensional inverse discrete Fourier transform.
 
 #### Parameters
 
@@ -233,19 +233,19 @@ Computes the one-dimensional inverse discrete Fourier Transform.
 
 -   **n**: _int_
 
-    -   Length of the transformed axis of the output. If given, the input will be either zero-padded or trimmed to the length `n` before computing the IFFT. Otherwise, the length of the input along the axis given by the `axis` keyword. Default: `None`.
+    -   Length of the transformed axis of the output. If given, the input will be either zero-padded or trimmed to the length `n` before computing the IFourier transform. Otherwise, the length of the input along the axis given by the `axis` keyword. Default: `None`.
 
 -   **axis**: _int_
 
-    -  Axis used to compute the fast fourier transform. If it is not specified, the last axis is used. Default: `-1`.
+    -  Axis used to compute the Fourier transform. If it is not specified, the last axis is used. Default: `-1`.
 
 -   **norm**: _str_
 
     -   Specify the normalization mode. Should be one of the following modes:
 
-        - `'backward'`: No normalization.
+        - `'backward'`: Normalize by `1/n`.
         - `'ortho'`: Normalize by `1/sqrt(n)`
-        - `'forward'`: Normalize by `1/n`.
+        - `'forward'`: No normalization.
 
         Default: `'backward'`
 
@@ -262,7 +262,7 @@ Computes the one-dimensional inverse discrete Fourier Transform.
 (function-ifft2)=
 ### ifft2(a, /, *, s=None, axes=(-2, -1), norm='backward')
 
-Computes the two-dimensional inverse discrete Fourier Transform.
+Computes the two-dimensional inverse discrete Fourier transform.
 
 #### Parameters
 
@@ -272,19 +272,19 @@ Computes the two-dimensional inverse discrete Fourier Transform.
 
 -   **s**: _Union\[ Sequence\[ int ], Tuple\[ int, ... ] ]_
 
-    -   Size of each transformed axis of the output. If given, each axis will be either zero-padded or trimmed to the length `s[i]` before computing the fast fourier transform. Otherwise, no padding will be performed in each dimension. Default: `None`.
+    -   Size of each transformed axis of the output. If given, each axis will be either zero-padded or trimmed to the length `s[i]` before computing the Fourier transform. Otherwise, no padding will be performed in each dimension. Default: `None`.
 
 -   **axes**: _Union\[ Sequence\[ int ], Tuple\[ int, ... ] ]_
 
-    -  Axes over which to compute the inverse fast fourier transform. If it is not specified, the last two axes are used. Default: `(-2, -1)`.
+    -  Axes over which to compute the inverse Fourier transform. If it is not specified, the last two axes are used. Default: `(-2, -1)`.
 
 -   **norm**: _str_
 
     -   Specify the normalization mode. Should be one of the following modes:
 
-        - `'backward'`: No normalization.
+        - `'backward'`: Normalize by `1/n`.
         - `'ortho'`: Normalize by `1/sqrt(n)`
-        - `'forward'`: Normalize by `1/n`.
+        - `'forward'`: No normalization.
 
         Default: `'backward'`
 
@@ -303,7 +303,7 @@ Computes the two-dimensional inverse discrete Fourier Transform.
 (function-ifftn)=
 ### ifftn(a, /, *, s=None, axes=None, norm='backward')
 
-Computes the n-dimensional inverse discrete Fourier Transform.
+Computes the n-dimensional inverse discrete Fourier transform.
 
 #### Parameters
 
@@ -313,19 +313,19 @@ Computes the n-dimensional inverse discrete Fourier Transform.
 
 -   **s**: _Union\[ Sequence\[ int ], Tuple\[ int, ... ] ]_
 
-    -   Size of each transformed axis of the output. If given, each axis will be either zero-padded or trimmed to the length `s[i]` before computing the fast fourier transform. Otherwise, no padding will be performed in each dimension. Default: `None`.
+    -   Size of each transformed axis of the output. If given, each axis will be either zero-padded or trimmed to the length `s[i]` before computing the Fourier transform. Otherwise, no padding will be performed in each dimension. Default: `None`.
 
 -   **axes**: _Union\[ Sequence\[ int ], Tuple\[ int, ... ] ]_
 
-    -  Axes over which to compute the inverse fast fourier transform. If it is not specified, the last `len(s)` axes are used or all axes if `s` is also not specified. Default: `None`.
+    -  Axes over which to compute the inverse Fourier transform. If it is not specified, the last `len(s)` axes are used or all axes if `s` is also not specified. Default: `None`.
 
 -   **norm**: _str_
 
     -   Specify the normalization mode. Should be one of the following modes:
 
-        - `'backward'`: No normalization.
+        - `'backward'`: Normalize by `1/n`.
         - `'ortho'`: Normalize by `1/sqrt(n)`
-        - `'forward'`: Normalize by `1/n`.
+        - `'forward'`: No normalization.
 
         Default: `'backward'`
 
@@ -364,7 +364,7 @@ Inverse of `fftshift`.
 (function-ihfft)=
 ### ihfft(a, /, *, n=None, axis=-1, norm='backward')
 
-Computes the one-dimensional inverse discrete Fourier Transform of a signal with Hermitian symmetry.
+Computes the one-dimensional inverse discrete Fourier transform of a signal with Hermitian symmetry.
 
 #### Parameters
 
@@ -374,19 +374,19 @@ Computes the one-dimensional inverse discrete Fourier Transform of a signal with
 
 -   **n**: _int_
 
-    -   Length of the transformed axis of the output. If given, the input will be either zero-padded or trimmed to this length before computing the Hermitian FFT. Otherwise, it will default to `2 * (m - 1)` where `m` is the length of the input along the axis given by the `axis` keyword. Default: `None`.
+    -   Length of the transformed axis of the output. If given, the input will be either zero-padded or trimmed to this length before computing the Hermitian Fourier transform. Otherwise, it will default to `2 * (m - 1)` where `m` is the length of the input along the axis given by the `axis` keyword. Default: `None`.
 
 -   **axis**: _int_
 
-    -  Axis used to compute the fast fourier transform. If it is not specified, the last axis is used. Default: `-1`.
+    -  Axis used to compute the Fourier transform. If it is not specified, the last axis is used. Default: `-1`.
 
 -   **norm**: _str_
 
     -   Specify the normalization mode. Should be one of the following modes:
 
-        - `'backward'`: No normalization.
+        - `'backward'`: Normalize by `1/n`.
         - `'ortho'`: Normalize by `1/sqrt(n)`
-        - `'forward'`: Normalize by `1/n`.
+        - `'forward'`: No normalization.
 
         Default: `'backward'`
 
@@ -403,7 +403,7 @@ Computes the one-dimensional inverse discrete Fourier Transform of a signal with
 (function-irfft)=
 ### irfft(a, /, *, n=None, axis=-1, norm='backward')
 
-Computes the one-dimensional inverse discrete Fourier Transform for real-valued input.
+Computes the one-dimensional inverse discrete Fourier transform for real-valued input.
 
 #### Parameters
 
@@ -413,19 +413,19 @@ Computes the one-dimensional inverse discrete Fourier Transform for real-valued 
 
 -   **n**: _int_
 
-    -   Length of the transformed axis of the output. If given, the input will be either zero-padded or trimmed to this length before computing the real FFT. Otherwise, it will default to `2 * (m - 1)` where `m` is the length of the input along the axis given by the `axis` keyword. Default: `None`.
+    -   Length of the transformed axis of the output. If given, the input will be either zero-padded or trimmed to this length before computing the real Fourier transform. Otherwise, it will default to `2 * (m - 1)` where `m` is the length of the input along the axis given by the `axis` keyword. Default: `None`.
 
 -   **axis**: _int_
 
-    -  Axis used to compute the real fast fourier transform. If it is not specified, the last axis is used. Default: `-1`.
+    -  Axis used to compute the real Fourier transform. If it is not specified, the last axis is used. Default: `-1`.
 
 -   **norm**: _str_
 
     -   Specify the normalization mode. Should be one of the following modes:
 
-        - `'backward'`: No normalization.
+        - `'backward'`: Normalize by `1/n`.
         - `'ortho'`: Normalize by `1/sqrt(n)`
-        - `'forward'`: Normalize by `1/n`.
+        - `'forward'`: No normalization.
 
         Default: `'backward'`
 
@@ -442,7 +442,7 @@ Computes the one-dimensional inverse discrete Fourier Transform for real-valued 
 (function-irfft2)=
 ### irfft2(a, /, *, s=None, axes=(-2, -1), norm='backward')
 
-Computes the two-dimensional inverse discrete Fourier Transform for real-valued input.
+Computes the two-dimensional inverse discrete Fourier transform for real-valued input.
 
 #### Parameters
 
@@ -452,19 +452,19 @@ Computes the two-dimensional inverse discrete Fourier Transform for real-valued 
 
 -   **s**: _Union\[ Sequence\[ int ], Tuple\[ int, ... ] ]_
 
-    -   Length of the transformed axis of the output. If given, the input will be either zero-padded or trimmed to this length before computing the real FFT. Otherwise, it will default to `2 * (m - 1)` where `m` is the length of the input along the axis given by the `axes` keyword. Default: `None`.
+    -   Length of the transformed axis of the output. If given, the input will be either zero-padded or trimmed to this length before computing the real Fourier transform. Otherwise, it will default to `2 * (m - 1)` where `m` is the length of the input along the axis given by the `axes` keyword. Default: `None`.
 
 -   **axes**: _Union\[ Sequence\[ int ], Tuple\[ int, ... ] ]_
 
-    -  Axes used to compute the real fast fourier transform. If it is not specified, the last two axes are used. Default: `(-2, -1)`.
+    -  Axes used to compute the real Fourier transform. If it is not specified, the last two axes are used. Default: `(-2, -1)`.
 
 -   **norm**: _str_
 
     -   Specify the normalization mode. Should be one of the following modes:
 
-        - `'backward'`: No normalization.
+        - `'backward'`: Normalize by `1/n`.
         - `'ortho'`: Normalize by `1/sqrt(n)`
-        - `'forward'`: Normalize by `1/n`.
+        - `'forward'`: No normalization.
 
         Default: `'backward'`
 
@@ -483,7 +483,7 @@ Computes the two-dimensional inverse discrete Fourier Transform for real-valued 
 (function-irfftn)=
 ### irfftn(a, /, *, s=None, axes=None, norm='backward')
 
-Computes the n-dimensional inverse discrete Fourier Transform for real-valued input.
+Computes the n-dimensional inverse discrete Fourier transform for real-valued input.
 
 #### Parameters
 
@@ -493,19 +493,19 @@ Computes the n-dimensional inverse discrete Fourier Transform for real-valued in
 
 -   **s**: _Union\[ Sequence\[ int ], Tuple\[ int, ... ] ]_
 
-    -   Size of each transformed axis of the output. If given, each axis will be either zero-padded or trimmed to the length `s[i]` before computing the fast fourier transform. Otherwise, no padding will be performed in each dimension. Default: `None`.
+    -   Size of each transformed axis of the output. If given, each axis will be either zero-padded or trimmed to the length `s[i]` before computing the Fourier transform. Otherwise, no padding will be performed in each dimension. Default: `None`.
 
 -   **axes**: _Union\[ Sequence\[ int ], Tuple\[ int, ... ] ]_
 
-    -  Axes over which to compute the inverse fast fourier transform. If it is not specified, the last `len(s)` axes are used or all axes if `s` is also not specified. Default: `None`.
+    -  Axes over which to compute the inverse Fourier transform. If it is not specified, the last `len(s)` axes are used or all axes if `s` is also not specified. Default: `None`.
 
 -   **norm**: _str_
 
     -   Specify the normalization mode. Should be one of the following modes:
 
-        - `'backward'`: No normalization.
+        - `'backward'`: Normalize by `1/n`.
         - `'ortho'`: Normalize by `1/sqrt(n)`
-        - `'forward'`: Normalize by `1/n`.
+        - `'forward'`: No normalization.
 
         Default: `'backward'`
 
@@ -524,7 +524,7 @@ Computes the n-dimensional inverse discrete Fourier Transform for real-valued in
 (function-rfft)=
 ### rfft(a, /, *, n=None, axis=-1, norm='backward')
 
-Computes the one-dimensional discrete Fourier Transform for real-valued input.
+Computes the one-dimensional discrete Fourier transform for real-valued input.
 
 #### Parameters
 
@@ -534,11 +534,11 @@ Computes the one-dimensional discrete Fourier Transform for real-valued input.
 
 -   **n**: _int_
 
-    -   Length of the input array. If given, the input will be either zero-padded or trimmed to this length before computing the real FFT. Otherwise, the length of the input along the axis specified by the `axis` keyword is used. Default: `None`.
+    -   Length of the input array. If given, the input will be either zero-padded or trimmed to this length before computing the real Fourier transform. Otherwise, the length of the input along the axis specified by the `axis` keyword is used. Default: `None`.
 
 -   **axis**: _int_
 
-    -  Axis used to compute the real fast fourier transform. If it is not specified, the last axis is used. Default: `-1`.
+    -  Axis used to compute the real Fourier transform. If it is not specified, the last axis is used. Default: `-1`.
 
 -   **norm**: _str_
 
@@ -563,7 +563,7 @@ Computes the one-dimensional discrete Fourier Transform for real-valued input.
 (function-rfft2)=
 ### rfft2(a, /, *, s=None, axes=(-2, -1), norm='backward')
 
-Computes the two-dimensional discrete Fourier Transform for real-valued input.
+Computes the two-dimensional discrete Fourier transform for real-valued input.
 
 #### Parameters
 
@@ -573,11 +573,11 @@ Computes the two-dimensional discrete Fourier Transform for real-valued input.
 
 -   **s**: _Union\[ Sequence\[ int ], Tuple\[ int, ... ] ]_
 
-    -   Size of each transformed axis of the output. If given, each axis will be either zero-padded or trimmed to the length `s[i]` before computing the fast fourier transform. Otherwise, no padding will be performed in each dimension. Default: `None`.
+    -   Size of each transformed axis of the output. If given, each axis will be either zero-padded or trimmed to the length `s[i]` before computing the Fourier transform. Otherwise, no padding will be performed in each dimension. Default: `None`.
 
 -   **axes**: _Union\[ Sequence\[ int ], Tuple\[ int, ... ] ]_
 
-    -  Axes over which to compute the fast fourier transform. If it is not specified, the last two axes are used. Default: `(-2, -1)`.
+    -  Axes over which to compute the Fourier transform. If it is not specified, the last two axes are used. Default: `(-2, -1)`.
 
 -   **norm**: _str_
 
@@ -604,7 +604,7 @@ Computes the two-dimensional discrete Fourier Transform for real-valued input.
 (function-rfftfreq)=
 ### rfftfreq(n, /, *, d=1.0)
 
-Returns the discrete Fourier Transform sample frequencies. For a Fourier Transform of length `n` and length unit of `d` the frequencies are described as:
+Returns the discrete Fourier transform sample frequencies. For a Fourier transform of length `n` and length unit of `d` the frequencies are described as:
 
 ```
 f = [0, 1, ..., n/2-1, -n/2, ..., -1] / (d*n) if n is even
@@ -621,7 +621,7 @@ The Nyquist frequency component is considered to be positive.
 
 -   **d**: _float_
 
-    -   Sample spacing between individual samples of the FFT input. Default: `1.0`.
+    -   Sample spacing between individual samples of the Fourier transform input. Default: `1.0`.
 
 #### Returns
 
@@ -632,7 +632,7 @@ The Nyquist frequency component is considered to be positive.
 (function-rfftn)=
 ### rfftn(a, /, *, s=None, axes=None, norm='backward')
 
-Computes the n-dimensional discrete Fourier Transform for real-valued input.
+Computes the n-dimensional discrete Fourier transform for real-valued input.
 
 #### Parameters
 
@@ -642,11 +642,11 @@ Computes the n-dimensional discrete Fourier Transform for real-valued input.
 
 -   **s**: _Union\[ Sequence\[ int ], Tuple\[ int, ... ] ]_
 
-    -   Size of each transformed axis of the output. If given, each axis will be either zero-padded or trimmed to the length `s[i]` before computing the real fast fourier transform. Otherwise, no padding will be performed in each dimension. Default: `None`.
+    -   Size of each transformed axis of the output. If given, each axis will be either zero-padded or trimmed to the length `s[i]` before computing the real Fourier transform. Otherwise, no padding will be performed in each dimension. Default: `None`.
 
 -   **axes**: _Union\[ Sequence\[ int ], Tuple\[ int, ... ] ]_
 
-    -  Axes over which to compute the fast fourier transform. If it is not specified, the last `len(s)` axes are used or all axes if `s` is also not specified. Default: `None`.
+    -  Axes over which to compute the Fourier transform. If it is not specified, the last `len(s)` axes are used or all axes if `s` is also not specified. Default: `None`.
 
 -   **norm**: _str_
 
