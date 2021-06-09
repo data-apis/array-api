@@ -12,20 +12,28 @@ The interchange mechanism must offer the following:
 
 1. Data access via a protocol that describes the memory layout of the array
    in an implementation-independent manner.
+
    _Rationale: any number of libraries must be able to exchange data, and no
    particular package must be needed to do so._
+
 2. Support for all dtypes in this API standard (see {ref}`data-types`).
+
 3. Device support. It must be possible to determine on what device the array
    that is to be converted lives.
+
    _Rationale: there are CPU-only, GPU-only, and multi-device array types;
    it's best to support these with a single protocol (with separate
    per-device protocols it's hard to figure out unambiguous rules for which
    protocol gets used, and the situation will get more complex over time
    as TPU's and other accelerators become more widely available)._
+
 4. Zero-copy semantics where possible, making a copy only if needed (e.g.
    when data is not contiguous in memory).
+
    _Rationale: performance._
+
 5. A Python-side and a C-side interface, the latter with a stable C ABI.
+
    _Rationale: all prominent existing array libraries are implemented in
    C/C++, and are released independently from each other. Hence a stable C
    ABI is required for packages to work well together._
