@@ -50,7 +50,7 @@ parallelism in some algorithms. However SciPy itself will not directly start
 depending on a GPU or distributed array implementation, or contain (e.g.)
 CUDA code - that's not maintainable given the resources for development.
 _However_, there is a way to provide distributed or GPU support. Part of the
-solution is provided by NumPy's "array protocols" (see gh-1), that allow
+solution is provided by NumPy's "array protocols" (see [gh-1](https://github.com/data-apis/array-api/issues/1)), that allow
 dispatching to other array implementations. The main problem then becomes how
 to know whether this will work with a particular distributed or GPU array
 implementation - given that there are zero other array implementations that
