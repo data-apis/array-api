@@ -400,11 +400,13 @@ converted to a “native” array type.
         <p>
          The interchange mechanism must offer the following:
         </p>
-        <ol class="simple">
+        <ol>
          <li>
           <p>
            Data access via a protocol that describes the memory layout of the array
 in an implementation-independent manner.
+          </p>
+          <p>
            <em>
             Rationale: any number of libraries must be able to exchange data, and no
 particular package must be needed to do so.
@@ -426,6 +428,8 @@ particular package must be needed to do so.
           <p>
            Device support. It must be possible to determine on what device the array
 that is to be converted lives.
+          </p>
+          <p>
            <em>
             Rationale: there are CPU-only, GPU-only, and multi-device array types;
 it’s best to support these with a single protocol (with separate
@@ -439,6 +443,8 @@ as TPU’s and other accelerators become more widely available).
           <p>
            Zero-copy semantics where possible, making a copy only if needed (e.g.
 when data is not contiguous in memory).
+          </p>
+          <p>
            <em>
             Rationale: performance.
            </em>
@@ -447,6 +453,8 @@ when data is not contiguous in memory).
          <li>
           <p>
            A Python-side and a C-side interface, the latter with a stable C ABI.
+          </p>
+          <p>
            <em>
             Rationale: all prominent existing array libraries are implemented in
 C/C++, and are released independently from each other. Hence a stable C
