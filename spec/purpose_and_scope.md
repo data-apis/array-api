@@ -187,10 +187,10 @@ extensions are dealt with_):
 
 7. Behaviour for unexpected/invalid input to functions and methods.
 
-  _Rationale: there are a huge amount of ways in which users can provide
-  invalid or unspecified input to functionality in the standard. Exception
-  types or other resulting behaviour cannot be completely covered and would
-  be hard to make consistent between libraries._
+   _Rationale: there are a huge amount of ways in which users can provide
+   invalid or unspecified input to functionality in the standard. Exception
+   types or other resulting behaviour cannot be completely covered and would
+   be hard to make consistent between libraries._
 
 
 **Non-goals** for the API standard include:
