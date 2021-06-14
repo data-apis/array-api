@@ -397,6 +397,11 @@ Computes the bitwise OR of the underlying binary representation of each element 
 
 Shifts the bits of each element `x1_i` of the input array `x1` to the right according to the respective element `x2_i` of the input array `x2`.
 
+```{note}
+
+This operation must be an arithmetic shift (i.e., sign-propagating) and thus equivalent to floor division by a power of two.
+```
+
 #### Parameters
 
 -   **x1**: _&lt;array&gt;_
