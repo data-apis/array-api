@@ -352,7 +352,7 @@ Shifts the bits of each element `x1_i` of the input array `x1` to the left by ap
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the element-wise results. The returned array must have the same data type as `x1`.
+    -   an array containing the element-wise results. The returned array must have a data type determined by {ref}`type-promotion`.
 
 (function-bitwise_invert)=
 ### bitwise_invert(x, /)
@@ -411,7 +411,7 @@ Shifts the bits of each element `x1_i` of the input array `x1` to the right acco
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the element-wise results. The returned array must have the same data type as `x1`.
+    -   an array containing the element-wise results. The returned array must have a data type determined by {ref}`type-promotion`.
 
 (function-bitwise_xor)=
 ### bitwise_xor(x1, x2, /)
