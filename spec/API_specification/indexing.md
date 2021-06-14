@@ -114,9 +114,13 @@ Using a slice to index a single array axis must adhere to the following rules. L
 
 ```{note}
 
-This specification does not require "clipping" out-of-bounds slice indices (for example, in Python slice semantics, `0:100` and `0:10` are equivalent on a list of length `10`).
+This specification does not require "clipping" out-of-bounds slice indices.
 
-As such, only the following ranges for the start and stop values of a slice are required. Let `n` be the axis (dimension) size being sliced. For a slice `i:j:k`, the behavior specified above should be implemented for the following:
+```{note}
+
+This is in contrast to Python slice semantics where `0:100` and `0:10` are equivalent on a list of length `10`.
+
+The following ranges for the start and stop values of a slice must be supported. Let `n` be the axis (dimension) size being sliced. For a slice `i:j:k`, the behavior specified above should be implemented for the following:
 
 - `i` or `j` omitted (`None`).
 - `-n <= i <= max(0, n - 1)`.
