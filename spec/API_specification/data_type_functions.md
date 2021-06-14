@@ -96,7 +96,7 @@ Machine limits for floating-point data types.
         -   **min**: _float_
             -   smallest representable number.
         -   **smallest_normal**: _float_
-            -   smallest positive floating point number with full precision.
+            -   smallest positive floating-point number with full precision.
 
 (function-iinfo)=
 ### iinfo(type, /)
