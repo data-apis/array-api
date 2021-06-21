@@ -177,7 +177,7 @@ Returns the specified diagonals. If `x` has more than two dimensions, then the a
 (function-linalg-eig)=
 ### linalg.eig()
 
-TODO
+_TODO: this requires complex number support to be added to the specification._
 
 (function-linalg-eigh)=
 ### linalg.eigh(x, /, *, upper=False)
@@ -215,7 +215,7 @@ Eigenvalue sort order is left unspecified.
 (function-linalg-eigvals)=
 ### linalg.eigvals()
 
-TODO
+_TODO: this requires complex number support to be added to the specification._
 
 (function-linalg-eigvalsh)=
 ### linalg.eigvalsh(x, /, *, upper=False)
