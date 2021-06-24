@@ -53,47 +53,6 @@ Computes the one-dimensional discrete Fourier transform.
 
 -   If `axis` is larger than the last axis of `a`.
 
-(function-fft2)=
-### fft2(a, /, *, s=None, axes=(-2, -1), norm='backward')
-
-Computes the two-dimensional discrete Fourier transform.
-
-#### Parameters
-
--   **a**: _&lt;array&gt;_
-
-    -   Input array.
-
--   **s**: _Union\[ Sequence\[ int ], Tuple\[ int, ... ] ]_
-
-    -   Size of each transformed axis of the output. If given, each axis will be either zero-padded or trimmed to the length `s[i]` before computing the Fourier transform. Otherwise, no padding will be performed in each dimension. Default: `None`.
-
--   **axes**: _Union\[ Sequence\[ int ], Tuple\[ int, ... ] ]_
-
-    -  Axes over which to compute the Fourier transform. If it is not specified, the last two axes are used. Default: `(-2, -1)`.
-
--   **norm**: _str_
-
-    -   Specify the normalization mode. Should be one of the following modes:
-
-        - `'backward'`: No normalization.
-        - `'ortho'`: Normalize by `1/sqrt(n)`
-        - `'forward'`: Normalize by `1/n`.
-
-        Default: `'backward'`
-
-#### Returns
-
--   **out**: _&lt;array&gt;_
-
-    -   An array transformed along the axes indicated by the `axes` keyword.
-
-#### Raises
-
--   If `s` and `axes` have a different length.
--   If `axes` is not given and the length of `s` is different from 2.
--   If an element of `axes` is larger than the number of axes of `a`.
-
 (function-fftfreq)=
 ### fftfreq(n, /, *, d=1.0)
 
@@ -259,47 +218,6 @@ Computes the one-dimensional inverse discrete Fourier transform.
 
 -   If `axis` is larger than the last axis of `a`.
 
-(function-ifft2)=
-### ifft2(a, /, *, s=None, axes=(-2, -1), norm='backward')
-
-Computes the two-dimensional inverse discrete Fourier transform.
-
-#### Parameters
-
--   **a**: _&lt;array&gt;_
-
-    -   Input array.
-
--   **s**: _Union\[ Sequence\[ int ], Tuple\[ int, ... ] ]_
-
-    -   Size of each transformed axis of the output. If given, each axis will be either zero-padded or trimmed to the length `s[i]` before computing the Fourier transform. Otherwise, no padding will be performed in each dimension. Default: `None`.
-
--   **axes**: _Union\[ Sequence\[ int ], Tuple\[ int, ... ] ]_
-
-    -  Axes over which to compute the inverse Fourier transform. If it is not specified, the last two axes are used. Default: `(-2, -1)`.
-
--   **norm**: _str_
-
-    -   Specify the normalization mode. Should be one of the following modes:
-
-        - `'backward'`: Normalize by `1/n`.
-        - `'ortho'`: Normalize by `1/sqrt(n)`
-        - `'forward'`: No normalization.
-
-        Default: `'backward'`
-
-#### Returns
-
--   **out**: _&lt;array&gt;_
-
-    -   An array transformed along the axes indicated by the `axes` keyword.
-
-#### Raises
-
--   If `s` and `axes` have a different length.
--   If `axes` is not given and the length of `s` is different from 2.
--   If an element of `axes` is larger than the number of axes of `a`.
-
 (function-ifftn)=
 ### ifftn(a, /, *, s=None, axes=None, norm='backward')
 
@@ -439,47 +357,6 @@ Computes the one-dimensional inverse discrete Fourier transform for real-valued 
 
 -   If `axis` is larger than the last axis of `a`.
 
-(function-irfft2)=
-### irfft2(a, /, *, s=None, axes=(-2, -1), norm='backward')
-
-Computes the two-dimensional inverse discrete Fourier transform for real-valued input.
-
-#### Parameters
-
--   **a**: _&lt;array&gt;_
-
-    -   Input array.
-
--   **s**: _Union\[ Sequence\[ int ], Tuple\[ int, ... ] ]_
-
-    -   Length of the transformed axis of the output. If given, the input will be either zero-padded or trimmed to this length before computing the real Fourier transform. Otherwise, it will default to `2 * (m - 1)` where `m` is the length of the input along the axis given by the `axes` keyword. Default: `None`.
-
--   **axes**: _Union\[ Sequence\[ int ], Tuple\[ int, ... ] ]_
-
-    -  Axes used to compute the real Fourier transform. If it is not specified, the last two axes are used. Default: `(-2, -1)`.
-
--   **norm**: _str_
-
-    -   Specify the normalization mode. Should be one of the following modes:
-
-        - `'backward'`: Normalize by `1/n`.
-        - `'ortho'`: Normalize by `1/sqrt(n)`
-        - `'forward'`: No normalization.
-
-        Default: `'backward'`
-
-#### Returns
-
--   **out**: _&lt;array&gt;_
-
-    -   An array transformed along the axes indicated by the `axes` keyword.
-
-#### Raises
-
--   If `s` and `axes` have a different length.
--   If `axes` is not given and the length of `s` is different from 2.
--   If an element of `axes` is larger than the number of axes of `a`.
-
 (function-irfftn)=
 ### irfftn(a, /, *, s=None, axes=None, norm='backward')
 
@@ -559,47 +436,6 @@ Computes the one-dimensional discrete Fourier transform for real-valued input.
 #### Raises
 
 -   If `axis` is larger than the last axis of `a`.
-
-(function-rfft2)=
-### rfft2(a, /, *, s=None, axes=(-2, -1), norm='backward')
-
-Computes the two-dimensional discrete Fourier transform for real-valued input.
-
-#### Parameters
-
--   **a**: _&lt;array&gt;_
-
-    -   Input array.
-
--   **s**: _Union\[ Sequence\[ int ], Tuple\[ int, ... ] ]_
-
-    -   Size of each transformed axis of the output. If given, each axis will be either zero-padded or trimmed to the length `s[i]` before computing the Fourier transform. Otherwise, no padding will be performed in each dimension. Default: `None`.
-
--   **axes**: _Union\[ Sequence\[ int ], Tuple\[ int, ... ] ]_
-
-    -  Axes over which to compute the Fourier transform. If it is not specified, the last two axes are used. Default: `(-2, -1)`.
-
--   **norm**: _str_
-
-    -   Specify the normalization mode. Should be one of the following modes:
-
-        - `'backward'`: No normalization.
-        - `'ortho'`: Normalize by `1/sqrt(n)`
-        - `'forward'`: Normalize by `1/n`.
-
-        Default: `'backward'`
-
-#### Returns
-
--   **out**: _&lt;array&gt;_
-
-    -   An array transformed along the axes indicated by the `axes` keyword.
-
-#### Raises
-
--   If `s` and `axes` have a different length.
--   If `axes` is not given and the length of `s` is different from 2.
--   If an element of `axes` is larger than the number of axes of `a`.
 
 (function-rfftfreq)=
 ### rfftfreq(n, /, *, d=1.0)
