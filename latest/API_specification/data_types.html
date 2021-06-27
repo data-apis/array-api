@@ -316,6 +316,11 @@
                    </a>
                   </li>
                   <li class="md-nav__item">
+                   <a class="md-nav__link" href="#default-data-types">
+                    Default Data Types
+                   </a>
+                  </li>
+                  <li class="md-nav__item">
                    <a class="md-nav__link" href="#data-type-categories">
                     Data Type Categories
                    </a>
@@ -519,6 +524,11 @@
               </a>
              </li>
              <li class="md-nav__item">
+              <a class="md-nav__link" href="#default-data-types">
+               Default Data Types
+              </a>
+             </li>
+             <li class="md-nav__item">
               <a class="md-nav__link" href="#data-type-categories">
                Data Type Categories
               </a>
@@ -576,41 +586,6 @@
         <p>
          A conforming implementation of the array API standard must provide and support the following data types.
         </p>
-        <p>
-         A conforming implementation of the array API standard must define a default floating-point data type (either
-         <code class="docutils literal notranslate">
-          <span class="pre">
-           float32
-          </span>
-         </code>
-         or
-         <code class="docutils literal notranslate">
-          <span class="pre">
-           float64
-          </span>
-         </code>
-         ), as well as a default integer data type (
-         <code class="docutils literal notranslate">
-          <span class="pre">
-           int32
-          </span>
-         </code>
-         or
-         <code class="docutils literal notranslate">
-          <span class="pre">
-           int64
-          </span>
-         </code>
-         ). These default data types must be the same across platforms. The default integer data type may vary depending on whether Python is 32-bit or 64-bit.
-        </p>
-        <div class="admonition note">
-         <p class="admonition-title">
-          Note
-         </p>
-         <p>
-          The default floating-point and array index integer data types should be clearly defined in a conforming library’s documentation.
-         </p>
-        </div>
         <section id="bool">
          <h2 id="bool">
           bool
@@ -820,7 +795,6 @@
            Future extension
           </p>
           <p>
-           It is expected that in the next version of this standard,
            <code class="docutils literal notranslate">
             <span class="pre">
              complex64
@@ -832,7 +806,9 @@
              complex128
             </span>
            </code>
-           dtypes will be added, with these casting rules (will be added to
+           dtypes are expected to be included in the next
+version of this standard and to have the following casting rules (will be added
+to
            <a class="reference internal" href="type_promotion.html#type-promotion">
             <span class="std std-ref">
              Type Promotion Rules
@@ -896,6 +872,57 @@
           </p>
          </div>
         </section>
+        <section id="default-data-types">
+         <span id="data-type-defaults">
+         </span>
+         <h2 id="default-data-types">
+          Default Data Types
+          <a class="headerlink" href="#default-data-types" title="Permalink to this headline">
+           ¶
+          </a>
+         </h2>
+         <p>
+          A conforming implementation of the array API standard must define a default floating-point data type (either
+          <code class="docutils literal notranslate">
+           <span class="pre">
+            float32
+           </span>
+          </code>
+          or
+          <code class="docutils literal notranslate">
+           <span class="pre">
+            float64
+           </span>
+          </code>
+          ) and a default integer data type (
+          <code class="docutils literal notranslate">
+           <span class="pre">
+            int32
+           </span>
+          </code>
+          or
+          <code class="docutils literal notranslate">
+           <span class="pre">
+            int64
+           </span>
+          </code>
+          ).
+         </p>
+         <p>
+          The default data types must be the same across platforms.
+         </p>
+         <p>
+          The default integer data type may vary depending on whether Python is 32-bit or 64-bit.
+         </p>
+         <div class="admonition note">
+          <p class="admonition-title">
+           Note
+          </p>
+          <p>
+           The default floating-point and integer data types should be clearly defined in a conforming library’s documentation.
+          </p>
+         </div>
+        </section>
         <section id="data-type-categories">
          <span id="id2">
          </span>
@@ -906,11 +933,26 @@
           </a>
          </h2>
          <p>
-          For the purposes of this specification, the following data type categories are defined.
-Libraries do not need to organize dtypes according to these categories. These
-are only for organizing the functions in this specification itself. Future versions of
-the specification will include additional categories for complex data types.
+          For the purpose of organizing functions within this specification, the following data type categories are defined.
          </p>
+         <div class="admonition note">
+          <p class="admonition-title">
+           Note
+          </p>
+          <p>
+           Conforming libraries are not required to organize dtypes according to these categories. These
+categories are only intended for use within this specification.
+          </p>
+         </div>
+         <div class="admonition note">
+          <p class="admonition-title">
+           Note
+          </p>
+          <p>
+           Future versions of the specification will include additional categories for
+complex data types.
+          </p>
+         </div>
          <section id="numeric-data-types">
           <h3 id="numeric-data-types">
            Numeric Data Types

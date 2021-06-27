@@ -6,13 +6,6 @@
 
 A conforming implementation of the array API standard must provide and support the following data types.
 
-A conforming implementation of the array API standard must define a default floating-point data type (either `float32` or `float64`), as well as a default integer data type (`int32` or `int64`). These default data types must be the same across platforms. The default integer data type may vary depending on whether Python is 32-bit or 64-bit.
-
-```{note}
-The default floating-point and array index integer data types should be clearly defined in a conforming library's documentation.
-```
-
-
 ## bool
 
 Boolean (`True` or `False`).
@@ -60,8 +53,9 @@ IEEE 754 double-precision (64-bit) binary floating-point number (see IEEE 754-20
 
 :::{admonition} Future extension
 :class: hint
-It is expected that in the next version of this standard, `complex64` and `complex128`
-dtypes will be added, with these casting rules (will be added to {ref}`type-promotion`):
+`complex64` and `complex128` dtypes are expected to be included in the next
+version of this standard and to have the following casting rules (will be added
+to {ref}`type-promotion`):
 
 ![Type promotion diagram for complex dtypes in next version](/_static/images/dtype_promotion_complex.png)
 
@@ -78,13 +72,33 @@ Implementations may provide other ways to specify data types (e.g.,
 A conforming implementation of the array API standard may provide and support additional data types beyond those described in this specification.
 ```
 
+(data-type-defaults)=
+## Default Data Types
+
+A conforming implementation of the array API standard must define a default floating-point data type (either `float32` or `float64`) and a default integer data type (`int32` or `int64`).
+
+The default data types must be the same across platforms.
+
+The default integer data type may vary depending on whether Python is 32-bit or 64-bit.
+
+```{note}
+The default floating-point and integer data types should be clearly defined in a conforming library's documentation.
+```
+
 (data-type-categories)=
 ## Data Type Categories
 
-For the purposes of this specification, the following data type categories are defined.
-Libraries do not need to organize dtypes according to these categories. These
-are only for organizing the functions in this specification itself. Future versions of
-the specification will include additional categories for complex data types.
+For the purpose of organizing functions within this specification, the following data type categories are defined.
+
+```{note}
+Conforming libraries are not required to organize dtypes according to these categories. These
+categories are only intended for use within this specification.
+```
+
+```{note}
+Future versions of the specification will include additional categories for
+complex data types.
+```
 
 ### Numeric Data Types
 
