@@ -59,6 +59,4 @@ Returns the unique elements of an input array `x`.
 
         -   **counts**: _&lt;array&gt;_
 
-            -   an array containing the number of times each unique element occurs in `x`.
-
-                _TODO: should this be `int64`? This probably makes sense for most hardware; however, may be undesirable for older hardware and/or embedded systems._
+            -   an array containing the number of times each unique element occurs in `x`. The returned array must have the default integer data type.
