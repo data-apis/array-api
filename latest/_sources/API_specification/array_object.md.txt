@@ -1062,7 +1062,30 @@ Element-wise results must equal the results returned by the equivalent element-w
 (method-__setitem__)=
 ### \_\_setitem\_\_(self, key, value, /)
 
-_TODO: dependent on the indexing specification._
+Sets `self[key]` to `value`.
+
+#### Parameters
+
+-   **self**: _&lt;array;&gt;_
+
+    -   array instance.
+
+-   **key**: _Union\[ int, slice, ellipsis, Tuple\[ Union\[ int, slice, ellipsis ], ... ], &lt;array&gt; ]_
+
+    -   index key.
+
+-   **value**: _Union\[ int, float, bool, &lt;array&gt; ]_
+
+    -   value(s) to set. Must be compatible with `self[key]` (see {ref}`broadcasting`).
+
+```{note}
+
+Setting array values must not affect the data type of `self`.
+
+When `value` is a Python scalar (i.e., `int`, `float`, `bool`), behavior must follow specification guidance on mixing arrays with Python scalars (see {ref}`type-promotion`).
+
+When `value` is an `array` of a different data type than `self`, how values are cast to the data type of `self` is implementation defined.
+```
 
 (method-__sub__)=
 ### \_\_sub\_\_(self, other, /)

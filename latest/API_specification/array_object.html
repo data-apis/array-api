@@ -915,6 +915,15 @@
                       <a class="md-nav__link" href="#setitem-self-key-value">
                        __setitem__(self, key, value, /)
                       </a>
+                      <nav class="md-nav">
+                       <ul class="md-nav__list">
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#id64">
+                          Parameters
+                         </a>
+                        </li>
+                       </ul>
+                      </nav>
                      </li>
                      <li class="md-nav__item">
                       <a class="md-nav__link" href="#sub-self-other">
@@ -923,12 +932,12 @@
                       <nav class="md-nav">
                        <ul class="md-nav__list">
                         <li class="md-nav__item">
-                         <a class="md-nav__link" href="#id64">
+                         <a class="md-nav__link" href="#id65">
                           Parameters
                          </a>
                         </li>
                         <li class="md-nav__item">
-                         <a class="md-nav__link" href="#id65">
+                         <a class="md-nav__link" href="#id66">
                           Returns
                          </a>
                         </li>
@@ -942,17 +951,17 @@
                       <nav class="md-nav">
                        <ul class="md-nav__list">
                         <li class="md-nav__item">
-                         <a class="md-nav__link" href="#id66">
+                         <a class="md-nav__link" href="#id67">
                           Special Cases
                          </a>
                         </li>
                         <li class="md-nav__item">
-                         <a class="md-nav__link" href="#id67">
+                         <a class="md-nav__link" href="#id68">
                           Parameters
                          </a>
                         </li>
                         <li class="md-nav__item">
-                         <a class="md-nav__link" href="#id68">
+                         <a class="md-nav__link" href="#id69">
                           Returns
                          </a>
                         </li>
@@ -966,12 +975,12 @@
                       <nav class="md-nav">
                        <ul class="md-nav__list">
                         <li class="md-nav__item">
-                         <a class="md-nav__link" href="#id69">
+                         <a class="md-nav__link" href="#id70">
                           Parameters
                          </a>
                         </li>
                         <li class="md-nav__item">
-                         <a class="md-nav__link" href="#id70">
+                         <a class="md-nav__link" href="#id71">
                           Returns
                          </a>
                         </li>
@@ -1775,6 +1784,15 @@
                  <a class="md-nav__link" href="#setitem-self-key-value">
                   __setitem__(self, key, value, /)
                  </a>
+                 <nav class="md-nav">
+                  <ul class="md-nav__list">
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#id64">
+                     Parameters
+                    </a>
+                   </li>
+                  </ul>
+                 </nav>
                 </li>
                 <li class="md-nav__item">
                  <a class="md-nav__link" href="#sub-self-other">
@@ -1783,12 +1801,12 @@
                  <nav class="md-nav">
                   <ul class="md-nav__list">
                    <li class="md-nav__item">
-                    <a class="md-nav__link" href="#id64">
+                    <a class="md-nav__link" href="#id65">
                      Parameters
                     </a>
                    </li>
                    <li class="md-nav__item">
-                    <a class="md-nav__link" href="#id65">
+                    <a class="md-nav__link" href="#id66">
                      Returns
                     </a>
                    </li>
@@ -1802,17 +1820,17 @@
                  <nav class="md-nav">
                   <ul class="md-nav__list">
                    <li class="md-nav__item">
-                    <a class="md-nav__link" href="#id66">
+                    <a class="md-nav__link" href="#id67">
                      Special Cases
                     </a>
                    </li>
                    <li class="md-nav__item">
-                    <a class="md-nav__link" href="#id67">
+                    <a class="md-nav__link" href="#id68">
                      Parameters
                     </a>
                    </li>
                    <li class="md-nav__item">
-                    <a class="md-nav__link" href="#id68">
+                    <a class="md-nav__link" href="#id69">
                      Returns
                     </a>
                    </li>
@@ -1826,12 +1844,12 @@
                  <nav class="md-nav">
                   <ul class="md-nav__list">
                    <li class="md-nav__item">
-                    <a class="md-nav__link" href="#id69">
+                    <a class="md-nav__link" href="#id70">
                      Parameters
                     </a>
                    </li>
                    <li class="md-nav__item">
-                    <a class="md-nav__link" href="#id70">
+                    <a class="md-nav__link" href="#id71">
                      Returns
                     </a>
                    </li>
@@ -10048,10 +10066,170 @@ cost of more synchronization than necessary.
            </a>
           </h3>
           <p>
-           <em>
-            TODO: dependent on the indexing specification.
-           </em>
+           Sets
+           <code class="docutils literal notranslate">
+            <span class="pre">
+             self[key]
+            </span>
+           </code>
+           to
+           <code class="docutils literal notranslate">
+            <span class="pre">
+             value
+            </span>
+           </code>
+           .
           </p>
+          <section id="id64">
+           <h4 id="id64">
+            Parameters
+            <a class="headerlink" href="#id64" title="Permalink to this headline">
+             ¶
+            </a>
+           </h4>
+           <ul class="simple">
+            <li>
+             <p>
+              <strong>
+               self
+              </strong>
+              :
+              <em>
+               &lt;array;&gt;
+              </em>
+             </p>
+             <ul>
+              <li>
+               <p>
+                array instance.
+               </p>
+              </li>
+             </ul>
+            </li>
+            <li>
+             <p>
+              <strong>
+               key
+              </strong>
+              :
+              <em>
+               Union[ int, slice, ellipsis, Tuple[ Union[ int, slice, ellipsis ], … ], &lt;array&gt; ]
+              </em>
+             </p>
+             <ul>
+              <li>
+               <p>
+                index key.
+               </p>
+              </li>
+             </ul>
+            </li>
+            <li>
+             <p>
+              <strong>
+               value
+              </strong>
+              :
+              <em>
+               Union[ int, float, bool, &lt;array&gt; ]
+              </em>
+             </p>
+             <ul>
+              <li>
+               <p>
+                value(s) to set. Must be compatible with
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  self[key]
+                 </span>
+                </code>
+                (see
+                <a class="reference internal" href="broadcasting.html#broadcasting">
+                 <span class="std std-ref">
+                  Broadcasting
+                 </span>
+                </a>
+                ).
+               </p>
+              </li>
+             </ul>
+            </li>
+           </ul>
+           <div class="admonition note">
+            <p class="admonition-title">
+             Note
+            </p>
+            <p>
+             Setting array values must not affect the data type of
+             <code class="docutils literal notranslate">
+              <span class="pre">
+               self
+              </span>
+             </code>
+             .
+            </p>
+            <p>
+             When
+             <code class="docutils literal notranslate">
+              <span class="pre">
+               value
+              </span>
+             </code>
+             is a Python scalar (i.e.,
+             <code class="docutils literal notranslate">
+              <span class="pre">
+               int
+              </span>
+             </code>
+             ,
+             <code class="docutils literal notranslate">
+              <span class="pre">
+               float
+              </span>
+             </code>
+             ,
+             <code class="docutils literal notranslate">
+              <span class="pre">
+               bool
+              </span>
+             </code>
+             ), behavior must follow specification guidance on mixing arrays with Python scalars (see
+             <a class="reference internal" href="type_promotion.html#type-promotion">
+              <span class="std std-ref">
+               Type Promotion Rules
+              </span>
+             </a>
+             ).
+            </p>
+            <p>
+             When
+             <code class="docutils literal notranslate">
+              <span class="pre">
+               value
+              </span>
+             </code>
+             is an
+             <code class="docutils literal notranslate">
+              <span class="pre">
+               array
+              </span>
+             </code>
+             of a different data type than
+             <code class="docutils literal notranslate">
+              <span class="pre">
+               self
+              </span>
+             </code>
+             , how values are cast to the data type of
+             <code class="docutils literal notranslate">
+              <span class="pre">
+               self
+              </span>
+             </code>
+             is implementation defined.
+            </p>
+           </div>
+          </section>
          </section>
          <section id="sub-self-other">
           <span id="method-sub">
@@ -10105,10 +10283,10 @@ cost of more synchronization than necessary.
            </a>
            ).
           </p>
-          <section id="id64">
-           <h4 id="id64">
+          <section id="id65">
+           <h4 id="id65">
             Parameters
-            <a class="headerlink" href="#id64" title="Permalink to this headline">
+            <a class="headerlink" href="#id65" title="Permalink to this headline">
              ¶
             </a>
            </h4>
@@ -10163,10 +10341,10 @@ cost of more synchronization than necessary.
             </li>
            </ul>
           </section>
-          <section id="id65">
-           <h4 id="id65">
+          <section id="id66">
+           <h4 id="id66">
             Returns
-            <a class="headerlink" href="#id65" title="Permalink to this headline">
+            <a class="headerlink" href="#id66" title="Permalink to this headline">
              ¶
             </a>
            </h4>
@@ -10249,10 +10427,10 @@ cost of more synchronization than necessary.
            </code>
            .
           </p>
-          <section id="id66">
-           <h4 id="id66">
+          <section id="id67">
+           <h4 id="id67">
             Special Cases
-            <a class="headerlink" href="#id66" title="Permalink to this headline">
+            <a class="headerlink" href="#id67" title="Permalink to this headline">
              ¶
             </a>
            </h4>
@@ -11038,10 +11216,10 @@ cost of more synchronization than necessary.
             </li>
            </ul>
           </section>
-          <section id="id67">
-           <h4 id="id67">
+          <section id="id68">
+           <h4 id="id68">
             Parameters
-            <a class="headerlink" href="#id67" title="Permalink to this headline">
+            <a class="headerlink" href="#id68" title="Permalink to this headline">
              ¶
             </a>
            </h4>
@@ -11096,10 +11274,10 @@ cost of more synchronization than necessary.
             </li>
            </ul>
           </section>
-          <section id="id68">
-           <h4 id="id68">
+          <section id="id69">
+           <h4 id="id69">
             Returns
-            <a class="headerlink" href="#id68" title="Permalink to this headline">
+            <a class="headerlink" href="#id69" title="Permalink to this headline">
              ¶
             </a>
            </h4>
@@ -11182,10 +11360,10 @@ cost of more synchronization than necessary.
            </code>
            .
           </p>
-          <section id="id69">
-           <h4 id="id69">
+          <section id="id70">
+           <h4 id="id70">
             Parameters
-            <a class="headerlink" href="#id69" title="Permalink to this headline">
+            <a class="headerlink" href="#id70" title="Permalink to this headline">
              ¶
             </a>
            </h4>
@@ -11240,10 +11418,10 @@ cost of more synchronization than necessary.
             </li>
            </ul>
           </section>
-          <section id="id70">
-           <h4 id="id70">
+          <section id="id71">
+           <h4 id="id71">
             Returns
-            <a class="headerlink" href="#id70" title="Permalink to this headline">
+            <a class="headerlink" href="#id71" title="Permalink to this headline">
              ¶
             </a>
            </h4>
