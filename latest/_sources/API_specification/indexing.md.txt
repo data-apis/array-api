@@ -160,6 +160,12 @@ _Rationale: this is consistent with bounds-checking for single-axis indexing. An
 
 ## Boolean Array Indexing
 
+:::{admonition} Data-dependent output shape
+:class: important
+
+For common boolean array use cases (e.g., using a dynamically-sized boolean array mask to filter the values of another array), the shape of the output array is data-dependent; hence, array libraries which build computation graphs (e.g., JAX, Dask, etc.) may find boolean array indexing difficult to implement. Accordingly, such libraries may choose to omit boolean array indexing. See {ref}`data-dependent-output-shapes` section for more details.
+:::
+
 An array must support indexing where the **sole index** is an `M`-dimensional boolean array `B` with shape `S1 = (s1, ..., sM)` according to the following rules. Let `A` be an `N`-dimensional array with shape `S2 = (s1, ..., sM, ..., sN)`.
 
 -   If `N >= M`, then `A[B]` must replace the first `M` dimensions of `A` with a single dimension having a size equal to the number of `True` elements in `B`. The values in the resulting array must be in row-major (C-style order); this is equivalent to `A[nonzero(B)]`.

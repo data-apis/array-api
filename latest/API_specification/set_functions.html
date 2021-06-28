@@ -510,6 +510,20 @@
             ¶
            </a>
           </h3>
+          <div class="important admonition">
+           <p class="admonition-title">
+            Data-dependent output shape
+           </p>
+           <p>
+            The shapes of one or more of output arrays for this function depend on the data values in the input array; hence, array libraries which build computation graphs (e.g., JAX, Dask, etc.) may find this function difficult to implement without knowing array values. Accordingly, such libraries may choose to omit this function. See
+            <a class="reference internal" href="../design_topics/data_dependent_output_shapes.html#data-dependent-output-shapes">
+             <span class="std std-ref">
+              Data-dependent output shapes
+             </span>
+            </a>
+            section for more details.
+           </p>
+          </div>
           <p>
            Returns the unique elements of an input array
            <code class="docutils literal notranslate">

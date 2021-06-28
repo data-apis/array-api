@@ -1620,6 +1620,20 @@ A[i:j:k]
            ¶
           </a>
          </h2>
+         <div class="important admonition">
+          <p class="admonition-title">
+           Data-dependent output shape
+          </p>
+          <p>
+           For common boolean array use cases (e.g., using a dynamically-sized boolean array mask to filter the values of another array), the shape of the output array is data-dependent; hence, array libraries which build computation graphs (e.g., JAX, Dask, etc.) may find boolean array indexing difficult to implement. Accordingly, such libraries may choose to omit boolean array indexing. See
+           <a class="reference internal" href="../design_topics/data_dependent_output_shapes.html#data-dependent-output-shapes">
+            <span class="std std-ref">
+             Data-dependent output shapes
+            </span>
+           </a>
+           section for more details.
+          </p>
+         </div>
          <p>
           An array must support indexing where the
           <strong>
