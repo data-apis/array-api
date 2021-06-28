@@ -2360,13 +2360,13 @@
                 a namedtuple (
                 <code class="docutils literal notranslate">
                  <span class="pre">
-                  e
+                  eigenvalues
                  </span>
                 </code>
                 ,
                 <code class="docutils literal notranslate">
                  <span class="pre">
-                  v
+                  eigenvectors
                  </span>
                 </code>
                 ) whose
@@ -2374,7 +2374,13 @@
                <ul class="simple">
                 <li>
                  <p>
-                  first element must have shape
+                  first element must have the field name
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    eigenvalues
+                   </span>
+                  </code>
+                  and must be an array consisting of computed eigenvalues. The array containing the eigenvalues must have shape
                   <code class="docutils literal notranslate">
                    <span class="pre">
                     (...,
@@ -2383,12 +2389,18 @@
                     M)
                    </span>
                   </code>
-                  and consist of computed eigenvalues.
+                  .
                  </p>
                 </li>
                 <li>
                  <p>
-                  second element must have shape
+                  second element have have the field name
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    eigenvectors
+                   </span>
+                  </code>
+                  and must be an array where the columns of the inner most matrices contain the computed eigenvectors. The array containing the eigenvectors must have shape
                   <code class="docutils literal notranslate">
                    <span class="pre">
                     (...,
@@ -2400,7 +2412,7 @@
                     M)
                    </span>
                   </code>
-                  and have the columns of the inner most matrices contain the computed eigenvectors.
+                  .
                  </p>
                 </li>
                </ul>
@@ -4930,7 +4942,13 @@
                <ul class="simple">
                 <li>
                  <p>
-                  first element must be an array whose shape depends on the value of
+                  first element must have the field name
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    q
+                   </span>
+                  </code>
+                  and must be an array whose shape depends on the value of
                   <code class="docutils literal notranslate">
                    <span class="pre">
                     mode
@@ -5016,7 +5034,13 @@
                 </li>
                 <li>
                  <p>
-                  second element must be an array whose shape depends on the value of
+                  second element must have the field name
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    r
+                   </span>
+                  </code>
+                  and must be an array whose shape depends on the value of
                   <code class="docutils literal notranslate">
                    <span class="pre">
                     mode
@@ -5226,12 +5250,24 @@
                <ul class="simple">
                 <li>
                  <p>
-                  first element must be an array containing a number representing the sign of the determinant for each square matrix.
+                  first element must have the field name
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    sign
+                   </span>
+                  </code>
+                  and must be an array containing a number representing the sign of the determinant for each square matrix.
                  </p>
                 </li>
                 <li>
                  <p>
-                  second element must be an array containing the determinant for each square matrix.
+                  second element must have the field name
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    logabsdet
+                   </span>
+                  </code>
+                  and must be an array containing the determinant for each square matrix.
                  </p>
                 </li>
                </ul>
@@ -5808,7 +5844,13 @@
                <ul class="simple">
                 <li>
                  <p>
-                  first element must be an array whose shape depends on the value of
+                  first element must have the field name
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    u
+                   </span>
+                  </code>
+                  and must be an array whose shape depends on the value of
                   <code class="docutils literal notranslate">
                    <span class="pre">
                     full_matrices
@@ -5894,7 +5936,13 @@
                 </li>
                 <li>
                  <p>
-                  second element must be an array with shape
+                  second element must have the field name
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    s
+                   </span>
+                  </code>
+                  and must be an array with shape
                   <code class="docutils literal notranslate">
                    <span class="pre">
                     (...,
@@ -5944,7 +5992,13 @@
                 </li>
                 <li>
                  <p>
-                  third element must be an array whose shape depends on the value of
+                  third element must have the field name
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    v
+                   </span>
+                  </code>
+                  and must be an array whose shape depends on the value of
                   <code class="docutils literal notranslate">
                    <span class="pre">
                     full_matrices
