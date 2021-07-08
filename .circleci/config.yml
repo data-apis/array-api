@@ -12,6 +12,8 @@ jobs:
   build_page:
     <<: *defaults
     steps:
+      - checkout
+
       - attach_workspace:
           at: ~/
 
