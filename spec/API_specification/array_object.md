@@ -780,7 +780,7 @@ The `matmul` function must implement the same semantics as the built-in `@` oper
 
 -   **self**: _&lt;array&gt;_
 
-    -   array instance. Should have a numeric data type. Must have at least one dimension. If `self` is one-dimensional having shape `(M)` and `other` has more than one dimension, `self` must be promoted to a two-dimensional array by prepending `1` to its dimensions (i.e., must have shape `(1, M)`). After matrix multiplication, the prepended dimensions in the returned array must be removed. If `self` has more than one dimension (including after vector-to-matrix promotion), `self` must be compatible with `other` (see {ref}`broadcasting`). If `self` has shape `(..., M, K)`, the innermost two dimensions form matrices on which to perform matrix multiplication. 
+    -   array instance. Should have a numeric data type. Must have at least one dimension. If `self` is one-dimensional having shape `(M)` and `other` has more than one dimension, `self` must be promoted to a two-dimensional array by prepending `1` to its dimensions (i.e., must have shape `(1, M)`). After matrix multiplication, the prepended dimensions in the returned array must be removed. If `self` has more than one dimension (including after vector-to-matrix promotion), `self` must be compatible with `other` (see {ref}`broadcasting`). If `self` has shape `(..., M, K)`, the innermost two dimensions form matrices on which to perform matrix multiplication.
 
 -   **other**: _&lt;array&gt;_
 
@@ -809,7 +809,7 @@ The `matmul` function must implement the same semantics as the built-in `@` oper
 
 -   if either `self` or `other` is a zero-dimensional array.
 -   if `self` is a one-dimensional array having shape `(N)`, `other` is a one-dimensional array having shape `(M)`, and `N != M`.
--   if `self` is an array having shape `(..., M, K)`, `other` is an array having shape `(..., L, N)`, and `K != L`. 
+-   if `self` is an array having shape `(..., M, K)`, `other` is an array having shape `(..., L, N)`, and `K != L`.
 
 (method-__mod__)=
 ### \_\_mod\_\_(self, other, /)
@@ -1016,11 +1016,11 @@ For floating-point operands, let `self` equal `x1` and `other` equal `x2`.
 
 -   **self**: _&lt;array&gt;_
 
-    -   array instance whose elements correspond to the exponentiation base. Should have a numeric data type.
+    -   array instance whose elements correspond to the exponentiation base. Should have a floating-point data type.
 
 -   **other**: _Union\[ int, float, &lt;array&gt; ]_
 
-    -   other array whose elements correspond to the exponentiation exponent. Must be compatible with `self` (see {ref}`broadcasting`). Should have a numeric data type.
+    -   other array whose elements correspond to the exponentiation exponent. Must be compatible with `self` (see {ref}`broadcasting`). Should have a floating-point data type.
 
 #### Returns
 
@@ -1149,11 +1149,11 @@ For floating-point operands, let `self` equal `x1` and `other` equal `x2`.
 
 -   **self**: _&lt;array&gt;_
 
-    -   array instance. Should have a numeric data type.
+    -   array instance. Should have a floating-point data type.
 
 -   **other**: _Union\[ int, float, &lt;array&gt; ]_
 
-    -   other array. Must be compatible with `self` (see {ref}`broadcasting`). Should have a numeric data type.
+    -   other array. Must be compatible with `self` (see {ref}`broadcasting`). Should have a floating-point data type.
 
 #### Returns
 
