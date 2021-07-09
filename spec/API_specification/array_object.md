@@ -1018,7 +1018,7 @@ For floating-point operands, let `self` equal `x1` and `other` equal `x2`.
 
     -   array instance whose elements correspond to the exponentiation base. Should have a floating-point data type.
 
--   **other**: _Union\[ int, float, &lt;array&gt; ]_
+-   **other**: _Union\[ float, &lt;array&gt; ]_
 
     -   other array whose elements correspond to the exponentiation exponent. Must be compatible with `self` (see {ref}`broadcasting`). Should have a floating-point data type.
 
@@ -1151,7 +1151,7 @@ For floating-point operands, let `self` equal `x1` and `other` equal `x2`.
 
     -   array instance. Should have a floating-point data type.
 
--   **other**: _Union\[ int, float, &lt;array&gt; ]_
+-   **other**: _Union\[ float, &lt;array&gt; ]_
 
     -   other array. Must be compatible with `self` (see {ref}`broadcasting`). Should have a floating-point data type.
 
