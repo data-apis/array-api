@@ -44,7 +44,7 @@ Accordingly, the standardization process affords the opportunity to reduce inter
 
     In general, interfaces should avoid polymorphic return values (e.g., returning an array **or** a namedtuple, dependent on, e.g., an optional keyword argument). Dedicated interfaces for each return value type are preferred, as dedicated interfaces are easier to reason about at both the implementation level and user level. Example interfaces which could be combined into a single overloaded interface, but are not, include:
 
-    -   `eig`: computing both eigenvalues and eignvectors.
+    -   `eig`: computing both eigenvalues and eigenvectors.
     -   `eigvals`: computing only eigenvalues.
 
 4.  **Implementation agnosticism**: a standardized interface should eschew parameterization (including keyword arguments) biased toward particular implementations.
@@ -140,7 +140,7 @@ Returns the determinant of a square matrix (or stack of square matrices) `x`.
     -   if `x` is a two-dimensional array, a zero-dimensional array containing the determinant; otherwise, a non-zero dimensional array containing the determinant for each square matrix. The returned array must have the same data type as `x`.
 
 (function-linalg-diagonal)=
-### linalg.diagonal(x, /, *, axis1=0, axis2=1, offset=0)
+### linalg.diagonal(x, /, *, axis1=-2, axis2=-1, offset=0)
 
 Returns the specified diagonals. If `x` has more than two dimensions, then the axes (dimensions) specified by `axis1` and `axis2` are used to determine the two-dimensional sub-arrays from which to return diagonals.
 
@@ -152,11 +152,11 @@ Returns the specified diagonals. If `x` has more than two dimensions, then the a
 
 -   **axis1**: _int_
 
-    -   first axis (dimension) with respect to which to take diagonal. Default: `0`.
+    -   first axis (dimension) with respect to which to take diagonal. Default: `-2`.
 
 -   **axis2**: _int_
 
-    -   second axis (dimension) with respect to which to take diagonal. Default: `1`.
+    -   second axis (dimension) with respect to which to take diagonal. Default: `-1`.
 
 -   **offset**: _int_
 
@@ -598,7 +598,7 @@ Computes the singular values of a matrix (or a stack of matrices) `x`.
     -   an array with shape `(..., K)` that contains the vector(s) of singular values of length `K`. For each vector, the singular values must be sorted in descending order by magnitude, such that `s[..., 0]` is the largest value, `s[..., 1]` is the second largest value, et cetera. The first `x.ndim-2` dimensions must have the same shape as those of the input `x`. The returned array must have the same floating-point data type as `x`.
 
 (function-linalg-trace)=
-### linalg.trace(x, /, *, axis1=0, axis2=1, offset=0)
+### linalg.trace(x, /, *, axis1=-2, axis2=-1, offset=0)
 
 Returns the sum along the specified diagonals. If `x` has more than two dimensions, then the axes (dimensions) specified by `axis1` and `axis2` are used to determine the two-dimensional sub-arrays for which to compute the trace.
 
@@ -610,11 +610,11 @@ Returns the sum along the specified diagonals. If `x` has more than two dimensio
 
 -   **axis1**: _int_
 
-    -   first axis (dimension) with respect to which to compute the trace. Default: `0`.
+    -   first axis (dimension) with respect to which to compute the trace. Default: `-2`.
 
 -   **axis2**: _int_
 
-    -   second axis (dimension) with respect to which to compute the trace. Default: `1`.
+    -   second axis (dimension) with respect to which to compute the trace. Default: `-1`.
 
 -   **offset**: _int_
 
