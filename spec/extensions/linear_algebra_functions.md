@@ -549,7 +549,7 @@ Returns the solution to the system of linear equations represented by the well-d
     -   an array containing the solution to the system `AX = B` for each square matrix. The returned array must have the same shape as `x2` (i.e., the array corresponding to `B`) and must have a floating-point data type determined by {ref}`type-promotion`.
 
 (function-linalg-svd)=
-### linalg.svd(x, /, *, full_matrices=True)
+### linalg.svd(x, /, *, full_matrices=False)
 
 Computes the singular value decomposition `A = USV` of a matrix (or a stack of matrices) `x`.
 
@@ -561,7 +561,7 @@ Computes the singular value decomposition `A = USV` of a matrix (or a stack of m
 
 -   **full_matrices**: _bool_
 
-    -   If `True`, compute full-sized `u` and `v`, such that `u` has shape `(..., M, M)` and `v` has shape `(..., N, N)`. If `False`, compute on the leading `K` singular vectors, such that `u` has shape `(..., M, K)` and `v` has shape `(..., K, N)` and where `K = min(M, N)`. Default: `True`.
+    -   If `True`, compute full-sized `u` and `v`, such that `u` has shape `(..., M, M)` and `v` has shape `(..., N, N)`. If `False`, compute on the leading `K` singular vectors, such that `u` has shape `(..., M, K)` and `v` has shape `(..., K, N)` and where `K = min(M, N)`. Default: `False`.
 
 #### Returns
 
