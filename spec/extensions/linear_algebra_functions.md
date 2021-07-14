@@ -182,7 +182,7 @@ _TODO: this requires complex number support to be added to the specification._
 (function-linalg-eigh)=
 ### linalg.eigh(x, /, *, upper=False)
 
-Returns the eigenvalues and eigenvectors of a symmetric matrix (or a stack of symmetric matrices) `x`.
+Returns an eigendecomposition of a symmetric matrix (or a stack of symmetric matrices) `x`.
 
 <!-- NOTE: once complex number support, each matrix must be Hermitian -->
 
@@ -270,7 +270,7 @@ Computes the multiplicative inverse of a square matrix (or a stack of square mat
 (function-linalg-lstsq)=
 ### linalg.lstsq(x1, x2, /, *, rtol=None)
 
-Returns the least-squares solution to a linear matrix equation `Ax = b`.
+Returns the minimum-norm least-squares solution to a linear matrix equation `Ax = b`.
 
 #### Parameters
 
@@ -470,13 +470,13 @@ Computes the (Moore-Penrose) pseudo-inverse of a matrix (or a stack of square ma
 (function-linalg-qr)=
 ### linalg.qr(x, /, *, mode='reduced')
 
-Computes the qr factorization of a matrix (or a stack of matrices), where `q` is an orthonormal matrix (or a stack of matrices) and `r` is an upper-triangular matrix (or a stack of matrices).
+Computes the qr factorization of a full column rank matrix (or a stack of matrices), where `q` is an orthonormal matrix (or a stack of matrices) and `r` is an upper-triangular matrix (or a stack of matrices).
 
 #### Parameters
 
 -   **x**: _&lt;array&gt;_
 
-    -   input array having shape `(..., M, N)` and whose innermost two dimensions form `MxN` matrices. Should have a floating-point data type.
+    -   input array having shape `(..., M, N)` and whose innermost two dimensions form `MxN` matrices of rank equal to `N`. Should have a floating-point data type.
 
 -   **mode**: _str_
 
@@ -551,7 +551,7 @@ Returns the solution to the system of linear equations represented by the well-d
 (function-linalg-svd)=
 ### linalg.svd(x, /, *, full_matrices=True)
 
-Computes the singular value decomposition `A = USV` of a matrix (or a stack of matrices) `x`.
+Computes a singular value decomposition `A = USV` of a matrix (or a stack of matrices) `x`.
 
 #### Parameters
 
