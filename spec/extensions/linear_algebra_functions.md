@@ -180,7 +180,7 @@ Returns the specified diagonals. If `x` has more than two dimensions, then the a
 _TODO: this requires complex number support to be added to the specification._
 
 (function-linalg-eigh)=
-### linalg.eigh(x)
+### linalg.eigh(x, /)
 
 Returns the eigenvalues and eigenvectors of a symmetric matrix (or a stack of symmetric matrices) `x`.
 
@@ -214,7 +214,7 @@ Eigenvalue sort order is left unspecified.
 _TODO: this requires complex number support to be added to the specification._
 
 (function-linalg-eigvalsh)=
-### linalg.eigvalsh(x)
+### linalg.eigvalsh(x, /)
 
 Computes the eigenvalues of a symmetric matrix (or a stack of symmetric matrices) `x`.
 
