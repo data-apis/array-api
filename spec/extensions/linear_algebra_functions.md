@@ -177,7 +177,7 @@ Returns the specified diagonals. If `x` has more than two dimensions, then the a
 (function-linalg-eig)=
 ### linalg.eig()
 
-TODO
+_TODO: this requires complex number support to be added to the specification._
 
 (function-linalg-eigh)=
 ### linalg.eigh(x, /, *, upper=False)
@@ -200,10 +200,10 @@ Returns the eigenvalues and eigenvectors of a symmetric matrix (or a stack of sy
 
 -   **out**: _Tuple\[ &lt;array&gt; ]_
 
-    -   a namedtuple (`e`, `v`) whose
+    -   a namedtuple (`eigenvalues`, `eigenvectors`) whose
 
-        -   first element must have shape `(..., M)` and consist of computed eigenvalues.
-        -   second element must have shape `(..., M, M)`and have the columns of the inner most matrices contain the computed eigenvectors.
+        -   first element must have the field name `eigenvalues` and must be an array consisting of computed eigenvalues. The array containing the eigenvalues must have shape `(..., M)`.
+        -   second element have have the field name `eigenvectors` and must be an array where the columns of the inner most matrices contain the computed eigenvectors. The array containing the eigenvectors must have shape `(..., M, M)`.
 
         Each returned array must have the same floating-point data type as `x`.
 
@@ -215,7 +215,7 @@ Eigenvalue sort order is left unspecified.
 (function-linalg-eigvals)=
 ### linalg.eigvals()
 
-TODO
+_TODO: this requires complex number support to be added to the specification._
 
 (function-linalg-eigvalsh)=
 ### linalg.eigvalsh(x, /, *, upper=False)
@@ -322,11 +322,6 @@ Raises a square matrix (or a stack of square matrices) `x` to an integer power `
 -   **out**: _&lt;array&gt;_
 
     -   if `n` is equal to zero, an array containing the identity matrix for each square matrix. If `n` is less than zero, an array containing the inverse of each square matrix raised to the absolute value of `n`, provided that each square matrix is invertible. If `n` is greater than zero, an array containing the result of raising each square matrix to the power `n`. The returned array must have the same shape as `x` and a floating-point data type determined by {ref}`type-promotion`.
-
-#### Raises
-
--   if the innermost two dimensions of `x` are not the same size (i.e., form square matrices).
--   if `n` is less than zero and a square matrix is not invertible.
 
 (function-linalg-matrix_rank)=
 ### linalg.matrix_rank(x, /, *, rtol=None)
@@ -493,8 +488,8 @@ Computes the qr factorization of a matrix (or a stack of matrices), where `q` is
 
     -   a namedtuple `(q, r)` whose
 
-        -   first element must be an array whose shape depends on the value of `mode` and contain orthonormal matrices. If `mode` is `'complete'`, the array must have shape `(..., M, M)`. If `mode` is `'reduced'`, the array must have shape `(..., M, K)`, where `K = min(M, N)`. The first `x.ndim-2` dimensions must have the same size as those of the input `x`.
-        -   second element must be an array whose shape depends on the value of `mode` and contain upper-triangular matrices. If `mode` is `'complete'`, the array must have shape `(..., M, M)`. If `mode` is `'reduced'`, the array must have shape `(..., K, N)`, where `K = min(M, N)`. The first `x.ndim-2` dimensions must have the same size as those of the input `x`.
+        -   first element must have the field name `q` and must be an array whose shape depends on the value of `mode` and contain orthonormal matrices. If `mode` is `'complete'`, the array must have shape `(..., M, M)`. If `mode` is `'reduced'`, the array must have shape `(..., M, K)`, where `K = min(M, N)`. The first `x.ndim-2` dimensions must have the same size as those of the input `x`.
+        -   second element must have the field name `r` and must be an array whose shape depends on the value of `mode` and contain upper-triangular matrices. If `mode` is `'complete'`, the array must have shape `(..., M, M)`. If `mode` is `'reduced'`, the array must have shape `(..., K, N)`, where `K = min(M, N)`. The first `x.ndim-2` dimensions must have the same size as those of the input `x`.
 
         Each returned array must have a floating-point data type determined by {ref}`type-promotion`.
 
@@ -520,8 +515,8 @@ The purpose of this function is to calculate the determinant more accurately whe
 
     -   a namedtuple (`sign`, `logabsdet`) whose
 
-        -   first element must be an array containing a number representing the sign of the determinant for each square matrix.
-        -   second element must be an array containing the determinant for each square matrix.
+        -   first element must have the field name `sign` and must be an array containing a number representing the sign of the determinant for each square matrix.
+        -   second element must have the field name `logabsdet` and must be an array containing the determinant for each square matrix.
 
         For a real matrix, the sign of the determinant must be either `1`, `0`, or `-1`. If a determinant is zero, then the corresponding `sign` must be `0` and `logabsdet` must be `-infinity`. In all cases, the determinant must be equal to `sign * exp(logsabsdet)`.
 
@@ -551,7 +546,7 @@ Returns the solution to the system of linear equations represented by the well-d
 (function-linalg-svd)=
 ### linalg.svd(x, /, *, full_matrices=True)
 
-Computes the singular value decomposition `A = USV` of a matrix (or a stack of matrices) `x`.
+Computes the singular value decomposition `A = USVh` of a matrix (or a stack of matrices) `x`.
 
 #### Parameters
 
@@ -561,17 +556,17 @@ Computes the singular value decomposition `A = USV` of a matrix (or a stack of m
 
 -   **full_matrices**: _bool_
 
-    -   If `True`, compute full-sized `u` and `v`, such that `u` has shape `(..., M, M)` and `v` has shape `(..., N, N)`. If `False`, compute on the leading `K` singular vectors, such that `u` has shape `(..., M, K)` and `v` has shape `(..., K, N)` and where `K = min(M, N)`. Default: `True`.
+    -   If `True`, compute full-sized `u` and `vh`, such that `u` has shape `(..., M, M)` and `vh` has shape `(..., N, N)`. If `False`, compute on the leading `K` singular vectors, such that `u` has shape `(..., M, K)` and `vh` has shape `(..., K, N)` and where `K = min(M, N)`. Default: `True`.
 
 #### Returns
 
 -   **out**: _Tuple\[ &lt;array&gt;, &lt;array&gt;, &lt;array&gt; ]_
 
-    -   a namedtuple `(u, s, v)` whose
+    -   a namedtuple `(u, s, vh)` whose
 
-        -   first element must be an array whose shape depends on the value of `full_matrices` and contain unitary array(s) (i.e., the left singular vectors). The left singular vectors must be stored as columns. If `full_matrices` is `True`, the array must have shape `(..., M, M)`. If `full_matrices` is `False`, the array must have shape `(..., M, K)`, where `K = min(M, N)`. The first `x.ndim-2` dimensions must have the same shape as those of the input `x`.
-        -   second element must be an array with shape `(..., K)` that contains the vector(s) of singular values of length `K`. For each vector, the singular values must be sorted in descending order by magnitude, such that `s[..., 0]` is the largest value, `s[..., 1]` is the second largest value, et cetera. The first `x.ndim-2` dimensions must have the same shape as those of the input `x`.
-        -   third element must be an array whose shape depends on the value of `full_matrices` and contain unitary array(s) (i.e., the right singular vectors). The right singular vectors must be stored as rows (i.e., the array is the adjoint). If `full_matrices` is `True`, the array must have shape `(..., N, N)`. If `full_matrices` is `False`, the array must have shape `(..., K, N)` where `K = min(M, N)`. The first `x.ndim-2` dimensions must have the same shape as those of the input `x`.
+        -   first element must have the field name `u` and must be an array whose shape depends on the value of `full_matrices` and contain unitary array(s) (i.e., the left singular vectors). The left singular vectors must be stored as columns. If `full_matrices` is `True`, the array must have shape `(..., M, M)`. If `full_matrices` is `False`, the array must have shape `(..., M, K)`, where `K = min(M, N)`. The first `x.ndim-2` dimensions must have the same shape as those of the input `x`.
+        -   second element must have the field name `s` and must be an array with shape `(..., K)` that contains the vector(s) of singular values of length `K`. For each vector, the singular values must be sorted in descending order by magnitude, such that `s[..., 0]` is the largest value, `s[..., 1]` is the second largest value, et cetera. The first `x.ndim-2` dimensions must have the same shape as those of the input `x`.
+        -   third element must have the field name `vh` and must be an array whose shape depends on the value of `full_matrices` and contain unitary array(s) (i.e., the right singular vectors). The right singular vectors must be stored as rows (i.e., the array is the adjoint). If `full_matrices` is `True`, the array must have shape `(..., N, N)`. If `full_matrices` is `False`, the array must have shape `(..., K, N)` where `K = min(M, N)`. The first `x.ndim-2` dimensions must have the same shape as those of the input `x`.
 
         Each returned array must have the same floating-point data type as `x`.
 
