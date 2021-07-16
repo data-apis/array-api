@@ -27,7 +27,7 @@ Returns the indices of the maximum values along a specified axis. When the maxim
 
     -   input array.
 
--   **axis**: _int_
+-   **axis**: _Optional\[ int ]_
 
     -   axis along which to search. If `None`, the function must return the index of the maximum value of the flattened array. Default: `None`.
 
@@ -52,7 +52,7 @@ Returns the indices of the minimum values along a specified axis. When the minim
 
     -   input array.
 
--   **axis**: _int_
+-   **axis**: _Optional\[ int ]_
 
     -   axis along which to search. If `None`, the function must return the index of the minimum value of the flattened array. Default: `None`.
 

@@ -57,7 +57,7 @@ Convert the input to an array.
 
 #### Parameters
 
--   **obj**: _Union\[ float, NestedSequence\[ bool | int | float ], SupportsDLPack, SupportsBufferProtocol ]_
+-   **obj**: _Union\[ &lt;array&gt;, float, NestedSequence\[ bool | int | float ], SupportsDLPack, SupportsBufferProtocol ]_
 
     -   Object to be converted to an array. Can be a Python scalar, a (possibly nested) sequence of Python scalars, or an object supporting DLPack or the Python buffer protocol.
 
