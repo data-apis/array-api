@@ -106,4 +106,4 @@ Returns elements chosen from `x1` or `x2` depending on `condition`.
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array with elements from `x1` where `condition` is `True`, and elements from `x2` elsewhere. The returned array must have a data type determined by {ref}`type-promotion` rules.
+    -   an array with elements from `x1` where `condition` is `True`, and elements from `x2` elsewhere. The returned array must have a data type determined by {ref}`type-promotion` rules with the arrays `x1` and `x2`.
