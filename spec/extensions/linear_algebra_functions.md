@@ -478,7 +478,7 @@ Computes the qr factorization of a matrix (or a stack of matrices), where `q` is
 
     -   input array having shape `(..., M, N)` and whose innermost two dimensions form `MxN` matrices. Should have a floating-point data type.
 
--   **mode**: _str_
+-   **mode**: _Literal\[ 'reduced', 'complete' ]_
 
     -   factorization mode. Should be one of the following modes:
 
