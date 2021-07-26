@@ -302,6 +302,57 @@ Returns the least-squares solution to a linear matrix equation `Ax = b`.
 
 Alias for {ref}`function-matmul`.
 
+(function-linalg-matrix-norm)=
+### linalg.matrix_norm(x, /, *, axis=(-2, -1), keepdims=False, ord='fro')
+
+Computes the matrix norm of a matrix (or a stack of matrices) `x`.
+
+#### Parameters
+
+-   **x**: _&lt;array&gt;_
+
+    -   input array. Must have at least `2` dimensions. Should have a floating-point data type.
+
+-   **axis**: _Tuple\[ int, int ]_
+
+    -   a 2-tuple which specifies the axes (dimensions) defining two-dimensional matrices for which to compute matrix norms. Negative indices must be supported. Default: `(-2, -1)` (i.e., the last two-dimensions).
+
+-   **keepdims**: _bool_
+
+    -   If `True`, the axes (dimensions) specified by `axis` must be included in the result as singleton dimensions, and, accordingly, the result must be compatible with the input array (see {ref}`broadcasting`). Otherwise, if `False`, the axes (dimensions) specified by `axis` must not be included in the result. Default: `False`.
+
+-   **ord**: _Optional\[ Union\[  int, float, Literal\[ inf, -inf, 'fro', 'nuc' ] ] ]_
+
+    -   order of the norm. The following mathematical norms must be supported:
+        | ord              | description                     |
+        | ---------------- | ------------------------------- |
+        | 'fro'            | Frobenius norm                  |
+        | 'nuc'            | nuclear norm                    |
+        | 1                | max(sum(abs(x), axis=0))        |
+        | 2                | largest singular value          |
+        | inf              | max(sum(abs(x), axis=1))        |
+
+        The following non-mathematical "norms" must be supported:
+        | ord              | description                     |
+        | ---------------- | ------------------------------- |
+        | -1               | min(sum(abs(x), axis=0))        |
+        | -2               | smallest singular value         |
+        | -inf             | min(sum(abs(x), axis=1))        |
+
+        If `ord=1`, the norm corresponds to the induced matrix norm where `p=1` (i.e., the maximum absolute value column sum).
+
+        If `ord=2`, the norm corresponds to the induced matrix norm where `p=inf` (i.e., the maximum absolute value row sum).
+
+        If `ord=inf`, the norm corresponds to the induced matrix norm where `p=2` (i.e., the largest singular value).
+
+        Default: `'fro'`.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the norms. If `keepdims` is `False`, the returned array must have a rank which is two less than the rank of `x`. The returned array must have a floating-point data type determined by {ref}`type-promotion`.
+
 (function-linalg-matrix_power)=
 ### linalg.matrix_power(x, n, /)
 
@@ -343,82 +394,6 @@ Computes the rank (i.e., number of non-zero singular values) of a matrix (or a s
 -   **out**: _&lt;array&gt;_
 
     -   an array containing the ranks. The returned array must have a floating-point data type determined by {ref}`type-promotion` and must have shape `(...)` (i.e., must have a shape equal to `shape(x)[:-2]`).
-
-(function-linalg-norm)=
-### linalg.norm(x, /, *, axis=None, keepdims=False, ord=None)
-
-Computes the matrix or vector norm of `x`.
-
-#### Parameters
-
--   **x**: _&lt;array&gt;_
-
-    -   input array. Should have a floating-point data type.
-
--   **axis**: _Optional\[ Union\[ int, Tuple\[ int, int ] ] ]_
-
-    -   If an integer, `axis` specifies the axis (dimension) along which to compute vector norms.
-
-        If a 2-tuple, `axis` specifies the axes (dimensions) defining two-dimensional matrices for which to compute matrix norms.
-
-        If `None`,
-
-        -   if `x` is one-dimensional, the function must compute the vector norm.
-        -   if `x` is two-dimensional, the function must compute the matrix norm.
-        -   if `x` has more than two dimensions, the function must compute the vector norm over all array values (i.e., equivalent to computing the vector norm of a flattened array).
-
-        Negative indices must be supported. Default: `None`.
-
--   **keepdims**: _bool_
-
-    -   If `True`, the axes (dimensions) specified by `axis` must be included in the result as singleton dimensions, and, accordingly, the result must be compatible with the input array (see {ref}`broadcasting`). Otherwise, if `False`, the axes (dimensions) specified by `axis` must not be included in the result. Default: `False`.
-
--   **ord**: _Optional\[ Union\[  int, float, Literal\[ inf, -inf, 'fro', 'nuc' ] ] ]_
-
-    -   order of the norm. The following mathematical norms must be supported:
-        | ord              | matrix                          | vector                     |
-        | ---------------- | ------------------------------- | -------------------------- |
-        | 'fro'            | 'fro'                           | -                          |
-        | 'nuc'            | 'nuc'                           | -                          |
-        | 1                | max(sum(abs(x), axis=0))        | L1-norm (Manhattan)        |
-        | 2                | largest singular value          | L2-norm (Euclidean)        |
-        | inf              | max(sum(abs(x), axis=1))        | infinity norm              |
-        | (int,float >= 1) | -                               | p-norm                     |
-
-        The following non-mathematical "norms" must be supported:
-        | ord              | matrix                          | vector                         |
-        | ---------------- | ------------------------------- | ------------------------------ |
-        | 0                | -                               | sum(a != 0)                    |
-        | -1               | min(sum(abs(x), axis=0))        | 1./sum(1./abs(a))              |
-        | -2               | smallest singular value         | 1./sqrt(sum(1./abs(a)\*\*2))   |
-        | -inf             | min(sum(abs(x), axis=1))        | min(abs(a))                    |
-        | (int,float < 1)  | -                               | sum(abs(a)\*\*ord)\*\*(1./ord) |
-
-        When `ord` is `None`, the following norms must be the default norms:
-        | ord              | matrix                          | vector                     |
-        | ---------------- | ------------------------------- | -------------------------- |
-        | None             | 'fro'                           | L2-norm (Euclidean)        |
-
-        where `fro` corresponds to the **Frobenius norm**, `nuc` corresponds to the **nuclear norm**, and `-` indicates that the norm is **not** supported.
-
-        For matrices,
-
-        -   if `ord=1`, the norm corresponds to the induced matrix norm where `p=1` (i.e., the maximum absolute value column sum).
-        -   if `ord=2`, the norm corresponds to the induced matrix norm where `p=inf` (i.e., the maximum absolute value row sum).
-        -   if `ord=inf`, the norm corresponds to the induced matrix norm where `p=2` (i.e., the largest singular value).
-
-        If `None`,
-
-        -   if matrix (or matrices), the function must compute the Frobenius norm.
-        -   if vector (or vectors), the function must compute the L2-norm (Euclidean norm).
-
-        Default: `None`.
-
-#### Returns
-
--   **out**: _&lt;array&gt;_
-
-    -   an array containing the norms. If `axis` is `None`, the returned array must be a zero-dimensional array containing a vector norm. If `axis` is a scalar value (`int` or `float`), the returned array must have a rank which is one less than the rank of `x`. If `axis` is a 2-tuple, the returned array must have a rank which is two less than the rank of `x`. The returned array must have a floating-point data type determined by {ref}`type-promotion`.
 
 (function-linalg-outer)=
 ### linalg.outer(x1, x2, /)
@@ -644,3 +619,49 @@ Alias for {ref}`function-transpose`.
 ### linalg.vecdot(x1, x2, /, *, axis=None)
 
 Alias for {ref}`function-vecdot`.
+
+(function-linalg-vector-norm)=
+### linalg.vector_norm(x, /, *, axis=None, keepdims=False, ord=2)
+
+Computes the vector norm of a vector (or batch of vectors) `x`.
+
+#### Parameters
+
+-   **x**: _&lt;array&gt;_
+
+    -   input array. Should have a floating-point data type.
+
+-   **axis**: _Optional\[ Union\[ int, Tuple\[ int, int ] ] ]_
+
+    -   If an integer, `axis` specifies the axis (dimension) along which to compute vector norms. If an n-tuple, `axis` specifies the axes (dimensions) along which to compute batched vector norms. If `None`, the vector norm must be computed over all array values (i.e., equivalent to computing the vector norm of a flattened array). Negative indices must be supported. Default: `None`.
+
+-   **keepdims**: _bool_
+
+    -   If `True`, the axes (dimensions) specified by `axis` must be included in the result as singleton dimensions, and, accordingly, the result must be compatible with the input array (see {ref}`broadcasting`). Otherwise, if `False`, the axes (dimensions) specified by `axis` must not be included in the result. Default: `False`.
+
+-   **ord**: _Optional\[ Union\[  int, float, Literal\[ inf, -inf ] ] ]_
+
+    -   order of the norm. The following mathematical norms must be supported:
+        | ord              | description                |
+        | ---------------- | -------------------------- |
+        | 1                | L1-norm (Manhattan)        |
+        | 2                | L2-norm (Euclidean)        |
+        | inf              | infinity norm              |
+        | (int,float >= 1) | p-norm                     |
+
+        The following non-mathematical "norms" must be supported:
+        | ord              | description                    |
+        | ---------------- | ------------------------------ |
+        | 0                | sum(a != 0)                    |
+        | -1               | 1./sum(1./abs(a))              |
+        | -2               | 1./sqrt(sum(1./abs(a)\*\*2))   |
+        | -inf             | min(abs(a))                    |
+        | (int,float < 1)  | sum(abs(a)\*\*ord)\*\*(1./ord) |
+
+        Default: `2`.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the vector norms. If `axis` is `None`, the returned array must be a zero-dimensional array containing a vector norm. If `axis` is a scalar value (`int` or `float`), the returned array must have a rank which is one less than the rank of `x`. If `axis` is a `n`-tuple, the returned array must have a rank which is `n` less than the rank of `x`. The returned array must have a floating-point data type determined by {ref}`type-promotion`.
