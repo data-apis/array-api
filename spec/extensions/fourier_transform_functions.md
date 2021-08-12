@@ -17,7 +17,7 @@ A conforming implementation of the array API standard must provide and support t
 (function-fft)=
 ### fft(a, /, *, n=None, axis=-1, norm='backward')
 
-Computes the one-dimensional discrete Fourier transform. The expected behavior includes a round-trip transform using the inverse function, `fft(ifft(a)) == a`.
+Computes the one-dimensional discrete Fourier transform. The expected behavior includes a round-trip transform using the inverse function, `ifft(fft(a)) == a` within numerical accuracy.
 
 #### Parameters
 
@@ -47,7 +47,7 @@ Computes the one-dimensional discrete Fourier transform. The expected behavior i
 
 -   **out**: _&lt;array&gt;_
 
-    -   An array transformed along the axis indicated by the `axis` keyword.
+    -   A complex-valued array transformed along the axis indicated by the `axis` keyword. The length along the transformed axis is `n//2+1`.
 
 #### Raises
 
@@ -56,7 +56,7 @@ Computes the one-dimensional discrete Fourier transform. The expected behavior i
 (function-ifft)=
 ### ifft(a, /, *, n=None, axis=-1, norm='backward')
 
-Computes the one-dimensional inverse discrete Fourier transform.
+Computes the one-dimensional inverse discrete Fourier transform. The expected behavior includes a round-trip transform using the inverse function, `ifft(fft(a)) == a` within numerical accuracy.
 
 #### Parameters
 
@@ -86,7 +86,7 @@ Computes the one-dimensional inverse discrete Fourier transform.
 
 -   **out**: _&lt;array&gt;_
 
-    -   An array transformed along the axis indicated by the `axis` keyword.
+    -   A complex-valued array transformed along the axis indicated by the `axis` keyword. The length along the transformed axis is `n//2+1`.
 
 #### Raises
 
@@ -95,7 +95,7 @@ Computes the one-dimensional inverse discrete Fourier transform.
 (function-fftn)=
 ### fftn(a, /, *, s=None, axes=None, norm='backward')
 
-Computes the n-dimensional discrete Fourier transform.
+Computes the n-dimensional discrete Fourier transform. The expected behavior includes a round-trip transform using the inverse function, `ifftn(fftn(a)) == a` within numerical accuracy.
 
 #### Parameters
 
@@ -105,7 +105,7 @@ Computes the n-dimensional discrete Fourier transform.
 
 -   **s**: _Union\[ Sequence\[ int ], Tuple\[ int, ... ] ]_
 
-    -   Size of each transformed axis of the output. If given, each axis will be either zero-padded or trimmed to the length `s[i]` before computing the Fourier transform. Otherwise, the length of the input along the axis given by the `axes` keyword. Default: `None`.
+    -   Size of each transformed axis of the output. If given, each axis `i` will be either zero-padded or trimmed to the length `s[i]` before computing the Fourier transform. Otherwise, the shape of the input along the axes given by the `axes` keyword. Default: `None`.
 
 -   **axes**: _Union\[ Sequence\[ int ], Tuple\[ int, ... ] ]_
 
@@ -130,12 +130,12 @@ Computes the n-dimensional discrete Fourier transform.
 #### Raises
 
 -   If `s` and `axes` have different lengths.
--   If an element of `axes` is larger than the number of axes of `a`.
+-   If `axes` contains any invalid axis of `a`.
 
 (function-ifftn)=
 ### ifftn(a, /, *, s=None, axes=None, norm='backward')
 
-Computes the n-dimensional inverse discrete Fourier transform.
+Computes the n-dimensional inverse discrete Fourier transform. The expected behavior includes a round-trip transform using the inverse function, `ifftn(fftn(a)) == a` within numerical accuracy.
 
 #### Parameters
 
@@ -170,12 +170,12 @@ Computes the n-dimensional inverse discrete Fourier transform.
 #### Raises
 
 -   If `s` and `axes` have different lengths.
--   If an element of `axes` is larger than the number of axes of `a`.
+-   If `axes` contains any invalid axis of `a`.
 
 (function-rfft)=
 ### rfft(a, /, *, n=None, axis=-1, norm='backward')
 
-Computes the one-dimensional discrete Fourier transform for real-valued input.
+Computes the one-dimensional discrete Fourier transform for real-valued input. The expected behavior includes a round-trip transform using the inverse function, `irfft(rfft(a), n=a.shape[axis]) == a` within numerical accuracy.
 
 #### Parameters
 
@@ -185,7 +185,7 @@ Computes the one-dimensional discrete Fourier transform for real-valued input.
 
 -   **n**: _int_
 
-    -   Length of the input array. If given, the input will be either zero-padded or trimmed to this length before computing the real Fourier transform. Otherwise, the length of the input along the axis specified by the `axis` keyword is used. Default: `None`.
+    -   Length of the transformed axis of the *input*. If given, the input will be either zero-padded or trimmed to this length before computing the real Fourier transform. Otherwise, the length of the input along the axis specified by the `axis` keyword is used. Default: `None`.
 
 -   **axis**: _int_
 
@@ -205,7 +205,7 @@ Computes the one-dimensional discrete Fourier transform for real-valued input.
 
 -   **out**: _&lt;array&gt;_
 
-    -   An array transformed along the axis indicated by the `axis` keyword.
+    -   A complex-valued array transformed along the axis indicated by the `axis` keyword. The length along the transformed axis is `n//2+1`.
 
 #### Raises
 
@@ -214,7 +214,7 @@ Computes the one-dimensional discrete Fourier transform for real-valued input.
 (function-irfft)=
 ### irfft(a, /, *, n=None, axis=-1, norm='backward')
 
-Computes the one-dimensional inverse discrete Fourier transform for real-valued input.
+Computes the one-dimensional inverse of `rfft`. The expected behavior includes a round-trip transform using the inverse function, `irfft(rfft(a), n=a.shape[axis]) == a` within numerical accuracy.
 
 #### Parameters
 
@@ -224,7 +224,7 @@ Computes the one-dimensional inverse discrete Fourier transform for real-valued 
 
 -   **n**: _int_
 
-    -   Length of the transformed axis of the output. If given, the input will be either zero-padded or trimmed to this length before computing the real Fourier transform. Otherwise, it will default to `2 * (m - 1)` where `m` is the length of the input along the axis given by the `axis` keyword. Default: `None`.
+    -   Length of the transformed axis of the *output*. If given, the input will be either zero-padded or trimmed to `n//2+1` before computing the inverse of `rfft`. Otherwise, it will default to `2 * (m - 1)` where `m` is the length of the input along the axis given by the `axis` keyword. Default: `None`.
 
 -   **axis**: _int_
 
@@ -244,7 +244,7 @@ Computes the one-dimensional inverse discrete Fourier transform for real-valued 
 
 -   **out**: _&lt;array&gt;_
 
-    -   An array transformed along the axis indicated by the `axis` keyword.
+    -   A real-valued array transformed along the axis indicated by the `axis` keyword. The length along the transformed axis is `n` (if given) or `2 * (m - 1)`.
 
 #### Raises
 
@@ -253,7 +253,7 @@ Computes the one-dimensional inverse discrete Fourier transform for real-valued 
 (function-rfftn)=
 ### rfftn(a, /, *, s=None, axes=None, norm='backward')
 
-Computes the n-dimensional discrete Fourier transform for real-valued input.
+Computes the n-dimensional discrete Fourier transform for real-valued input. The expected behavior includes a round-trip transform using the inverse function, `irfftn(rfftn(a), s=a.shape) == a` within numerical accuracy.
 
 #### Parameters
 
@@ -263,7 +263,7 @@ Computes the n-dimensional discrete Fourier transform for real-valued input.
 
 -   **s**: _Union\[ Sequence\[ int ], Tuple\[ int, ... ] ]_
 
-    -   Size of each transformed axis of the output. If given, each axis will be either zero-padded or trimmed to the length `s[i]` before computing the real Fourier transform. Otherwise, no padding will be performed in each dimension. Default: `None`.
+    -   Size of each transformed axis of the output. If given, each axis `i` will be either zero-padded or trimmed to the length `s[i]` before computing the real Fourier transform. Otherwise, the shape of the input along the axes given by the `axes` keyword. The last element `s[-1]` is for computing `rfft(a[axes[-1]], n=s[-1])` whereas other elements for `fft(a[axes[i]], n=s[i])`. Default: `None`.
 
 -   **axes**: _Union\[ Sequence\[ int ], Tuple\[ int, ... ] ]_
 
@@ -283,17 +283,17 @@ Computes the n-dimensional discrete Fourier transform for real-valued input.
 
 -   **out**: _&lt;array&gt;_
 
-    -   An array transformed along the axes indicated by the `axes` keyword.
+    -   A complex-valued array transformed along the axes indicated by the `axes` keyword. The length along the last transformed axis is `s[-1]//2+1` and along other axes `s[i]`.
 
 #### Raises
 
 -   If `s` and `axes` have different lengths.
--   If an element of `axes` is larger than the number of axes of `a`.
+-   If `axes` contains any invalid axis of `a`.
 
 (function-irfftn)=
 ### irfftn(a, /, *, s=None, axes=None, norm='backward')
 
-Computes the n-dimensional inverse discrete Fourier transform for real-valued input.
+Computes the n-dimensional inverse of `rfftn`. The expected behavior includes a round-trip transform using the inverse function, `irfftn(rfftn(a), s=a.shape) == a` within numerical accuracy.
 
 #### Parameters
 
@@ -303,7 +303,7 @@ Computes the n-dimensional inverse discrete Fourier transform for real-valued in
 
 -   **s**: _Union\[ Sequence\[ int ], Tuple\[ int, ... ] ]_
 
-    -   Size of each transformed axis of the output. If given, each axis will be either zero-padded or trimmed to the length `s[i]` before computing the Fourier transform. Otherwise, no padding will be performed in each dimension. Default: `None`.
+    -   Size of each transformed axis of the *output*. If given, the last axis will be either zero-padded or trimmed to `s[-1]//2+1`, whereas all other axes `i` are either zero-padded or trimmed to the length `s[i]`, before computing the inverse of `rfftn`. Otherwise, the last axis is either zero-padded or trimmed to `2 * (m - 1)`, where `m` is the length of the input along the axis, and all other axes use the input shape. The last element `s[-1]` is for computing `irfft(a[axes[-1]], n=s[-1])` whereas other elements for `ifft(a[axes[i]], n=s[i])`. Default: `None`.
 
 -   **axes**: _Union\[ Sequence\[ int ], Tuple\[ int, ... ] ]_
 
@@ -323,12 +323,12 @@ Computes the n-dimensional inverse discrete Fourier transform for real-valued in
 
 -   **out**: _&lt;array&gt;_
 
-    -   An array transformed along the axes indicated by the `axes` keyword.
+    -   A real-valued array transformed along the axes indicated by the `axes` keyword. The length along the last transformed axis is `s[-1]` (if given) or `2 * (m - 1)`, and all other axes `s[i]`.
 
 #### Raises
 
 -   If `s` and `axes` have different lengths.
--   If an element of `axes` is larger than the number of axes of `a`.
+-   If `axes` contains any invalid axis of `a`.
 
 (function-hfft)=
 ### hfft(a, /, *, n=None, axis=-1, norm='backward')
