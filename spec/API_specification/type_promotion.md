@@ -70,6 +70,7 @@ where
 | **i1** | i2 | i4 | i8 |
 | **i2** | i2 | i4 | i8 |
 | **i4** | i4 | i4 | i8 |
+| **i8** | i8 | i8 | i8 |
 
 ### Floating-point type promotion table
 
@@ -108,6 +109,7 @@ a compatible type and value to the array dtype:
 - Python `bool` for a `bool` array dtype,
 - a Python `int` within the [bounds](data-types) of the given dtype for integer array dtypes,
 - a Python `int` or `float` for floating-point array dtypes
+
 The expected behavior is then equivalent to:
 
 1. Convert the scalar to a 0-D array with the same dtype as that of the array

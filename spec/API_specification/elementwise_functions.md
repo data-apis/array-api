@@ -352,7 +352,7 @@ Shifts the bits of each element `x1_i` of the input array `x1` to the left by ap
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the element-wise results. The returned array must have the same data type as `x1`.
+    -   an array containing the element-wise results. The returned array must have a data type determined by {ref}`type-promotion`.
 
 (function-bitwise_invert)=
 ### bitwise_invert(x, /)
@@ -397,6 +397,11 @@ Computes the bitwise OR of the underlying binary representation of each element 
 
 Shifts the bits of each element `x1_i` of the input array `x1` to the right according to the respective element `x2_i` of the input array `x2`.
 
+```{note}
+
+This operation must be an arithmetic shift (i.e., sign-propagating) and thus equivalent to floor division by a power of two.
+```
+
 #### Parameters
 
 -   **x1**: _&lt;array&gt;_
@@ -411,7 +416,7 @@ Shifts the bits of each element `x1_i` of the input array `x1` to the right acco
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the element-wise results. The returned array must have the same data type as `x1`.
+    -   an array containing the element-wise results. The returned array must have a data type determined by {ref}`type-promotion`.
 
 (function-bitwise_xor)=
 ### bitwise_xor(x1, x2, /)
@@ -939,8 +944,9 @@ each element `x1_i` of the input array `x1` with the respective element `x2_i` o
 
 For floating-point operands,
 
-- If either `x1_i` or `x2_i` is `NaN`, the result is `NaN`.
-- If either `x1_i` or `x2_i` is `+infinity`, the result is `+infinity`.
+-   If either `x1_i` or `x2_i` is `NaN`, the result is `NaN`.
+-   If `x1_i` is `+infinity` and `x2_i` is not `NaN`, the result is `+infinity`.
+-   If `x1_i` is not `NaN` and `x2_i` is `+infinity`, the result is `+infinity`.
 
 #### Parameters
 
