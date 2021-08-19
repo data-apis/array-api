@@ -465,7 +465,7 @@ Computes the qr factorization of a matrix (or a stack of matrices), where `q` is
 
     -   input array having shape `(..., M, N)` and whose innermost two dimensions form `MxN` matrices. Should have a floating-point data type.
 
--   **mode**: _str_
+-   **mode**: _Literal\[ 'reduced', 'complete' ]_
 
     -   factorization mode. Should be one of the following modes:
 
@@ -552,7 +552,7 @@ Computes the singular value decomposition `A = USVh` of a matrix (or a stack of 
 
 #### Returns
 
--   **out**: _Union\[ &lt;array&gt;, Tuple\[ &lt;array&gt;, ... ] ]_
+-   **out**: _Tuple\[ &lt;array&gt;, &lt;array&gt;, &lt;array&gt; ]_
 
     -   a namedtuple `(u, s, vh)` whose
 
@@ -561,11 +561,6 @@ Computes the singular value decomposition `A = USVh` of a matrix (or a stack of 
         -   third element must have the field name `vh` and must be an array whose shape depends on the value of `full_matrices` and contain unitary array(s) (i.e., the right singular vectors). The right singular vectors must be stored as rows (i.e., the array is the adjoint). If `full_matrices` is `True`, the array must have shape `(..., N, N)`. If `full_matrices` is `False`, the array must have shape `(..., K, N)` where `K = min(M, N)`. The first `x.ndim-2` dimensions must have the same shape as those of the input `x`.
 
         Each returned array must have the same floating-point data type as `x`.
-
-(function-linalg-tensordot)=
-### linalg.tensordot(x1, x2, /, *, axes=2)
-
-Alias for {ref}`function-tensordot`.
 
 (function-linalg-svdvals)=
 ### linalg.svdvals(x, /)
@@ -583,6 +578,11 @@ Computes the singular values of a matrix (or a stack of matrices) `x`.
 -   **out**: _Union\[ &lt;array&gt;, Tuple\[ &lt;array&gt;, ... ] ]_
 
     -   an array with shape `(..., K)` that contains the vector(s) of singular values of length `K`. For each vector, the singular values must be sorted in descending order by magnitude, such that `s[..., 0]` is the largest value, `s[..., 1]` is the second largest value, et cetera. The first `x.ndim-2` dimensions must have the same shape as those of the input `x`. The returned array must have the same floating-point data type as `x`.
+
+(function-linalg-tensordot)=
+### linalg.tensordot(x1, x2, /, *, axes=2)
+
+Alias for {ref}`function-tensordot`.
 
 (function-linalg-trace)=
 ### linalg.trace(x, /, *, offset=0)
