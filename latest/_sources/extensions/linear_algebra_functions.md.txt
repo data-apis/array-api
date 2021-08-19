@@ -140,23 +140,15 @@ Returns the determinant of a square matrix (or stack of square matrices) `x`.
     -   if `x` is a two-dimensional array, a zero-dimensional array containing the determinant; otherwise, a non-zero dimensional array containing the determinant for each square matrix. The returned array must have the same data type as `x`.
 
 (function-linalg-diagonal)=
-### linalg.diagonal(x, /, *, axis1=0, axis2=1, offset=0)
+### linalg.diagonal(x, /, *, offset=0)
 
-Returns the specified diagonals. If `x` has more than two dimensions, then the axes (dimensions) specified by `axis1` and `axis2` are used to determine the two-dimensional sub-arrays from which to return diagonals.
+Returns the specified diagonals of a matrix (or a stack of matrices) `x`.
 
 #### Parameters
 
 -   **x**: _&lt;array&gt;_
 
-    -   input array. Must have at least `2` dimensions.
-
--   **axis1**: _int_
-
-    -   first axis (dimension) with respect to which to take diagonal. Default: `0`.
-
--   **axis2**: _int_
-
-    -   second axis (dimension) with respect to which to take diagonal. Default: `1`.
+    -   input array having shape `(..., M, N)` and whose innermost two dimensions form `MxN` matrices.
 
 -   **offset**: _int_
 
@@ -172,7 +164,7 @@ Returns the specified diagonals. If `x` has more than two dimensions, then the a
 
 -   **out**: _&lt;array&gt;_
 
-    -   if `x` is a two-dimensional array, a one-dimensional array containing the diagonal; otherwise, a multi-dimensional array containing the diagonals and whose shape is determined by removing `axis1` and `axis2` and appending a dimension equal to the size of the resulting diagonals. The returned array must have the same data type as `x`.
+    -   an array containing the diagonals and whose shape is determined by removing the last two dimensions and appending a dimension equal to the size of the resulting diagonals. The returned array must have the same data type as `x`.
 
 (function-linalg-eig)=
 ### linalg.eig()
@@ -593,23 +585,15 @@ Computes the singular values of a matrix (or a stack of matrices) `x`.
     -   an array with shape `(..., K)` that contains the vector(s) of singular values of length `K`. For each vector, the singular values must be sorted in descending order by magnitude, such that `s[..., 0]` is the largest value, `s[..., 1]` is the second largest value, et cetera. The first `x.ndim-2` dimensions must have the same shape as those of the input `x`. The returned array must have the same floating-point data type as `x`.
 
 (function-linalg-trace)=
-### linalg.trace(x, /, *, axis1=0, axis2=1, offset=0)
+### linalg.trace(x, /, *, offset=0)
 
-Returns the sum along the specified diagonals. If `x` has more than two dimensions, then the axes (dimensions) specified by `axis1` and `axis2` are used to determine the two-dimensional sub-arrays for which to compute the trace.
+Returns the sum along the specified diagonals of a matrix (or a stack of matrices) `x`.
 
 #### Parameters
 
 -   **x**: _&lt;array&gt;_
 
-    -   input array. Must have at least `2` dimensions. Should have a numeric data type.
-
--   **axis1**: _int_
-
-    -   first axis (dimension) with respect to which to compute the trace. Default: `0`.
-
--   **axis2**: _int_
-
-    -   second axis (dimension) with respect to which to compute the trace. Default: `1`.
+    -   input array having shape `(..., M, N)` and whose innermost two dimensions form `MxN` matrices. Should have a numeric data type.
 
 -   **offset**: _int_
 
@@ -625,9 +609,7 @@ Returns the sum along the specified diagonals. If `x` has more than two dimensio
 
 -   **out**: _&lt;array&gt;_
 
-    -   if `x` is a two-dimensional array, the returned array must be a zero-dimensional array containing the trace; otherwise, the returned array must be a multi-dimensional array containing the traces.
-
-        The shape of a multi-dimensional output array is determined by removing `axis1` and `axis2` and storing the traces in the last array dimension. For example, if `x` has rank `k` and shape `(I, J, K, ..., L, M, N)` and `axis1=-2` and `axis1=-1`, then a multi-dimensional output array has rank `k-2` and shape `(I, J, K, ..., L)` where
+    -   an array containing the traces and whose shape is determined by removing the last two dimensions and storing the traces in the last array dimension. For example, if `x` has rank `k` and shape `(I, J, K, ..., L, M, N)`, then an output array has rank `k-2` and shape `(I, J, K, ..., L)` where
 
         ```text
         out[i, j, k, ..., l] = trace(a[i, j, k, ..., l, :, :])

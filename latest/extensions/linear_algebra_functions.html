@@ -319,8 +319,8 @@
                       </nav>
                      </li>
                      <li class="md-nav__item">
-                      <a class="md-nav__link" href="#linalg-diagonal-x-axis1-0-axis2-1-offset-0">
-                       linalg.diagonal(x, /, *, axis1=0, axis2=1, offset=0)
+                      <a class="md-nav__link" href="#linalg-diagonal-x-offset-0">
+                       linalg.diagonal(x, /, *, offset=0)
                       </a>
                       <nav class="md-nav">
                        <ul class="md-nav__list">
@@ -629,8 +629,8 @@
                       </nav>
                      </li>
                      <li class="md-nav__item">
-                      <a class="md-nav__link" href="#linalg-trace-x-axis1-0-axis2-1-offset-0">
-                       linalg.trace(x, /, *, axis1=0, axis2=1, offset=0)
+                      <a class="md-nav__link" href="#linalg-trace-x-offset-0">
+                       linalg.trace(x, /, *, offset=0)
                       </a>
                       <nav class="md-nav">
                        <ul class="md-nav__list">
@@ -778,8 +778,8 @@
                  </nav>
                 </li>
                 <li class="md-nav__item">
-                 <a class="md-nav__link" href="#linalg-diagonal-x-axis1-0-axis2-1-offset-0">
-                  linalg.diagonal(x, /, *, axis1=0, axis2=1, offset=0)
+                 <a class="md-nav__link" href="#linalg-diagonal-x-offset-0">
+                  linalg.diagonal(x, /, *, offset=0)
                  </a>
                  <nav class="md-nav">
                   <ul class="md-nav__list">
@@ -1088,8 +1088,8 @@
                  </nav>
                 </li>
                 <li class="md-nav__item">
-                 <a class="md-nav__link" href="#linalg-trace-x-axis1-0-axis2-1-offset-0">
-                  linalg.trace(x, /, *, axis1=0, axis2=1, offset=0)
+                 <a class="md-nav__link" href="#linalg-trace-x-offset-0">
+                  linalg.trace(x, /, *, offset=0)
                  </a>
                  <nav class="md-nav">
                   <ul class="md-nav__list">
@@ -1974,35 +1974,23 @@
            </ul>
           </section>
          </section>
-         <section id="linalg-diagonal-x-axis1-0-axis2-1-offset-0">
+         <section id="linalg-diagonal-x-offset-0">
           <span id="function-linalg-diagonal">
           </span>
-          <h3 id="linalg-diagonal-x-axis1-0-axis2-1-offset-0">
-           linalg.diagonal(x, /, *, axis1=0, axis2=1, offset=0)
-           <a class="headerlink" href="#linalg-diagonal-x-axis1-0-axis2-1-offset-0" title="Permalink to this headline">
+          <h3 id="linalg-diagonal-x-offset-0">
+           linalg.diagonal(x, /, *, offset=0)
+           <a class="headerlink" href="#linalg-diagonal-x-offset-0" title="Permalink to this headline">
             ¶
            </a>
           </h3>
           <p>
-           Returns the specified diagonals. If
+           Returns the specified diagonals of a matrix (or a stack of matrices)
            <code class="docutils literal notranslate">
             <span class="pre">
              x
             </span>
            </code>
-           has more than two dimensions, then the axes (dimensions) specified by
-           <code class="docutils literal notranslate">
-            <span class="pre">
-             axis1
-            </span>
-           </code>
-           and
-           <code class="docutils literal notranslate">
-            <span class="pre">
-             axis2
-            </span>
-           </code>
-           are used to determine the two-dimensional sub-arrays from which to return diagonals.
+           .
           </p>
           <section id="id5">
            <h4 id="id5">
@@ -2025,61 +2013,25 @@
              <ul class="simple">
               <li>
                <p>
-                input array. Must have at least
+                input array having shape
                 <code class="docutils literal notranslate">
                  <span class="pre">
-                  2
+                  (...,
+                 </span>
+                 <span class="pre">
+                  M,
+                 </span>
+                 <span class="pre">
+                  N)
                  </span>
                 </code>
-                dimensions.
-               </p>
-              </li>
-             </ul>
-            </li>
-            <li>
-             <p>
-              <strong>
-               axis1
-              </strong>
-              :
-              <em>
-               int
-              </em>
-             </p>
-             <ul class="simple">
-              <li>
-               <p>
-                first axis (dimension) with respect to which to take diagonal. Default:
+                and whose innermost two dimensions form
                 <code class="docutils literal notranslate">
                  <span class="pre">
-                  0
+                  MxN
                  </span>
                 </code>
-                .
-               </p>
-              </li>
-             </ul>
-            </li>
-            <li>
-             <p>
-              <strong>
-               axis2
-              </strong>
-              :
-              <em>
-               int
-              </em>
-             </p>
-             <ul class="simple">
-              <li>
-               <p>
-                second axis (dimension) with respect to which to take diagonal. Default:
-                <code class="docutils literal notranslate">
-                 <span class="pre">
-                  1
-                 </span>
-                </code>
-                .
+                matrices.
                </p>
               </li>
              </ul>
@@ -2184,25 +2136,7 @@
              <ul>
               <li>
                <p>
-                if
-                <code class="docutils literal notranslate">
-                 <span class="pre">
-                  x
-                 </span>
-                </code>
-                is a two-dimensional array, a one-dimensional array containing the diagonal; otherwise, a multi-dimensional array containing the diagonals and whose shape is determined by removing
-                <code class="docutils literal notranslate">
-                 <span class="pre">
-                  axis1
-                 </span>
-                </code>
-                and
-                <code class="docutils literal notranslate">
-                 <span class="pre">
-                  axis2
-                 </span>
-                </code>
-                and appending a dimension equal to the size of the resulting diagonals. The returned array must have the same data type as
+                an array containing the diagonals and whose shape is determined by removing the last two dimensions and appending a dimension equal to the size of the resulting diagonals. The returned array must have the same data type as
                 <code class="docutils literal notranslate">
                  <span class="pre">
                   x
@@ -6213,35 +6147,23 @@
            </ul>
           </section>
          </section>
-         <section id="linalg-trace-x-axis1-0-axis2-1-offset-0">
+         <section id="linalg-trace-x-offset-0">
           <span id="function-linalg-trace">
           </span>
-          <h3 id="linalg-trace-x-axis1-0-axis2-1-offset-0">
-           linalg.trace(x, /, *, axis1=0, axis2=1, offset=0)
-           <a class="headerlink" href="#linalg-trace-x-axis1-0-axis2-1-offset-0" title="Permalink to this headline">
+          <h3 id="linalg-trace-x-offset-0">
+           linalg.trace(x, /, *, offset=0)
+           <a class="headerlink" href="#linalg-trace-x-offset-0" title="Permalink to this headline">
             ¶
            </a>
           </h3>
           <p>
-           Returns the sum along the specified diagonals. If
+           Returns the sum along the specified diagonals of a matrix (or a stack of matrices)
            <code class="docutils literal notranslate">
             <span class="pre">
              x
             </span>
            </code>
-           has more than two dimensions, then the axes (dimensions) specified by
-           <code class="docutils literal notranslate">
-            <span class="pre">
-             axis1
-            </span>
-           </code>
-           and
-           <code class="docutils literal notranslate">
-            <span class="pre">
-             axis2
-            </span>
-           </code>
-           are used to determine the two-dimensional sub-arrays for which to compute the trace.
+           .
           </p>
           <section id="id35">
            <h4 id="id35">
@@ -6264,61 +6186,25 @@
              <ul class="simple">
               <li>
                <p>
-                input array. Must have at least
+                input array having shape
                 <code class="docutils literal notranslate">
                  <span class="pre">
-                  2
+                  (...,
+                 </span>
+                 <span class="pre">
+                  M,
+                 </span>
+                 <span class="pre">
+                  N)
                  </span>
                 </code>
-                dimensions. Should have a numeric data type.
-               </p>
-              </li>
-             </ul>
-            </li>
-            <li>
-             <p>
-              <strong>
-               axis1
-              </strong>
-              :
-              <em>
-               int
-              </em>
-             </p>
-             <ul class="simple">
-              <li>
-               <p>
-                first axis (dimension) with respect to which to compute the trace. Default:
+                and whose innermost two dimensions form
                 <code class="docutils literal notranslate">
                  <span class="pre">
-                  0
+                  MxN
                  </span>
                 </code>
-                .
-               </p>
-              </li>
-             </ul>
-            </li>
-            <li>
-             <p>
-              <strong>
-               axis2
-              </strong>
-              :
-              <em>
-               int
-              </em>
-             </p>
-             <ul class="simple">
-              <li>
-               <p>
-                second axis (dimension) with respect to which to compute the trace. Default:
-                <code class="docutils literal notranslate">
-                 <span class="pre">
-                  1
-                 </span>
-                </code>
-                .
+                matrices. Should have a numeric data type.
                </p>
               </li>
              </ul>
@@ -6423,28 +6309,7 @@
              <ul>
               <li>
                <p>
-                if
-                <code class="docutils literal notranslate">
-                 <span class="pre">
-                  x
-                 </span>
-                </code>
-                is a two-dimensional array, the returned array must be a zero-dimensional array containing the trace; otherwise, the returned array must be a multi-dimensional array containing the traces.
-               </p>
-               <p>
-                The shape of a multi-dimensional output array is determined by removing
-                <code class="docutils literal notranslate">
-                 <span class="pre">
-                  axis1
-                 </span>
-                </code>
-                and
-                <code class="docutils literal notranslate">
-                 <span class="pre">
-                  axis2
-                 </span>
-                </code>
-                and storing the traces in the last array dimension. For example, if
+                an array containing the traces and whose shape is determined by removing the last two dimensions and storing the traces in the last array dimension. For example, if
                 <code class="docutils literal notranslate">
                  <span class="pre">
                   x
@@ -6480,19 +6345,7 @@
                   N)
                  </span>
                 </code>
-                and
-                <code class="docutils literal notranslate">
-                 <span class="pre">
-                  axis1=-2
-                 </span>
-                </code>
-                and
-                <code class="docutils literal notranslate">
-                 <span class="pre">
-                  axis1=-1
-                 </span>
-                </code>
-                , then a multi-dimensional output array has rank
+                , then an output array has rank
                 <code class="docutils literal notranslate">
                  <span class="pre">
                   k-2
