@@ -2,7 +2,7 @@ on: [status]
 jobs:
   circleci_artifacts_redirector_job:
     # Don't run Action on forks, and allow skipping CI
-    if: "github.repository == 'data-apis/array-api' && !contains(github.event.head_commit.message, '[ci skip]') && !contains(github.event.head_commit.message, '[skip ci]') && !contains(github.event.head_commit.message, '[skip github]')"
+    if: "github.repository == 'data-apis/array-api'"
     runs-on: ubuntu-latest
     name: Run CircleCI artifacts redirector
     steps:
