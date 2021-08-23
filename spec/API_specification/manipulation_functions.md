@@ -19,7 +19,7 @@ Joins a sequence of arrays along an existing axis.
 
 #### Parameters
 
--   **arrays**: _Tuple\[ &lt;array&gt;, ... ]_
+-   **arrays**: _Union\[Tuple\[ &lt;array&gt;, ... ], List\[ &lt;array&gt; ] ]_
 
     -   input arrays to join. The arrays must have the same shape, except in the dimension specified by `axis`.
 
@@ -154,7 +154,7 @@ Joins a sequence of arrays along a new axis.
 
 #### Parameters
 
--   **arrays**: _Tuple\[ &lt;array&gt;, ... ]_
+-   **arrays**: _Union\[Tuple\[ &lt;array&gt;, ... ], List\[ &lt;array&gt; ] ]_
 
     -   input arrays to join. Each array must have the same shape.
 
