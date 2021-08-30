@@ -80,6 +80,27 @@ Reverses the order of elements in an array along the given axis. The shape of th
 
     -   an output array having the same data type and shape as `x` and whose elements, relative to `x`, are reordered.
 
+(function-permute)=
+### permute(x, /, *, axes=None)
+
+Permutes the axes (dimensions) of an array `x`.
+
+#### Parameters
+
+-   **x**: _&lt;array&gt;_
+
+    -   input array.
+
+-   **axes**: _Optional\[ Tuple\[ int, ... ] ]_
+
+    -   tuple containing a permutation of `(0, 1, ..., N-1)` where `N` is the number of axes (dimensions) of `x`. If `None`, the axes (dimensions) must be permuted in reverse order (i.e., equivalent to setting `axes=(N-1, ..., 1, 0)`). Default: `None`.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the axes permutation. The returned array must have the same data type as `x`.
+
 (function-reshape)=
 ### reshape(x, /, shape)
 
