@@ -183,7 +183,6 @@ an array object supporting the following reflected operators:
 The results of applying reflected operators must match their non-reflected equivalents.
 
 ```{note}
-
 All operators for which `array <op> scalar` is implemented must have an equivalent reflected operator implementation.
 ```
 
@@ -259,11 +258,17 @@ _TODO: need to more carefully consider this in order to accommodate, e.g., graph
 
 Transpose of the array.
 
+The array instance must be two-dimensional. If the array instance is not two-dimensional, an error should be raised.
+
+```{note}
+Limiting the transpose to two-dimensional arrays (matrices) deviates from the NumPy et al practice of reversing all axes for arrays having more than two-dimensions. This is intentional, as reversing all axes was found to be problematic (e.g., conflicting with the mathematical definition of a transpose which is limited to matrices; not operating on batches of matrices; et cetera).
+```
+
 #### Returns
 
 -   **out**: _&lt;array&gt;_
 
-    -   array whose dimensions (axes) are permuted in reverse order relative to original array. The returned array must have the same data type as the original array.
+    -   two-dimensional array whose first and last dimensions (axes) are permuted in reverse order relative to original array. The returned array must have the same data type as the original array.
 
 * * *
 
@@ -297,7 +302,6 @@ For floating-point operands, let `self` equal `x`.
     -   an array containing the element-wise absolute value. The returned array must have the same data type as `self`.
 
 ```{note}
-
 Element-wise results must equal the results returned by the equivalent element-wise function [`abs(x)`](elementwise_functions.md#absx-).
 ```
 
@@ -329,7 +333,6 @@ For floating-point operands, let `self` equal `x1` and `other` equal `x2`.
 -   In the remaining cases, when neither `infinity`, `+0`, `-0`, nor a `NaN` is involved, and the operands have the same mathematical sign or have different magnitudes, the sum must be computed and rounded to the nearest representable value according to IEEE 754-2019 and a supported round mode. If the magnitude is too large to represent, the operation overflows and the result is an `infinity` of appropriate mathematical sign.
 
 ```{note}
-
 Floating-point addition is a commutative operation, but not always associative.
 ```
 
@@ -350,7 +353,6 @@ Floating-point addition is a commutative operation, but not always associative.
     -   an array containing the element-wise sums. The returned array must have a data type determined by {ref}`type-promotion`.
 
 ```{note}
-
 Element-wise results must equal the results returned by the equivalent element-wise function [`add(x1, x2)`](elementwise_functions.md#addx1-x2-).
 ```
 
@@ -376,7 +378,6 @@ Evaluates `self_i & other_i` for each element of an array instance with the resp
     -   an array containing the element-wise results. The returned array must have a data type determined by {ref}`type-promotion`.
 
 ```{note}
-
 Element-wise results must equal the results returned by the equivalent element-wise function [`bitwise_and(x1, x2)`](elementwise_functions.md#logical_andx1-x2-).
 ```
 
@@ -524,7 +525,6 @@ Computes the truth value of `self_i == other_i` for each element of an array ins
     -   an array containing the element-wise results. The returned array must have a data type of `bool`.
 
 ```{note}
-
 Element-wise results must equal the results returned by the equivalent element-wise function [`equal(x1, x2)`](elementwise_functions.md#equalx1-x2-).
 ```
 
@@ -567,7 +567,6 @@ Evaluates `self_i // other_i` for each element of an array instance with the res
     -   an array containing the element-wise results. The returned array must have a data type determined by {ref}`type-promotion`.
 
 ```{note}
-
 Element-wise results must equal the results returned by the equivalent element-wise function [`floor_divide(x1, x2)`](elementwise_functions.md#floor_dividex1-x2-).
 ```
 
@@ -593,7 +592,6 @@ Computes the truth value of `self_i >= other_i` for each element of an array ins
     -   an array containing the element-wise results. The returned array must have a data type of `bool`.
 
 ```{note}
-
 Element-wise results must equal the results returned by the equivalent element-wise function [`greater_equal(x1, x2)`](elementwise_functions.md#greater_equalx1-x2-).
 ```
 
@@ -640,7 +638,6 @@ Computes the truth value of `self_i > other_i` for each element of an array inst
     -   an array containing the element-wise results. The returned array must have a data type of `bool`.
 
 ```{note}
-
 Element-wise results must equal the results returned by the equivalent element-wise function [`greater(x1, x2)`](elementwise_functions.md#greaterx1-x2-).
 ```
 
@@ -679,7 +676,6 @@ Evaluates `~self_i` for each element of an array instance.
     -   an array containing the element-wise results. The returned array must have the same data type as `self`.
 
 ```{note}
-
 Element-wise results must equal the results returned by the equivalent element-wise function [`bitwise_invert(x)`](elementwise_functions.md#bitwise_invertx-).
 ```
 
@@ -705,7 +701,6 @@ Computes the truth value of `self_i <= other_i` for each element of an array ins
     -   an array containing the element-wise results. The returned array must have a data type of `bool`.
 
 ```{note}
-
 Element-wise results must equal the results returned by the equivalent element-wise function [`less_equal(x1, x2)`](elementwise_functions.md#less_equalx1-x2-).
 ```
 
@@ -736,7 +731,6 @@ Evaluates `self_i << other_i` for each element of an array instance with the res
     -   an array containing the element-wise results. The returned array must have the same data type as `self`.
 
 ```{note}
-
 Element-wise results must equal the results returned by the equivalent element-wise function [`bitwise_left_shift(x1, x2)`](elementwise_functions.md#bitwise_left_shiftx1-x2-).
 ```
 
@@ -762,7 +756,6 @@ Computes the truth value of `self_i < other_i` for each element of an array inst
     -   an array containing the element-wise results. The returned array must have a data type of `bool`.
 
 ```{note}
-
 Element-wise results must equal the results returned by the equivalent element-wise function [`less(x1, x2)`](elementwise_functions.md#lessx1-x2-).
 ```
 
@@ -772,7 +765,6 @@ Element-wise results must equal the results returned by the equivalent element-w
 Computes the matrix product.
 
 ```{note}
-
 The `matmul` function must implement the same semantics as the built-in `@` operator (see [PEP 465](https://www.python.org/dev/peps/pep-0465)).
 ```
 
@@ -801,7 +793,6 @@ The `matmul` function must implement the same semantics as the built-in `@` oper
     The returned array must have a data type determined by {ref}`type-promotion`.
 
     ```{note}
-
     Results must equal the results returned by the equivalent function [`matmul(x1, x2)`](linear_algebra_functions.md#matmulx1-x2-).
     ```
 
@@ -833,7 +824,6 @@ Evaluates `self_i % other_i` for each element of an array instance with the resp
     -   an array containing the element-wise results. Each element-wise result must have the same sign as the respective element `other_i`. The returned array must have a floating-point data type determined by {ref}`type-promotion`.
 
 ```{note}
-
 Element-wise results must equal the results returned by the equivalent element-wise function [`remainder(x1, x2)`](elementwise_functions.md#remainderx1-x2-).
 ```
 
@@ -857,7 +847,6 @@ For floating-point operands, let `self` equal `x1` and `other` equal `x2`.
 -   In the remaining cases, where neither `infinity` nor `NaN` is involved, the product must be computed and rounded to the nearest representable value according to IEEE 754-2019 and a supported rounding mode. If the magnitude is too large to represent, the result is an `infinity` of appropriate mathematical sign. If the magnitude is too small to represent, the result is a zero of appropriate mathematical sign.
 
 ```{note}
-
 Floating-point multiplication is not always associative due to finite precision.
 ```
 
@@ -878,7 +867,6 @@ Floating-point multiplication is not always associative due to finite precision.
     -   an array containing the element-wise products. The returned array must have a data type determined by {ref}`type-promotion`.
 
 ```{note}
-
 Element-wise results must equal the results returned by the equivalent element-wise function [`multiply(x1, x2)`](elementwise_functions.md#multiplyx1-x2-).
 ```
 
@@ -904,7 +892,6 @@ Computes the truth value of `self_i != other_i` for each element of an array ins
     -   an array containing the element-wise results. The returned array must have a data type of `bool` (i.e., must be a boolean array).
 
 ```{note}
-
 Element-wise results must equal the results returned by the equivalent element-wise function [`not_equal(x1, x2)`](elementwise_functions.md#not_equalx1-x2-).
 ```
 
@@ -926,7 +913,6 @@ Evaluates `-self_i` for each element of an array instance.
     -   an array containing the evaluated result for each element in `self`. The returned array must have a data type determined by {ref}`type-promotion`.
 
 ```{note}
-
 Element-wise results must equal the results returned by the equivalent element-wise function [`negative(x)`](elementwise_functions.md#negativex-).
 ```
 
@@ -952,7 +938,6 @@ Evaluates `self_i | other_i` for each element of an array instance with the resp
     -   an array containing the element-wise results. The returned array must have a data type determined by {ref}`type-promotion`.
 
 ```{note}
-
 Element-wise results must equal the results returned by the equivalent element-wise function [`positive(x1, x2)`](elementwise_functions.md#bitwise_orx1-x2-).
 ```
 
@@ -974,7 +959,6 @@ Evaluates `+self_i` for each element of an array instance.
     -   an array containing the evaluated result for each element. The returned array must have the same data type as `self`.
 
 ```{note}
-
 Element-wise results must equal the results returned by the equivalent element-wise function [`positive(x)`](elementwise_functions.md#positivex-).
 ```
 
@@ -1029,7 +1013,6 @@ For floating-point operands, let `self` equal `x1` and `other` equal `x2`.
     -   an array containing the element-wise results. The returned array must have a data type determined by {ref}`type-promotion`.
 
 ```{note}
-
 Element-wise results must equal the results returned by the equivalent element-wise function [`pow(x1, x2)`](elementwise_functions.md#powx1-x2-).
 ```
 
@@ -1055,7 +1038,6 @@ Evaluates `self_i >> other_i` for each element of an array instance with the res
     -   an array containing the element-wise results. The returned array must have the same data type as `self`.
 
 ```{note}
-
 Element-wise results must equal the results returned by the equivalent element-wise function [`bitwise_right_shift(x1, x2)`](elementwise_functions.md#bitwise_right_shiftx1-x2-).
 ```
 
@@ -1079,7 +1061,6 @@ Sets `self[key]` to `value`.
     -   value(s) to set. Must be compatible with `self[key]` (see {ref}`broadcasting`).
 
 ```{note}
-
 Setting array values must not affect the data type of `self`.
 
 When `value` is a Python scalar (i.e., `int`, `float`, `bool`), behavior must follow specification guidance on mixing arrays with Python scalars (see {ref}`type-promotion`).
@@ -1109,7 +1090,6 @@ Calculates the difference for each element of an array instance with the respect
     -   an array containing the element-wise differences. The returned array must have a data type determined by {ref}`type-promotion`.
 
 ```{note}
-
 Element-wise results must equal the results returned by the equivalent element-wise function [`subtract(x1, x2)`](elementwise_functions.md#subtractx1-x2-).
 ```
 
@@ -1162,7 +1142,6 @@ For floating-point operands, let `self` equal `x1` and `other` equal `x2`.
     -   an array containing the element-wise results. The returned array must have a data type determined by {ref}`type-promotion`.
 
 ```{note}
-
 Element-wise results must equal the results returned by the equivalent element-wise function [`divide(x1, x2)`](elementwise_functions.md#dividex1-x2-).
 ```
 
@@ -1188,6 +1167,5 @@ Evaluates `self_i ^ other_i` for each element of an array instance with the resp
     -   an array containing the element-wise results. The returned array must have a data type determined by {ref}`type-promotion`.
 
 ```{note}
-
 Element-wise results must equal the results returned by the equivalent element-wise function [`bitwise_xor(x1, x2)`](elementwise_functions.md#bitwise_xorx1-x2-).
 ```
