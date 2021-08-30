@@ -562,11 +562,6 @@ Returns the sum along the specified diagonals of a matrix (or a stack of matrice
 
         The returned array must have the same data type as `x`.
 
-(function-linalg-transpose)=
-### linalg.transpose(x, /, *, axes=None)
-
-Alias for {ref}`function-transpose`.
-
 (function-linalg-vecdot)=
 ### linalg.vecdot(x1, x2, /, *, axis=None)
 
