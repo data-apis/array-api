@@ -169,7 +169,7 @@ Calculates the sum of the input array `x`.
 
 -   **dtype**: _Optional\[ &lt;dtype&gt; ]_
 
-    -   data type of the returned array. If `None`, the returned array must have have the default data type corresponding to the data type "kind" (integer or floating-point) of `x`. If the data type (either specified or resolved) differs from the data type of `x`, the input array should be cast to the specified data type before computing the sum. Default: `None`.
+    -   data type of the returned array. If `None`, the returned array must have the default data type corresponding to the data type "kind" (integer or floating-point) of `x`. If the data type (either specified or resolved) differs from the data type of `x`, the input array should be cast to the specified data type before computing the sum. Default: `None`.
 
         ```{note}
         This keyword argument is intended to help prevent data type overflows.
