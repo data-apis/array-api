@@ -22,7 +22,12 @@ A conforming implementation of the array API standard must provide and support t
 (function-abs)=
 ### abs(x, /)
 
-Calculates the absolute value for each element `x_i` of the input array `x` (i.e., the element-wise result has the same magnitude as the respective element in `x` but has positive sign). For signed integer data types, the `abs` of smallest representable integer is implementation-defined.
+Calculates the absolute value for each element `x_i` of the input array `x` (i.e., the element-wise result has the same magnitude as the respective element in `x` but has positive sign).
+
+```{note}
+
+For signed integer data types, the `abs` of smallest representable integer is implementation-dependent.
+```
 
 #### Special Cases
 
