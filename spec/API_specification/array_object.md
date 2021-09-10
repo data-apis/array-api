@@ -953,7 +953,7 @@ Evaluates `self_i | other_i` for each element of an array instance with the resp
 
 ```{note}
 
-Element-wise results must equal the results returned by the equivalent element-wise function [`positive(x1, x2)`](elementwise_functions.md#bitwise_orx1-x2-).
+Element-wise results must equal the results returned by the equivalent element-wise function [`bitwise_or(x1, x2)`](elementwise_functions.md#bitwise_orx1-x2-).
 ```
 
 (method-__pos__)=
