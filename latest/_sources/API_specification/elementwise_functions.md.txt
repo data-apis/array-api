@@ -1225,7 +1225,7 @@ Returns the remainder of division for each element `x1_i` of the input array `x1
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the element-wise results. Each element-wise result must have the same sign as the respective element `x2_i`. The returned array must have a floating-point data type determined by {ref}`type-promotion`.
+    -   an array containing the element-wise results. Each element-wise result must have the same sign as the respective element `x2_i`. The returned array must have a data type determined by {ref}`type-promotion`.
 
 (function-round)=
 ### round(x, /)
