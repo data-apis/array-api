@@ -357,6 +357,11 @@ Computes the rank (i.e., number of non-zero singular values) of a matrix (or a s
 
     -   an array containing the ranks. The returned array must have a floating-point data type determined by {ref}`type-promotion` and must have shape `(...)` (i.e., must have a shape equal to `shape(x)[:-2]`).
 
+(function-linalg-matrix-transpose)=
+### linalg.matrix_transpose(x, /)
+
+Alias for {ref}`function-matrix-transpose`.
+
 (function-linalg-outer)=
 ### linalg.outer(x1, x2, /)
 
@@ -561,11 +566,6 @@ Returns the sum along the specified diagonals of a matrix (or a stack of matrice
         ```
 
         The returned array must have the same data type as `x`.
-
-(function-linalg-transpose)=
-### linalg.transpose(x, /, *, axes=None)
-
-Alias for {ref}`function-transpose`.
 
 (function-linalg-vecdot)=
 ### linalg.vecdot(x1, x2, /, *, axis=None)
