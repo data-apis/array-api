@@ -47,9 +47,9 @@ Calculates the arithmetic mean of the input array `x`.
 
 #### Special Cases
 
-For an input array `x`,
+For a floating-point input array `x`,
 
--   if axis (or axes) along which arithmetic means is zero-dimensional, the computed mean is `NaN`.
+-   if axis (or axes) along which arithmetic means is zero-dimensional, the arithmetic mean is `NaN`.
 
 #### Parameters
 
@@ -100,6 +100,12 @@ Calculates the minimum value of the input array `x`.
 ### prod(x, /, *, axis=None, keepdims=False)
 
 Calculates the product of input array `x` elements.
+
+#### Special Cases
+
+For an input array `x`,
+
+-   if an axis (or axes) along which to compute products is zero-dimensional, the product is `1`.
 
 #### Parameters
 
