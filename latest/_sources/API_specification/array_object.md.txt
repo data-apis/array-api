@@ -214,6 +214,19 @@ Hardware device the array data resides on.
 
     -   a `device` object (see {ref}`device-support`).
 
+(attribute-mT)=
+### mT
+
+Transpose of a matrix (or a stack of matrices).
+
+If an array instance has fewer than two dimensions, an error should be raised.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   array whose last two dimensions (axes) are permuted in reverse order relative to original array (i.e., for an array instance having shape `(..., M, N)`, the returned array must have shape `(..., N, M)`). The returned array must have the same data type as the original array.
+
 (attribute-ndim)=
 ### ndim
 
