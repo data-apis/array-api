@@ -63,7 +63,9 @@ Calculates the arithmetic mean of the input array `x`.
 
 -   **out**: _&lt;array&gt;_
 
-    -   if the arithmetic mean was computed over the entire array, a zero-dimensional array containing the arithmetic mean; otherwise, a non-zero-dimensional array containing the arithmetic means. The returned array must have be the default floating-point data type.
+    -   if the arithmetic mean was computed over the entire array, a zero-dimensional array containing the arithmetic mean; otherwise, a non-zero-dimensional array containing the arithmetic means.
+
+        If the input array `x` has an integer data type, the returned array must have the default floating-point data type. Otherwise, if the input array `x` has a floating-point data type, the returned array must have the same data type as `x`.
 
 (function-min)=
 ### min(x, /, *, axis=None, keepdims=False)
@@ -142,7 +144,9 @@ Calculates the standard deviation of the input array `x`.
 
 -   **out**: _&lt;array&gt;_
 
-    -   if the standard deviation was computed over the entire array, a zero-dimensional array containing the standard deviation; otherwise, a non-zero-dimensional array containing the standard deviations. The returned array must have the default floating-point data type.
+    -   if the standard deviation was computed over the entire array, a zero-dimensional array containing the standard deviation; otherwise, a non-zero-dimensional array containing the standard deviations.
+
+        If the input array `x` has an integer data type, the returned array must have the default floating-point data type. Otherwise, if the input array `x` has a floating-point data type, the returned array must have the same data type as `x`.
 
 (function-sum)=
 ### sum(x, /, *, axis=None, keepdims=False)
@@ -196,4 +200,6 @@ Calculates the variance of the input array `x`.
 
 -   **out**: _&lt;array&gt;_
 
-    -   if the variance was computed over the entire array, a zero-dimensional array containing the variance; otherwise, a non-zero-dimensional array containing the variances. The returned array must have the default floating-point data type.
+    -   if the variance was computed over the entire array, a zero-dimensional array containing the variance; otherwise, a non-zero-dimensional array containing the variances.
+
+        If the input array `x` has an integer data type, the returned array must have the default floating-point data type. Otherwise, if the input array `x` has a floating-point data type, the returned array must have the same data type as `x`.
