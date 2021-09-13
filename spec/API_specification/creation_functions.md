@@ -391,6 +391,7 @@ The lower triangular part of the matrix is defined as the elements on and below 
 
         ```{note}
         The main diagonal is defined as the set of indices `{(i, i)}` for `i` on the interval `[0, min(M, N) - 1]`.
+        ```
 
 #### Returns
 
@@ -419,6 +420,7 @@ The upper triangular part of the matrix is defined as the elements on and above 
 
         ```{note}
         The main diagonal is defined as the set of indices `{(i, i)}` for `i` on the interval `[0, min(M, N) - 1]`.
+        ```
 
 #### Returns
 
