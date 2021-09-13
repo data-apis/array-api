@@ -24,7 +24,7 @@ Calculates the maximum value of the input array `x`.
 
 -   **x**: _&lt;array&gt;_
 
-    -   input array.
+    -   input array. Should have a numeric data type.
 
 -   **axis**: _Optional\[ Union\[ int, Tuple\[ int, ... ] ] ]_
 
@@ -49,7 +49,7 @@ Calculates the arithmetic mean of the input array `x`.
 
 -   **x**: _&lt;array&gt;_
 
-    -   input array.
+    -   input array. Should have a floating-point data type.
 
 -   **axis**: _Optional\[ Union\[ int, Tuple\[ int, ... ] ] ]_
 
@@ -74,7 +74,7 @@ Calculates the minimum value of the input array `x`.
 
 -   **x**: _&lt;array&gt;_
 
-    -   input array.
+    -   input array. Should have a numeric data type.
 
 -   **axis**: _Optional\[ Union\[ int, Tuple\[ int, ... ] ] ]_
 
@@ -99,7 +99,7 @@ Calculates the product of input array `x` elements.
 
 -   **x**: _&lt;array&gt;_
 
-    -   input array.
+    -   input array. Should have a numeric data type.
 
 -   **axis**: _Optional\[ Union\[ int, Tuple\[ int, ... ] ] ]_
 
@@ -137,7 +137,7 @@ Calculates the standard deviation of the input array `x`.
 
 -   **x**: _&lt;array&gt;_
 
-    -   input array.
+    -   input array. Should have a floating-point data type.
 
 -   **axis**: _Optional\[ Union\[ int, Tuple\[ int, ... ] ] ]_
 
@@ -166,7 +166,7 @@ Calculates the sum of the input array `x`.
 
 -   **x**: _&lt;array&gt;_
 
-    -   input array.
+    -   input array. Should have a numeric data type.
 
 -   **axis**: _Optional\[ Union\[ int, Tuple\[ int, ... ] ] ]_
 
@@ -204,7 +204,7 @@ Calculates the variance of the input array `x`.
 
 -   **x**: _&lt;array&gt;_
 
-    -   input array.
+    -   input array. Should have a floating-point data type.
 
 -   **axis**: _Optional\[ Union\[ int, Tuple\[ int, ... ] ] ]_
 
