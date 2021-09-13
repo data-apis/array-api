@@ -371,7 +371,7 @@ Returns a new array filled with ones and having the same `shape` as an input arr
     -   an array having the same shape as `x` and filled with ones.
 
 (function-tril)=
-### tril(x, /, *, k=0, device=None)
+### tril(x, /, *, k=0)
 
 Returns the lower triangular part of a matrix (or a stack of matrices) `x`.
 
@@ -391,11 +391,6 @@ The lower triangular part of the matrix is defined as the elements on and below 
 
         ```{note}
         The main diagonal is defined as the set of indices `{(i, i)}` for `i` on the interval `[0, min(M, N) - 1]`.
-        ```
-
--   **device**: _Optional\[ &lt;device&gt; ]_
-
-    -   device on which to place the created array. If `device` is `None`, the default device must be used, not `x.device`. Default: `None`.
 
 #### Returns
 
@@ -404,9 +399,9 @@ The lower triangular part of the matrix is defined as the elements on and below 
     -   an array containing the lower triangular part(s). The returned array must have the same shape and data type as `x`. All elements above the specified diagonal `k` must be zeroed.
 
 (function-triu)=
-### triu(x, /, *, k=0, device=None)
+### triu(x, /, *, k=0)
 
-Returns the uppder triangular part of a matrix (or a stack of matrices) `x`.
+Returns the upper triangular part of a matrix (or a stack of matrices) `x`.
 
 ```{note}
 The upper triangular part of the matrix is defined as the elements on and above the specified diagonal `k`.
@@ -424,11 +419,6 @@ The upper triangular part of the matrix is defined as the elements on and above 
 
         ```{note}
         The main diagonal is defined as the set of indices `{(i, i)}` for `i` on the interval `[0, min(M, N) - 1]`.
-        ```
-
--   **device**: _Optional\[ &lt;device&gt; ]_
-
-    -   device on which to place the created array. If `device` is `None`, the default device must be used, not `x.device`. Default: `None`.
 
 #### Returns
 
