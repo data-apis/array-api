@@ -659,6 +659,10 @@ Element-wise results must equal the results returned by the equivalent element-w
 
 Converts a zero-dimensional integer array to a Python `int` object.
 
+```{note}
+This method is called to implement [`operator.index()`](https://docs.python.org/3/reference/datamodel.html#object.__index__). See also [PEP 357](https://www.python.org/dev/peps/pep-0357/).
+```
+
 #### Parameters
 
 -   **self**: _&lt;array&gt;_
