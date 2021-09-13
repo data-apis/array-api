@@ -49,9 +49,16 @@ cross-device data transfer:
    a `Device` object, to move an array to a different device.
 
 ```{note}
-The only way to obtain a `Device` object is from the `.device` property on
-the array object, hence there is no `Device` object in the array API itself
-that can be instantiated to point to a specific physical or logical device.
+In the current API standard, the only way to obtain a `Device` object is from the
+`.device` property on the array object, hence there is no `Device` object in the
+array API itself that can be instantiated to point to a specific physical or
+logical device. In other words, the standard does *not* include a universal
+`Device` object recognized by all compliant libraries.
+
+For array libraries that concern with multi-device support, including CPU and GPU,
+it is free to expose a library-specific device object for use (ex: creating an
+array on a particular device). For the purpose of this standard, it is considered
+an (important) implementation detail.
 ```
 
 
