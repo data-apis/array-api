@@ -968,7 +968,11 @@ For floating-point operands,
 (function-logical_and)=
 ### logical_and(x1, x2, /)
 
-Computes the logical AND for each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`. Zeros are considered the equivalent of `False`, while non-zeros are considered the equivalent of `True`.
+Computes the logical AND for each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`.
+
+```{note}
+While this specification recommends that this function only accept input arrays having a boolean data type, specification-compliant array libraries may choose to accept input arrays having numeric data types. If non-boolean data types are supported, zeros must be considered the equivalent of `False`, while non-zeros must be considered the equivalent of `True`.
+```
 
 #### Parameters
 
@@ -989,7 +993,11 @@ Computes the logical AND for each element `x1_i` of the input array `x1` with th
 (function-logical_not)=
 ### logical_not(x, /)
 
-Computes the logical NOT for each element `x_i` of the input array `x`. Zeros are considered the equivalent of `False`, while non-zeros are considered the equivalent of `True`.
+Computes the logical NOT for each element `x_i` of the input array `x`.
+
+```{note}
+While this specification recommends that this function only accept input arrays having a boolean data type, specification-compliant array libraries may choose to accept input arrays having numeric data types. If non-boolean data types are supported, zeros must be considered the equivalent of `False`, while non-zeros must be considered the equivalent of `True`.
+```
 
 #### Parameters
 
@@ -1006,7 +1014,11 @@ Computes the logical NOT for each element `x_i` of the input array `x`. Zeros ar
 (function-logical_or)=
 ### logical_or(x1, x2, /)
 
-Computes the logical OR for each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`. Zeros are considered the equivalent of `False`, while non-zeros are considered the equivalent of `True`.
+Computes the logical OR for each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`.
+
+```{note}
+While this specification recommends that this function only accept input arrays having a boolean data type, specification-compliant array libraries may choose to accept input arrays having numeric data types. If non-boolean data types are supported, zeros must be considered the equivalent of `False`, while non-zeros must be considered the equivalent of `True`.
+```
 
 #### Parameters
 
@@ -1027,7 +1039,11 @@ Computes the logical OR for each element `x1_i` of the input array `x1` with the
 (function-logical_xor)=
 ### logical_xor(x1, x2, /)
 
-Computes the logical XOR for each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`. Zeros are considered the equivalent of `False`, while non-zeros are considered the equivalent of `True`.
+Computes the logical XOR for each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`.
+
+```{note}
+While this specification recommends that this function only accept input arrays having a boolean data type, specification-compliant array libraries may choose to accept input arrays having numeric data types. If non-boolean data types are supported, zeros must be considered the equivalent of `False`, while non-zeros must be considered the equivalent of `True`.
+```
 
 #### Parameters
 
