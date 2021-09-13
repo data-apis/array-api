@@ -45,6 +45,12 @@ Calculates the maximum value of the input array `x`.
 
 Calculates the arithmetic mean of the input array `x`.
 
+#### Special Cases
+
+For an input array `x`,
+
+-   if axis (or axes) along which arithmetic means is zero-dimensional, the computed mean is `NaN`.
+
 #### Parameters
 
 -   **x**: _&lt;array&gt;_
