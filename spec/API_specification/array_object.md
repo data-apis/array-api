@@ -1191,3 +1191,33 @@ Evaluates `self_i ^ other_i` for each element of an array instance with the resp
 
 Element-wise results must equal the results returned by the equivalent element-wise function [`bitwise_xor(x1, x2)`](elementwise_functions.md#bitwise_xorx1-x2-).
 ```
+
+(method-to_device)=
+### to_device(self, device, /, *, stream=None)
+
+Copy the array from the device it currently resides to the specified `device`.
+
+#### Parameters
+
+-   **self**: _&lt;array&gt;_
+
+    -   array instance.
+
+-   **device**: _&lt;device&gt;_
+
+    -   device to place the copied array on.
+
+-   **stream**: _Optional\[ Union\[ int, Any ]]_
+
+    -   stream object to use during copy. See {ref}`method-__dlpack__`.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an identical copy of the source array placed on the target `device`.
+
+```{note}
+
+Whether the copy is performed synchronously or asynchronously is up to the array library. As a result, if any synchronization (which is out of scope of this standard) is required to guarantee data safety, the library should explain to its users.
+```
