@@ -396,7 +396,7 @@ The lower triangular part of the matrix is defined as the elements on and below 
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the lower triangular part(s). The returned array must have the same shape and data type as `x`. All elements above the specified diagonal `k` must be zeroed.
+    -   an array containing the lower triangular part(s). The returned array must have the same shape and data type as `x`. All elements above the specified diagonal `k` must be zeroed. The returned array should be allocated on the same device as `x`.
 
 (function-triu)=
 ### triu(x, /, *, k=0)
@@ -424,7 +424,7 @@ The upper triangular part of the matrix is defined as the elements on and above 
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the upper triangular part(s). The returned array must have the same shape and data type as `x`. All elements below the specified diagonal `k` must be zeroed.
+    -   an array containing the upper triangular part(s). The returned array must have the same shape and data type as `x`. All elements below the specified diagonal `k` must be zeroed. The returned array should be allocated on the same device as `x`.
 
 (function-zeros)=
 ### zeros(shape, *, dtype=None, device=None)
