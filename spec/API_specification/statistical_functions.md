@@ -107,7 +107,12 @@ Calculates the product of input array `x` elements.
 
 -   **dtype**: _Optional\[ &lt;dtype&gt; ]_
 
-    -   data type of the returned array. If `None`, the returned array must have the default data type corresponding to the data type "kind" (integer or floating-point) of `x`. If the data type (either specified or resolved) differs from the data type of `x`, the input array should be cast to the specified data type before computing the product. Default: `None`.
+    -   data type of the returned array. If `None`,
+    
+        -   if the default data type corresponding to the data type "kind" (integer or floating-point) of `x` is smaller than the data type of `x` (e.g., `x` has data type `int64` and the default data type is `int32`), the returned array must have the same data type as `x`.
+        -   otherwise, the returned array must have the default data type corresponding to the data type "kind" (integer or floating-point) of `x`.
+
+        If the data type (either specified or resolved) differs from the data type of `x`, the input array should be cast to the specified data type before computing the product. Default: `None`.
 
         ```{note}
         This keyword argument is intended to help prevent data type overflows.
@@ -169,7 +174,12 @@ Calculates the sum of the input array `x`.
 
 -   **dtype**: _Optional\[ &lt;dtype&gt; ]_
 
-    -   data type of the returned array. If `None`, the returned array must have the default data type corresponding to the data type "kind" (integer or floating-point) of `x`. If the data type (either specified or resolved) differs from the data type of `x`, the input array should be cast to the specified data type before computing the sum. Default: `None`.
+    -   data type of the returned array. If `None`,
+    
+        -   if the default data type corresponding to the data type "kind" (integer or floating-point) of `x` is smaller than the data type of `x` (e.g., `x` has data type `int64` and the default data type is `int32`), the returned array must have the same data type as `x`.
+        -   otherwise, the returned array must have the default data type corresponding to the data type "kind" (integer or floating-point) of `x`.
+
+        If the data type (either specified or resolved) differs from the data type of `x`, the input array should be cast to the specified data type before computing the sum. Default: `None`.
 
         ```{note}
         This keyword argument is intended to help prevent data type overflows.
