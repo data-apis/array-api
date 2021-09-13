@@ -3871,6 +3871,23 @@ an array object supporting the following reflected operators:
           <p>
            Transpose of the array.
           </p>
+          <p>
+           The array instance must be two-dimensional. If the array instance is not two-dimensional, an error should be raised.
+          </p>
+          <div class="admonition note">
+           <p class="admonition-title">
+            Note
+           </p>
+           <p>
+            Limiting the transpose to two-dimensional arrays (matrices) deviates from the NumPy et al practice of reversing all axes for arrays having more than two-dimensions. This is intentional, as reversing all axes was found to be problematic (e.g., conflicting with the mathematical definition of a transpose which is limited to matrices; not operating on batches of matrices; et cetera). In order to reverse all axes, one is recommended to use the functional
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              permute
+             </span>
+            </code>
+            interface found in this specification.
+           </p>
+          </div>
           <section id="id7">
            <h4 id="id7">
             Returns
@@ -3892,7 +3909,7 @@ an array object supporting the following reflected operators:
              <ul>
               <li>
                <p>
-                array whose dimensions (axes) are permuted in reverse order relative to original array. The returned array must have the same data type as the original array.
+                two-dimensional array whose first and last dimensions (axes) are permuted in reverse order relative to original array. The returned array must have the same data type as the original array.
                </p>
               </li>
              </ul>
