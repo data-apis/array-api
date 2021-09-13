@@ -47,9 +47,9 @@ Calculates the arithmetic mean of the input array `x`.
 
 #### Special Cases
 
-For a floating-point input array `x`,
+For a floating-point input array `x`, let `N` equal the number of elements over which to compute the arithmetic mean and
 
--   if axis (or axes) along which arithmetic means is zero-dimensional, the arithmetic mean is `NaN`.
+-   if `N` is `0`, the arithmetic mean is `NaN`.
 
 #### Parameters
 
@@ -103,9 +103,9 @@ Calculates the product of input array `x` elements.
 
 #### Special Cases
 
-For an input array `x`,
+For an input array `x`, let `N` equal the number of elements over which to compute the product and
 
--   if an axis (or axes) along which to compute products is zero-dimensional, the product is `1`.
+-   if `N` is `0`, the product is `1` (i.e., the empty product).
 
 #### Parameters
 
@@ -131,6 +131,12 @@ For an input array `x`,
 ### std(x, /, *, axis=None, correction=0.0, keepdims=False)
 
 Calculates the standard deviation of the input array `x`.
+
+#### Special Cases
+
+For a floating-point input array `x`, let `N` equal the number of elements over which to compute the standard deviation and
+
+-  if `N - correction` is less than or equal to `0`, the standard deviation is `NaN`.
 
 #### Parameters
 
@@ -163,9 +169,9 @@ Calculates the sum of the input array `x`.
 
 #### Special Cases
 
-For an input array `x`,
+For an input array `x`, let `N` equal the number of elements over which to compute the sum and
 
--   if an axis (or axes) along which to compute products is zero-dimensional, the sum is `0`.
+-   if `N` is `0`, the sum is `0` (i.e., the empty sum).
 
 #### Parameters
 
@@ -191,6 +197,12 @@ For an input array `x`,
 ### var(x, /, *, axis=None, correction=0.0, keepdims=False)
 
 Calculates the variance of the input array `x`.
+
+#### Special Cases
+
+For a floating-point input array `x`, let `N` equal the number of elements over which to compute the variance and
+
+-  if `N - correction` is less than or equal to `0`, the variance is `NaN`.
 
 #### Parameters
 
