@@ -161,6 +161,12 @@ Calculates the standard deviation of the input array `x`.
 
 Calculates the sum of the input array `x`.
 
+#### Special Cases
+
+For an input array `x`,
+
+-   if an axis (or axes) along which to compute products is zero-dimensional, the sum is `0`.
+
 #### Parameters
 
 -   **x**: _&lt;array&gt;_
