@@ -654,6 +654,27 @@ Computes the truth value of `self_i > other_i` for each element of an array inst
 Element-wise results must equal the results returned by the equivalent element-wise function [`greater(x1, x2)`](elementwise_functions.md#greaterx1-x2-).
 ```
 
+(method-__index__)=
+### \_\_index\_\_(self, /)
+
+Converts a zero-dimensional integer array to a Python `int` object.
+
+```{note}
+This method is called to implement [`operator.index()`](https://docs.python.org/3/reference/datamodel.html#object.__index__). See also [PEP 357](https://www.python.org/dev/peps/pep-0357/).
+```
+
+#### Parameters
+
+-   **self**: _&lt;array&gt;_
+
+    -   zero-dimensional array instance. Must have an integer data type.
+
+#### Returns
+
+-   **out**: _&lt;int&gt;_
+
+    -   a Python `int` object representing the single element of the array instance.
+
 (method-__int__)=
 ### \_\_int\_\_(self, /)
 
