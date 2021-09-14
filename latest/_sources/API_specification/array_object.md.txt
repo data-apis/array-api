@@ -1182,3 +1182,24 @@ Evaluates `self_i ^ other_i` for each element of an array instance with the resp
 ```{note}
 Element-wise results must equal the results returned by the equivalent element-wise function [`bitwise_xor(x1, x2)`](elementwise_functions.md#bitwise_xorx1-x2-).
 ```
+
+(method-to_device)=
+### to\_device(self, device, /)
+
+Move the array to the given device.
+
+#### Parameters
+
+-   **self**: _&lt;array&gt;_
+
+    -   array instance.
+
+-   **device**: _&lt;device&gt;_
+
+    -   a `device` object (see {ref}`device-support`).
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array with the same data and dtype, located on the specified device.

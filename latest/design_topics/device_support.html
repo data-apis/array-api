@@ -397,7 +397,7 @@
          For libraries that support execution on more than a single hardware device - e.g. CPU and GPU, or multiple GPUs - it is important to be able to control on which device newly created arrays get placed and where execution happens. Attempting to be fully implicit doesn’t always scale well to situations with multiple GPUs.
         </p>
         <p>
-         Existing libraries employ one or more of these three methods to exert such control:
+         Existing libraries employ one or more of these three methods to exert such control over data placement:
         </p>
         <ol class="simple">
          <li>
@@ -412,12 +412,15 @@
          </li>
          <li>
           <p>
-           Local control via explicit keywords and a method to transfer arrays to another device.
+           Local control for data allocation target device via explicit keywords, and a method to transfer arrays to another device.
           </p>
          </li>
         </ol>
         <p>
-         This standard chooses to add support for method 3 (local control), because it’s the most explicit and granular, with its only downside being verbosity. A context manager may be added in the future - see
+         Libraries differ in how execution is controlled, via a context manager or with the convention that execution takes place on the same device where all argument arrays are allocated. And they may or may not allow mixing arrays on different devices via implicit data transfers.
+        </p>
+        <p>
+         This standard chooses to add support for method 3 (local control), with the convention that execution takes place on the same device where all argument arrays are allocated. The rationale for choosing method 3 is because it’s the most explicit and granular, with its only downside being verbosity. A context manager may be added in the future - see
          <a class="reference internal" href="#device-out-of-scope">
           <span class="std std-ref">
            Out of scope for device support
