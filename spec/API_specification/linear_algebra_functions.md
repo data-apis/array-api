@@ -60,6 +60,23 @@ The `matmul` function must implement the same semantics as the built-in `@` oper
 -   if `x1` is a one-dimensional array having shape `(N)`, `x2` is a one-dimensional array having shape `(M)`, and `N != M`.
 -   if `x1` is an array having shape `(..., M, K)`, `x2` is an array having shape `(..., L, N)`, and `K != L`.
 
+(function-matrix-transpose)=
+### matrix_transpose(x, /)
+
+Transposes a matrix (or a stack of matrices) `x`.
+
+#### Parameters
+
+-   **x**: _&lt;array&gt;_
+
+    -   input array having shape `(..., M, N)` and whose innermost two dimensions form `MxN` matrices.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the transpose for each matrix and having shape `(..., N, M)`. The returned array must have the same data type as `x`.
+
 (function-tensordot)=
 ### tensordot(x1, x2, /, *, axes=2)
 
@@ -92,27 +109,6 @@ Returns a tensor contraction of `x1` and `x2` over specific axes.
 -   **out**: _&lt;array&gt;_
 
     -   an array containing the tensor contraction whose shape consists of the non-contracted axes (dimensions) of the first array `x1`, followed by the non-contracted axes (dimensions) of the second array `x2`. The returned array must have a data type determined by {ref}`type-promotion`.
-
-(function-transpose)=
-### transpose(x, /, *, axes=None)
-
-Transposes (or permutes the axes (dimensions)) of an array `x`.
-
-#### Parameters
-
--   **x**: _&lt;array&gt;_
-
-    -   input array.
-
--   **axes**: _Optional\[ Tuple\[ int, ... ] ]_
-
-    -   tuple containing a permutation of `(0, 1, ..., N-1)` where `N` is the number of axes (dimensions) of `x`. If `None`, the axes (dimensions) must be permuted in reverse order (i.e., equivalent to setting `axes=(N-1, ..., 1, 0)`). Default: `None`.
-
-#### Returns
-
--   **out**: _&lt;array&gt;_
-
-    -   an array containing the transpose. The returned array must have the same data type as `x`.
 
 (function-vecdot)=
 ### vecdot(x1, x2, /, *, axis=None)
