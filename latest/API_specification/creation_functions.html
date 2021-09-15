@@ -2173,7 +2173,7 @@ An object supporting the buffer protocol can be turned into a memoryview through
              ¶
             </a>
            </h4>
-           <ul class="simple">
+           <ul>
             <li>
              <p>
               <strong>
@@ -2184,7 +2184,7 @@ An object supporting the buffer protocol can be turned into a memoryview through
                Union[ int, Tuple[ int, … ] ]
               </em>
              </p>
-             <ul>
+             <ul class="simple">
               <li>
                <p>
                 output array shape.
@@ -2202,7 +2202,7 @@ An object supporting the buffer protocol can be turned into a memoryview through
                Union[ int, float ]
               </em>
              </p>
-             <ul>
+             <ul class="simple">
               <li>
                <p>
                 fill value.
@@ -2241,25 +2241,25 @@ An object supporting the buffer protocol can be turned into a memoryview through
                   fill_value
                  </span>
                 </code>
-                . If it’s an
+                . If the fill value is an
                 <code class="docutils literal notranslate">
                  <span class="pre">
                   int
                  </span>
                 </code>
-                , the output array dtype must be the default integer dtype; if it’s a
+                , the output array data type must be the default integer data type. If the fill value is a
                 <code class="docutils literal notranslate">
                  <span class="pre">
                   float
                  </span>
                 </code>
-                , then the output array dtype must be the default floating-point data type; if it’s a
+                , the output array data type must be the default floating-point data type. If the fill value is a
                 <code class="docutils literal notranslate">
                  <span class="pre">
                   bool
                  </span>
                 </code>
-                then the output array must have boolean dtype. Default:
+                , the output array must have boolean data type. Default:
                 <code class="docutils literal notranslate">
                  <span class="pre">
                   None
@@ -2267,6 +2267,32 @@ An object supporting the buffer protocol can be turned into a memoryview through
                 </code>
                 .
                </p>
+               <div class="admonition note">
+                <p class="admonition-title">
+                 Note
+                </p>
+                <p>
+                 If
+                 <code class="docutils literal notranslate">
+                  <span class="pre">
+                   dtype
+                  </span>
+                 </code>
+                 is
+                 <code class="docutils literal notranslate">
+                  <span class="pre">
+                   None
+                  </span>
+                 </code>
+                 and the
+                 <code class="docutils literal notranslate">
+                  <span class="pre">
+                   fill_value
+                  </span>
+                 </code>
+                 exceeds the precision of the resolved default output array data type, behavior is left unspecified and, thus, implementation-defined.
+                </p>
+               </div>
               </li>
              </ul>
             </li>
@@ -2280,7 +2306,7 @@ An object supporting the buffer protocol can be turned into a memoryview through
                Optional[ &lt;device&gt; ]
               </em>
              </p>
-             <ul>
+             <ul class="simple">
               <li>
                <p>
                 device to place the created array on, if given. Default:
@@ -2368,7 +2394,7 @@ An object supporting the buffer protocol can be turned into a memoryview through
              ¶
             </a>
            </h4>
-           <ul class="simple">
+           <ul>
             <li>
              <p>
               <strong>
@@ -2379,7 +2405,7 @@ An object supporting the buffer protocol can be turned into a memoryview through
                &lt;array&gt;
               </em>
              </p>
-             <ul>
+             <ul class="simple">
               <li>
                <p>
                 input array from which to derive the output array shape.
@@ -2397,7 +2423,7 @@ An object supporting the buffer protocol can be turned into a memoryview through
                Union[ int, float ]
               </em>
              </p>
-             <ul>
+             <ul class="simple">
               <li>
                <p>
                 fill value.
@@ -2450,6 +2476,32 @@ An object supporting the buffer protocol can be turned into a memoryview through
                 </code>
                 .
                </p>
+               <div class="admonition note">
+                <p class="admonition-title">
+                 Note
+                </p>
+                <p>
+                 If
+                 <code class="docutils literal notranslate">
+                  <span class="pre">
+                   dtype
+                  </span>
+                 </code>
+                 is
+                 <code class="docutils literal notranslate">
+                  <span class="pre">
+                   None
+                  </span>
+                 </code>
+                 and the
+                 <code class="docutils literal notranslate">
+                  <span class="pre">
+                   fill_value
+                  </span>
+                 </code>
+                 exceeds the precision of the resolved default output array data type, behavior is left unspecified and, thus, implementation-defined.
+                </p>
+               </div>
               </li>
              </ul>
             </li>
@@ -2463,7 +2515,7 @@ An object supporting the buffer protocol can be turned into a memoryview through
                Optional[ &lt;device&gt; ]
               </em>
              </p>
-             <ul>
+             <ul class="simple">
               <li>
                <p>
                 device to place the created array on, if given. If

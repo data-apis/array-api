@@ -206,7 +206,11 @@ Returns a new array having a specified `shape` and filled with `fill_value`.
 
 -   **dtype**: _Optional\[ &lt;dtype&gt; ]_
 
-    -   output array data type. If `dtype` is `None`, the output array data type must be inferred from `fill_value`. If it's an `int`, the output array dtype must be the default integer dtype; if it's a `float`, then the output array dtype must be the default floating-point data type; if it's a `bool` then the output array must have boolean dtype. Default: `None`.
+    -   output array data type. If `dtype` is `None`, the output array data type must be inferred from `fill_value`. If the fill value is an `int`, the output array data type must be the default integer data type. If the fill value is a `float`, the output array data type must be the default floating-point data type. If the fill value is a `bool`, the output array must have boolean data type. Default: `None`.
+
+        ```{note}
+        If `dtype` is `None` and the `fill_value` exceeds the precision of the resolved default output array data type, behavior is left unspecified and, thus, implementation-defined.
+        ```
 
 -   **device**: _Optional\[ &lt;device&gt; ]_
 
@@ -236,6 +240,10 @@ Returns a new array filled with `fill_value` and having the same `shape` as an i
 -   **dtype**: _Optional\[ &lt;dtype&gt; ]_
 
     -   output array data type. If `dtype` is `None`, the output array data type must be inferred from `fill_value` (see {ref}`function-full`). Default: `None`.
+
+        ```{note}
+        If `dtype` is `None` and the `fill_value` exceeds the precision of the resolved default output array data type, behavior is left unspecified and, thus, implementation-defined.
+        ```
 
 -   **device**: _Optional\[ &lt;device&gt; ]_
 
