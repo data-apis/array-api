@@ -20,6 +20,10 @@ A conforming implementation of the array API standard must provide and support t
 
 Calculates the maximum value of the input array `x`.
 
+```{note}
+When the number of elements over which to compute the maximum value is zero, the maximum value is implementation-defined. Specification-compliant libraries may choose to error, return a sentinel value (e.g., if `x` is a floating-point input array, return `NaN`), or return the minimum possible value for the input array `x` data type (e.g., if `x` is a floating-point array, return `-infinity`).
+```
+
 #### Parameters
 
 -   **x**: _&lt;array&gt;_
@@ -44,6 +48,12 @@ Calculates the maximum value of the input array `x`.
 ### mean(x, /, *, axis=None, keepdims=False)
 
 Calculates the arithmetic mean of the input array `x`.
+
+#### Special Cases
+
+For a floating-point input array `x`, let `N` equal the number of elements over which to compute the arithmetic mean and
+
+-   if `N` is `0`, the arithmetic mean is `NaN`.
 
 #### Parameters
 
@@ -74,6 +84,10 @@ Calculates the arithmetic mean of the input array `x`.
 
 Calculates the minimum value of the input array `x`.
 
+```{note}
+When the number of elements over which to compute the minimum value is zero, the minimum value is implementation-defined. Specification-compliant libraries may choose to error, return a sentinel value (e.g., if `x` is a floating-point input array, return `NaN`), or return the maximum possible value for the input array `x` data type (e.g., if `x` is a floating-point array, return `+infinity`).
+```
+
 #### Parameters
 
 -   **x**: _&lt;array&gt;_
@@ -99,6 +113,12 @@ Calculates the minimum value of the input array `x`.
 
 Calculates the product of input array `x` elements.
 
+#### Special Cases
+
+For an input array `x`, let `N` equal the number of elements over which to compute the product and
+
+-   if `N` is `0`, the product is `1` (i.e., the empty product).
+
 #### Parameters
 
 -   **x**: _&lt;array&gt;_
@@ -123,6 +143,12 @@ Calculates the product of input array `x` elements.
 ### std(x, /, *, axis=None, correction=0.0, keepdims=False)
 
 Calculates the standard deviation of the input array `x`.
+
+#### Special Cases
+
+For a floating-point input array `x`, let `N` equal the number of elements over which to compute the standard deviation and
+
+-  if `N - correction` is less than or equal to `0`, the standard deviation is `NaN`.
 
 #### Parameters
 
@@ -157,6 +183,12 @@ Calculates the standard deviation of the input array `x`.
 
 Calculates the sum of the input array `x`.
 
+#### Special Cases
+
+For an input array `x`, let `N` equal the number of elements over which to compute the sum and
+
+-   if `N` is `0`, the sum is `0` (i.e., the empty sum).
+
 #### Parameters
 
 -   **x**: _&lt;array&gt;_
@@ -181,6 +213,12 @@ Calculates the sum of the input array `x`.
 ### var(x, /, *, axis=None, correction=0.0, keepdims=False)
 
 Calculates the variance of the input array `x`.
+
+#### Special Cases
+
+For a floating-point input array `x`, let `N` equal the number of elements over which to compute the variance and
+
+-  if `N - correction` is less than or equal to `0`, the variance is `NaN`.
 
 #### Parameters
 
