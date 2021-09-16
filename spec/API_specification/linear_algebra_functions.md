@@ -60,6 +60,23 @@ The `matmul` function must implement the same semantics as the built-in `@` oper
 -   if `x1` is a one-dimensional array having shape `(N)`, `x2` is a one-dimensional array having shape `(M)`, and `N != M`.
 -   if `x1` is an array having shape `(..., M, K)`, `x2` is an array having shape `(..., L, N)`, and `K != L`.
 
+(function-matrix-transpose)=
+### matrix_transpose(x, /)
+
+Transposes a matrix (or a stack of matrices) `x`.
+
+#### Parameters
+
+-   **x**: _&lt;array&gt;_
+
+    -   input array having shape `(..., M, N)` and whose innermost two dimensions form `MxN` matrices.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the transpose for each matrix and having shape `(..., N, M)`. The returned array must have the same data type as `x`.
+
 (function-tensordot)=
 ### tensordot(x1, x2, /, *, axes=2)
 
