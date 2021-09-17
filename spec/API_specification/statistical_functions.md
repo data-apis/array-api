@@ -126,7 +126,7 @@ Calculates the product of input array `x` elements.
 
 -   **out**: _&lt;array&gt;_
 
-    -   if the product was computed over the entire array, a zero-dimensional array containing the product; otherwise, a non-zero-dimensional array containing the products.
+    -   if the product was computed over the entire array, a zero-dimensional array containing the product; otherwise, a non-zero-dimensional array containing the products. The returned array must have a data type as described by the `dtype` parameter above.
 
 (function-std)=
 ### std(x, /, *, axis=None, correction=0.0, keepdims=False)
