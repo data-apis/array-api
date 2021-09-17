@@ -364,8 +364,8 @@
                       </nav>
                      </li>
                      <li class="md-nav__item">
-                      <a class="md-nav__link" href="#prod-x-axis-none-keepdims-false">
-                       prod(x, /, *, axis=None, keepdims=False)
+                      <a class="md-nav__link" href="#prod-x-axis-none-dtype-none-keepdims-false">
+                       prod(x, /, *, axis=None, dtype=None, keepdims=False)
                       </a>
                       <nav class="md-nav">
                        <ul class="md-nav__list">
@@ -412,8 +412,8 @@
                       </nav>
                      </li>
                      <li class="md-nav__item">
-                      <a class="md-nav__link" href="#sum-x-axis-none-keepdims-false">
-                       sum(x, /, *, axis=None, keepdims=False)
+                      <a class="md-nav__link" href="#sum-x-axis-none-dtype-none-keepdims-false">
+                       sum(x, /, *, axis=None, dtype=None, keepdims=False)
                       </a>
                       <nav class="md-nav">
                        <ul class="md-nav__list">
@@ -615,8 +615,8 @@
                  </nav>
                 </li>
                 <li class="md-nav__item">
-                 <a class="md-nav__link" href="#prod-x-axis-none-keepdims-false">
-                  prod(x, /, *, axis=None, keepdims=False)
+                 <a class="md-nav__link" href="#prod-x-axis-none-dtype-none-keepdims-false">
+                  prod(x, /, *, axis=None, dtype=None, keepdims=False)
                  </a>
                  <nav class="md-nav">
                   <ul class="md-nav__list">
@@ -663,8 +663,8 @@
                  </nav>
                 </li>
                 <li class="md-nav__item">
-                 <a class="md-nav__link" href="#sum-x-axis-none-keepdims-false">
-                  sum(x, /, *, axis=None, keepdims=False)
+                 <a class="md-nav__link" href="#sum-x-axis-none-dtype-none-keepdims-false">
+                  sum(x, /, *, axis=None, dtype=None, keepdims=False)
                  </a>
                  <nav class="md-nav">
                   <ul class="md-nav__list">
@@ -1385,12 +1385,12 @@
            </ul>
           </section>
          </section>
-         <section id="prod-x-axis-none-keepdims-false">
+         <section id="prod-x-axis-none-dtype-none-keepdims-false">
           <span id="function-prod">
           </span>
-          <h3 id="prod-x-axis-none-keepdims-false">
-           prod(x, /, *, axis=None, keepdims=False)
-           <a class="headerlink" href="#prod-x-axis-none-keepdims-false" title="Permalink to this headline">
+          <h3 id="prod-x-axis-none-dtype-none-keepdims-false">
+           prod(x, /, *, axis=None, dtype=None, keepdims=False)
+           <a class="headerlink" href="#prod-x-axis-none-dtype-none-keepdims-false" title="Permalink to this headline">
             ¶
            </a>
           </h3>
@@ -1458,7 +1458,7 @@
              ¶
             </a>
            </h4>
-           <ul class="simple">
+           <ul>
             <li>
              <p>
               <strong>
@@ -1469,7 +1469,7 @@
                &lt;array&gt;
               </em>
              </p>
-             <ul>
+             <ul class="simple">
               <li>
                <p>
                 input array. Should have a numeric data type.
@@ -1487,7 +1487,7 @@
                Optional[ Union[ int, Tuple[ int, … ] ] ]
               </em>
              </p>
-             <ul>
+             <ul class="simple">
               <li>
                <p>
                 axis or axes along which products must be computed. By default, the product must be computed over the entire array. If a tuple of integers, products must be computed over multiple axes. Default:
@@ -1504,6 +1504,125 @@
             <li>
              <p>
               <strong>
+               dtype
+              </strong>
+              :
+              <em>
+               Optional[ &lt;dtype&gt; ]
+              </em>
+             </p>
+             <ul>
+              <li>
+               <p>
+                data type of the returned array. If
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  None
+                 </span>
+                </code>
+                ,
+               </p>
+               <ul class="simple">
+                <li>
+                 <p>
+                  if the default data type corresponding to the data type “kind” (integer or floating-point) of
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    x
+                   </span>
+                  </code>
+                  has a smaller range of values than the data type of
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    x
+                   </span>
+                  </code>
+                  (e.g.,
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    x
+                   </span>
+                  </code>
+                  has data type
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    int64
+                   </span>
+                  </code>
+                  and the default data type is
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    int32
+                   </span>
+                  </code>
+                  , or
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    x
+                   </span>
+                  </code>
+                  has data type
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    uint64
+                   </span>
+                  </code>
+                  and the default data type is
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    int64
+                   </span>
+                  </code>
+                  ), the returned array must have the same data type as
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    x
+                   </span>
+                  </code>
+                  .
+                 </p>
+                </li>
+                <li>
+                 <p>
+                  otherwise, the returned array must have the default data type corresponding to the data type “kind” (integer or floating-point) of
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    x
+                   </span>
+                  </code>
+                  .
+                 </p>
+                </li>
+               </ul>
+               <p>
+                If the data type (either specified or resolved) differs from the data type of
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  x
+                 </span>
+                </code>
+                , the input array should be cast to the specified data type before computing the product. Default:
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  None
+                 </span>
+                </code>
+                .
+               </p>
+               <div class="admonition note">
+                <p class="admonition-title">
+                 Note
+                </p>
+                <p>
+                 This keyword argument is intended to help prevent data type overflows.
+                </p>
+               </div>
+              </li>
+             </ul>
+            </li>
+            <li>
+             <p>
+              <strong>
                keepdims
               </strong>
               :
@@ -1511,7 +1630,7 @@
                bool
               </em>
              </p>
-             <ul>
+             <ul class="simple">
               <li>
                <p>
                 If
@@ -1566,13 +1685,13 @@
              <ul>
               <li>
                <p>
-                if the product was computed over the entire array, a zero-dimensional array containing the product; otherwise, a non-zero-dimensional array containing the products. The returned array must have the same data type as
+                if the product was computed over the entire array, a zero-dimensional array containing the product; otherwise, a non-zero-dimensional array containing the products. The returned array must have a data type as described by the
                 <code class="docutils literal notranslate">
                  <span class="pre">
-                  x
+                  dtype
                  </span>
                 </code>
-                .
+                parameter above.
                </p>
               </li>
              </ul>
@@ -1855,12 +1974,12 @@
            </ul>
           </section>
          </section>
-         <section id="sum-x-axis-none-keepdims-false">
+         <section id="sum-x-axis-none-dtype-none-keepdims-false">
           <span id="function-sum">
           </span>
-          <h3 id="sum-x-axis-none-keepdims-false">
-           sum(x, /, *, axis=None, keepdims=False)
-           <a class="headerlink" href="#sum-x-axis-none-keepdims-false" title="Permalink to this headline">
+          <h3 id="sum-x-axis-none-dtype-none-keepdims-false">
+           sum(x, /, *, axis=None, dtype=None, keepdims=False)
+           <a class="headerlink" href="#sum-x-axis-none-dtype-none-keepdims-false" title="Permalink to this headline">
             ¶
            </a>
           </h3>
@@ -1928,7 +2047,7 @@
              ¶
             </a>
            </h4>
-           <ul class="simple">
+           <ul>
             <li>
              <p>
               <strong>
@@ -1939,7 +2058,7 @@
                &lt;array&gt;
               </em>
              </p>
-             <ul>
+             <ul class="simple">
               <li>
                <p>
                 input array. Should have a numeric data type.
@@ -1957,7 +2076,7 @@
                Optional[ Union[ int, Tuple[ int, … ] ] ]
               </em>
              </p>
-             <ul>
+             <ul class="simple">
               <li>
                <p>
                 axis or axes along which sums must be computed. By default, the sum must be computed over the entire array. If a tuple of integers, sums must be computed over multiple axes. Default:
@@ -1974,6 +2093,125 @@
             <li>
              <p>
               <strong>
+               dtype
+              </strong>
+              :
+              <em>
+               Optional[ &lt;dtype&gt; ]
+              </em>
+             </p>
+             <ul>
+              <li>
+               <p>
+                data type of the returned array. If
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  None
+                 </span>
+                </code>
+                ,
+               </p>
+               <ul class="simple">
+                <li>
+                 <p>
+                  if the default data type corresponding to the data type “kind” (integer or floating-point) of
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    x
+                   </span>
+                  </code>
+                  has a smaller range of values than the data type of
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    x
+                   </span>
+                  </code>
+                  (e.g.,
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    x
+                   </span>
+                  </code>
+                  has data type
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    int64
+                   </span>
+                  </code>
+                  and the default data type is
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    int32
+                   </span>
+                  </code>
+                  , or
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    x
+                   </span>
+                  </code>
+                  has data type
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    uint64
+                   </span>
+                  </code>
+                  and the default data type is
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    int64
+                   </span>
+                  </code>
+                  ), the returned array must have the same data type as
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    x
+                   </span>
+                  </code>
+                  .
+                 </p>
+                </li>
+                <li>
+                 <p>
+                  otherwise, the returned array must have the default data type corresponding to the data type “kind” (integer or floating-point) of
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    x
+                   </span>
+                  </code>
+                  .
+                 </p>
+                </li>
+               </ul>
+               <p>
+                If the data type (either specified or resolved) differs from the data type of
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  x
+                 </span>
+                </code>
+                , the input array should be cast to the specified data type before computing the sum. Default:
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  None
+                 </span>
+                </code>
+                .
+               </p>
+               <div class="admonition note">
+                <p class="admonition-title">
+                 Note
+                </p>
+                <p>
+                 This keyword argument is intended to help prevent data type overflows.
+                </p>
+               </div>
+              </li>
+             </ul>
+            </li>
+            <li>
+             <p>
+              <strong>
                keepdims
               </strong>
               :
@@ -1981,7 +2219,7 @@
                bool
               </em>
              </p>
-             <ul>
+             <ul class="simple">
               <li>
                <p>
                 If
@@ -2036,13 +2274,13 @@
              <ul>
               <li>
                <p>
-                if the sum was computed over the entire array, a zero-dimensional array containing the sum; otherwise, an array containing the sums. The returned array must have the same data type as
+                if the sum was computed over the entire array, a zero-dimensional array containing the sum; otherwise, an array containing the sums. The returned array must have a data type as described by the
                 <code class="docutils literal notranslate">
                  <span class="pre">
-                  x
+                  dtype
                  </span>
                 </code>
-                .
+                parameter above.
                </p>
               </li>
              </ul>

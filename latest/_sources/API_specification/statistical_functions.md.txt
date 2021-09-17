@@ -109,7 +109,7 @@ When the number of elements over which to compute the minimum value is zero, the
     -   if the minimum value was computed over the entire array, a zero-dimensional array containing the minimum value; otherwise, a non-zero-dimensional array containing the minimum values. The returned array must have the same data type as `x`.
 
 (function-prod)=
-### prod(x, /, *, axis=None, keepdims=False)
+### prod(x, /, *, axis=None, dtype=None, keepdims=False)
 
 Calculates the product of input array `x` elements.
 
@@ -129,6 +129,19 @@ For an input array `x`, let `N` equal the number of elements over which to compu
 
     -   axis or axes along which products must be computed. By default, the product must be computed over the entire array. If a tuple of integers, products must be computed over multiple axes. Default: `None`.
 
+-   **dtype**: _Optional\[ &lt;dtype&gt; ]_
+
+    -   data type of the returned array. If `None`,
+    
+        -   if the default data type corresponding to the data type "kind" (integer or floating-point) of `x` has a smaller range of values than the data type of `x` (e.g., `x` has data type `int64` and the default data type is `int32`, or `x` has data type `uint64` and the default data type is `int64`), the returned array must have the same data type as `x`.
+        -   otherwise, the returned array must have the default data type corresponding to the data type "kind" (integer or floating-point) of `x`.
+
+        If the data type (either specified or resolved) differs from the data type of `x`, the input array should be cast to the specified data type before computing the product. Default: `None`.
+
+        ```{note}
+        This keyword argument is intended to help prevent data type overflows.
+        ```
+
 -   **keepdims**: _bool_
 
     -   If `True`, the reduced axes (dimensions) must be included in the result as singleton dimensions, and, accordingly, the result must be compatible with the input array (see {ref}`broadcasting`). Otherwise, if `False`, the reduced axes (dimensions) must not be included in the result. Default: `False`.
@@ -137,7 +150,7 @@ For an input array `x`, let `N` equal the number of elements over which to compu
 
 -   **out**: _&lt;array&gt;_
 
-    -   if the product was computed over the entire array, a zero-dimensional array containing the product; otherwise, a non-zero-dimensional array containing the products. The returned array must have the same data type as `x`.
+    -   if the product was computed over the entire array, a zero-dimensional array containing the product; otherwise, a non-zero-dimensional array containing the products. The returned array must have a data type as described by the `dtype` parameter above.
 
 (function-std)=
 ### std(x, /, *, axis=None, correction=0.0, keepdims=False)
@@ -179,7 +192,7 @@ For a floating-point input array `x`, let `N` equal the number of elements over 
         ```
 
 (function-sum)=
-### sum(x, /, *, axis=None, keepdims=False)
+### sum(x, /, *, axis=None, dtype=None, keepdims=False)
 
 Calculates the sum of the input array `x`.
 
@@ -199,6 +212,19 @@ For an input array `x`, let `N` equal the number of elements over which to compu
 
     -   axis or axes along which sums must be computed. By default, the sum must be computed over the entire array. If a tuple of integers, sums must be computed over multiple axes. Default: `None`.
 
+-   **dtype**: _Optional\[ &lt;dtype&gt; ]_
+
+    -   data type of the returned array. If `None`,
+    
+        -   if the default data type corresponding to the data type "kind" (integer or floating-point) of `x` has a smaller range of values than the data type of `x` (e.g., `x` has data type `int64` and the default data type is `int32`, or `x` has data type `uint64` and the default data type is `int64`), the returned array must have the same data type as `x`.
+        -   otherwise, the returned array must have the default data type corresponding to the data type "kind" (integer or floating-point) of `x`.
+
+        If the data type (either specified or resolved) differs from the data type of `x`, the input array should be cast to the specified data type before computing the sum. Default: `None`.
+
+        ```{note}
+        This keyword argument is intended to help prevent data type overflows.
+        ```
+
 -   **keepdims**: _bool_
 
     -   If `True`, the reduced axes (dimensions) must be included in the result as singleton dimensions, and, accordingly, the result must be compatible with the input array (see {ref}`broadcasting`). Otherwise, if `False`, the reduced axes (dimensions) must not be included in the result. Default: `False`.
@@ -207,7 +233,7 @@ For an input array `x`, let `N` equal the number of elements over which to compu
 
 -   **out**: _&lt;array&gt;_
 
-    -   if the sum was computed over the entire array, a zero-dimensional array containing the sum; otherwise, an array containing the sums. The returned array must have the same data type as `x`.
+    -   if the sum was computed over the entire array, a zero-dimensional array containing the sum; otherwise, an array containing the sums. The returned array must have a data type as described by the `dtype` parameter above.
 
 (function-var)=
 ### var(x, /, *, axis=None, correction=0.0, keepdims=False)
