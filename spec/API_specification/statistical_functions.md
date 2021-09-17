@@ -193,7 +193,7 @@ Calculates the sum of the input array `x`.
 
 -   **out**: _&lt;array&gt;_
 
-    -   if the sum was computed over the entire array, a zero-dimensional array containing the sum; otherwise, an array containing the sums.
+    -   if the sum was computed over the entire array, a zero-dimensional array containing the sum; otherwise, an array containing the sums. The returned array must have a data type as described by the `dtype` parameter above.
 
 (function-var)=
 ### var(x, /, *, axis=None, correction=0.0, keepdims=False)
