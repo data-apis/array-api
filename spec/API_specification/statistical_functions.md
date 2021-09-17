@@ -109,7 +109,7 @@ Calculates the product of input array `x` elements.
 
     -   data type of the returned array. If `None`,
     
-        -   if the default data type corresponding to the data type "kind" (integer or floating-point) of `x` is smaller than the data type of `x` (e.g., `x` has data type `int64` and the default data type is `int32`), the returned array must have the same data type as `x`.
+        -   if the default data type corresponding to the data type "kind" (integer or floating-point) of `x` has a smaller range of values than the data type of `x` (e.g., `x` has data type `int64` and the default data type is `int32`, or `x` has data type `uint64` and the default data type is `int64`), the returned array must have the same data type as `x`.
         -   otherwise, the returned array must have the default data type corresponding to the data type "kind" (integer or floating-point) of `x`.
 
         If the data type (either specified or resolved) differs from the data type of `x`, the input array should be cast to the specified data type before computing the product. Default: `None`.
@@ -176,7 +176,7 @@ Calculates the sum of the input array `x`.
 
     -   data type of the returned array. If `None`,
     
-        -   if the default data type corresponding to the data type "kind" (integer or floating-point) of `x` is smaller than the data type of `x` (e.g., `x` has data type `int64` and the default data type is `int32`), the returned array must have the same data type as `x`.
+        -   if the default data type corresponding to the data type "kind" (integer or floating-point) of `x` has a smaller range of values than the data type of `x` (e.g., `x` has data type `int64` and the default data type is `int32`, or `x` has data type `uint64` and the default data type is `int64`), the returned array must have the same data type as `x`.
         -   otherwise, the returned array must have the default data type corresponding to the data type "kind" (integer or floating-point) of `x`.
 
         If the data type (either specified or resolved) differs from the data type of `x`, the input array should be cast to the specified data type before computing the sum. Default: `None`.
