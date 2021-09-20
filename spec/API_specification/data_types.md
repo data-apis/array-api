@@ -64,13 +64,48 @@ for more details.
 :::
 
 ```{note}
-Data types ("dtypes") are objects that can be used as `dtype` specifiers in functions and methods (e.g., `zeros((2, 3), dtype=float32)`). A conforming implementation may add methods or attributes to data type objects; however, these methods and attributes are not included in this specification.
-
-Implementations may provide other ways to specify data types (e.g.,
-`zeros((2, 3), dtype='f4')`); however, these are not included in this specification.
-
 A conforming implementation of the array API standard may provide and support additional data types beyond those described in this specification.
 ```
+
+(data-type-objects)=
+## Data Type Objects
+
+Data types ("dtypes") are objects which are used as `dtype` specifiers in functions and methods (e.g., `zeros((2, 3), dtype=float32)`).
+
+```{note}
+A conforming implementation may add additional methods or attributes to data type objects beyond those described in this specification.
+```
+
+```{note}
+Implementations may provide other ways to specify data types (e.g., `zeros((2, 3), dtype='f4')`) which are not described in this specification; however, in order to ensure portability, array library consumers are recommended to use data type objects as provided by specification conforming array libraries.
+```
+
+A conforming implementation of the array API standard must provide and support data type objects having the following attributes and methods.
+
+### Methods
+
+<!-- NOTE: please keep the methods in alphabetical order -->
+
+(method-__eq__)=
+### \_\_eq\_\_(self, other, /)
+
+Computes the truth value of `self == other` in order to test for data type object equality.
+
+#### Parameters
+
+-   **self**: _&lt;dtype&gt;_
+
+    -   data type instance. May be any supported data type.
+
+-   **other**: _&lt;dtype&gt;_
+
+    -   other data type instance. May be any supported data type.
+
+#### Returns
+
+-   **out**: _&lt;bool&gt;_
+
+    -   a boolean indicating whether the data type objects are equal.
 
 (data-type-defaults)=
 ## Default Data Types
