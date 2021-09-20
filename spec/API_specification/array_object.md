@@ -294,6 +294,10 @@ Limiting the transpose to two-dimensional arrays (matrices) deviates from the Nu
 
 Calculates the absolute value for each element of an array instance (i.e., the element-wise result has the same magnitude as the respective element but has positive sign).
 
+```{note}
+For signed integer data types, the absolute value of the minimum representable integer is implementation-dependent.
+```
+
 #### Special Cases
 
 For floating-point operands, let `self` equal `x`.
