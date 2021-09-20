@@ -934,6 +934,10 @@ Element-wise results must equal the results returned by the equivalent element-w
 
 Evaluates `-self_i` for each element of an array instance.
 
+```{note}
+For signed integer data types, the numerical negative of the minimum representable integer is implementation-dependent.
+```
+
 #### Parameters
 
 -   **self**: _&lt;array&gt;_
