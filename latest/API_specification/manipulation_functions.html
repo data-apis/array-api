@@ -349,8 +349,8 @@
                       </nav>
                      </li>
                      <li class="md-nav__item">
-                      <a class="md-nav__link" href="#reshape-x-shape">
-                       reshape(x, /, shape)
+                      <a class="md-nav__link" href="#permute-dims-x-axes">
+                       permute_dims(x, /, axes)
                       </a>
                       <nav class="md-nav">
                        <ul class="md-nav__list">
@@ -368,8 +368,8 @@
                       </nav>
                      </li>
                      <li class="md-nav__item">
-                      <a class="md-nav__link" href="#roll-x-shift-axis-none">
-                       roll(x, /, shift, *, axis=None)
+                      <a class="md-nav__link" href="#reshape-x-shape">
+                       reshape(x, /, shape)
                       </a>
                       <nav class="md-nav">
                        <ul class="md-nav__list">
@@ -387,8 +387,8 @@
                       </nav>
                      </li>
                      <li class="md-nav__item">
-                      <a class="md-nav__link" href="#squeeze-x-axis">
-                       squeeze(x, /, axis)
+                      <a class="md-nav__link" href="#roll-x-shift-axis-none">
+                       roll(x, /, shift, *, axis=None)
                       </a>
                       <nav class="md-nav">
                        <ul class="md-nav__list">
@@ -406,8 +406,8 @@
                       </nav>
                      </li>
                      <li class="md-nav__item">
-                      <a class="md-nav__link" href="#stack-arrays-axis-0">
-                       stack(arrays, /, *, axis=0)
+                      <a class="md-nav__link" href="#squeeze-x-axis">
+                       squeeze(x, /, axis)
                       </a>
                       <nav class="md-nav">
                        <ul class="md-nav__list">
@@ -418,6 +418,25 @@
                         </li>
                         <li class="md-nav__item">
                          <a class="md-nav__link" href="#id12">
+                          Returns
+                         </a>
+                        </li>
+                       </ul>
+                      </nav>
+                     </li>
+                     <li class="md-nav__item">
+                      <a class="md-nav__link" href="#stack-arrays-axis-0">
+                       stack(arrays, /, *, axis=0)
+                      </a>
+                      <nav class="md-nav">
+                       <ul class="md-nav__list">
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#id13">
+                          Parameters
+                         </a>
+                        </li>
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#id14">
                           Returns
                          </a>
                         </li>
@@ -585,8 +604,8 @@
                  </nav>
                 </li>
                 <li class="md-nav__item">
-                 <a class="md-nav__link" href="#reshape-x-shape">
-                  reshape(x, /, shape)
+                 <a class="md-nav__link" href="#permute-dims-x-axes">
+                  permute_dims(x, /, axes)
                  </a>
                  <nav class="md-nav">
                   <ul class="md-nav__list">
@@ -604,8 +623,8 @@
                  </nav>
                 </li>
                 <li class="md-nav__item">
-                 <a class="md-nav__link" href="#roll-x-shift-axis-none">
-                  roll(x, /, shift, *, axis=None)
+                 <a class="md-nav__link" href="#reshape-x-shape">
+                  reshape(x, /, shape)
                  </a>
                  <nav class="md-nav">
                   <ul class="md-nav__list">
@@ -623,8 +642,8 @@
                  </nav>
                 </li>
                 <li class="md-nav__item">
-                 <a class="md-nav__link" href="#squeeze-x-axis">
-                  squeeze(x, /, axis)
+                 <a class="md-nav__link" href="#roll-x-shift-axis-none">
+                  roll(x, /, shift, *, axis=None)
                  </a>
                  <nav class="md-nav">
                   <ul class="md-nav__list">
@@ -642,8 +661,8 @@
                  </nav>
                 </li>
                 <li class="md-nav__item">
-                 <a class="md-nav__link" href="#stack-arrays-axis-0">
-                  stack(arrays, /, *, axis=0)
+                 <a class="md-nav__link" href="#squeeze-x-axis">
+                  squeeze(x, /, axis)
                  </a>
                  <nav class="md-nav">
                   <ul class="md-nav__list">
@@ -654,6 +673,25 @@
                    </li>
                    <li class="md-nav__item">
                     <a class="md-nav__link" href="#id12">
+                     Returns
+                    </a>
+                   </li>
+                  </ul>
+                 </nav>
+                </li>
+                <li class="md-nav__item">
+                 <a class="md-nav__link" href="#stack-arrays-axis-0">
+                  stack(arrays, /, *, axis=0)
+                 </a>
+                 <nav class="md-nav">
+                  <ul class="md-nav__list">
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#id13">
+                     Parameters
+                    </a>
+                   </li>
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#id14">
                      Returns
                     </a>
                    </li>
@@ -1133,6 +1171,132 @@
            </ul>
           </section>
          </section>
+         <section id="permute-dims-x-axes">
+          <span id="function-permute-dims">
+          </span>
+          <h3 id="permute-dims-x-axes">
+           permute_dims(x, /, axes)
+           <a class="headerlink" href="#permute-dims-x-axes" title="Permalink to this headline">
+            ¶
+           </a>
+          </h3>
+          <p>
+           Permutes the axes (dimensions) of an array
+           <code class="docutils literal notranslate">
+            <span class="pre">
+             x
+            </span>
+           </code>
+           .
+          </p>
+          <section id="id5">
+           <h4 id="id5">
+            Parameters
+            <a class="headerlink" href="#id5" title="Permalink to this headline">
+             ¶
+            </a>
+           </h4>
+           <ul class="simple">
+            <li>
+             <p>
+              <strong>
+               x
+              </strong>
+              :
+              <em>
+               &lt;array&gt;
+              </em>
+             </p>
+             <ul>
+              <li>
+               <p>
+                input array.
+               </p>
+              </li>
+             </ul>
+            </li>
+            <li>
+             <p>
+              <strong>
+               axes
+              </strong>
+              :
+              <em>
+               Tuple[ int, … ]
+              </em>
+             </p>
+             <ul>
+              <li>
+               <p>
+                tuple containing a permutation of
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  (0,
+                 </span>
+                 <span class="pre">
+                  1,
+                 </span>
+                 <span class="pre">
+                  ...,
+                 </span>
+                 <span class="pre">
+                  N-1)
+                 </span>
+                </code>
+                where
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  N
+                 </span>
+                </code>
+                is the number of axes (dimensions) of
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  x
+                 </span>
+                </code>
+                .
+               </p>
+              </li>
+             </ul>
+            </li>
+           </ul>
+          </section>
+          <section id="id6">
+           <h4 id="id6">
+            Returns
+            <a class="headerlink" href="#id6" title="Permalink to this headline">
+             ¶
+            </a>
+           </h4>
+           <ul class="simple">
+            <li>
+             <p>
+              <strong>
+               out
+              </strong>
+              :
+              <em>
+               &lt;array&gt;
+              </em>
+             </p>
+             <ul>
+              <li>
+               <p>
+                an array containing the axes permutation. The returned array must have the same data type as
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  x
+                 </span>
+                </code>
+                .
+               </p>
+              </li>
+             </ul>
+            </li>
+           </ul>
+          </section>
+         </section>
          <section id="reshape-x-shape">
           <span id="function-reshape">
           </span>
@@ -1145,10 +1309,10 @@
           <p>
            Reshapes an array without changing its data.
           </p>
-          <section id="id5">
-           <h4 id="id5">
+          <section id="id7">
+           <h4 id="id7">
             Parameters
-            <a class="headerlink" href="#id5" title="Permalink to this headline">
+            <a class="headerlink" href="#id7" title="Permalink to this headline">
              ¶
             </a>
            </h4>
@@ -1203,10 +1367,10 @@
             </li>
            </ul>
           </section>
-          <section id="id6">
-           <h4 id="id6">
+          <section id="id8">
+           <h4 id="id8">
             Returns
-            <a class="headerlink" href="#id6" title="Permalink to this headline">
+            <a class="headerlink" href="#id8" title="Permalink to this headline">
              ¶
             </a>
            </h4>
@@ -1250,10 +1414,10 @@
           <p>
            Rolls array elements along a specified axis. Array elements that roll beyond the last position are re-introduced at the first position. Array elements that roll beyond the first position are re-introduced at the last position.
           </p>
-          <section id="id7">
-           <h4 id="id7">
+          <section id="id9">
+           <h4 id="id9">
             Parameters
-            <a class="headerlink" href="#id7" title="Permalink to this headline">
+            <a class="headerlink" href="#id9" title="Permalink to this headline">
              ¶
             </a>
            </h4>
@@ -1386,10 +1550,10 @@
             </li>
            </ul>
           </section>
-          <section id="id8">
-           <h4 id="id8">
+          <section id="id10">
+           <h4 id="id10">
             Returns
-            <a class="headerlink" href="#id8" title="Permalink to this headline">
+            <a class="headerlink" href="#id10" title="Permalink to this headline">
              ¶
             </a>
            </h4>
@@ -1445,10 +1609,10 @@
            </code>
            .
           </p>
-          <section id="id9">
-           <h4 id="id9">
+          <section id="id11">
+           <h4 id="id11">
             Parameters
-            <a class="headerlink" href="#id9" title="Permalink to this headline">
+            <a class="headerlink" href="#id11" title="Permalink to this headline">
              ¶
             </a>
            </h4>
@@ -1497,10 +1661,10 @@
             </li>
            </ul>
           </section>
-          <section id="id10">
-           <h4 id="id10">
+          <section id="id12">
+           <h4 id="id12">
             Returns
-            <a class="headerlink" href="#id10" title="Permalink to this headline">
+            <a class="headerlink" href="#id12" title="Permalink to this headline">
              ¶
             </a>
            </h4>
@@ -1544,10 +1708,10 @@
           <p>
            Joins a sequence of arrays along a new axis.
           </p>
-          <section id="id11">
-           <h4 id="id11">
+          <section id="id13">
+           <h4 id="id13">
             Parameters
-            <a class="headerlink" href="#id11" title="Permalink to this headline">
+            <a class="headerlink" href="#id13" title="Permalink to this headline">
              ¶
             </a>
            </h4>
@@ -1716,10 +1880,10 @@
             </li>
            </ul>
           </section>
-          <section id="id12">
-           <h4 id="id12">
+          <section id="id14">
+           <h4 id="id14">
             Returns
-            <a class="headerlink" href="#id12" title="Permalink to this headline">
+            <a class="headerlink" href="#id14" title="Permalink to this headline">
              ¶
             </a>
            </h4>

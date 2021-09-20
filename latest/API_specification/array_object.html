@@ -4054,7 +4054,7 @@ an array object supporting the following reflected operators:
             Limiting the transpose to two-dimensional arrays (matrices) deviates from the NumPy et al practice of reversing all axes for arrays having more than two-dimensions. This is intentional, as reversing all axes was found to be problematic (e.g., conflicting with the mathematical definition of a transpose which is limited to matrices; not operating on batches of matrices; et cetera). In order to reverse all axes, one is recommended to use the functional
             <code class="docutils literal notranslate">
              <span class="pre">
-              permute
+              permute_dims
              </span>
             </code>
             interface found in this specification.
