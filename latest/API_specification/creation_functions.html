@@ -515,8 +515,8 @@
                       </nav>
                      </li>
                      <li class="md-nav__item">
-                      <a class="md-nav__link" href="#zeros-shape-dtype-none-device-none">
-                       zeros(shape, *, dtype=None, device=None)
+                      <a class="md-nav__link" href="#tril-x-k-0">
+                       tril(x, /, *, k=0)
                       </a>
                       <nav class="md-nav">
                        <ul class="md-nav__list">
@@ -534,8 +534,8 @@
                       </nav>
                      </li>
                      <li class="md-nav__item">
-                      <a class="md-nav__link" href="#zeros-like-x-dtype-none-device-none">
-                       zeros_like(x, /, *, dtype=None, device=None)
+                      <a class="md-nav__link" href="#triu-x-k-0">
+                       triu(x, /, *, k=0)
                       </a>
                       <nav class="md-nav">
                        <ul class="md-nav__list">
@@ -546,6 +546,44 @@
                         </li>
                         <li class="md-nav__item">
                          <a class="md-nav__link" href="#id26">
+                          Returns
+                         </a>
+                        </li>
+                       </ul>
+                      </nav>
+                     </li>
+                     <li class="md-nav__item">
+                      <a class="md-nav__link" href="#zeros-shape-dtype-none-device-none">
+                       zeros(shape, *, dtype=None, device=None)
+                      </a>
+                      <nav class="md-nav">
+                       <ul class="md-nav__list">
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#id27">
+                          Parameters
+                         </a>
+                        </li>
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#id28">
+                          Returns
+                         </a>
+                        </li>
+                       </ul>
+                      </nav>
+                     </li>
+                     <li class="md-nav__item">
+                      <a class="md-nav__link" href="#zeros-like-x-dtype-none-device-none">
+                       zeros_like(x, /, *, dtype=None, device=None)
+                      </a>
+                      <nav class="md-nav">
+                       <ul class="md-nav__list">
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#id29">
+                          Parameters
+                         </a>
+                        </li>
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#id30">
                           Returns
                          </a>
                         </li>
@@ -889,8 +927,8 @@
                  </nav>
                 </li>
                 <li class="md-nav__item">
-                 <a class="md-nav__link" href="#zeros-shape-dtype-none-device-none">
-                  zeros(shape, *, dtype=None, device=None)
+                 <a class="md-nav__link" href="#tril-x-k-0">
+                  tril(x, /, *, k=0)
                  </a>
                  <nav class="md-nav">
                   <ul class="md-nav__list">
@@ -908,8 +946,8 @@
                  </nav>
                 </li>
                 <li class="md-nav__item">
-                 <a class="md-nav__link" href="#zeros-like-x-dtype-none-device-none">
-                  zeros_like(x, /, *, dtype=None, device=None)
+                 <a class="md-nav__link" href="#triu-x-k-0">
+                  triu(x, /, *, k=0)
                  </a>
                  <nav class="md-nav">
                   <ul class="md-nav__list">
@@ -920,6 +958,44 @@
                    </li>
                    <li class="md-nav__item">
                     <a class="md-nav__link" href="#id26">
+                     Returns
+                    </a>
+                   </li>
+                  </ul>
+                 </nav>
+                </li>
+                <li class="md-nav__item">
+                 <a class="md-nav__link" href="#zeros-shape-dtype-none-device-none">
+                  zeros(shape, *, dtype=None, device=None)
+                 </a>
+                 <nav class="md-nav">
+                  <ul class="md-nav__list">
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#id27">
+                     Parameters
+                    </a>
+                   </li>
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#id28">
+                     Returns
+                    </a>
+                   </li>
+                  </ul>
+                 </nav>
+                </li>
+                <li class="md-nav__item">
+                 <a class="md-nav__link" href="#zeros-like-x-dtype-none-device-none">
+                  zeros_like(x, /, *, dtype=None, device=None)
+                 </a>
+                 <nav class="md-nav">
+                  <ul class="md-nav__list">
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#id29">
+                     Parameters
+                    </a>
+                   </li>
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#id30">
                      Returns
                     </a>
                    </li>
@@ -1222,7 +1298,7 @@
              <ul>
               <li>
                <p>
-                device to place the created array on, if given. Default:
+                device on which to place the created array. Default:
                 <code class="docutils literal notranslate">
                  <span class="pre">
                   None
@@ -1438,7 +1514,7 @@ An object supporting the buffer protocol can be turned into a memoryview through
              <ul class="simple">
               <li>
                <p>
-                device to place the created array on, if given. Default:
+                device on which to place the created array. Default:
                 <code class="docutils literal notranslate">
                  <span class="pre">
                   None
@@ -1627,7 +1703,7 @@ An object supporting the buffer protocol can be turned into a memoryview through
              <ul>
               <li>
                <p>
-                device to place the created array on, if given. Default:
+                device on which to place the created array. Default:
                 <code class="docutils literal notranslate">
                  <span class="pre">
                   None
@@ -1774,7 +1850,7 @@ An object supporting the buffer protocol can be turned into a memoryview through
              <ul>
               <li>
                <p>
-                device to place the created array on, if given. If
+                device on which to place the created array. If
                 <code class="docutils literal notranslate">
                  <span class="pre">
                   device
@@ -1999,7 +2075,7 @@ An object supporting the buffer protocol can be turned into a memoryview through
              <ul>
               <li>
                <p>
-                device to place the created array on, if given. Default:
+                device on which to place the created array. Default:
                 <code class="docutils literal notranslate">
                  <span class="pre">
                   None
@@ -2309,7 +2385,7 @@ An object supporting the buffer protocol can be turned into a memoryview through
              <ul class="simple">
               <li>
                <p>
-                device to place the created array on, if given. Default:
+                device on which to place the created array. Default:
                 <code class="docutils literal notranslate">
                  <span class="pre">
                   None
@@ -2518,7 +2594,7 @@ An object supporting the buffer protocol can be turned into a memoryview through
              <ul class="simple">
               <li>
                <p>
-                device to place the created array on, if given. If
+                device on which to place the created array. If
                 <code class="docutils literal notranslate">
                  <span class="pre">
                   device
@@ -2805,7 +2881,7 @@ An object supporting the buffer protocol can be turned into a memoryview through
              <ul class="simple">
               <li>
                <p>
-                device to place the created array on, if given. Default:
+                device on which to place the created array. Default:
                 <code class="docutils literal notranslate">
                  <span class="pre">
                   None
@@ -3270,7 +3346,7 @@ An object supporting the buffer protocol can be turned into a memoryview through
              <ul>
               <li>
                <p>
-                device to place the created array on, if given. Default:
+                device on which to place the created array. Default:
                 <code class="docutils literal notranslate">
                  <span class="pre">
                   None
@@ -3417,7 +3493,7 @@ An object supporting the buffer protocol can be turned into a memoryview through
              <ul>
               <li>
                <p>
-                device to place the created array on, if given. If
+                device on which to place the created array. If
                 <code class="docutils literal notranslate">
                  <span class="pre">
                   device
@@ -3483,6 +3559,458 @@ An object supporting the buffer protocol can be turned into a memoryview through
            </ul>
           </section>
          </section>
+         <section id="tril-x-k-0">
+          <span id="function-tril">
+          </span>
+          <h3 id="tril-x-k-0">
+           tril(x, /, *, k=0)
+           <a class="headerlink" href="#tril-x-k-0" title="Permalink to this headline">
+            ¶
+           </a>
+          </h3>
+          <p>
+           Returns the lower triangular part of a matrix (or a stack of matrices)
+           <code class="docutils literal notranslate">
+            <span class="pre">
+             x
+            </span>
+           </code>
+           .
+          </p>
+          <div class="admonition note">
+           <p class="admonition-title">
+            Note
+           </p>
+           <p>
+            The lower triangular part of the matrix is defined as the elements on and below the specified diagonal
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              k
+             </span>
+            </code>
+            .
+           </p>
+          </div>
+          <section id="id23">
+           <h4 id="id23">
+            Parameters
+            <a class="headerlink" href="#id23" title="Permalink to this headline">
+             ¶
+            </a>
+           </h4>
+           <ul>
+            <li>
+             <p>
+              <strong>
+               x
+              </strong>
+              :
+              <em>
+               &lt;array&gt;
+              </em>
+             </p>
+             <ul class="simple">
+              <li>
+               <p>
+                input array having shape
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  (...,
+                 </span>
+                 <span class="pre">
+                  M,
+                 </span>
+                 <span class="pre">
+                  N)
+                 </span>
+                </code>
+                and whose innermost two dimensions form
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  MxN
+                 </span>
+                </code>
+                matrices.
+               </p>
+              </li>
+             </ul>
+            </li>
+            <li>
+             <p>
+              <strong>
+               k
+              </strong>
+              :
+              <em>
+               int
+              </em>
+             </p>
+             <ul>
+              <li>
+               <p>
+                diagonal above which to zero elements. If
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  k
+                 </span>
+                 <span class="pre">
+                  =
+                 </span>
+                 <span class="pre">
+                  0
+                 </span>
+                </code>
+                , the diagonal is the main diagonal. If
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  k
+                 </span>
+                 <span class="pre">
+                  &lt;
+                 </span>
+                 <span class="pre">
+                  0
+                 </span>
+                </code>
+                , the diagonal is below the main diagonal. If
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  k
+                 </span>
+                 <span class="pre">
+                  &gt;
+                 </span>
+                 <span class="pre">
+                  0
+                 </span>
+                </code>
+                , the diagonal is above the main diagonal. Default:
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  0
+                 </span>
+                </code>
+                .
+               </p>
+               <div class="admonition note">
+                <p class="admonition-title">
+                 Note
+                </p>
+                <p>
+                 The main diagonal is defined as the set of indices
+                 <code class="docutils literal notranslate">
+                  <span class="pre">
+                   {(i,
+                  </span>
+                  <span class="pre">
+                   i)}
+                  </span>
+                 </code>
+                 for
+                 <code class="docutils literal notranslate">
+                  <span class="pre">
+                   i
+                  </span>
+                 </code>
+                 on the interval
+                 <code class="docutils literal notranslate">
+                  <span class="pre">
+                   [0,
+                  </span>
+                  <span class="pre">
+                   min(M,
+                  </span>
+                  <span class="pre">
+                   N)
+                  </span>
+                  <span class="pre">
+                   -
+                  </span>
+                  <span class="pre">
+                   1]
+                  </span>
+                 </code>
+                 .
+                </p>
+               </div>
+              </li>
+             </ul>
+            </li>
+           </ul>
+          </section>
+          <section id="id24">
+           <h4 id="id24">
+            Returns
+            <a class="headerlink" href="#id24" title="Permalink to this headline">
+             ¶
+            </a>
+           </h4>
+           <ul class="simple">
+            <li>
+             <p>
+              <strong>
+               out
+              </strong>
+              :
+              <em>
+               &lt;array&gt;
+              </em>
+             </p>
+             <ul>
+              <li>
+               <p>
+                an array containing the lower triangular part(s). The returned array must have the same shape and data type as
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  x
+                 </span>
+                </code>
+                . All elements above the specified diagonal
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  k
+                 </span>
+                </code>
+                must be zeroed. The returned array should be allocated on the same device as
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  x
+                 </span>
+                </code>
+                .
+               </p>
+              </li>
+             </ul>
+            </li>
+           </ul>
+          </section>
+         </section>
+         <section id="triu-x-k-0">
+          <span id="function-triu">
+          </span>
+          <h3 id="triu-x-k-0">
+           triu(x, /, *, k=0)
+           <a class="headerlink" href="#triu-x-k-0" title="Permalink to this headline">
+            ¶
+           </a>
+          </h3>
+          <p>
+           Returns the upper triangular part of a matrix (or a stack of matrices)
+           <code class="docutils literal notranslate">
+            <span class="pre">
+             x
+            </span>
+           </code>
+           .
+          </p>
+          <div class="admonition note">
+           <p class="admonition-title">
+            Note
+           </p>
+           <p>
+            The upper triangular part of the matrix is defined as the elements on and above the specified diagonal
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              k
+             </span>
+            </code>
+            .
+           </p>
+          </div>
+          <section id="id25">
+           <h4 id="id25">
+            Parameters
+            <a class="headerlink" href="#id25" title="Permalink to this headline">
+             ¶
+            </a>
+           </h4>
+           <ul>
+            <li>
+             <p>
+              <strong>
+               x
+              </strong>
+              :
+              <em>
+               &lt;array&gt;
+              </em>
+             </p>
+             <ul class="simple">
+              <li>
+               <p>
+                input array having shape
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  (...,
+                 </span>
+                 <span class="pre">
+                  M,
+                 </span>
+                 <span class="pre">
+                  N)
+                 </span>
+                </code>
+                and whose innermost two dimensions form
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  MxN
+                 </span>
+                </code>
+                matrices.
+               </p>
+              </li>
+             </ul>
+            </li>
+            <li>
+             <p>
+              <strong>
+               k
+              </strong>
+              :
+              <em>
+               int
+              </em>
+             </p>
+             <ul>
+              <li>
+               <p>
+                diagonal below which to zero elements. If
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  k
+                 </span>
+                 <span class="pre">
+                  =
+                 </span>
+                 <span class="pre">
+                  0
+                 </span>
+                </code>
+                , the diagonal is the main diagonal. If
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  k
+                 </span>
+                 <span class="pre">
+                  &lt;
+                 </span>
+                 <span class="pre">
+                  0
+                 </span>
+                </code>
+                , the diagonal is below the main diagonal. If
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  k
+                 </span>
+                 <span class="pre">
+                  &gt;
+                 </span>
+                 <span class="pre">
+                  0
+                 </span>
+                </code>
+                , the diagonal is above the main diagonal. Default:
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  0
+                 </span>
+                </code>
+                .
+               </p>
+               <div class="admonition note">
+                <p class="admonition-title">
+                 Note
+                </p>
+                <p>
+                 The main diagonal is defined as the set of indices
+                 <code class="docutils literal notranslate">
+                  <span class="pre">
+                   {(i,
+                  </span>
+                  <span class="pre">
+                   i)}
+                  </span>
+                 </code>
+                 for
+                 <code class="docutils literal notranslate">
+                  <span class="pre">
+                   i
+                  </span>
+                 </code>
+                 on the interval
+                 <code class="docutils literal notranslate">
+                  <span class="pre">
+                   [0,
+                  </span>
+                  <span class="pre">
+                   min(M,
+                  </span>
+                  <span class="pre">
+                   N)
+                  </span>
+                  <span class="pre">
+                   -
+                  </span>
+                  <span class="pre">
+                   1]
+                  </span>
+                 </code>
+                 .
+                </p>
+               </div>
+              </li>
+             </ul>
+            </li>
+           </ul>
+          </section>
+          <section id="id26">
+           <h4 id="id26">
+            Returns
+            <a class="headerlink" href="#id26" title="Permalink to this headline">
+             ¶
+            </a>
+           </h4>
+           <ul class="simple">
+            <li>
+             <p>
+              <strong>
+               out
+              </strong>
+              :
+              <em>
+               &lt;array&gt;
+              </em>
+             </p>
+             <ul>
+              <li>
+               <p>
+                an array containing the upper triangular part(s). The returned array must have the same shape and data type as
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  x
+                 </span>
+                </code>
+                . All elements below the specified diagonal
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  k
+                 </span>
+                </code>
+                must be zeroed. The returned array should be allocated on the same device as
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  x
+                 </span>
+                </code>
+                .
+               </p>
+              </li>
+             </ul>
+            </li>
+           </ul>
+          </section>
+         </section>
          <section id="zeros-shape-dtype-none-device-none">
           <span id="function-zeros">
           </span>
@@ -3501,10 +4029,10 @@ An object supporting the buffer protocol can be turned into a memoryview through
            </code>
            and filled with zeros.
           </p>
-          <section id="id23">
-           <h4 id="id23">
+          <section id="id27">
+           <h4 id="id27">
             Parameters
-            <a class="headerlink" href="#id23" title="Permalink to this headline">
+            <a class="headerlink" href="#id27" title="Permalink to this headline">
              ¶
             </a>
            </h4>
@@ -3576,7 +4104,7 @@ An object supporting the buffer protocol can be turned into a memoryview through
              <ul>
               <li>
                <p>
-                device to place the created array on, if given. Default:
+                device on which to place the created array. Default:
                 <code class="docutils literal notranslate">
                  <span class="pre">
                   None
@@ -3589,10 +4117,10 @@ An object supporting the buffer protocol can be turned into a memoryview through
             </li>
            </ul>
           </section>
-          <section id="id24">
-           <h4 id="id24">
+          <section id="id28">
+           <h4 id="id28">
             Returns
-            <a class="headerlink" href="#id24" title="Permalink to this headline">
+            <a class="headerlink" href="#id28" title="Permalink to this headline">
              ¶
             </a>
            </h4>
@@ -3642,10 +4170,10 @@ An object supporting the buffer protocol can be turned into a memoryview through
            </code>
            .
           </p>
-          <section id="id25">
-           <h4 id="id25">
+          <section id="id29">
+           <h4 id="id29">
             Parameters
-            <a class="headerlink" href="#id25" title="Permalink to this headline">
+            <a class="headerlink" href="#id29" title="Permalink to this headline">
              ¶
             </a>
            </h4>
@@ -3723,7 +4251,7 @@ An object supporting the buffer protocol can be turned into a memoryview through
              <ul>
               <li>
                <p>
-                device to place the created array on, if given. If
+                device on which to place the created array. If
                 <code class="docutils literal notranslate">
                  <span class="pre">
                   device
@@ -3754,10 +4282,10 @@ An object supporting the buffer protocol can be turned into a memoryview through
             </li>
            </ul>
           </section>
-          <section id="id26">
-           <h4 id="id26">
+          <section id="id30">
+           <h4 id="id30">
             Returns
-            <a class="headerlink" href="#id26" title="Permalink to this headline">
+            <a class="headerlink" href="#id30" title="Permalink to this headline">
              ¶
             </a>
            </h4>
