@@ -26,7 +26,7 @@ Calculates the absolute value for each element `x_i` of the input array `x` (i.e
 
 ```{note}
 
-For signed integer data types, the `abs` of smallest representable integer is implementation-dependent.
+For signed integer data types, the absolute value of smallest representable integer is implementation-dependent.
 ```
 
 #### Special Cases
