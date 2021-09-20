@@ -86,7 +86,7 @@ A conforming implementation of the array API standard must provide and support d
 
 <!-- NOTE: please keep the methods in alphabetical order -->
 
-(method-__eq__)=
+(data-type-method-__eq__)=
 ### \_\_eq\_\_(self, other, /)
 
 Computes the truth value of `self == other` in order to test for data type object equality.
