@@ -145,6 +145,8 @@ Multi-dimensional arrays must extend the concept of single-axis indexing to mult
 
 -   Providing a slice must retain array dimensions (i.e., the array rank must remain the same; `rank(A) == rank(A[:])`).
 
+-   Providing [ellipsis](https://docs.python.org/3/library/constants.html#Ellipsis) must apply `:` to each dimension necessary to index all dimensions (e.g., if `A` has rank `4`, `A[1:, ..., 2:5] == A[1:, :, :, 2:5]`). Only a single ellipsis must be allowed. An `IndexError` exception must be raised if more than one ellipsis is provided.
+
 -   The number of provided single-axis indexing expressions must equal `N`. For example, if `A` has rank `2`, a single-axis indexing expression (integer, slice, ellipsis) must be explicitly provided for both axes (e.g., `A[2:10, :]`). An `IndexError` exception must be raised if the number of provided single-axis indexing expressions is less than `N`.
 
     ```{note}
@@ -154,8 +156,6 @@ Multi-dimensional arrays must extend the concept of single-axis indexing to mult
     ```
 
 -   An `IndexError` exception must be raised if the number of provided single-axis indexing expressions is greater than `N`.
-
--   Providing [ellipsis](https://docs.python.org/3/library/constants.html#Ellipsis) must apply `:` to each dimension necessary to index all dimensions (e.g., if `A` has rank `4`, `A[1:, ..., 2:5] == A[1:, :, :, 2:5]`). Only a single ellipsis must be allowed. An `IndexError` exception must be raised if more than one ellipsis is provided.
 
 ```{note}
 This specification leaves unspecified the behavior of providing a slice which attempts to select elements along a particular axis, but whose starting index is out-of-bounds.
