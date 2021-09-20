@@ -145,7 +145,13 @@ Multi-dimensional arrays must extend the concept of single-axis indexing to mult
 
 -   Providing a slice must retain array dimensions (i.e., the array rank must remain the same; `rank(A) == rank(A[:])`).
 
--   If the number of provided single-axis indexing expressions is less than `N`, then `:` must be assumed for the remaining dimensions (e.g., if `A` has rank `2`, `A[2:10] == A[2:10, :]`).
+-   The number of provided single-axis indexing expressions must equal `N`. For example, if `A` has rank `2`, a single-axis indexing expression (integer, slice, ellipsis) must be explicitly provided for both axes (e.g., `A[2:10, :]`). An `IndexError` exception must be raised if the number of provided single-axis indexing expressions is less than `N`.
+
+    ```{note}
+    Some libraries, such as SymPy, support flat indexing (i.e., providing a single-axis indexing expression to a higher-dimensional array). That practice is not supported here.
+
+    To perform flat indexing, use `reshape(x, (-1,))[integer]`.
+    ```
 
 -   An `IndexError` exception must be raised if the number of provided single-axis indexing expressions is greater than `N`.
 
