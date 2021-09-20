@@ -229,11 +229,6 @@ Computes the eigenvalues of a symmetric matrix (or a stack of symmetric matrices
 Eigenvalue sort order is left unspecified.
 ```
 
-(function-linalg-einsum)=
-### linalg.einsum()
-
-Alias for {ref}`function-einsum`.
-
 (function-linalg-inv)=
 ### linalg.inv(x, /)
 
