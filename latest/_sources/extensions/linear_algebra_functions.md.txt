@@ -172,7 +172,7 @@ Returns the specified diagonals of a matrix (or a stack of matrices) `x`.
 _TODO: this requires complex number support to be added to the specification._
 
 (function-linalg-eigh)=
-### linalg.eigh(x, /, *, upper=False)
+### linalg.eigh(x, /)
 
 Returns the eigenvalues and eigenvectors of a symmetric matrix (or a stack of symmetric matrices) `x`.
 
@@ -183,10 +183,6 @@ Returns the eigenvalues and eigenvectors of a symmetric matrix (or a stack of sy
 -   **x**: _&lt;array&gt;_
 
     -   input array having shape `(..., M, M)` and whose innermost two dimensions form square matrices. Must have a floating-point data type.
-
--   **upper**: _bool_
-
-    -   If `True`, use the upper-triangular part to compute the eigenvalues and eigenvectors. If `False`, use the lower-triangular part to compute the eigenvalues and eigenvectors. Default: `False`.
 
 #### Returns
 
@@ -210,7 +206,7 @@ Eigenvalue sort order is left unspecified.
 _TODO: this requires complex number support to be added to the specification._
 
 (function-linalg-eigvalsh)=
-### linalg.eigvalsh(x, /, *, upper=False)
+### linalg.eigvalsh(x, /)
 
 Computes the eigenvalues of a symmetric matrix (or a stack of symmetric matrices) `x`.
 
@@ -221,10 +217,6 @@ Computes the eigenvalues of a symmetric matrix (or a stack of symmetric matrices
 -   **x**: _&lt;array&gt;_
 
     -   input array having shape `(..., M, M)` and whose innermost two dimensions form square matrices. Must have a floating-point data type.
-
--   **upper**: _bool_
-
-    -   If `True`, use the upper-triangular part to compute the eigenvalues. If `False`, use the lower-triangular part to compute the eigenvalues. Default: `False`.
 
 #### Returns
 
