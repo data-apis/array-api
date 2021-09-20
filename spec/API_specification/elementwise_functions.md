@@ -25,7 +25,7 @@ A conforming implementation of the array API standard must provide and support t
 Calculates the absolute value for each element `x_i` of the input array `x` (i.e., the element-wise result has the same magnitude as the respective element in `x` but has positive sign).
 
 ```{note}
-For signed integer data types, the absolute value of smallest representable integer is implementation-dependent.
+For signed integer data types, the absolute value of minimum representable integer is implementation-dependent.
 ```
 
 #### Special Cases
