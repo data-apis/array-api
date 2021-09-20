@@ -15,11 +15,6 @@ A conforming implementation of the array API standard must provide and support t
 
 <!-- NOTE: please keep the functions in alphabetical order -->
 
-(function-einsum)=
-### einsum()
-
-TODO
-
 (function-matmul)=
 ### matmul(x1, x2, /)
 
