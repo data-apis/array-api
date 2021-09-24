@@ -38,7 +38,7 @@ Accordingly, the standardization process affords the opportunity to reduce inter
 
     Lastly, certain operations may be performed independent of data type, and, thus, the associated interfaces should support all data types specified in this standard. Example operations include:
 
-    -   `transpose`: computing the transpose.
+    -   `matrix_transpose`: computing the transpose.
     -   `diagonal`: returning the diagonal.
 
 3.  **Return values**: if an interface has more than one return value, the interface should return a namedtuple consisting of each value.
