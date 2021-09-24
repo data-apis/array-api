@@ -1,3 +1,4 @@
+(linear-algebra-extension)=
 # Linear Algebra Functions
 
 > Array API specification for linear algebra functions.
