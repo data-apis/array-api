@@ -246,7 +246,7 @@ Returns a new array filled with `fill_value` and having the same `shape` as an i
         ```
 
         ```{note}
-        If `dtype` is `None` and the `fill_value` has a data type (`int` or `float`) which does not participate in type promotion with the resolved output array data type (see {ref}`type-promotion`), behavior is unspecified and, thus, implementation-defined.
+        If `dtype` is `None` and the `fill_value` has a data type (`int` or `float`) which is not of the same data type kind as the resolved output array data type (see {ref}`type-promotion`), behavior is unspecified and, thus, implementation-defined.
         ```
 
 -   **device**: _Optional\[ &lt;device&gt; ]_
