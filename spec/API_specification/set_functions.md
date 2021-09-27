@@ -38,7 +38,7 @@ Returns the unique elements of an input array `x`.
         -   first element must have the field name `values` and must be an array containing the unique elements of `x`.
         -   second element must have the field name `indices` and must be an array containing the indices (first occurrences) of `x` that result in `values`. The array must have the same shape as `values` and must have the default integer data type.
         -   third element must have the field name `inverse_indices` and must be an array containing the indices of `values` that reconstruct `x`. The array must have the same shape as `x` and must have the default integer data type.
-        -   fourth element must have the field name `counts` and must be an array containing the number of times each unique element occurs in `x`. The returned array must have same shape as `x` and must have the default integer data type.
+        -   fourth element must have the field name `counts` and must be an array containing the number of times each unique element occurs in `x`. The returned array must have same shape as `values` and must have the default integer data type.
 
 (function-unique-inverse)=
 ### unique_inverse(x, /)
