@@ -1,5 +1,5 @@
 (linear-algebra-extension)=
-# Linear Algebra Functions
+# Linear Algebra Extension
 
 > Array API specification for linear algebra functions.
 
