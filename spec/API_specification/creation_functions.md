@@ -306,7 +306,7 @@ Returns coordinate matrices from coordinate vectors.
 
 -    **arrays**: _&lt;array&gt;_
 
-     -   one-dimensional arrays representing grid coordinates. Must have a numeric data type.
+     -   an arbitrary number of one-dimensional arrays representing grid coordinates. Must have numeric data types.
 
 -    **indexing**: _str_
 

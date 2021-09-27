@@ -16,7 +16,7 @@ Broadcasts one or more arrays against one another.
 
 -   **arrays**: _&lt;array&gt;_
 
-    -   arrays to broadcast.
+    -   an arbitrary number of to-be broadcasted arrays.
 
 #### Returns
 
@@ -136,7 +136,7 @@ If provided mixed dtypes (e.g., integer and floating-point), the returned dtype 
 
 -   **arrays_and_dtypes**: _Union\[ &lt;array&gt;, &lt;dtype&gt; \]_
 
-    -   input arrays and dtypes.
+    -   an arbitrary number of input arrays and/or dtypes.
 
 #### Returns
 
