@@ -239,10 +239,14 @@ Returns a new array filled with `fill_value` and having the same `shape` as an i
 
 -   **dtype**: _Optional\[ &lt;dtype&gt; ]_
 
-    -   output array data type. If `dtype` is `None`, the output array data type must be inferred from `fill_value` (see {ref}`function-full`). Default: `None`.
+    -   output array data type. If `dtype` is `None`, the output array data type must be inferred from `x`. Default: `None`.
 
         ```{note}
-        If `dtype` is `None` and the `fill_value` exceeds the precision of the resolved default output array data type, behavior is left unspecified and, thus, implementation-defined.
+        If `dtype` is `None` and the `fill_value` exceeds the precision of the resolved output array data type, behavior is unspecified and, thus, implementation-defined.
+        ```
+
+        ```{note}
+        If `dtype` is `None` and the `fill_value` has a data type (`int` or `float`) which does not participate in type promotion with the resolved output array data type (see {ref}`type-promotion`), behavior is unspecified and, thus, implementation-defined.
         ```
 
 -   **device**: _Optional\[ &lt;device&gt; ]_
