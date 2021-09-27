@@ -167,11 +167,6 @@ Returns the specified diagonals of a matrix (or a stack of matrices) `x`.
 
     -   an array containing the diagonals and whose shape is determined by removing the last two dimensions and appending a dimension equal to the size of the resulting diagonals. The returned array must have the same data type as `x`.
 
-(function-linalg-eig)=
-### linalg.eig()
-
-_TODO: this requires complex number support to be added to the specification._
-
 (function-linalg-eigh)=
 ### linalg.eigh(x, /)
 
@@ -201,10 +196,10 @@ Returns the eigenvalues and eigenvectors of a symmetric matrix (or a stack of sy
 Eigenvalue sort order is left unspecified.
 ```
 
-(function-linalg-eigvals)=
-### linalg.eigvals()
-
-_TODO: this requires complex number support to be added to the specification._
+```{note}
+The function `eig` will be added in a future version of the specification,
+as it requires complex number support.
+```
 
 (function-linalg-eigvalsh)=
 ### linalg.eigvalsh(x, /)
@@ -228,6 +223,11 @@ Computes the eigenvalues of a symmetric matrix (or a stack of symmetric matrices
 ```{note}
 
 Eigenvalue sort order is left unspecified.
+```
+
+```{note}
+The function `eigvals` will be added in a future version of the specification,
+as it requires complex number support.
 ```
 
 (function-linalg-inv)=
