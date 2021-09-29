@@ -513,7 +513,7 @@ Computes the singular values of a matrix (or a stack of matrices) `x`.
 
 #### Returns
 
--   **out**: _Union\[ &lt;array&gt;, Tuple\[ &lt;array&gt;, ... ] ]_
+-   **out**: _&lt;array&gt;_
 
     -   an array with shape `(..., K)` that contains the vector(s) of singular values of length `K`. For each vector, the singular values must be sorted in descending order by magnitude, such that `s[..., 0]` is the largest value, `s[..., 1]` is the second largest value, et cetera. The first `x.ndim-2` dimensions must have the same shape as those of the input `x`. The returned array must have the same floating-point data type as `x`.
 
