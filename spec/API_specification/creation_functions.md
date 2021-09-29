@@ -150,7 +150,7 @@ Returns a two-dimensional array with ones on the `k`th diagonal and zeros elsewh
 
     -   number of columns in the output array. If `None`, the default number of columns in the output array is equal to `n_rows`. Default: `None`.
 
--   **k**: _Optional\[ int ]_
+-   **k**: _int_
 
     -   index of the diagonal. A positive value refers to an upper diagonal, a negative value to a lower diagonal, and `0` to the main diagonal. Default: `0`.
 
