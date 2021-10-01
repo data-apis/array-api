@@ -571,7 +571,7 @@ Computes the vector norm of a vector (or batch of vectors) `x`.
 
     -   input array. Should have a floating-point data type.
 
--   **axis**: _Optional\[ Union\[ int, Tuple\[ int, int ] ] ]_
+-   **axis**: _Optional\[ Union\[ int, Tuple\[ int, ... ] ] ]_
 
     -   If an integer, `axis` specifies the axis (dimension) along which to compute vector norms. If an n-tuple, `axis` specifies the axes (dimensions) along which to compute batched vector norms. If `None`, the vector norm must be computed over all array values (i.e., equivalent to computing the vector norm of a flattened array). Negative indices must be supported. Default: `None`.
 
@@ -579,7 +579,7 @@ Computes the vector norm of a vector (or batch of vectors) `x`.
 
     -   If `True`, the axes (dimensions) specified by `axis` must be included in the result as singleton dimensions, and, accordingly, the result must be compatible with the input array (see {ref}`broadcasting`). Otherwise, if `False`, the axes (dimensions) specified by `axis` must not be included in the result. Default: `False`.
 
--   **ord**: _Optional\[ Union\[  int, float, Literal\[ inf, -inf ] ] ]_
+-   **ord**: _Union\[  int, float, Literal\[ inf, -inf ] ]_
 
     -   order of the norm. The following mathematical norms must be supported:
         | ord              | description                |
