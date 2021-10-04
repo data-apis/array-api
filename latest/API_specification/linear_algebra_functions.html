@@ -369,8 +369,8 @@
                       </nav>
                      </li>
                      <li class="md-nav__item">
-                      <a class="md-nav__link" href="#vecdot-x1-x2-axis-none">
-                       vecdot(x1, x2, /, *, axis=None)
+                      <a class="md-nav__link" href="#vecdot-x1-x2-axis-1">
+                       vecdot(x1, x2, /, *, axis=-1)
                       </a>
                       <nav class="md-nav">
                        <ul class="md-nav__list">
@@ -543,8 +543,8 @@
                  </nav>
                 </li>
                 <li class="md-nav__item">
-                 <a class="md-nav__link" href="#vecdot-x1-x2-axis-none">
-                  vecdot(x1, x2, /, *, axis=None)
+                 <a class="md-nav__link" href="#vecdot-x1-x2-axis-1">
+                  vecdot(x1, x2, /, *, axis=-1)
                  </a>
                  <nav class="md-nav">
                   <ul class="md-nav__list">
@@ -1795,12 +1795,12 @@
            </ul>
           </section>
          </section>
-         <section id="vecdot-x1-x2-axis-none">
+         <section id="vecdot-x1-x2-axis-1">
           <span id="function-vecdot">
           </span>
-          <h3 id="vecdot-x1-x2-axis-none">
-           vecdot(x1, x2, /, *, axis=None)
-           <a class="headerlink" href="#vecdot-x1-x2-axis-none" title="Permalink to this headline">
+          <h3 id="vecdot-x1-x2-axis-1">
+           vecdot(x1, x2, /, *, axis=-1)
+           <a class="headerlink" href="#vecdot-x1-x2-axis-1" title="Permalink to this headline">
             ¶
            </a>
           </h3>
@@ -1870,7 +1870,7 @@
               </strong>
               :
               <em>
-               Optional[ int ]
+               int
               </em>
              </p>
              <ul>
@@ -1903,16 +1903,10 @@
                   -1
                  </span>
                 </code>
-                refers to the last dimension). If
+                refers to the last dimension). By default, the function must compute the dot product over the last axis. Default:
                 <code class="docutils literal notranslate">
                  <span class="pre">
-                  None
-                 </span>
-                </code>
-                , the function must compute the dot product over the last axis. Default:
-                <code class="docutils literal notranslate">
-                 <span class="pre">
-                  None
+                  -1
                  </span>
                 </code>
                 .
