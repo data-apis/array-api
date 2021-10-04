@@ -2535,16 +2535,10 @@ An object supporting the buffer protocol can be turned into a memoryview through
                 , the output array data type must be inferred from
                 <code class="docutils literal notranslate">
                  <span class="pre">
-                  fill_value
+                  x
                  </span>
                 </code>
-                (see
-                <a class="reference internal" href="#function-full">
-                 <span class="std std-ref">
-                  full(shape, fill_value, *, dtype=None, device=None)
-                 </span>
-                </a>
-                ). Default:
+                . Default:
                 <code class="docutils literal notranslate">
                  <span class="pre">
                   None
@@ -2575,7 +2569,51 @@ An object supporting the buffer protocol can be turned into a memoryview through
                    fill_value
                   </span>
                  </code>
-                 exceeds the precision of the resolved default output array data type, behavior is left unspecified and, thus, implementation-defined.
+                 exceeds the precision of the resolved output array data type, behavior is unspecified and, thus, implementation-defined.
+                </p>
+               </div>
+               <div class="admonition note">
+                <p class="admonition-title">
+                 Note
+                </p>
+                <p>
+                 If
+                 <code class="docutils literal notranslate">
+                  <span class="pre">
+                   dtype
+                  </span>
+                 </code>
+                 is
+                 <code class="docutils literal notranslate">
+                  <span class="pre">
+                   None
+                  </span>
+                 </code>
+                 and the
+                 <code class="docutils literal notranslate">
+                  <span class="pre">
+                   fill_value
+                  </span>
+                 </code>
+                 has a data type (
+                 <code class="docutils literal notranslate">
+                  <span class="pre">
+                   int
+                  </span>
+                 </code>
+                 or
+                 <code class="docutils literal notranslate">
+                  <span class="pre">
+                   float
+                  </span>
+                 </code>
+                 ) which is not of the same data type kind as the resolved output array data type (see
+                 <a class="reference internal" href="type_promotion.html#type-promotion">
+                  <span class="std std-ref">
+                   Type Promotion Rules
+                  </span>
+                 </a>
+                 ), behavior is unspecified and, thus, implementation-defined.
                 </p>
                </div>
               </li>
