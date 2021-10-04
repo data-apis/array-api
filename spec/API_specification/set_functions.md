@@ -12,8 +12,8 @@ A conforming implementation of the array API standard must provide and support t
 
 <!-- NOTE: please keep the functions in alphabetical order -->
 
-(function-unique)=
-### unique(x, /)
+(function-unique-all)=
+### unique_all(x, /)
 
 :::{admonition} Data-dependent output shape
 :class: important
