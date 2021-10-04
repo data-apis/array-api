@@ -270,6 +270,11 @@
                    </nav>
                   </li>
                   <li class="md-nav__item">
+                   <a class="md-nav__link" href="#multi-axis-indexing">
+                    Multi-axis Indexing
+                   </a>
+                  </li>
+                  <li class="md-nav__item">
                    <a class="md-nav__link" href="#boolean-array-indexing">
                     Boolean Array Indexing
                    </a>
@@ -416,6 +421,11 @@
                 </li>
                </ul>
               </nav>
+             </li>
+             <li class="md-nav__item">
+              <a class="md-nav__link" href="#multi-axis-indexing">
+               Multi-axis Indexing
+              </a>
              </li>
              <li class="md-nav__item">
               <a class="md-nav__link" href="#boolean-array-indexing">
@@ -1405,54 +1415,388 @@ A[i:j:k]
           <p>
            The behavior outside of these bounds is unspecified.
           </p>
-          <p>
-           <em>
-            Rationale: this is consistent with bounds checking for integer indexing; the behavior of out-of-bounds indices is left unspecified. Implementations may choose to clip (consistent with Python
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              list
-             </span>
-            </code>
-            slicing semantics), raise an exception, return junk values, or some other behavior depending on device requirements and performance considerations.
-           </em>
-          </p>
-          <div class="highlight-default notranslate">
-           <div class="highlight">
-            <pre><span></span>
-## Multi-axis Indexing
-
-Multi-dimensional arrays must extend the concept of single-axis indexing to multiple axes by applying single-axis indexing rules along each axis (dimension) and supporting the following additional rules. Let `N` be the number of dimensions ("rank") of a multi-dimensional array `A`.
-
--   Each axis may be independently indexed via single-axis indexing by providing a comma-separated sequence ("selection tuple") of single-axis indexing expressions (e.g., `A[:, 2:10, :, 5]`).
-
-    ```{note}
-
-    In Python, `x[(exp1, exp2, ..., expN)]` is equivalent to `x[exp1, exp2, ..., expN]`; the latter is syntactic sugar for the former.
-    ```
-
--   Providing a single nonnegative integer `i` as a single-axis index must index the same elements as the slice `i:i+1`.
-
--   Providing a single negative integer `i` as a single-axis index must index the same elements as the slice `n+i:n+i+1`, where `n` is the axis (dimension) size.
-
--   Providing a single integer as a single-axis index must reduce the number of array dimensions by `1` (i.e., the array rank should decrease by one; if `A` has rank `2`, `rank(A)-1 == rank(A[0, :])`). In particular, a selection tuple with the `m`th element an integer (and all other entries `:`) indexes a sub-array with rank `N-1`.
-
--   Providing a slice must retain array dimensions (i.e., the array rank must remain the same; `rank(A) == rank(A[:])`).
-
--   If the number of provided single-axis indexing expressions is less than `N`, then `:` must be assumed for the remaining dimensions (e.g., if `A` has rank `2`, `A[2:10] == A[2:10, :]`).
-
--   An `IndexError` exception must be raised if the number of provided single-axis indexing expressions is greater than `N`.
-
--   Providing [ellipsis](https://docs.python.org/3/library/constants.html#Ellipsis) must apply `:` to each dimension necessary to index all dimensions (e.g., if `A` has rank `4`, `A[1:, ..., 2:5] == A[1:, :, :, 2:5]`). Only a single ellipsis must be allowed. An `IndexError` exception must be raised if more than one ellipsis is provided.
-
-```{note}
-
-This specification leaves unspecified the behavior of providing a slice which attempts to select elements along a particular axis, but whose starting index is out-of-bounds.
-
-_Rationale: this is consistent with bounds-checking for single-axis indexing. An implementation may choose to set the axis (dimension) size of the result array to `0`, raise an exception, return junk values, or some other behavior depending on device requirements and performance considerations._
-</pre>
-           </div>
+          <div class="admonition note">
+           <p class="admonition-title">
+            Note
+           </p>
+           <p>
+            <em>
+             Rationale: this is consistent with bounds checking for integer indexing; the behavior of out-of-bounds indices is left unspecified. Implementations may choose to clip (consistent with Python
+             <code class="docutils literal notranslate">
+              <span class="pre">
+               list
+              </span>
+             </code>
+             slicing semantics), raise an exception, return junk values, or some other behavior depending on device requirements and performance considerations.
+            </em>
+           </p>
           </div>
          </section>
+        </section>
+        <section id="multi-axis-indexing">
+         <h2 id="multi-axis-indexing">
+          Multi-axis Indexing
+          <a class="headerlink" href="#multi-axis-indexing" title="Permalink to this headline">
+           ¶
+          </a>
+         </h2>
+         <p>
+          Multi-dimensional arrays must extend the concept of single-axis indexing to multiple axes by applying single-axis indexing rules along each axis (dimension) and supporting the following additional rules. Let
+          <code class="docutils literal notranslate">
+           <span class="pre">
+            N
+           </span>
+          </code>
+          be the number of dimensions (“rank”) of a multi-dimensional array
+          <code class="docutils literal notranslate">
+           <span class="pre">
+            A
+           </span>
+          </code>
+          .
+         </p>
+         <ul>
+          <li>
+           <p>
+            Each axis may be independently indexed via single-axis indexing by providing a comma-separated sequence (“selection tuple”) of single-axis indexing expressions (e.g.,
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              A[:,
+             </span>
+             <span class="pre">
+              2:10,
+             </span>
+             <span class="pre">
+              :,
+             </span>
+             <span class="pre">
+              5]
+             </span>
+            </code>
+            ).
+           </p>
+           <div class="admonition note">
+            <p class="admonition-title">
+             Note
+            </p>
+            <p>
+             In Python,
+             <code class="docutils literal notranslate">
+              <span class="pre">
+               x[(exp1,
+              </span>
+              <span class="pre">
+               exp2,
+              </span>
+              <span class="pre">
+               ...,
+              </span>
+              <span class="pre">
+               expN)]
+              </span>
+             </code>
+             is equivalent to
+             <code class="docutils literal notranslate">
+              <span class="pre">
+               x[exp1,
+              </span>
+              <span class="pre">
+               exp2,
+              </span>
+              <span class="pre">
+               ...,
+              </span>
+              <span class="pre">
+               expN]
+              </span>
+             </code>
+             ; the latter is syntactic sugar for the former.
+            </p>
+           </div>
+          </li>
+          <li>
+           <p>
+            Providing a single nonnegative integer
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              i
+             </span>
+            </code>
+            as a single-axis index must index the same elements as the slice
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              i:i+1
+             </span>
+            </code>
+            .
+           </p>
+          </li>
+          <li>
+           <p>
+            Providing a single negative integer
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              i
+             </span>
+            </code>
+            as a single-axis index must index the same elements as the slice
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              n+i:n+i+1
+             </span>
+            </code>
+            , where
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              n
+             </span>
+            </code>
+            is the axis (dimension) size.
+           </p>
+          </li>
+          <li>
+           <p>
+            Providing a single integer as a single-axis index must reduce the number of array dimensions by
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              1
+             </span>
+            </code>
+            (i.e., the array rank should decrease by one; if
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              A
+             </span>
+            </code>
+            has rank
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              2
+             </span>
+            </code>
+            ,
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              rank(A)-1
+             </span>
+             <span class="pre">
+              ==
+             </span>
+             <span class="pre">
+              rank(A[0,
+             </span>
+             <span class="pre">
+              :])
+             </span>
+            </code>
+            ). In particular, a selection tuple with the
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              m
+             </span>
+            </code>
+            th element an integer (and all other entries
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              :
+             </span>
+            </code>
+            ) indexes a sub-array with rank
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              N-1
+             </span>
+            </code>
+            .
+           </p>
+          </li>
+          <li>
+           <p>
+            Providing a slice must retain array dimensions (i.e., the array rank must remain the same;
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              rank(A)
+             </span>
+             <span class="pre">
+              ==
+             </span>
+             <span class="pre">
+              rank(A[:])
+             </span>
+            </code>
+            ).
+           </p>
+          </li>
+          <li>
+           <p>
+            Providing
+            <a class="reference external" href="https://docs.python.org/3/library/constants.html#Ellipsis">
+             ellipsis
+            </a>
+            must apply
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              :
+             </span>
+            </code>
+            to each dimension necessary to index all dimensions (e.g., if
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              A
+             </span>
+            </code>
+            has rank
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              4
+             </span>
+            </code>
+            ,
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              A[1:,
+             </span>
+             <span class="pre">
+              ...,
+             </span>
+             <span class="pre">
+              2:5]
+             </span>
+             <span class="pre">
+              ==
+             </span>
+             <span class="pre">
+              A[1:,
+             </span>
+             <span class="pre">
+              :,
+             </span>
+             <span class="pre">
+              :,
+             </span>
+             <span class="pre">
+              2:5]
+             </span>
+            </code>
+            ). Only a single ellipsis must be allowed. An
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              IndexError
+             </span>
+            </code>
+            exception must be raised if more than one ellipsis is provided.
+           </p>
+          </li>
+          <li>
+           <p>
+            Except in the case of providing an ellipsis to index all trailing dimensions (e.g.,
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              A[2:10,
+             </span>
+             <span class="pre">
+              ...]
+             </span>
+            </code>
+            ), the number of provided single-axis indexing expressions must equal
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              N
+             </span>
+            </code>
+            . For example, if
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              A
+             </span>
+            </code>
+            has rank
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              2
+             </span>
+            </code>
+            , a single-axis indexing expression must be explicitly provided for both axes (e.g.,
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              A[2:10,
+             </span>
+             <span class="pre">
+              :]
+             </span>
+            </code>
+            ). An
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              IndexError
+             </span>
+            </code>
+            exception must be raised if the number of provided single-axis indexing expressions is less than
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              N
+             </span>
+            </code>
+            .
+           </p>
+           <div class="admonition note">
+            <p class="admonition-title">
+             Note
+            </p>
+            <p>
+             Some libraries, such as SymPy, support flat indexing (i.e., providing a single-axis indexing expression to a higher-dimensional array). That practice is not supported here.
+            </p>
+            <p>
+             To perform flat indexing, use
+             <code class="docutils literal notranslate">
+              <span class="pre">
+               reshape(x,
+              </span>
+              <span class="pre">
+               (-1,))[integer]
+              </span>
+             </code>
+             .
+            </p>
+           </div>
+          </li>
+          <li>
+           <p>
+            An
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              IndexError
+             </span>
+            </code>
+            exception must be raised if the number of provided single-axis indexing expressions is greater than
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              N
+             </span>
+            </code>
+            .
+           </p>
+          </li>
+         </ul>
+         <div class="admonition note">
+          <p class="admonition-title">
+           Note
+          </p>
+          <p>
+           This specification leaves unspecified the behavior of providing a slice which attempts to select elements along a particular axis, but whose starting index is out-of-bounds.
+          </p>
+          <p>
+           <em>
+            Rationale: this is consistent with bounds-checking for single-axis indexing. An implementation may choose to set the axis (dimension) size of the result array to
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              0
+             </span>
+            </code>
+            , raise an exception, return junk values, or some other behavior depending on device requirements and performance considerations.
+           </em>
+          </p>
+         </div>
         </section>
         <section id="boolean-array-indexing">
          <h2 id="boolean-array-indexing">
