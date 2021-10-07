@@ -155,7 +155,7 @@ Multi-dimensional arrays must extend the concept of single-axis indexing to mult
 -   Providing an empty tuple or an ellipsis to an array of rank `0` must result in an array of the same rank (i.e., if `A` has rank `0`, `A == A[()]` and `A == A[...]`).
 
     ```{note}
-    This behavior differs from NumPy where providing an empty tuple to a rank `0` array returns a Python scalar.
+    This behavior differs from NumPy where providing an empty tuple to an array of rank `0` returns a Python scalar.
     ```
 
 -   Except in the case of providing an ellipsis to index all trailing dimensions (e.g., `A[2:10, ...]`), the number of provided single-axis indexing expressions must equal `N`. For example, if `A` has rank `2`, a single-axis indexing expression must be explicitly provided for both axes (e.g., `A[2:10, :]`). An `IndexError` exception must be raised if the number of provided single-axis indexing expressions is less than `N`.
