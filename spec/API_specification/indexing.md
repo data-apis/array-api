@@ -150,6 +150,8 @@ Multi-dimensional arrays must extend the concept of single-axis indexing to mult
 
 -   Providing a slice must retain array dimensions (i.e., the array rank must remain the same; `rank(A) == rank(A[:])`).
 
+-   Providing an empty tuple to an array of rank `0` must result in an array of the same rank (i.e., if `A` has rank `0`, `A == A[()]`).
+
 -   Providing [ellipsis](https://docs.python.org/3/library/constants.html#Ellipsis) must apply `:` to each dimension necessary to index all dimensions (e.g., if `A` has rank `4`, `A[1:, ..., 2:5] == A[1:, :, :, 2:5]`). Only a single ellipsis must be allowed. An `IndexError` exception must be raised if more than one ellipsis is provided.
 
 -   Except in the case of providing an ellipsis to index all trailing dimensions (e.g., `A[2:10, ...]`), the number of provided single-axis indexing expressions must equal `N`. For example, if `A` has rank `2`, a single-axis indexing expression must be explicitly provided for both axes (e.g., `A[2:10, :]`). An `IndexError` exception must be raised if the number of provided single-axis indexing expressions is less than `N`.
