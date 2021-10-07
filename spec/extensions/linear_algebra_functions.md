@@ -1,4 +1,5 @@
-# Linear Algebra Functions
+(linear-algebra-extension)=
+# Linear Algebra Extension
 
 > Array API specification for linear algebra functions.
 
@@ -37,7 +38,7 @@ Accordingly, the standardization process affords the opportunity to reduce inter
 
     Lastly, certain operations may be performed independent of data type, and, thus, the associated interfaces should support all data types specified in this standard. Example operations include:
 
-    -   `transpose`: computing the transpose.
+    -   `matrix_transpose`: computing the transpose.
     -   `diagonal`: returning the diagonal.
 
 3.  **Return values**: if an interface has more than one return value, the interface should return a namedtuple consisting of each value.
@@ -166,11 +167,6 @@ Returns the specified diagonals of a matrix (or a stack of matrices) `x`.
 
     -   an array containing the diagonals and whose shape is determined by removing the last two dimensions and appending a dimension equal to the size of the resulting diagonals. The returned array must have the same data type as `x`.
 
-(function-linalg-eig)=
-### linalg.eig()
-
-_TODO: this requires complex number support to be added to the specification._
-
 (function-linalg-eigh)=
 ### linalg.eigh(x, /)
 
@@ -200,10 +196,10 @@ Returns the eigenvalues and eigenvectors of a symmetric matrix (or a stack of sy
 Eigenvalue sort order is left unspecified.
 ```
 
-(function-linalg-eigvals)=
-### linalg.eigvals()
-
-_TODO: this requires complex number support to be added to the specification._
+```{note}
+The function `eig` will be added in a future version of the specification,
+as it requires complex number support.
+```
 
 (function-linalg-eigvalsh)=
 ### linalg.eigvalsh(x, /)
@@ -227,6 +223,11 @@ Computes the eigenvalues of a symmetric matrix (or a stack of symmetric matrices
 ```{note}
 
 Eigenvalue sort order is left unspecified.
+```
+
+```{note}
+The function `eigvals` will be added in a future version of the specification,
+as it requires complex number support.
 ```
 
 (function-linalg-inv)=
@@ -512,7 +513,7 @@ Computes the singular values of a matrix (or a stack of matrices) `x`.
 
 #### Returns
 
--   **out**: _Union\[ &lt;array&gt;, Tuple\[ &lt;array&gt;, ... ] ]_
+-   **out**: _&lt;array&gt;_
 
     -   an array with shape `(..., K)` that contains the vector(s) of singular values of length `K`. For each vector, the singular values must be sorted in descending order by magnitude, such that `s[..., 0]` is the largest value, `s[..., 1]` is the second largest value, et cetera. The first `x.ndim-2` dimensions must have the same shape as those of the input `x`. The returned array must have the same floating-point data type as `x`.
 
@@ -570,7 +571,7 @@ Computes the vector norm of a vector (or batch of vectors) `x`.
 
     -   input array. Should have a floating-point data type.
 
--   **axis**: _Optional\[ Union\[ int, Tuple\[ int, int ] ] ]_
+-   **axis**: _Optional\[ Union\[ int, Tuple\[ int, ... ] ] ]_
 
     -   If an integer, `axis` specifies the axis (dimension) along which to compute vector norms. If an n-tuple, `axis` specifies the axes (dimensions) along which to compute batched vector norms. If `None`, the vector norm must be computed over all array values (i.e., equivalent to computing the vector norm of a flattened array). Negative indices must be supported. Default: `None`.
 
@@ -578,7 +579,7 @@ Computes the vector norm of a vector (or batch of vectors) `x`.
 
     -   If `True`, the axes (dimensions) specified by `axis` must be included in the result as singleton dimensions, and, accordingly, the result must be compatible with the input array (see {ref}`broadcasting`). Otherwise, if `False`, the axes (dimensions) specified by `axis` must not be included in the result. Default: `False`.
 
--   **ord**: _Optional\[ Union\[  int, float, Literal\[ inf, -inf ] ] ]_
+-   **ord**: _Union\[  int, float, Literal\[ inf, -inf ] ]_
 
     -   order of the norm. The following mathematical norms must be supported:
         | ord              | description                |
