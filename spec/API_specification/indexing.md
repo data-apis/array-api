@@ -137,8 +137,6 @@ Multi-dimensional arrays must extend the concept of single-axis indexing to mult
     In Python, `A[(exp1, exp2, ..., expN)]` is equivalent to `A[exp1, exp2, ..., expN]`; the latter is syntactic sugar for the former.
 
     Accordingly, if `A` has rank `1`, then `A[(2:10,)]` must be equivalent to `A[2:10]`. If `A` has rank `2`, then `A[(2:10, :)]` must be equivalent to `A[2:10, :]`. And so on and so forth.
-
-    To access the value in a zero-dimensional array, one must provide an empty tuple; e.g., `A[()]`.
     ```
 
 -   Providing a single nonnegative integer `i` as a single-axis index must index the same elements as the slice `i:i+1`.
