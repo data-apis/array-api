@@ -41,7 +41,7 @@ This function cannot guarantee that the interval does not include the `stop` val
 
 -   **device**: _Optional\[ &lt;device&gt; ]_
 
-    -   device to place the created array on, if given. Default: `None`.
+    -   device on which to place the created array. Default: `None`.
 
 #### Returns
 
@@ -72,7 +72,7 @@ Convert the input to an array.
 
 -   **device**: _Optional\[ &lt;device&gt; ]_
 
-    -   device to place the created array on, if given. Default: `None`.
+    -   device on which to place the created array. Default: `None`.
 
 -   **copy**: _Optional\[ bool ]_
 
@@ -102,7 +102,7 @@ Returns an uninitialized array having a specified `shape`.
 
 -   **device**: _Optional\[ &lt;device&gt; ]_
 
-    -   device to place the created array on, if given. Default: `None`.
+    -   device on which to place the created array. Default: `None`.
 
 #### Returns
 
@@ -127,7 +127,7 @@ Returns an uninitialized array with the same `shape` as an input array `x`.
 
 -   **device**: _Optional\[ &lt;device&gt; ]_
 
-    -   device to place the created array on, if given. If `device` is `None`, the default device must be used, not `x.device`. Default: `None`.
+    -   device on which to place the created array. If `device` is `None`, the output array device must be inferred from `x`. Default: `None`.
 
 #### Returns
 
@@ -150,7 +150,7 @@ Returns a two-dimensional array with ones on the `k`th diagonal and zeros elsewh
 
     -   number of columns in the output array. If `None`, the default number of columns in the output array is equal to `n_rows`. Default: `None`.
 
--   **k**: _Optional\[ int ]_
+-   **k**: _int_
 
     -   index of the diagonal. A positive value refers to an upper diagonal, a negative value to a lower diagonal, and `0` to the main diagonal. Default: `0`.
 
@@ -160,7 +160,7 @@ Returns a two-dimensional array with ones on the `k`th diagonal and zeros elsewh
 
 -   **device**: _Optional\[ &lt;device&gt; ]_
 
-    -   device to place the created array on, if given. Default: `None`.
+    -   device on which to place the created array. Default: `None`.
 
 #### Returns
 
@@ -206,11 +206,15 @@ Returns a new array having a specified `shape` and filled with `fill_value`.
 
 -   **dtype**: _Optional\[ &lt;dtype&gt; ]_
 
-    -   output array data type. If `dtype` is `None`, the output array data type must be inferred from `fill_value`. If it's an `int`, the output array dtype must be the default integer dtype; if it's a `float`, then the output array dtype must be the default floating-point data type; if it's a `bool` then the output array must have boolean dtype. Default: `None`.
+    -   output array data type. If `dtype` is `None`, the output array data type must be inferred from `fill_value`. If the fill value is an `int`, the output array data type must be the default integer data type. If the fill value is a `float`, the output array data type must be the default floating-point data type. If the fill value is a `bool`, the output array must have boolean data type. Default: `None`.
+
+        ```{note}
+        If `dtype` is `None` and the `fill_value` exceeds the precision of the resolved default output array data type, behavior is left unspecified and, thus, implementation-defined.
+        ```
 
 -   **device**: _Optional\[ &lt;device&gt; ]_
 
-    -   device to place the created array on, if given. Default: `None`.
+    -   device on which to place the created array. Default: `None`.
 
 #### Returns
 
@@ -235,11 +239,19 @@ Returns a new array filled with `fill_value` and having the same `shape` as an i
 
 -   **dtype**: _Optional\[ &lt;dtype&gt; ]_
 
-    -   output array data type. If `dtype` is `None`, the output array data type must be inferred from `fill_value` (see {ref}`function-full`). Default: `None`.
+    -   output array data type. If `dtype` is `None`, the output array data type must be inferred from `x`. Default: `None`.
+
+        ```{note}
+        If `dtype` is `None` and the `fill_value` exceeds the precision of the resolved output array data type, behavior is unspecified and, thus, implementation-defined.
+        ```
+
+        ```{note}
+        If `dtype` is `None` and the `fill_value` has a data type (`int` or `float`) which is not of the same data type kind as the resolved output array data type (see {ref}`type-promotion`), behavior is unspecified and, thus, implementation-defined.
+        ```
 
 -   **device**: _Optional\[ &lt;device&gt; ]_
 
-    -   device to place the created array on, if given. If `device` is `None`, the default device must be used, not `x.device`. Default: `None`.
+    -   device on which to place the created array. If `device` is `None`, the output array device must be inferred from `x`. Default: `None`.
 
 #### Returns
 
@@ -277,7 +289,7 @@ Returns evenly spaced numbers over a specified interval.
 
 -   **device**: _Optional\[ &lt;device&gt; ]_
 
-    -   device to place the created array on, if given. Default: `None`.
+    -   device on which to place the created array. Default: `None`.
 
 -   **endpoint**: _bool_
 
@@ -296,9 +308,9 @@ Returns coordinate matrices from coordinate vectors.
 
 #### Parameters
 
--    **arrays**: _Sequence\[ &lt;array&gt; ]_
+-    **arrays**: _&lt;array&gt;_
 
-     -   one-dimensional arrays representing grid coordinates. Must have a numeric data type.
+     -   an arbitrary number of one-dimensional arrays representing grid coordinates. Must have numeric data types.
 
 -    **indexing**: _str_
 
@@ -337,7 +349,7 @@ Returns a new array having a specified `shape` and filled with ones.
 
 -   **device**: _Optional\[ &lt;device&gt; ]_
 
-    -   device to place the created array on, if given. Default: `None`.
+    -   device on which to place the created array. Default: `None`.
 
 #### Returns
 
@@ -362,13 +374,71 @@ Returns a new array filled with ones and having the same `shape` as an input arr
 
 -   **device**: _Optional\[ &lt;device&gt; ]_
 
-    -   device to place the created array on, if given. If `device` is `None`, the default device must be used, not `x.device`. Default: `None`.
+    -   device on which to place the created array. If `device` is `None`, the output array device must be inferred from `x`. Default: `None`.
 
 #### Returns
 
 -   **out**: _&lt;array&gt;_
 
     -   an array having the same shape as `x` and filled with ones.
+
+(function-tril)=
+### tril(x, /, *, k=0)
+
+Returns the lower triangular part of a matrix (or a stack of matrices) `x`.
+
+```{note}
+The lower triangular part of the matrix is defined as the elements on and below the specified diagonal `k`.
+```
+
+#### Parameters
+
+-   **x**: _&lt;array&gt;_
+
+    -   input array having shape `(..., M, N)` and whose innermost two dimensions form `MxN` matrices.
+
+-   **k**: _int_
+
+    -   diagonal above which to zero elements. If `k = 0`, the diagonal is the main diagonal. If `k < 0`, the diagonal is below the main diagonal. If `k > 0`, the diagonal is above the main diagonal. Default: `0`.
+
+        ```{note}
+        The main diagonal is defined as the set of indices `{(i, i)}` for `i` on the interval `[0, min(M, N) - 1]`.
+        ```
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the lower triangular part(s). The returned array must have the same shape and data type as `x`. All elements above the specified diagonal `k` must be zeroed. The returned array should be allocated on the same device as `x`.
+
+(function-triu)=
+### triu(x, /, *, k=0)
+
+Returns the upper triangular part of a matrix (or a stack of matrices) `x`.
+
+```{note}
+The upper triangular part of the matrix is defined as the elements on and above the specified diagonal `k`.
+```
+
+#### Parameters
+
+-   **x**: _&lt;array&gt;_
+
+    -   input array having shape `(..., M, N)` and whose innermost two dimensions form `MxN` matrices.
+
+-   **k**: _int_
+
+    -   diagonal below which to zero elements. If `k = 0`, the diagonal is the main diagonal. If `k < 0`, the diagonal is below the main diagonal. If `k > 0`, the diagonal is above the main diagonal. Default: `0`.
+
+        ```{note}
+        The main diagonal is defined as the set of indices `{(i, i)}` for `i` on the interval `[0, min(M, N) - 1]`.
+        ```
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the upper triangular part(s). The returned array must have the same shape and data type as `x`. All elements below the specified diagonal `k` must be zeroed. The returned array should be allocated on the same device as `x`.
 
 (function-zeros)=
 ### zeros(shape, *, dtype=None, device=None)
@@ -387,7 +457,7 @@ Returns a new array having a specified `shape` and filled with zeros.
 
 -   **device**: _Optional\[ &lt;device&gt; ]_
 
-    -   device to place the created array on, if given. Default: `None`.
+    -   device on which to place the created array. Default: `None`.
 
 #### Returns
 
@@ -412,7 +482,7 @@ Returns a new array filled with zeros and having the same `shape` as an input ar
 
 -   **device**: _Optional\[ &lt;device&gt; ]_
 
-    -   device to place the created array on, if given. If `device` is `None`, the default device must be used, not `x.device`. Default: `None`.
+    -   device on which to place the created array. If `device` is `None`, the output array device must be inferred from `x`. Default: `None`.
 
 #### Returns
 

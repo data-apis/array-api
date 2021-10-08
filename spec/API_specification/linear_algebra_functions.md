@@ -15,11 +15,6 @@ A conforming implementation of the array API standard must provide and support t
 
 <!-- NOTE: please keep the functions in alphabetical order -->
 
-(function-einsum)=
-### einsum()
-
-TODO
-
 (function-matmul)=
 ### matmul(x1, x2, /)
 
@@ -111,7 +106,7 @@ Returns a tensor contraction of `x1` and `x2` over specific axes.
     -   an array containing the tensor contraction whose shape consists of the non-contracted axes (dimensions) of the first array `x1`, followed by the non-contracted axes (dimensions) of the second array `x2`. The returned array must have a data type determined by {ref}`type-promotion`.
 
 (function-vecdot)=
-### vecdot(x1, x2, /, *, axis=None)
+### vecdot(x1, x2, /, *, axis=-1)
 
 Computes the (vector) dot product of two arrays.
 
@@ -125,9 +120,9 @@ Computes the (vector) dot product of two arrays.
 
     -   second input array. Must be compatible with `x1` (see {ref}`broadcasting`). Should have a numeric data type.
 
--   **axis**: _Optional\[ int ]_
+-   **axis**: _int_
 
-    -   axis over which to compute the dot product. Must be an integer on the interval `[-N, N)`, where `N` is the rank (number of dimensions) of the shape determined according to {ref}`broadcasting`. If specified as a negative integer, the function must determine the axis along which to compute the dot product by counting backward from the last dimension (where `-1` refers to the last dimension). If `None`, the function must compute the dot product over the last axis. Default: `None`.
+    -   axis over which to compute the dot product. Must be an integer on the interval `[-N, N)`, where `N` is the rank (number of dimensions) of the shape determined according to {ref}`broadcasting`. If specified as a negative integer, the function must determine the axis along which to compute the dot product by counting backward from the last dimension (where `-1` refers to the last dimension). By default, the function must compute the dot product over the last axis. Default: `-1`.
 
 #### Returns
 

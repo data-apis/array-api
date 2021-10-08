@@ -274,7 +274,7 @@ Transpose of the array.
 The array instance must be two-dimensional. If the array instance is not two-dimensional, an error should be raised.
 
 ```{note}
-Limiting the transpose to two-dimensional arrays (matrices) deviates from the NumPy et al practice of reversing all axes for arrays having more than two-dimensions. This is intentional, as reversing all axes was found to be problematic (e.g., conflicting with the mathematical definition of a transpose which is limited to matrices; not operating on batches of matrices; et cetera). In order to reverse all axes, one is recommended to use the functional `permute` interface found in this specification.
+Limiting the transpose to two-dimensional arrays (matrices) deviates from the NumPy et al practice of reversing all axes for arrays having more than two-dimensions. This is intentional, as reversing all axes was found to be problematic (e.g., conflicting with the mathematical definition of a transpose which is limited to matrices; not operating on batches of matrices; et cetera). In order to reverse all axes, one is recommended to use the functional `permute_dims` interface found in this specification.
 ```
 
 #### Returns
@@ -293,6 +293,10 @@ Limiting the transpose to two-dimensional arrays (matrices) deviates from the Nu
 ### \_\_abs\_\_(self, /)
 
 Calculates the absolute value for each element of an array instance (i.e., the element-wise result has the same magnitude as the respective element but has positive sign).
+
+```{note}
+For signed integer data types, the absolute value of the minimum representable integer is implementation-dependent.
+```
 
 #### Special Cases
 
@@ -654,6 +658,27 @@ Computes the truth value of `self_i > other_i` for each element of an array inst
 Element-wise results must equal the results returned by the equivalent element-wise function [`greater(x1, x2)`](elementwise_functions.md#greaterx1-x2-).
 ```
 
+(method-__index__)=
+### \_\_index\_\_(self, /)
+
+Converts a zero-dimensional integer array to a Python `int` object.
+
+```{note}
+This method is called to implement [`operator.index()`](https://docs.python.org/3/reference/datamodel.html#object.__index__). See also [PEP 357](https://www.python.org/dev/peps/pep-0357/).
+```
+
+#### Parameters
+
+-   **self**: _&lt;array&gt;_
+
+    -   zero-dimensional array instance. Must have an integer data type.
+
+#### Returns
+
+-   **out**: _&lt;int&gt;_
+
+    -   a Python `int` object representing the single element of the array instance.
+
 (method-__int__)=
 ### \_\_int\_\_(self, /)
 
@@ -912,6 +937,10 @@ Element-wise results must equal the results returned by the equivalent element-w
 ### \_\_neg\_\_(self, /)
 
 Evaluates `-self_i` for each element of an array instance.
+
+```{note}
+For signed integer data types, the numerical negative of the minimum representable integer is implementation-dependent.
+```
 
 #### Parameters
 
