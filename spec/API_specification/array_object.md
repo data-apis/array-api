@@ -837,7 +837,9 @@ The `matmul` function must implement the same semantics as the built-in `@` oper
 #### Raises
 
 -   if either `self` or `other` is a zero-dimensional array.
--   if `self` is a one-dimensional array having shape `(N)`, `other` is a one-dimensional array having shape `(M)`, and `N != M`.
+-   if `self` is a one-dimensional array having shape `(K)`, `other` is a one-dimensional array having shape `(L)`, and `K != L`.
+-   if `self` is a one-dimensional array having shape `(K)`, `other` is an array having shape `(..., L, M)`, and `K != L`.
+-   if `self` is an array having shape `(..., N, K)`, `other` is a one-dimensional array having shape `(L)`, and `K != L`.
 -   if `self` is an array having shape `(..., M, K)`, `other` is an array having shape `(..., L, N)`, and `K != L`.
 
 (method-__mod__)=
