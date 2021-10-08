@@ -86,7 +86,7 @@ Returns the Cholesky decomposition of a symmetric positive-definite matrix (or a
 
 -   **x**: _&lt;array&gt;_
 
-    -   input array having shape `(..., M, M)` and whose innermost two dimensions form square matrices. Should have a floating-point data type.
+    -   input array having shape `(..., M, M)` and whose innermost two dimensions form square symmetric positive-definite matrices. Should have a floating-point data type.
 
 -   **upper**: _bool_
 
