@@ -1229,7 +1229,7 @@ Copy the array from the device it currently resides to the specified `device`.
 
 -   **stream**: _Optional\[ Union\[ int, Any ]]_
 
-    -   stream object to use during copy. See {ref}`method-__dlpack__`.
+    -   stream object to use during copy. In addition to the supported types as discussed in {ref}`method-__dlpack__`, any library-specific stream object is also allowed to be used here.
 
 #### Returns
 
@@ -1239,6 +1239,5 @@ Copy the array from the device it currently resides to the specified `device`.
 
 ```{note}
 
-Whether the copy is performed synchronously or asynchronously is up to the array library. As a result, if any synchronization (which is out of scope of this standard) is required to guarantee data safety, the library should explain to its users.
+If `stream` is given, the copy operation will be enqueued on it; otherwise, it is enqueued on the default stream/queue (the concept of which is out of scope of this standard). Whether the copy is performed synchronously or asynchronously is up to the array library. As a result, if any synchronization (which is also out of scope of this standard) is required to guarantee data safety, the library should explain to its users.
 ```
-
