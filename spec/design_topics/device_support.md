@@ -48,8 +48,8 @@ cross-device data transfer:
   libraries is out of scope).
 2. A `device=None` keyword for array creation functions, which takes an
    instance of a `Device` object.
-3. A `.to_device(device)` method on the array object, with `device` again being
-   a `Device` object, to move an array to a different device.
+3. A `.to_device` method on the array object, with `device` again being
+   a `Device` object, to copy an array to a different device.
 
 ```{note}
 In the current API standard, the only way to obtain a `Device` object is from the
