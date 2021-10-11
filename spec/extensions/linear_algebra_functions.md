@@ -1,4 +1,5 @@
-# Linear Algebra Functions
+(linear-algebra-extension)=
+# Linear Algebra Extension
 
 > Array API specification for linear algebra functions.
 
@@ -37,7 +38,7 @@ Accordingly, the standardization process affords the opportunity to reduce inter
 
     Lastly, certain operations may be performed independent of data type, and, thus, the associated interfaces should support all data types specified in this standard. Example operations include:
 
-    -   `transpose`: computing the transpose.
+    -   `matrix_transpose`: computing the transpose.
     -   `diagonal`: returning the diagonal.
 
 3.  **Return values**: if an interface has more than one return value, the interface should return a namedtuple consisting of each value.
@@ -166,13 +167,8 @@ Returns the specified diagonals of a matrix (or a stack of matrices) `x`.
 
     -   an array containing the diagonals and whose shape is determined by removing the last two dimensions and appending a dimension equal to the size of the resulting diagonals. The returned array must have the same data type as `x`.
 
-(function-linalg-eig)=
-### linalg.eig()
-
-_TODO: this requires complex number support to be added to the specification._
-
 (function-linalg-eigh)=
-### linalg.eigh(x, /, *, upper=False)
+### linalg.eigh(x, /)
 
 Returns the eigenvalues and eigenvectors of a symmetric matrix (or a stack of symmetric matrices) `x`.
 
@@ -183,10 +179,6 @@ Returns the eigenvalues and eigenvectors of a symmetric matrix (or a stack of sy
 -   **x**: _&lt;array&gt;_
 
     -   input array having shape `(..., M, M)` and whose innermost two dimensions form square matrices. Must have a floating-point data type.
-
--   **upper**: _bool_
-
-    -   If `True`, use the upper-triangular part to compute the eigenvalues and eigenvectors. If `False`, use the lower-triangular part to compute the eigenvalues and eigenvectors. Default: `False`.
 
 #### Returns
 
@@ -204,13 +196,13 @@ Returns the eigenvalues and eigenvectors of a symmetric matrix (or a stack of sy
 Eigenvalue sort order is left unspecified.
 ```
 
-(function-linalg-eigvals)=
-### linalg.eigvals()
-
-_TODO: this requires complex number support to be added to the specification._
+```{note}
+The function `eig` will be added in a future version of the specification,
+as it requires complex number support.
+```
 
 (function-linalg-eigvalsh)=
-### linalg.eigvalsh(x, /, *, upper=False)
+### linalg.eigvalsh(x, /)
 
 Computes the eigenvalues of a symmetric matrix (or a stack of symmetric matrices) `x`.
 
@@ -221,10 +213,6 @@ Computes the eigenvalues of a symmetric matrix (or a stack of symmetric matrices
 -   **x**: _&lt;array&gt;_
 
     -   input array having shape `(..., M, M)` and whose innermost two dimensions form square matrices. Must have a floating-point data type.
-
--   **upper**: _bool_
-
-    -   If `True`, use the upper-triangular part to compute the eigenvalues. If `False`, use the lower-triangular part to compute the eigenvalues. Default: `False`.
 
 #### Returns
 
@@ -237,10 +225,10 @@ Computes the eigenvalues of a symmetric matrix (or a stack of symmetric matrices
 Eigenvalue sort order is left unspecified.
 ```
 
-(function-linalg-einsum)=
-### linalg.einsum()
-
-Alias for {ref}`function-einsum`.
+```{note}
+The function `eigvals` will be added in a future version of the specification,
+as it requires complex number support.
+```
 
 (function-linalg-inv)=
 ### linalg.inv(x, /)
@@ -259,40 +247,61 @@ Computes the multiplicative inverse of a square matrix (or a stack of square mat
 
     -   an array containing the multiplicative inverses. The returned array must have a floating-point data type determined by {ref}`type-promotion` and must have the same shape as `x`.
 
-(function-linalg-lstsq)=
-### linalg.lstsq(x1, x2, /, *, rtol=None)
-
-Returns the least-squares solution to a linear matrix equation `Ax = b`.
-
-#### Parameters
-
--   **x1**: _&lt;array&gt;_
-
-    -   coefficient array `A` having shape `(..., M, N)` and whose innermost two dimensions form `MxN` matrices. Should have a floating-point data type.
-
--   **x2**: _&lt;array&gt;_
-
-    -   ordinate (or "dependent variable") array `b`. If `x2` has shape `(..., M)`, `x2` is equivalent to an array having shape `(..., M, 1)`, and `shape(x2)` must be compatible with `shape(x1)[:-1]` (see {ref}`broadcasting`). If `x2` has shape `(..., M, K)`, each column `k` defines a set of ordinate values for which to compute a solution, and `shape(x2)[:-1]` must be compatible with `shape(x1)[:-1]` (see {ref}`broadcasting`). Should have a floating-point data type.
-
--   **rtol**: _Optional\[ Union\[ float, &lt;array&gt; ] ]_
-
-    -   relative tolerance for small singular values. Singular values less than or equal to `rtol * largest_singular_value` are set to zero. If a `float`, the value is equivalent to a zero-dimensional array having a data type determined by {ref}`type-promotion` (as applied to `x1` and `x2`) and must be broadcast against each matrix. If an `array`, must have a floating-point data type and must be compatible with `shape(x1)[:-2]` (see {ref}`broadcasting`). If `None`, the default value is `max(M, N) * eps`, where `eps` must be the machine epsilon associated with the floating-point data type determined by {ref}`type-promotion` (as applied to `x1` and `x2`). Default: `None`.
-
-#### Returns
-
--   **out**: _Tuple\[ &lt;array&gt;, &lt;array&gt;, &lt;array&gt;, &lt;array&gt; ]_
-
-    -   a namedtuple `(x, residuals, rank, s)` whose
-
-        -   first element must have the field name `x` and must be an array containing the least-squares solution for each `MxN` matrix in `x1`. The array containing the solutions must have shape `(N, K)` and must have a floating-point data type determined by {ref}`type-promotion`.
-        -   second element must have the field name `residuals` and must be an array containing the sum of squares residuals (i.e., the squared Euclidean 2-norm for each column in `b - Ax`). The array containing the residuals must have shape `(K,)` and must have a floating-point data type determined by {ref}`type-promotion`.
-        -   third element must have the field name `rank` and must be an array containing the effective rank of each `MxN` matrix. The array containing the ranks must have shape `shape(x1)[:-2]` and must have an integer data type.
-        -   fourth element must have the field name `s` and must be an array containing the singular values for each `MxN` matrix in `x1`. The array containing the singular values must have shape `(..., min(M, N))` and must have a floating-point data type determined by {ref}`type-promotion`.
-
 (function-linalg-matmul)=
 ### linalg.matmul(x1, x2, /)
 
 Alias for {ref}`function-matmul`.
+
+(function-linalg-matrix-norm)=
+### linalg.matrix_norm(x, /, *, axis=(-2, -1), keepdims=False, ord='fro')
+
+Computes the matrix norm of a matrix (or a stack of matrices) `x`.
+
+#### Parameters
+
+-   **x**: _&lt;array&gt;_
+
+    -   input array. Must have at least `2` dimensions. Should have a floating-point data type.
+
+-   **axis**: _Tuple\[ int, int ]_
+
+    -   a 2-tuple which specifies the axes (dimensions) defining two-dimensional matrices for which to compute matrix norms. Negative indices must be supported. Default: `(-2, -1)` (i.e., the last two-dimensions).
+
+-   **keepdims**: _bool_
+
+    -   If `True`, the axes (dimensions) specified by `axis` must be included in the result as singleton dimensions, and, accordingly, the result must be compatible with the input array (see {ref}`broadcasting`). Otherwise, if `False`, the axes (dimensions) specified by `axis` must not be included in the result. Default: `False`.
+
+-   **ord**: _Optional\[ Union\[  int, float, Literal\[ inf, -inf, 'fro', 'nuc' ] ] ]_
+
+    -   order of the norm. The following mathematical norms must be supported:
+        | ord              | description                     |
+        | ---------------- | ------------------------------- |
+        | 'fro'            | Frobenius norm                  |
+        | 'nuc'            | nuclear norm                    |
+        | 1                | max(sum(abs(x), axis=0))        |
+        | 2                | largest singular value          |
+        | inf              | max(sum(abs(x), axis=1))        |
+
+        The following non-mathematical "norms" must be supported:
+        | ord              | description                     |
+        | ---------------- | ------------------------------- |
+        | -1               | min(sum(abs(x), axis=0))        |
+        | -2               | smallest singular value         |
+        | -inf             | min(sum(abs(x), axis=1))        |
+
+        If `ord=1`, the norm corresponds to the induced matrix norm where `p=1` (i.e., the maximum absolute value column sum).
+
+        If `ord=2`, the norm corresponds to the induced matrix norm where `p=inf` (i.e., the maximum absolute value row sum).
+
+        If `ord=inf`, the norm corresponds to the induced matrix norm where `p=2` (i.e., the largest singular value).
+
+        Default: `'fro'`.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the norms. If `keepdims` is `False`, the returned array must have a rank which is two less than the rank of `x`. The returned array must have a floating-point data type determined by {ref}`type-promotion`.
 
 (function-linalg-matrix_power)=
 ### linalg.matrix_power(x, n, /)
@@ -336,81 +345,10 @@ Computes the rank (i.e., number of non-zero singular values) of a matrix (or a s
 
     -   an array containing the ranks. The returned array must have a floating-point data type determined by {ref}`type-promotion` and must have shape `(...)` (i.e., must have a shape equal to `shape(x)[:-2]`).
 
-(function-linalg-norm)=
-### linalg.norm(x, /, *, axis=None, keepdims=False, ord=None)
+(function-linalg-matrix-transpose)=
+### linalg.matrix_transpose(x, /)
 
-Computes the matrix or vector norm of `x`.
-
-#### Parameters
-
--   **x**: _&lt;array&gt;_
-
-    -   input array. Should have a floating-point data type.
-
--   **axis**: _Optional\[ Union\[ int, Tuple\[ int, int ] ] ]_
-
-    -   If an integer, `axis` specifies the axis (dimension) along which to compute vector norms.
-
-        If a 2-tuple, `axis` specifies the axes (dimensions) defining two-dimensional matrices for which to compute matrix norms.
-
-        If `None`,
-
-        -   if `x` is one-dimensional, the function must compute the vector norm.
-        -   if `x` is two-dimensional, the function must compute the matrix norm.
-        -   if `x` has more than two dimensions, the function must compute the vector norm over all array values (i.e., equivalent to computing the vector norm of a flattened array).
-
-        Negative indices must be supported. Default: `None`.
-
--   **keepdims**: _bool_
-
-    -   If `True`, the axes (dimensions) specified by `axis` must be included in the result as singleton dimensions, and, accordingly, the result must be compatible with the input array (see {ref}`broadcasting`). Otherwise, if `False`, the axes (dimensions) specified by `axis` must not be included in the result. Default: `False`.
-
--   **ord**: _Optional\[ Union\[  int, float, Literal\[ inf, -inf, 'fro', 'nuc' ] ] ]_
-
-    -   order of the norm. The following mathematical norms must be supported:
-        | ord              | matrix                          | vector                     |
-        | ---------------- | ------------------------------- | -------------------------- |
-        | 'fro'            | 'fro'                           | -                          |
-        | 'nuc'            | 'nuc'                           | -                          |
-        | 1                | max(sum(abs(x), axis=0))        | L1-norm (Manhattan)        |
-        | 2                | largest singular value          | L2-norm (Euclidean)        |
-        | inf              | max(sum(abs(x), axis=1))        | infinity norm              |
-        | (int,float >= 1) | -                               | p-norm                     |
-
-        The following non-mathematical "norms" must be supported:
-        | ord              | matrix                          | vector                         |
-        | ---------------- | ------------------------------- | ------------------------------ |
-        | 0                | -                               | sum(a != 0)                    |
-        | -1               | min(sum(abs(x), axis=0))        | 1./sum(1./abs(a))              |
-        | -2               | smallest singular value         | 1./sqrt(sum(1./abs(a)\*\*2))   |
-        | -inf             | min(sum(abs(x), axis=1))        | min(abs(a))                    |
-        | (int,float < 1)  | -                               | sum(abs(a)\*\*ord)\*\*(1./ord) |
-
-        When `ord` is `None`, the following norms must be the default norms:
-        | ord              | matrix                          | vector                     |
-        | ---------------- | ------------------------------- | -------------------------- |
-        | None             | 'fro'                           | L2-norm (Euclidean)        |
-
-        where `fro` corresponds to the **Frobenius norm**, `nuc` corresponds to the **nuclear norm**, and `-` indicates that the norm is **not** supported.
-
-        For matrices,
-
-        -   if `ord=1`, the norm corresponds to the induced matrix norm where `p=1` (i.e., the maximum absolute value column sum).
-        -   if `ord=2`, the norm corresponds to the induced matrix norm where `p=inf` (i.e., the maximum absolute value row sum).
-        -   if `ord=inf`, the norm corresponds to the induced matrix norm where `p=2` (i.e., the largest singular value).
-
-        If `None`,
-
-        -   if matrix (or matrices), the function must compute the Frobenius norm.
-        -   if vector (or vectors), the function must compute the L2-norm (Euclidean norm).
-
-        Default: `None`.
-
-#### Returns
-
--   **out**: _&lt;array&gt;_
-
-    -   an array containing the norms. If `axis` is `None`, the returned array must be a zero-dimensional array containing a vector norm. If `axis` is a scalar value (`int` or `float`), the returned array must have a rank which is one less than the rank of `x`. If `axis` is a 2-tuple, the returned array must have a rank which is two less than the rank of `x`. The returned array must have a floating-point data type determined by {ref}`type-promotion`.
+Alias for {ref}`function-matrix-transpose`.
 
 (function-linalg-outer)=
 ### linalg.outer(x1, x2, /)
@@ -575,7 +513,7 @@ Computes the singular values of a matrix (or a stack of matrices) `x`.
 
 #### Returns
 
--   **out**: _Union\[ &lt;array&gt;, Tuple\[ &lt;array&gt;, ... ] ]_
+-   **out**: _&lt;array&gt;_
 
     -   an array with shape `(..., K)` that contains the vector(s) of singular values of length `K`. For each vector, the singular values must be sorted in descending order by magnitude, such that `s[..., 0]` is the largest value, `s[..., 1]` is the second largest value, et cetera. The first `x.ndim-2` dimensions must have the same shape as those of the input `x`. The returned array must have the same floating-point data type as `x`.
 
@@ -617,12 +555,53 @@ Returns the sum along the specified diagonals of a matrix (or a stack of matrice
 
         The returned array must have the same data type as `x`.
 
-(function-linalg-transpose)=
-### linalg.transpose(x, /, *, axes=None)
-
-Alias for {ref}`function-transpose`.
-
 (function-linalg-vecdot)=
 ### linalg.vecdot(x1, x2, /, *, axis=None)
 
 Alias for {ref}`function-vecdot`.
+
+(function-linalg-vector-norm)=
+### linalg.vector_norm(x, /, *, axis=None, keepdims=False, ord=2)
+
+Computes the vector norm of a vector (or batch of vectors) `x`.
+
+#### Parameters
+
+-   **x**: _&lt;array&gt;_
+
+    -   input array. Should have a floating-point data type.
+
+-   **axis**: _Optional\[ Union\[ int, Tuple\[ int, ... ] ] ]_
+
+    -   If an integer, `axis` specifies the axis (dimension) along which to compute vector norms. If an n-tuple, `axis` specifies the axes (dimensions) along which to compute batched vector norms. If `None`, the vector norm must be computed over all array values (i.e., equivalent to computing the vector norm of a flattened array). Negative indices must be supported. Default: `None`.
+
+-   **keepdims**: _bool_
+
+    -   If `True`, the axes (dimensions) specified by `axis` must be included in the result as singleton dimensions, and, accordingly, the result must be compatible with the input array (see {ref}`broadcasting`). Otherwise, if `False`, the axes (dimensions) specified by `axis` must not be included in the result. Default: `False`.
+
+-   **ord**: _Union\[  int, float, Literal\[ inf, -inf ] ]_
+
+    -   order of the norm. The following mathematical norms must be supported:
+        | ord              | description                |
+        | ---------------- | -------------------------- |
+        | 1                | L1-norm (Manhattan)        |
+        | 2                | L2-norm (Euclidean)        |
+        | inf              | infinity norm              |
+        | (int,float >= 1) | p-norm                     |
+
+        The following non-mathematical "norms" must be supported:
+        | ord              | description                    |
+        | ---------------- | ------------------------------ |
+        | 0                | sum(a != 0)                    |
+        | -1               | 1./sum(1./abs(a))              |
+        | -2               | 1./sqrt(sum(1./abs(a)\*\*2))   |
+        | -inf             | min(abs(a))                    |
+        | (int,float < 1)  | sum(abs(a)\*\*ord)\*\*(1./ord) |
+
+        Default: `2`.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the vector norms. If `axis` is `None`, the returned array must be a zero-dimensional array containing a vector norm. If `axis` is a scalar value (`int` or `float`), the returned array must have a rank which is one less than the rank of `x`. If `axis` is a `n`-tuple, the returned array must have a rank which is `n` less than the rank of `x`. The returned array must have a floating-point data type determined by {ref}`type-promotion`.

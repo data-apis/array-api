@@ -24,6 +24,10 @@ A conforming implementation of the array API standard must provide and support t
 
 Calculates the absolute value for each element `x_i` of the input array `x` (i.e., the element-wise result has the same magnitude as the respective element in `x` but has positive sign).
 
+```{note}
+For signed integer data types, the absolute value of the minimum representable integer is implementation-dependent.
+```
+
 #### Special Cases
 
 For floating-point operands,
@@ -124,7 +128,6 @@ For floating-point operands,
 -   In the remaining cases, when neither `infinity`, `+0`, `-0`, nor a `NaN` is involved, and the operands have the same mathematical sign or have different magnitudes, the sum must be computed and rounded to the nearest representable value according to IEEE 754-2019 and a supported round mode. If the magnitude is too large to represent, the operation overflows and the result is an `infinity` of appropriate mathematical sign.
 
 ```{note}
-
 Floating-point addition is a commutative operation, but not always associative.
 ```
 
@@ -233,7 +236,6 @@ Calculates an implementation-dependent approximation of the inverse tangent of t
 The mathematical signs of `x1_i` and `x2_i` determine the quadrant of each element-wise result. The quadrant (i.e., branch) is chosen such that each element-wise result is the signed angle in radians between the ray ending at the origin and passing through the point `(1,0)` and the ray ending at the origin and passing through the point `(x2_i, x1_i)`.
 
 ```{note}
-
 Note the role reversal: the "y-coordinate" is the first function parameter; the "x-coordinate" is the second function parameter. The parameter order is intentional and traditional for the two-argument inverse tangent function where the y-coordinate argument is first and the x-coordinate argument is second.
 ```
 
@@ -398,7 +400,6 @@ Computes the bitwise OR of the underlying binary representation of each element 
 Shifts the bits of each element `x1_i` of the input array `x1` to the right according to the respective element `x2_i` of the input array `x2`.
 
 ```{note}
-
 This operation must be an arithmetic shift (i.e., sign-propagating) and thus equivalent to floor division by a power of two.
 ```
 
@@ -616,7 +617,6 @@ For floating-point operands,
 Calculates an implementation-dependent approximation to `exp(x)-1`, having domain `[-infinity, +infinity]` and codomain `[-1, +infinity]`, for each element `x_i` of the input array `x`.
 
 ```{note}
-
 The purpose of this function is to calculate `exp(x)-1.0` more accurately when `x` is close to zero. Accordingly, conforming implementations should avoid implementing this function as simply `exp(x)-1.0`. See FDLIBM, or some other IEEE 754-2019 compliant mathematical library, for a potential reference implementation.
 ```
 
@@ -852,7 +852,6 @@ For floating-point operands,
 Calculates an implementation-dependent approximation to `log(1+x)`, where `log` refers to the natural (base `e`) logarithm, having domain `[-1, +infinity]` and codomain `[-infinity, +infinity]`, for each element `x_i` of the input array `x`.
 
 ```{note}
-
 The purpose of this function is to calculate `log(1+x)` more accurately when `x` is close to zero. Accordingly, conforming implementations should avoid implementing this function as simply `log(1+x)`. See FDLIBM, or some other IEEE 754-2019 compliant mathematical library, for a potential reference implementation.
 ```
 
@@ -968,7 +967,11 @@ For floating-point operands,
 (function-logical_and)=
 ### logical_and(x1, x2, /)
 
-Computes the logical AND for each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`. Zeros are considered the equivalent of `False`, while non-zeros are considered the equivalent of `True`.
+Computes the logical AND for each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`.
+
+```{note}
+While this specification recommends that this function only accept input arrays having a boolean data type, specification-compliant array libraries may choose to accept input arrays having numeric data types. If non-boolean data types are supported, zeros must be considered the equivalent of `False`, while non-zeros must be considered the equivalent of `True`.
+```
 
 #### Parameters
 
@@ -989,7 +992,11 @@ Computes the logical AND for each element `x1_i` of the input array `x1` with th
 (function-logical_not)=
 ### logical_not(x, /)
 
-Computes the logical NOT for each element `x_i` of the input array `x`. Zeros are considered the equivalent of `False`, while non-zeros are considered the equivalent of `True`.
+Computes the logical NOT for each element `x_i` of the input array `x`.
+
+```{note}
+While this specification recommends that this function only accept input arrays having a boolean data type, specification-compliant array libraries may choose to accept input arrays having numeric data types. If non-boolean data types are supported, zeros must be considered the equivalent of `False`, while non-zeros must be considered the equivalent of `True`.
+```
 
 #### Parameters
 
@@ -1006,7 +1013,11 @@ Computes the logical NOT for each element `x_i` of the input array `x`. Zeros ar
 (function-logical_or)=
 ### logical_or(x1, x2, /)
 
-Computes the logical OR for each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`. Zeros are considered the equivalent of `False`, while non-zeros are considered the equivalent of `True`.
+Computes the logical OR for each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`.
+
+```{note}
+While this specification recommends that this function only accept input arrays having a boolean data type, specification-compliant array libraries may choose to accept input arrays having numeric data types. If non-boolean data types are supported, zeros must be considered the equivalent of `False`, while non-zeros must be considered the equivalent of `True`.
+```
 
 #### Parameters
 
@@ -1027,7 +1038,11 @@ Computes the logical OR for each element `x1_i` of the input array `x1` with the
 (function-logical_xor)=
 ### logical_xor(x1, x2, /)
 
-Computes the logical XOR for each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`. Zeros are considered the equivalent of `False`, while non-zeros are considered the equivalent of `True`.
+Computes the logical XOR for each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`.
+
+```{note}
+While this specification recommends that this function only accept input arrays having a boolean data type, specification-compliant array libraries may choose to accept input arrays having numeric data types. If non-boolean data types are supported, zeros must be considered the equivalent of `False`, while non-zeros must be considered the equivalent of `True`.
+```
 
 #### Parameters
 
@@ -1065,7 +1080,6 @@ For floating-point operands,
 -   In the remaining cases, where neither `infinity` nor `NaN` is involved, the product must be computed and rounded to the nearest representable value according to IEEE 754-2019 and a supported rounding mode. If the magnitude is too large to represent, the result is an `infinity` of appropriate mathematical sign. If the magnitude is too small to represent, the result is a zero of appropriate mathematical sign.
 
 ```{note}
-
 Floating-point multiplication is not always associative due to finite precision.
 ```
 
@@ -1089,6 +1103,10 @@ Floating-point multiplication is not always associative due to finite precision.
 ### negative(x, /)
 
 Computes the numerical negative of each element `x_i` (i.e., `y_i = -x_i`) of the input array `x`.
+
+```{note}
+For signed integer data types, the numerical negative of the minimum representable integer is implementation-dependent.
+```
 
 #### Parameters
 
@@ -1209,7 +1227,7 @@ Returns the remainder of division for each element `x1_i` of the input array `x1
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the element-wise results. Each element-wise result must have the same sign as the respective element `x2_i`. The returned array must have a floating-point data type determined by {ref}`type-promotion`.
+    -   an array containing the element-wise results. Each element-wise result must have the same sign as the respective element `x2_i`. The returned array must have a data type determined by {ref}`type-promotion`.
 
 (function-round)=
 ### round(x, /)
