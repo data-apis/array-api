@@ -72,7 +72,7 @@ Convert the input to an array.
 
 -   **device**: _Optional\[ &lt;device&gt; ]_
 
-    -   device on which to place the created array. Default: `None`.
+    -   device on which to place the created array. If `device` is `None` and `x` is either an array or an object supporting DLPack, the output array device must be inferred from `x`. Default: `None`.
 
 -   **copy**: _Optional\[ bool ]_
 
