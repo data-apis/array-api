@@ -58,10 +58,10 @@ array API itself that can be instantiated to point to a specific physical or
 logical device. In other words, the standard does *not* include a universal
 `Device` object recognized by all compliant libraries.
 
-For array libraries that concern with multi-device support, including CPU and GPU,
-it is free to expose a library-specific device object for use (ex: creating an
-array on a particular device). For the purpose of this standard, it is considered
-an (important) implementation detail.
+For array libraries which concern themselves with multi-device support, including CPU and GPU,
+they are free to expose a library-specific device object for use (e.g., for creating an
+array on a particular device). It can be used as an input to `to_device`; the caveat
+is that it would make the code specific to that library.
 ```
 
 

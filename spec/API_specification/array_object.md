@@ -458,6 +458,8 @@ Exports the array for consumption by {ref}`function-from_dlpack` as a DLPack cap
 
         For other device types which do have a stream, queue or similar synchronization mechanism, the most appropriate type to use for `stream` is not yet determined. E.g., for SYCL one may want to use an object containing an in-order `cl::sycl::queue`. This is allowed when libraries agree on such a convention, and may be standardized in a future version of this API standard.
 
+        Support for any `stream` value other than `None` is optional and up to each library in question.
+
         Device-specific notes:
 
         :::{admonition} CUDA
@@ -1229,7 +1231,7 @@ Copy the array from the device it currently resides to the specified `device`.
 
 -   **stream**: _Optional\[ Union\[ int, Any ]]_
 
-    -   stream object to use during copy. In addition to the supported types as discussed in {ref}`method-__dlpack__`, any library-specific stream object is also allowed to be used here.
+    -   stream object to use during copy. In addition to the supported types as discussed in {ref}`method-__dlpack__`, any library-specific stream object is also allowed to be used here, with the caveat that using such an object would make the code non-portable.
 
 #### Returns
 
@@ -1238,6 +1240,5 @@ Copy the array from the device it currently resides to the specified `device`.
     -   an array with the same data and dtype, located on the specified `device`.
 
 ```{note}
-
-If `stream` is given, the copy operation will be enqueued on it; otherwise, it is enqueued on the default stream/queue (the concept of which is out of scope of this standard). Whether the copy is performed synchronously or asynchronously is up to the array library. As a result, if any synchronization (which is also out of scope of this standard) is required to guarantee data safety, the library should explain to its users.
+If `stream` is given, the copy operation will be enqueued on it; otherwise, it is enqueued on the default stream/queue. Whether the copy is performed synchronously or asynchronously is up to the array library. As a result, if any synchronization is required to guarantee data safety, the library should explain to its users.
 ```
