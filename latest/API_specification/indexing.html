@@ -1689,7 +1689,7 @@ A[i:j:k]
           </li>
           <li>
            <p>
-            Except in the case of providing an ellipsis to index all trailing dimensions (e.g.,
+            Except in the case of providing a single ellipsis (e.g.,
             <code class="docutils literal notranslate">
              <span class="pre">
               A[2:10,
@@ -1698,7 +1698,19 @@ A[i:j:k]
               ...]
              </span>
             </code>
-            ), the number of provided single-axis indexing expressions must equal
+            or
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              A[1:,
+             </span>
+             <span class="pre">
+              ...,
+             </span>
+             <span class="pre">
+              2:5]
+             </span>
+            </code>
+            ), the number of provided single-axis indexing expressions should equal
             <code class="docutils literal notranslate">
              <span class="pre">
               N
@@ -1716,7 +1728,7 @@ A[i:j:k]
               2
              </span>
             </code>
-            , a single-axis indexing expression must be explicitly provided for both axes (e.g.,
+            , a single-axis indexing expression should be explicitly provided for both axes (e.g.,
             <code class="docutils literal notranslate">
              <span class="pre">
               A[2:10,
@@ -1731,7 +1743,7 @@ A[i:j:k]
               IndexError
              </span>
             </code>
-            exception must be raised if the number of provided single-axis indexing expressions is less than
+            exception should be raised if the number of provided single-axis indexing expressions is less than
             <code class="docutils literal notranslate">
              <span class="pre">
               N
