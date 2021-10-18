@@ -147,7 +147,7 @@ Multi-dimensional arrays must extend the concept of single-axis indexing to mult
 
 -   Providing [ellipsis](https://docs.python.org/3/library/constants.html#Ellipsis) must apply `:` to each dimension necessary to index all dimensions (e.g., if `A` has rank `4`, `A[1:, ..., 2:5] == A[1:, :, :, 2:5]`). Only a single ellipsis must be allowed. An `IndexError` exception must be raised if more than one ellipsis is provided.
 
--   Except in the case of providing an ellipsis to index all trailing dimensions (e.g., `A[2:10, ...]`), the number of provided single-axis indexing expressions must equal `N`. For example, if `A` has rank `2`, a single-axis indexing expression must be explicitly provided for both axes (e.g., `A[2:10, :]`). An `IndexError` exception must be raised if the number of provided single-axis indexing expressions is less than `N`.
+-   Except in the case of providing a single ellipsis (e.g., `A[2:10, ...]` or `A[1:, ..., 2:5]`), the number of provided single-axis indexing expressions should equal `N`. For example, if `A` has rank `2`, a single-axis indexing expression should be explicitly provided for both axes (e.g., `A[2:10, :]`). An `IndexError` exception should be raised if the number of provided single-axis indexing expressions is less than `N`.
 
     ```{note}
     Some libraries, such as SymPy, support flat indexing (i.e., providing a single-axis indexing expression to a higher-dimensional array). That practice is not supported here.
