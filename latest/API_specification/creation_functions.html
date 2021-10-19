@@ -1514,7 +1514,31 @@ An object supporting the buffer protocol can be turned into a memoryview through
              <ul class="simple">
               <li>
                <p>
-                device on which to place the created array. Default:
+                device on which to place the created array. If
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  device
+                 </span>
+                </code>
+                is
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  None
+                 </span>
+                </code>
+                and
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  x
+                 </span>
+                </code>
+                is either an array or an object supporting DLPack, the output array device must be inferred from
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  x
+                 </span>
+                </code>
+                . Default:
                 <code class="docutils literal notranslate">
                  <span class="pre">
                   None
