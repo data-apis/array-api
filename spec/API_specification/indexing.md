@@ -89,12 +89,10 @@ j > i + (m-1)k
 ```
 
 ```{note}
-
 For `i` on the interval `[0, n)` (where `n` is the axis size), `j` on the interval `(0, n]`, `i` less than `j`, and positive step `k`, a starting index `i` is **always** included, while the stopping index `j` is **always** excluded. This preserves `x[:i]+x[i:]` always being equal to `x`.
 ```
 
 ```{note}
-
 Using a slice to index into a single array axis should select the same elements as using a slice to index a Python list of the same size.
 ```
 
@@ -113,7 +111,6 @@ Using a slice to index a single array axis must adhere to the following rules. L
 -   Indexing via `:` and `::` must be equivalent and have defaults derived from the rules above. Both `:` and `::` indicate to select all elements along a single axis (dimension).
 
 ```{note}
-
 This specification does not require "clipping" out-of-bounds slice indices. This is in contrast to Python slice semantics where `0:100` and `0:10` are equivalent on a list of length `10`.
 ```
 
@@ -126,6 +123,7 @@ The following ranges for the start and stop values of a slice must be supported.
 
 The behavior outside of these bounds is unspecified.
 
+```{note}
 _Rationale: this is consistent with bounds checking for integer indexing; the behavior of out-of-bounds indices is left unspecified. Implementations may choose to clip (consistent with Python `list` slicing semantics), raise an exception, return junk values, or some other behavior depending on device requirements and performance considerations._
 ```
 
@@ -136,7 +134,6 @@ Multi-dimensional arrays must extend the concept of single-axis indexing to mult
 -   Each axis may be independently indexed via single-axis indexing by providing a comma-separated sequence ("selection tuple") of single-axis indexing expressions (e.g., `A[:, 2:10, :, 5]`).
 
     ```{note}
-
     In Python, `x[(exp1, exp2, ..., expN)]` is equivalent to `x[exp1, exp2, ..., expN]`; the latter is syntactic sugar for the former.
     ```
 
@@ -148,14 +145,19 @@ Multi-dimensional arrays must extend the concept of single-axis indexing to mult
 
 -   Providing a slice must retain array dimensions (i.e., the array rank must remain the same; `rank(A) == rank(A[:])`).
 
--   If the number of provided single-axis indexing expressions is less than `N`, then `:` must be assumed for the remaining dimensions (e.g., if `A` has rank `2`, `A[2:10] == A[2:10, :]`).
+-   Providing [ellipsis](https://docs.python.org/3/library/constants.html#Ellipsis) must apply `:` to each dimension necessary to index all dimensions (e.g., if `A` has rank `4`, `A[1:, ..., 2:5] == A[1:, :, :, 2:5]`). Only a single ellipsis must be allowed. An `IndexError` exception must be raised if more than one ellipsis is provided.
+
+-   Except in the case of providing a single ellipsis (e.g., `A[2:10, ...]` or `A[1:, ..., 2:5]`), the number of provided single-axis indexing expressions should equal `N`. For example, if `A` has rank `2`, a single-axis indexing expression should be explicitly provided for both axes (e.g., `A[2:10, :]`). An `IndexError` exception should be raised if the number of provided single-axis indexing expressions is less than `N`.
+
+    ```{note}
+    Some libraries, such as SymPy, support flat indexing (i.e., providing a single-axis indexing expression to a higher-dimensional array). That practice is not supported here.
+
+    To perform flat indexing, use `reshape(x, (-1,))[integer]`.
+    ```
 
 -   An `IndexError` exception must be raised if the number of provided single-axis indexing expressions is greater than `N`.
 
--   Providing [ellipsis](https://docs.python.org/3/library/constants.html#Ellipsis) must apply `:` to each dimension necessary to index all dimensions (e.g., if `A` has rank `4`, `A[1:, ..., 2:5] == A[1:, :, :, 2:5]`). Only a single ellipsis must be allowed. An `IndexError` exception must be raised if more than one ellipsis is provided.
-
 ```{note}
-
 This specification leaves unspecified the behavior of providing a slice which attempts to select elements along a particular axis, but whose starting index is out-of-bounds.
 
 _Rationale: this is consistent with bounds-checking for single-axis indexing. An implementation may choose to set the axis (dimension) size of the result array to `0`, raise an exception, return junk values, or some other behavior depending on device requirements and performance considerations._
@@ -174,7 +176,6 @@ An array must support indexing where the **sole index** is an `M`-dimensional bo
 -   If `N >= M`, then `A[B]` must replace the first `M` dimensions of `A` with a single dimension having a size equal to the number of `True` elements in `B`. The values in the resulting array must be in row-major (C-style order); this is equivalent to `A[nonzero(B)]`.
 
     ```{note}
-
     For example, if `N == M == 2`, indexing `A` via a boolean array `B` will return a one-dimensional array whose size is equal to the number of `True` elements in `B`.
     ```
 
@@ -191,6 +192,5 @@ An array must support indexing where the **sole index** is an `M`-dimensional bo
 The result of an indexing operation (e.g., multi-axis indexing, boolean array indexing, etc) must be an array of the same data type as the indexed array.
 
 ```{note}
-
 The specified return value behavior includes indexing operations which return a single value (e.g., accessing a single element within a one-dimensional array).
 ```

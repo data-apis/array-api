@@ -72,7 +72,7 @@ Convert the input to an array.
 
 -   **device**: _Optional\[ &lt;device&gt; ]_
 
-    -   device on which to place the created array. Default: `None`.
+    -   device on which to place the created array. If `device` is `None` and `x` is either an array or an object supporting DLPack, the output array device must be inferred from `x`. Default: `None`.
 
 -   **copy**: _Optional\[ bool ]_
 
@@ -150,7 +150,7 @@ Returns a two-dimensional array with ones on the `k`th diagonal and zeros elsewh
 
     -   number of columns in the output array. If `None`, the default number of columns in the output array is equal to `n_rows`. Default: `None`.
 
--   **k**: _Optional\[ int ]_
+-   **k**: _int_
 
     -   index of the diagonal. A positive value refers to an upper diagonal, a negative value to a lower diagonal, and `0` to the main diagonal. Default: `0`.
 
@@ -239,10 +239,14 @@ Returns a new array filled with `fill_value` and having the same `shape` as an i
 
 -   **dtype**: _Optional\[ &lt;dtype&gt; ]_
 
-    -   output array data type. If `dtype` is `None`, the output array data type must be inferred from `fill_value` (see {ref}`function-full`). Default: `None`.
+    -   output array data type. If `dtype` is `None`, the output array data type must be inferred from `x`. Default: `None`.
 
         ```{note}
-        If `dtype` is `None` and the `fill_value` exceeds the precision of the resolved default output array data type, behavior is left unspecified and, thus, implementation-defined.
+        If `dtype` is `None` and the `fill_value` exceeds the precision of the resolved output array data type, behavior is unspecified and, thus, implementation-defined.
+        ```
+
+        ```{note}
+        If `dtype` is `None` and the `fill_value` has a data type (`int` or `float`) which is not of the same data type kind as the resolved output array data type (see {ref}`type-promotion`), behavior is unspecified and, thus, implementation-defined.
         ```
 
 -   **device**: _Optional\[ &lt;device&gt; ]_
@@ -304,9 +308,9 @@ Returns coordinate matrices from coordinate vectors.
 
 #### Parameters
 
--    **arrays**: _Sequence\[ &lt;array&gt; ]_
+-    **arrays**: _&lt;array&gt;_
 
-     -   one-dimensional arrays representing grid coordinates. Must have a numeric data type.
+     -   an arbitrary number of one-dimensional arrays representing grid coordinates. Must have numeric data types.
 
 -    **indexing**: _str_
 
