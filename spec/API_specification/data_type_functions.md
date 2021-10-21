@@ -14,7 +14,7 @@ A conforming implementation of the array API standard must provide and support t
 Copies an array to a specified data type irrespective of {ref}`type-promotion` rules.
 
 ```{note}
-Casting floating-point `NaN` and `infinity` values to integral data types is not specified and implementation-dependent.
+Casting floating-point `NaN` and `infinity` values to integral data types is not specified and is implementation-dependent.
 ```
 
 #### Parameters
