@@ -251,7 +251,7 @@ Array dimensions.
 
 -   **out**: _Optional\[ Tuple\[ Optional\[ int ], ... ] ]_
 
-    -   array dimensions. An array dimension must be `None` if and only if a dimension is unknown.
+    -   array dimensions. The returned value must be `None` if and only if the rank of an array is unknown. An array dimension must be `None` if and only if a dimension is unknown.
 
 ```{note}
 For array libraries having graph-based computational models, array dimensions may be unknown due to data-dependent operations (e.g., boolean indexing; `A[:, B > 0]`) and thus cannot be statically resolved without knowing array contents.
