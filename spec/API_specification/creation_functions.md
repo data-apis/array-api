@@ -59,7 +59,7 @@ Convert the input to an array.
 
 -   **obj**: _Union\[ &lt;array&gt;, bool, int, float, NestedSequence\[ bool | int | float ], SupportsDLPack, SupportsBufferProtocol ]_
 
-    -   Object to be converted to an array. Can be a Python scalar, a (possibly nested) sequence of Python scalars, or an object supporting DLPack or the Python buffer protocol.
+    -   object to be converted to an array. May be a Python scalar, a (possibly nested) sequence of Python scalars, or an object supporting DLPack or the Python buffer protocol.
 
     :::{tip}
     An object supporting DLPack has `__dlpack__` and `__dlpack_device__` methods.
@@ -68,7 +68,19 @@ Convert the input to an array.
 
 -   **dtype**: _Optional\[ &lt;dtype&gt; ]_
 
-    -   output array data type. If `dtype` is `None`, the output array data type must be inferred from the data type(s) in `obj`. If all input values are Python scalars, then if they're all `bool` the output dtype will be `bool`; if they're a mix of `bool`s and `int` the output dtype will be the default integer data type; if they contain `float`s the output dtype will be the default floating-point data type. Default: `None`.
+    -   output array data type. If `dtype` is `None`, the output array data type must be inferred from the data type(s) in `obj`. If all input values are Python scalars, then
+
+        -   if all values are of type `bool`, the output data type must be `bool`.
+        -   if the values are a mixture of `bool`s and `int`, the output data type must be the default integer data type.
+        -   if one or more values are `float`s, the output data type must be the default floating-point data type.
+
+        Default: `None`.
+
+        ```{note}
+        If `dtype` is not `None`, then array conversions should obey {ref}`type-promotion` rules. Conversions not specified according to {ref}`type-promotion` rules may or may not be permitted by a conforming array library.
+
+        To perform an explicit cast, use {ref}`function-astype`.
+        ```
 
 -   **device**: _Optional\[ &lt;device&gt; ]_
 
@@ -76,13 +88,13 @@ Convert the input to an array.
 
 -   **copy**: _Optional\[ bool ]_
 
-    -   Whether or not to make a copy of the input. If `True`, always copies. If `False`, never copies for input which supports DLPack or the buffer protocol, and raises `ValueError` in case that would be necessary. If `None`, reuses existing memory buffer if possible, copies otherwise. Default: `None`.
+    -   boolean indicating whether or not to copy the input. If `True`, the function must always copy. If `False`, the function must never copy for input which supports DLPack or the buffer protocol, and raises `ValueError` in case a copy would be necessary. If `None`, the function must reuse existing memory buffer if possible and copy otherwise. Default: `None`.
 
 #### Returns
 
 -   **out**: _&lt;array&gt;_
 
-    -   An array containing the data from `obj`.
+    -   an array containing the data from `obj`.
 
 
 (function-empty)=
