@@ -88,7 +88,7 @@ Convert the input to an array.
 
 -   **copy**: _Optional\[ bool ]_
 
-    -   boolean indicating whether or not to copy the input. If `True`, the function must always copy. If `False`, the function must never copy for input which supports DLPack or the buffer protocol, and raises `ValueError` in case a copy would be necessary. If `None`, the function must reuse existing memory buffer if possible and copy otherwise. Default: `None`.
+    -   boolean indicating whether or not to copy the input. If `True`, the function must always copy. If `False`, the function must never copy for input which supports DLPack or the buffer protocol and must raise a `ValueError` in case a copy would be necessary. If `None`, the function must reuse existing memory buffer if possible and copy otherwise. Default: `None`.
 
 #### Returns
 
