@@ -1217,7 +1217,7 @@ Element-wise results must equal the results returned by the equivalent element-w
 (method-to_device)=
 ### to\_device(self, device, /, *, stream=None)
 
-Copy the array from the device it currently resides to the specified `device`.
+Copy the array from the device on which it currently resides to the specified `device`.
 
 #### Parameters
 
@@ -1227,7 +1227,7 @@ Copy the array from the device it currently resides to the specified `device`.
 
 -   **device**: _&lt;device&gt;_
 
-    -   a `device` object (see {ref}`device-support`)
+    -   a `device` object (see {ref}`device-support`).
 
 -   **stream**: _Optional\[ Union\[ int, Any ]]_
 
@@ -1237,8 +1237,8 @@ Copy the array from the device it currently resides to the specified `device`.
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array with the same data and dtype, located on the specified `device`.
+    -   an array with the same data and data type as `self` and located on the specified `device`.
 
 ```{note}
-If `stream` is given, the copy operation will be enqueued on it; otherwise, it is enqueued on the default stream/queue. Whether the copy is performed synchronously or asynchronously is up to the array library. As a result, if any synchronization is required to guarantee data safety, the library should explain to its users.
+If `stream` is given, the copy operation should be enqueued on the provided `stream`; otherwise, the copy operation should be enqueued on the default stream/queue. Whether the copy is performed synchronously or asynchronously is library dependent. As a result, if synchronization is required to guarantee data safety, this should be clearly explained in a conforming library's documentation.
 ```

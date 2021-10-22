@@ -48,20 +48,20 @@ cross-device data transfer:
   libraries is out of scope).
 2. A `device=None` keyword for array creation functions, which takes an
    instance of a `Device` object.
-3. A `.to_device` method on the array object, with `device` again being
-   a `Device` object, to copy an array to a different device.
+3. A `.to_device` method on the array object to copy an array to a different device.
 
 ```{note}
 In the current API standard, the only way to obtain a `Device` object is from the
-`.device` property on the array object, hence there is no `Device` object in the
-array API itself that can be instantiated to point to a specific physical or
-logical device. In other words, the standard does *not* include a universal
-`Device` object recognized by all compliant libraries.
+`.device` property on the array object. The standard does **not** include a universal
+`Device` object recognized by all compliant libraries. Accordingly, the standard does
+not provide a means of instantiating a `Device` object to point to a specific physical or
+logical device.
 
 For array libraries which concern themselves with multi-device support, including CPU and GPU,
-they are free to expose a library-specific device object for use (e.g., for creating an
-array on a particular device). It can be used as an input to `to_device`; the caveat
-is that it would make the code specific to that library.
+they are free to expose a library-specific device object (e.g., for creating an
+array on a particular device). While a library-specific device object can be used as input to
+`to_device`, beware that this will mean non-portability as code will be specific to
+that library.
 ```
 
 
