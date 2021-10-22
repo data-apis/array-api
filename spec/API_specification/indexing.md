@@ -117,7 +117,7 @@ This specification does not require "clipping" out-of-bounds slice indices. This
 The following ranges for the start and stop values of a slice must be supported. Let `n` be the axis (dimension) size being sliced. For a slice `i:j:k`, the behavior specified above should be implemented for the following:
 
 - `i` or `j` omitted (`None`).
-- `-n <= i <= max(0, n - 1)`.
+- `-n <= i <= n`.
 - For `k > 0` or `k` omitted (`None`), `-n <= j <= n`.
 - For `k < 0`, `-n - 1 <= j <= max(0, n - 1)`.
 
