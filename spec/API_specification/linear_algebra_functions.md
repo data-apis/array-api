@@ -15,11 +15,6 @@ A conforming implementation of the array API standard must provide and support t
 
 <!-- NOTE: please keep the functions in alphabetical order -->
 
-(function-einsum)=
-### einsum()
-
-TODO
-
 (function-matmul)=
 ### matmul(x1, x2, /)
 
@@ -60,6 +55,23 @@ The `matmul` function must implement the same semantics as the built-in `@` oper
 -   if `x1` is a one-dimensional array having shape `(N)`, `x2` is a one-dimensional array having shape `(M)`, and `N != M`.
 -   if `x1` is an array having shape `(..., M, K)`, `x2` is an array having shape `(..., L, N)`, and `K != L`.
 
+(function-matrix-transpose)=
+### matrix_transpose(x, /)
+
+Transposes a matrix (or a stack of matrices) `x`.
+
+#### Parameters
+
+-   **x**: _&lt;array&gt;_
+
+    -   input array having shape `(..., M, N)` and whose innermost two dimensions form `MxN` matrices.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the transpose for each matrix and having shape `(..., N, M)`. The returned array must have the same data type as `x`.
+
 (function-tensordot)=
 ### tensordot(x1, x2, /, *, axes=2)
 
@@ -93,29 +105,8 @@ Returns a tensor contraction of `x1` and `x2` over specific axes.
 
     -   an array containing the tensor contraction whose shape consists of the non-contracted axes (dimensions) of the first array `x1`, followed by the non-contracted axes (dimensions) of the second array `x2`. The returned array must have a data type determined by {ref}`type-promotion`.
 
-(function-transpose)=
-### transpose(x, /, *, axes=None)
-
-Transposes (or permutes the axes (dimensions)) of an array `x`.
-
-#### Parameters
-
--   **x**: _&lt;array&gt;_
-
-    -   input array.
-
--   **axes**: _Optional\[ Tuple\[ int, ... ] ]_
-
-    -   tuple containing a permutation of `(0, 1, ..., N-1)` where `N` is the number of axes (dimensions) of `x`. If `None`, the axes (dimensions) must be permuted in reverse order (i.e., equivalent to setting `axes=(N-1, ..., 1, 0)`). Default: `None`.
-
-#### Returns
-
--   **out**: _&lt;array&gt;_
-
-    -   an array containing the transpose. The returned array must have the same data type as `x`.
-
 (function-vecdot)=
-### vecdot(x1, x2, /, *, axis=None)
+### vecdot(x1, x2, /, *, axis=-1)
 
 Computes the (vector) dot product of two arrays.
 
@@ -129,9 +120,9 @@ Computes the (vector) dot product of two arrays.
 
     -   second input array. Must be compatible with `x1` (see {ref}`broadcasting`). Should have a numeric data type.
 
--   **axis**: _Optional\[ int ]_
+-   **axis**: _int_
 
-    -   axis over which to compute the dot product. Must be an integer on the interval `[-N, N)`, where `N` is the rank (number of dimensions) of the shape determined according to {ref}`broadcasting`. If specified as a negative integer, the function must determine the axis along which to compute the dot product by counting backward from the last dimension (where `-1` refers to the last dimension). If `None`, the function must compute the dot product over the last axis. Default: `None`.
+    -   axis over which to compute the dot product. Must be an integer on the interval `[-N, N)`, where `N` is the rank (number of dimensions) of the shape determined according to {ref}`broadcasting`. If specified as a negative integer, the function must determine the axis along which to compute the dot product by counting backward from the last dimension (where `-1` refers to the last dimension). By default, the function must compute the dot product over the last axis. Default: `-1`.
 
 #### Returns
 

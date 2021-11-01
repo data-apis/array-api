@@ -7,6 +7,42 @@ A conforming implementation of the array API standard must provide and support t
 <!-- NOTE: please keep the constants in alphabetical order -->
 
 ## Objects in API
+
+(function-astype)=
+### astype(x, dtype, /, *, copy=True)
+
+Copies an array to a specified data type irrespective of {ref}`type-promotion` rules.
+
+```{note}
+Casting floating-point `NaN` and `infinity` values to integral data types is not specified and is implementation-dependent.
+```
+
+```{note}
+When casting a boolean input array to a numeric data type, a value of `True` must cast to a numeric value equal to `1`, and a value of `False` must cast to a numeric value equal to `0`.
+
+When casting a numeric input array to `bool`, a value of `0` must cast to `False`, and a non-zero value must cast to `True`.
+```
+
+#### Parameters
+
+-   **x**: _&lt;array&gt;_
+
+    -   array to cast.
+    
+-   **dtype**: _&lt;dtype&gt;_
+
+    -   desired data type.
+    
+-   **copy**: _&lt;bool&gt;_
+
+    -   specifies whether to copy an array when the specified `dtype` matches the data type of the input array `x`. If `True`, a newly allocated array must always be returned. If `False` and the specified `dtype` matches the data type of the input array, the input array must be returned; otherwise, a newly allocated must be returned. Default: `True`.
+    
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array having the specified data type. The returned array must have the same shape as `x`.
+
 (function-broadcast_arrays)=
 ### broadcast_arrays(*arrays)
 
@@ -14,9 +50,9 @@ Broadcasts one or more arrays against one another.
 
 #### Parameters
 
--   **arrays**: _Sequence\[ &lt;array&gt; ]_
+-   **arrays**: _&lt;array&gt;_
 
-    -   arrays to broadcast.
+    -   an arbitrary number of to-be broadcasted arrays.
 
 #### Returns
 
@@ -134,9 +170,9 @@ If provided mixed dtypes (e.g., integer and floating-point), the returned dtype 
 
 #### Parameters
 
--   **arrays_and_dtypes**: _Sequence\[ Union\[ &lt;array&gt;, &lt;dtype&gt; \] \]_
+-   **arrays_and_dtypes**: _Union\[ &lt;array&gt;, &lt;dtype&gt; \]_
 
-    -   input arrays and dtypes.
+    -   an arbitrary number of input arrays and/or dtypes.
 
 #### Returns
 

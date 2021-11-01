@@ -70,6 +70,7 @@ where
 | **i1** | i2 | i4 | i8 |
 | **i2** | i2 | i4 | i8 |
 | **i4** | i4 | i4 | i8 |
+| **i8** | i8 | i8 | i8 |
 
 ### Floating-point type promotion table
 
