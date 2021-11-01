@@ -78,7 +78,7 @@ Accordingly, the standardization process affords the opportunity to reduce inter
 (function-linalg-cholesky)=
 ### linalg.cholesky(x, /, *, upper=False)
 
-Returns the lower (resp. upper) Cholesky decomposition `x = LLᵀ` (resp. `x = UᵀU`) of a symmetric positive-definite matrix (or a stack of matrices) `x`, where `L` is a lower-triangular matrix or a stack of matrices (resp. `U` is an upper-triangular matrix or a stack of matrices).
+Returns the lower (upper) Cholesky decomposition x = LLᵀ (x = UᵀU) of a symmetric positive-definite matrix (or a stack of matrices) `x`, where `L` is a lower-triangular matrix or a stack of matrices (`U` is an upper-triangular matrix or a stack of matrices).
 
 <!-- NOTE: once complex numbers are supported, each square matrix must be Hermitian. -->
 
@@ -170,7 +170,7 @@ Returns the specified diagonals of a matrix (or a stack of matrices) `x`.
 (function-linalg-eigh)=
 ### linalg.eigh(x, /)
 
-Returns the eigenvalues and eigenvectors `x = QLQᵀ` of a symmetric matrix (or a stack of matrices) `x`, where `Q` is an orthogonal matrix (or a stack of matrices) and `L` is a vector (or a stack of vectors).
+Returns the eigenvalues and eigenvectors x = QLQᵀ of a symmetric matrix (or a stack of matrices) `x`, where `Q` is an orthogonal matrix (or a stack of matrices) and `L` is a vector (or a stack of vectors).
 
 <!-- NOTE: once complex number support, each matrix must be Hermitian and the returned Q unitary.
            We might also want to make the dtype of `eigenvalues` unconditionally real -->
@@ -396,7 +396,7 @@ Returns the (Moore-Penrose) pseudo-inverse of a matrix (or a stack of matrices) 
 (function-linalg-qr)=
 ### linalg.qr(x, /, *, mode='reduced')
 
-Returns the qr decomposition `x = qr` of a matrix (or a stack of matrices) `x`, where `q` is an orthonormal matrix (or a stack of matrices) and `r` is an upper-triangular matrix (or a stack of matrices).
+Returns the qr decomposition x = QR of a matrix (or a stack of matrices) `x`, where `Q` is an orthonormal matrix (or a stack of matrices) and `R` is an upper-triangular matrix (or a stack of matrices).
 
 #### Parameters
 
@@ -477,7 +477,7 @@ Returns the solution to the system of linear equations represented by the well-d
 (function-linalg-svd)=
 ### linalg.svd(x, /, *, full_matrices=True)
 
-Returns the singular value decomposition `A = USVh` of a matrix (or a stack of matrices) `x` where `U` is a matrix (or a stack of matrices) with orthonormal columns, `S` is a vector of non-negative numbers (or stack of vectors), and `Vh` is a matrix (or a stack of matrices) with orthonormal rows.
+Returns the singular value decomposition A = USVh of a matrix (or a stack of matrices) `x` where `U` is a matrix (or a stack of matrices) with orthonormal columns, `S` is a vector of non-negative numbers (or stack of vectors), and `Vh` is a matrix (or a stack of matrices) with orthonormal rows.
 
 #### Parameters
 
