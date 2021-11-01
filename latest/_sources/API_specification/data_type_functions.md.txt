@@ -17,6 +17,12 @@ Copies an array to a specified data type irrespective of {ref}`type-promotion` r
 Casting floating-point `NaN` and `infinity` values to integral data types is not specified and is implementation-dependent.
 ```
 
+```{note}
+When casting a boolean input array to a numeric data type, a value of `True` must cast to a numeric value equal to `1`, and a value of `False` must cast to a numeric value equal to `0`.
+
+When casting a numeric input array to `bool`, a value of `0` must cast to `False`, and a non-zero value must cast to `True`.
+```
+
 #### Parameters
 
 -   **x**: _&lt;array&gt;_

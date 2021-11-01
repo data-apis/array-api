@@ -746,6 +746,65 @@
             values to integral data types is not specified and is implementation-dependent.
            </p>
           </div>
+          <div class="admonition note">
+           <p class="admonition-title">
+            Note
+           </p>
+           <p>
+            When casting a boolean input array to a numeric data type, a value of
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              True
+             </span>
+            </code>
+            must cast to a numeric value equal to
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              1
+             </span>
+            </code>
+            , and a value of
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              False
+             </span>
+            </code>
+            must cast to a numeric value equal to
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              0
+             </span>
+            </code>
+            .
+           </p>
+           <p>
+            When casting a numeric input array to
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              bool
+             </span>
+            </code>
+            , a value of
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              0
+             </span>
+            </code>
+            must cast to
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              False
+             </span>
+            </code>
+            , and a non-zero value must cast to
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              True
+             </span>
+            </code>
+            .
+           </p>
+          </div>
           <section id="parameters">
            <h4 id="parameters">
             Parameters
