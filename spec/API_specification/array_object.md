@@ -461,6 +461,7 @@ Exports the array for consumption by {ref}`function-from_dlpack` as a DLPack cap
         ```{note}
         Support for a `stream` value other than `None` is optional and implementation-dependent.
         ```
+
         Device-specific notes:
 
         :::{admonition} CUDA
