@@ -17,27 +17,28 @@ To index a single array axis, an array must support standard Python indexing rul
 -   **Valid** nonnegative indices must reside on the half-open interval `[0, n)`.
 
     ```{note}
-
     This specification does not require bounds checking. The behavior for out-of-bounds integer indices is left unspecified.
     ```
 
 -   Negative indices must count backward from the last array index, starting from `-1` (i.e., negative-one-based indexing, where `-1` refers to the last array index).
 
     ```{note}
-
     A negative index `j` is equivalent to `n-j`; the former is syntactic sugar for the latter, providing a shorthand for indexing elements that would otherwise need to be specified in terms of the axis (dimension) size.
     ```
 
 -   **Valid** negative indices must reside on the closed interval `[-n, -1]`.
 
     ```{note}
-
     This specification does not require bounds checking. The behavior for out-of-bounds integer indices is left unspecified.
     ```
 
 -   A negative index `j` is related to a zero-based nonnegative index `i` via `i = n+j`.
 
 -   Colons `:` must be used for [slices](https://docs.python.org/3/library/functions.html#slice): `start:stop:step`, where `start` is inclusive and `stop` is exclusive.
+
+```{note}
+The specification does not support returning scalar (i.e., non-array) values from operations, including indexing. In contrast to standard Python indexing rules, for any index, or combination of indices, which select a single value, the result must be a zero-dimensional array containing the selected value.
+```
 
 ### Slice Syntax
 
@@ -60,7 +61,6 @@ A[i:j:k]
 ```
 
 ```{note}
-
 Slice syntax can be equivalently achieved using the Python built-in [`slice()`](https://docs.python.org/3/library/functions.html#slice) API. From the perspective of `A`, the behavior of `A[i:j:k]` and `A[slice(i, j, k)]` is indistinguishable (i.e., both retrieve the same set of items from `__getitem__`).
 ```
 
@@ -134,7 +134,9 @@ Multi-dimensional arrays must extend the concept of single-axis indexing to mult
 -   Each axis may be independently indexed via single-axis indexing by providing a comma-separated sequence ("selection tuple") of single-axis indexing expressions (e.g., `A[:, 2:10, :, 5]`).
 
     ```{note}
-    In Python, `x[(exp1, exp2, ..., expN)]` is equivalent to `x[exp1, exp2, ..., expN]`; the latter is syntactic sugar for the former.
+    In Python, `A[(exp1, exp2, ..., expN)]` is equivalent to `A[exp1, exp2, ..., expN]`; the latter is syntactic sugar for the former.
+
+    Accordingly, if `A` has rank `1`, then `A[(2:10,)]` must be equivalent to `A[2:10]`. If `A` has rank `2`, then `A[(2:10, :)]` must be equivalent to `A[2:10, :]`. And so on and so forth.
     ```
 
 -   Providing a single nonnegative integer `i` as a single-axis index must index the same elements as the slice `i:i+1`.
@@ -143,9 +145,19 @@ Multi-dimensional arrays must extend the concept of single-axis indexing to mult
 
 -   Providing a single integer as a single-axis index must reduce the number of array dimensions by `1` (i.e., the array rank should decrease by one; if `A` has rank `2`, `rank(A)-1 == rank(A[0, :])`). In particular, a selection tuple with the `m`th element an integer (and all other entries `:`) indexes a sub-array with rank `N-1`.
 
+    ```{note}
+    When providing a single integer as a single-axis index to an array of rank `1`, the result should be an array of rank `0`, not a NumPy scalar. Note that this behavior differs from NumPy.
+    ```
+
 -   Providing a slice must retain array dimensions (i.e., the array rank must remain the same; `rank(A) == rank(A[:])`).
 
 -   Providing [ellipsis](https://docs.python.org/3/library/constants.html#Ellipsis) must apply `:` to each dimension necessary to index all dimensions (e.g., if `A` has rank `4`, `A[1:, ..., 2:5] == A[1:, :, :, 2:5]`). Only a single ellipsis must be allowed. An `IndexError` exception must be raised if more than one ellipsis is provided.
+
+-   Providing an empty tuple or an ellipsis to an array of rank `0` must result in an array of the same rank (i.e., if `A` has rank `0`, `A == A[()]` and `A == A[...]`).
+
+    ```{note}
+    This behavior differs from NumPy where providing an empty tuple to an array of rank `0` returns a NumPy scalar.
+    ```
 
 -   Except in the case of providing a single ellipsis (e.g., `A[2:10, ...]` or `A[1:, ..., 2:5]`), the number of provided single-axis indexing expressions should equal `N`. For example, if `A` has rank `2`, a single-axis indexing expression should be explicitly provided for both axes (e.g., `A[2:10, :]`). An `IndexError` exception should be raised if the number of provided single-axis indexing expressions is less than `N`.
 

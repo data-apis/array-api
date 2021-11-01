@@ -663,6 +663,14 @@
            </p>
           </li>
          </ul>
+         <div class="admonition note">
+          <p class="admonition-title">
+           Note
+          </p>
+          <p>
+           The specification does not support returning scalar (i.e., non-array) values from operations, including indexing. In contrast to standard Python indexing rules, for any index, or combination of indices, which select a single value, the result must be a zero-dimensional array containing the selected value.
+          </p>
+         </div>
          <section id="slice-syntax">
           <h3 id="slice-syntax">
            Slice Syntax
@@ -1474,7 +1482,7 @@ A[i:j:k]
              In Python,
              <code class="docutils literal notranslate">
               <span class="pre">
-               x[(exp1,
+               A[(exp1,
               </span>
               <span class="pre">
                exp2,
@@ -1489,7 +1497,7 @@ A[i:j:k]
              is equivalent to
              <code class="docutils literal notranslate">
               <span class="pre">
-               x[exp1,
+               A[exp1,
               </span>
               <span class="pre">
                exp2,
@@ -1502,6 +1510,63 @@ A[i:j:k]
               </span>
              </code>
              ; the latter is syntactic sugar for the former.
+            </p>
+            <p>
+             Accordingly, if
+             <code class="docutils literal notranslate">
+              <span class="pre">
+               A
+              </span>
+             </code>
+             has rank
+             <code class="docutils literal notranslate">
+              <span class="pre">
+               1
+              </span>
+             </code>
+             , then
+             <code class="docutils literal notranslate">
+              <span class="pre">
+               A[(2:10,)]
+              </span>
+             </code>
+             must be equivalent to
+             <code class="docutils literal notranslate">
+              <span class="pre">
+               A[2:10]
+              </span>
+             </code>
+             . If
+             <code class="docutils literal notranslate">
+              <span class="pre">
+               A
+              </span>
+             </code>
+             has rank
+             <code class="docutils literal notranslate">
+              <span class="pre">
+               2
+              </span>
+             </code>
+             , then
+             <code class="docutils literal notranslate">
+              <span class="pre">
+               A[(2:10,
+              </span>
+              <span class="pre">
+               :)]
+              </span>
+             </code>
+             must be equivalent to
+             <code class="docutils literal notranslate">
+              <span class="pre">
+               A[2:10,
+              </span>
+              <span class="pre">
+               :]
+              </span>
+             </code>
+             . And so on and so forth.
             </p>
            </div>
           </li>
@@ -1600,6 +1665,26 @@ A[i:j:k]
             </code>
             .
            </p>
+           <div class="admonition note">
+            <p class="admonition-title">
+             Note
+            </p>
+            <p>
+             When providing a single integer as a single-axis index to an array of rank
+             <code class="docutils literal notranslate">
+              <span class="pre">
+               1
+              </span>
+             </code>
+             , the result should be an array of rank
+             <code class="docutils literal notranslate">
+              <span class="pre">
+               0
+              </span>
+             </code>
+             , not a NumPy scalar. Note that this behavior differs from NumPy.
+            </p>
+           </div>
           </li>
           <li>
            <p>
@@ -1677,6 +1762,67 @@ A[i:j:k]
             </code>
             exception must be raised if more than one ellipsis is provided.
            </p>
+          </li>
+          <li>
+           <p>
+            Providing an empty tuple or an ellipsis to an array of rank
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              0
+             </span>
+            </code>
+            must result in an array of the same rank (i.e., if
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              A
+             </span>
+            </code>
+            has rank
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              0
+             </span>
+            </code>
+            ,
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              A
+             </span>
+             <span class="pre">
+              ==
+             </span>
+             <span class="pre">
+              A[()]
+             </span>
+            </code>
+            and
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              A
+             </span>
+             <span class="pre">
+              ==
+             </span>
+             <span class="pre">
+              A[...]
+             </span>
+            </code>
+            ).
+           </p>
+           <div class="admonition note">
+            <p class="admonition-title">
+             Note
+            </p>
+            <p>
+             This behavior differs from NumPy where providing an empty tuple to an array of rank
+             <code class="docutils literal notranslate">
+              <span class="pre">
+               0
+              </span>
+             </code>
+             returns a NumPy scalar.
+            </p>
+           </div>
           </li>
           <li>
            <p>
