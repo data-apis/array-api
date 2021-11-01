@@ -9,7 +9,7 @@ A conforming implementation of the array API standard must provide and support t
 ## Objects in API
 
 (function-astype)=
-### astype(x, dtype, /)
+### astype(x, dtype, /, *, copy=True)
 
 Copies an array to a specified data type irrespective of {ref}`type-promotion` rules.
 
@@ -26,6 +26,10 @@ Casting floating-point `NaN` and `infinity` values to integral data types is not
 -   **dtype**: _&lt;dtype&gt;_
 
     -   desired data type.
+    
+-   **copy**: _&lt;bool&gt;_
+
+    -   specifies whether to copy an array when the specified `dtype` matches the data type of the input array `x`. If `True`, a newly allocated array must always be returned. If `False` and the specified `dtype` matches the data type of the input array, the input array must be returned; otherwise, a newly allocated must be returned. Default: `True`.
     
 #### Returns
 
