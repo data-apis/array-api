@@ -96,7 +96,7 @@ Returns the lower (upper) Cholesky decomposition x = LLᵀ (x = UᵀU) of a symm
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the Cholesky factors for each square matrix. If `upper` is `False`, the array must contain lower-triangular matrices. Otherwise, it must contain upper-triangular matrices. The returned array must have a floating-point data type determined by {ref}`type-promotion` and shape as `x`.
+    -   an array containing the Cholesky factors for each square matrix. If `upper` is `False`, the returned array must contain lower-triangular matrices; otherwise, the returned array must contain upper-triangular matrices. The returned array must have a floating-point data type determined by {ref}`type-promotion` and must have the same shape as `x`.
 
 (function-linalg-cross)=
 ### linalg.cross(x1, x2, /, *, axis=-1)
