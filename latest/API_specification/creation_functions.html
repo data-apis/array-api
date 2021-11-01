@@ -1397,7 +1397,7 @@
              <ul class="simple">
               <li>
                <p>
-                Object to be converted to an array. Can be a Python scalar, a (possibly nested) sequence of Python scalars, or an object supporting DLPack or the Python buffer protocol.
+                object to be converted to an array. May be a Python scalar, a (possibly nested) sequence of Python scalars, or an object supporting DLPack or the Python buffer protocol.
                </p>
               </li>
              </ul>
@@ -1439,7 +1439,7 @@ An object supporting the buffer protocol can be turned into a memoryview through
                Optional[ &lt;dtype&gt; ]
               </em>
              </p>
-             <ul class="simple">
+             <ul>
               <li>
                <p>
                 output array data type. If
@@ -1460,37 +1460,57 @@ An object supporting the buffer protocol can be turned into a memoryview through
                   obj
                  </span>
                 </code>
-                . If all input values are Python scalars, then if they’re all
-                <code class="docutils literal notranslate">
-                 <span class="pre">
-                  bool
-                 </span>
-                </code>
-                the output dtype will be
-                <code class="docutils literal notranslate">
-                 <span class="pre">
-                  bool
-                 </span>
-                </code>
-                ; if they’re a mix of
-                <code class="docutils literal notranslate">
-                 <span class="pre">
-                  bool
-                 </span>
-                </code>
-                s and
-                <code class="docutils literal notranslate">
-                 <span class="pre">
-                  int
-                 </span>
-                </code>
-                the output dtype will be the default integer data type; if they contain
-                <code class="docutils literal notranslate">
-                 <span class="pre">
-                  float
-                 </span>
-                </code>
-                s the output dtype will be the default floating-point data type. Default:
+                . If all input values are Python scalars, then
+               </p>
+               <ul class="simple">
+                <li>
+                 <p>
+                  if all values are of type
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    bool
+                   </span>
+                  </code>
+                  , the output data type must be
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    bool
+                   </span>
+                  </code>
+                  .
+                 </p>
+                </li>
+                <li>
+                 <p>
+                  if the values are a mixture of
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    bool
+                   </span>
+                  </code>
+                  s and
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    int
+                   </span>
+                  </code>
+                  , the output data type must be the default integer data type.
+                 </p>
+                </li>
+                <li>
+                 <p>
+                  if one or more values are
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    float
+                   </span>
+                  </code>
+                  s, the output data type must be the default floating-point data type.
+                 </p>
+                </li>
+               </ul>
+               <p>
+                Default:
                 <code class="docutils literal notranslate">
                  <span class="pre">
                   None
@@ -1498,6 +1518,47 @@ An object supporting the buffer protocol can be turned into a memoryview through
                 </code>
                 .
                </p>
+               <div class="admonition note">
+                <p class="admonition-title">
+                 Note
+                </p>
+                <p>
+                 If
+                 <code class="docutils literal notranslate">
+                  <span class="pre">
+                   dtype
+                  </span>
+                 </code>
+                 is not
+                 <code class="docutils literal notranslate">
+                  <span class="pre">
+                   None
+                  </span>
+                 </code>
+                 , then array conversions should obey
+                 <a class="reference internal" href="type_promotion.html#type-promotion">
+                  <span class="std std-ref">
+                   Type Promotion Rules
+                  </span>
+                 </a>
+                 rules. Conversions not specified according to
+                 <a class="reference internal" href="type_promotion.html#type-promotion">
+                  <span class="std std-ref">
+                   Type Promotion Rules
+                  </span>
+                 </a>
+                 rules may or may not be permitted by a conforming array library.
+                </p>
+                <p>
+                 To perform an explicit cast, use
+                 <a class="reference internal" href="data_type_functions.html#function-astype">
+                  <span class="std std-ref">
+                   astype(x, dtype, /, *, copy=True)
+                  </span>
+                 </a>
+                 .
+                </p>
+               </div>
               </li>
              </ul>
             </li>
@@ -1562,31 +1623,31 @@ An object supporting the buffer protocol can be turned into a memoryview through
              <ul class="simple">
               <li>
                <p>
-                Whether or not to make a copy of the input. If
+                boolean indicating whether or not to copy the input. If
                 <code class="docutils literal notranslate">
                  <span class="pre">
                   True
                  </span>
                 </code>
-                , always copies. If
+                , the function must always copy. If
                 <code class="docutils literal notranslate">
                  <span class="pre">
                   False
                  </span>
                 </code>
-                , never copies for input which supports DLPack or the buffer protocol, and raises
+                , the function must never copy for input which supports DLPack or the buffer protocol and must raise a
                 <code class="docutils literal notranslate">
                  <span class="pre">
                   ValueError
                  </span>
                 </code>
-                in case that would be necessary. If
+                in case a copy would be necessary. If
                 <code class="docutils literal notranslate">
                  <span class="pre">
                   None
                  </span>
                 </code>
-                , reuses existing memory buffer if possible, copies otherwise. Default:
+                , the function must reuse existing memory buffer if possible and copy otherwise. Default:
                 <code class="docutils literal notranslate">
                  <span class="pre">
                   None
@@ -1620,7 +1681,7 @@ An object supporting the buffer protocol can be turned into a memoryview through
              <ul>
               <li>
                <p>
-                An array containing the data from
+                an array containing the data from
                 <code class="docutils literal notranslate">
                  <span class="pre">
                   obj
