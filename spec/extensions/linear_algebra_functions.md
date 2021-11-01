@@ -172,8 +172,7 @@ Returns the specified diagonals of a matrix (or a stack of matrices) `x`.
 
 Returns the eigenvalues and eigenvectors x = QLQᵀ of a symmetric matrix (or a stack of matrices) `x`, where `Q` is an orthogonal matrix (or a stack of matrices) and `L` is a vector (or a stack of vectors).
 
-<!-- NOTE: once complex number support, each matrix must be Hermitian and the returned Q unitary.
-           We might also want to make the dtype of `eigenvalues` unconditionally real -->
+<!-- NOTE: once complex number support, each matrix must be Hermitian and the returned Q unitary. We might also want to make the dtype of `eigenvalues` unconditionally real -->
 
 #### Parameters
 
