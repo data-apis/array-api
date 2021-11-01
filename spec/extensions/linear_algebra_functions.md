@@ -126,7 +126,7 @@ Returns the cross product of 3-element vectors. If `x1` and `x2` are multi-dimen
 (function-linalg-det)=
 ### linalg.det(x, /)
 
-Returns the determinant of a square matrix (or a stack of matrices) `x`.
+Returns the determinant of a square matrix (or a stack of square matrices) `x`.
 
 #### Parameters
 
