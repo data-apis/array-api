@@ -36,6 +36,10 @@ To index a single array axis, an array must support standard Python indexing rul
 
 -   Colons `:` must be used for [slices](https://docs.python.org/3/library/functions.html#slice): `start:stop:step`, where `start` is inclusive and `stop` is exclusive.
 
+```{note}
+The specification does not support returning scalar (i.e., non-array) values from operations, including indexing. In contrast to standard Python indexing rules, for any index, or combination of indices, which select a single value, the result must be a zero-dimensional array containing the selected value.
+```
+
 ### Slice Syntax
 
 The basic slice syntax is `i:j:k` where `i` is the starting index, `j` is the stopping index, and `k` is the step (`k != 0`). A slice may contain either one or two colons, with either an integer value or nothing on either side of each colon. The following are valid slices.
