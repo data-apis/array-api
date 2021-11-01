@@ -12,13 +12,13 @@ A conforming implementation of the array API standard must provide and support t
 
 <!-- NOTE: please keep the functions in alphabetical order -->
 
-(function-unique)=
-### unique(x, /, *, return_counts=False, return_index=False, return_inverse=False)
+(function-unique-all)=
+### unique_all(x, /)
 
 :::{admonition} Data-dependent output shape
 :class: important
 
-The shapes of one or more of output arrays for this function depend on the data values in the input array; hence, array libraries which build computation graphs (e.g., JAX, Dask, etc.) may find this function difficult to implement without knowing array values. Accordingly, such libraries may choose to omit this function. See {ref}`data-dependent-output-shapes` section for more details.
+The shapes of two of the output arrays for this function depend on the data values in the input array; hence, array libraries which build computation graphs (e.g., JAX, Dask, etc.) may find this function difficult to implement without knowing array values. Accordingly, such libraries may choose to omit this function. See {ref}`data-dependent-output-shapes` section for more details.
 :::
 
 Returns the unique elements of an input array `x`.
@@ -29,40 +29,74 @@ Returns the unique elements of an input array `x`.
 
     -   input array. If `x` has more than one dimension, the function must flatten `x` and return the unique elements of the flattened array.
 
--   **return_counts**: _bool_
+#### Returns
 
-    -   If `True`, the function must also return the number of times each unique element occurs in `x`. Default: `False`.
+-   **out**: _Tuple\[ &lt;array&gt;, &lt;array&gt;, &lt;array&gt;, &lt;array&gt; ]_
 
--   **return_index**: _bool_
+    -   a namedtuple `(values, indices, inverse_indices, counts)` whose
 
-    -   If `True`, the function must also return the indices (first occurrences) of `x` that result in the unique array. Default: `False`.
+        -   first element must have the field name `values` and must be an array containing the unique elements of `x`. The array must have the same data type as `x`.
+        -   second element must have the field name `indices` and must be an array containing the indices (first occurrences) of `x` that result in `values`. The array must have the same shape as `values` and must have the default integer data type.
+        -   third element must have the field name `inverse_indices` and must be an array containing the indices of `values` that reconstruct `x`. The array must have the same shape as `x` and must have the default integer data type.
+        -   fourth element must have the field name `counts` and must be an array containing the number of times each unique element occurs in `x`. The returned array must have same shape as `values` and must have the default integer data type.
 
--   **return_inverse**: _bool_
+        ```{note}
+        The order of unique elements is not specified and may vary between implementations.
+        ```
 
-    -   If `True`, the function must also return the indices of the unique array that reconstruct `x`. Default: `False`.
+(function-unique-inverse)=
+### unique_inverse(x, /)
+
+Returns the unique elements of an input array `x` and the indices from the set of unique elements that reconstruct `x`.
+
+:::{admonition} Data-dependent output shape
+:class: important
+
+The shape of one of the output arrays for this function depends on the data values in the input array; hence, array libraries which build computation graphs (e.g., JAX, Dask, etc.) may find this function difficult to implement without knowing array values. Accordingly, such libraries may choose to omit this function. See {ref}`data-dependent-output-shapes` section for more details.
+:::
+
+#### Parameters
+
+-   **x**: _&lt;array&gt;_
+
+    -   input array. If `x` has more than one dimension, the function must flatten `x` and return the unique elements of the flattened array.
 
 #### Returns
 
--   **out**: _Union\[ &lt;array&gt;, Tuple\[ &lt;array&gt;, ... ] ]_
+-   **out**: _Tuple\[ &lt;array&gt;, &lt;array&gt; ]_
 
-    -   if `return_counts`, `return_index`, and `return_inverse` are all `False`, an array containing the set of unique elements in `x`; otherwise, a tuple containing two or more of the following arrays (in order):
+    -   a namedtuple `(values, inverse_indices)` whose
 
-        -   **unique**: _&lt;array&gt;_
+        -   first element must have the field name `values` and must be an array containing the unique elements of `x`. The array must have the same data type as `x`.
+        -   second element must have the field name `inverse_indices` and must be an array containing the indices of `values` that reconstruct `x`. The array must have the same shape as `x` and have the default integer data type.
 
-            -   an array containing the set of unique elements in `x`. The returned array must have the same data type as `x`.
+        ```{note}
+        The order of unique elements is not specified and may vary between implementations.
+        ```
 
-            ```{note}
-            The order of elements is not specified, and may vary between implementations.
-            ```
+(function-unique-values)=
+### unique_values(x, /)
 
-        -   **indices**: _&lt;array&gt;_
+:::{admonition} Data-dependent output shape
+:class: important
 
-            -   an array containing the indices (first occurrences) of `x` that result in `unique`. The returned array must have the default integer data type.
+The shape of the output array for this function depends on the data values in the input array; hence, array libraries which build computation graphs (e.g., JAX, Dask, etc.) may find this function difficult to implement without knowing array values. Accordingly, such libraries may choose to omit this function. See {ref}`data-dependent-output-shapes` section for more details.
+:::
 
-        -   **inverse**: _&lt;array&gt;_
+Returns the unique elements of an input array `x`.
 
-            -   an array containing the indices of `unique` that reconstruct `x`. The returned array must have the default integer data type.
+#### Parameters
 
-        -   **counts**: _&lt;array&gt;_
+-   **x**: _&lt;array&gt;_
 
-            -   an array containing the number of times each unique element occurs in `x`. The returned array must have the default integer data type.
+    -   input array. If `x` has more than one dimension, the function must flatten `x` and return the unique elements of the flattened array.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array containing the set of unique elements in `x`. The returned array must have the same data type as `x`.
+
+        ```{note}
+        The order of unique elements is not specified and may vary between implementations.
+        ```
