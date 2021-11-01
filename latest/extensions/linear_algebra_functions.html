@@ -1562,13 +1562,25 @@
            </a>
           </h3>
           <p>
-           Returns the Cholesky decomposition of a symmetric positive-definite matrix (or a stack of symmetric positive-definite matrices)
+           Returns the lower (upper) Cholesky decomposition x = LLᵀ (x = UᵀU) of a symmetric positive-definite matrix (or a stack of matrices)
            <code class="docutils literal notranslate">
             <span class="pre">
              x
             </span>
            </code>
-           .
+           , where
+           <code class="docutils literal notranslate">
+            <span class="pre">
+             L
+            </span>
+           </code>
+           is a lower-triangular matrix or a stack of matrices (
+           <code class="docutils literal notranslate">
+            <span class="pre">
+             U
+            </span>
+           </code>
+           is an upper-triangular matrix or a stack of matrices).
           </p>
           <!-- NOTE: once complex numbers are supported, each square matrix must be Hermitian. -->
           <section id="parameters">
@@ -1628,13 +1640,25 @@
                   True
                  </span>
                 </code>
-                , the result must be the upper-triangular Cholesky factor. If
+                , the result must be the upper-triangular Cholesky factor
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  U
+                 </span>
+                </code>
+                . If
                 <code class="docutils literal notranslate">
                  <span class="pre">
                   False
                  </span>
                 </code>
-                , the result must be the lower-triangular Cholesky factor. Default:
+                , the result must be the lower-triangular Cholesky factor
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  L
+                 </span>
+                </code>
+                . Default:
                 <code class="docutils literal notranslate">
                  <span class="pre">
                   False
@@ -1668,13 +1692,25 @@
              <ul>
               <li>
                <p>
-                an array containing the Cholesky factors for each square matrix. The returned array must have a floating-point data type determined by
+                an array containing the Cholesky factors for each square matrix. If
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  upper
+                 </span>
+                </code>
+                is
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  False
+                 </span>
+                </code>
+                , the returned array must contain lower-triangular matrices; otherwise, the returned array must contain upper-triangular matrices. The returned array must have a floating-point data type determined by
                 <a class="reference internal" href="../API_specification/type_promotion.html#type-promotion">
                  <span class="std std-ref">
                   Type Promotion Rules
                  </span>
                 </a>
-                and shape as
+                and must have the same shape as
                 <code class="docutils literal notranslate">
                  <span class="pre">
                   x
@@ -1857,7 +1893,7 @@
            </a>
           </h3>
           <p>
-           Returns the determinant of a square matrix (or stack of square matrices)
+           Returns the determinant of a square matrix (or a stack of square matrices)
            <code class="docutils literal notranslate">
             <span class="pre">
              x
@@ -2132,15 +2168,27 @@
            </a>
           </h3>
           <p>
-           Returns the eigenvalues and eigenvectors of a symmetric matrix (or a stack of symmetric matrices)
+           Returns the eigenvalues and eigenvectors x = QLQᵀ of a symmetric matrix (or a stack of symmetric matrices)
            <code class="docutils literal notranslate">
             <span class="pre">
              x
             </span>
            </code>
-           .
+           , where
+           <code class="docutils literal notranslate">
+            <span class="pre">
+             Q
+            </span>
+           </code>
+           is an orthogonal matrix (or a stack of matrices) and
+           <code class="docutils literal notranslate">
+            <span class="pre">
+             L
+            </span>
+           </code>
+           is a vector (or a stack of vectors).
           </p>
-          <!-- NOTE: once complex number support, each matrix must be Hermitian -->
+          <!-- NOTE: once complex number support, each matrix must be Hermitian and the returned Q unitary. We might also want to make the dtype of `eigenvalues` unconditionally real -->
           <section id="id8">
            <h4 id="id8">
             Parameters
@@ -2225,7 +2273,13 @@
                     eigenvalues
                    </span>
                   </code>
-                  and must be an array consisting of computed eigenvalues. The array containing the eigenvalues must have shape
+                  (corresponding to
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    L
+                   </span>
+                  </code>
+                  above) and must be an array consisting of computed eigenvalues. The array containing the eigenvalues must have shape
                   <code class="docutils literal notranslate">
                    <span class="pre">
                     (...,
@@ -2245,7 +2299,13 @@
                     eigenvectors
                    </span>
                   </code>
-                  and must be an array where the columns of the inner most matrices contain the computed eigenvectors. The array containing the eigenvectors must have shape
+                  (corresponding to
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    Q
+                   </span>
+                  </code>
+                  above) and must be an array where the columns of the inner most matrices contain the computed eigenvectors. These matrices must be orthogonal. The array containing the eigenvectors must have shape
                   <code class="docutils literal notranslate">
                    <span class="pre">
                     (...,
@@ -2309,7 +2369,7 @@ as it requires complex number support.
            </a>
           </h3>
           <p>
-           Computes the eigenvalues of a symmetric matrix (or a stack of symmetric matrices)
+           Returns the eigenvalues of a symmetric matrix (or a stack of symmetric matrices)
            <code class="docutils literal notranslate">
             <span class="pre">
              x
@@ -2435,7 +2495,7 @@ as it requires complex number support.
            </a>
           </h3>
           <p>
-           Computes the multiplicative inverse of a square matrix (or a stack of square matrices)
+           Returns the multiplicative inverse of a square matrix (or a stack of square matrices)
            <code class="docutils literal notranslate">
             <span class="pre">
              x
@@ -3099,7 +3159,7 @@ as it requires complex number support.
            </a>
           </h3>
           <p>
-           Computes the rank (i.e., number of non-zero singular values) of a matrix (or a stack of matrices).
+           Returns the rank (i.e., number of non-zero singular values) of a matrix (or a stack of matrices).
           </p>
           <section id="id18">
            <h4 id="id18">
@@ -3334,7 +3394,7 @@ as it requires complex number support.
            </a>
           </h3>
           <p>
-           Computes the outer product of two vectors
+           Returns the outer product of two vectors
            <code class="docutils literal notranslate">
             <span class="pre">
              x1
@@ -3460,7 +3520,7 @@ as it requires complex number support.
            </a>
           </h3>
           <p>
-           Computes the (Moore-Penrose) pseudo-inverse of a matrix (or a stack of square matrices)
+           Returns the (Moore-Penrose) pseudo-inverse of a matrix (or a stack of matrices)
            <code class="docutils literal notranslate">
             <span class="pre">
              x
@@ -3688,16 +3748,22 @@ as it requires complex number support.
            </a>
           </h3>
           <p>
-           Computes the qr factorization of a matrix (or a stack of matrices), where
+           Returns the qr decomposition x = QR of a matrix (or a stack of matrices)
            <code class="docutils literal notranslate">
             <span class="pre">
-             q
+             x
+            </span>
+           </code>
+           , where
+           <code class="docutils literal notranslate">
+            <span class="pre">
+             Q
             </span>
            </code>
            is an orthonormal matrix (or a stack of matrices) and
            <code class="docutils literal notranslate">
             <span class="pre">
-             r
+             R
             </span>
            </code>
            is an upper-triangular matrix (or a stack of matrices).
@@ -3759,7 +3825,7 @@ as it requires complex number support.
              <ul>
               <li>
                <p>
-                factorization mode. Should be one of the following modes:
+                decomposition mode. Should be one of the following modes:
                </p>
                <ul class="simple">
                 <li>
@@ -3943,7 +4009,7 @@ as it requires complex number support.
                     mode
                    </span>
                   </code>
-                  and contain orthonormal matrices. If
+                  and contain matrices with orthonormal columns. If
                   <code class="docutils literal notranslate">
                    <span class="pre">
                     mode
@@ -4012,7 +4078,7 @@ as it requires complex number support.
                     x.ndim-2
                    </span>
                   </code>
-                  dimensions must have the same size as those of the input
+                  dimensions must have the same size as those of the input array
                   <code class="docutils literal notranslate">
                    <span class="pre">
                     x
@@ -4594,25 +4660,31 @@ as it requires complex number support.
            </a>
           </h3>
           <p>
-           Computes the singular value decomposition
-           <code class="docutils literal notranslate">
-            <span class="pre">
-             A
-            </span>
-            <span class="pre">
-             =
-            </span>
-            <span class="pre">
-             USVh
-            </span>
-           </code>
-           of a matrix (or a stack of matrices)
+           Returns the singular value decomposition A = USVh of a matrix (or a stack of matrices)
            <code class="docutils literal notranslate">
             <span class="pre">
              x
             </span>
            </code>
-           .
+           where
+           <code class="docutils literal notranslate">
+            <span class="pre">
+             U
+            </span>
+           </code>
+           is a matrix (or a stack of matrices) with orthonormal columns,
+           <code class="docutils literal notranslate">
+            <span class="pre">
+             S
+            </span>
+           </code>
+           is a vector of non-negative numbers (or stack of vectors), and
+           <code class="docutils literal notranslate">
+            <span class="pre">
+             Vh
+            </span>
+           </code>
+           is a matrix (or a stack of matrices) with orthonormal rows.
           </p>
           <section id="id30">
            <h4 id="id30">
@@ -4674,19 +4746,19 @@ as it requires complex number support.
                 , compute full-sized
                 <code class="docutils literal notranslate">
                  <span class="pre">
-                  u
+                  U
                  </span>
                 </code>
                 and
                 <code class="docutils literal notranslate">
                  <span class="pre">
-                  vh
+                  Vh
                  </span>
                 </code>
                 , such that
                 <code class="docutils literal notranslate">
                  <span class="pre">
-                  u
+                  U
                  </span>
                 </code>
                 has shape
@@ -4704,7 +4776,7 @@ as it requires complex number support.
                 and
                 <code class="docutils literal notranslate">
                  <span class="pre">
-                  vh
+                  Vh
                  </span>
                 </code>
                 has shape
@@ -4734,7 +4806,7 @@ as it requires complex number support.
                 singular vectors, such that
                 <code class="docutils literal notranslate">
                  <span class="pre">
-                  u
+                  U
                  </span>
                 </code>
                 has shape
@@ -4752,7 +4824,7 @@ as it requires complex number support.
                 and
                 <code class="docutils literal notranslate">
                  <span class="pre">
-                  vh
+                  Vh
                  </span>
                 </code>
                 has shape
@@ -4802,6 +4874,7 @@ as it requires complex number support.
              ¶
             </a>
            </h4>
+           <!-- NOTE: once complex number support, each U, Vh must be unitary and we might want to make the returned dtype of `S` unconditionally real -->
            <ul>
             <li>
              <p>
@@ -4810,7 +4883,7 @@ as it requires complex number support.
               </strong>
               :
               <em>
-               Tuple[ &lt;array&gt;, &lt;array&gt;, &lt;array&gt; ]
+               Union[ &lt;array&gt;, Tuple[ &lt;array&gt;, … ] ]
               </em>
              </p>
              <ul>
@@ -4845,7 +4918,7 @@ as it requires complex number support.
                     full_matrices
                    </span>
                   </code>
-                  and contain unitary array(s) (i.e., the left singular vectors). The left singular vectors must be stored as columns. If
+                  and contain matrices with orthonormal columns (i.e., the columns are left singular vectors). If
                   <code class="docutils literal notranslate">
                    <span class="pre">
                     full_matrices
@@ -4993,7 +5066,7 @@ as it requires complex number support.
                     full_matrices
                    </span>
                   </code>
-                  and contain unitary array(s) (i.e., the right singular vectors). The right singular vectors must be stored as rows (i.e., the array is the adjoint). If
+                  and contain orthonormal rows (i.e., the rows are the right singular vectors and the array is the adjoint). If
                   <code class="docutils literal notranslate">
                    <span class="pre">
                     full_matrices
@@ -5097,7 +5170,7 @@ as it requires complex number support.
            </a>
           </h3>
           <p>
-           Computes the singular values of a matrix (or a stack of matrices)
+           Returns the singular values of a matrix (or a stack of matrices)
            <code class="docutils literal notranslate">
             <span class="pre">
              x
