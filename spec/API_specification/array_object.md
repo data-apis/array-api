@@ -458,8 +458,9 @@ Exports the array for consumption by {ref}`function-from_dlpack` as a DLPack cap
 
         For other device types which do have a stream, queue or similar synchronization mechanism, the most appropriate type to use for `stream` is not yet determined. E.g., for SYCL one may want to use an object containing an in-order `cl::sycl::queue`. This is allowed when libraries agree on such a convention, and may be standardized in a future version of this API standard.
 
-        Support for any `stream` value other than `None` is optional and up to each library in question.
-
+        ```{note}
+        Support for a `stream` value other than `None` is optional and implementation-dependent.
+        ```
         Device-specific notes:
 
         :::{admonition} CUDA
@@ -1231,7 +1232,7 @@ Copy the array from the device on which it currently resides to the specified `d
 
 -   **stream**: _Optional\[ Union\[ int, Any ]]_
 
-    -   stream object to use during copy. In addition to the supported types as discussed in {ref}`method-__dlpack__`, any library-specific stream object is also allowed to be used here, with the caveat that using such an object would make the code non-portable.
+    -   stream object to use during copy. In addition to the types supported in {ref}`method-__dlpack__`, implementations may choose to support any library-specific stream object with the caveat that any code using such an object would not be portable.
 
 #### Returns
 
@@ -1240,5 +1241,5 @@ Copy the array from the device on which it currently resides to the specified `d
     -   an array with the same data and data type as `self` and located on the specified `device`.
 
 ```{note}
-If `stream` is given, the copy operation should be enqueued on the provided `stream`; otherwise, the copy operation should be enqueued on the default stream/queue. Whether the copy is performed synchronously or asynchronously is library dependent. As a result, if synchronization is required to guarantee data safety, this should be clearly explained in a conforming library's documentation.
+If `stream` is given, the copy operation should be enqueued on the provided `stream`; otherwise, the copy operation should be enqueued on the default stream/queue. Whether the copy is performed synchronously or asynchronously is implementation-dependent. Accordingly, if synchronization is required to guarantee data safety, this must be clearly explained in a conforming library's documentation.
 ```

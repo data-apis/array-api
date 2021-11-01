@@ -57,6 +57,8 @@ In the current API standard, the only way to obtain a `Device` object is from th
 not provide a means of instantiating a `Device` object to point to a specific physical or
 logical device.
 
+The choice to not include a standardized `Device` object may be revisited in a future revision of this standard.
+
 For array libraries which concern themselves with multi-device support, including CPU and GPU,
 they are free to expose a library-specific device object (e.g., for creating an
 array on a particular device). While a library-specific device object can be used as input to
