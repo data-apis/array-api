@@ -1021,8 +1021,8 @@
                       </nav>
                      </li>
                      <li class="md-nav__item">
-                      <a class="md-nav__link" href="#to-device-self-device">
-                       to_device(self, device, /)
+                      <a class="md-nav__link" href="#to-device-self-device-stream-none">
+                       to_device(self, device, /, *, stream=None)
                       </a>
                       <nav class="md-nav">
                        <ul class="md-nav__list">
@@ -1942,8 +1942,8 @@
                  </nav>
                 </li>
                 <li class="md-nav__item">
-                 <a class="md-nav__link" href="#to-device-self-device">
-                  to_device(self, device, /)
+                 <a class="md-nav__link" href="#to-device-self-device-stream-none">
+                  to_device(self, device, /, *, stream=None)
                  </a>
                  <nav class="md-nav">
                   <ul class="md-nav__list">
@@ -5473,6 +5473,26 @@ an array object supporting the following reflected operators:
                 </code>
                 . This is allowed when libraries agree on such a convention, and may be standardized in a future version of this API standard.
                </p>
+               <div class="admonition note">
+                <p class="admonition-title">
+                 Note
+                </p>
+                <p>
+                 Support for a
+                 <code class="docutils literal notranslate">
+                  <span class="pre">
+                   stream
+                  </span>
+                 </code>
+                 value other than
+                 <code class="docutils literal notranslate">
+                  <span class="pre">
+                   None
+                  </span>
+                 </code>
+                 is optional and implementation-dependent.
+                </p>
+               </div>
                <p>
                 Device-specific notes:
                </p>
@@ -11780,17 +11800,23 @@ cost of more synchronization than necessary.
            </div>
           </section>
          </section>
-         <section id="to-device-self-device">
+         <section id="to-device-self-device-stream-none">
           <span id="method-to-device">
           </span>
-          <h3 id="to-device-self-device">
-           to_device(self, device, /)
-           <a class="headerlink" href="#to-device-self-device" title="Permalink to this headline">
+          <h3 id="to-device-self-device-stream-none">
+           to_device(self, device, /, *, stream=None)
+           <a class="headerlink" href="#to-device-self-device-stream-none" title="Permalink to this headline">
             ¶
            </a>
           </h3>
           <p>
-           Move the array to the given device.
+           Copy the array from the device on which it currently resides to the specified
+           <code class="docutils literal notranslate">
+            <span class="pre">
+             device
+            </span>
+           </code>
+           .
           </p>
           <section id="id75">
            <h4 id="id75">
@@ -11848,6 +11874,30 @@ cost of more synchronization than necessary.
               </li>
              </ul>
             </li>
+            <li>
+             <p>
+              <strong>
+               stream
+              </strong>
+              :
+              <em>
+               Optional[ Union[ int, Any ]]
+              </em>
+             </p>
+             <ul>
+              <li>
+               <p>
+                stream object to use during copy. In addition to the types supported in
+                <a class="reference internal" href="#method-dlpack">
+                 <span class="std std-ref">
+                  __dlpack__(self, /, *, stream=None)
+                 </span>
+                </a>
+                , implementations may choose to support any library-specific stream object with the caveat that any code using such an object would not be portable.
+               </p>
+              </li>
+             </ul>
+            </li>
            </ul>
           </section>
           <section id="id76">
@@ -11871,12 +11921,44 @@ cost of more synchronization than necessary.
              <ul>
               <li>
                <p>
-                an array with the same data and dtype, located on the specified device.
+                an array with the same data and data type as
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  self
+                 </span>
+                </code>
+                and located on the specified
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  device
+                 </span>
+                </code>
+                .
                </p>
               </li>
              </ul>
             </li>
            </ul>
+           <div class="admonition note">
+            <p class="admonition-title">
+             Note
+            </p>
+            <p>
+             If
+             <code class="docutils literal notranslate">
+              <span class="pre">
+               stream
+              </span>
+             </code>
+             is given, the copy operation should be enqueued on the provided
+             <code class="docutils literal notranslate">
+              <span class="pre">
+               stream
+              </span>
+             </code>
+             ; otherwise, the copy operation should be enqueued on the default stream/queue. Whether the copy is performed synchronously or asynchronously is implementation-dependent. Accordingly, if synchronization is required to guarantee data safety, this must be clearly explained in a conforming library’s documentation.
+            </p>
+           </div>
           </section>
          </section>
         </section>

@@ -458,6 +458,10 @@ Exports the array for consumption by {ref}`function-from_dlpack` as a DLPack cap
 
         For other device types which do have a stream, queue or similar synchronization mechanism, the most appropriate type to use for `stream` is not yet determined. E.g., for SYCL one may want to use an object containing an in-order `cl::sycl::queue`. This is allowed when libraries agree on such a convention, and may be standardized in a future version of this API standard.
 
+        ```{note}
+        Support for a `stream` value other than `None` is optional and implementation-dependent.
+        ```
+
         Device-specific notes:
 
         :::{admonition} CUDA
@@ -1213,9 +1217,9 @@ Element-wise results must equal the results returned by the equivalent element-w
 ```
 
 (method-to_device)=
-### to\_device(self, device, /)
+### to\_device(self, device, /, *, stream=None)
 
-Move the array to the given device.
+Copy the array from the device on which it currently resides to the specified `device`.
 
 #### Parameters
 
@@ -1227,8 +1231,16 @@ Move the array to the given device.
 
     -   a `device` object (see {ref}`device-support`).
 
+-   **stream**: _Optional\[ Union\[ int, Any ]]_
+
+    -   stream object to use during copy. In addition to the types supported in {ref}`method-__dlpack__`, implementations may choose to support any library-specific stream object with the caveat that any code using such an object would not be portable.
+
 #### Returns
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array with the same data and dtype, located on the specified device.
+    -   an array with the same data and data type as `self` and located on the specified `device`.
+
+```{note}
+If `stream` is given, the copy operation should be enqueued on the provided `stream`; otherwise, the copy operation should be enqueued on the default stream/queue. Whether the copy is performed synchronously or asynchronously is implementation-dependent. Accordingly, if synchronization is required to guarantee data safety, this must be clearly explained in a conforming library's documentation.
+```

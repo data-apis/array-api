@@ -559,23 +559,10 @@ instance of a
             A
             <code class="docutils literal notranslate">
              <span class="pre">
-              .to_device(device)
+              .to_device
              </span>
             </code>
-            method on the array object, with
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              device
-             </span>
-            </code>
-            again being
-a
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              Device
-             </span>
-            </code>
-            object, to move an array to a different device.
+            method on the array object to copy an array to a different device.
            </p>
           </li>
          </ol>
@@ -584,7 +571,7 @@ a
            Note
           </p>
           <p>
-           The only way to obtain a
+           In the current API standard, the only way to obtain a
            <code class="docutils literal notranslate">
             <span class="pre">
              Device
@@ -596,15 +583,46 @@ a
              .device
             </span>
            </code>
-           property on
-the array object, hence there is no
+           property on the array object. The standard does
+           <strong>
+            not
+           </strong>
+           include a universal
            <code class="docutils literal notranslate">
             <span class="pre">
              Device
             </span>
            </code>
-           object in the array API itself
-that can be instantiated to point to a specific physical or logical device.
+           object recognized by all compliant libraries. Accordingly, the standard does
+not provide a means of instantiating a
+           <code class="docutils literal notranslate">
+            <span class="pre">
+             Device
+            </span>
+           </code>
+           object to point to a specific physical or
+logical device.
+          </p>
+          <p>
+           The choice to not include a standardized
+           <code class="docutils literal notranslate">
+            <span class="pre">
+             Device
+            </span>
+           </code>
+           object may be revisited in a future revision of this standard.
+          </p>
+          <p>
+           For array libraries which concern themselves with multi-device support, including CPU and GPU,
+they are free to expose a library-specific device object (e.g., for creating an
+array on a particular device). While a library-specific device object can be used as input to
+           <code class="docutils literal notranslate">
+            <span class="pre">
+             to_device
+            </span>
+           </code>
+           , beware that this will mean non-portability as code will be specific to
+that library.
           </p>
          </div>
         </section>
