@@ -17,21 +17,18 @@ To index a single array axis, an array must support standard Python indexing rul
 -   **Valid** nonnegative indices must reside on the half-open interval `[0, n)`.
 
     ```{note}
-
     This specification does not require bounds checking. The behavior for out-of-bounds integer indices is left unspecified.
     ```
 
 -   Negative indices must count backward from the last array index, starting from `-1` (i.e., negative-one-based indexing, where `-1` refers to the last array index).
 
     ```{note}
-
     A negative index `j` is equivalent to `n-j`; the former is syntactic sugar for the latter, providing a shorthand for indexing elements that would otherwise need to be specified in terms of the axis (dimension) size.
     ```
 
 -   **Valid** negative indices must reside on the closed interval `[-n, -1]`.
 
     ```{note}
-
     This specification does not require bounds checking. The behavior for out-of-bounds integer indices is left unspecified.
     ```
 
