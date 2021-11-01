@@ -170,7 +170,7 @@ Returns the specified diagonals of a matrix (or a stack of matrices) `x`.
 (function-linalg-eigh)=
 ### linalg.eigh(x, /)
 
-Returns the eigenvalues and eigenvectors x = QLQᵀ of a symmetric matrix (or a stack of matrices) `x`, where `Q` is an orthogonal matrix (or a stack of matrices) and `L` is a vector (or a stack of vectors).
+Returns the eigenvalues and eigenvectors x = QLQᵀ of a symmetric matrix (or a stack of symmetric matrices) `x`, where `Q` is an orthogonal matrix (or a stack of matrices) and `L` is a vector (or a stack of vectors).
 
 <!-- NOTE: once complex number support, each matrix must be Hermitian and the returned Q unitary. We might also want to make the dtype of `eigenvalues` unconditionally real -->
 
@@ -204,7 +204,7 @@ as it requires complex number support.
 (function-linalg-eigvalsh)=
 ### linalg.eigvalsh(x, /)
 
-Returns the eigenvalues of a symmetric matrix (or a stack of matrices) `x`.
+Returns the eigenvalues of a symmetric matrix (or a stack of symmetric matrices) `x`.
 
 <!-- NOTE: once complex number support, each matrix must be Hermitian -->
 
@@ -233,7 +233,7 @@ as it requires complex number support.
 (function-linalg-inv)=
 ### linalg.inv(x, /)
 
-Returns the multiplicative inverse of a square matrix (or a stack of matrices) `x`.
+Returns the multiplicative inverse of a square matrix (or a stack of square matrices) `x`.
 
 #### Parameters
 
@@ -306,7 +306,7 @@ Computes the matrix norm of a matrix (or a stack of matrices) `x`.
 (function-linalg-matrix_power)=
 ### linalg.matrix_power(x, n, /)
 
-Raises a square matrix (or a stack of matrices) `x` to an integer power `n`.
+Raises a square matrix (or a stack of square matrices) `x` to an integer power `n`.
 
 #### Parameters
 
@@ -418,7 +418,7 @@ Returns the qr decomposition x = QR of a matrix (or a stack of matrices) `x`, wh
 
     -   a namedtuple `(q, r)` whose
 
-        -   first element must have the field name `q` and must be an array whose shape depends on the value of `mode` and contain matrices with orthonormal columns. If `mode` is `'complete'`, the array must have shape `(..., M, M)`. If `mode` is `'reduced'`, the array must have shape `(..., M, K)`, where `K = min(M, N)`. The first `x.ndim-2` dimensions must have the same size as those of the input `x`.
+        -   first element must have the field name `q` and must be an array whose shape depends on the value of `mode` and contain matrices with orthonormal columns. If `mode` is `'complete'`, the array must have shape `(..., M, M)`. If `mode` is `'reduced'`, the array must have shape `(..., M, K)`, where `K = min(M, N)`. The first `x.ndim-2` dimensions must have the same size as those of the input array `x`.
         -   second element must have the field name `r` and must be an array whose shape depends on the value of `mode` and contain upper-triangular matrices. If `mode` is `'complete'`, the array must have shape `(..., M, M)`. If `mode` is `'reduced'`, the array must have shape `(..., K, N)`, where `K = min(M, N)`. The first `x.ndim-2` dimensions must have the same size as those of the input `x`.
 
         Each returned array must have a floating-point data type determined by {ref}`type-promotion`.
@@ -426,7 +426,7 @@ Returns the qr decomposition x = QR of a matrix (or a stack of matrices) `x`, wh
 (function-linalg-slogdet)=
 ### linalg.slogdet(x, /)
 
-Returns the sign and the natural logarithm of the absolute value of the determinant of a square matrix (or a stack of matrices) `x`.
+Returns the sign and the natural logarithm of the absolute value of the determinant of a square matrix (or a stack of square matrices) `x`.
 
 ```{note}
 
