@@ -143,4 +143,5 @@ extlinks = {
     ),
     "durole": ("http://docutils.sourceforge.net/docs/ref/rst/" "roles.html#%s", ""),
     "dudir": ("http://docutils.sourceforge.net/docs/ref/rst/" "directives.html#%s", ""),
+    "pypa": ("https://packaging.python.org/%s", ""),
 }
