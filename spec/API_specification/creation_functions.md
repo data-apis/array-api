@@ -322,7 +322,7 @@ Returns coordinate matrices from coordinate vectors.
 
 -    **arrays**: _&lt;array&gt;_
 
-     -   an arbitrary number of one-dimensional arrays representing grid coordinates. Each array must have the same numeric data type.
+     -   an arbitrary number of one-dimensional arrays representing grid coordinates. Each array should have the same numeric data type.
 
 -    **indexing**: _str_
 
@@ -342,7 +342,7 @@ Returns coordinate matrices from coordinate vectors.
 
          Similarly, for the three-dimensional case with input one-dimensional arrays of length `M`, `N`, and `P`, if matrix indexing `ij`, then each returned array must have shape `(M, N, P)`, and, if Cartesian indexing `xy`, then each returned array must have shape `(N, M, P)`.
 
-         Each returned array must have the same data type as the input arrays.
+         Each returned array should have the same data type as the input arrays.
 
 (function-ones)=
 ### ones(shape, *, dtype=None, device=None)
