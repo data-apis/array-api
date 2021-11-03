@@ -1391,13 +1391,13 @@
               </strong>
               :
               <em>
-               Union[ &lt;array&gt;, bool, int, float, NestedSequence[ bool | int | float ], SupportsDLPack, SupportsBufferProtocol ]
+               Union[ &lt;array&gt;, bool, int, float, NestedSequence[ bool | int | float ], SupportsBufferProtocol ]
               </em>
              </p>
              <ul class="simple">
               <li>
                <p>
-                object to be converted to an array. May be a Python scalar, a (possibly nested) sequence of Python scalars, or an object supporting DLPack or the Python buffer protocol.
+                object to be converted to an array. May be a Python scalar, a (possibly nested) sequence of Python scalars, or an object supporting the Python buffer protocol.
                </p>
               </li>
              </ul>
@@ -1406,20 +1406,7 @@
                Tip
               </p>
               <p>
-               An object supporting DLPack has
-               <code class="docutils literal notranslate">
-                <span class="pre">
-                 __dlpack__
-                </span>
-               </code>
-               and
-               <code class="docutils literal notranslate">
-                <span class="pre">
-                 __dlpack_device__
-                </span>
-               </code>
-               methods.
-An object supporting the buffer protocol can be turned into a memoryview through
+               An object supporting the buffer protocol can be turned into a memoryview through
                <code class="docutils literal notranslate">
                 <span class="pre">
                  memoryview(obj)
@@ -1593,7 +1580,7 @@ An object supporting the buffer protocol can be turned into a memoryview through
                   x
                  </span>
                 </code>
-                is either an array or an object supporting DLPack, the output array device must be inferred from
+                is an array, the output array device must be inferred from
                 <code class="docutils literal notranslate">
                  <span class="pre">
                   x
@@ -1635,7 +1622,7 @@ An object supporting the buffer protocol can be turned into a memoryview through
                   False
                  </span>
                 </code>
-                , the function must never copy for input which supports DLPack or the buffer protocol and must raise a
+                , the function must never copy for input which supports the buffer protocol and must raise a
                 <code class="docutils literal notranslate">
                  <span class="pre">
                   ValueError
