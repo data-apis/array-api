@@ -153,12 +153,13 @@ an array object supporting the following in-place Python operators:
 - `<<=`. May be implemented via `__ilshift__`.
 - `>>=`. May be implemented via `__irshift__`.
 
-An in-place operation must follow all the special cases of its respective
-standard operation (e.g. `__radd__` has the same special case behaviour as
-`__add__`).
-
 An in-place operation must not change the dtype or shape of the in-place array
 as a result of {ref}`type-promotion` or {ref}`broadcasting`.
+
+An in-place operation must follow all the functionality of its respective
+standard operation (including special casing), e.g. the resulting array `x1`
+after in-place addition `x1 += x2` would always equal the result of standard
+addition `x1 + x2`.
 
 ```{note}
 
