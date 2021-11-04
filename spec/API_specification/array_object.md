@@ -234,13 +234,9 @@ Number of array dimensions (axes).
 
 #### Returns
 
--   **out**: _Optional\[ int ]_
+-   **out**: _int_
 
-    -   number of array dimensions (axes). The returned value must be `None` if and only if an array has unknown rank.
-
-```{note}
-For array libraries having graph-based computational models, an array may have an unknown rank due to operations which return an array having a data-dependent shape (e.g., returning an array of unique values).
-```
+    -   number of array dimensions (axes).
 
 (attribute-shape)=
 ### shape
@@ -249,9 +245,9 @@ Array dimensions.
 
 #### Returns
 
--   **out**: _Optional\[ Tuple\[ Optional\[ int ], ... ] ]_
+-   **out**: _Tuple\[ Optional\[ int ], ... ]_
 
-    -   array dimensions. The returned value must be `None` if and only if the rank of an array is unknown. An array dimension must be `None` if and only if a dimension is unknown.
+    -   array dimensions. An array dimension must be `None` if and only if a dimension is unknown.
 
 ```{note}
 For array libraries having graph-based computational models, array dimensions may be unknown due to data-dependent operations (e.g., boolean indexing; `A[:, B > 0]`) and thus cannot be statically resolved without knowing array contents.
@@ -274,10 +270,10 @@ This must equal the product of the array's dimensions.
 
 -   **out**: _Optional\[ int ]_
 
-    -   number of elements in an array. The returned value must be `None` if and only if the array rank or an array dimension is unknown.
+    -   number of elements in an array. The returned value must be `None` if and only if an array dimension is unknown.
 
 ```{note}
-For array libraries having graph-based computational models, an array may have unknown rank or dimensions due to data-dependent operations.
+For array libraries having graph-based computational models, an array may have unknown dimensions due to data-dependent operations.
 ```
 
 (attribute-T)=
