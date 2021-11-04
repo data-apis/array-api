@@ -3552,6 +3552,48 @@ as a result of
            </a>
            .
           </p>
+          <p>
+           An in-place operation must have the same behavior (including special cases) as
+its respective binary (i.e., two operand, non-assignment) operation. For example,
+after in-place addition
+           <code class="docutils literal notranslate">
+            <span class="pre">
+             x1
+            </span>
+            <span class="pre">
+             +=
+            </span>
+            <span class="pre">
+             x2
+            </span>
+           </code>
+           , the modified array
+           <code class="docutils literal notranslate">
+            <span class="pre">
+             x1
+            </span>
+           </code>
+           must always equal the
+result of the equivalent binary arithmetic operation
+           <code class="docutils literal notranslate">
+            <span class="pre">
+             x1
+            </span>
+            <span class="pre">
+             =
+            </span>
+            <span class="pre">
+             x1
+            </span>
+            <span class="pre">
+             +
+            </span>
+            <span class="pre">
+             x2
+            </span>
+           </code>
+           .
+          </p>
           <div class="admonition note">
            <p class="admonition-title">
             Note
