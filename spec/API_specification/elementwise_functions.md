@@ -449,6 +449,14 @@ Rounds each element `x_i` of the input array `x` to the smallest (i.e., closest 
 
 -   If `x_i` is already integer-valued, the result is `x_i`.
 
+For floating-point operands,
+
+-   If `x_i` is `+infinity`, the result is `+infinity`.
+-   If `x_i` is `-infinity`, the result is `-infinity`.
+-   If `x_i` is `+0`, the result is `+0`.
+-   If `x_i` is `-0`, the result is `-0`.
+-   If `x_i` is `NaN`, the result is `NaN`.
+
 #### Parameters
 
 -   **x**: _&lt;array&gt;_
@@ -650,6 +658,14 @@ Rounds each element `x_i` of the input array `x` to the greatest (i.e., closest 
 #### Special Cases
 
 -   If `x_i` is already integer-valued, the result is `x_i`.
+
+For floating-point operands,
+
+-   If `x_i` is `+infinity`, the result is `+infinity`.
+-   If `x_i` is `-infinity`, the result is `-infinity`.
+-   If `x_i` is `+0`, the result is `+0`.
+-   If `x_i` is `-0`, the result is `-0`.
+-   If `x_i` is `NaN`, the result is `NaN`.
 
 #### Parameters
 
@@ -1239,6 +1255,14 @@ Rounds each element `x_i` of the input array `x` to the nearest integer-valued n
 -   If `x_i` is already integer-valued, the result is `x_i`.
 -   If two integers are equally close to `x_i`, the result is the even integer closest to `x_i`.
 
+For floating-point operands,
+
+-   If `x_i` is `+infinity`, the result is `+infinity`.
+-   If `x_i` is `-infinity`, the result is `-infinity`.
+-   If `x_i` is `+0`, the result is `+0`.
+-   If `x_i` is `-0`, the result is `-0`.
+-   If `x_i` is `NaN`, the result is `NaN`.
+
 #### Parameters
 
 -   **x**: _&lt;array&gt;_
@@ -1453,6 +1477,14 @@ Rounds each element `x_i` of the input array `x` to the integer-valued number th
 #### Special Cases
 
 -   If `x_i` is already integer-valued, the result is `x_i`.
+
+For floating-point operands,
+
+-   If `x_i` is `+infinity`, the result is `+infinity`.
+-   If `x_i` is `-infinity`, the result is `-infinity`.
+-   If `x_i` is `+0`, the result is `+0`.
+-   If `x_i` is `-0`, the result is `-0`.
+-   If `x_i` is `NaN`, the result is `NaN`.
 
 #### Parameters
 
