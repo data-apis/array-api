@@ -23,6 +23,15 @@ The shapes of two of the output arrays for this function depend on the data valu
 
 Returns the unique elements of an input array `x`.
 
+```{note}
+Uniqueness should be determined based on value equality (i.e., `x_i == x_j`). For input arrays having floating-point data types, value-based equality implies the following behavior.
+
+-   As `nan` values compare as `False`, `nan` values should be considered distinct.
+-   As `-0` and `+0` compare as `True`, signed zeros should not be considered distinct, and the corresponding unique element will be implementation-dependent (e.g., an implementation could choose to return `-0` if `-0` occurs before `+0`).
+
+As signed zeros are not distinct, using `inverse_indices` to reconstruct the input array is not guaranteed to return an array having the exact same values. Furthermore, each `nan` value will have a count of one, while the counts for signed zeros will be aggregated as a single count.
+```
+
 #### Parameters
 
 -   **x**: _&lt;array&gt;_
@@ -47,13 +56,22 @@ Returns the unique elements of an input array `x`.
 (function-unique-inverse)=
 ### unique_inverse(x, /)
 
-Returns the unique elements of an input array `x` and the indices from the set of unique elements that reconstruct `x`.
-
 :::{admonition} Data-dependent output shape
 :class: important
 
 The shape of one of the output arrays for this function depends on the data values in the input array; hence, array libraries which build computation graphs (e.g., JAX, Dask, etc.) may find this function difficult to implement without knowing array values. Accordingly, such libraries may choose to omit this function. See {ref}`data-dependent-output-shapes` section for more details.
 :::
+
+Returns the unique elements of an input array `x` and the indices from the set of unique elements that reconstruct `x`.
+
+```{note}
+Uniqueness should be determined based on value equality (i.e., `x_i == x_j`). For input arrays having floating-point data types, value-based equality implies the following behavior.
+
+-   As `nan` values compare as `False`, `nan` values should be considered distinct.
+-   As `-0` and `+0` compare as `True`, signed zeros should not be considered distinct, and the corresponding unique element will be implementation-dependent (e.g., an implementation could choose to return `-0` if `-0` occurs before `+0`).
+
+As signed zeros are not distinct, using `inverse_indices` to reconstruct the input array is not guaranteed to return an array having the exact same values.
+```
 
 #### Parameters
 
@@ -84,6 +102,13 @@ The shape of the output array for this function depends on the data values in th
 :::
 
 Returns the unique elements of an input array `x`.
+
+```{note}
+Uniqueness should be determined based on value equality (i.e., `x_i == x_j`). For input arrays having floating-point data types, value-based equality implies the following behavior.
+
+-   As `nan` values compare as `False`, `nan` values should be considered distinct.
+-   As `-0` and `+0` compare as `True`, signed zeros should not be considered distinct, and the corresponding unique element will be implementation-dependent (e.g., an implementation could choose to return `-0` if `-0` occurs before `+0`).
+```
 
 #### Parameters
 
