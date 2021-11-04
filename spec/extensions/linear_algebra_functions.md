@@ -170,7 +170,7 @@ Returns the specified diagonals of a matrix (or a stack of matrices) `x`.
 (function-linalg-eigh)=
 ### linalg.eigh(x, /)
 
-Returns the eigenvalues and eigenvectors x = QLQᵀ of a symmetric matrix (or a stack of symmetric matrices) `x`, where `Q` is an orthogonal matrix (or a stack of matrices) and `L` is a vector (or a stack of vectors).
+Returns an eigendecomposition x = QLQᵀ of a symmetric matrix (or a stack of symmetric matrices) `x`, where `Q` is an orthogonal matrix (or a stack of matrices) and `L` is a vector (or a stack of vectors).
 
 <!-- NOTE: once complex number support, each matrix must be Hermitian and the returned Q unitary. We might also want to make the dtype of `eigenvalues` unconditionally real -->
 
@@ -192,7 +192,6 @@ Returns the eigenvalues and eigenvectors x = QLQᵀ of a symmetric matrix (or a 
         Each returned array must have the same floating-point data type as `x`.
 
 ```{note}
-
 Eigenvalue sort order is left unspecified.
 ```
 
@@ -221,7 +220,6 @@ Returns the eigenvalues of a symmetric matrix (or a stack of symmetric matrices)
     -   an array containing the computed eigenvalues. The returned array must have shape `(..., M)` and have the same data type as `x`.
 
 ```{note}
-
 Eigenvalue sort order is left unspecified.
 ```
 
@@ -395,13 +393,13 @@ Returns the (Moore-Penrose) pseudo-inverse of a matrix (or a stack of matrices) 
 (function-linalg-qr)=
 ### linalg.qr(x, /, *, mode='reduced')
 
-Returns the qr decomposition x = QR of a matrix (or a stack of matrices) `x`, where `Q` is an orthonormal matrix (or a stack of matrices) and `R` is an upper-triangular matrix (or a stack of matrices).
+Returns the qr decomposition x = QR of a full column rank matrix (or a stack of matrices), where `Q` is an orthonormal matrix (or a stack of matrices) and `R` is an upper-triangular matrix (or a stack of matrices).
 
 #### Parameters
 
 -   **x**: _&lt;array&gt;_
 
-    -   input array having shape `(..., M, N)` and whose innermost two dimensions form `MxN` matrices. Should have a floating-point data type.
+    -   input array having shape `(..., M, N)` and whose innermost two dimensions form `MxN` matrices of rank equal to `N`. Should have a floating-point data type.
 
 -   **mode**: _Literal\[ 'reduced', 'complete' ]_
 
@@ -429,7 +427,6 @@ Returns the qr decomposition x = QR of a matrix (or a stack of matrices) `x`, wh
 Returns the sign and the natural logarithm of the absolute value of the determinant of a square matrix (or a stack of square matrices) `x`.
 
 ```{note}
-
 The purpose of this function is to calculate the determinant more accurately when the determinant is either very small or very large, as calling `det` may overflow or underflow.
 ```
 
@@ -476,7 +473,7 @@ Returns the solution to the system of linear equations represented by the well-d
 (function-linalg-svd)=
 ### linalg.svd(x, /, *, full_matrices=True)
 
-Returns the singular value decomposition A = USVh of a matrix (or a stack of matrices) `x` where `U` is a matrix (or a stack of matrices) with orthonormal columns, `S` is a vector of non-negative numbers (or stack of vectors), and `Vh` is a matrix (or a stack of matrices) with orthonormal rows.
+Returns a singular value decomposition A = USVh of a matrix (or a stack of matrices) `x`, where `U` is a matrix (or a stack of matrices) with orthonormal columns, `S` is a vector of non-negative numbers (or stack of vectors), and `Vh` is a matrix (or a stack of matrices) with orthonormal rows.
 
 #### Parameters
 
