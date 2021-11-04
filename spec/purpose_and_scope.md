@@ -371,14 +371,7 @@ harder for users to write code that will work with multiple array libraries.
 
 ### Discoverability
 
-Libraries that wish to [create arrays](../API_specification/creation_functions.md)
-using multiple array libraries would still need to explicitly import each
-library, as [`__array_namespace__()`](method-__array_namespace__) only makes an
-API namespace accessible when consuming arrays.
-
-To address this issue, an {pypa}`entry point <specifications/entry-points/>` may
-be provided by a conforming implementation to make its API namespace
-discoverable:
+To assist array-consuming libraries which need to create arrays originating from multiple conforming array implementations, conforming implementations may provide an {pypa}`entry point <specifications/entry-points/>` in order to make an array API namespace discoverable:
 
 ```python
 from importlib.metadata import entry_points
@@ -394,11 +387,11 @@ except TypeError:
 xp = ep.load()
 ```
 
-The properties of an entry point should have:
+An entry point must have the following properties:
 
-- `array_api` as the **group**
-- The package name as the **name**
-- The import path to the API namespace as the **object reference**
+-   **group**: equal to `array_api`.
+-   **name**: equal to the package name.
+-   **object reference**: equal to the array API namespace import path.
 
 
 * * *
