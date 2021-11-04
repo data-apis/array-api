@@ -82,6 +82,10 @@ Returns the lower (upper) Cholesky decomposition x = LLᵀ (x = UᵀU) of a symm
 
 <!-- NOTE: once complex numbers are supported, each square matrix must be Hermitian. -->
 
+```{note}
+Whether an array library explicitly checks whether an input array is a symmetric positive-definite matrix (or a stack of matrices) is implementation-defined.
+```
+
 #### Parameters
 
 -   **x**: _&lt;array&gt;_
@@ -170,9 +174,17 @@ Returns the specified diagonals of a matrix (or a stack of matrices) `x`.
 (function-linalg-eigh)=
 ### linalg.eigh(x, /)
 
+```{note}
+The function `eig` will be added in a future version of the specification, as it requires complex number support.
+```
+
 Returns an eigendecomposition x = QLQᵀ of a symmetric matrix (or a stack of symmetric matrices) `x`, where `Q` is an orthogonal matrix (or a stack of matrices) and `L` is a vector (or a stack of vectors).
 
 <!-- NOTE: once complex number support, each matrix must be Hermitian and the returned Q unitary. We might also want to make the dtype of `eigenvalues` unconditionally real -->
+
+```{note}
+Whether an array library explicitly checks whether an input array is a symmetric matrix (or a stack of symmetric matrices) is implementation-defined.
+```
 
 #### Parameters
 
@@ -195,17 +207,20 @@ Returns an eigendecomposition x = QLQᵀ of a symmetric matrix (or a stack of sy
 Eigenvalue sort order is left unspecified.
 ```
 
-```{note}
-The function `eig` will be added in a future version of the specification,
-as it requires complex number support.
-```
-
 (function-linalg-eigvalsh)=
 ### linalg.eigvalsh(x, /)
+
+```{note}
+The function `eigvals` will be added in a future version of the specification, as it requires complex number support.
+```
 
 Returns the eigenvalues of a symmetric matrix (or a stack of symmetric matrices) `x`.
 
 <!-- NOTE: once complex number support, each matrix must be Hermitian -->
+
+```{note}
+Whether an array library explicitly checks whether an input array is a symmetric matrix (or a stack of symmetric matrices) is implementation-defined.
+```
 
 #### Parameters
 
@@ -221,11 +236,6 @@ Returns the eigenvalues of a symmetric matrix (or a stack of symmetric matrices)
 
 ```{note}
 Eigenvalue sort order is left unspecified.
-```
-
-```{note}
-The function `eigvals` will be added in a future version of the specification,
-as it requires complex number support.
 ```
 
 (function-linalg-inv)=
@@ -395,11 +405,15 @@ Returns the (Moore-Penrose) pseudo-inverse of a matrix (or a stack of matrices) 
 
 Returns the qr decomposition x = QR of a full column rank matrix (or a stack of matrices), where `Q` is an orthonormal matrix (or a stack of matrices) and `R` is an upper-triangular matrix (or a stack of matrices).
 
+```{note}
+Whether an array library explicitly checks whether an input array is a full column rank matrix (or a stack of full column rank matrices) is implementation-defined.
+```
+
 #### Parameters
 
 -   **x**: _&lt;array&gt;_
 
-    -   input array having shape `(..., M, N)` and whose innermost two dimensions form `MxN` matrices of rank equal to `N`. Should have a floating-point data type.
+    -   input array having shape `(..., M, N)` and whose innermost two dimensions form `MxN` matrices of rank `N`. Should have a floating-point data type.
 
 -   **mode**: _Literal\[ 'reduced', 'complete' ]_
 
@@ -453,6 +467,10 @@ The purpose of this function is to calculate the determinant more accurately whe
 ### linalg.solve(x1, x2, /)
 
 Returns the solution to the system of linear equations represented by the well-determined (i.e., full rank) linear matrix equation `AX = B`.
+
+```{note}
+Whether an array library explicitly checks whether an input array is full rank is implementation-defined.
+```
 
 #### Parameters
 
