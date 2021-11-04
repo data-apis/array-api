@@ -183,7 +183,6 @@ an array object supporting the following reflected operators:
 The results of applying reflected operators must match their non-reflected equivalents.
 
 ```{note}
-
 All operators for which `array <op> scalar` is implemented must have an equivalent reflected operator implementation.
 ```
 
@@ -214,6 +213,19 @@ Hardware device the array data resides on.
 -   **out**: _&lt;device&gt;_
 
     -   a `device` object (see {ref}`device-support`).
+
+(attribute-mT)=
+### mT
+
+Transpose of a matrix (or a stack of matrices).
+
+If an array instance has fewer than two dimensions, an error should be raised.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   array whose last two dimensions (axes) are permuted in reverse order relative to original array (i.e., for an array instance having shape `(..., M, N)`, the returned array must have shape `(..., N, M)`). The returned array must have the same data type as the original array.
 
 (attribute-ndim)=
 ### ndim
@@ -259,11 +271,17 @@ _TODO: need to more carefully consider this in order to accommodate, e.g., graph
 
 Transpose of the array.
 
+The array instance must be two-dimensional. If the array instance is not two-dimensional, an error should be raised.
+
+```{note}
+Limiting the transpose to two-dimensional arrays (matrices) deviates from the NumPy et al practice of reversing all axes for arrays having more than two-dimensions. This is intentional, as reversing all axes was found to be problematic (e.g., conflicting with the mathematical definition of a transpose which is limited to matrices; not operating on batches of matrices; et cetera). In order to reverse all axes, one is recommended to use the functional `permute_dims` interface found in this specification.
+```
+
 #### Returns
 
 -   **out**: _&lt;array&gt;_
 
-    -   array whose dimensions (axes) are permuted in reverse order relative to original array. The returned array must have the same data type as the original array.
+    -   two-dimensional array whose first and last dimensions (axes) are permuted in reverse order relative to original array. The returned array must have the same data type as the original array.
 
 * * *
 
@@ -275,6 +293,10 @@ Transpose of the array.
 ### \_\_abs\_\_(self, /)
 
 Calculates the absolute value for each element of an array instance (i.e., the element-wise result has the same magnitude as the respective element but has positive sign).
+
+```{note}
+For signed integer data types, the absolute value of the minimum representable integer is implementation-dependent.
+```
 
 #### Special Cases
 
@@ -297,7 +319,6 @@ For floating-point operands, let `self` equal `x`.
     -   an array containing the element-wise absolute value. The returned array must have the same data type as `self`.
 
 ```{note}
-
 Element-wise results must equal the results returned by the equivalent element-wise function [`abs(x)`](elementwise_functions.md#absx-).
 ```
 
@@ -329,7 +350,6 @@ For floating-point operands, let `self` equal `x1` and `other` equal `x2`.
 -   In the remaining cases, when neither `infinity`, `+0`, `-0`, nor a `NaN` is involved, and the operands have the same mathematical sign or have different magnitudes, the sum must be computed and rounded to the nearest representable value according to IEEE 754-2019 and a supported round mode. If the magnitude is too large to represent, the operation overflows and the result is an `infinity` of appropriate mathematical sign.
 
 ```{note}
-
 Floating-point addition is a commutative operation, but not always associative.
 ```
 
@@ -350,7 +370,6 @@ Floating-point addition is a commutative operation, but not always associative.
     -   an array containing the element-wise sums. The returned array must have a data type determined by {ref}`type-promotion`.
 
 ```{note}
-
 Element-wise results must equal the results returned by the equivalent element-wise function [`add(x1, x2)`](elementwise_functions.md#addx1-x2-).
 ```
 
@@ -376,7 +395,6 @@ Evaluates `self_i & other_i` for each element of an array instance with the resp
     -   an array containing the element-wise results. The returned array must have a data type determined by {ref}`type-promotion`.
 
 ```{note}
-
 Element-wise results must equal the results returned by the equivalent element-wise function [`bitwise_and(x1, x2)`](elementwise_functions.md#logical_andx1-x2-).
 ```
 
@@ -439,6 +457,10 @@ Exports the array for consumption by {ref}`function-from_dlpack` as a DLPack cap
         On CPU and other device types without streams, only `None` is accepted.
 
         For other device types which do have a stream, queue or similar synchronization mechanism, the most appropriate type to use for `stream` is not yet determined. E.g., for SYCL one may want to use an object containing an in-order `cl::sycl::queue`. This is allowed when libraries agree on such a convention, and may be standardized in a future version of this API standard.
+
+        ```{note}
+        Support for a `stream` value other than `None` is optional and implementation-dependent.
+        ```
 
         Device-specific notes:
 
@@ -524,7 +546,6 @@ Computes the truth value of `self_i == other_i` for each element of an array ins
     -   an array containing the element-wise results. The returned array must have a data type of `bool`.
 
 ```{note}
-
 Element-wise results must equal the results returned by the equivalent element-wise function [`equal(x1, x2)`](elementwise_functions.md#equalx1-x2-).
 ```
 
@@ -567,7 +588,6 @@ Evaluates `self_i // other_i` for each element of an array instance with the res
     -   an array containing the element-wise results. The returned array must have a data type determined by {ref}`type-promotion`.
 
 ```{note}
-
 Element-wise results must equal the results returned by the equivalent element-wise function [`floor_divide(x1, x2)`](elementwise_functions.md#floor_dividex1-x2-).
 ```
 
@@ -593,7 +613,6 @@ Computes the truth value of `self_i >= other_i` for each element of an array ins
     -   an array containing the element-wise results. The returned array must have a data type of `bool`.
 
 ```{note}
-
 Element-wise results must equal the results returned by the equivalent element-wise function [`greater_equal(x1, x2)`](elementwise_functions.md#greater_equalx1-x2-).
 ```
 
@@ -640,9 +659,29 @@ Computes the truth value of `self_i > other_i` for each element of an array inst
     -   an array containing the element-wise results. The returned array must have a data type of `bool`.
 
 ```{note}
-
 Element-wise results must equal the results returned by the equivalent element-wise function [`greater(x1, x2)`](elementwise_functions.md#greaterx1-x2-).
 ```
+
+(method-__index__)=
+### \_\_index\_\_(self, /)
+
+Converts a zero-dimensional integer array to a Python `int` object.
+
+```{note}
+This method is called to implement [`operator.index()`](https://docs.python.org/3/reference/datamodel.html#object.__index__). See also [PEP 357](https://www.python.org/dev/peps/pep-0357/).
+```
+
+#### Parameters
+
+-   **self**: _&lt;array&gt;_
+
+    -   zero-dimensional array instance. Must have an integer data type.
+
+#### Returns
+
+-   **out**: _&lt;int&gt;_
+
+    -   a Python `int` object representing the single element of the array instance.
 
 (method-__int__)=
 ### \_\_int\_\_(self, /)
@@ -679,7 +718,6 @@ Evaluates `~self_i` for each element of an array instance.
     -   an array containing the element-wise results. The returned array must have the same data type as `self`.
 
 ```{note}
-
 Element-wise results must equal the results returned by the equivalent element-wise function [`bitwise_invert(x)`](elementwise_functions.md#bitwise_invertx-).
 ```
 
@@ -705,7 +743,6 @@ Computes the truth value of `self_i <= other_i` for each element of an array ins
     -   an array containing the element-wise results. The returned array must have a data type of `bool`.
 
 ```{note}
-
 Element-wise results must equal the results returned by the equivalent element-wise function [`less_equal(x1, x2)`](elementwise_functions.md#less_equalx1-x2-).
 ```
 
@@ -736,7 +773,6 @@ Evaluates `self_i << other_i` for each element of an array instance with the res
     -   an array containing the element-wise results. The returned array must have the same data type as `self`.
 
 ```{note}
-
 Element-wise results must equal the results returned by the equivalent element-wise function [`bitwise_left_shift(x1, x2)`](elementwise_functions.md#bitwise_left_shiftx1-x2-).
 ```
 
@@ -762,7 +798,6 @@ Computes the truth value of `self_i < other_i` for each element of an array inst
     -   an array containing the element-wise results. The returned array must have a data type of `bool`.
 
 ```{note}
-
 Element-wise results must equal the results returned by the equivalent element-wise function [`less(x1, x2)`](elementwise_functions.md#lessx1-x2-).
 ```
 
@@ -772,7 +807,6 @@ Element-wise results must equal the results returned by the equivalent element-w
 Computes the matrix product.
 
 ```{note}
-
 The `matmul` function must implement the same semantics as the built-in `@` operator (see [PEP 465](https://www.python.org/dev/peps/pep-0465)).
 ```
 
@@ -780,7 +814,7 @@ The `matmul` function must implement the same semantics as the built-in `@` oper
 
 -   **self**: _&lt;array&gt;_
 
-    -   array instance. Should have a numeric data type. Must have at least one dimension. If `self` is one-dimensional having shape `(M)` and `other` has more than one dimension, `self` must be promoted to a two-dimensional array by prepending `1` to its dimensions (i.e., must have shape `(1, M)`). After matrix multiplication, the prepended dimensions in the returned array must be removed. If `self` has more than one dimension (including after vector-to-matrix promotion), `self` must be compatible with `other` (see {ref}`broadcasting`). If `self` has shape `(..., M, K)`, the innermost two dimensions form matrices on which to perform matrix multiplication. 
+    -   array instance. Should have a numeric data type. Must have at least one dimension. If `self` is one-dimensional having shape `(M)` and `other` has more than one dimension, `self` must be promoted to a two-dimensional array by prepending `1` to its dimensions (i.e., must have shape `(1, M)`). After matrix multiplication, the prepended dimensions in the returned array must be removed. If `self` has more than one dimension (including after vector-to-matrix promotion), `self` must be compatible with `other` (see {ref}`broadcasting`). If `self` has shape `(..., M, K)`, the innermost two dimensions form matrices on which to perform matrix multiplication.
 
 -   **other**: _&lt;array&gt;_
 
@@ -801,7 +835,6 @@ The `matmul` function must implement the same semantics as the built-in `@` oper
     The returned array must have a data type determined by {ref}`type-promotion`.
 
     ```{note}
-
     Results must equal the results returned by the equivalent function [`matmul(x1, x2)`](linear_algebra_functions.md#matmulx1-x2-).
     ```
 
@@ -809,7 +842,7 @@ The `matmul` function must implement the same semantics as the built-in `@` oper
 
 -   if either `self` or `other` is a zero-dimensional array.
 -   if `self` is a one-dimensional array having shape `(N)`, `other` is a one-dimensional array having shape `(M)`, and `N != M`.
--   if `self` is an array having shape `(..., M, K)`, `other` is an array having shape `(..., L, N)`, and `K != L`. 
+-   if `self` is an array having shape `(..., M, K)`, `other` is an array having shape `(..., L, N)`, and `K != L`.
 
 (method-__mod__)=
 ### \_\_mod\_\_(self, other, /)
@@ -833,7 +866,6 @@ Evaluates `self_i % other_i` for each element of an array instance with the resp
     -   an array containing the element-wise results. Each element-wise result must have the same sign as the respective element `other_i`. The returned array must have a floating-point data type determined by {ref}`type-promotion`.
 
 ```{note}
-
 Element-wise results must equal the results returned by the equivalent element-wise function [`remainder(x1, x2)`](elementwise_functions.md#remainderx1-x2-).
 ```
 
@@ -857,7 +889,6 @@ For floating-point operands, let `self` equal `x1` and `other` equal `x2`.
 -   In the remaining cases, where neither `infinity` nor `NaN` is involved, the product must be computed and rounded to the nearest representable value according to IEEE 754-2019 and a supported rounding mode. If the magnitude is too large to represent, the result is an `infinity` of appropriate mathematical sign. If the magnitude is too small to represent, the result is a zero of appropriate mathematical sign.
 
 ```{note}
-
 Floating-point multiplication is not always associative due to finite precision.
 ```
 
@@ -878,7 +909,6 @@ Floating-point multiplication is not always associative due to finite precision.
     -   an array containing the element-wise products. The returned array must have a data type determined by {ref}`type-promotion`.
 
 ```{note}
-
 Element-wise results must equal the results returned by the equivalent element-wise function [`multiply(x1, x2)`](elementwise_functions.md#multiplyx1-x2-).
 ```
 
@@ -904,7 +934,6 @@ Computes the truth value of `self_i != other_i` for each element of an array ins
     -   an array containing the element-wise results. The returned array must have a data type of `bool` (i.e., must be a boolean array).
 
 ```{note}
-
 Element-wise results must equal the results returned by the equivalent element-wise function [`not_equal(x1, x2)`](elementwise_functions.md#not_equalx1-x2-).
 ```
 
@@ -912,6 +941,10 @@ Element-wise results must equal the results returned by the equivalent element-w
 ### \_\_neg\_\_(self, /)
 
 Evaluates `-self_i` for each element of an array instance.
+
+```{note}
+For signed integer data types, the numerical negative of the minimum representable integer is implementation-dependent.
+```
 
 #### Parameters
 
@@ -926,7 +959,6 @@ Evaluates `-self_i` for each element of an array instance.
     -   an array containing the evaluated result for each element in `self`. The returned array must have a data type determined by {ref}`type-promotion`.
 
 ```{note}
-
 Element-wise results must equal the results returned by the equivalent element-wise function [`negative(x)`](elementwise_functions.md#negativex-).
 ```
 
@@ -952,8 +984,7 @@ Evaluates `self_i | other_i` for each element of an array instance with the resp
     -   an array containing the element-wise results. The returned array must have a data type determined by {ref}`type-promotion`.
 
 ```{note}
-
-Element-wise results must equal the results returned by the equivalent element-wise function [`positive(x1, x2)`](elementwise_functions.md#bitwise_orx1-x2-).
+Element-wise results must equal the results returned by the equivalent element-wise function [`bitwise_or(x1, x2)`](elementwise_functions.md#bitwise_orx1-x2-).
 ```
 
 (method-__pos__)=
@@ -974,7 +1005,6 @@ Evaluates `+self_i` for each element of an array instance.
     -   an array containing the evaluated result for each element. The returned array must have the same data type as `self`.
 
 ```{note}
-
 Element-wise results must equal the results returned by the equivalent element-wise function [`positive(x)`](elementwise_functions.md#positivex-).
 ```
 
@@ -1029,7 +1059,6 @@ For floating-point operands, let `self` equal `x1` and `other` equal `x2`.
     -   an array containing the element-wise results. The returned array must have a data type determined by {ref}`type-promotion`.
 
 ```{note}
-
 Element-wise results must equal the results returned by the equivalent element-wise function [`pow(x1, x2)`](elementwise_functions.md#powx1-x2-).
 ```
 
@@ -1055,7 +1084,6 @@ Evaluates `self_i >> other_i` for each element of an array instance with the res
     -   an array containing the element-wise results. The returned array must have the same data type as `self`.
 
 ```{note}
-
 Element-wise results must equal the results returned by the equivalent element-wise function [`bitwise_right_shift(x1, x2)`](elementwise_functions.md#bitwise_right_shiftx1-x2-).
 ```
 
@@ -1066,7 +1094,7 @@ Sets `self[key]` to `value`.
 
 #### Parameters
 
--   **self**: _&lt;array;&gt;_
+-   **self**: _&lt;array&gt;_
 
     -   array instance.
 
@@ -1079,7 +1107,6 @@ Sets `self[key]` to `value`.
     -   value(s) to set. Must be compatible with `self[key]` (see {ref}`broadcasting`).
 
 ```{note}
-
 Setting array values must not affect the data type of `self`.
 
 When `value` is a Python scalar (i.e., `int`, `float`, `bool`), behavior must follow specification guidance on mixing arrays with Python scalars (see {ref}`type-promotion`).
@@ -1109,7 +1136,6 @@ Calculates the difference for each element of an array instance with the respect
     -   an array containing the element-wise differences. The returned array must have a data type determined by {ref}`type-promotion`.
 
 ```{note}
-
 Element-wise results must equal the results returned by the equivalent element-wise function [`subtract(x1, x2)`](elementwise_functions.md#subtractx1-x2-).
 ```
 
@@ -1162,7 +1188,6 @@ For floating-point operands, let `self` equal `x1` and `other` equal `x2`.
     -   an array containing the element-wise results. The returned array must have a data type determined by {ref}`type-promotion`.
 
 ```{note}
-
 Element-wise results must equal the results returned by the equivalent element-wise function [`divide(x1, x2)`](elementwise_functions.md#dividex1-x2-).
 ```
 
@@ -1188,6 +1213,34 @@ Evaluates `self_i ^ other_i` for each element of an array instance with the resp
     -   an array containing the element-wise results. The returned array must have a data type determined by {ref}`type-promotion`.
 
 ```{note}
-
 Element-wise results must equal the results returned by the equivalent element-wise function [`bitwise_xor(x1, x2)`](elementwise_functions.md#bitwise_xorx1-x2-).
+```
+
+(method-to_device)=
+### to\_device(self, device, /, *, stream=None)
+
+Copy the array from the device on which it currently resides to the specified `device`.
+
+#### Parameters
+
+-   **self**: _&lt;array&gt;_
+
+    -   array instance.
+
+-   **device**: _&lt;device&gt;_
+
+    -   a `device` object (see {ref}`device-support`).
+
+-   **stream**: _Optional\[ Union\[ int, Any ]]_
+
+    -   stream object to use during copy. In addition to the types supported in {ref}`method-__dlpack__`, implementations may choose to support any library-specific stream object with the caveat that any code using such an object would not be portable.
+
+#### Returns
+
+-   **out**: _&lt;array&gt;_
+
+    -   an array with the same data and data type as `self` and located on the specified `device`.
+
+```{note}
+If `stream` is given, the copy operation should be enqueued on the provided `stream`; otherwise, the copy operation should be enqueued on the default stream/queue. Whether the copy is performed synchronously or asynchronously is implementation-dependent. Accordingly, if synchronization is required to guarantee data safety, this must be clearly explained in a conforming library's documentation.
 ```
