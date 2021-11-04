@@ -156,10 +156,10 @@ an array object supporting the following in-place Python operators:
 An in-place operation must not change the dtype or shape of the in-place array
 as a result of {ref}`type-promotion` or {ref}`broadcasting`.
 
-An in-place operation must follow all the functionality of its respective
-standard operation (including special casing), e.g. the resulting array `x1`
-after in-place addition `x1 += x2` would always equal the result of standard
-addition `x1 + x2`.
+An in-place operation must have the same behavior (including special cases) as
+its respective binary (i.e., two operand, non-assignment) operation. For example,
+after in-place addition `x1 += x2`, the modified array `x1` must always equal the
+result of the equivalent binary arithmetic operation `x1 = x1 + x2`.
 
 ```{note}
 
