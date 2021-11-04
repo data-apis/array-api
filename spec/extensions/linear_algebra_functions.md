@@ -459,9 +459,13 @@ The purpose of this function is to calculate the determinant more accurately whe
         -   first element must have the field name `sign` and must be an array containing a number representing the sign of the determinant for each square matrix.
         -   second element must have the field name `logabsdet` and must be an array containing the determinant for each square matrix.
 
-        For a real matrix, the sign of the determinant must be either `1`, `0`, or `-1`. If a determinant is zero, then the corresponding `sign` must be `0` and `logabsdet` must be `-infinity`. In all cases, the determinant must be equal to `sign * exp(logsabsdet)`.
+        For a real matrix, the sign of the determinant must be either `1`, `0`, or `-1`.
 
         Each returned array must have shape `shape(x)[:-2]` and a floating-point data type determined by {ref}`type-promotion`.
+
+        ```{note}
+        If a determinant is zero, then the corresponding `sign` should be `0` and `logabsdet` should be `-infinity`; however, depending on the underlying algorithm, the returned result may differ. In all cases, the determinant should be equal to `sign * exp(logsabsdet)` (although, again, the result may be subject to numerical precision errors).
+        ```
 
 (function-linalg-solve)=
 ### linalg.solve(x1, x2, /)
