@@ -371,7 +371,7 @@ harder for users to write code that will work with multiple array libraries.
 
 ### Discoverability
 
-To assist array-consuming libraries which need to create arrays originating from multiple conforming array implementations, conforming implementations may provide an {pypa}`entry point <specifications/entry-points/>` in order to make an array API namespace discoverable:
+To assist array-consuming libraries which need to create arrays originating from multiple conforming array implementations, conforming implementations may provide an {pypa}`entry point <specifications/entry-points/>` in order to make an array API namespace discoverable. For example,
 
 ```python
 from importlib.metadata import entry_points
