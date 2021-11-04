@@ -1253,7 +1253,6 @@ Rounds each element `x_i` of the input array `x` to the nearest integer-valued n
 #### Special Cases
 
 -   If `x_i` is already integer-valued, the result is `x_i`.
--   If two integers are equally close to `x_i`, the result is the even integer closest to `x_i`.
 
 For floating-point operands,
 
@@ -1262,6 +1261,7 @@ For floating-point operands,
 -   If `x_i` is `+0`, the result is `+0`.
 -   If `x_i` is `-0`, the result is `-0`.
 -   If `x_i` is `NaN`, the result is `NaN`.
+-   If two integers are equally close to `x_i`, the result is the even integer closest to `x_i`.
 
 #### Parameters
 
