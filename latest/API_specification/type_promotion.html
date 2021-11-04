@@ -484,8 +484,7 @@
          </div>
         </blockquote>
         <p>
-         Type promotion rules can be understood at a high level from the following
-diagram:
+         Type promotion rules can be understood at a high level from the following diagram:
         </p>
         <p>
          <img alt="Type promotion diagram" src="../_images/dtype_promotion_lattice.png"/>
@@ -517,8 +516,7 @@ diagram:
            Note
           </p>
           <p>
-           Type codes are used here to keep tables readable; they are not part of the standard.
-In code, use the data type objects specified in
+           Type codes are used here to keep tables readable; they are not part of the standard. In code, use the data type objects specified in
            <a class="reference internal" href="data_types.html#data-types">
             <span class="std std-ref">
              Data Types
@@ -541,10 +539,7 @@ In code, use the data type objects specified in
          </div>
          <!-- Note: please keep table columns aligned -->
          <p>
-          The following type promotion tables specify the casting behavior for
-operations involving two array operands. When more than two array operands
-participate, application of the promotion tables is associative (i.e., the
-result does not depend on operand order).
+          The following type promotion tables specify the casting behavior for operations involving two array operands. When more than two array operands participate, application of the promotion tables is associative (i.e., the result does not depend on operand order).
          </p>
          <section id="signed-integer-type-promotion-table">
           <h3 id="signed-integer-type-promotion-table">
@@ -1100,8 +1095,7 @@ result does not depend on operand order).
             Note
            </p>
            <p>
-            Mixed integer and floating-point type promotion rules are not specified
-because behavior varies between implementations.
+            Mixed integer and floating-point type promotion rules are not specified because behavior varies between implementations.
            </p>
           </div>
          </section>
@@ -1131,8 +1125,7 @@ because behavior varies between implementations.
              float
             </span>
            </code>
-           ) together with
-arrays must be supported for:
+           ) together with arrays must be supported for:
           </p>
           <ul class="simple">
            <li>
@@ -1173,7 +1166,13 @@ arrays must be supported for:
              &lt;op&gt;
             </span>
            </code>
-           is a built-in operator, including in-place operators (see
+           is a built-in operator (including in-place operators, but excluding the matmul
+           <code class="docutils literal notranslate">
+            <span class="pre">
+             @
+            </span>
+           </code>
+           operator; see
            <a class="reference internal" href="array_object.html#operators">
             <span class="std std-ref">
              Operators
@@ -1185,13 +1184,12 @@ arrays must be supported for:
              scalar
             </span>
            </code>
-           has
-a compatible type and value to the array dtype:
+           has a type and value compatible with the array data type:
           </p>
           <ul class="simple">
            <li>
             <p>
-             Python
+             a Python
              <code class="docutils literal notranslate">
               <span class="pre">
                bool
@@ -1203,7 +1201,7 @@ a compatible type and value to the array dtype:
                bool
               </span>
              </code>
-             array dtype,
+             array data type.
             </p>
            </li>
            <li>
@@ -1220,7 +1218,7 @@ a compatible type and value to the array dtype:
                bounds
               </span>
              </a>
-             of the given dtype for integer array dtypes,
+             of the given data type for integer array data types.
             </p>
            </li>
            <li>
@@ -1237,18 +1235,17 @@ a compatible type and value to the array dtype:
                float
               </span>
              </code>
-             for floating-point array dtypes
+             for floating-point array data types.
             </p>
            </li>
           </ul>
           <p>
-           The expected behavior is then equivalent to:
+           Provided the above requirements are met, the expected behavior is equivalent to:
           </p>
           <ol class="simple">
            <li>
             <p>
-             Convert the scalar to a 0-D array with the same dtype as that of the array
-used in the expression.
+             Convert the scalar to zero-dimensional array with the same data type as that of the array used in the expression.
             </p>
            </li>
            <li>
@@ -1298,14 +1295,13 @@ used in the expression.
             Note
            </p>
            <p>
-            Behaviour is not specified when mixing a Python
+            Behavior is not specified when mixing a Python
             <code class="docutils literal notranslate">
              <span class="pre">
               float
              </span>
             </code>
-            and an array with an
-integer dtype; this may give
+            and an array with an integer data type; this may give
             <code class="docutils literal notranslate">
              <span class="pre">
               float32
@@ -1317,12 +1313,10 @@ integer dtype; this may give
               float64
              </span>
             </code>
-            , or raise an exception -
-behavior of implementations will differ.
+            , or raise an exception. Behavior is implementation-specific.
            </p>
            <p>
-            The behavior is also not specified for integers outside of the bounds of a
-given integer dtype. It may overflow, or result in an error.
+            The behavior is also not specified for integers outside of the bounds of a given integer data type. Integers outside of bounds may result in overflow or an error.
            </p>
           </div>
          </section>
