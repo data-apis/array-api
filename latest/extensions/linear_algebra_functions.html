@@ -2168,7 +2168,7 @@
            </a>
           </h3>
           <p>
-           Returns the eigenvalues and eigenvectors x = QLQᵀ of a symmetric matrix (or a stack of symmetric matrices)
+           Returns an eigendecomposition x = QLQᵀ of a symmetric matrix (or a stack of symmetric matrices)
            <code class="docutils literal notranslate">
             <span class="pre">
              x
@@ -3748,13 +3748,7 @@ as it requires complex number support.
            </a>
           </h3>
           <p>
-           Returns the qr decomposition x = QR of a matrix (or a stack of matrices)
-           <code class="docutils literal notranslate">
-            <span class="pre">
-             x
-            </span>
-           </code>
-           , where
+           Returns the qr decomposition x = QR of a full column rank matrix (or a stack of matrices), where
            <code class="docutils literal notranslate">
             <span class="pre">
              Q
@@ -3807,7 +3801,13 @@ as it requires complex number support.
                   MxN
                  </span>
                 </code>
-                matrices. Should have a floating-point data type.
+                matrices of rank equal to
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  N
+                 </span>
+                </code>
+                . Should have a floating-point data type.
                </p>
               </li>
              </ul>
@@ -4660,13 +4660,13 @@ as it requires complex number support.
            </a>
           </h3>
           <p>
-           Returns the singular value decomposition A = USVh of a matrix (or a stack of matrices)
+           Returns a singular value decomposition A = USVh of a matrix (or a stack of matrices)
            <code class="docutils literal notranslate">
             <span class="pre">
              x
             </span>
            </code>
-           where
+           , where
            <code class="docutils literal notranslate">
             <span class="pre">
              U
