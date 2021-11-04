@@ -265,6 +265,15 @@
                  <a class="md-nav__link" href="#how-to-adopt-this-api">
                   How to adopt this API
                  </a>
+                 <nav class="md-nav">
+                  <ul class="md-nav__list">
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#discoverability">
+                     Discoverability
+                    </a>
+                   </li>
+                  </ul>
+                 </nav>
                 </li>
                 <li class="md-nav__item">
                  <a class="md-nav__link" href="#conformance">
@@ -469,6 +478,15 @@
               <a class="md-nav__link" href="#how-to-adopt-this-api">
                How to adopt this API
               </a>
+              <nav class="md-nav">
+               <ul class="md-nav__list">
+                <li class="md-nav__item">
+                 <a class="md-nav__link" href="#discoverability">
+                  Discoverability
+                 </a>
+                </li>
+               </ul>
+              </nav>
              </li>
              <li class="md-nav__item">
               <a class="md-nav__link" href="#conformance">
@@ -1550,6 +1568,72 @@ NEP 37 adoption will work out.
 recommended not to add other functions or objects, because that may make it
 harder for users to write code that will work with multiple array libraries.
          </p>
+         <section id="discoverability">
+          <h3 id="discoverability">
+           Discoverability
+           <a class="headerlink" href="#discoverability" title="Permalink to this headline">
+            ¶
+           </a>
+          </h3>
+          <p>
+           To assist array-consuming libraries which need to create arrays originating from multiple conforming array implementations, conforming implementations may provide an
+           <a class="reference external" href="https://packaging.python.org/specifications/entry-points/">
+            entry point
+           </a>
+           in order to make an array API namespace discoverable. For example,
+          </p>
+          <div class="highlight-python notranslate">
+           <div class="highlight">
+            <pre><span></span><span class="kn">from</span> <span class="nn">importlib.metadata</span> <span class="kn">import</span> <span class="n">entry_points</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">eps</span> <span class="o">=</span> <span class="n">entry_points</span><span class="p">()[</span><span class="s1">'array_api'</span><span class="p">]</span>
+    <span class="n">ep</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">ep</span> <span class="k">for</span> <span class="n">ep</span> <span class="ow">in</span> <span class="n">eps</span> <span class="k">if</span> <span class="n">ep</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">'package_name'</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+    <span class="c1"># The dict interface for entry_points() is deprecated in py3.10,</span>
+    <span class="c1"># supplanted by a new select interface.</span>
+    <span class="n">ep</span> <span class="o">=</span> <span class="n">entry_points</span><span class="p">(</span><span class="n">group</span><span class="o">=</span><span class="s1">'array_api'</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'package_name'</span><span class="p">)</span>
+
+<span class="n">xp</span> <span class="o">=</span> <span class="n">ep</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
+</pre>
+           </div>
+          </div>
+          <p>
+           An entry point must have the following properties:
+          </p>
+          <ul class="simple">
+           <li>
+            <p>
+             <strong>
+              group
+             </strong>
+             : equal to
+             <code class="docutils literal notranslate">
+              <span class="pre">
+               array_api
+              </span>
+             </code>
+             .
+            </p>
+           </li>
+           <li>
+            <p>
+             <strong>
+              name
+             </strong>
+             : equal to the package name.
+            </p>
+           </li>
+           <li>
+            <p>
+             <strong>
+              object reference
+             </strong>
+             : equal to the array API namespace import path.
+            </p>
+           </li>
+          </ul>
+         </section>
         </section>
         <hr class="docutils"/>
         <section id="conformance">
