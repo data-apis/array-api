@@ -1583,6 +1583,14 @@
            is an upper-triangular matrix or a stack of matrices).
           </p>
           <!-- NOTE: once complex numbers are supported, each square matrix must be Hermitian. -->
+          <div class="admonition note">
+           <p class="admonition-title">
+            Note
+           </p>
+           <p>
+            Whether an array library explicitly checks whether an input array is a symmetric positive-definite matrix (or a stack of matrices) is implementation-defined.
+           </p>
+          </div>
           <section id="parameters">
            <h4 id="parameters">
             Parameters
@@ -2167,6 +2175,20 @@
             ¶
            </a>
           </h3>
+          <div class="admonition note">
+           <p class="admonition-title">
+            Note
+           </p>
+           <p>
+            The function
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              eig
+             </span>
+            </code>
+            will be added in a future version of the specification, as it requires complex number support.
+           </p>
+          </div>
           <p>
            Returns an eigendecomposition x = QLQᵀ of a symmetric matrix (or a stack of symmetric matrices)
            <code class="docutils literal notranslate">
@@ -2189,6 +2211,14 @@
            is a vector (or a stack of vectors).
           </p>
           <!-- NOTE: once complex number support, each matrix must be Hermitian and the returned Q unitary. We might also want to make the dtype of `eigenvalues` unconditionally real -->
+          <div class="admonition note">
+           <p class="admonition-title">
+            Note
+           </p>
+           <p>
+            Whether an array library explicitly checks whether an input array is a symmetric matrix (or a stack of symmetric matrices) is implementation-defined.
+           </p>
+          </div>
           <section id="id8">
            <h4 id="id8">
             Parameters
@@ -2342,21 +2372,6 @@
              Eigenvalue sort order is left unspecified.
             </p>
            </div>
-           <div class="admonition note">
-            <p class="admonition-title">
-             Note
-            </p>
-            <p>
-             The function
-             <code class="docutils literal notranslate">
-              <span class="pre">
-               eig
-              </span>
-             </code>
-             will be added in a future version of the specification,
-as it requires complex number support.
-            </p>
-           </div>
           </section>
          </section>
          <section id="linalg-eigvalsh-x">
@@ -2368,6 +2383,20 @@ as it requires complex number support.
             ¶
            </a>
           </h3>
+          <div class="admonition note">
+           <p class="admonition-title">
+            Note
+           </p>
+           <p>
+            The function
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              eigvals
+             </span>
+            </code>
+            will be added in a future version of the specification, as it requires complex number support.
+           </p>
+          </div>
           <p>
            Returns the eigenvalues of a symmetric matrix (or a stack of symmetric matrices)
            <code class="docutils literal notranslate">
@@ -2378,6 +2407,14 @@ as it requires complex number support.
            .
           </p>
           <!-- NOTE: once complex number support, each matrix must be Hermitian -->
+          <div class="admonition note">
+           <p class="admonition-title">
+            Note
+           </p>
+           <p>
+            Whether an array library explicitly checks whether an input array is a symmetric matrix (or a stack of symmetric matrices) is implementation-defined.
+           </p>
+          </div>
           <section id="id10">
            <h4 id="id10">
             Parameters
@@ -2466,21 +2503,6 @@ as it requires complex number support.
             </p>
             <p>
              Eigenvalue sort order is left unspecified.
-            </p>
-           </div>
-           <div class="admonition note">
-            <p class="admonition-title">
-             Note
-            </p>
-            <p>
-             The function
-             <code class="docutils literal notranslate">
-              <span class="pre">
-               eigvals
-              </span>
-             </code>
-             will be added in a future version of the specification,
-as it requires complex number support.
             </p>
            </div>
           </section>
@@ -3762,6 +3784,14 @@ as it requires complex number support.
            </code>
            is an upper-triangular matrix (or a stack of matrices).
           </p>
+          <div class="admonition note">
+           <p class="admonition-title">
+            Note
+           </p>
+           <p>
+            Whether an array library explicitly checks whether an input array is a full column rank matrix (or a stack of full column rank matrices) is implementation-defined.
+           </p>
+          </div>
           <section id="id24">
            <h4 id="id24">
             Parameters
@@ -3801,7 +3831,7 @@ as it requires complex number support.
                   MxN
                  </span>
                 </code>
-                matrices of rank equal to
+                matrices of rank
                 <code class="docutils literal notranslate">
                  <span class="pre">
                   N
@@ -4428,6 +4458,14 @@ as it requires complex number support.
            </code>
            .
           </p>
+          <div class="admonition note">
+           <p class="admonition-title">
+            Note
+           </p>
+           <p>
+            Whether an array library explicitly checks whether an input array is full rank is implementation-defined.
+           </p>
+          </div>
           <section id="id28">
            <h4 id="id28">
             Parameters
