@@ -4375,42 +4375,6 @@
                   -1
                  </span>
                 </code>
-                . If a determinant is zero, then the corresponding
-                <code class="docutils literal notranslate">
-                 <span class="pre">
-                  sign
-                 </span>
-                </code>
-                must be
-                <code class="docutils literal notranslate">
-                 <span class="pre">
-                  0
-                 </span>
-                </code>
-                and
-                <code class="docutils literal notranslate">
-                 <span class="pre">
-                  logabsdet
-                 </span>
-                </code>
-                must be
-                <code class="docutils literal notranslate">
-                 <span class="pre">
-                  -infinity
-                 </span>
-                </code>
-                . In all cases, the determinant must be equal to
-                <code class="docutils literal notranslate">
-                 <span class="pre">
-                  sign
-                 </span>
-                 <span class="pre">
-                  *
-                 </span>
-                 <span class="pre">
-                  exp(logsabsdet)
-                 </span>
-                </code>
                 .
                </p>
                <p>
@@ -4428,6 +4392,50 @@
                 </a>
                 .
                </p>
+               <div class="admonition note">
+                <p class="admonition-title">
+                 Note
+                </p>
+                <p>
+                 If a determinant is zero, then the corresponding
+                 <code class="docutils literal notranslate">
+                  <span class="pre">
+                   sign
+                  </span>
+                 </code>
+                 should be
+                 <code class="docutils literal notranslate">
+                  <span class="pre">
+                   0
+                  </span>
+                 </code>
+                 and
+                 <code class="docutils literal notranslate">
+                  <span class="pre">
+                   logabsdet
+                  </span>
+                 </code>
+                 should be
+                 <code class="docutils literal notranslate">
+                  <span class="pre">
+                   -infinity
+                  </span>
+                 </code>
+                 ; however, depending on the underlying algorithm, the returned result may differ. In all cases, the determinant should be equal to
+                 <code class="docutils literal notranslate">
+                  <span class="pre">
+                   sign
+                  </span>
+                  <span class="pre">
+                   *
+                  </span>
+                  <span class="pre">
+                   exp(logsabsdet)
+                  </span>
+                 </code>
+                 (although, again, the result may be subject to numerical precision errors).
+                </p>
+               </div>
               </li>
              </ul>
             </li>
