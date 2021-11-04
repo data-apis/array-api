@@ -609,6 +609,110 @@
            </code>
            .
           </p>
+          <div class="admonition note">
+           <p class="admonition-title">
+            Note
+           </p>
+           <p>
+            Uniqueness should be determined based on value equality (i.e.,
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              x_i
+             </span>
+             <span class="pre">
+              ==
+             </span>
+             <span class="pre">
+              x_j
+             </span>
+            </code>
+            ). For input arrays having floating-point data types, value-based equality implies the following behavior.
+           </p>
+           <ul class="simple">
+            <li>
+             <p>
+              As
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                nan
+               </span>
+              </code>
+              values compare as
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                False
+               </span>
+              </code>
+              ,
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                nan
+               </span>
+              </code>
+              values should be considered distinct.
+             </p>
+            </li>
+            <li>
+             <p>
+              As
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                -0
+               </span>
+              </code>
+              and
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                +0
+               </span>
+              </code>
+              compare as
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                True
+               </span>
+              </code>
+              , signed zeros should not be considered distinct, and the corresponding unique element will be implementation-dependent (e.g., an implementation could choose to return
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                -0
+               </span>
+              </code>
+              if
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                -0
+               </span>
+              </code>
+              occurs before
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                +0
+               </span>
+              </code>
+              ).
+             </p>
+            </li>
+           </ul>
+           <p>
+            As signed zeros are not distinct, using
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              inverse_indices
+             </span>
+            </code>
+            to reconstruct the input array is not guaranteed to return an array having the exact same values.
+           </p>
+           <p>
+            Each
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              nan
+             </span>
+            </code>
+            value should have a count of one, while the counts for signed zeros should be aggregated as a single count.
+           </p>
+          </div>
           <section id="parameters">
            <h4 id="parameters">
             Parameters
@@ -816,6 +920,20 @@
             ¶
            </a>
           </h3>
+          <div class="important admonition">
+           <p class="admonition-title">
+            Data-dependent output shape
+           </p>
+           <p>
+            The shape of one of the output arrays for this function depends on the data values in the input array; hence, array libraries which build computation graphs (e.g., JAX, Dask, etc.) may find this function difficult to implement without knowing array values. Accordingly, such libraries may choose to omit this function. See
+            <a class="reference internal" href="../design_topics/data_dependent_output_shapes.html#data-dependent-output-shapes">
+             <span class="std std-ref">
+              Data-dependent output shapes
+             </span>
+            </a>
+            section for more details.
+           </p>
+          </div>
           <p>
            Returns the unique elements of an input array
            <code class="docutils literal notranslate">
@@ -831,18 +949,99 @@
            </code>
            .
           </p>
-          <div class="important admonition">
+          <div class="admonition note">
            <p class="admonition-title">
-            Data-dependent output shape
+            Note
            </p>
            <p>
-            The shape of one of the output arrays for this function depends on the data values in the input array; hence, array libraries which build computation graphs (e.g., JAX, Dask, etc.) may find this function difficult to implement without knowing array values. Accordingly, such libraries may choose to omit this function. See
-            <a class="reference internal" href="../design_topics/data_dependent_output_shapes.html#data-dependent-output-shapes">
-             <span class="std std-ref">
-              Data-dependent output shapes
+            Uniqueness should be determined based on value equality (i.e.,
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              x_i
              </span>
-            </a>
-            section for more details.
+             <span class="pre">
+              ==
+             </span>
+             <span class="pre">
+              x_j
+             </span>
+            </code>
+            ). For input arrays having floating-point data types, value-based equality implies the following behavior.
+           </p>
+           <ul class="simple">
+            <li>
+             <p>
+              As
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                nan
+               </span>
+              </code>
+              values compare as
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                False
+               </span>
+              </code>
+              ,
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                nan
+               </span>
+              </code>
+              values should be considered distinct.
+             </p>
+            </li>
+            <li>
+             <p>
+              As
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                -0
+               </span>
+              </code>
+              and
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                +0
+               </span>
+              </code>
+              compare as
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                True
+               </span>
+              </code>
+              , signed zeros should not be considered distinct, and the corresponding unique element will be implementation-dependent (e.g., an implementation could choose to return
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                -0
+               </span>
+              </code>
+              if
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                -0
+               </span>
+              </code>
+              occurs before
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                +0
+               </span>
+              </code>
+              ).
+             </p>
+            </li>
+           </ul>
+           <p>
+            As signed zeros are not distinct, using
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              inverse_indices
+             </span>
+            </code>
+            to reconstruct the input array is not guaranteed to return an array having the exact same values.
            </p>
           </div>
           <section id="id1">
@@ -1017,6 +1216,92 @@
            </code>
            .
           </p>
+          <div class="admonition note">
+           <p class="admonition-title">
+            Note
+           </p>
+           <p>
+            Uniqueness should be determined based on value equality (i.e.,
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              x_i
+             </span>
+             <span class="pre">
+              ==
+             </span>
+             <span class="pre">
+              x_j
+             </span>
+            </code>
+            ). For input arrays having floating-point data types, value-based equality implies the following behavior.
+           </p>
+           <ul class="simple">
+            <li>
+             <p>
+              As
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                nan
+               </span>
+              </code>
+              values compare as
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                False
+               </span>
+              </code>
+              ,
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                nan
+               </span>
+              </code>
+              values should be considered distinct.
+             </p>
+            </li>
+            <li>
+             <p>
+              As
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                -0
+               </span>
+              </code>
+              and
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                +0
+               </span>
+              </code>
+              compare as
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                True
+               </span>
+              </code>
+              , signed zeros should not be considered distinct, and the corresponding unique element will be implementation-dependent (e.g., an implementation could choose to return
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                -0
+               </span>
+              </code>
+              if
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                -0
+               </span>
+              </code>
+              occurs before
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                +0
+               </span>
+              </code>
+              ).
+             </p>
+            </li>
+           </ul>
+          </div>
           <section id="id3">
            <h4 id="id3">
             Parameters
