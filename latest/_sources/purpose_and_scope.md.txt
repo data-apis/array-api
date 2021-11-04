@@ -354,6 +354,20 @@ The `xp` namespace must contain all functionality specified in
 including additional functionality is not recommended as doing so may hinder
 portability and inter-operation of array libraries within user code.
 
+### Checking for Compliance
+
+Array-consuming libraries are likely to want a mechanism for determining whether a provided array is specification compliant. The recommended approach to check for compliance is by checking whether an array object has an `__array_namespace__` attribute, as this is the one distinguishing feature of an array-compliant object.
+
+Checking for an `__array_namespace__` attribute can be implemented as a small utility function similar to the following.
+
+```python
+def is_array_api_obj(x):
+    return hasattr(x, '__array_namespace__')
+```
+
+```{note}
+Providing a "reference library" on which people depend is out-of-scope; hence, the standard cannot, e.g., provide an array ABC from which libraries can inherit to enable an `isinstance` check.
+```
 
 ### Discoverability
 

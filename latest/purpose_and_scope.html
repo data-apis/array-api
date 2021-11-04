@@ -268,6 +268,11 @@
                  <nav class="md-nav">
                   <ul class="md-nav__list">
                    <li class="md-nav__item">
+                    <a class="md-nav__link" href="#checking-for-compliance">
+                     Checking for Compliance
+                    </a>
+                   </li>
+                   <li class="md-nav__item">
                     <a class="md-nav__link" href="#discoverability">
                      Discoverability
                     </a>
@@ -480,6 +485,11 @@
               </a>
               <nav class="md-nav">
                <ul class="md-nav__list">
+                <li class="md-nav__item">
+                 <a class="md-nav__link" href="#checking-for-compliance">
+                  Checking for Compliance
+                 </a>
+                </li>
                 <li class="md-nav__item">
                  <a class="md-nav__link" href="#discoverability">
                   Discoverability
@@ -1540,6 +1550,53 @@ request a specific API version:
 including additional functionality is not recommended as doing so may hinder
 portability and inter-operation of array libraries within user code.
          </p>
+         <section id="checking-for-compliance">
+          <h3 id="checking-for-compliance">
+           Checking for Compliance
+           <a class="headerlink" href="#checking-for-compliance" title="Permalink to this headline">
+            ¶
+           </a>
+          </h3>
+          <p>
+           Array-consuming libraries are likely to want a mechanism for determining whether a provided array is specification compliant. The recommended approach to check for compliance is by checking whether an array object has an
+           <code class="docutils literal notranslate">
+            <span class="pre">
+             __array_namespace__
+            </span>
+           </code>
+           attribute, as this is the one distinguishing feature of an array-compliant object.
+          </p>
+          <p>
+           Checking for an
+           <code class="docutils literal notranslate">
+            <span class="pre">
+             __array_namespace__
+            </span>
+           </code>
+           attribute can be implemented as a small utility function similar to the following.
+          </p>
+          <div class="highlight-python notranslate">
+           <div class="highlight">
+            <pre><span></span><span class="k">def</span> <span class="nf">is_array_api_obj</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s1">'__array_namespace__'</span><span class="p">)</span>
+</pre>
+           </div>
+          </div>
+          <div class="admonition note">
+           <p class="admonition-title">
+            Note
+           </p>
+           <p>
+            Providing a “reference library” on which people depend is out-of-scope; hence, the standard cannot, e.g., provide an array ABC from which libraries can inherit to enable an
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              isinstance
+             </span>
+            </code>
+            check.
+           </p>
+          </div>
+         </section>
          <section id="discoverability">
           <h3 id="discoverability">
            Discoverability
