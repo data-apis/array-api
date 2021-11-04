@@ -29,7 +29,9 @@ Uniqueness should be determined based on value equality (i.e., `x_i == x_j`). Fo
 -   As `nan` values compare as `False`, `nan` values should be considered distinct.
 -   As `-0` and `+0` compare as `True`, signed zeros should not be considered distinct, and the corresponding unique element will be implementation-dependent (e.g., an implementation could choose to return `-0` if `-0` occurs before `+0`).
 
-As signed zeros are not distinct, using `inverse_indices` to reconstruct the input array is not guaranteed to return an array having the exact same values. Furthermore, each `nan` value will have a count of one, while the counts for signed zeros will be aggregated as a single count.
+As signed zeros are not distinct, using `inverse_indices` to reconstruct the input array is not guaranteed to return an array having the exact same values.
+
+Each `nan` value should have a count of one, while the counts for signed zeros should be aggregated as a single count.
 ```
 
 #### Parameters
