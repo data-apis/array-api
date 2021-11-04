@@ -4,8 +4,7 @@
 
 > Array API specification for type promotion rules.
 
-Type promotion rules can be understood at a high level from the following
-diagram:
+Type promotion rules can be understood at a high level from the following diagram:
 
 ![Type promotion diagram](/_static/images/dtype_promotion_lattice.png)
 
@@ -19,17 +18,12 @@ A conforming implementation of the array API standard must implement the followi
 A conforming implementation of the array API standard may support additional type promotion rules beyond those described in this specification.
 
 ```{note}
-
-Type codes are used here to keep tables readable; they are not part of the standard.
-In code, use the data type objects specified in {ref}`data-types` (e.g., `int16` rather than `'i2'`).
+Type codes are used here to keep tables readable; they are not part of the standard. In code, use the data type objects specified in {ref}`data-types` (e.g., `int16` rather than `'i2'`).
 ```
 
 <!-- Note: please keep table columns aligned -->
 
-The following type promotion tables specify the casting behavior for
-operations involving two array operands. When more than two array operands
-participate, application of the promotion tables is associative (i.e., the
-result does not depend on operand order).
+The following type promotion tables specify the casting behavior for operations involving two array operands. When more than two array operands participate, application of the promotion tables is associative (i.e., the result does not depend on operand order).
 
 ### Signed integer type promotion table
 
@@ -90,39 +84,29 @@ where
 -   Type promotion of non-numerical data types to numerical data types is unspecified (e.g., `bool` to `intxx` or `floatxx`).
 
 ```{note}
-
-Mixed integer and floating-point type promotion rules are not specified
-because behavior varies between implementations.
+Mixed integer and floating-point type promotion rules are not specified because behavior varies between implementations.
 ```
 
 ### Mixing arrays with Python scalars
 
-Using Python scalars (i.e., instances of `bool`, `int`, `float`) together with
-arrays must be supported for:
+Using Python scalars (i.e., instances of `bool`, `int`, `float`) together with arrays must be supported for:
 
-- `array <op> scalar`
-- `scalar <op> array`
+-   `array <op> scalar`
+-   `scalar <op> array`
 
-where `<op>` is a built-in operator, including in-place operators (see
-{ref}`operators` for operators supported by the array object) and `scalar` has
-a compatible type and value to the array dtype:
-- Python `bool` for a `bool` array dtype,
-- a Python `int` within the [bounds](data-types) of the given dtype for integer array dtypes,
-- a Python `int` or `float` for floating-point array dtypes
+where `<op>` is a built-in operator (including in-place operators, but excluding the matmul `@` operator; see {ref}`operators` for operators supported by the array object) and `scalar` has a type and value compatible with the array data type:
 
-The expected behavior is then equivalent to:
+-   a Python `bool` for a `bool` array data type.
+-   a Python `int` within the [bounds](data-types) of the given data type for integer array data types.
+-   a Python `int` or `float` for floating-point array data types.
 
-1. Convert the scalar to a 0-D array with the same dtype as that of the array
-   used in the expression.
-2. Execute the operation for `array <op> 0-D array` (or `0-D array <op>
-   array` if `scalar` was the left-hand argument).
+Provided the above requirements are met, the expected behavior is equivalent to:
+
+1.  Convert the scalar to zero-dimensional array with the same data type as that of the array used in the expression.
+2.  Execute the operation for `array <op> 0-D array` (or `0-D array <op> array` if `scalar` was the left-hand argument).
 
 ```{note}
+Behavior is not specified when mixing a Python `float` and an array with an integer data type; this may give `float32`, `float64`, or raise an exception. Behavior is implementation-specific.
 
-Behaviour is not specified when mixing a Python `float` and an array with an
-integer dtype; this may give `float32`, `float64`, or raise an exception -
-behavior of implementations will differ.
-
-The behavior is also not specified for integers outside of the bounds of a
-given integer dtype. It may overflow, or result in an error.
+The behavior is also not specified for integers outside of the bounds of a given integer data type. Integers outside of bounds may result in overflow or an error.
 ```
