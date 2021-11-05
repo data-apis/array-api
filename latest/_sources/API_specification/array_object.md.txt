@@ -13,6 +13,16 @@ A conforming implementation of the array API standard must provide and support a
 -   Unless stated otherwise, methods must adhere to the type promotion rules defined in {ref}`type-promotion`.
 -   Unless stated otherwise, floating-point operations must adhere to IEEE 754-2019.
 
+Furthermore, a conforming implementation of the array API standard must support array objects of arbitrary rank `N` (i.e., number of dimensions), where `N` is greater than or equal to zero.
+
+```{note}
+Conforming implementations must support zero-dimensional arrays.
+
+Apart from array object attributes, such as `ndim`, `device`, and `dtype`, all operations in this standard return arrays (or tuples of arrays), including those operations, such as `mean`, `var`, and `std`, from which some common array libraries (e.g., NumPy) return scalar values.
+
+_Rationale: always returning arrays is necessary to (1) support accelerator libraries where non-array return values could force device synchronization and (2) support delayed execution models where an array represents a future value._
+```
+
 * * *
 
 (operators)=

@@ -2156,6 +2156,73 @@
           </p>
          </li>
         </ul>
+        <p>
+         Furthermore, a conforming implementation of the array API standard must support array objects of arbitrary rank
+         <code class="docutils literal notranslate">
+          <span class="pre">
+           N
+          </span>
+         </code>
+         (i.e., number of dimensions), where
+         <code class="docutils literal notranslate">
+          <span class="pre">
+           N
+          </span>
+         </code>
+         is greater than or equal to zero.
+        </p>
+        <div class="admonition note">
+         <p class="admonition-title">
+          Note
+         </p>
+         <p>
+          Conforming implementations must support zero-dimensional arrays.
+         </p>
+         <p>
+          Apart from array object attributes, such as
+          <code class="docutils literal notranslate">
+           <span class="pre">
+            ndim
+           </span>
+          </code>
+          ,
+          <code class="docutils literal notranslate">
+           <span class="pre">
+            device
+           </span>
+          </code>
+          , and
+          <code class="docutils literal notranslate">
+           <span class="pre">
+            dtype
+           </span>
+          </code>
+          , all operations in this standard return arrays (or tuples of arrays), including those operations, such as
+          <code class="docutils literal notranslate">
+           <span class="pre">
+            mean
+           </span>
+          </code>
+          ,
+          <code class="docutils literal notranslate">
+           <span class="pre">
+            var
+           </span>
+          </code>
+          , and
+          <code class="docutils literal notranslate">
+           <span class="pre">
+            std
+           </span>
+          </code>
+          , from which some common array libraries (e.g., NumPy) return scalar values.
+         </p>
+         <p>
+          <em>
+           Rationale: always returning arrays is necessary to (1) support accelerator libraries where non-array return values could force device synchronization and (2) support delayed execution models where an array represents a future value.
+          </em>
+         </p>
+        </div>
         <hr class="docutils"/>
         <section id="operators">
          <span id="id2">
