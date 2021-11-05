@@ -774,11 +774,6 @@
                       </nav>
                      </li>
                      <li class="md-nav__item">
-                      <a class="md-nav__link" href="#len-self">
-                       __len__(self, /)
-                      </a>
-                     </li>
-                     <li class="md-nav__item">
                       <a class="md-nav__link" href="#lshift-self-other">
                        __lshift__(self, other, /)
                       </a>
@@ -1751,11 +1746,6 @@
                    </li>
                   </ul>
                  </nav>
-                </li>
-                <li class="md-nav__item">
-                 <a class="md-nav__link" href="#len-self">
-                  __len__(self, /)
-                 </a>
                 </li>
                 <li class="md-nav__item">
                  <a class="md-nav__link" href="#lshift-self-other">
@@ -4208,11 +4198,6 @@
              </ul>
             </li>
            </ul>
-           <p>
-            <em>
-             TODO: need to more carefully consider this in order to accommodate, e.g., graph tensors where the number of dimensions may be dynamic.
-            </em>
-           </p>
           </section>
          </section>
          <section id="shape">
@@ -4242,23 +4227,55 @@
               </strong>
               :
               <em>
-               Union[ Tuple[ int, …], &lt;shape&gt; ]
+               Tuple[ Optional[ int ], … ]
               </em>
              </p>
              <ul>
               <li>
                <p>
-                array dimensions as either a tuple or a custom shape object. If a shape object, the object must be immutable and must support indexing for dimension retrieval.
+                array dimensions. An array dimension must be
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  None
+                 </span>
+                </code>
+                if and only if a dimension is unknown.
                </p>
               </li>
              </ul>
             </li>
            </ul>
-           <p>
-            <em>
-             TODO: need to more carefully consider this in order to accommodate, e.g., graph tensors where a shape may be dynamic.
-            </em>
-           </p>
+           <div class="admonition note">
+            <p class="admonition-title">
+             Note
+            </p>
+            <p>
+             For array libraries having graph-based computational models, array dimensions may be unknown due to data-dependent operations (e.g., boolean indexing;
+             <code class="docutils literal notranslate">
+              <span class="pre">
+               A[:,
+              </span>
+              <span class="pre">
+               B
+              </span>
+              <span class="pre">
+               &gt;
+              </span>
+              <span class="pre">
+               0]
+              </span>
+             </code>
+             ) and thus cannot be statically resolved without knowing array contents.
+            </p>
+           </div>
+           <div class="admonition note">
+            <p class="admonition-title">
+             Note
+            </p>
+            <p>
+             The returned value should be a tuple; however, where warranted, an array library may choose to return a custom shape object. If an array library returns a custom shape object, the object must be immutable, must support indexing for dimension retrieval, and must behave similarly to a tuple.
+            </p>
+           </div>
           </section>
          </section>
          <section id="size">
@@ -4271,8 +4288,16 @@
            </a>
           </h3>
           <p>
-           Number of elements in an array. This must equal the product of the array’s dimensions.
+           Number of elements in an array.
           </p>
+          <div class="admonition note">
+           <p class="admonition-title">
+            Note
+           </p>
+           <p>
+            This must equal the product of the array’s dimensions.
+           </p>
+          </div>
           <section id="id13">
            <h4 id="id13">
             Returns
@@ -4288,23 +4313,32 @@
               </strong>
               :
               <em>
-               int
+               Optional[ int ]
               </em>
              </p>
              <ul>
               <li>
                <p>
-                number of elements in an array.
+                number of elements in an array. The returned value must be
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  None
+                 </span>
+                </code>
+                if and only if one or more array dimensions are unknown.
                </p>
               </li>
              </ul>
             </li>
            </ul>
-           <p>
-            <em>
-             TODO: need to more carefully consider this in order to accommodate, e.g., graph tensors where the number of elements may be dynamic.
-            </em>
-           </p>
+           <div class="admonition note">
+            <p class="admonition-title">
+             Note
+            </p>
+            <p>
+             For array libraries having graph-based computational models, an array may have unknown dimensions due to data-dependent operations.
+            </p>
+           </div>
           </section>
          </section>
          <section id="t">
@@ -7255,21 +7289,6 @@ cost of more synchronization than necessary.
             </p>
            </div>
           </section>
-         </section>
-         <section id="len-self">
-          <span id="method-len">
-          </span>
-          <h3 id="len-self">
-           __len__(self, /)
-           <a class="headerlink" href="#len-self" title="Permalink to this headline">
-            ¶
-           </a>
-          </h3>
-          <p>
-           <em>
-            TODO: need to more carefully consider this in order to accommodate, e.g., graph tensors where a shape may be dynamic. Furthermore, not clear whether this should be implemented, as, e.g., NumPy’s behavior of returning the size of the first dimension is not necessarily intuitive, as opposed to, say, the total number of elements.
-           </em>
-          </p>
          </section>
          <section id="lshift-self-other">
           <span id="method-lshift">
