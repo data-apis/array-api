@@ -55,8 +55,8 @@ Each `nan` value should have a count of one, while the counts for signed zeros s
         The order of unique elements is not specified and may vary between implementations.
         ```
 
-(function-unique-count)=
-### unique_count(x, /)
+(function-unique-counts)=
+### unique_counts(x, /)
 
 :::{admonition} Data-dependent output shape
 :class: important
