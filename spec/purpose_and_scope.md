@@ -48,14 +48,6 @@ functionality that's not present in this document?_ This:
 - may indicate that that functionality, if present in a particular array
   library, is unlikely to be present in all other libraries
 
-```{note}
-
-This document is ready for wider community review, but still contains a
-number of TODOs, and is expected to change and evolve before a first
-official release. See {ref}`future-API-evolution` for proposed
-versioning.
-```
-
 ### History
 
 The first library for numerical and scientific computing in Python was
@@ -117,8 +109,7 @@ Furthermore, meta-topics included in this standard include:
 - Verification of API standard conformance
 
 The concrete set of functionality that is in scope for this version of the
-standard is shown in this diagram (_TODO: update after deciding on how optional
-extensions are dealt with_):
+standard is shown in this diagram:
 
 ![Scope of array API](_static/images/scope_of_array_API.png)
 
@@ -215,15 +206,6 @@ extensions are dealt with_):
   they implement may try to convert "foreign" input, or raise an exception.
   This behaviour is hard to specify; ensuring only a single array type is
   used is best left to the end user._
-
-
-### TBD whether or not in scope, or for a later version
-
-- Random number generation, Fourier transforms, and miscellaneous functionality
-  like a padding function.
-
-  _This will be decided later, depending on whether "optional extensions" will
-  be added to the standard._
 
 
 ### Implications of in/out of scope
