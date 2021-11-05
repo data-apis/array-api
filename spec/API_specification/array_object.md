@@ -275,8 +275,6 @@ Number of array dimensions (axes).
 
     -   number of array dimensions (axes).
 
-_TODO: need to more carefully consider this in order to accommodate, e.g., graph tensors where the number of dimensions may be dynamic._
-
 (attribute-shape)=
 ### shape
 
@@ -284,24 +282,36 @@ Array dimensions.
 
 #### Returns
 
--   **out**: _Union\[ Tuple\[ int, ...], &lt;shape&gt; ]_
+-   **out**: _Tuple\[ Optional\[ int ], ... ]_
 
-    -   array dimensions as either a tuple or a custom shape object. If a shape object, the object must be immutable and must support indexing for dimension retrieval.
+    -   array dimensions. An array dimension must be `None` if and only if a dimension is unknown.
 
-_TODO: need to more carefully consider this in order to accommodate, e.g., graph tensors where a shape may be dynamic._
+```{note}
+For array libraries having graph-based computational models, array dimensions may be unknown due to data-dependent operations (e.g., boolean indexing; `A[:, B > 0]`) and thus cannot be statically resolved without knowing array contents.
+```
+
+```{note}
+The returned value should be a tuple; however, where warranted, an array library may choose to return a custom shape object. If an array library returns a custom shape object, the object must be immutable, must support indexing for dimension retrieval, and must behave similarly to a tuple.
+```
 
 (attribute-size)=
 ### size
 
-Number of elements in an array. This must equal the product of the array's dimensions.
+Number of elements in an array.
+
+```{note}
+This must equal the product of the array's dimensions.
+```
 
 #### Returns
 
--   **out**: _int_
+-   **out**: _Optional\[ int ]_
 
-    -   number of elements in an array.
+    -   number of elements in an array. The returned value must be `None` if and only if one or more array dimensions are unknown.
 
-_TODO: need to more carefully consider this in order to accommodate, e.g., graph tensors where the number of elements may be dynamic._
+```{note}
+For array libraries having graph-based computational models, an array may have unknown dimensions due to data-dependent operations.
+```
 
 (attribute-T)=
 ### T
@@ -782,11 +792,6 @@ Computes the truth value of `self_i <= other_i` for each element of an array ins
 ```{note}
 Element-wise results must equal the results returned by the equivalent element-wise function [`less_equal(x1, x2)`](elementwise_functions.md#less_equalx1-x2-).
 ```
-
-(method-__len__)=
-### \_\_len\_\_(self, /)
-
-_TODO: need to more carefully consider this in order to accommodate, e.g., graph tensors where a shape may be dynamic. Furthermore, not clear whether this should be implemented, as, e.g., NumPy's behavior of returning the size of the first dimension is not necessarily intuitive, as opposed to, say, the total number of elements._
 
 (method-__lshift__)=
 ### \_\_lshift\_\_(self, other, /)
