@@ -270,7 +270,7 @@ This must equal the product of the array's dimensions.
 
 -   **out**: _Optional\[ int ]_
 
-    -   number of elements in an array. The returned value must be `None` if and only if an array dimension is unknown.
+    -   number of elements in an array. The returned value must be `None` if and only if one or more array dimensions are unknown.
 
 ```{note}
 For array libraries having graph-based computational models, an array may have unknown dimensions due to data-dependent operations.
