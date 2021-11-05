@@ -19,37 +19,11 @@ A conforming implementation of the array API standard must provide and support a
 
 ## Operators
 
-A conforming implementation of the array API standard must provide and support an array object supporting the following Python operators:
+A conforming implementation of the array API standard must provide and support an array object supporting the following Python operators.
 
--   `x1 < x2`: [`__lt__(x1, x2)`](#__lt__self-other-)
+### Arithmetic Operators
 
-    -   [`operator.lt(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.lt)
-    -   [`operator.__lt__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__lt__)
-
--   `x1 <= x2`: [`__le__(x1, x2)`](#__le__self-other-)
-
-    -   [`operator.le(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.le)
-    -   [`operator.__le__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__le__)
-
--   `x1 > x2`: [`__gt__(x1, x2)`](#__gt__self-other-)
-
-    -   [`operator.gt(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.gt)
-    -   [`operator.__gt__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__gt__)
-
--   `x1 >= x2`: [`__ge__(x1, x2)`](#__ge__self-other-)
-
-    -   [`operator.ge(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.ge)
-    -   [`operator.__ge__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__ge__)
-
--   `x1 == x2`: [`__eq__(x1, x2)`](#__eq__self-other-)
-
-    -   [`operator.eq(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.eq)
-    -   [`operator.__eq__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__eq__)
-
--   `x1 != x2`: [`__ne__(x1, x2)`](#__ne__self-other-)
-
-    -   [`operator.ne(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.ne)
-    -   [`operator.__ne__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__ne__)
+A conforming implementation of the array API standard must provide and support an array object supporting the following Python arithmetic operators.
 
 -   `+x`: [`__pos__(x)`](#__pos__self-)
 
@@ -96,10 +70,22 @@ A conforming implementation of the array API standard must provide and support a
     -   [`operator.pow(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.pow)
     -   [`operator.__pow__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__pow__)
 
+Arithmetic operators should be defined for arrays having numeric data types.
+
+### Array Operators
+
+A conforming implementation of the array API standard must provide and support an array object supporting the following Python array operators.
+
 -   `x1 @ x2`: [`__matmul__(x1, x2)`](#__matmul__self-other-)
 
     -   [`operator.matmul(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.matmul)
     -   [`operator.__matmul__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__matmul__)
+
+The matmul `@` operator should be defined for arrays having numeric data types.
+
+### Bitwise Operators
+
+A conforming implementation of the array API standard must provide and support an array object supporting the following Python bitwise operators.
 
 -   `~x`: [`__invert__(x)`](#__invert__self-)
 
@@ -133,58 +119,109 @@ A conforming implementation of the array API standard must provide and support a
     -   [`operator.rshift(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.rshift)
     -   [`operator.__rshift__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__rshift__)
 
+Bitwise operators should be defined for arrays having integer and boolean data types.
+
+### Comparison Operators
+
+A conforming implementation of the array API standard must provide and support an array object supporting the following Python comparison operators.
+
+-   `x1 < x2`: [`__lt__(x1, x2)`](#__lt__self-other-)
+
+    -   [`operator.lt(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.lt)
+    -   [`operator.__lt__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__lt__)
+
+-   `x1 <= x2`: [`__le__(x1, x2)`](#__le__self-other-)
+
+    -   [`operator.le(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.le)
+    -   [`operator.__le__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__le__)
+
+-   `x1 > x2`: [`__gt__(x1, x2)`](#__gt__self-other-)
+
+    -   [`operator.gt(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.gt)
+    -   [`operator.__gt__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__gt__)
+
+-   `x1 >= x2`: [`__ge__(x1, x2)`](#__ge__self-other-)
+
+    -   [`operator.ge(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.ge)
+    -   [`operator.__ge__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__ge__)
+
+-   `x1 == x2`: [`__eq__(x1, x2)`](#__eq__self-other-)
+
+    -   [`operator.eq(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.eq)
+    -   [`operator.__eq__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__eq__)
+
+-   `x1 != x2`: [`__ne__(x1, x2)`](#__ne__self-other-)
+
+    -   [`operator.ne(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.ne)
+    -   [`operator.__ne__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__ne__)
+
+Comparison operators should be defined for arrays having any data type.
 
 ### In-place Operators
 
-A conforming implementation of the array API standard must provide and support
-an array object supporting the following in-place Python operators:
+A conforming implementation of the array API standard must provide and support an array object supporting the following in-place Python operators.
 
-- `+=`. May be implemented via `__iadd__`.
-- `-=`. May be implemented via `__isub__`.
-- `*=`. May be implemented via `__imul__`.
-- `/=`. May be implemented via `__itruediv__`.
-- `//=`. May be implemented via `__ifloordiv__`.
-- `**=`. May be implemented via `__ipow__`.
-- `@=`. May be implemented via `__imatmul__`.
-- `%=`. May be implemented via `__imod__`.
-- `&=`. May be implemented via `__iand__`.
-- `|=`. May be implemented via `__ior__`.
-- `^=`. May be implemented via `__ixor__`.
-- `<<=`. May be implemented via `__ilshift__`.
-- `>>=`. May be implemented via `__irshift__`.
+An in-place operation must not change the data type or shape of the in-place array as a result of {ref}`type-promotion` or {ref}`broadcasting`.
 
-An in-place operation must not change the dtype or shape of the in-place array
-as a result of {ref}`type-promotion` or {ref}`broadcasting`.
+An in-place operation must have the same behavior (including special cases) as its respective binary (i.e., two operand, non-assignment) operation. For example, after in-place addition `x1 += x2`, the modified array `x1` must always equal the result of the equivalent binary arithmetic operation `x1 = x1 + x2`.
 
 ```{note}
-
 In-place operators must be supported as discussed in {ref}`copyview-mutability`.
 ```
 
+#### Arithmetic Operators
+
+-   `+=`. May be implemented via `__iadd__`.
+-   `-=`. May be implemented via `__isub__`.
+-   `*=`. May be implemented via `__imul__`.
+-   `/=`. May be implemented via `__itruediv__`.
+-   `//=`. May be implemented via `__ifloordiv__`.
+-   `**=`. May be implemented via `__ipow__`.
+-   `%=`. May be implemented via `__imod__`.
+
+#### Array Operators
+
+-   `@=`. May be implemented via `__imatmul__`.
+
+#### Bitwise Operators
+
+-   `&=`. May be implemented via `__iand__`.
+-   `|=`. May be implemented via `__ior__`.
+-   `^=`. May be implemented via `__ixor__`.
+-   `<<=`. May be implemented via `__ilshift__`.
+-   `>>=`. May be implemented via `__irshift__`.
+
 ### Reflected Operators
 
-A conforming implementation of the array API standard must provide and support
-an array object supporting the following reflected operators:
-
-- `__radd__`
-- `__rsub__`
-- `__rmul__`
-- `__rtruediv__`
-- `__rfloordiv__`
-- `__rpow__`
-- `__rmatmul__`
-- `__rmod__`
-- `__rand__`
-- `__ror__`
-- `__rxor__`
-- `__rlshift__`
-- `__rrshift__`
+A conforming implementation of the array API standard must provide and support an array object supporting the following reflected operators.
 
 The results of applying reflected operators must match their non-reflected equivalents.
 
 ```{note}
 All operators for which `array <op> scalar` is implemented must have an equivalent reflected operator implementation.
 ```
+
+#### Arithmetic Operators
+
+-   `__radd__`
+-   `__rsub__`
+-   `__rmul__`
+-   `__rtruediv__`
+-   `__rfloordiv__`
+-   `__rpow__`
+-   `__rmod__`
+
+#### Array Operators
+
+-   `__rmatmul__`
+
+#### Bitwise Operators
+
+-   `__rand__`
+-   `__ror__`
+-   `__rxor__`
+-   `__rlshift__`
+-   `__rrshift__`
 
 * * *
 
@@ -467,6 +504,10 @@ Exports the array for consumption by {ref}`function-from_dlpack` as a DLPack cap
         On CPU and other device types without streams, only `None` is accepted.
 
         For other device types which do have a stream, queue or similar synchronization mechanism, the most appropriate type to use for `stream` is not yet determined. E.g., for SYCL one may want to use an object containing an in-order `cl::sycl::queue`. This is allowed when libraries agree on such a convention, and may be standardized in a future version of this API standard.
+
+        ```{note}
+        Support for a `stream` value other than `None` is optional and implementation-dependent.
+        ```
 
         Device-specific notes:
 
@@ -1218,9 +1259,9 @@ Element-wise results must equal the results returned by the equivalent element-w
 ```
 
 (method-to_device)=
-### to\_device(self, device, /)
+### to\_device(self, device, /, *, stream=None)
 
-Move the array to the given device.
+Copy the array from the device on which it currently resides to the specified `device`.
 
 #### Parameters
 
@@ -1232,8 +1273,16 @@ Move the array to the given device.
 
     -   a `device` object (see {ref}`device-support`).
 
+-   **stream**: _Optional\[ Union\[ int, Any ]]_
+
+    -   stream object to use during copy. In addition to the types supported in {ref}`method-__dlpack__`, implementations may choose to support any library-specific stream object with the caveat that any code using such an object would not be portable.
+
 #### Returns
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array with the same data and dtype, located on the specified device.
+    -   an array with the same data and data type as `self` and located on the specified `device`.
+
+```{note}
+If `stream` is given, the copy operation should be enqueued on the provided `stream`; otherwise, the copy operation should be enqueued on the default stream/queue. Whether the copy is performed synchronously or asynchronously is implementation-dependent. Accordingly, if synchronization is required to guarantee data safety, this must be clearly explained in a conforming library's documentation.
+```

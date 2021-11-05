@@ -3,3 +3,4 @@ sphinx-material==0.0.30
 myst-parser
 sphinx_markdown_tables
 sphinx_copybutton
+docutils<0.18
