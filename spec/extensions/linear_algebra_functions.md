@@ -204,7 +204,7 @@ Whether an array library explicitly checks whether an input array is a symmetric
         Each returned array must have the same floating-point data type as `x`.
 
 ```{note}
-Eigenvalue sort order is left unspecified.
+Eigenvalue sort order is left unspecified and is thus implementation-dependent.
 ```
 
 (function-linalg-eigvalsh)=
@@ -235,7 +235,7 @@ Whether an array library explicitly checks whether an input array is a symmetric
     -   an array containing the computed eigenvalues. The returned array must have shape `(..., M)` and have the same data type as `x`.
 
 ```{note}
-Eigenvalue sort order is left unspecified.
+Eigenvalue sort order is left unspecified and is thus implementation-dependent.
 ```
 
 (function-linalg-inv)=
@@ -428,10 +428,10 @@ Whether an array library explicitly checks whether an input array is a full colu
 
 -   **out**: _Tuple\[ &lt;array&gt;, &lt;array&gt; ]_
 
-    -   a namedtuple `(q, r)` whose
+    -   a namedtuple `(Q, R)` whose
 
-        -   first element must have the field name `q` and must be an array whose shape depends on the value of `mode` and contain matrices with orthonormal columns. If `mode` is `'complete'`, the array must have shape `(..., M, M)`. If `mode` is `'reduced'`, the array must have shape `(..., M, K)`, where `K = min(M, N)`. The first `x.ndim-2` dimensions must have the same size as those of the input array `x`.
-        -   second element must have the field name `r` and must be an array whose shape depends on the value of `mode` and contain upper-triangular matrices. If `mode` is `'complete'`, the array must have shape `(..., M, M)`. If `mode` is `'reduced'`, the array must have shape `(..., K, N)`, where `K = min(M, N)`. The first `x.ndim-2` dimensions must have the same size as those of the input `x`.
+        -   first element must have the field name `Q` and must be an array whose shape depends on the value of `mode` and contain matrices with orthonormal columns. If `mode` is `'complete'`, the array must have shape `(..., M, M)`. If `mode` is `'reduced'`, the array must have shape `(..., M, K)`, where `K = min(M, N)`. The first `x.ndim-2` dimensions must have the same size as those of the input array `x`.
+        -   second element must have the field name `R` and must be an array whose shape depends on the value of `mode` and contain upper-triangular matrices. If `mode` is `'complete'`, the array must have shape `(..., M, M)`. If `mode` is `'reduced'`, the array must have shape `(..., K, N)`, where `K = min(M, N)`. The first `x.ndim-2` dimensions must have the same size as those of the input `x`.
 
         Each returned array must have a floating-point data type determined by {ref}`type-promotion`.
 
@@ -513,11 +513,11 @@ Returns a singular value decomposition A = USVh of a matrix (or a stack of matri
 
 -   **out**: _Union\[ &lt;array&gt;, Tuple\[ &lt;array&gt;, ... ] ]_
 
-    -   a namedtuple `(u, s, vh)` whose
+    -   a namedtuple `(U, S, Vh)` whose
 
-        -   first element must have the field name `u` and must be an array whose shape depends on the value of `full_matrices` and contain matrices with orthonormal columns (i.e., the columns are left singular vectors). If `full_matrices` is `True`, the array must have shape `(..., M, M)`. If `full_matrices` is `False`, the array must have shape `(..., M, K)`, where `K = min(M, N)`. The first `x.ndim-2` dimensions must have the same shape as those of the input `x`.
-        -   second element must have the field name `s` and must be an array with shape `(..., K)` that contains the vector(s) of singular values of length `K`. For each vector, the singular values must be sorted in descending order by magnitude, such that `s[..., 0]` is the largest value, `s[..., 1]` is the second largest value, et cetera. The first `x.ndim-2` dimensions must have the same shape as those of the input `x`.
-        -   third element must have the field name `vh` and must be an array whose shape depends on the value of `full_matrices` and contain orthonormal rows (i.e., the rows are the right singular vectors and the array is the adjoint). If `full_matrices` is `True`, the array must have shape `(..., N, N)`. If `full_matrices` is `False`, the array must have shape `(..., K, N)` where `K = min(M, N)`. The first `x.ndim-2` dimensions must have the same shape as those of the input `x`.
+        -   first element must have the field name `U` and must be an array whose shape depends on the value of `full_matrices` and contain matrices with orthonormal columns (i.e., the columns are left singular vectors). If `full_matrices` is `True`, the array must have shape `(..., M, M)`. If `full_matrices` is `False`, the array must have shape `(..., M, K)`, where `K = min(M, N)`. The first `x.ndim-2` dimensions must have the same shape as those of the input `x`.
+        -   second element must have the field name `S` and must be an array with shape `(..., K)` that contains the vector(s) of singular values of length `K`. For each vector, the singular values must be sorted in descending order by magnitude, such that `s[..., 0]` is the largest value, `s[..., 1]` is the second largest value, et cetera. The first `x.ndim-2` dimensions must have the same shape as those of the input `x`.
+        -   third element must have the field name `Vh` and must be an array whose shape depends on the value of `full_matrices` and contain orthonormal rows (i.e., the rows are the right singular vectors and the array is the adjoint). If `full_matrices` is `True`, the array must have shape `(..., N, N)`. If `full_matrices` is `False`, the array must have shape `(..., K, N)` where `K = min(M, N)`. The first `x.ndim-2` dimensions must have the same shape as those of the input `x`.
 
         Each returned array must have the same floating-point data type as `x`.
 
