@@ -53,8 +53,8 @@ The `matmul` function must implement the same semantics as the built-in `@` oper
 
 -   if either `x1` or `x2` is a zero-dimensional array.
 -   if `x1` is a one-dimensional array having shape `(K)`, `x2` is a one-dimensional array having shape `(L)`, and `K != L`.
--   if `x1` is a one-dimensional array having shape `(K)`, `x2` is an array having shape `(..., L, M)`, and `K != L`.
--   if `x1` is an array having shape `(..., N, K)`, `x2` is a one-dimensional array having shape `(L)`, and `K != L`.
+-   if `x1` is a one-dimensional array having shape `(K)`, `x2` is an array having shape `(..., L, N)`, and `K != L`.
+-   if `x1` is an array having shape `(..., M, K)`, `x2` is a one-dimensional array having shape `(L)`, and `K != L`.
 -   if `x1` is an array having shape `(..., M, K)`, `x2` is an array having shape `(..., L, N)`, and `K != L`.
 
 (function-matrix-transpose)=
