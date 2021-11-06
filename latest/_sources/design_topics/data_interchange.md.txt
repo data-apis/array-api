@@ -124,6 +124,9 @@ be inspected by name.
 The consumer must set the PyCapsule name to `"used_dltensor"`, and call the
 `deleter` of the `DLPackManagedTensor` when it no longer needs the data.
 
+Note: the capsule names ``"dltensor"`` and `"used_dltensor"` must be statically
+allocated.
+
 When the `strides` field in the `DLTensor` struct is `NULL`, it indicates a
 row-major compact array. If the array is of size zero, the data pointer in
 `DLTensor` should be set to either `NULL` or `0`.
