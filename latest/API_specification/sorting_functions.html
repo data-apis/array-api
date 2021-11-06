@@ -531,6 +531,41 @@
           </p>
          </li>
         </ul>
+        <div class="admonition note">
+         <p class="admonition-title">
+          Note
+         </p>
+         <p>
+          For floating-point input arrays, the sort order of NaNs and signed zeros is unspecified and thus implementation-dependent.
+         </p>
+         <p>
+          Implementations may choose to sort signed zeros (
+          <code class="docutils literal notranslate">
+           <span class="pre">
+            -0
+           </span>
+           <span class="pre">
+            &lt;
+           </span>
+           <span class="pre">
+            +0
+           </span>
+          </code>
+          ) or may choose to rely solely on value equality (
+          <code class="docutils literal notranslate">
+           <span class="pre">
+            ==
+           </span>
+          </code>
+          ).
+         </p>
+         <p>
+          Implementations may choose to sort NaNs (e.g., to the end or to the beginning of a returned array) or leave them in-place. Should an implementation sort NaNs, the sorting convention should be clearly documented in the conforming implementation’s documentation.
+         </p>
+         <p>
+          While defining a sort order for IEEE 754 floating-point numbers is recommended in order to facilitate reproducible and consistent sort results, doing so is not currently required by this specification.
+         </p>
+        </div>
         <section id="objects-in-api">
          <h2 id="objects-in-api">
           Objects in API

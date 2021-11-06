@@ -8,6 +8,16 @@ A conforming implementation of the array API standard must provide and support t
 -   Optional parameters must be [keyword-only](https://www.python.org/dev/peps/pep-3102/) arguments.
 -   Unless stated otherwise, functions must support the data types defined in {ref}`data-types`.
 
+```{note}
+For floating-point input arrays, the sort order of NaNs and signed zeros is unspecified and thus implementation-dependent.
+
+Implementations may choose to sort signed zeros (`-0 < +0`) or may choose to rely solely on value equality (`==`).
+
+Implementations may choose to sort NaNs (e.g., to the end or to the beginning of a returned array) or leave them in-place. Should an implementation sort NaNs, the sorting convention should be clearly documented in the conforming implementation's documentation.
+
+While defining a sort order for IEEE 754 floating-point numbers is recommended in order to facilitate reproducible and consistent sort results, doing so is not currently required by this specification.
+```
+
 ## Objects in API
 
 <!-- NOTE: please keep the functions in alphabetical order -->
