@@ -341,8 +341,8 @@
                       </nav>
                      </li>
                      <li class="md-nav__item">
-                      <a class="md-nav__link" href="#unique-inverse-x">
-                       unique_inverse(x, /)
+                      <a class="md-nav__link" href="#unique-counts-x">
+                       unique_counts(x, /)
                       </a>
                       <nav class="md-nav">
                        <ul class="md-nav__list">
@@ -360,8 +360,8 @@
                       </nav>
                      </li>
                      <li class="md-nav__item">
-                      <a class="md-nav__link" href="#unique-values-x">
-                       unique_values(x, /)
+                      <a class="md-nav__link" href="#unique-inverse-x">
+                       unique_inverse(x, /)
                       </a>
                       <nav class="md-nav">
                        <ul class="md-nav__list">
@@ -372,6 +372,25 @@
                         </li>
                         <li class="md-nav__item">
                          <a class="md-nav__link" href="#id4">
+                          Returns
+                         </a>
+                        </li>
+                       </ul>
+                      </nav>
+                     </li>
+                     <li class="md-nav__item">
+                      <a class="md-nav__link" href="#unique-values-x">
+                       unique_values(x, /)
+                      </a>
+                      <nav class="md-nav">
+                       <ul class="md-nav__list">
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#id5">
+                          Parameters
+                         </a>
+                        </li>
+                        <li class="md-nav__item">
+                         <a class="md-nav__link" href="#id6">
                           Returns
                          </a>
                         </li>
@@ -471,8 +490,8 @@
                  </nav>
                 </li>
                 <li class="md-nav__item">
-                 <a class="md-nav__link" href="#unique-inverse-x">
-                  unique_inverse(x, /)
+                 <a class="md-nav__link" href="#unique-counts-x">
+                  unique_counts(x, /)
                  </a>
                  <nav class="md-nav">
                   <ul class="md-nav__list">
@@ -490,8 +509,8 @@
                  </nav>
                 </li>
                 <li class="md-nav__item">
-                 <a class="md-nav__link" href="#unique-values-x">
-                  unique_values(x, /)
+                 <a class="md-nav__link" href="#unique-inverse-x">
+                  unique_inverse(x, /)
                  </a>
                  <nav class="md-nav">
                   <ul class="md-nav__list">
@@ -502,6 +521,25 @@
                    </li>
                    <li class="md-nav__item">
                     <a class="md-nav__link" href="#id4">
+                     Returns
+                    </a>
+                   </li>
+                  </ul>
+                 </nav>
+                </li>
+                <li class="md-nav__item">
+                 <a class="md-nav__link" href="#unique-values-x">
+                  unique_values(x, /)
+                 </a>
+                 <nav class="md-nav">
+                  <ul class="md-nav__list">
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#id5">
+                     Parameters
+                    </a>
+                   </li>
+                   <li class="md-nav__item">
+                    <a class="md-nav__link" href="#id6">
                      Returns
                     </a>
                    </li>
@@ -602,6 +640,24 @@
           </div>
           <p>
            Returns the unique elements of an input array
+           <code class="docutils literal notranslate">
+            <span class="pre">
+             x
+            </span>
+           </code>
+           , the first occurring indices for each unique element in
+           <code class="docutils literal notranslate">
+            <span class="pre">
+             x
+            </span>
+           </code>
+           , the indices from the set of unique elements that reconstruct
+           <code class="docutils literal notranslate">
+            <span class="pre">
+             x
+            </span>
+           </code>
+           , and the corresponding counts for each unique element in
            <code class="docutils literal notranslate">
             <span class="pre">
              x
@@ -911,6 +967,273 @@
            </ul>
           </section>
          </section>
+         <section id="unique-counts-x">
+          <span id="function-unique-counts">
+          </span>
+          <h3 id="unique-counts-x">
+           unique_counts(x, /)
+           <a class="headerlink" href="#unique-counts-x" title="Permalink to this headline">
+            ¶
+           </a>
+          </h3>
+          <div class="important admonition">
+           <p class="admonition-title">
+            Data-dependent output shape
+           </p>
+           <p>
+            The shapes of two of the output arrays for this function depend on the data values in the input array; hence, array libraries which build computation graphs (e.g., JAX, Dask, etc.) may find this function difficult to implement without knowing array values. Accordingly, such libraries may choose to omit this function. See
+            <a class="reference internal" href="../design_topics/data_dependent_output_shapes.html#data-dependent-output-shapes">
+             <span class="std std-ref">
+              Data-dependent output shapes
+             </span>
+            </a>
+            section for more details.
+           </p>
+          </div>
+          <p>
+           Returns the unique elements of an input array
+           <code class="docutils literal notranslate">
+            <span class="pre">
+             x
+            </span>
+           </code>
+           and the corresponding counts for each unique element in
+           <code class="docutils literal notranslate">
+            <span class="pre">
+             x
+            </span>
+           </code>
+           .
+          </p>
+          <div class="admonition note">
+           <p class="admonition-title">
+            Note
+           </p>
+           <p>
+            Uniqueness should be determined based on value equality (i.e.,
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              x_i
+             </span>
+             <span class="pre">
+              ==
+             </span>
+             <span class="pre">
+              x_j
+             </span>
+            </code>
+            ). For input arrays having floating-point data types, value-based equality implies the following behavior.
+           </p>
+           <ul class="simple">
+            <li>
+             <p>
+              As
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                nan
+               </span>
+              </code>
+              values compare as
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                False
+               </span>
+              </code>
+              ,
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                nan
+               </span>
+              </code>
+              values should be considered distinct.
+             </p>
+            </li>
+            <li>
+             <p>
+              As
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                -0
+               </span>
+              </code>
+              and
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                +0
+               </span>
+              </code>
+              compare as
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                True
+               </span>
+              </code>
+              , signed zeros should not be considered distinct, and the corresponding unique element will be implementation-dependent (e.g., an implementation could choose to return
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                -0
+               </span>
+              </code>
+              if
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                -0
+               </span>
+              </code>
+              occurs before
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                +0
+               </span>
+              </code>
+              ).
+             </p>
+            </li>
+           </ul>
+           <p>
+            Each
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              nan
+             </span>
+            </code>
+            value should have a count of one, while the counts for signed zeros should be aggregated as a single count.
+           </p>
+          </div>
+          <section id="id1">
+           <h4 id="id1">
+            Parameters
+            <a class="headerlink" href="#id1" title="Permalink to this headline">
+             ¶
+            </a>
+           </h4>
+           <ul class="simple">
+            <li>
+             <p>
+              <strong>
+               x
+              </strong>
+              :
+              <em>
+               &lt;array&gt;
+              </em>
+             </p>
+             <ul>
+              <li>
+               <p>
+                input array. If
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  x
+                 </span>
+                </code>
+                has more than one dimension, the function must flatten
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  x
+                 </span>
+                </code>
+                and return the unique elements of the flattened array.
+               </p>
+              </li>
+             </ul>
+            </li>
+           </ul>
+          </section>
+          <section id="id2">
+           <h4 id="id2">
+            Returns
+            <a class="headerlink" href="#id2" title="Permalink to this headline">
+             ¶
+            </a>
+           </h4>
+           <ul>
+            <li>
+             <p>
+              <strong>
+               out
+              </strong>
+              :
+              <em>
+               Tuple[ &lt;array&gt;, &lt;array&gt; ]
+              </em>
+             </p>
+             <ul>
+              <li>
+               <p>
+                a namedtuple
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  (values,
+                 </span>
+                 <span class="pre">
+                  counts)
+                 </span>
+                </code>
+                whose
+               </p>
+               <ul class="simple">
+                <li>
+                 <p>
+                  first element must have the field name
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    values
+                   </span>
+                  </code>
+                  and must be an array containing the unique elements of
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    x
+                   </span>
+                  </code>
+                  . The array must have the same data type as
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    x
+                   </span>
+                  </code>
+                  .
+                 </p>
+                </li>
+                <li>
+                 <p>
+                  second element must have the field name
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    counts
+                   </span>
+                  </code>
+                  and must be an array containing the number of times each unique element occurs in
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    x
+                   </span>
+                  </code>
+                  . The returned array must have same shape as
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    values
+                   </span>
+                  </code>
+                  and must have the default integer data type.
+                 </p>
+                </li>
+               </ul>
+               <div class="admonition note">
+                <p class="admonition-title">
+                 Note
+                </p>
+                <p>
+                 The order of unique elements is not specified and may vary between implementations.
+                </p>
+               </div>
+              </li>
+             </ul>
+            </li>
+           </ul>
+          </section>
+         </section>
          <section id="unique-inverse-x">
           <span id="function-unique-inverse">
           </span>
@@ -1044,10 +1367,10 @@
             to reconstruct the input array is not guaranteed to return an array having the exact same values.
            </p>
           </div>
-          <section id="id1">
-           <h4 id="id1">
+          <section id="id3">
+           <h4 id="id3">
             Parameters
-            <a class="headerlink" href="#id1" title="Permalink to this headline">
+            <a class="headerlink" href="#id3" title="Permalink to this headline">
              ¶
             </a>
            </h4>
@@ -1084,10 +1407,10 @@
             </li>
            </ul>
           </section>
-          <section id="id2">
-           <h4 id="id2">
+          <section id="id4">
+           <h4 id="id4">
             Returns
-            <a class="headerlink" href="#id2" title="Permalink to this headline">
+            <a class="headerlink" href="#id4" title="Permalink to this headline">
              ¶
             </a>
            </h4>
@@ -1302,10 +1625,10 @@
             </li>
            </ul>
           </div>
-          <section id="id3">
-           <h4 id="id3">
+          <section id="id5">
+           <h4 id="id5">
             Parameters
-            <a class="headerlink" href="#id3" title="Permalink to this headline">
+            <a class="headerlink" href="#id5" title="Permalink to this headline">
              ¶
             </a>
            </h4>
@@ -1342,10 +1665,10 @@
             </li>
            </ul>
           </section>
-          <section id="id4">
-           <h4 id="id4">
+          <section id="id6">
+           <h4 id="id6">
             Returns
-            <a class="headerlink" href="#id4" title="Permalink to this headline">
+            <a class="headerlink" href="#id6" title="Permalink to this headline">
              ¶
             </a>
            </h4>
