@@ -83,7 +83,7 @@ Each `nan` value should have a count of one, while the counts for signed zeros s
 
 #### Returns
 
--   **out**: _Tuple\[ &lt;array&gt;, &lt;array&gt;, &lt;array&gt;, &lt;array&gt; ]_
+-   **out**: _Tuple\[ &lt;array&gt;, &lt;array&gt; ]_
 
     -   a namedtuple `(values, counts)` whose
 
