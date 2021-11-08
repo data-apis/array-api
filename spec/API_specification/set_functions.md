@@ -47,9 +47,9 @@ Each `nan` value should have a count of one, while the counts for signed zeros s
     -   a namedtuple `(values, indices, inverse_indices, counts)` whose
 
         -   first element must have the field name `values` and must be an array containing the unique elements of `x`. The array must have the same data type as `x`.
-        -   second element must have the field name `indices` and must be an array containing the indices (first occurrences) of `x` that result in `values`. The array must have the same shape as `values` and must have the default integer data type (or promoted if needed).
-        -   third element must have the field name `inverse_indices` and must be an array containing the indices of `values` that reconstruct `x`. The array must have the same shape as `x` and must have the default integer data type (or promoted if needed).
-        -   fourth element must have the field name `counts` and must be an array containing the number of times each unique element occurs in `x`. The returned array must have same shape as `values` and must have the default integer data type (or promoted if needed).
+        -   second element must have the field name `indices` and must be an array containing the indices (first occurrences) of `x` that result in `values`. The array must have the same shape as `values` and must have the default integer data type.
+        -   third element must have the field name `inverse_indices` and must be an array containing the indices of `values` that reconstruct `x`. The array must have the same shape as `x` and must have the default integer data type.
+        -   fourth element must have the field name `counts` and must be an array containing the number of times each unique element occurs in `x`. The returned array must have same shape as `values` and must have the default integer data type.
 
         ```{note}
         The order of unique elements is not specified and may vary between implementations.
@@ -90,7 +90,7 @@ Each `nan` value should have a count of one, while the counts for signed zeros s
     -   a namedtuple `(values, counts)` whose
 
         -   first element must have the field name `values` and must be an array containing the unique elements of `x`. The array must have the same data type as `x`.
-        -   second element must have the field name `counts` and must be an array containing the number of times each unique element occurs in `x`. The returned array must have same shape as `values` and must have the default integer data type (or promoted if needed).
+        -   second element must have the field name `counts` and must be an array containing the number of times each unique element occurs in `x`. The returned array must have same shape as `values` and must have the default integer data type.
 
         ```{note}
         The order of unique elements is not specified and may vary between implementations.
@@ -129,7 +129,7 @@ As signed zeros are not distinct, using `inverse_indices` to reconstruct the inp
     -   a namedtuple `(values, inverse_indices)` whose
 
         -   first element must have the field name `values` and must be an array containing the unique elements of `x`. The array must have the same data type as `x`.
-        -   second element must have the field name `inverse_indices` and must be an array containing the indices of `values` that reconstruct `x`. The array must have the same shape as `x` and have the default integer data type (or promoted if needed).
+        -   second element must have the field name `inverse_indices` and must be an array containing the indices of `values` that reconstruct `x`. The array must have the same shape as `x` and have the default integer data type.
 
         ```{note}
         The order of unique elements is not specified and may vary between implementations.
