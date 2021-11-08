@@ -668,6 +668,10 @@ Rounds each element `x_i` of the input array `x` to the greatest (i.e., closest 
 
 Rounds the result of dividing each element `x1_i` of the input array `x1` by the respective element `x2_i` of the input array `x2` to the greatest (i.e., closest to `+infinity`) integer-value number that is not greater than the division result.
 
+```{note}
+For input arrays which promote to an integer data type, the result of division by zero is unspecified and thus implementation-defined.
+```
+
 #### Parameters
 
 -   **x1**: _&lt;array&gt;_
@@ -1212,6 +1216,10 @@ For floating-point operands,
 ### remainder(x1, x2, /)
 
 Returns the remainder of division for each element `x1_i` of the input array `x1` and the respective element `x2_i` of the input array `x2`.
+
+```{note}
+For input arrays which promote to an integer data type, the result of division by zero is unspecified and thus implementation-defined.
+```
 
 #### Parameters
 
