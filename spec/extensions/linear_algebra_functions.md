@@ -261,7 +261,7 @@ Returns the multiplicative inverse of a square matrix (or a stack of square matr
 Alias for {ref}`function-matmul`.
 
 (function-linalg-matrix-norm)=
-### linalg.matrix_norm(x, /, *, axis=(-2, -1), keepdims=False, ord='fro')
+### linalg.matrix_norm(x, /, *, keepdims=False, ord='fro')
 
 Computes the matrix norm of a matrix (or a stack of matrices) `x`.
 
@@ -269,15 +269,11 @@ Computes the matrix norm of a matrix (or a stack of matrices) `x`.
 
 -   **x**: _&lt;array&gt;_
 
-    -   input array. Must have at least `2` dimensions. Should have a floating-point data type.
-
--   **axis**: _Tuple\[ int, int ]_
-
-    -   a 2-tuple which specifies the axes (dimensions) defining two-dimensional matrices for which to compute matrix norms. Negative indices must be supported. Default: `(-2, -1)` (i.e., the last two-dimensions).
+    -   input array having shape `(..., M, N)` and whose innermost two dimensions form `MxN` matrices. Should have a floating-point data type.
 
 -   **keepdims**: _bool_
 
-    -   If `True`, the axes (dimensions) specified by `axis` must be included in the result as singleton dimensions, and, accordingly, the result must be compatible with the input array (see {ref}`broadcasting`). Otherwise, if `False`, the axes (dimensions) specified by `axis` must not be included in the result. Default: `False`.
+    -   If `True`, the last two axes (dimensions) must be included in the result as singleton dimensions, and, accordingly, the result must be compatible with the input array (see {ref}`broadcasting`). Otherwise, if `False`, the last two axes (dimensions) must not be included in the result. Default: `False`.
 
 -   **ord**: _Optional\[ Union\[  int, float, Literal\[ inf, -inf, 'fro', 'nuc' ] ] ]_
 
@@ -309,7 +305,7 @@ Computes the matrix norm of a matrix (or a stack of matrices) `x`.
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the norms. If `keepdims` is `False`, the returned array must have a rank which is two less than the rank of `x`. The returned array must have a floating-point data type determined by {ref}`type-promotion`.
+    -   an array containing the norms for each `MxN` matrix. If `keepdims` is `False`, the returned array must have a rank which is two less than the rank of `x`. The returned array must have a floating-point data type determined by {ref}`type-promotion`.
 
 (function-linalg-matrix_power)=
 ### linalg.matrix_power(x, n, /)
