@@ -87,7 +87,7 @@ Returns a tensor contraction of `x1` and `x2` over specific axes.
 
 -   **x2**: _&lt;array&gt;_
 
-    -   second input array. Must be compatible with `x1` (see {ref}`broadcasting`). Should have a numeric data type.
+    -   second input array. Must be compatible with `x1` in non-contracted dimensions (i.e., contracted dimensions must not be broadcasted; see {ref}`broadcasting`). Should have a numeric data type.
 
 -   **axes**: _Union\[ int, Tuple\[ Sequence\[ int ], Sequence\[ int ] ] ]_
 
