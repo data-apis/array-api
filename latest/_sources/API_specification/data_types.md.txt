@@ -110,14 +110,20 @@ Computes the truth value of `self == other` in order to test for data type objec
 (data-type-defaults)=
 ## Default Data Types
 
-A conforming implementation of the array API standard must define a default floating-point data type (either `float32` or `float64`) and a default integer data type (`int32` or `int64`).
+A conforming implementation of the array API standard must define the following default data types.
 
-The default data types must be the same across platforms.
+-   a default floating-point data type (either `float32` or `float64`).
+-   a default integer data type (either `int32` or `int64`).
+-   a default array index data type (either `int32` or `int64`).
 
-The default integer data type may vary depending on whether Python is 32-bit or 64-bit.
+The default floating-point data type must be the same across platforms.
+
+The default integer data type should be the same across platforms, but the default may vary depending on whether Python is 32-bit or 64-bit.
+
+The default array index data type may be `int32` on 32-bit platforms, but the default should be `int64` otherwise.
 
 ```{note}
-The default floating-point and integer data types should be clearly defined in a conforming library's documentation.
+The default data types should be clearly defined in a conforming library's documentation.
 ```
 
 (data-type-categories)=

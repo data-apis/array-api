@@ -1082,44 +1082,88 @@ to
           </a>
          </h2>
          <p>
-          A conforming implementation of the array API standard must define a default floating-point data type (either
-          <code class="docutils literal notranslate">
-           <span class="pre">
-            float32
-           </span>
-          </code>
-          or
-          <code class="docutils literal notranslate">
-           <span class="pre">
-            float64
-           </span>
-          </code>
-          ) and a default integer data type (
+          A conforming implementation of the array API standard must define the following default data types.
+         </p>
+         <ul class="simple">
+          <li>
+           <p>
+            a default floating-point data type (either
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              float32
+             </span>
+            </code>
+            or
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              float64
+             </span>
+            </code>
+            ).
+           </p>
+          </li>
+          <li>
+           <p>
+            a default integer data type (either
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              int32
+             </span>
+            </code>
+            or
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              int64
+             </span>
+            </code>
+            ).
+           </p>
+          </li>
+          <li>
+           <p>
+            a default array index data type (either
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              int32
+             </span>
+            </code>
+            or
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              int64
+             </span>
+            </code>
+            ).
+           </p>
+          </li>
+         </ul>
+         <p>
+          The default floating-point data type must be the same across platforms.
+         </p>
+         <p>
+          The default integer data type should be the same across platforms, but the default may vary depending on whether Python is 32-bit or 64-bit.
+         </p>
+         <p>
+          The default array index data type may be
           <code class="docutils literal notranslate">
            <span class="pre">
             int32
            </span>
           </code>
-          or
+          on 32-bit platforms, but the default should be
           <code class="docutils literal notranslate">
            <span class="pre">
             int64
            </span>
           </code>
-          ).
-         </p>
-         <p>
-          The default data types must be the same across platforms.
-         </p>
-         <p>
-          The default integer data type may vary depending on whether Python is 32-bit or 64-bit.
+          otherwise.
          </p>
          <div class="admonition note">
           <p class="admonition-title">
            Note
           </p>
           <p>
-           The default floating-point and integer data types should be clearly defined in a conforming library’s documentation.
+           The default data types should be clearly defined in a conforming library’s documentation.
           </p>
          </div>
         </section>
