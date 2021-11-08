@@ -628,6 +628,10 @@ Converts a zero-dimensional floating-point array to a Python `float` object.
 
 Evaluates `self_i // other_i` for each element of an array instance with the respective element of the array `other`.
 
+```{note}
+For input arrays which promote to an integer data type, the result of division by zero is unspecified and thus implementation-defined.
+```
+
 #### Parameters
 
 -   **self**: _&lt;array&gt;_
@@ -902,6 +906,10 @@ The `matmul` function must implement the same semantics as the built-in `@` oper
 ### \_\_mod\_\_(self, other, /)
 
 Evaluates `self_i % other_i` for each element of an array instance with the respective element of the array `other`.
+
+```{note}
+For input arrays which promote to an integer data type, the result of division by zero is unspecified and thus implementation-defined.
+```
 
 #### Parameters
 
