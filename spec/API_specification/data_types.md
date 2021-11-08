@@ -113,8 +113,8 @@ Computes the truth value of `self == other` in order to test for data type objec
 A conforming implementation of the array API standard must define the following default data types.
 
 -   a default floating-point data type (either `float32` or `float64`).
--   a default integer data type (`int32` or `int64`).
--   a default array index data type (`int32` or `int64`).
+-   a default integer data type (either `int32` or `int64`).
+-   a default array index data type (either `int32` or `int64`).
 
 The default floating-point data type must be the same across platforms.
 
