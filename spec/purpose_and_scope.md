@@ -336,11 +336,16 @@ The `xp` namespace must contain all functionality specified in
 including additional functionality is not recommended as doing so may hinder
 portability and inter-operation of array libraries within user code.
 
-### Checking for Compliance
+### Checking an array object for Compliance
 
-Array-consuming libraries are likely to want a mechanism for determining whether a provided array is specification compliant. The recommended approach to check for compliance is by checking whether an array object has an `__array_namespace__` attribute, as this is the one distinguishing feature of an array-compliant object.
+Array-consuming libraries are likely to want a mechanism for determining
+whether a provided array is specification compliant. The recommended approach
+to check for compliance is by checking whether an array object has an
+`__array_namespace__` attribute, as this is the one distinguishing feature of
+an array-compliant object.
 
-Checking for an `__array_namespace__` attribute can be implemented as a small utility function similar to the following.
+Checking for an `__array_namespace__` attribute can be implemented as a small
+utility function similar to the following.
 
 ```python
 def is_array_api_obj(x):
@@ -348,12 +353,33 @@ def is_array_api_obj(x):
 ```
 
 ```{note}
-Providing a "reference library" on which people depend is out-of-scope; hence, the standard cannot, e.g., provide an array ABC from which libraries can inherit to enable an `isinstance` check.
+Providing a "reference library" on which people depend is out-of-scope for
+the standard. Hence the standard cannot, e.g., provide an array ABC from
+which libraries can inherit to enable an `isinstance` check. However, note
+that the `numpy.array_api` implementation aims to provide a reference
+implementation with only the behavior specified in this standard - it may
+prove useful for verifying one is writing portable code.
 ```
 
-### Discoverability
+### Discoverability of conforming implementations
 
-To assist array-consuming libraries which need to create arrays originating from multiple conforming array implementations, conforming implementations may provide an {pypa}`entry point <specifications/entry-points/>` in order to make an array API namespace discoverable. For example,
+It may be useful to have a way to discover all packages in a Python
+environment which provide a conforming array API implementation, and the
+namespace that that implementation resides in.
+To assist array-consuming libraries which need to create arrays originating
+from multiple conforming array implementations, or developers who want to perform
+for example cross-library testing, libraries may provide an
+{pypa}`entry point <specifications/entry-points/>` in order to make an array API
+namespace discoverable.
+
+:::{admonition} Optional feature
+Given that entry points typically require build system & package installer
+specific implementation, this standard chooses to recommend rather than
+mandate providing an entry point.
+:::
+
+The following code is an example for how one can discover installed
+conforming libraries:
 
 ```python
 from importlib.metadata import entry_points
