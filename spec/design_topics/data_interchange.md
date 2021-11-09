@@ -38,9 +38,11 @@ The interchange mechanism must offer the following:
    C/C++, and are released independently from each other. Hence a stable C
    ABI is required for packages to work well together._
 
-The best candidate for this protocol is DLPack. See the
-[RFC to adopt DLPack](https://github.com/data-apis/consortium-feedback/issues/1)
-for details.
+The best candidate for this protocol is
+[DLPack](https://github.com/dmlc/dlpack), and hence that is what this
+standard has chosen as the primary/recommended protocol. Note that the
+`asarray` function also supports the Python buffer protocol (CPU-only) to
+support libraries that already implement buffer protocol support.
 
 ```{note}
 
@@ -64,10 +66,26 @@ hardly has any support from array libraries. CPU interoperability is
 mostly dealt with via the NumPy-specific `__array__` (which, when called,
 means the object it is attached to must return a `numpy.ndarray`
 containing the data the object holds).
+
+See the [RFC to adopt DLPack](https://github.com/data-apis/consortium-feedback/issues/1)
+for discussion that preceded the adoption of DLPack.
 ```
 
+## DLPack support
 
-## Syntax for data interchange with DLPack
+:::{note}
+DLPack is a standalone protocol/project and can therefore be used outside of
+this standard. Python libraries that want to implement only DLPack support
+are recommended to do so using the same syntax and semantics as outlined
+below. They are not required to return an array object from `from_dlpack`
+which conforms to this standard.
+
+DLPack itself has no documentation currently outside of the inline comments in
+[dlpack.h](https://github.com/dmlc/dlpack/blob/main/include/dlpack/dlpack.h).
+In the future, the below content may be migrated to the (to-be-written) DLPack docs.
+:::
+
+### Syntax for data interchange with DLPack
 
 The array API will offer the following syntax for data interchange:
 
@@ -80,7 +98,7 @@ The array API will offer the following syntax for data interchange:
    stream, e.g. in the case of multiple GPUs) and to access the data.
 
 
-## Semantics
+### Semantics
 
 DLPack describe the memory layout of strided, n-dimensional arrays.
 When a user calls `y = from_dlpack(x)`, the library implementing `x` (the
@@ -106,7 +124,7 @@ In the common case of the default stream being used, synchronization will be
 unnecessary so asynchronous execution is enabled.
 
 
-## Implementation
+### Implementation
 
 _Note that while this API standard largely tries to avoid discussing implementation details, some discussion and requirements are needed here because data interchange requires coordination between implementers on, e.g., memory management._
 
