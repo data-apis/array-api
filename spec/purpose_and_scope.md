@@ -374,7 +374,7 @@ namespace discoverable.
 
 :::{admonition} Optional feature
 Given that entry points typically require build system & package installer
-specific implementation, this standard chooses not to recommend rather than
+specific implementation, this standard chooses to recommend rather than
 mandate providing an entry point.
 :::
 
