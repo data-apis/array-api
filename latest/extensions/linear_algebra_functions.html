@@ -400,8 +400,8 @@
                       </a>
                      </li>
                      <li class="md-nav__item">
-                      <a class="md-nav__link" href="#linalg-matrix-norm-x-axis-2-1-keepdims-false-ord-fro">
-                       linalg.matrix_norm(x, /, *, axis=(-2, -1), keepdims=False, ord=’fro’)
+                      <a class="md-nav__link" href="#linalg-matrix-norm-x-keepdims-false-ord-fro">
+                       linalg.matrix_norm(x, /, *, keepdims=False, ord=’fro’)
                       </a>
                       <nav class="md-nav">
                        <ul class="md-nav__list">
@@ -844,8 +844,8 @@
                  </a>
                 </li>
                 <li class="md-nav__item">
-                 <a class="md-nav__link" href="#linalg-matrix-norm-x-axis-2-1-keepdims-false-ord-fro">
-                  linalg.matrix_norm(x, /, *, axis=(-2, -1), keepdims=False, ord=’fro’)
+                 <a class="md-nav__link" href="#linalg-matrix-norm-x-keepdims-false-ord-fro">
+                  linalg.matrix_norm(x, /, *, keepdims=False, ord=’fro’)
                  </a>
                  <nav class="md-nav">
                   <ul class="md-nav__list">
@@ -2625,12 +2625,12 @@
            .
           </p>
          </section>
-         <section id="linalg-matrix-norm-x-axis-2-1-keepdims-false-ord-fro">
+         <section id="linalg-matrix-norm-x-keepdims-false-ord-fro">
           <span id="function-linalg-matrix-norm">
           </span>
-          <h3 id="linalg-matrix-norm-x-axis-2-1-keepdims-false-ord-fro">
-           linalg.matrix_norm(x, /, *, axis=(-2, -1), keepdims=False, ord=’fro’)
-           <a class="headerlink" href="#linalg-matrix-norm-x-axis-2-1-keepdims-false-ord-fro" title="Permalink to this headline">
+          <h3 id="linalg-matrix-norm-x-keepdims-false-ord-fro">
+           linalg.matrix_norm(x, /, *, keepdims=False, ord=’fro’)
+           <a class="headerlink" href="#linalg-matrix-norm-x-keepdims-false-ord-fro" title="Permalink to this headline">
             ¶
            </a>
           </h3>
@@ -2664,40 +2664,25 @@
              <ul class="simple">
               <li>
                <p>
-                input array. Must have at least
+                input array having shape
                 <code class="docutils literal notranslate">
                  <span class="pre">
-                  2
+                  (...,
+                 </span>
+                 <span class="pre">
+                  M,
+                 </span>
+                 <span class="pre">
+                  N)
                  </span>
                 </code>
-                dimensions. Should have a floating-point data type.
-               </p>
-              </li>
-             </ul>
-            </li>
-            <li>
-             <p>
-              <strong>
-               axis
-              </strong>
-              :
-              <em>
-               Tuple[ int, int ]
-              </em>
-             </p>
-             <ul class="simple">
-              <li>
-               <p>
-                a 2-tuple which specifies the axes (dimensions) defining two-dimensional matrices for which to compute matrix norms. Negative indices must be supported. Default:
+                and whose innermost two dimensions form
                 <code class="docutils literal notranslate">
                  <span class="pre">
-                  (-2,
-                 </span>
-                 <span class="pre">
-                  -1)
+                  MxN
                  </span>
                 </code>
-                (i.e., the last two-dimensions).
+                matrices. Should have a floating-point data type.
                </p>
               </li>
              </ul>
@@ -2721,13 +2706,7 @@
                   True
                  </span>
                 </code>
-                , the axes (dimensions) specified by
-                <code class="docutils literal notranslate">
-                 <span class="pre">
-                  axis
-                 </span>
-                </code>
-                must be included in the result as singleton dimensions, and, accordingly, the result must be compatible with the input array (see
+                , the last two axes (dimensions) must be included in the result as singleton dimensions, and, accordingly, the result must be compatible with the input array (see
                 <a class="reference internal" href="../API_specification/broadcasting.html#broadcasting">
                  <span class="std std-ref">
                   Broadcasting
@@ -2739,13 +2718,7 @@
                   False
                  </span>
                 </code>
-                , the axes (dimensions) specified by
-                <code class="docutils literal notranslate">
-                 <span class="pre">
-                  axis
-                 </span>
-                </code>
-                must not be included in the result. Default:
+                , the last two axes (dimensions) must not be included in the result. Default:
                 <code class="docutils literal notranslate">
                  <span class="pre">
                   False
@@ -2986,7 +2959,13 @@
              <ul>
               <li>
                <p>
-                an array containing the norms. If
+                an array containing the norms for each
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  MxN
+                 </span>
+                </code>
+                matrix. If
                 <code class="docutils literal notranslate">
                  <span class="pre">
                   keepdims
