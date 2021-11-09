@@ -1638,7 +1638,7 @@
                &lt;array&gt;
               </em>
              </p>
-             <ul class="simple">
+             <ul>
               <li>
                <p>
                 second input array. Must be compatible with
@@ -1647,7 +1647,7 @@
                   x1
                  </span>
                 </code>
-                (see
+                for all non-contracted axes (see
                 <a class="reference internal" href="broadcasting.html#broadcasting">
                  <span class="std std-ref">
                   Broadcasting
@@ -1655,6 +1655,14 @@
                 </a>
                 ). Should have a numeric data type.
                </p>
+               <div class="admonition note">
+                <p class="admonition-title">
+                 Note
+                </p>
+                <p>
+                 Contracted axes (dimensions) must not be broadcasted.
+                </p>
+               </div>
               </li>
              </ul>
             </li>
