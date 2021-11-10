@@ -1075,6 +1075,12 @@ Element-wise results must equal the results returned by the equivalent element-w
 
 Calculates an implementation-dependent approximation of exponentiation by raising each element (the base) of an array instance to the power of `other_i` (the exponent), where `other_i` is the corresponding element of the array `other`.
 
+```{note}
+If both `self` and `other` have integer data types, the result of `__pow__` when `other_i` is negative (i.e., less than zero) is unspecified and thus implementation-dependent.
+
+If `self` has an integer data type and `other` has a floating-point data type, behavior is implementation-dependent (type promotion between data type "kinds" (integer versus floating-point) is unspecified).
+```
+
 #### Special Cases
 
 For floating-point operands, let `self` equal `x1` and `other` equal `x2`.
@@ -1247,7 +1253,7 @@ For floating-point operands, let `self` equal `x1` and `other` equal `x2`.
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the element-wise results. The returned array must have a data type determined by {ref}`type-promotion`.
+    -   an array containing the element-wise results. The returned array should have a floating-point data type determined by {ref}`type-promotion`.
 
 ```{note}
 Element-wise results must equal the results returned by the equivalent element-wise function [`divide(x1, x2)`](elementwise_functions.md#dividex1-x2-).
