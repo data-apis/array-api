@@ -27,8 +27,8 @@ Objects in API
 
 .. _function-argsort:
 
-argsort(x, /, *, axis=-1, descending=False, stable=True)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+argsort(x, /, \*, axis=-1, descending=False, stable=True)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Returns the indices that sort an array ``x`` along a specified axis.
 
@@ -53,8 +53,8 @@ Returns the indices that sort an array ``x`` along a specified axis.
 
 .. _function-sort:
 
-sort(x, /, *, axis=-1, descending=False, stable=True)
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+sort(x, /, \*, axis=-1, descending=False, stable=True)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Returns a sorted copy of an input array ``x``.
 
