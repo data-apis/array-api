@@ -39,7 +39,7 @@ Joins a sequence of arrays along an existing axis.
         ```
 
 (function-expand_dims)=
-### expand_dims(x, /, *, axis)
+### expand_dims(x, /, axis)
 
 Expands the shape of an array by inserting a new axis (dimension) of size one at the position specified by `axis`.
 
