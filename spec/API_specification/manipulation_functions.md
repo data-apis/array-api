@@ -57,7 +57,7 @@ Expands the shape of an array by inserting a new axis (dimension) of size one at
 
 -   **out**: _&lt;array&gt;_
 
-    -   an expanded output array having the same data type and shape as `x`.
+    -   an expanded output array having the same data type as `x`.
 
 (function-flip)=
 ### flip(x, /, *, axis=None)
