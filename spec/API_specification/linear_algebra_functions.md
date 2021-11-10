@@ -52,7 +52,9 @@ The `matmul` function must implement the same semantics as the built-in `@` oper
 #### Raises
 
 -   if either `x1` or `x2` is a zero-dimensional array.
--   if `x1` is a one-dimensional array having shape `(N)`, `x2` is a one-dimensional array having shape `(M)`, and `N != M`.
+-   if `x1` is a one-dimensional array having shape `(K)`, `x2` is a one-dimensional array having shape `(L)`, and `K != L`.
+-   if `x1` is a one-dimensional array having shape `(K)`, `x2` is an array having shape `(..., L, N)`, and `K != L`.
+-   if `x1` is an array having shape `(..., M, K)`, `x2` is a one-dimensional array having shape `(L)`, and `K != L`.
 -   if `x1` is an array having shape `(..., M, K)`, `x2` is an array having shape `(..., L, N)`, and `K != L`.
 
 (function-matrix-transpose)=
@@ -85,7 +87,11 @@ Returns a tensor contraction of `x1` and `x2` over specific axes.
 
 -   **x2**: _&lt;array&gt;_
 
-    -   second input array. Must be compatible with `x1` (see {ref}`broadcasting`). Should have a numeric data type.
+    -   second input array. Must be compatible with `x1` for all non-contracted axes (see {ref}`broadcasting`). Should have a numeric data type.
+
+        ```{note}
+        Contracted axes (dimensions) must not be broadcasted.
+        ```
 
 -   **axes**: _Union\[ int, Tuple\[ Sequence\[ int ], Sequence\[ int ] ] ]_
 

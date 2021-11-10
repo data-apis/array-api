@@ -57,12 +57,11 @@ Convert the input to an array.
 
 #### Parameters
 
--   **obj**: _Union\[ &lt;array&gt;, bool, int, float, NestedSequence\[ bool | int | float ], SupportsDLPack, SupportsBufferProtocol ]_
+-   **obj**: _Union\[ &lt;array&gt;, bool, int, float, NestedSequence\[ bool | int | float ], SupportsBufferProtocol ]_
 
-    -   object to be converted to an array. May be a Python scalar, a (possibly nested) sequence of Python scalars, or an object supporting DLPack or the Python buffer protocol.
+    -   object to be converted to an array. May be a Python scalar, a (possibly nested) sequence of Python scalars, or an object supporting the Python buffer protocol.
 
     :::{tip}
-    An object supporting DLPack has `__dlpack__` and `__dlpack_device__` methods.
     An object supporting the buffer protocol can be turned into a memoryview through `memoryview(obj)`.
     :::
 
@@ -84,18 +83,17 @@ Convert the input to an array.
 
 -   **device**: _Optional\[ &lt;device&gt; ]_
 
-    -   device on which to place the created array. If `device` is `None` and `x` is either an array or an object supporting DLPack, the output array device must be inferred from `x`. Default: `None`.
+    -   device on which to place the created array. If `device` is `None` and `x` is an array, the output array device must be inferred from `x`. Default: `None`.
 
 -   **copy**: _Optional\[ bool ]_
 
-    -   boolean indicating whether or not to copy the input. If `True`, the function must always copy. If `False`, the function must never copy for input which supports DLPack or the buffer protocol and must raise a `ValueError` in case a copy would be necessary. If `None`, the function must reuse existing memory buffer if possible and copy otherwise. Default: `None`.
+    -   boolean indicating whether or not to copy the input. If `True`, the function must always copy. If `False`, the function must never copy for input which supports the buffer protocol and must raise a `ValueError` in case a copy would be necessary. If `None`, the function must reuse existing memory buffer if possible and copy otherwise. Default: `None`.
 
 #### Returns
 
 -   **out**: _&lt;array&gt;_
 
     -   an array containing the data from `obj`.
-
 
 (function-empty)=
 ### empty(shape, *, dtype=None, device=None)
@@ -322,7 +320,7 @@ Returns coordinate matrices from coordinate vectors.
 
 -    **arrays**: _&lt;array&gt;_
 
-     -   an arbitrary number of one-dimensional arrays representing grid coordinates. Must have numeric data types.
+     -   an arbitrary number of one-dimensional arrays representing grid coordinates. Each array should have the same numeric data type.
 
 -    **indexing**: _str_
 
@@ -342,7 +340,7 @@ Returns coordinate matrices from coordinate vectors.
 
          Similarly, for the three-dimensional case with input one-dimensional arrays of length `M`, `N`, and `P`, if matrix indexing `ij`, then each returned array must have shape `(M, N, P)`, and, if Cartesian indexing `xy`, then each returned array must have shape `(N, M, P)`.
 
-         The returned arrays must have a numeric data type determined by {ref}`type-promotion`.
+         Each returned array should have the same data type as the input arrays.
 
 (function-ones)=
 ### ones(shape, *, dtype=None, device=None)

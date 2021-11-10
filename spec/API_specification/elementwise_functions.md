@@ -449,6 +449,14 @@ Rounds each element `x_i` of the input array `x` to the smallest (i.e., closest 
 
 -   If `x_i` is already integer-valued, the result is `x_i`.
 
+For floating-point operands,
+
+-   If `x_i` is `+infinity`, the result is `+infinity`.
+-   If `x_i` is `-infinity`, the result is `-infinity`.
+-   If `x_i` is `+0`, the result is `+0`.
+-   If `x_i` is `-0`, the result is `-0`.
+-   If `x_i` is `NaN`, the result is `NaN`.
+
 #### Parameters
 
 -   **x**: _&lt;array&gt;_
@@ -651,6 +659,14 @@ Rounds each element `x_i` of the input array `x` to the greatest (i.e., closest 
 
 -   If `x_i` is already integer-valued, the result is `x_i`.
 
+For floating-point operands,
+
+-   If `x_i` is `+infinity`, the result is `+infinity`.
+-   If `x_i` is `-infinity`, the result is `-infinity`.
+-   If `x_i` is `+0`, the result is `+0`.
+-   If `x_i` is `-0`, the result is `-0`.
+-   If `x_i` is `NaN`, the result is `NaN`.
+
 #### Parameters
 
 -   **x**: _&lt;array&gt;_
@@ -667,6 +683,10 @@ Rounds each element `x_i` of the input array `x` to the greatest (i.e., closest 
 ### floor_divide(x1, x2, /)
 
 Rounds the result of dividing each element `x1_i` of the input array `x1` by the respective element `x2_i` of the input array `x2` to the greatest (i.e., closest to `+infinity`) integer-value number that is not greater than the division result.
+
+```{note}
+For input arrays which promote to an integer data type, the result of division by zero is unspecified and thus implementation-defined.
+```
 
 #### Parameters
 
@@ -1213,6 +1233,10 @@ For floating-point operands,
 
 Returns the remainder of division for each element `x1_i` of the input array `x1` and the respective element `x2_i` of the input array `x2`.
 
+```{note}
+For input arrays which promote to an integer data type, the result of division by zero is unspecified and thus implementation-defined.
+```
+
 #### Parameters
 
 -   **x1**: _&lt;array&gt;_
@@ -1237,6 +1261,14 @@ Rounds each element `x_i` of the input array `x` to the nearest integer-valued n
 #### Special Cases
 
 -   If `x_i` is already integer-valued, the result is `x_i`.
+
+For floating-point operands,
+
+-   If `x_i` is `+infinity`, the result is `+infinity`.
+-   If `x_i` is `-infinity`, the result is `-infinity`.
+-   If `x_i` is `+0`, the result is `+0`.
+-   If `x_i` is `-0`, the result is `-0`.
+-   If `x_i` is `NaN`, the result is `NaN`.
 -   If two integers are equally close to `x_i`, the result is the even integer closest to `x_i`.
 
 #### Parameters
@@ -1453,6 +1485,14 @@ Rounds each element `x_i` of the input array `x` to the integer-valued number th
 #### Special Cases
 
 -   If `x_i` is already integer-valued, the result is `x_i`.
+
+For floating-point operands,
+
+-   If `x_i` is `+infinity`, the result is `+infinity`.
+-   If `x_i` is `-infinity`, the result is `-infinity`.
+-   If `x_i` is `+0`, the result is `+0`.
+-   If `x_i` is `-0`, the result is `-0`.
+-   If `x_i` is `NaN`, the result is `NaN`.
 
 #### Parameters
 

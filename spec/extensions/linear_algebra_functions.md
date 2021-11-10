@@ -82,11 +82,15 @@ Returns the lower (upper) Cholesky decomposition x = LLᵀ (x = UᵀU) of a symm
 
 <!-- NOTE: once complex numbers are supported, each square matrix must be Hermitian. -->
 
+```{note}
+Whether an array library explicitly checks whether an input array is a symmetric positive-definite matrix (or a stack of matrices) is implementation-defined.
+```
+
 #### Parameters
 
 -   **x**: _&lt;array&gt;_
 
-    -   input array having shape `(..., M, M)` and whose innermost two dimensions form square matrices. Should have a floating-point data type.
+    -   input array having shape `(..., M, M)` and whose innermost two dimensions form square symmetric positive-definite matrices. Should have a floating-point data type.
 
 -   **upper**: _bool_
 
@@ -170,9 +174,17 @@ Returns the specified diagonals of a matrix (or a stack of matrices) `x`.
 (function-linalg-eigh)=
 ### linalg.eigh(x, /)
 
-Returns the eigenvalues and eigenvectors x = QLQᵀ of a symmetric matrix (or a stack of symmetric matrices) `x`, where `Q` is an orthogonal matrix (or a stack of matrices) and `L` is a vector (or a stack of vectors).
+```{note}
+The function `eig` will be added in a future version of the specification, as it requires complex number support.
+```
+
+Returns an eigendecomposition x = QLQᵀ of a symmetric matrix (or a stack of symmetric matrices) `x`, where `Q` is an orthogonal matrix (or a stack of matrices) and `L` is a vector (or a stack of vectors).
 
 <!-- NOTE: once complex number support, each matrix must be Hermitian and the returned Q unitary. We might also want to make the dtype of `eigenvalues` unconditionally real -->
+
+```{note}
+Whether an array library explicitly checks whether an input array is a symmetric matrix (or a stack of symmetric matrices) is implementation-defined.
+```
 
 #### Parameters
 
@@ -192,21 +204,23 @@ Returns the eigenvalues and eigenvectors x = QLQᵀ of a symmetric matrix (or a 
         Each returned array must have the same floating-point data type as `x`.
 
 ```{note}
-
-Eigenvalue sort order is left unspecified.
-```
-
-```{note}
-The function `eig` will be added in a future version of the specification,
-as it requires complex number support.
+Eigenvalue sort order is left unspecified and is thus implementation-dependent.
 ```
 
 (function-linalg-eigvalsh)=
 ### linalg.eigvalsh(x, /)
 
+```{note}
+The function `eigvals` will be added in a future version of the specification, as it requires complex number support.
+```
+
 Returns the eigenvalues of a symmetric matrix (or a stack of symmetric matrices) `x`.
 
 <!-- NOTE: once complex number support, each matrix must be Hermitian -->
+
+```{note}
+Whether an array library explicitly checks whether an input array is a symmetric matrix (or a stack of symmetric matrices) is implementation-defined.
+```
 
 #### Parameters
 
@@ -221,13 +235,7 @@ Returns the eigenvalues of a symmetric matrix (or a stack of symmetric matrices)
     -   an array containing the computed eigenvalues. The returned array must have shape `(..., M)` and have the same data type as `x`.
 
 ```{note}
-
-Eigenvalue sort order is left unspecified.
-```
-
-```{note}
-The function `eigvals` will be added in a future version of the specification,
-as it requires complex number support.
+Eigenvalue sort order is left unspecified and is thus implementation-dependent.
 ```
 
 (function-linalg-inv)=
@@ -253,7 +261,7 @@ Returns the multiplicative inverse of a square matrix (or a stack of square matr
 Alias for {ref}`function-matmul`.
 
 (function-linalg-matrix-norm)=
-### linalg.matrix_norm(x, /, *, axis=(-2, -1), keepdims=False, ord='fro')
+### linalg.matrix_norm(x, /, *, keepdims=False, ord='fro')
 
 Computes the matrix norm of a matrix (or a stack of matrices) `x`.
 
@@ -261,15 +269,11 @@ Computes the matrix norm of a matrix (or a stack of matrices) `x`.
 
 -   **x**: _&lt;array&gt;_
 
-    -   input array. Must have at least `2` dimensions. Should have a floating-point data type.
-
--   **axis**: _Tuple\[ int, int ]_
-
-    -   a 2-tuple which specifies the axes (dimensions) defining two-dimensional matrices for which to compute matrix norms. Negative indices must be supported. Default: `(-2, -1)` (i.e., the last two-dimensions).
+    -   input array having shape `(..., M, N)` and whose innermost two dimensions form `MxN` matrices. Should have a floating-point data type.
 
 -   **keepdims**: _bool_
 
-    -   If `True`, the axes (dimensions) specified by `axis` must be included in the result as singleton dimensions, and, accordingly, the result must be compatible with the input array (see {ref}`broadcasting`). Otherwise, if `False`, the axes (dimensions) specified by `axis` must not be included in the result. Default: `False`.
+    -   If `True`, the last two axes (dimensions) must be included in the result as singleton dimensions, and, accordingly, the result must be compatible with the input array (see {ref}`broadcasting`). Otherwise, if `False`, the last two axes (dimensions) must not be included in the result. Default: `False`.
 
 -   **ord**: _Optional\[ Union\[  int, float, Literal\[ inf, -inf, 'fro', 'nuc' ] ] ]_
 
@@ -301,7 +305,7 @@ Computes the matrix norm of a matrix (or a stack of matrices) `x`.
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the norms. If `keepdims` is `False`, the returned array must have a rank which is two less than the rank of `x`. The returned array must have a floating-point data type determined by {ref}`type-promotion`.
+    -   an array containing the norms for each `MxN` matrix. If `keepdims` is `False`, the returned array must have a rank which is two less than the rank of `x`. The returned array must have a floating-point data type determined by {ref}`type-promotion`.
 
 (function-linalg-matrix_power)=
 ### linalg.matrix_power(x, n, /)
@@ -337,7 +341,7 @@ Returns the rank (i.e., number of non-zero singular values) of a matrix (or a st
 
 -   **rtol**: _Optional\[ Union\[ float, &lt;array&gt; ] ]_
 
-    -   relative tolerance for small singular values. Singular values less than or equal to `rtol * largest_singular_value` are set to zero. If a `float`, the value is equivalent to a zero-dimensional array having a floating-point data type determined by {ref}`type-promotion` (as applied to `x`) and must be broadcast against each matrix. If an `array`, must have a floating-point data type and must be compatible with `shape(x)[:-2]` (see {ref}`broadcasting`). If `None`, the default value is `max(M, N) * eps`, where `eps` must be the machine epsilon associated with the floating-point data type determined by {ref}`type-promotion` (as applied to `x`). Default: `None`.
+    -   relative tolerance for small singular values. Singular values approximately less than or equal to `rtol * largest_singular_value` are set to zero. If a `float`, the value is equivalent to a zero-dimensional array having a floating-point data type determined by {ref}`type-promotion` (as applied to `x`) and must be broadcast against each matrix. If an `array`, must have a floating-point data type and must be compatible with `shape(x)[:-2]` (see {ref}`broadcasting`). If `None`, the default value is `max(M, N) * eps`, where `eps` must be the machine epsilon associated with the floating-point data type determined by {ref}`type-promotion` (as applied to `x`). Default: `None`.
 
 #### Returns
 
@@ -384,7 +388,7 @@ Returns the (Moore-Penrose) pseudo-inverse of a matrix (or a stack of matrices) 
 
 -   **rtol**: _Optional\[ Union\[ float, &lt;array&gt; ] ]_
 
-    -   relative tolerance for small singular values. Singular values less than or equal to `rtol * largest_singular_value` are set to zero. If a `float`, the value is equivalent to a zero-dimensional array having a floating-point data type determined by {ref}`type-promotion` (as applied to `x`) and must be broadcast against each matrix. If an `array`, must have a floating-point data type and must be compatible with `shape(x)[:-2]` (see {ref}`broadcasting`). If `None`, the default value is `max(M, N) * eps`, where `eps` must be the machine epsilon associated with the floating-point data type determined by {ref}`type-promotion` (as applied to `x`). Default: `None`.
+    -   relative tolerance for small singular values. Singular values approximately less than or equal to `rtol * largest_singular_value` are set to zero. If a `float`, the value is equivalent to a zero-dimensional array having a floating-point data type determined by {ref}`type-promotion` (as applied to `x`) and must be broadcast against each matrix. If an `array`, must have a floating-point data type and must be compatible with `shape(x)[:-2]` (see {ref}`broadcasting`). If `None`, the default value is `max(M, N) * eps`, where `eps` must be the machine epsilon associated with the floating-point data type determined by {ref}`type-promotion` (as applied to `x`). Default: `None`.
 
 #### Returns
 
@@ -395,13 +399,17 @@ Returns the (Moore-Penrose) pseudo-inverse of a matrix (or a stack of matrices) 
 (function-linalg-qr)=
 ### linalg.qr(x, /, *, mode='reduced')
 
-Returns the qr decomposition x = QR of a matrix (or a stack of matrices) `x`, where `Q` is an orthonormal matrix (or a stack of matrices) and `R` is an upper-triangular matrix (or a stack of matrices).
+Returns the qr decomposition x = QR of a full column rank matrix (or a stack of matrices), where `Q` is an orthonormal matrix (or a stack of matrices) and `R` is an upper-triangular matrix (or a stack of matrices).
+
+```{note}
+Whether an array library explicitly checks whether an input array is a full column rank matrix (or a stack of full column rank matrices) is implementation-defined.
+```
 
 #### Parameters
 
 -   **x**: _&lt;array&gt;_
 
-    -   input array having shape `(..., M, N)` and whose innermost two dimensions form `MxN` matrices. Should have a floating-point data type.
+    -   input array having shape `(..., M, N)` and whose innermost two dimensions form `MxN` matrices of rank `N`. Should have a floating-point data type.
 
 -   **mode**: _Literal\[ 'reduced', 'complete' ]_
 
@@ -416,10 +424,10 @@ Returns the qr decomposition x = QR of a matrix (or a stack of matrices) `x`, wh
 
 -   **out**: _Tuple\[ &lt;array&gt;, &lt;array&gt; ]_
 
-    -   a namedtuple `(q, r)` whose
+    -   a namedtuple `(Q, R)` whose
 
-        -   first element must have the field name `q` and must be an array whose shape depends on the value of `mode` and contain matrices with orthonormal columns. If `mode` is `'complete'`, the array must have shape `(..., M, M)`. If `mode` is `'reduced'`, the array must have shape `(..., M, K)`, where `K = min(M, N)`. The first `x.ndim-2` dimensions must have the same size as those of the input array `x`.
-        -   second element must have the field name `r` and must be an array whose shape depends on the value of `mode` and contain upper-triangular matrices. If `mode` is `'complete'`, the array must have shape `(..., M, M)`. If `mode` is `'reduced'`, the array must have shape `(..., K, N)`, where `K = min(M, N)`. The first `x.ndim-2` dimensions must have the same size as those of the input `x`.
+        -   first element must have the field name `Q` and must be an array whose shape depends on the value of `mode` and contain matrices with orthonormal columns. If `mode` is `'complete'`, the array must have shape `(..., M, M)`. If `mode` is `'reduced'`, the array must have shape `(..., M, K)`, where `K = min(M, N)`. The first `x.ndim-2` dimensions must have the same size as those of the input array `x`.
+        -   second element must have the field name `R` and must be an array whose shape depends on the value of `mode` and contain upper-triangular matrices. If `mode` is `'complete'`, the array must have shape `(..., M, N)`. If `mode` is `'reduced'`, the array must have shape `(..., K, N)`, where `K = min(M, N)`. The first `x.ndim-2` dimensions must have the same size as those of the input `x`.
 
         Each returned array must have a floating-point data type determined by {ref}`type-promotion`.
 
@@ -429,7 +437,6 @@ Returns the qr decomposition x = QR of a matrix (or a stack of matrices) `x`, wh
 Returns the sign and the natural logarithm of the absolute value of the determinant of a square matrix (or a stack of square matrices) `x`.
 
 ```{note}
-
 The purpose of this function is to calculate the determinant more accurately when the determinant is either very small or very large, as calling `det` may overflow or underflow.
 ```
 
@@ -448,14 +455,22 @@ The purpose of this function is to calculate the determinant more accurately whe
         -   first element must have the field name `sign` and must be an array containing a number representing the sign of the determinant for each square matrix.
         -   second element must have the field name `logabsdet` and must be an array containing the determinant for each square matrix.
 
-        For a real matrix, the sign of the determinant must be either `1`, `0`, or `-1`. If a determinant is zero, then the corresponding `sign` must be `0` and `logabsdet` must be `-infinity`. In all cases, the determinant must be equal to `sign * exp(logsabsdet)`.
+        For a real matrix, the sign of the determinant must be either `1`, `0`, or `-1`.
 
         Each returned array must have shape `shape(x)[:-2]` and a floating-point data type determined by {ref}`type-promotion`.
+
+        ```{note}
+        If a determinant is zero, then the corresponding `sign` should be `0` and `logabsdet` should be `-infinity`; however, depending on the underlying algorithm, the returned result may differ. In all cases, the determinant should be equal to `sign * exp(logsabsdet)` (although, again, the result may be subject to numerical precision errors).
+        ```
 
 (function-linalg-solve)=
 ### linalg.solve(x1, x2, /)
 
 Returns the solution to the system of linear equations represented by the well-determined (i.e., full rank) linear matrix equation `AX = B`.
+
+```{note}
+Whether an array library explicitly checks whether an input array is full rank is implementation-defined.
+```
 
 #### Parameters
 
@@ -465,7 +480,7 @@ Returns the solution to the system of linear equations represented by the well-d
 
 -   **x2**: _&lt;array&gt;_
 
-    -   ordinate (or "dependent variable") array `B`. If `x2` has shape `(..., M)`, `x2` is equivalent to an array having shape `(..., M, 1)`, and `shape(x2)` must be compatible with `shape(x1)[:-1]` (see {ref}`broadcasting`). If `x2` has shape `(..., M, K)`, each column `k` defines a set of ordinate values for which to compute a solution, and `shape(x2)[:-1]` must be compatible with `shape(x1)[:-1]` (see {ref}`broadcasting`). Should have a floating-point data type.
+    -   ordinate (or "dependent variable") array `B`. If `x2` has shape `(M,)`, `x2` is equivalent to an array having shape `(..., M, 1)`. If `x2` has shape `(..., M, K)`, each column `k` defines a set of ordinate values for which to compute a solution, and `shape(x2)[:-1]` must be compatible with `shape(x1)[:-1]` (see {ref}`broadcasting`). Should have a floating-point data type.
 
 #### Returns
 
@@ -476,7 +491,7 @@ Returns the solution to the system of linear equations represented by the well-d
 (function-linalg-svd)=
 ### linalg.svd(x, /, *, full_matrices=True)
 
-Returns the singular value decomposition A = USVh of a matrix (or a stack of matrices) `x` where `U` is a matrix (or a stack of matrices) with orthonormal columns, `S` is a vector of non-negative numbers (or stack of vectors), and `Vh` is a matrix (or a stack of matrices) with orthonormal rows.
+Returns a singular value decomposition A = USVh of a matrix (or a stack of matrices) `x`, where `U` is a matrix (or a stack of matrices) with orthonormal columns, `S` is a vector of non-negative numbers (or stack of vectors), and `Vh` is a matrix (or a stack of matrices) with orthonormal rows.
 
 #### Parameters
 
@@ -494,11 +509,11 @@ Returns the singular value decomposition A = USVh of a matrix (or a stack of mat
 
 -   **out**: _Union\[ &lt;array&gt;, Tuple\[ &lt;array&gt;, ... ] ]_
 
-    -   a namedtuple `(u, s, vh)` whose
+    -   a namedtuple `(U, S, Vh)` whose
 
-        -   first element must have the field name `u` and must be an array whose shape depends on the value of `full_matrices` and contain matrices with orthonormal columns (i.e., the columns are left singular vectors). If `full_matrices` is `True`, the array must have shape `(..., M, M)`. If `full_matrices` is `False`, the array must have shape `(..., M, K)`, where `K = min(M, N)`. The first `x.ndim-2` dimensions must have the same shape as those of the input `x`.
-        -   second element must have the field name `s` and must be an array with shape `(..., K)` that contains the vector(s) of singular values of length `K`. For each vector, the singular values must be sorted in descending order by magnitude, such that `s[..., 0]` is the largest value, `s[..., 1]` is the second largest value, et cetera. The first `x.ndim-2` dimensions must have the same shape as those of the input `x`.
-        -   third element must have the field name `vh` and must be an array whose shape depends on the value of `full_matrices` and contain orthonormal rows (i.e., the rows are the right singular vectors and the array is the adjoint). If `full_matrices` is `True`, the array must have shape `(..., N, N)`. If `full_matrices` is `False`, the array must have shape `(..., K, N)` where `K = min(M, N)`. The first `x.ndim-2` dimensions must have the same shape as those of the input `x`.
+        -   first element must have the field name `U` and must be an array whose shape depends on the value of `full_matrices` and contain matrices with orthonormal columns (i.e., the columns are left singular vectors). If `full_matrices` is `True`, the array must have shape `(..., M, M)`. If `full_matrices` is `False`, the array must have shape `(..., M, K)`, where `K = min(M, N)`. The first `x.ndim-2` dimensions must have the same shape as those of the input `x`.
+        -   second element must have the field name `S` and must be an array with shape `(..., K)` that contains the vector(s) of singular values of length `K`, where `K = min(M, N)`. For each vector, the singular values must be sorted in descending order by magnitude, such that `s[..., 0]` is the largest value, `s[..., 1]` is the second largest value, et cetera. The first `x.ndim-2` dimensions must have the same shape as those of the input `x`.
+        -   third element must have the field name `Vh` and must be an array whose shape depends on the value of `full_matrices` and contain orthonormal rows (i.e., the rows are the right singular vectors and the array is the adjoint). If `full_matrices` is `True`, the array must have shape `(..., N, N)`. If `full_matrices` is `False`, the array must have shape `(..., K, N)` where `K = min(M, N)`. The first `x.ndim-2` dimensions must have the same shape as those of the input `x`.
 
         Each returned array must have the same floating-point data type as `x`.
 
@@ -517,7 +532,7 @@ Returns the singular values of a matrix (or a stack of matrices) `x`.
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array with shape `(..., K)` that contains the vector(s) of singular values of length `K`. For each vector, the singular values must be sorted in descending order by magnitude, such that `s[..., 0]` is the largest value, `s[..., 1]` is the second largest value, et cetera. The first `x.ndim-2` dimensions must have the same shape as those of the input `x`. The returned array must have the same floating-point data type as `x`.
+    -   an array with shape `(..., K)` that contains the vector(s) of singular values of length `K`, where `K = min(M, N)`. For each vector, the singular values must be sorted in descending order by magnitude, such that `s[..., 0]` is the largest value, `s[..., 1]` is the second largest value, et cetera. The first `x.ndim-2` dimensions must have the same shape as those of the input `x`. The returned array must have the same floating-point data type as `x`.
 
 (function-linalg-tensordot)=
 ### linalg.tensordot(x1, x2, /, *, axes=2)

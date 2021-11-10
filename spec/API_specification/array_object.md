@@ -13,43 +13,27 @@ A conforming implementation of the array API standard must provide and support a
 -   Unless stated otherwise, methods must adhere to the type promotion rules defined in {ref}`type-promotion`.
 -   Unless stated otherwise, floating-point operations must adhere to IEEE 754-2019.
 
+Furthermore, a conforming implementation of the array API standard must support array objects of arbitrary rank `N` (i.e., number of dimensions), where `N` is greater than or equal to zero.
+
+```{note}
+Conforming implementations must support zero-dimensional arrays.
+
+Apart from array object attributes, such as `ndim`, `device`, and `dtype`, all operations in this standard return arrays (or tuples of arrays), including those operations, such as `mean`, `var`, and `std`, from which some common array libraries (e.g., NumPy) return scalar values.
+
+_Rationale: always returning arrays is necessary to (1) support accelerator libraries where non-array return values could force device synchronization and (2) support delayed execution models where an array represents a future value._
+```
+
 * * *
 
 (operators)=
 
 ## Operators
 
-A conforming implementation of the array API standard must provide and support an array object supporting the following Python operators:
+A conforming implementation of the array API standard must provide and support an array object supporting the following Python operators.
 
--   `x1 < x2`: [`__lt__(x1, x2)`](#__lt__self-other-)
+### Arithmetic Operators
 
-    -   [`operator.lt(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.lt)
-    -   [`operator.__lt__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__lt__)
-
--   `x1 <= x2`: [`__le__(x1, x2)`](#__le__self-other-)
-
-    -   [`operator.le(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.le)
-    -   [`operator.__le__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__le__)
-
--   `x1 > x2`: [`__gt__(x1, x2)`](#__gt__self-other-)
-
-    -   [`operator.gt(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.gt)
-    -   [`operator.__gt__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__gt__)
-
--   `x1 >= x2`: [`__ge__(x1, x2)`](#__ge__self-other-)
-
-    -   [`operator.ge(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.ge)
-    -   [`operator.__ge__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__ge__)
-
--   `x1 == x2`: [`__eq__(x1, x2)`](#__eq__self-other-)
-
-    -   [`operator.eq(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.eq)
-    -   [`operator.__eq__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__eq__)
-
--   `x1 != x2`: [`__ne__(x1, x2)`](#__ne__self-other-)
-
-    -   [`operator.ne(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.ne)
-    -   [`operator.__ne__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__ne__)
+A conforming implementation of the array API standard must provide and support an array object supporting the following Python arithmetic operators.
 
 -   `+x`: [`__pos__(x)`](#__pos__self-)
 
@@ -96,10 +80,22 @@ A conforming implementation of the array API standard must provide and support a
     -   [`operator.pow(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.pow)
     -   [`operator.__pow__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__pow__)
 
+Arithmetic operators should be defined for arrays having numeric data types.
+
+### Array Operators
+
+A conforming implementation of the array API standard must provide and support an array object supporting the following Python array operators.
+
 -   `x1 @ x2`: [`__matmul__(x1, x2)`](#__matmul__self-other-)
 
     -   [`operator.matmul(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.matmul)
     -   [`operator.__matmul__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__matmul__)
+
+The matmul `@` operator should be defined for arrays having numeric data types.
+
+### Bitwise Operators
+
+A conforming implementation of the array API standard must provide and support an array object supporting the following Python bitwise operators.
 
 -   `~x`: [`__invert__(x)`](#__invert__self-)
 
@@ -133,58 +129,109 @@ A conforming implementation of the array API standard must provide and support a
     -   [`operator.rshift(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.rshift)
     -   [`operator.__rshift__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__rshift__)
 
+Bitwise operators should be defined for arrays having integer and boolean data types.
+
+### Comparison Operators
+
+A conforming implementation of the array API standard must provide and support an array object supporting the following Python comparison operators.
+
+-   `x1 < x2`: [`__lt__(x1, x2)`](#__lt__self-other-)
+
+    -   [`operator.lt(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.lt)
+    -   [`operator.__lt__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__lt__)
+
+-   `x1 <= x2`: [`__le__(x1, x2)`](#__le__self-other-)
+
+    -   [`operator.le(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.le)
+    -   [`operator.__le__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__le__)
+
+-   `x1 > x2`: [`__gt__(x1, x2)`](#__gt__self-other-)
+
+    -   [`operator.gt(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.gt)
+    -   [`operator.__gt__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__gt__)
+
+-   `x1 >= x2`: [`__ge__(x1, x2)`](#__ge__self-other-)
+
+    -   [`operator.ge(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.ge)
+    -   [`operator.__ge__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__ge__)
+
+-   `x1 == x2`: [`__eq__(x1, x2)`](#__eq__self-other-)
+
+    -   [`operator.eq(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.eq)
+    -   [`operator.__eq__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__eq__)
+
+-   `x1 != x2`: [`__ne__(x1, x2)`](#__ne__self-other-)
+
+    -   [`operator.ne(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.ne)
+    -   [`operator.__ne__(x1, x2)`](https://docs.python.org/3/library/operator.html#operator.__ne__)
+
+Comparison operators should be defined for arrays having any data type.
 
 ### In-place Operators
 
-A conforming implementation of the array API standard must provide and support
-an array object supporting the following in-place Python operators:
+A conforming implementation of the array API standard must provide and support an array object supporting the following in-place Python operators.
 
-- `+=`. May be implemented via `__iadd__`.
-- `-=`. May be implemented via `__isub__`.
-- `*=`. May be implemented via `__imul__`.
-- `/=`. May be implemented via `__itruediv__`.
-- `//=`. May be implemented via `__ifloordiv__`.
-- `**=`. May be implemented via `__ipow__`.
-- `@=`. May be implemented via `__imatmul__`.
-- `%=`. May be implemented via `__imod__`.
-- `&=`. May be implemented via `__iand__`.
-- `|=`. May be implemented via `__ior__`.
-- `^=`. May be implemented via `__ixor__`.
-- `<<=`. May be implemented via `__ilshift__`.
-- `>>=`. May be implemented via `__irshift__`.
+An in-place operation must not change the data type or shape of the in-place array as a result of {ref}`type-promotion` or {ref}`broadcasting`.
 
-An in-place operation must not change the dtype or shape of the in-place array
-as a result of {ref}`type-promotion` or {ref}`broadcasting`.
+An in-place operation must have the same behavior (including special cases) as its respective binary (i.e., two operand, non-assignment) operation. For example, after in-place addition `x1 += x2`, the modified array `x1` must always equal the result of the equivalent binary arithmetic operation `x1 = x1 + x2`.
 
 ```{note}
-
 In-place operators must be supported as discussed in {ref}`copyview-mutability`.
 ```
 
+#### Arithmetic Operators
+
+-   `+=`. May be implemented via `__iadd__`.
+-   `-=`. May be implemented via `__isub__`.
+-   `*=`. May be implemented via `__imul__`.
+-   `/=`. May be implemented via `__itruediv__`.
+-   `//=`. May be implemented via `__ifloordiv__`.
+-   `**=`. May be implemented via `__ipow__`.
+-   `%=`. May be implemented via `__imod__`.
+
+#### Array Operators
+
+-   `@=`. May be implemented via `__imatmul__`.
+
+#### Bitwise Operators
+
+-   `&=`. May be implemented via `__iand__`.
+-   `|=`. May be implemented via `__ior__`.
+-   `^=`. May be implemented via `__ixor__`.
+-   `<<=`. May be implemented via `__ilshift__`.
+-   `>>=`. May be implemented via `__irshift__`.
+
 ### Reflected Operators
 
-A conforming implementation of the array API standard must provide and support
-an array object supporting the following reflected operators:
-
-- `__radd__`
-- `__rsub__`
-- `__rmul__`
-- `__rtruediv__`
-- `__rfloordiv__`
-- `__rpow__`
-- `__rmatmul__`
-- `__rmod__`
-- `__rand__`
-- `__ror__`
-- `__rxor__`
-- `__rlshift__`
-- `__rrshift__`
+A conforming implementation of the array API standard must provide and support an array object supporting the following reflected operators.
 
 The results of applying reflected operators must match their non-reflected equivalents.
 
 ```{note}
 All operators for which `array <op> scalar` is implemented must have an equivalent reflected operator implementation.
 ```
+
+#### Arithmetic Operators
+
+-   `__radd__`
+-   `__rsub__`
+-   `__rmul__`
+-   `__rtruediv__`
+-   `__rfloordiv__`
+-   `__rpow__`
+-   `__rmod__`
+
+#### Array Operators
+
+-   `__rmatmul__`
+
+#### Bitwise Operators
+
+-   `__rand__`
+-   `__ror__`
+-   `__rxor__`
+-   `__rlshift__`
+-   `__rrshift__`
 
 * * *
 
@@ -238,8 +285,6 @@ Number of array dimensions (axes).
 
     -   number of array dimensions (axes).
 
-_TODO: need to more carefully consider this in order to accommodate, e.g., graph tensors where the number of dimensions may be dynamic._
-
 (attribute-shape)=
 ### shape
 
@@ -247,24 +292,36 @@ Array dimensions.
 
 #### Returns
 
--   **out**: _Union\[ Tuple\[ int, ...], &lt;shape&gt; ]_
+-   **out**: _Tuple\[ Optional\[ int ], ... ]_
 
-    -   array dimensions as either a tuple or a custom shape object. If a shape object, the object must be immutable and must support indexing for dimension retrieval.
+    -   array dimensions. An array dimension must be `None` if and only if a dimension is unknown.
 
-_TODO: need to more carefully consider this in order to accommodate, e.g., graph tensors where a shape may be dynamic._
+```{note}
+For array libraries having graph-based computational models, array dimensions may be unknown due to data-dependent operations (e.g., boolean indexing; `A[:, B > 0]`) and thus cannot be statically resolved without knowing array contents.
+```
+
+```{note}
+The returned value should be a tuple; however, where warranted, an array library may choose to return a custom shape object. If an array library returns a custom shape object, the object must be immutable, must support indexing for dimension retrieval, and must behave similarly to a tuple.
+```
 
 (attribute-size)=
 ### size
 
-Number of elements in an array. This must equal the product of the array's dimensions.
+Number of elements in an array.
+
+```{note}
+This must equal the product of the array's dimensions.
+```
 
 #### Returns
 
--   **out**: _int_
+-   **out**: _Optional\[ int ]_
 
-    -   number of elements in an array.
+    -   number of elements in an array. The returned value must be `None` if and only if one or more array dimensions are unknown.
 
-_TODO: need to more carefully consider this in order to accommodate, e.g., graph tensors where the number of elements may be dynamic._
+```{note}
+For array libraries having graph-based computational models, an array may have unknown dimensions due to data-dependent operations.
+```
 
 (attribute-T)=
 ### T
@@ -571,6 +628,10 @@ Converts a zero-dimensional floating-point array to a Python `float` object.
 
 Evaluates `self_i // other_i` for each element of an array instance with the respective element of the array `other`.
 
+```{note}
+For input arrays which promote to an integer data type, the result of division by zero is unspecified and thus implementation-defined.
+```
+
 #### Parameters
 
 -   **self**: _&lt;array&gt;_
@@ -746,11 +807,6 @@ Computes the truth value of `self_i <= other_i` for each element of an array ins
 Element-wise results must equal the results returned by the equivalent element-wise function [`less_equal(x1, x2)`](elementwise_functions.md#less_equalx1-x2-).
 ```
 
-(method-__len__)=
-### \_\_len\_\_(self, /)
-
-_TODO: need to more carefully consider this in order to accommodate, e.g., graph tensors where a shape may be dynamic. Furthermore, not clear whether this should be implemented, as, e.g., NumPy's behavior of returning the size of the first dimension is not necessarily intuitive, as opposed to, say, the total number of elements._
-
 (method-__lshift__)=
 ### \_\_lshift\_\_(self, other, /)
 
@@ -841,13 +897,19 @@ The `matmul` function must implement the same semantics as the built-in `@` oper
 #### Raises
 
 -   if either `self` or `other` is a zero-dimensional array.
--   if `self` is a one-dimensional array having shape `(N)`, `other` is a one-dimensional array having shape `(M)`, and `N != M`.
+-   if `self` is a one-dimensional array having shape `(K)`, `other` is a one-dimensional array having shape `(L)`, and `K != L`.
+-   if `self` is a one-dimensional array having shape `(K)`, `other` is an array having shape `(..., L, N)`, and `K != L`.
+-   if `self` is an array having shape `(..., M, K)`, `other` is a one-dimensional array having shape `(L)`, and `K != L`.
 -   if `self` is an array having shape `(..., M, K)`, `other` is an array having shape `(..., L, N)`, and `K != L`.
 
 (method-__mod__)=
 ### \_\_mod\_\_(self, other, /)
 
 Evaluates `self_i % other_i` for each element of an array instance with the respective element of the array `other`.
+
+```{note}
+For input arrays which promote to an integer data type, the result of division by zero is unspecified and thus implementation-defined.
+```
 
 #### Parameters
 
@@ -1030,7 +1092,7 @@ For floating-point operands, let `self` equal `x1` and `other` equal `x2`.
 -   If `abs(x1_i)` is less than `1` and `x2_i` is `-infinity`, the result is `+infinity`.
 -   If `x1_i` is `+infinity` and `x2_i` is greater than `0`, the result is `+infinity`.
 -   If `x1_i` is `+infinity` and `x2_i` is less than `0`, the result is `+0`.
--   If `x1_i` is `-infinity` and `x2_i` is greater than `0`, the result is `-infinity`.
+-   If `x1_i` is `-infinity`, `x2_i` is greater than `0`, and `x2_i` is an odd integer value, the result is `-infinity`.
 -   If `x1_i` is `-infinity`, `x2_i` is greater than `0`, and `x2_i` is not an odd integer value, the result is `+infinity`.
 -   If `x1_i` is `-infinity`, `x2_i` is less than `0`, and `x2_i` is an odd integer value, the result is `-0`.
 -   If `x1_i` is `-infinity`, `x2_i` is less than `0`, and `x2_i` is not an odd integer value, the result is `+0`.
@@ -1152,7 +1214,7 @@ For floating-point operands, let `self` equal `x1` and `other` equal `x2`.
 -   If `x1_i` is either `+infinity` or `-infinity` and `x2_i` is either `+infinity` or `-infinity`, the result is `NaN`.
 -   If `x1_i` is either `+0` or `-0` and `x2_i` is either `+0` or `-0`, the result is `NaN`.
 -   If `x1_i` is `+0` and `x2_i` is greater than `0`, the result is `+0`.
--   If `x1_i` is `-0` and `x2_i` is greater than `0`, the result `-0`.
+-   If `x1_i` is `-0` and `x2_i` is greater than `0`, the result is `-0`.
 -   If `x1_i` is `+0` and `x2_i` is less than `0`, the result is `-0`.
 -   If `x1_i` is `-0` and `x2_i` is less than `0`, the result is `+0`.
 -   If `x1_i` is greater than `0` and `x2_i` is `+0`, the result is `+infinity`.
