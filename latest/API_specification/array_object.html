@@ -7725,7 +7725,7 @@ cost of more synchronization than necessary.
                 is one-dimensional having shape
                 <code class="docutils literal notranslate">
                  <span class="pre">
-                  (M)
+                  (M,)
                  </span>
                 </code>
                 and
@@ -7764,16 +7764,16 @@ cost of more synchronization than necessary.
                 has more than one dimension (including after vector-to-matrix promotion),
                 <code class="docutils literal notranslate">
                  <span class="pre">
-                  self
+                  shape(self)[:-2]
                  </span>
                 </code>
                 must be compatible with
                 <code class="docutils literal notranslate">
                  <span class="pre">
-                  other
+                  shape(other)[:-2]
                  </span>
                 </code>
-                (see
+                (after vector-to-matrix promotion) (see
                 <a class="reference internal" href="broadcasting.html#broadcasting">
                  <span class="std std-ref">
                   Broadcasting
@@ -7824,7 +7824,7 @@ cost of more synchronization than necessary.
                 is one-dimensional having shape
                 <code class="docutils literal notranslate">
                  <span class="pre">
-                  (N)
+                  (N,)
                  </span>
                 </code>
                 and
@@ -7863,16 +7863,16 @@ cost of more synchronization than necessary.
                 has more than one dimension (including after vector-to-matrix promotion),
                 <code class="docutils literal notranslate">
                  <span class="pre">
-                  other
+                  shape(other)[:-2]
                  </span>
                 </code>
                 must be compatible with
                 <code class="docutils literal notranslate">
                  <span class="pre">
-                  self
+                  shape(self)[:-2]
                  </span>
                 </code>
-                (see
+                (after vector-to-matrix promotion) (see
                 <a class="reference internal" href="broadcasting.html#broadcasting">
                  <span class="std std-ref">
                   Broadcasting
@@ -7939,7 +7939,7 @@ cost of more synchronization than necessary.
                 are one-dimensional arrays having shape
                 <code class="docutils literal notranslate">
                  <span class="pre">
-                  (N)
+                  (N,)
                  </span>
                 </code>
                 , a zero-dimensional array containing the inner product as its only element.
@@ -8004,7 +8004,7 @@ cost of more synchronization than necessary.
                 is a one-dimensional array having shape
                 <code class="docutils literal notranslate">
                  <span class="pre">
-                  (K)
+                  (K,)
                  </span>
                 </code>
                 and
@@ -8070,7 +8070,7 @@ cost of more synchronization than necessary.
                 is a one-dimensional array having shape
                 <code class="docutils literal notranslate">
                  <span class="pre">
-                  (K)
+                  (K,)
                  </span>
                 </code>
                 , an array having shape
@@ -8219,13 +8219,13 @@ cost of more synchronization than necessary.
                 </a>
                 <code class="docutils literal notranslate">
                  <span class="pre">
-                  self
+                  shape(self)[:-2]
                  </span>
                 </code>
                 against
                 <code class="docutils literal notranslate">
                  <span class="pre">
-                  other
+                  shape(other)[:-2]
                  </span>
                 </code>
                 and containing the
@@ -8305,7 +8305,7 @@ cost of more synchronization than necessary.
               is a one-dimensional array having shape
               <code class="docutils literal notranslate">
                <span class="pre">
-                (K)
+                (K,)
                </span>
               </code>
               ,
@@ -8317,7 +8317,7 @@ cost of more synchronization than necessary.
               is a one-dimensional array having shape
               <code class="docutils literal notranslate">
                <span class="pre">
-                (L)
+                (L,)
                </span>
               </code>
               , and
@@ -8346,7 +8346,7 @@ cost of more synchronization than necessary.
               is a one-dimensional array having shape
               <code class="docutils literal notranslate">
                <span class="pre">
-                (K)
+                (K,)
                </span>
               </code>
               ,
@@ -8411,7 +8411,7 @@ cost of more synchronization than necessary.
               is a one-dimensional array having shape
               <code class="docutils literal notranslate">
                <span class="pre">
-                (L)
+                (L,)
                </span>
               </code>
               , and

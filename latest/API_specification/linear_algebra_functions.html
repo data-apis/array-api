@@ -728,7 +728,7 @@
                 is one-dimensional having shape
                 <code class="docutils literal notranslate">
                  <span class="pre">
-                  (M)
+                  (M,)
                  </span>
                 </code>
                 and
@@ -767,16 +767,16 @@
                 has more than one dimension (including after vector-to-matrix promotion),
                 <code class="docutils literal notranslate">
                  <span class="pre">
-                  x1
+                  shape(x1)[:-2]
                  </span>
                 </code>
                 must be compatible with
                 <code class="docutils literal notranslate">
                  <span class="pre">
-                  x2
+                  shape(x2)[:-2]
                  </span>
                 </code>
-                (see
+                (after vector-to-matrix promotion) (see
                 <a class="reference internal" href="broadcasting.html#broadcasting">
                  <span class="std std-ref">
                   Broadcasting
@@ -827,7 +827,7 @@
                 is one-dimensional having shape
                 <code class="docutils literal notranslate">
                  <span class="pre">
-                  (N)
+                  (N,)
                  </span>
                 </code>
                 and
@@ -866,16 +866,16 @@
                 has more than one dimension (including after vector-to-matrix promotion),
                 <code class="docutils literal notranslate">
                  <span class="pre">
-                  x2
+                  shape(x2)[:-2]
                  </span>
                 </code>
                 must be compatible with
                 <code class="docutils literal notranslate">
                  <span class="pre">
-                  x1
+                  shape(x1)[:-2]
                  </span>
                 </code>
-                (see
+                (after vector-to-matrix promotion) (see
                 <a class="reference internal" href="broadcasting.html#broadcasting">
                  <span class="std std-ref">
                   Broadcasting
@@ -942,7 +942,7 @@
                 are one-dimensional arrays having shape
                 <code class="docutils literal notranslate">
                  <span class="pre">
-                  (N)
+                  (N,)
                  </span>
                 </code>
                 , a zero-dimensional array containing the inner product as its only element.
@@ -1007,7 +1007,7 @@
                 is a one-dimensional array having shape
                 <code class="docutils literal notranslate">
                  <span class="pre">
-                  (K)
+                  (K,)
                  </span>
                 </code>
                 and
@@ -1073,7 +1073,7 @@
                 is a one-dimensional array having shape
                 <code class="docutils literal notranslate">
                  <span class="pre">
-                  (K)
+                  (K,)
                  </span>
                 </code>
                 , an array having shape
@@ -1222,13 +1222,13 @@
                 </a>
                 <code class="docutils literal notranslate">
                  <span class="pre">
-                  x1
+                  shape(x1)[:-2]
                  </span>
                 </code>
                 against
                 <code class="docutils literal notranslate">
                  <span class="pre">
-                  x2
+                  shape(x2)[:-2]
                  </span>
                 </code>
                 and containing the
@@ -1287,7 +1287,7 @@
               is a one-dimensional array having shape
               <code class="docutils literal notranslate">
                <span class="pre">
-                (K)
+                (K,)
                </span>
               </code>
               ,
@@ -1299,7 +1299,7 @@
               is a one-dimensional array having shape
               <code class="docutils literal notranslate">
                <span class="pre">
-                (L)
+                (L,)
                </span>
               </code>
               , and
@@ -1328,7 +1328,7 @@
               is a one-dimensional array having shape
               <code class="docutils literal notranslate">
                <span class="pre">
-                (K)
+                (K,)
                </span>
               </code>
               ,
@@ -1393,7 +1393,7 @@
               is a one-dimensional array having shape
               <code class="docutils literal notranslate">
                <span class="pre">
-                (L)
+                (L,)
                </span>
               </code>
               , and
