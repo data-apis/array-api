@@ -133,14 +133,15 @@ _Note that while this API standard largely tries to avoid discussing implementat
 _DLPack diagram. Dark blue are the structs it defines, light blue struct members, gray text enum values of supported devices and data types._
 
 The `__dlpack__` method will produce a `PyCapsule` containing a
-`DLPackManagedTensor`, which will be consumed immediately within
+`DLManagedTensor`, which will be consumed immediately within
 `from_dlpack` - therefore it is consumed exactly once, and it will not be
 visible to users of the Python API.
 
-The producer must set the PyCapsule name to ``"dltensor"`` so that it can
-be inspected by name.
-The consumer must set the PyCapsule name to `"used_dltensor"`, and call the
-`deleter` of the `DLPackManagedTensor` when it no longer needs the data.
+The producer must set the `PyCapsule` name to ``"dltensor"`` so that it can
+be inspected by name, and set `PyCapsule_Destructor` that calls the `deleter`
+of the `DLManagedTensor` when the capsule is no longer needed.
+The consumer may change the `PyCapsule` name, e.g. to `"used_dltensor"` to
+prevent the capsule from being consumed more than once.
 
 Note: the capsule names ``"dltensor"`` and `"used_dltensor"` must be statically
 allocated.
