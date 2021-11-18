@@ -8675,7 +8675,7 @@
              <ul>
               <li>
                <p>
-                dividend input array. Should have a floating-point data type.
+                dividend input array. Should have a numeric data type.
                </p>
               </li>
              </ul>
@@ -8705,7 +8705,7 @@
                   Broadcasting
                  </span>
                 </a>
-                ). Should have a floating-point data type.
+                ). Should have a numeric data type.
                </p>
               </li>
              </ul>
@@ -13472,6 +13472,53 @@ data type determined by
            </code>
            .
           </p>
+          <div class="admonition note">
+           <p class="admonition-title">
+            Note
+           </p>
+           <p>
+            If both
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              x1
+             </span>
+            </code>
+            and
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              x2
+             </span>
+            </code>
+            have integer data types, the result of
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              pow
+             </span>
+            </code>
+            when
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              x2_i
+             </span>
+            </code>
+            is negative (i.e., less than zero) is unspecified and thus implementation-dependent.
+           </p>
+           <p>
+            If
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              x1
+             </span>
+            </code>
+            has an integer data type and
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              x2
+             </span>
+            </code>
+            has a floating-point data type, behavior is implementation-dependent (type promotion between data type “kinds” (integer versus floating-point) is unspecified).
+           </p>
+          </div>
           <section id="id109">
            <h4 id="id109">
             Special Cases
@@ -14400,7 +14447,7 @@ data type determined by
              <ul>
               <li>
                <p>
-                first input array whose elements correspond to the exponentiation base. Should have a floating-point data type.
+                first input array whose elements correspond to the exponentiation base. Should have a numeric data type.
                </p>
               </li>
              </ul>
@@ -14430,7 +14477,7 @@ data type determined by
                   Broadcasting
                  </span>
                 </a>
-                ). Should have a floating-point data type.
+                ). Should have a numeric data type.
                </p>
               </li>
              </ul>
