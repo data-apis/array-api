@@ -808,7 +808,10 @@ unnecessary so asynchronous execution is enabled.
           </h3>
           <p>
            <em>
-            Note that while this API standard largely tries to avoid discussing implementation details, some discussion and requirements are needed here because data interchange requires coordination between implementers on, e.g., memory management.
+            Note that while this API standard largely tries to avoid discussing
+implementation details, some discussion and requirements are needed
+here because data interchange requires coordination between
+implementers on, e.g., memory management.
            </em>
           </p>
           <p>
@@ -816,7 +819,9 @@ unnecessary so asynchronous execution is enabled.
           </p>
           <p>
            <em>
-            DLPack diagram. Dark blue are the structs it defines, light blue struct members, gray text enum values of supported devices and data types.
+            DLPack diagram. Dark blue are the structs it defines, light blue
+struct members, gray text enum values of supported devices and data
+types.
            </em>
           </p>
           <p>
@@ -835,7 +840,7 @@ unnecessary so asynchronous execution is enabled.
            containing a
            <code class="docutils literal notranslate">
             <span class="pre">
-             DLPackManagedTensor
+             DLManagedTensor
             </span>
            </code>
            , which will be consumed immediately within
@@ -848,21 +853,27 @@ unnecessary so asynchronous execution is enabled.
 visible to users of the Python API.
           </p>
           <p>
-           The producer must set the PyCapsule name to
+           The producer must set the
+           <code class="docutils literal notranslate">
+            <span class="pre">
+             PyCapsule
+            </span>
+           </code>
+           name to
            <code class="docutils literal notranslate">
             <span class="pre">
              "dltensor"
             </span>
            </code>
-           so that it can
-be inspected by name.
-The consumer must set the PyCapsule name to
+           so that
+it can be inspected by name, and set
            <code class="docutils literal notranslate">
             <span class="pre">
-             "used_dltensor"
+             PyCapsule_Destructor
             </span>
            </code>
-           , and call the
+           that calls
+the
            <code class="docutils literal notranslate">
             <span class="pre">
              deleter
@@ -871,10 +882,79 @@ The consumer must set the PyCapsule name to
            of the
            <code class="docutils literal notranslate">
             <span class="pre">
-             DLPackManagedTensor
+             DLManagedTensor
             </span>
            </code>
-           when it no longer needs the data.
+           when the
+           <code class="docutils literal notranslate">
+            <span class="pre">
+             "dltensor"
+            </span>
+           </code>
+           -named
+capsule is no longer needed.
+          </p>
+          <p>
+           The consumer must transer ownership of the
+           <code class="docutils literal notranslate">
+            <span class="pre">
+             DLManangedTensor
+            </span>
+           </code>
+           from the
+capsule to its own object. It does so by renaming the capsule to
+           <code class="docutils literal notranslate">
+            <span class="pre">
+             "used_dltensor"
+            </span>
+           </code>
+           to ensure that
+           <code class="docutils literal notranslate">
+            <span class="pre">
+             PyCapsule_Destructor
+            </span>
+           </code>
+           will not get
+called (ensured if
+           <code class="docutils literal notranslate">
+            <span class="pre">
+             PyCapsule_Destructor
+            </span>
+           </code>
+           calls
+           <code class="docutils literal notranslate">
+            <span class="pre">
+             deleter
+            </span>
+           </code>
+           only for
+capsules whose name is
+           <code class="docutils literal notranslate">
+            <span class="pre">
+             "dltensor"
+            </span>
+           </code>
+           ), but the
+           <code class="docutils literal notranslate">
+            <span class="pre">
+             deleter
+            </span>
+           </code>
+           of the
+           <code class="docutils literal notranslate">
+            <span class="pre">
+             DLManagedTensor
+            </span>
+           </code>
+           will be called by the destructor of the consumer
+library object created to own the
+           <code class="docutils literal notranslate">
+            <span class="pre">
+             DLManagerTensor
+            </span>
+           </code>
+           obtained from the
+capsule.
           </p>
           <p>
            Note: the capsule names
@@ -889,8 +969,8 @@ The consumer must set the PyCapsule name to
              "used_dltensor"
             </span>
            </code>
-           must be statically
-allocated.
+           must be
+statically allocated.
           </p>
           <p>
            When the
@@ -970,7 +1050,8 @@ refer to
               device_id
              </span>
             </code>
-            , which will be the device ID (an integer,
+            , which will be the device
+ID (an integer,
             <code class="docutils literal notranslate">
              <span class="pre">
               0,
@@ -982,7 +1063,12 @@ refer to
               ...
              </span>
             </code>
-            ) which the producer library uses. In practice this will likely be the same numbering as that of the consumer, however that is not guaranteed. Depending on the hardware type, it may be possible for the consumer library implementation to look up the actual device from the pointer to the data - this is possible for example for CUDA device pointers.
+            ) which the producer library uses. In
+practice this will likely be the same numbering as that of the
+consumer, however that is not guaranteed. Depending on the hardware
+type, it may be possible for the consumer library implementation to
+look up the actual device from the pointer to the data - this is
+possible for example for CUDA device pointers.
            </p>
            <p>
             It is recommended that implementers of this array API consider and document
