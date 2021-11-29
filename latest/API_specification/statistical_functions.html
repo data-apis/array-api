@@ -1584,13 +1584,59 @@
                 </li>
                 <li>
                  <p>
-                  otherwise, the returned array must have the default data type corresponding to the data type “kind” (integer or floating-point) of
+                  if
                   <code class="docutils literal notranslate">
                    <span class="pre">
                     x
                    </span>
                   </code>
-                  .
+                  has a floating-point data type, the returned array must have the default floating-point data type.
+                 </p>
+                </li>
+                <li>
+                 <p>
+                  if
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    x
+                   </span>
+                  </code>
+                  has a signed integer data type (e.g.,
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    int16
+                   </span>
+                  </code>
+                  ), the returned array must have the default integer data type.
+                 </p>
+                </li>
+                <li>
+                 <p>
+                  if
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    x
+                   </span>
+                  </code>
+                  has an unsigned integer data type (e.g.,
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    uint16
+                   </span>
+                  </code>
+                  ), the returned array must have an unsigned integer data type having the same number of bits as the default integer data type (e.g., if the default integer data type is
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    int32
+                   </span>
+                  </code>
+                  , the returned array must have a
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    uint32
+                   </span>
+                  </code>
+                  data type).
                  </p>
                 </li>
                </ul>
@@ -2173,13 +2219,59 @@
                 </li>
                 <li>
                  <p>
-                  otherwise, the returned array must have the default data type corresponding to the data type “kind” (integer or floating-point) of
+                  if
                   <code class="docutils literal notranslate">
                    <span class="pre">
                     x
                    </span>
                   </code>
-                  .
+                  has a floating-point data type, the returned array must have the default floating-point data type.
+                 </p>
+                </li>
+                <li>
+                 <p>
+                  if
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    x
+                   </span>
+                  </code>
+                  has a signed integer data type (e.g.,
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    int16
+                   </span>
+                  </code>
+                  ), the returned array must have the default integer data type.
+                 </p>
+                </li>
+                <li>
+                 <p>
+                  if
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    x
+                   </span>
+                  </code>
+                  has an unsigned integer data type (e.g.,
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    uint16
+                   </span>
+                  </code>
+                  ), the returned array must have an unsigned integer data type having the same number of bits as the default integer data type (e.g., if the default integer data type is
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    int32
+                   </span>
+                  </code>
+                  , the returned array must have a
+                  <code class="docutils literal notranslate">
+                   <span class="pre">
+                    uint32
+                   </span>
+                  </code>
+                  data type).
                  </p>
                 </li>
                </ul>
