@@ -691,7 +691,7 @@ For input arrays which promote to an integer data type, the result of division b
 #### Special Cases
 
 ```{note}
-Floor division was introduced in Python via [PEP 238](https://www.python.org/dev/peps/pep-0238/) with the goal to disambiguate "true division" (i.e., computing an approximation to the mathematical operation of division) from rounding the result of division toward negative infinity (i.e., "floor division"). The former was computed when one of the operands was a `float`, while the latter was computed when both operands were `int`s. Overloading the `/` operator to support both behaviors led to subtle numerical bugs when integers are possible, but not expected.
+Floor division was introduced in Python via [PEP 238](https://www.python.org/dev/peps/pep-0238/) with the goal to disambiguate "true division" (i.e., computing an approximation to the mathematical operation of division) from "floor division" (i.e., rounding the result of division toward negative infinity). The former was computed when one of the operands was a `float`, while the latter was computed when both operands were `int`s. Overloading the `/` operator to support both behaviors led to subtle numerical bugs when integers are possible, but not expected.
 
 To resolve this ambiguity, `/` was designated for true division, and `//` was designated for floor division. Semantically, floor division was [defined](https://www.python.org/dev/peps/pep-0238/#semantics-of-floor-division) as equivalent to `a // b == floor(a/b)`; however, special floating-point cases were left ill-defined.
 
