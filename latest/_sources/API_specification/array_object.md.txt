@@ -632,6 +632,43 @@ Evaluates `self_i // other_i` for each element of an array instance with the res
 For input arrays which promote to an integer data type, the result of division by zero is unspecified and thus implementation-defined.
 ```
 
+#### Special Cases
+
+```{note}
+Floor division was introduced in Python via [PEP 238](https://www.python.org/dev/peps/pep-0238/) with the goal to disambiguate "true division" (i.e., computing an approximation to the mathematical operation of division) from "floor division" (i.e., rounding the result of division toward negative infinity). The former was computed when one of the operands was a `float`, while the latter was computed when both operands were `int`s. Overloading the `/` operator to support both behaviors led to subtle numerical bugs when integers are possible, but not expected.
+
+To resolve this ambiguity, `/` was designated for true division, and `//` was designated for floor division. Semantically, floor division was [defined](https://www.python.org/dev/peps/pep-0238/#semantics-of-floor-division) as equivalent to `a // b == floor(a/b)`; however, special floating-point cases were left ill-defined.
+
+Accordingly, floor division is not implemented consistently across array libraries for some of the special cases documented below. Namely, when one of the operands is `infinity`, libraries may diverge with some choosing to strictly follow `floor(a/b)` and others choosing to pair `//` with `%` according to the relation `b = a % b + b * (a // b)`. The special cases leading to divergent behavior are documented below.
+
+This specification prefers floor division to match `floor(divide(x1, x2))` in order to avoid surprising and unexpected results; however, array libraries may choose to more strictly follow Python behavior.
+```
+
+For floating-point operands, let `self` equal `x1` and `other` equal `x2`.
+
+-   If either `x1_i` or `x2_i` is `NaN`, the result is `NaN`.
+-   If `x1_i` is either `+infinity` or `-infinity` and `x2_i` is either `+infinity` or `-infinity`, the result is `NaN`.
+-   If `x1_i` is either `+0` or `-0` and `x2_i` is either `+0` or `-0`, the result is `NaN`.
+-   If `x1_i` is `+0` and `x2_i` is greater than `0`, the result is `+0`.
+-   If `x1_i` is `-0` and `x2_i` is greater than `0`, the result is `-0`.
+-   If `x1_i` is `+0` and `x2_i` is less than `0`, the result is `-0`.
+-   If `x1_i` is `-0` and `x2_i` is less than `0`, the result is `+0`.
+-   If `x1_i` is greater than `0` and `x2_i` is `+0`, the result is `+infinity`.
+-   If `x1_i` is greater than `0` and `x2_i` is `-0`, the result is `-infinity`.
+-   If `x1_i` is less than `0` and `x2_i` is `+0`, the result is `-infinity`.
+-   If `x1_i` is less than `0` and `x2_i` is `-0`, the result is `+infinity`.
+-   If `x1_i` is `+infinity` and `x2_i` is a positive (i.e., greater than `0`) finite number, the result is `+infinity`. (**note**: libraries may return `NaN` to match Python behavior.)
+-   If `x1_i` is `+infinity` and `x2_i` is a negative (i.e., less than `0`) finite number, the result is `-infinity`. (**note**: libraries may return `NaN` to match Python behavior.)
+-   If `x1_i` is `-infinity` and `x2_i` is a positive (i.e., greater than `0`) finite number, the result is `-infinity`. (**note**: libraries may return `NaN` to match Python behavior.)
+-   If `x1_i` is `-infinity` and `x2_i` is a negative (i.e., less than `0`) finite number, the result is `+infinity`. (**note**: libraries may return `NaN` to match Python behavior.)
+-   If `x1_i` is a positive (i.e., greater than `0`) finite number and `x2_i` is `+infinity`, the result is `+0`.
+-   If `x1_i` is a positive (i.e., greater than `0`) finite number and `x2_i` is `-infinity`, the result is `-0`. (**note**: libraries may return `-1.0` to match Python behavior.)
+-   If `x1_i` is a negative (i.e., less than `0`) finite number and `x2_i` is `+infinity`, the result is `-0`. (**note**: libraries may return `-1.0` to match Python behavior.)
+-   If `x1_i` is a negative (i.e., less than `0`) finite number and `x2_i` is `-infinity`, the result is `+0`.
+-   If `x1_i` and `x2_i` have the same mathematical sign and are both nonzero finite numbers, the result has a positive mathematical sign.
+-   If `x1_i` and `x2_i` have different mathematical signs and are both nonzero finite numbers, the result has a negative mathematical sign.
+-   In the remaining cases, where neither `-infinity`, `+0`, `-0`, nor `NaN` is involved, the quotient must be computed and rounded to the greatest (i.e., closest to `+infinity`) representable integer-value number that is not greater than the division result. If the magnitude is too large to represent, the operation overflows and the result is an `infinity` of appropriate mathematical sign. If the magnitude is too small to represent, the operation underflows and the result is a zero of appropriate mathematical sign.
+
 #### Parameters
 
 -   **self**: _&lt;array&gt;_
@@ -1237,7 +1274,7 @@ For floating-point operands, let `self` equal `x1` and `other` equal `x2`.
 -   If `x1_i` is a negative (i.e., less than `0`) finite number and `x2_i` is `-infinity`, the result is `+0`.
 -   If `x1_i` and `x2_i` have the same mathematical sign and are both nonzero finite numbers, the result has a positive mathematical sign.
 -   If `x1_i` and `x2_i` have different mathematical signs and are both nonzero finite numbers, the result has a negative mathematical sign.
--   In the remaining cases, where neither `-infinity`, `+0`, `-0`, nor `NaN` is involved, the quotient must be computed and rounded to the nearest representable value according to IEEE 754-2019 and a supported rounding mode. If the magnitude is too larger to represent, the operation overflows and the result is an `infinity` of appropriate mathematical sign. If the magnitude is too small to represent, the operation underflows and the result is a zero of appropriate mathematical sign.
+-   In the remaining cases, where neither `-infinity`, `+0`, `-0`, nor `NaN` is involved, the quotient must be computed and rounded to the nearest representable value according to IEEE 754-2019 and a supported rounding mode. If the magnitude is too large to represent, the operation overflows and the result is an `infinity` of appropriate mathematical sign. If the magnitude is too small to represent, the operation underflows and the result is a zero of appropriate mathematical sign.
 
 #### Parameters
 
