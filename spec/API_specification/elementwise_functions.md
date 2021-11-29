@@ -559,11 +559,11 @@ For floating-point operands,
 
 -   **x1**: _&lt;array&gt;_
 
-    -   dividend input array. Should have a floating-point data type.
+    -   dividend input array. Should have a numeric data type.
 
 -   **x2**: _&lt;array&gt;_
 
-    -   divisor input array. Must be compatible with `x1` (see {ref}`broadcasting`). Should have a floating-point data type.
+    -   divisor input array. Must be compatible with `x1` (see {ref}`broadcasting`). Should have a numeric data type.
 
 #### Returns
 
@@ -1210,6 +1210,12 @@ Computes the numerical positive of each element `x_i` (i.e., `y_i = +x_i`) of th
 
 Calculates an implementation-dependent approximation of exponentiation by raising each element `x1_i` (the base) of the input array `x1` to the power of `x2_i` (the exponent), where `x2_i` is the corresponding element of the input array `x2`.
 
+```{note}
+If both `x1` and `x2` have integer data types, the result of `pow` when `x2_i` is negative (i.e., less than zero) is unspecified and thus implementation-dependent.
+
+If `x1` has an integer data type and `x2` has a floating-point data type, behavior is implementation-dependent (type promotion between data type "kinds" (integer versus floating-point) is unspecified).
+```
+
 #### Special Cases
 
 For floating-point operands,
@@ -1243,11 +1249,11 @@ For floating-point operands,
 
 -   **x1**: _&lt;array&gt;_
 
-    -   first input array whose elements correspond to the exponentiation base. Should have a floating-point data type.
+    -   first input array whose elements correspond to the exponentiation base. Should have a numeric data type.
 
 -   **x2**: _&lt;array&gt;_
 
-    -   second input array whose elements correspond to the exponentiation exponent. Must be compatible with `x1` (see {ref}`broadcasting`). Should have a floating-point data type.
+    -   second input array whose elements correspond to the exponentiation exponent. Must be compatible with `x1` (see {ref}`broadcasting`). Should have a numeric data type.
 
 #### Returns
 

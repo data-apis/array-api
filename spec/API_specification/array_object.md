@@ -897,23 +897,23 @@ The `matmul` function must implement the same semantics as the built-in `@` oper
 
 -   **self**: _&lt;array&gt;_
 
-    -   array instance. Should have a numeric data type. Must have at least one dimension. If `self` is one-dimensional having shape `(M)` and `other` has more than one dimension, `self` must be promoted to a two-dimensional array by prepending `1` to its dimensions (i.e., must have shape `(1, M)`). After matrix multiplication, the prepended dimensions in the returned array must be removed. If `self` has more than one dimension (including after vector-to-matrix promotion), `self` must be compatible with `other` (see {ref}`broadcasting`). If `self` has shape `(..., M, K)`, the innermost two dimensions form matrices on which to perform matrix multiplication.
+    -   array instance. Should have a numeric data type. Must have at least one dimension. If `self` is one-dimensional having shape `(M,)` and `other` has more than one dimension, `self` must be promoted to a two-dimensional array by prepending `1` to its dimensions (i.e., must have shape `(1, M)`). After matrix multiplication, the prepended dimensions in the returned array must be removed. If `self` has more than one dimension (including after vector-to-matrix promotion), `shape(self)[:-2]` must be compatible with `shape(other)[:-2]` (after vector-to-matrix promotion) (see {ref}`broadcasting`). If `self` has shape `(..., M, K)`, the innermost two dimensions form matrices on which to perform matrix multiplication.
 
 -   **other**: _&lt;array&gt;_
 
-    -   other array. Should have a numeric data type. Must have at least one dimension. If `other` is one-dimensional having shape `(N)` and `self` has more than one dimension, `other` must be promoted to a two-dimensional array by appending `1` to its dimensions (i.e., must have shape `(N, 1)`). After matrix multiplication, the appended dimensions in the returned array must be removed. If `other` has more than one dimension (including after vector-to-matrix promotion), `other` must be compatible with `self` (see {ref}`broadcasting`). If `other` has shape `(..., K, N)`, the innermost two dimensions form matrices on which to perform matrix multiplication.
+    -   other array. Should have a numeric data type. Must have at least one dimension. If `other` is one-dimensional having shape `(N,)` and `self` has more than one dimension, `other` must be promoted to a two-dimensional array by appending `1` to its dimensions (i.e., must have shape `(N, 1)`). After matrix multiplication, the appended dimensions in the returned array must be removed. If `other` has more than one dimension (including after vector-to-matrix promotion), `shape(other)[:-2]` must be compatible with `shape(self)[:-2]` (after vector-to-matrix promotion) (see {ref}`broadcasting`). If `other` has shape `(..., K, N)`, the innermost two dimensions form matrices on which to perform matrix multiplication.
 
 #### Returns
 
 -   **out**: _&lt;array&gt;_
 
-    -   if both `self` and `other` are one-dimensional arrays having shape `(N)`, a zero-dimensional array containing the inner product as its only element.
+    -   if both `self` and `other` are one-dimensional arrays having shape `(N,)`, a zero-dimensional array containing the inner product as its only element.
     -   if `self` is a two-dimensional array having shape `(M, K)` and `other` is a two-dimensional array having shape `(K, N)`, a two-dimensional array containing the [conventional matrix product](https://en.wikipedia.org/wiki/Matrix_multiplication) and having shape `(M, N)`.
-    -   if `self` is a one-dimensional array having shape `(K)` and `other` is an array having shape `(..., K, N)`, an array having shape `(..., N)` (i.e., prepended dimensions during vector-to-matrix promotion must be removed) and containing the [conventional matrix product](https://en.wikipedia.org/wiki/Matrix_multiplication).
-    -   if `self` is an array having shape `(..., M, K)` and `other` is a one-dimensional array having shape `(K)`, an array having shape `(..., M)` (i.e., appended dimensions during vector-to-matrix promotion must be removed) and containing the [conventional matrix product](https://en.wikipedia.org/wiki/Matrix_multiplication).
+    -   if `self` is a one-dimensional array having shape `(K,)` and `other` is an array having shape `(..., K, N)`, an array having shape `(..., N)` (i.e., prepended dimensions during vector-to-matrix promotion must be removed) and containing the [conventional matrix product](https://en.wikipedia.org/wiki/Matrix_multiplication).
+    -   if `self` is an array having shape `(..., M, K)` and `other` is a one-dimensional array having shape `(K,)`, an array having shape `(..., M)` (i.e., appended dimensions during vector-to-matrix promotion must be removed) and containing the [conventional matrix product](https://en.wikipedia.org/wiki/Matrix_multiplication).
     -   if `self` is a two-dimensional array having shape `(M, K)` and `other` is an array having shape `(..., K, N)`, an array having shape `(..., M, N)` and containing the [conventional matrix product](https://en.wikipedia.org/wiki/Matrix_multiplication) for each stacked matrix.
     -   if `self` is an array having shape `(..., M, K)` and `other` is a two-dimensional array having shape `(K, N)`, an array having shape `(..., M, N)` and containing the [conventional matrix product](https://en.wikipedia.org/wiki/Matrix_multiplication) for each stacked matrix.
-    -   if either `self` or `other` has more than two dimensions, an array having a shape determined by {ref}`broadcasting` `self` against `other` and containing the [conventional matrix product](https://en.wikipedia.org/wiki/Matrix_multiplication) for each stacked matrix.
+    -   if either `self` or `other` has more than two dimensions, an array having a shape determined by {ref}`broadcasting` `shape(self)[:-2]` against `shape(other)[:-2]` and containing the [conventional matrix product](https://en.wikipedia.org/wiki/Matrix_multiplication) for each stacked matrix.
 
     The returned array must have a data type determined by {ref}`type-promotion`.
 
@@ -924,9 +924,9 @@ The `matmul` function must implement the same semantics as the built-in `@` oper
 #### Raises
 
 -   if either `self` or `other` is a zero-dimensional array.
--   if `self` is a one-dimensional array having shape `(K)`, `other` is a one-dimensional array having shape `(L)`, and `K != L`.
--   if `self` is a one-dimensional array having shape `(K)`, `other` is an array having shape `(..., L, N)`, and `K != L`.
--   if `self` is an array having shape `(..., M, K)`, `other` is a one-dimensional array having shape `(L)`, and `K != L`.
+-   if `self` is a one-dimensional array having shape `(K,)`, `other` is a one-dimensional array having shape `(L,)`, and `K != L`.
+-   if `self` is a one-dimensional array having shape `(K,)`, `other` is an array having shape `(..., L, N)`, and `K != L`.
+-   if `self` is an array having shape `(..., M, K)`, `other` is a one-dimensional array having shape `(L,)`, and `K != L`.
 -   if `self` is an array having shape `(..., M, K)`, `other` is an array having shape `(..., L, N)`, and `K != L`.
 
 (method-__mod__)=
@@ -1102,6 +1102,12 @@ Element-wise results must equal the results returned by the equivalent element-w
 
 Calculates an implementation-dependent approximation of exponentiation by raising each element (the base) of an array instance to the power of `other_i` (the exponent), where `other_i` is the corresponding element of the array `other`.
 
+```{note}
+If both `self` and `other` have integer data types, the result of `__pow__` when `other_i` is negative (i.e., less than zero) is unspecified and thus implementation-dependent.
+
+If `self` has an integer data type and `other` has a floating-point data type, behavior is implementation-dependent (type promotion between data type "kinds" (integer versus floating-point) is unspecified).
+```
+
 #### Special Cases
 
 For floating-point operands, let `self` equal `x1` and `other` equal `x2`.
@@ -1274,7 +1280,7 @@ For floating-point operands, let `self` equal `x1` and `other` equal `x2`.
 
 -   **out**: _&lt;array&gt;_
 
-    -   an array containing the element-wise results. The returned array must have a data type determined by {ref}`type-promotion`.
+    -   an array containing the element-wise results. The returned array should have a floating-point data type determined by {ref}`type-promotion`.
 
 ```{note}
 Element-wise results must equal the results returned by the equivalent element-wise function [`divide(x1, x2)`](elementwise_functions.md#dividex1-x2-).

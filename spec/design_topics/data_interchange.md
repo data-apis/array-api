@@ -126,24 +126,38 @@ unnecessary so asynchronous execution is enabled.
 
 ### Implementation
 
-_Note that while this API standard largely tries to avoid discussing implementation details, some discussion and requirements are needed here because data interchange requires coordination between implementers on, e.g., memory management._
+_Note that while this API standard largely tries to avoid discussing
+implementation details, some discussion and requirements are needed
+here because data interchange requires coordination between
+implementers on, e.g., memory management._
 
 ![Diagram of DLPack structs](/_static/images/DLPack_diagram.png)
 
-_DLPack diagram. Dark blue are the structs it defines, light blue struct members, gray text enum values of supported devices and data types._
+_DLPack diagram. Dark blue are the structs it defines, light blue
+struct members, gray text enum values of supported devices and data
+types._
 
 The `__dlpack__` method will produce a `PyCapsule` containing a
-`DLPackManagedTensor`, which will be consumed immediately within
+`DLManagedTensor`, which will be consumed immediately within
 `from_dlpack` - therefore it is consumed exactly once, and it will not be
 visible to users of the Python API.
 
-The producer must set the PyCapsule name to ``"dltensor"`` so that it can
-be inspected by name.
-The consumer must set the PyCapsule name to `"used_dltensor"`, and call the
-`deleter` of the `DLPackManagedTensor` when it no longer needs the data.
+The producer must set the `PyCapsule` name to ``"dltensor"`` so that
+it can be inspected by name, and set `PyCapsule_Destructor` that calls
+the `deleter` of the `DLManagedTensor` when the `"dltensor"`-named
+capsule is no longer needed.
 
-Note: the capsule names ``"dltensor"`` and `"used_dltensor"` must be statically
-allocated.
+The consumer must transer ownership of the `DLManangedTensor` from the
+capsule to its own object. It does so by renaming the capsule to
+`"used_dltensor"` to ensure that `PyCapsule_Destructor` will not get
+called (ensured if `PyCapsule_Destructor` calls `deleter` only for
+capsules whose name is `"dltensor"`), but the `deleter` of the
+`DLManagedTensor` will be called by the destructor of the consumer
+library object created to own the `DLManagerTensor` obtained from the
+capsule.
+
+Note: the capsule names ``"dltensor"`` and `"used_dltensor"` must be
+statically allocated.
 
 When the `strides` field in the `DLTensor` struct is `NULL`, it indicates a
 row-major compact array. If the array is of size zero, the data pointer in
@@ -153,8 +167,13 @@ DLPack version used must be `0.2 <= DLPACK_VERSION < 1.0`. For further
 details on DLPack design and how to implement support for it,
 refer to [github.com/dmlc/dlpack](https://github.com/dmlc/dlpack).
 
-:::{warning}
-DLPack contains a `device_id`, which will be the device ID (an integer, `0, 1, ...`) which the producer library uses. In practice this will likely be the same numbering as that of the consumer, however that is not guaranteed. Depending on the hardware type, it may be possible for the consumer library implementation to look up the actual device from the pointer to the data - this is possible for example for CUDA device pointers.
+:::{warning} DLPack contains a `device_id`, which will be the device
+ID (an integer, `0, 1, ...`) which the producer library uses. In
+practice this will likely be the same numbering as that of the
+consumer, however that is not guaranteed. Depending on the hardware
+type, it may be possible for the consumer library implementation to
+look up the actual device from the pointer to the data - this is
+possible for example for CUDA device pointers.
 
 It is recommended that implementers of this array API consider and document
 whether the `.device` attribute of the array returned from `from_dlpack` is
