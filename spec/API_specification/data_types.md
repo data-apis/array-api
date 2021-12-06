@@ -50,14 +50,19 @@ IEEE 754 single-precision (32-bit) binary floating-point number (see IEEE 754-20
 
 IEEE 754 double-precision (64-bit) binary floating-point number (see IEEE 754-2019).
 
+```{note}
+IEEE 754-2019 requires support for subnormal (a.k.a., denormal) numbers, which are useful for supporting gradual underflow. However, hardware support for subnormal numbers is not universal, and many platforms (e.g., accelerators) and compilers support toggling denormals-are-zero (DAZ) and/or flush-to-zero (FTZ) behavior to increase performance and to guard against timing attacks.
+
+Accordingly, subnormal behavior is left unspecified and, thus, implementation-defined. Conforming implementations may vary in their support for subnormal numbers.
+```
 
 :::{admonition} Future extension
 :class: hint
-`complex64` and `complex128` dtypes are expected to be included in the next
+`complex64` and `complex128` data types are expected to be included in the next
 version of this standard and to have the following casting rules (will be added
 to {ref}`type-promotion`):
 
-![Type promotion diagram for complex dtypes in next version](/_static/images/dtype_promotion_complex.png)
+![Type promotion diagram for complex data types in next version](/_static/images/dtype_promotion_complex.png)
 
 See [array-api/issues/102](https://github.com/data-apis/array-api/issues/102)
 for more details.
@@ -132,7 +137,7 @@ The default data types should be clearly defined in a conforming library's docum
 For the purpose of organizing functions within this specification, the following data type categories are defined.
 
 ```{note}
-Conforming libraries are not required to organize dtypes according to these categories. These
+Conforming libraries are not required to organize data types according to these categories. These
 categories are only intended for use within this specification.
 ```
 
@@ -144,7 +149,7 @@ complex data types.
 ### Numeric Data Types
 
 `int8`, `int16`, `int32`, `int64`, `uint8`, `uint16`, `uint32`,
-`uint64`, `float32`, and `float64` (i.e., all dtypes except for `bool`).
+`uint64`, `float32`, and `float64` (i.e., all data types except for `bool`).
 
 ### Integer Data Types
 
