@@ -24,6 +24,12 @@ Calculates the maximum value of the input array `x`.
 When the number of elements over which to compute the maximum value is zero, the maximum value is implementation-defined. Specification-compliant libraries may choose to error, return a sentinel value (e.g., if `x` is a floating-point input array, return `NaN`), or return the minimum possible value for the input array `x` data type (e.g., if `x` is a floating-point array, return `-infinity`).
 ```
 
+#### Special Cases
+
+For floating-point operands,
+
+-   If `x_i` is `NaN`, the maximum value is `NaN` (i.e., `NaN` values propagate).
+
 #### Parameters
 
 -   **x**: _&lt;array&gt;_
@@ -51,9 +57,10 @@ Calculates the arithmetic mean of the input array `x`.
 
 #### Special Cases
 
-For a floating-point input array `x`, let `N` equal the number of elements over which to compute the arithmetic mean and
+Let `N` equal the number of elements over which to compute the arithmetic mean.
 
--   if `N` is `0`, the arithmetic mean is `NaN`.
+-   If `N` is `0`, the arithmetic mean is `NaN`.
+-   If `x_i` is `NaN`, the arithmetic mean is `NaN` (i.e., `NaN` values propagate).
 
 #### Parameters
 
@@ -88,6 +95,12 @@ Calculates the minimum value of the input array `x`.
 When the number of elements over which to compute the minimum value is zero, the minimum value is implementation-defined. Specification-compliant libraries may choose to error, return a sentinel value (e.g., if `x` is a floating-point input array, return `NaN`), or return the maximum possible value for the input array `x` data type (e.g., if `x` is a floating-point array, return `+infinity`).
 ```
 
+#### Special Cases
+
+For floating-point operands,
+
+-   If `x_i` is `NaN`, the minimum value is `NaN` (i.e., `NaN` values propagate).
+
 #### Parameters
 
 -   **x**: _&lt;array&gt;_
@@ -115,9 +128,13 @@ Calculates the product of input array `x` elements.
 
 #### Special Cases
 
-For an input array `x`, let `N` equal the number of elements over which to compute the product and
+Let `N` equal the number of elements over which to compute the product.
 
--   if `N` is `0`, the product is `1` (i.e., the empty product).
+-   If `N` is `0`, the product is `1` (i.e., the empty product).
+
+For floating-point operands,
+
+-   If `x_i` is `NaN`, the product is `NaN` (i.e., `NaN` values propagate).
 
 #### Parameters
 
@@ -161,9 +178,10 @@ Calculates the standard deviation of the input array `x`.
 
 #### Special Cases
 
-For a floating-point input array `x`, let `N` equal the number of elements over which to compute the standard deviation and
+Let `N` equal the number of elements over which to compute the standard deviation.
 
--  if `N - correction` is less than or equal to `0`, the standard deviation is `NaN`.
+-   If `N - correction` is less than or equal to `0`, the standard deviation is `NaN`.
+-   If `x_i` is `NaN`, the standard deviation is `NaN` (i.e., `NaN` values propagate).
 
 #### Parameters
 
@@ -200,9 +218,13 @@ Calculates the sum of the input array `x`.
 
 #### Special Cases
 
-For an input array `x`, let `N` equal the number of elements over which to compute the sum and
+Let `N` equal the number of elements over which to compute the sum.
 
--   if `N` is `0`, the sum is `0` (i.e., the empty sum).
+-   If `N` is `0`, the sum is `0` (i.e., the empty sum).
+
+For floating-point operands,
+
+-   If `x_i` is `NaN`, the sum is `NaN` (i.e., `NaN` values propagate).
 
 #### Parameters
 
@@ -246,9 +268,10 @@ Calculates the variance of the input array `x`.
 
 #### Special Cases
 
-For a floating-point input array `x`, let `N` equal the number of elements over which to compute the variance and
+Let `N` equal the number of elements over which to compute the variance.
 
--  if `N - correction` is less than or equal to `0`, the variance is `NaN`.
+-   If `N - correction` is less than or equal to `0`, the variance is `NaN`.
+-   If `x_i` is `NaN`, the variance is `NaN` (i.e., `NaN` values propagate).
 
 #### Parameters
 
