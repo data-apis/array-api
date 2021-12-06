@@ -28,7 +28,7 @@ When the number of elements over which to compute the maximum value is zero, the
 
 For floating-point operands,
 
--   if `x_i` is `NaN`, the maximum value is `NaN` (i.e., `NaN` values propagate).
+-   If `x_i` is `NaN`, the maximum value is `NaN` (i.e., `NaN` values propagate).
 
 #### Parameters
 
@@ -59,8 +59,8 @@ Calculates the arithmetic mean of the input array `x`.
 
 Let `N` equal the number of elements over which to compute the arithmetic mean.
 
--   if `N` is `0`, the arithmetic mean is `NaN`.
--   if `x_i` is `NaN`, the arithmetic mean is `NaN` (i.e., `NaN` values propagate).
+-   If `N` is `0`, the arithmetic mean is `NaN`.
+-   If `x_i` is `NaN`, the arithmetic mean is `NaN` (i.e., `NaN` values propagate).
 
 #### Parameters
 
@@ -99,7 +99,7 @@ When the number of elements over which to compute the minimum value is zero, the
 
 For floating-point operands,
 
--   if `x_i` is `NaN`, the minimum value is `NaN` (i.e., `NaN` values propagate).
+-   If `x_i` is `NaN`, the minimum value is `NaN` (i.e., `NaN` values propagate).
 
 #### Parameters
 
@@ -130,11 +130,11 @@ Calculates the product of input array `x` elements.
 
 Let `N` equal the number of elements over which to compute the product.
 
--   if `N` is `0`, the product is `1` (i.e., the empty product).
+-   If `N` is `0`, the product is `1` (i.e., the empty product).
 
 For floating-point operands,
 
--   if `x_i` is `NaN`, the product is `NaN` (i.e., `NaN` values propagate).
+-   If `x_i` is `NaN`, the product is `NaN` (i.e., `NaN` values propagate).
 
 #### Parameters
 
@@ -178,8 +178,8 @@ Calculates the standard deviation of the input array `x`.
 
 Let `N` equal the number of elements over which to compute the standard deviation.
 
--   if `N - correction` is less than or equal to `0`, the standard deviation is `NaN`.
--   if `x_i` is `NaN`, the standard deviation is `NaN` (i.e., `NaN` values propagate).
+-   If `N - correction` is less than or equal to `0`, the standard deviation is `NaN`.
+-   If `x_i` is `NaN`, the standard deviation is `NaN` (i.e., `NaN` values propagate).
 
 #### Parameters
 
@@ -218,11 +218,11 @@ Calculates the sum of the input array `x`.
 
 Let `N` equal the number of elements over which to compute the sum.
 
--   if `N` is `0`, the sum is `0` (i.e., the empty sum).
+-   If `N` is `0`, the sum is `0` (i.e., the empty sum).
 
 For floating-point operands,
 
--   if `x_i` is `NaN`, the sum is `NaN` (i.e., `NaN` values propagate).
+-   If `x_i` is `NaN`, the sum is `NaN` (i.e., `NaN` values propagate).
 
 #### Parameters
 
@@ -266,8 +266,8 @@ Calculates the variance of the input array `x`.
 
 Let `N` equal the number of elements over which to compute the variance.
 
--   if `N - correction` is less than or equal to `0`, the variance is `NaN`.
--   if `x_i` is `NaN`, the variance is `NaN` (i.e., `NaN` values propagate).
+-   If `N - correction` is less than or equal to `0`, the variance is `NaN`.
+-   If `x_i` is `NaN`, the variance is `NaN` (i.e., `NaN` values propagate).
 
 #### Parameters
 
