@@ -40,8 +40,8 @@
   <title>
    Sorting Functions — Python array API standard 2021.01-DRAFT documentation
   </title>
-  <link href="../_static/material.css" rel="stylesheet" type="text/css"/>
   <link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
+  <link href="../_static/material.css" rel="stylesheet" type="text/css"/>
   <link href="../_static/copybutton.css" rel="stylesheet" type="text/css"/>
   <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js">
   </script>
@@ -51,15 +51,13 @@
   </script>
   <script src="../_static/doctools.js">
   </script>
-  <script src="../_static/language_data.js">
-  </script>
   <script src="../_static/clipboard.min.js">
   </script>
   <script src="../_static/copybutton.js">
   </script>
   <link href="../genindex.html" rel="index" title="Index"/>
   <link href="../search.html" rel="search" title="Search"/>
-  <link href="set_functions.html" rel="next" title="Set Functions"/>
+  <link href="generated/signatures.sorting_functions.argsort.html" rel="next" title="argsort"/>
   <link href="searching_functions.html" rel="prev" title="Searching Functions"/>
   <link href="../_static/images/apple-icon-152x152.png" rel="apple-touch-icon"/>
  </head>
@@ -314,48 +312,6 @@
                    <a class="md-nav__link" href="#objects-in-api">
                     Objects in API
                    </a>
-                   <nav class="md-nav">
-                    <ul class="md-nav__list">
-                     <li class="md-nav__item">
-                      <a class="md-nav__link" href="#argsort-x-axis-1-descending-false-stable-true">
-                       argsort(x, /, *, axis=-1, descending=False, stable=True)
-                      </a>
-                      <nav class="md-nav">
-                       <ul class="md-nav__list">
-                        <li class="md-nav__item">
-                         <a class="md-nav__link" href="#parameters">
-                          Parameters
-                         </a>
-                        </li>
-                        <li class="md-nav__item">
-                         <a class="md-nav__link" href="#returns">
-                          Returns
-                         </a>
-                        </li>
-                       </ul>
-                      </nav>
-                     </li>
-                     <li class="md-nav__item">
-                      <a class="md-nav__link" href="#sort-x-axis-1-descending-false-stable-true">
-                       sort(x, /, *, axis=-1, descending=False, stable=True)
-                      </a>
-                      <nav class="md-nav">
-                       <ul class="md-nav__list">
-                        <li class="md-nav__item">
-                         <a class="md-nav__link" href="#id1">
-                          Parameters
-                         </a>
-                        </li>
-                        <li class="md-nav__item">
-                         <a class="md-nav__link" href="#id2">
-                          Returns
-                         </a>
-                        </li>
-                       </ul>
-                      </nav>
-                     </li>
-                    </ul>
-                   </nav>
                   </li>
                  </ul>
                 </nav>
@@ -430,48 +386,6 @@
               <a class="md-nav__link" href="#objects-in-api">
                Objects in API
               </a>
-              <nav class="md-nav">
-               <ul class="md-nav__list">
-                <li class="md-nav__item">
-                 <a class="md-nav__link" href="#argsort-x-axis-1-descending-false-stable-true">
-                  argsort(x, /, *, axis=-1, descending=False, stable=True)
-                 </a>
-                 <nav class="md-nav">
-                  <ul class="md-nav__list">
-                   <li class="md-nav__item">
-                    <a class="md-nav__link" href="#parameters">
-                     Parameters
-                    </a>
-                   </li>
-                   <li class="md-nav__item">
-                    <a class="md-nav__link" href="#returns">
-                     Returns
-                    </a>
-                   </li>
-                  </ul>
-                 </nav>
-                </li>
-                <li class="md-nav__item">
-                 <a class="md-nav__link" href="#sort-x-axis-1-descending-false-stable-true">
-                  sort(x, /, *, axis=-1, descending=False, stable=True)
-                 </a>
-                 <nav class="md-nav">
-                  <ul class="md-nav__list">
-                   <li class="md-nav__item">
-                    <a class="md-nav__link" href="#id1">
-                     Parameters
-                    </a>
-                   </li>
-                   <li class="md-nav__item">
-                    <a class="md-nav__link" href="#id2">
-                     Returns
-                    </a>
-                   </li>
-                  </ul>
-                 </nav>
-                </li>
-               </ul>
-              </nav>
              </li>
             </ul>
            </nav>
@@ -483,7 +397,7 @@
      </div>
      <div class="md-content">
       <article class="md-content__inner md-typeset" role="main">
-       <section class="tex2jax_ignore mathjax_ignore" id="sorting-functions">
+       <section id="sorting-functions">
         <h1 id="api-specification-sorting-functions--page-root">
          Sorting Functions
          <a class="headerlink" href="#api-specification-sorting-functions--page-root" title="Permalink to this headline">
@@ -573,421 +487,64 @@
            ¶
           </a>
          </h2>
-         <!-- NOTE: please keep the functions in alphabetical order -->
-         <section id="argsort-x-axis-1-descending-false-stable-true">
-          <span id="function-argsort">
-          </span>
-          <h3 id="argsort-x-axis-1-descending-false-stable-true">
-           argsort(x, /, *, axis=-1, descending=False, stable=True)
-           <a class="headerlink" href="#argsort-x-axis-1-descending-false-stable-true" title="Permalink to this headline">
-            ¶
-           </a>
-          </h3>
-          <p>
-           Returns the indices that sort an array
-           <code class="docutils literal notranslate">
-            <span class="pre">
-             x
-            </span>
-           </code>
-           along a specified axis.
-          </p>
-          <section id="parameters">
-           <h4 id="parameters">
-            Parameters
-            <a class="headerlink" href="#parameters" title="Permalink to this headline">
-             ¶
-            </a>
-           </h4>
-           <ul class="simple">
-            <li>
+         <table class="longtable docutils align-default">
+          <colgroup>
+           <col style="width: 10%"/>
+           <col style="width: 90%"/>
+          </colgroup>
+          <tbody>
+           <tr class="row-odd">
+            <td>
              <p>
-              <strong>
-               x
-              </strong>
-              :
-              <em>
-               &lt;array&gt;
-              </em>
+              <a class="reference internal" href="generated/signatures.sorting_functions.argsort.html#signatures.sorting_functions.argsort" title="signatures.sorting_functions.argsort">
+               <code class="xref py py-obj docutils literal notranslate">
+                <span class="pre">
+                 argsort
+                </span>
+               </code>
+              </a>
+              (x, /, *[, axis, descending, stable])
              </p>
-             <ul>
-              <li>
-               <p>
-                input array.
-               </p>
-              </li>
-             </ul>
-            </li>
-            <li>
+            </td>
+            <td>
              <p>
-              <strong>
-               axis
-              </strong>
-              :
-              <em>
-               int
-              </em>
+              Returns the indices that sort an array
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                x
+               </span>
+              </code>
+              along a specified axis.
              </p>
-             <ul>
-              <li>
-               <p>
-                axis along which to sort. If set to
-                <code class="docutils literal notranslate">
-                 <span class="pre">
-                  -1
-                 </span>
-                </code>
-                , the function must sort along the last axis. Default:
-                <code class="docutils literal notranslate">
-                 <span class="pre">
-                  -1
-                 </span>
-                </code>
-                .
-               </p>
-              </li>
-             </ul>
-            </li>
-            <li>
+            </td>
+           </tr>
+           <tr class="row-even">
+            <td>
              <p>
-              <strong>
-               descending
-              </strong>
-              :
-              <em>
-               bool
-              </em>
+              <a class="reference internal" href="generated/signatures.sorting_functions.sort.html#signatures.sorting_functions.sort" title="signatures.sorting_functions.sort">
+               <code class="xref py py-obj docutils literal notranslate">
+                <span class="pre">
+                 sort
+                </span>
+               </code>
+              </a>
+              (x, /, *[, axis, descending, stable])
              </p>
-             <ul>
-              <li>
-               <p>
-                sort order. If
-                <code class="docutils literal notranslate">
-                 <span class="pre">
-                  True
-                 </span>
-                </code>
-                , the returned indices sort
-                <code class="docutils literal notranslate">
-                 <span class="pre">
-                  x
-                 </span>
-                </code>
-                in descending order (by value). If
-                <code class="docutils literal notranslate">
-                 <span class="pre">
-                  False
-                 </span>
-                </code>
-                , the returned indices sort
-                <code class="docutils literal notranslate">
-                 <span class="pre">
-                  x
-                 </span>
-                </code>
-                in ascending order (by value). Default:
-                <code class="docutils literal notranslate">
-                 <span class="pre">
-                  False
-                 </span>
-                </code>
-                .
-               </p>
-              </li>
-             </ul>
-            </li>
-            <li>
+            </td>
+            <td>
              <p>
-              <strong>
-               stable
-              </strong>
-              :
-              <em>
-               bool
-              </em>
+              Returns a sorted copy of an input array
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                x
+               </span>
+              </code>
+              .
              </p>
-             <ul>
-              <li>
-               <p>
-                sort stability. If
-                <code class="docutils literal notranslate">
-                 <span class="pre">
-                  True
-                 </span>
-                </code>
-                , the returned indices must maintain the relative order of
-                <code class="docutils literal notranslate">
-                 <span class="pre">
-                  x
-                 </span>
-                </code>
-                values which compare as equal. If
-                <code class="docutils literal notranslate">
-                 <span class="pre">
-                  False
-                 </span>
-                </code>
-                , the returned indices may or may not maintain the relative order of
-                <code class="docutils literal notranslate">
-                 <span class="pre">
-                  x
-                 </span>
-                </code>
-                values which compare as equal (i.e., the relative order of
-                <code class="docutils literal notranslate">
-                 <span class="pre">
-                  x
-                 </span>
-                </code>
-                values which compare as equal is implementation-dependent). Default:
-                <code class="docutils literal notranslate">
-                 <span class="pre">
-                  True
-                 </span>
-                </code>
-                .
-               </p>
-              </li>
-             </ul>
-            </li>
-           </ul>
-          </section>
-          <section id="returns">
-           <h4 id="returns">
-            Returns
-            <a class="headerlink" href="#returns" title="Permalink to this headline">
-             ¶
-            </a>
-           </h4>
-           <ul class="simple">
-            <li>
-             <p>
-              <strong>
-               out
-              </strong>
-              :
-              <em>
-               &lt;array&gt;
-              </em>
-             </p>
-             <ul>
-              <li>
-               <p>
-                an array of indices. The returned array must have the same shape as
-                <code class="docutils literal notranslate">
-                 <span class="pre">
-                  x
-                 </span>
-                </code>
-                . The returned array must have the default array index data type.
-               </p>
-              </li>
-             </ul>
-            </li>
-           </ul>
-          </section>
-         </section>
-         <section id="sort-x-axis-1-descending-false-stable-true">
-          <span id="function-sort">
-          </span>
-          <h3 id="sort-x-axis-1-descending-false-stable-true">
-           sort(x, /, *, axis=-1, descending=False, stable=True)
-           <a class="headerlink" href="#sort-x-axis-1-descending-false-stable-true" title="Permalink to this headline">
-            ¶
-           </a>
-          </h3>
-          <p>
-           Returns a sorted copy of an input array
-           <code class="docutils literal notranslate">
-            <span class="pre">
-             x
-            </span>
-           </code>
-           .
-          </p>
-          <section id="id1">
-           <h4 id="id1">
-            Parameters
-            <a class="headerlink" href="#id1" title="Permalink to this headline">
-             ¶
-            </a>
-           </h4>
-           <ul class="simple">
-            <li>
-             <p>
-              <strong>
-               x
-              </strong>
-              :
-              <em>
-               &lt;array&gt;
-              </em>
-             </p>
-             <ul>
-              <li>
-               <p>
-                input array.
-               </p>
-              </li>
-             </ul>
-            </li>
-            <li>
-             <p>
-              <strong>
-               axis
-              </strong>
-              :
-              <em>
-               int
-              </em>
-             </p>
-             <ul>
-              <li>
-               <p>
-                axis along which to sort. If set to
-                <code class="docutils literal notranslate">
-                 <span class="pre">
-                  -1
-                 </span>
-                </code>
-                , the function must sort along the last axis. Default:
-                <code class="docutils literal notranslate">
-                 <span class="pre">
-                  -1
-                 </span>
-                </code>
-                .
-               </p>
-              </li>
-             </ul>
-            </li>
-            <li>
-             <p>
-              <strong>
-               descending
-              </strong>
-              :
-              <em>
-               bool
-              </em>
-             </p>
-             <ul>
-              <li>
-               <p>
-                sort order. If
-                <code class="docutils literal notranslate">
-                 <span class="pre">
-                  True
-                 </span>
-                </code>
-                , the array must be sorted in descending order (by value). If
-                <code class="docutils literal notranslate">
-                 <span class="pre">
-                  False
-                 </span>
-                </code>
-                , the array must be sorted in ascending order (by value). Default:
-                <code class="docutils literal notranslate">
-                 <span class="pre">
-                  False
-                 </span>
-                </code>
-                .
-               </p>
-              </li>
-             </ul>
-            </li>
-            <li>
-             <p>
-              <strong>
-               stable
-              </strong>
-              :
-              <em>
-               bool
-              </em>
-             </p>
-             <ul>
-              <li>
-               <p>
-                sort stability. If
-                <code class="docutils literal notranslate">
-                 <span class="pre">
-                  True
-                 </span>
-                </code>
-                , the returned array must maintain the relative order of
-                <code class="docutils literal notranslate">
-                 <span class="pre">
-                  x
-                 </span>
-                </code>
-                values which compare as equal. If
-                <code class="docutils literal notranslate">
-                 <span class="pre">
-                  False
-                 </span>
-                </code>
-                , the returned array may or may not maintain the relative order of
-                <code class="docutils literal notranslate">
-                 <span class="pre">
-                  x
-                 </span>
-                </code>
-                values which compare as equal (i.e., the relative order of
-                <code class="docutils literal notranslate">
-                 <span class="pre">
-                  x
-                 </span>
-                </code>
-                values which compare as equal is implementation-dependent). Default:
-                <code class="docutils literal notranslate">
-                 <span class="pre">
-                  True
-                 </span>
-                </code>
-                .
-               </p>
-              </li>
-             </ul>
-            </li>
-           </ul>
-          </section>
-          <section id="id2">
-           <h4 id="id2">
-            Returns
-            <a class="headerlink" href="#id2" title="Permalink to this headline">
-             ¶
-            </a>
-           </h4>
-           <ul class="simple">
-            <li>
-             <p>
-              <strong>
-               out
-              </strong>
-              :
-              <em>
-               &lt;array&gt;
-              </em>
-             </p>
-             <ul>
-              <li>
-               <p>
-                a sorted array. The returned array must have the same data type and shape as
-                <code class="docutils literal notranslate">
-                 <span class="pre">
-                  x
-                 </span>
-                </code>
-                .
-               </p>
-              </li>
-             </ul>
-            </li>
-           </ul>
-          </section>
-         </section>
+            </td>
+           </tr>
+          </tbody>
+         </table>
         </section>
        </section>
       </article>
@@ -1012,13 +569,13 @@
        </span>
       </div>
      </a>
-     <a class="md-flex md-footer-nav__link md-footer-nav__link--next" href="set_functions.html" rel="next" title="Set Functions">
+     <a class="md-flex md-footer-nav__link md-footer-nav__link--next" href="generated/signatures.sorting_functions.argsort.html" rel="next" title="argsort">
       <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
        <span class="md-flex__ellipsis">
         <span class="md-footer-nav__direction">
          Next
         </span>
-        Set Functions
+        argsort
        </span>
       </div>
       <div class="md-flex__cell md-flex__cell--shrink">
@@ -1038,7 +595,7 @@
       <a href="http://www.sphinx-doc.org/">
        Sphinx
       </a>
-      3.1.1.
+      4.3.0.
              and
       <a href="https://github.com/bashtage/sphinx-material/">
        Material for
