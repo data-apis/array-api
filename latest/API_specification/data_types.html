@@ -854,6 +854,17 @@
          <p>
           IEEE 754 double-precision (64-bit) binary floating-point number (see IEEE 754-2019).
          </p>
+         <div class="admonition note">
+          <p class="admonition-title">
+           Note
+          </p>
+          <p>
+           IEEE 754-2019 requires support for subnormal (a.k.a., denormal) numbers, which are useful for supporting gradual underflow. However, hardware support for subnormal numbers is not universal, and many platforms (e.g., accelerators) and compilers support toggling denormals-are-zero (DAZ) and/or flush-to-zero (FTZ) behavior to increase performance and to guard against timing attacks.
+          </p>
+          <p>
+           Accordingly, subnormal behavior is left unspecified and, thus, implementation-defined. Conforming implementations may vary in their support for subnormal numbers.
+          </p>
+         </div>
          <div class="hint admonition">
           <p class="admonition-title">
            Future extension
@@ -870,7 +881,7 @@
              complex128
             </span>
            </code>
-           dtypes are expected to be included in the next
+           data types are expected to be included in the next
 version of this standard and to have the following casting rules (will be added
 to
            <a class="reference internal" href="type_promotion.html#type-promotion">
@@ -881,7 +892,7 @@ to
            ):
           </p>
           <p>
-           <img alt="Type promotion diagram for complex dtypes in next version" src="../_images/dtype_promotion_complex.png"/>
+           <img alt="Type promotion diagram for complex data types in next version" src="../_images/dtype_promotion_complex.png"/>
           </p>
           <p>
            See
@@ -1182,7 +1193,7 @@ to
            Note
           </p>
           <p>
-           Conforming libraries are not required to organize dtypes according to these categories. These
+           Conforming libraries are not required to organize data types according to these categories. These
 categories are only intended for use within this specification.
           </p>
          </div>
@@ -1262,7 +1273,7 @@ complex data types.
              float64
             </span>
            </code>
-           (i.e., all dtypes except for
+           (i.e., all data types except for
            <code class="docutils literal notranslate">
             <span class="pre">
              bool
