@@ -25,7 +25,7 @@ Returns the indices of the maximum values along a specified axis. When the maxim
 
 -   **x**: _&lt;array&gt;_
 
-    -   input array.
+    -   input array. Should have a numeric data type.
 
 -   **axis**: _Optional\[ int ]_
 
@@ -50,7 +50,7 @@ Returns the indices of the minimum values along a specified axis. When the minim
 
 -   **x**: _&lt;array&gt;_
 
-    -   input array.
+    -   input array. Should have a numeric data type.
 
 -   **axis**: _Optional\[ int ]_
 
