@@ -7,6 +7,7 @@ library, e.g., for NumPy TypeVar('array') would be replaced with ndarray.
 
 from dataclasses import dataclass
 from typing import Any, List, Literal, Optional, Sequence, Tuple, TypeVar, Union
+from enum import Enum
 
 array = TypeVar('array')
 device = TypeVar('device')
@@ -37,4 +38,4 @@ NestedSequence = Sequence[Sequence[Any]]
 
 __all__ = ['Any', 'List', 'Literal', 'NestedSequence', 'Optional',
 'PyCapsule', 'SupportsBufferProtocol', 'SupportsDLPack', 'Tuple', 'Union',
-'array', 'device', 'dtype', 'ellipsis', 'finfo_object', 'iinfo_object']
+'array', 'device', 'dtype', 'ellipsis', 'finfo_object', 'iinfo_object', 'Enum']
