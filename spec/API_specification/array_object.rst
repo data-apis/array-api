@@ -182,7 +182,7 @@ An in-place operation must not change the data type or shape of the in-place arr
 An in-place operation must have the same behavior (including special cases) as its respective binary (i.e., two operand, non-assignment) operation. For example, after in-place addition ``x1 += x2``, the modified array ``x1`` must always equal the result of the equivalent binary arithmetic operation ``x1 = x1 + x2``.
 
 .. note::
-In-place operators must be supported as discussed in :ref:`copyview-mutability`.
+    In-place operators must be supported as discussed in :ref:`copyview-mutability`.
 
 Arithmetic Operators
 """"""""""""""""""""
@@ -217,7 +217,7 @@ A conforming implementation of the array API standard must provide and support a
 The results of applying reflected operators must match their non-reflected equivalents.
 
 .. note::
-All operators for which ``array <op> scalar`` is implemented must have an equivalent reflected operator implementation.
+    All operators for which ``array <op> scalar`` is implemented must have an equivalent reflected operator implementation.
 
 Arithmetic Operators
 """"""""""""""""""""
