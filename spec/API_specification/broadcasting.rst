@@ -21,49 +21,49 @@ If two arrays are of unequal rank, the array having a lower rank is promoted to 
 
 The results of the element-wise operation must be stored in an array having a shape determined by the following algorithm.
 
-1.  Let ``A`` and ``B`` both be arrays.
+#.  Let ``A`` and ``B`` both be arrays.
 
-1.  Let ``shape1`` be a tuple describing the shape of array ``A``.
+#.  Let ``shape1`` be a tuple describing the shape of array ``A``.
 
-1.  Let ``shape2`` be a tuple describing the shape of array ``B``.
+#.  Let ``shape2`` be a tuple describing the shape of array ``B``.
 
-1.  Let ``N1`` be the number of dimensions of array ``A`` (i.e., the result of ``len(shape1)``).
+#.  Let ``N1`` be the number of dimensions of array ``A`` (i.e., the result of ``len(shape1)``).
 
-1.  Let ``N2`` be the number of dimensions of array ``B`` (i.e., the result of ``len(shape2)``).
+#.  Let ``N2`` be the number of dimensions of array ``B`` (i.e., the result of ``len(shape2)``).
 
-1.  Let ``N`` be the maximum value of ``N1`` and ``N2`` (i.e., the result of ``max(N1, N2)``).
+#.  Let ``N`` be the maximum value of ``N1`` and ``N2`` (i.e., the result of ``max(N1, N2)``).
 
-1.  Let ``shape`` be a temporary list of length ``N`` for storing the shape of the result array.
+#.  Let ``shape`` be a temporary list of length ``N`` for storing the shape of the result array.
 
-1.  Let ``i`` be ``N-1``.
+#.  Let ``i`` be ``N-1``.
 
-1.  Repeat, while ``i >= 0``
+#.  Repeat, while ``i >= 0``
 
-	1.  Let ``n1`` be ``N1 - N + i``.
+	#.  Let ``n1`` be ``N1 - N + i``.
 
-	1.  If ``n1 >= 0``, let ``d1`` be the size of dimension ``n1`` for array ``A`` (i.e., the result of ``shape1[n1]``); else, let ``d1`` be ``1``.
+	#.  If ``n1 >= 0``, let ``d1`` be the size of dimension ``n1`` for array ``A`` (i.e., the result of ``shape1[n1]``); else, let ``d1`` be ``1``.
 
-	1.  Let ``n2`` be ``N2 - N + i``.
+	#.  Let ``n2`` be ``N2 - N + i``.
 
-	1.  If ``n2 >= 0``, let ``d2`` be the size of dimension ``n2`` for array ``B`` (i.e., the result of ``shape2[n2]``); else, let ``d2`` be ``1``.
+	#.  If ``n2 >= 0``, let ``d2`` be the size of dimension ``n2`` for array ``B`` (i.e., the result of ``shape2[n2]``); else, let ``d2`` be ``1``.
 
-	1.  If ``d1 == 1``, then
+	#.  If ``d1 == 1``, then
 
 		-   set the ``i``th element of ``shape`` to ``d2``.
 
-	1.  Else, if ``d2 == 1``, then
+	#.  Else, if ``d2 == 1``, then
 
 		-   set the ``i``th element of ``shape`` to ``d1``.
 
-	1.  Else, if ``d1 == d2``, then
+	#.  Else, if ``d1 == d2``, then
 
 		-   set the ``i``th element of ``shape`` to ``d1``.
 
-	1.  Else, throw an exception.
+	#.  Else, throw an exception.
 
-	1.  Set ``i`` to ``i-1``.
+	#.  Set ``i`` to ``i-1``.
 
-1.  Let ``tuple(shape)`` be the shape of the result array.
+#.  Let ``tuple(shape)`` be the shape of the result array.
 
 Examples
 ~~~~~~~~
