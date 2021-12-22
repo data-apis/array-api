@@ -256,6 +256,7 @@ Attributes
 
 .. autosummary::
    :toctree: generated
+   :template: method.rst
 
    array.dtype
    array.device
@@ -275,6 +276,7 @@ Methods
 
 .. autosummary::
    :toctree: generated
+   :template: method.rst
 
    array.__abs__
    array.__add__
