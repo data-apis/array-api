@@ -33,7 +33,7 @@ class iinfo_object:
     min: int
 
 # This should really be recursive, but that isn't supported yet.
-NestedSequence = Sequence[Sequence[Any]]
+NestedSequence = Sequence[Any]
 
 __all__ = ['Any', 'List', 'Literal', 'NestedSequence', 'Optional',
 'PyCapsule', 'SupportsBufferProtocol', 'SupportsDLPack', 'Tuple', 'Union',
