@@ -473,7 +473,7 @@ Returns an object that has all the array API functions on it.
 
 #### Returns
 
--   **out**: _&lt;object&gt;_
+-   **out**: _&lt;Any&gt;_
 
     -   an object representing the array API namespace. It should have every top-level function defined in the specification as an attribute. It may contain other public names as well, but it is recommended to only include those names that are part of the specification.
 
