@@ -1249,6 +1249,10 @@ Element-wise results must equal the results returned by the equivalent element-w
 
 Evaluates `self_i / other_i` for each element of an array instance with the respective element of the array `other`.
 
+```{note}
+If one or both of `self` and `other` have integer data types, the result is unspecified and thus implementation-dependent.
+```
+
 #### Special Cases
 
 For floating-point operands, let `self` equal `x1` and `other` equal `x2`.
