@@ -1,21 +1,21 @@
-e = None
+e = 2.718281828459045
 """
 IEEE 754 floating-point representation of Euler's constant.
 
 ``e = 2.71828182845904523536028747135266249775724709369995...``
 """
 
-inf = None
+inf = float('inf')
 """
 IEEE 754 floating-point representation of (positive) infinity.
 """
 
-nan = None
+nan = float('nan')
 """
 IEEE 754 floating-point representation of Not a Number (``NaN``).
 """
 
-pi = None
+pi = 3.141592653589793
 """
 IEEE 754 floating-point representation of the mathematical constant ``π``.
 
