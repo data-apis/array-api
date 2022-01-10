@@ -71,48 +71,45 @@ Examples
 The following examples demonstrate the application of the broadcasting algorithm for two compatible arrays.
 
 ::
-    A      (4d array):  8 x 1 x 6 x 1
-    B      (3d array):      7 x 1 x 5
-    ---------------------------------
-    Result (4d array):  8 x 7 x 6 x 5
 
-    A      (2d array):  5 x 4
-    B      (1d array):      1
-    -------------------------
-    Result (2d array):  5 x 4
-
-    A      (2d array):  5 x 4
-    B      (1d array):      4
-    -------------------------
-    Result (2d array):  5 x 4
-
-    A      (3d array):  15 x 3 x 5
-    B      (3d array):  15 x 1 x 5
-    ------------------------------
-    Result (3d array):  15 x 3 x 5
-
-    A      (3d array):  15 x 3 x 5
-    B      (2d array):       3 x 5
-    ------------------------------
-    Result (3d array):  15 x 3 x 5
-
-    A      (3d array):  15 x 3 x 5
-    B      (2d array):       3 x 1
-    ------------------------------
-    Result (3d array):  15 x 3 x 5
+   A      (4d array):  8 x 1 x 6 x 1
+   B      (3d array):      7 x 1 x 5
+  ---------------------------------
+   Result (4d array):  8 x 7 x 6 x 5
+   A      (2d array):  5 x 4
+   B      (1d array):      1
+   -------------------------
+   Result (2d array):  5 x 4
+   A      (2d array):  5 x 4
+   B      (1d array):      4
+   -------------------------
+   Result (2d array):  5 x 4
+   A      (3d array):  15 x 3 x 5
+   B      (3d array):  15 x 1 x 5
+   ------------------------------
+   Result (3d array):  15 x 3 x 5
+   A      (3d array):  15 x 3 x 5
+   B      (2d array):       3 x 5
+   ------------------------------
+   Result (3d array):  15 x 3 x 5
+   A      (3d array):  15 x 3 x 5
+   B      (2d array):       3 x 1
+   ------------------------------
+   Result (3d array):  15 x 3 x 5
 
 
 The following examples demonstrate array shapes which do **not** broadcast.
 
 ::
-    A      (1d array):  3
-    B      (1d array):  4           # dimension does not match
 
-    A      (2d array):      2 x 1
-    B      (3d array):  8 x 4 x 3   # second dimension does not match
+   A      (1d array):  3
+   B      (1d array):  4           # dimension does not match
 
-    A      (3d array):  15 x 3 x 5
-    B      (2d array):  15 x 3      # singleton dimensions can only be prepended, not appended
+   A      (2d array):      2 x 1
+   B      (3d array):  8 x 4 x 3   # second dimension does not match
+
+   A      (3d array):  15 x 3 x 5
+   B      (2d array):  15 x 3      # singleton dimensions can only be prepended, not appended
 
 In-place Semantics
 ------------------
