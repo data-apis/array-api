@@ -6,7 +6,8 @@ class array():
         Initialize the attributes for the array object class.
         """
 
-        self.dtype = None
+    @property
+    def dtype() -> dtype:
         """
         Data type of the array elements.
 
@@ -16,7 +17,8 @@ class array():
             array data type.
         """
 
-        self.device = None
+    @property
+    def device() -> device:
         """
         Hardware device the array data resides on.
 
@@ -26,7 +28,8 @@ class array():
             a ``device`` object (see :ref:`device-support`).
         """
 
-        self.mT = None
+    @property
+    def mT() -> array:
         """
         Transpose of a matrix (or a stack of matrices).
 
@@ -38,7 +41,8 @@ class array():
             array whose last two dimensions (axes) are permuted in reverse order relative to original array (i.e., for an array instance having shape ``(..., M, N)``, the returned array must have shape ``(..., N, M)``). The returned array must have the same data type as the original array.
         """
 
-        self.ndim = None
+    @property
+    def ndim() -> int:
         """
         Number of array dimensions (axes).
 
@@ -48,7 +52,8 @@ class array():
             number of array dimensions (axes).
         """
 
-        self.shape = None
+    @property
+    def shape() -> Tuple[Optional[int], ...]:
         """
         Array dimensions.
 
@@ -64,7 +69,8 @@ class array():
         - The returned value should be a tuple; however, where warranted, an array library may choose to return a custom shape object. If an array library returns a custom shape object, the object must be immutable, must support indexing for dimension retrieval, and must behave similarly to a tuple.
         """
 
-        self.size = None
+    @property
+    def size() -> Optional[int]:
         """
         Number of elements in an array.
 
@@ -80,7 +86,8 @@ class array():
         - For array libraries having graph-based computational models, an array may have unknown dimensions due to data-dependent operations.
         """
 
-        self.T = None
+    @property
+    def T() -> array:
         """
         Transpose of the array.
 
