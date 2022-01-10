@@ -44,15 +44,10 @@ def asarray(obj: Union[array, bool, int, float, NestedSequence, SupportsBufferPr
         output array data type. If ``dtype`` is ``None``, the output array data type must be inferred from the data type(s) in ``obj``. If all input values are Python scalars, then
 
         -   if all values are of type ``bool``, the output data type must be ``bool``.
-        -   if the values are a mixture of ``bool``s and ``int``, the output data type must be the default integer data type.
-        -   if one or more values are ``float``s, the output data type must be the default floating-point data type.
+        -   if the values are a mixture of ``bool``\s and ``int``, the output data type must be the default integer data type.
+        -   if one or more values are ``float``\s, the output data type must be the default floating-point data type.
 
         Default: ``None``.
-
-        **Note**
-
-        If ``dtype`` is not ``None``, then array conversions should obey :ref:`type-promotion` rules. Conversions not specified according to :ref:`type-promotion` rules may or may not be permitted by a conforming array library.
-        To perform an explicit cast, use :ref:`function-astype`.
     device: Optional[device]
         device on which to place the created array. If ``device`` is ``None`` and ``x`` is an array, the output array device must be inferred from ``x``. Default: ``None``.
     copy: Optional[bool]
@@ -62,6 +57,10 @@ def asarray(obj: Union[array, bool, int, float, NestedSequence, SupportsBufferPr
     -------
     out: array
         an array containing the data from ``obj``.
+
+    Notes
+    -----
+    - If ``dtype`` is not ``None``, then array conversions should obey :ref:`type-promotion` rules. Conversions not specified according to :ref:`type-promotion` rules may or may not be permitted by a conforming array library. To perform an explicit cast, use :ref:`function-astype`.
     """
 
 def empty(shape: Union[int, Tuple[int, ...]], *, dtype: Optional[dtype] = None, device: Optional[device] = None) -> array:
@@ -104,7 +103,7 @@ def empty_like(x: array, /, *, dtype: Optional[dtype] = None, device: Optional[d
 
 def eye(n_rows: int, n_cols: Optional[int] = None, /, *, k: int = 0, dtype: Optional[dtype] = None, device: Optional[device] = None) -> array:
     """
-    Returns a two-dimensional array with ones on the ``k``th diagonal and zeros elsewhere.
+    Returns a two-dimensional array with ones on the ``k``\th diagonal and zeros elsewhere.
 
     Parameters
     ----------
@@ -122,7 +121,7 @@ def eye(n_rows: int, n_cols: Optional[int] = None, /, *, k: int = 0, dtype: Opti
     Returns
     -------
     out: array
-        an array where all elements are equal to zero, except for the ``k``th diagonal, whose values are equal to one.
+        an array where all elements are equal to zero, except for the ``k``\th diagonal, whose values are equal to one.
     """
 
 def from_dlpack(x: object, /) -> array:
@@ -334,7 +333,7 @@ def triu(x: array, /, *, k: int = 0) -> array:
 
 def zeros(shape: Union[int, Tuple[int, ...]], *, dtype: Optional[dtype] = None, device: Optional[device] = None) -> array:
     """
-    Returns a new array having a specified `shape` and filled with zeros.
+    Returns a new array having a specified ``shape`` and filled with zeros.
 
     Parameters
     ----------
