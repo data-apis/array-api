@@ -529,7 +529,7 @@ For floating-point operands,
 Calculates the division for each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`.
 
 ```{note}
-If one or both of the input arrays have integer data types, the result is unspecified and thus implementation-dependent (type promotion between data type “kinds” (integer versus floating-point) is unspecified).
+If one or both of the input arrays have integer data types, the result is unspecified and thus implementation-dependent. This is because type promotion between data type “kinds” (i.e. integer versus floating-point) is unspecified.
 ```
 
 #### Special Cases
@@ -1227,7 +1227,7 @@ Calculates an implementation-dependent approximation of exponentiation by raisin
 ```{note}
 If both `x1` and `x2` have integer data types, the result of `pow` when `x2_i` is negative (i.e., less than zero) is unspecified and thus implementation-dependent.
 
-If `x1` has an integer data type and `x2` has a floating-point data type, behavior is implementation-dependent (type promotion between data type "kinds" (integer versus floating-point) is unspecified).
+If `x1` has an integer data type and `x2` has a floating-point data type, behavior is implementation-dependent. This is because type promotion between data type “kinds” (i.e. integer versus floating-point) is unspecified.
 ```
 
 #### Special Cases
