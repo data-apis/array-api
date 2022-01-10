@@ -529,7 +529,9 @@ For floating-point operands,
 Calculates the division for each element `x1_i` of the input array `x1` with the respective element `x2_i` of the input array `x2`.
 
 ```{note}
-If one or both of the input arrays have integer data types, the result is unspecified and thus implementation-dependent. This is because type promotion between data type “kinds” (i.e. integer versus floating-point) is unspecified.
+If one or both of the input arrays have integer data types, the result is implementation-dependent. This is because type promotion between data type “kinds” (i.e. integer versus floating-point) is unspecified.
+
+Specification-compliant libraries may choose to raise an error or return an array containing the element-wise results. If an array is returned, it must have a floating-point data type.
 ```
 
 #### Special Cases
