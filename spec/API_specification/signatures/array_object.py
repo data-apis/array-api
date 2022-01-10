@@ -198,7 +198,7 @@ class array():
         - Element-wise results must equal the results returned by the equivalent element-wise function :ref:`function-bitwise_and`.
         """
 
-    def __array_namespace__(self: array, /, *, api_version: Optional[str] = None) -> object:
+    def __array_namespace__(self: array, /, *, api_version: Optional[str] = None) -> Any:
         """
         Returns an object that has all the array API functions on it.
 
@@ -211,7 +211,7 @@ class array():
 
         Returns
         -------
-        out: object
+        out: Any
             an object representing the array API namespace. It should have every top-level function defined in the specification as an attribute. It may contain other public names as well, but it is recommended to only include those names that are part of the specification.
         """
 
