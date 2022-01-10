@@ -1,4 +1,4 @@
-from ._types import List, Tuple, Union, array, dtype
+from ._types import dtype
 
 def __eq__(self: dtype, other: dtype, /) -> bool:
     """
