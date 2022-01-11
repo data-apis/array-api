@@ -47,6 +47,16 @@ autodoc_typehints = 'signature'
 add_module_names = False
 napoleon_custom_sections = [('Returns', 'params_style')]
 
+# Make autosummary show the signatures of functions in the tables using actual
+# Python syntax. There's currently no supported way to do this, so we have to
+# just patch out the function that processes the signatures. See
+# https://github.com/sphinx-doc/sphinx/issues/10053.
+import sphinx.ext.autosummary as autosummary_mod
+if hasattr(autosummary_mod, '_module'):
+    # It's a sphinx deprecated module wrapper object
+    autosummary_mod = autosummary_mod._module
+autosummary_mod.mangle_signature = lambda sig, max_chars=30: sig
+
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 
