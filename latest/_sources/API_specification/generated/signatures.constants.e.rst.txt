@@ -1,0 +1,6 @@
+﻿signatures.constants.e
+======================
+
+.. currentmodule:: signatures.constants
+
+.. autodata:: e

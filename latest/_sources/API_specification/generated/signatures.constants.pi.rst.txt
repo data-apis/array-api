@@ -1,0 +1,6 @@
+﻿signatures.constants.pi
+=======================
+
+.. currentmodule:: signatures.constants
+
+.. autodata:: pi
