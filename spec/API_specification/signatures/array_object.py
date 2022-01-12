@@ -1,4 +1,5 @@
-from ._types import array, dtype, device, Optional, Tuple, Union, Any, PyCapsule, Enum, ellipsis
+from ._types import array, dtype, Optional, Tuple, Union, Any, PyCapsule, Enum, ellipsis
+from ._types import device as Device
 
 class array():
     def __init__(self) -> None:
@@ -18,7 +19,7 @@ class array():
         """
 
     @property
-    def device() -> device:
+    def device() -> Device:
         """
         Hardware device the array data resides on.
 
@@ -244,29 +245,6 @@ class array():
 
             For other device types which do have a stream, queue or similar synchronization mechanism, the most appropriate type to use for `stream` is not yet determined. E.g., for SYCL one may want to use an object containing an in-order ``cl::sycl::queue``. This is allowed when libraries agree on such a convention, and may be standardized in a future version of this API standard.
 
-            **Note**
-
-            Support for a ``stream`` value other than ``None`` is optional and implementation-dependent.
-
-            Device-specific notes:
-
-            **CUDA**
-
-            -   ``None``: producer must assume the legacy default stream (default).
-            -   ``1``: the legacy default stream.
-            -   ``2``: the per-thread default stream.
-            -   ``> 2``: stream number represented as a Python integer.
-
-            ``0`` is disallowed due to its ambiguity: ``0`` could mean either ``None``, ``1``, or ``2``.
-
-            **ROCm**
-
-            -   ``None``: producer must assume the legacy default stream (default).
-            -   ``0``: the default stream.
-            -   ``> 2``: stream number represented as a Python integer.
-
-            Using ``1`` and ``2`` is not supported.
-
             **Tip**
 
             It is recommended that implementers explicitly handle streams. If
@@ -279,6 +257,28 @@ class array():
         -------
         capsule: PyCapsule
             a DLPack capsule for the array. See :ref:`data-interchange` for details.
+
+        Notes
+        -----
+        - Support for a ``stream`` value other than ``None`` is optional and implementation-dependent.
+        - Device-specific notes:
+
+        **CUDA**
+
+            -   ``None``: producer must assume the legacy default stream (default).
+            -   ``1``: the legacy default stream.
+            -   ``2``: the per-thread default stream.
+            -   ``> 2``: stream number represented as a Python integer.
+
+            ``0`` is disallowed due to its ambiguity: ``0`` could mean either ``None``, ``1``, or ``2``.
+
+        **ROCm**
+
+            -   ``None``: producer must assume the legacy default stream (default).
+            -   ``0``: the default stream.
+            -   ``> 2``: stream number represented as a Python integer.
+
+            Using ``1`` and ``2`` is not supported.
         """
 
     def __dlpack_device__(self: array, /) -> Tuple[Enum, int]:
@@ -925,7 +925,7 @@ class array():
         - Element-wise results must equal the results returned by the equivalent element-wise function :ref:`function-bitwise_xor`.
         """
 
-    def to_device(self: array, device: device, /, *, stream: Optional[Union[int, Any]] = None) -> array:
+    def to_device(self: array, device: Device, /, *, stream: Optional[Union[int, Any]] = None) -> array:
         """
         Copy the array from the device on which it currently resides to the specified ``device``.
 
