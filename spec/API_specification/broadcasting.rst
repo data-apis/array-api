@@ -49,15 +49,15 @@ The results of the element-wise operation must be stored in an array having a sh
 
 	#.  If ``d1 == 1``, then
 
-		-   set the ``i``th element of ``shape`` to ``d2``.
+		-   set the ``i``\th element of ``shape`` to ``d2``.
 
 	#.  Else, if ``d2 == 1``, then
 
-		-   set the ``i``th element of ``shape`` to ``d1``.
+		-   set the ``i``\th element of ``shape`` to ``d1``.
 
 	#.  Else, if ``d1 == d2``, then
 
-		-   set the ``i``th element of ``shape`` to ``d1``.
+		-   set the ``i``\th element of ``shape`` to ``d1``.
 
 	#.  Else, throw an exception.
 
