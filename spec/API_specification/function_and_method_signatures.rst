@@ -13,7 +13,7 @@ Function signatures in this standard adhere to the following:
    *Rationale: existing libraries have incompatible conventions, and using names
    of positional parameters is not normal/recommended practice.*
 
-.. note::
+   .. note::
 
     Positional-only parameters are only available in Python >= 3.8. Libraries
     still supporting 3.7 or 3.6 may consider making the API standard-compliant
