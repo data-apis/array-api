@@ -21,7 +21,7 @@ A conforming implementation of the array API standard must provide and support t
 Calculates the maximum value of the input array `x`.
 
 ```{note}
-When the number of elements over which to compute the maximum value is zero, the maximum value is implementation-defined. Specification-compliant libraries may choose to error, return a sentinel value (e.g., if `x` is a floating-point input array, return `NaN`), or return the minimum possible value for the input array `x` data type (e.g., if `x` is a floating-point array, return `-infinity`).
+When the number of elements over which to compute the maximum value is zero, the maximum value is implementation-defined. Specification-compliant libraries may choose to raise an error, return a sentinel value (e.g., if `x` is a floating-point input array, return `NaN`), or return the minimum possible value for the input array `x` data type (e.g., if `x` is a floating-point array, return `-infinity`).
 ```
 
 #### Special Cases
@@ -92,7 +92,7 @@ Let `N` equal the number of elements over which to compute the arithmetic mean.
 Calculates the minimum value of the input array `x`.
 
 ```{note}
-When the number of elements over which to compute the minimum value is zero, the minimum value is implementation-defined. Specification-compliant libraries may choose to error, return a sentinel value (e.g., if `x` is a floating-point input array, return `NaN`), or return the maximum possible value for the input array `x` data type (e.g., if `x` is a floating-point array, return `+infinity`).
+When the number of elements over which to compute the minimum value is zero, the minimum value is implementation-defined. Specification-compliant libraries may choose to raise an error, return a sentinel value (e.g., if `x` is a floating-point input array, return `NaN`), or return the maximum possible value for the input array `x` data type (e.g., if `x` is a floating-point array, return `+infinity`).
 ```
 
 #### Special Cases

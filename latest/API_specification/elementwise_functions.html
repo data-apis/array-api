@@ -7897,6 +7897,17 @@
            </code>
            .
           </p>
+          <div class="admonition note">
+           <p class="admonition-title">
+            Note
+           </p>
+           <p>
+            If one or both of the input arrays have integer data types, the result is implementation-dependent, as type promotion between data type “kinds” (e.g., integer versus floating-point) is unspecified.
+           </p>
+           <p>
+            Specification-compliant libraries may choose to raise an error or return an array containing the element-wise results. If an array is returned, the array must have a floating-point data type.
+           </p>
+          </div>
           <section id="id47">
            <h4 id="id47">
             Special Cases
@@ -14497,7 +14508,7 @@ data type determined by
               x2
              </span>
             </code>
-            has a floating-point data type, behavior is implementation-dependent (type promotion between data type “kinds” (integer versus floating-point) is unspecified).
+            has a floating-point data type, behavior is implementation-dependent, as type promotion between data type “kinds” (e.g., integer versus floating-point) is unspecified.
            </p>
           </div>
           <section id="id110">
