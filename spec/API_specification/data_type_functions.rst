@@ -1,4 +1,4 @@
-Data type functions
+Data Type Functions
 ===================
 
     Array API specification for data type functions.
