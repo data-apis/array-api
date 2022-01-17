@@ -18,25 +18,25 @@ To index a single array axis, an array must support standard Python indexing rul
 
 - **Valid** nonnegative indices must reside on the half-open interval ``[0, n)``.
 
-.. note::
-   This specification does not require bounds checking. The behavior for out-of-bounds integer indices is left unspecified.
+  .. note::
+    This specification does not require bounds checking. The behavior for out-of-bounds integer indices is left unspecified.
 
 - Negative indices must count backward from the last array index, starting from ``-1`` (i.e., negative-one-based indexing, where ``-1`` refers to the last array index).
 
-.. note::
-   A negative index ``j`` is equivalent to ``n-j``; the former is syntactic sugar for the latter, providing a shorthand for indexing elements that would otherwise need to be specified in terms of the axis (dimension) size.
+  .. note::
+    A negative index ``j`` is equivalent to ``n-j``; the former is syntactic sugar for the latter, providing a shorthand for indexing elements that would otherwise need to be specified in terms of the axis (dimension) size.
 
 - **Valid** negative indices must reside on the closed interval ``[-n, -1]``.
 
-.. note::
-   This specification does not require bounds checking. The behavior for out-of-bounds integer indices is left unspecified.
+  .. note::
+    This specification does not require bounds checking. The behavior for out-of-bounds integer indices is left unspecified.
 
 - A negative index ``j`` is related to a zero-based nonnegative index ``i`` via ``i = n+j``.
 
--   Colons ``:`` must be used for `slices <https://docs.python.org/3/library/functions.html#slice>`_: ``start:stop:step``, where ``start`` is inclusive and ``stop`` is exclusive.
+- Colons ``:`` must be used for `slices <https://docs.python.org/3/library/functions.html#slice>`_: ``start:stop:step``, where ``start`` is inclusive and ``stop`` is exclusive.
 
-.. note::
-   The specification does not support returning scalar (i.e., non-array) values from operations, including indexing. In contrast to standard Python indexing rules, for any index, or combination of indices, which select a single value, the result must be a zero-dimensional array containing the selected value.
+  .. note::
+    The specification does not support returning scalar (i.e., non-array) values from operations, including indexing. In contrast to standard Python indexing rules, for any index, or combination of indices, which select a single value, the result must be a zero-dimensional array containing the selected value.
 
 Slice Syntax
 ~~~~~~~~~~~~
@@ -106,8 +106,8 @@ Using a slice to index a single array axis must adhere to the following rules. L
 
 - Indexing via ``:`` and ``::`` must be equivalent and have defaults derived from the rules above. Both ``:`` and ``::`` indicate to select all elements along a single axis (dimension).
 
-.. note::
-   This specification does not require "clipping" out-of-bounds slice indices. This is in contrast to Python slice semantics where ``0:100`` and ``0:10`` are equivalent on a list of length ``10``.
+  .. note::
+    This specification does not require "clipping" out-of-bounds slice indices. This is in contrast to Python slice semantics where ``0:100`` and ``0:10`` are equivalent on a list of length ``10``.
 
 The following ranges for the start and stop values of a slice must be supported. Let ``n`` be the axis (dimension) size being sliced. For a slice ``i:j:k``, the behavior specified above should be implemented for the following:
 
@@ -128,19 +128,19 @@ Multi-dimensional arrays must extend the concept of single-axis indexing to mult
 
 - Each axis may be independently indexed via single-axis indexing by providing a comma-separated sequence ("selection tuple") of single-axis indexing expressions (e.g., ``A[:, 2:10, :, 5]``).
 
-.. note::
-   In Python, ``A[(exp1, exp2, ..., expN)]`` is equivalent to ``A[exp1, exp2, ..., expN]``; the latter is syntactic sugar for the former.
+  .. note::
+    In Python, ``A[(exp1, exp2, ..., expN)]`` is equivalent to ``A[exp1, exp2, ..., expN]``; the latter is syntactic sugar for the former.
 
-   Accordingly, if ``A`` has rank ``1``, then ``A[(2:10,)]`` must be equivalent to ``A[2:10]``. If ``A`` has rank ``2``, then ``A[(2:10, :)]`` must be equivalent to ``A[2:10, :]``. And so on and so forth.
+    Accordingly, if ``A`` has rank ``1``, then ``A[(2:10,)]`` must be equivalent to ``A[2:10]``. If ``A`` has rank ``2``, then ``A[(2:10, :)]`` must be equivalent to ``A[2:10, :]``. And so on and so forth.
 
 - Providing a single nonnegative integer ``i`` as a single-axis index must index the same elements as the slice ``i:i+1``.
 
 - Providing a single negative integer ``i`` as a single-axis index must index the same elements as the slice ``n+i:n+i+1``, where ``n`` is the axis (dimension) size.
 
-- Providing a single integer as a single-axis index must reduce the number of array dimensions by ``1`` (i.e., the array rank should decrease by one; if ``A`` has rank ``2``, ``rank(A)-1 == rank(A[0, :])``). In particular, a selection tuple with the ``m``th element an integer (and all other entries ``:``) indexes a sub-array with rank ``N-1``.
+- Providing a single integer as a single-axis index must reduce the number of array dimensions by ``1`` (i.e., the array rank should decrease by one; if ``A`` has rank ``2``, ``rank(A)-1 == rank(A[0, :])``). In particular, a selection tuple with the ``m``\th element an integer (and all other entries ``:``) indexes a sub-array with rank ``N-1``.
 
-.. note::
-   When providing a single integer as a single-axis index to an array of rank ``1``, the result should be an array of rank ``0``, not a NumPy scalar. Note that this behavior differs from NumPy.
+  .. note::
+    When providing a single integer as a single-axis index to an array of rank ``1``, the result should be an array of rank ``0``, not a NumPy scalar. Note that this behavior differs from NumPy.
 
 - Providing a slice must retain array dimensions (i.e., the array rank must remain the same; ``rank(A) == rank(A[:])``).
 
@@ -148,35 +148,37 @@ Multi-dimensional arrays must extend the concept of single-axis indexing to mult
 
 - Providing an empty tuple or an ellipsis to an array of rank ``0`` must result in an array of the same rank (i.e., if ``A`` has rank ``0``, ``A == A[()]`` and ``A == A[...]``).
 
-.. note::
-   This behavior differs from NumPy where providing an empty tuple to an array of rank ``0`` returns a NumPy scalar.
+  .. note::
+    This behavior differs from NumPy where providing an empty tuple to an array of rank ``0`` returns a NumPy scalar.
 
 - Except in the case of providing a single ellipsis (e.g., ``A[2:10, ...]`` or ``A[1:, ..., 2:5]``), the number of provided single-axis indexing expressions should equal ``N``. For example, if ``A`` has rank ``2``, a single-axis indexing expression should be explicitly provided for both axes (e.g., ``A[2:10, :]``). An ``IndexError`` exception should be raised if the number of provided single-axis indexing expressions is less than ``N``.
 
-.. note::
-   Some libraries, such as SymPy, support flat indexing (i.e., providing a single-axis indexing expression to a higher-dimensional array). That practice is not supported here.
+  .. note::
+    Some libraries, such as SymPy, support flat indexing (i.e., providing a single-axis indexing expression to a higher-dimensional array). That practice is not supported here.
 
-   To perform flat indexing, use ``reshape(x, (-1,))[integer]``.
+    To perform flat indexing, use ``reshape(x, (-1,))[integer]``.
 
 - An ``IndexError`` exception must be raised if the number of provided single-axis indexing expressions is greater than ``N``.
 
-.. note::
-   This specification leaves unspecified the behavior of providing a slice which attempts to select elements along a particular axis, but whose starting index is out-of-bounds.
+  .. note::
+    This specification leaves unspecified the behavior of providing a slice which attempts to select elements along a particular axis, but whose starting index is out-of-bounds.
 
-   *Rationale: this is consistent with bounds-checking for single-axis indexing. An implementation may choose to set the axis (dimension) size of the result array to* ``0`` *, raise an exception, return junk values, or some other behavior depending on device requirements and performance considerations.*
+    *Rationale: this is consistent with bounds-checking for single-axis indexing. An implementation may choose to set the axis (dimension) size of the result array to* ``0`` *, raise an exception, return junk values, or some other behavior depending on device requirements and performance considerations.*
 
 Boolean Array Indexing
 ----------------------
 
-.. important:: Data-dependent output shape
+.. admonition:: Data-dependent output shape
+   :class: admonition important
+
    For common boolean array use cases (e.g., using a dynamically-sized boolean array mask to filter the values of another array), the shape of the output array is data-dependent; hence, array libraries which build computation graphs (e.g., JAX, Dask, etc.) may find boolean array indexing difficult to implement. Accordingly, such libraries may choose to omit boolean array indexing. See :ref:`data-dependent-output-shapes` section for more details.
 
 An array must support indexing where the **sole index** is an ``M``-dimensional boolean array ``B`` with shape ``S1 = (s1, ..., sM)`` according to the following rules. Let ``A`` be an ``N``-dimensional array with shape ``S2 = (s1, ..., sM, ..., sN)``.
 
 - If ``N >= M``, then ``A[B]`` must replace the first ``M`` dimensions of ``A`` with a single dimension having a size equal to the number of ``True`` elements in ``B``. The values in the resulting array must be in row-major (C-style order); this is equivalent to ``A[nonzero(B)]``.
 
-.. note::
-   For example, if ``N == M == 2``, indexing ``A`` via a boolean array ``B`` will return a one-dimensional array whose size is equal to the number of ``True`` elements in ``B``.
+  .. note::
+    For example, if ``N == M == 2``, indexing ``A`` via a boolean array ``B`` will return a one-dimensional array whose size is equal to the number of ``True`` elements in ``B``.
 
 - If ``N < M``, then an ``IndexError`` exception must be raised.
 
