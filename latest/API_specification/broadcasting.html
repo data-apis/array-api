@@ -435,7 +435,7 @@
      </div>
      <div class="md-content">
       <article class="md-content__inner md-typeset" role="main">
-       <section class="tex2jax_ignore mathjax_ignore" id="broadcasting">
+       <section id="broadcasting">
         <span id="id1">
         </span>
         <h1 id="api-specification-broadcasting--page-root">
@@ -846,33 +846,26 @@
                 1
                </span>
               </code>
-              , then
+              , then set the
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                i
+               </span>
+              </code>
+              th element of
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                shape
+               </span>
+              </code>
+              to
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                d2
+               </span>
+              </code>
+              .
              </p>
-             <ul class="simple">
-              <li>
-               <p>
-                set the
-                <code class="docutils literal notranslate">
-                 <span class="pre">
-                  i
-                 </span>
-                </code>
-                th element of
-                <code class="docutils literal notranslate">
-                 <span class="pre">
-                  shape
-                 </span>
-                </code>
-                to
-                <code class="docutils literal notranslate">
-                 <span class="pre">
-                  d2
-                 </span>
-                </code>
-                .
-               </p>
-              </li>
-             </ul>
             </li>
             <li>
              <p>
@@ -1004,37 +997,32 @@
           <p>
            The following examples demonstrate the application of the broadcasting algorithm for two compatible arrays.
           </p>
-          <div class="highlight-text notranslate">
+          <div class="highlight-default notranslate">
            <div class="highlight">
-            <pre><span></span>A      (4d array):  8 x 1 x 6 x 1
-B      (3d array):      7 x 1 x 5
----------------------------------
-Result (4d array):  8 x 7 x 6 x 5
-
-A      (2d array):  5 x 4
-B      (1d array):      1
--------------------------
-Result (2d array):  5 x 4
-
-A      (2d array):  5 x 4
-B      (1d array):      4
--------------------------
-Result (2d array):  5 x 4
-
-A      (3d array):  15 x 3 x 5
-B      (3d array):  15 x 1 x 5
-------------------------------
-Result (3d array):  15 x 3 x 5
-
-A      (3d array):  15 x 3 x 5
-B      (2d array):       3 x 5
-------------------------------
-Result (3d array):  15 x 3 x 5
-
-A      (3d array):  15 x 3 x 5
-B      (2d array):       3 x 1
-------------------------------
-Result (3d array):  15 x 3 x 5
+            <pre><span></span> <span class="n">A</span>      <span class="p">(</span><span class="mi">4</span><span class="n">d</span> <span class="n">array</span><span class="p">):</span>  <span class="mi">8</span> <span class="n">x</span> <span class="mi">1</span> <span class="n">x</span> <span class="mi">6</span> <span class="n">x</span> <span class="mi">1</span>
+ <span class="n">B</span>      <span class="p">(</span><span class="mi">3</span><span class="n">d</span> <span class="n">array</span><span class="p">):</span>      <span class="mi">7</span> <span class="n">x</span> <span class="mi">1</span> <span class="n">x</span> <span class="mi">5</span>
+<span class="o">---------------------------------</span>
+ <span class="n">Result</span> <span class="p">(</span><span class="mi">4</span><span class="n">d</span> <span class="n">array</span><span class="p">):</span>  <span class="mi">8</span> <span class="n">x</span> <span class="mi">7</span> <span class="n">x</span> <span class="mi">6</span> <span class="n">x</span> <span class="mi">5</span>
+ <span class="n">A</span>      <span class="p">(</span><span class="mi">2</span><span class="n">d</span> <span class="n">array</span><span class="p">):</span>  <span class="mi">5</span> <span class="n">x</span> <span class="mi">4</span>
+ <span class="n">B</span>      <span class="p">(</span><span class="mi">1</span><span class="n">d</span> <span class="n">array</span><span class="p">):</span>      <span class="mi">1</span>
+ <span class="o">-------------------------</span>
+ <span class="n">Result</span> <span class="p">(</span><span class="mi">2</span><span class="n">d</span> <span class="n">array</span><span class="p">):</span>  <span class="mi">5</span> <span class="n">x</span> <span class="mi">4</span>
+ <span class="n">A</span>      <span class="p">(</span><span class="mi">2</span><span class="n">d</span> <span class="n">array</span><span class="p">):</span>  <span class="mi">5</span> <span class="n">x</span> <span class="mi">4</span>
+ <span class="n">B</span>      <span class="p">(</span><span class="mi">1</span><span class="n">d</span> <span class="n">array</span><span class="p">):</span>      <span class="mi">4</span>
+ <span class="o">-------------------------</span>
+ <span class="n">Result</span> <span class="p">(</span><span class="mi">2</span><span class="n">d</span> <span class="n">array</span><span class="p">):</span>  <span class="mi">5</span> <span class="n">x</span> <span class="mi">4</span>
+ <span class="n">A</span>      <span class="p">(</span><span class="mi">3</span><span class="n">d</span> <span class="n">array</span><span class="p">):</span>  <span class="mi">15</span> <span class="n">x</span> <span class="mi">3</span> <span class="n">x</span> <span class="mi">5</span>
+ <span class="n">B</span>      <span class="p">(</span><span class="mi">3</span><span class="n">d</span> <span class="n">array</span><span class="p">):</span>  <span class="mi">15</span> <span class="n">x</span> <span class="mi">1</span> <span class="n">x</span> <span class="mi">5</span>
+ <span class="o">------------------------------</span>
+ <span class="n">Result</span> <span class="p">(</span><span class="mi">3</span><span class="n">d</span> <span class="n">array</span><span class="p">):</span>  <span class="mi">15</span> <span class="n">x</span> <span class="mi">3</span> <span class="n">x</span> <span class="mi">5</span>
+ <span class="n">A</span>      <span class="p">(</span><span class="mi">3</span><span class="n">d</span> <span class="n">array</span><span class="p">):</span>  <span class="mi">15</span> <span class="n">x</span> <span class="mi">3</span> <span class="n">x</span> <span class="mi">5</span>
+ <span class="n">B</span>      <span class="p">(</span><span class="mi">2</span><span class="n">d</span> <span class="n">array</span><span class="p">):</span>       <span class="mi">3</span> <span class="n">x</span> <span class="mi">5</span>
+ <span class="o">------------------------------</span>
+ <span class="n">Result</span> <span class="p">(</span><span class="mi">3</span><span class="n">d</span> <span class="n">array</span><span class="p">):</span>  <span class="mi">15</span> <span class="n">x</span> <span class="mi">3</span> <span class="n">x</span> <span class="mi">5</span>
+ <span class="n">A</span>      <span class="p">(</span><span class="mi">3</span><span class="n">d</span> <span class="n">array</span><span class="p">):</span>  <span class="mi">15</span> <span class="n">x</span> <span class="mi">3</span> <span class="n">x</span> <span class="mi">5</span>
+ <span class="n">B</span>      <span class="p">(</span><span class="mi">2</span><span class="n">d</span> <span class="n">array</span><span class="p">):</span>       <span class="mi">3</span> <span class="n">x</span> <span class="mi">1</span>
+ <span class="o">------------------------------</span>
+ <span class="n">Result</span> <span class="p">(</span><span class="mi">3</span><span class="n">d</span> <span class="n">array</span><span class="p">):</span>  <span class="mi">15</span> <span class="n">x</span> <span class="mi">3</span> <span class="n">x</span> <span class="mi">5</span>
 </pre>
            </div>
           </div>
@@ -1045,16 +1033,16 @@ Result (3d array):  15 x 3 x 5
            </strong>
            broadcast.
           </p>
-          <div class="highlight-text notranslate">
+          <div class="highlight-default notranslate">
            <div class="highlight">
-            <pre><span></span>A      (1d array):  3
-B      (1d array):  4           # dimension does not match
+            <pre><span></span><span class="n">A</span>      <span class="p">(</span><span class="mi">1</span><span class="n">d</span> <span class="n">array</span><span class="p">):</span>  <span class="mi">3</span>
+<span class="n">B</span>      <span class="p">(</span><span class="mi">1</span><span class="n">d</span> <span class="n">array</span><span class="p">):</span>  <span class="mi">4</span>           <span class="c1"># dimension does not match</span>
 
-A      (2d array):      2 x 1
-B      (3d array):  8 x 4 x 3   # second dimension does not match
+<span class="n">A</span>      <span class="p">(</span><span class="mi">2</span><span class="n">d</span> <span class="n">array</span><span class="p">):</span>      <span class="mi">2</span> <span class="n">x</span> <span class="mi">1</span>
+<span class="n">B</span>      <span class="p">(</span><span class="mi">3</span><span class="n">d</span> <span class="n">array</span><span class="p">):</span>  <span class="mi">8</span> <span class="n">x</span> <span class="mi">4</span> <span class="n">x</span> <span class="mi">3</span>   <span class="c1"># second dimension does not match</span>
 
-A      (3d array):  15 x 3 x 5
-B      (2d array):  15 x 3      # singleton dimensions can only be prepended, not appended
+<span class="n">A</span>      <span class="p">(</span><span class="mi">3</span><span class="n">d</span> <span class="n">array</span><span class="p">):</span>  <span class="mi">15</span> <span class="n">x</span> <span class="mi">3</span> <span class="n">x</span> <span class="mi">5</span>
+<span class="n">B</span>      <span class="p">(</span><span class="mi">2</span><span class="n">d</span> <span class="n">array</span><span class="p">):</span>  <span class="mi">15</span> <span class="n">x</span> <span class="mi">3</span>      <span class="c1"># singleton dimensions can only be prepended, not appended</span>
 </pre>
            </div>
           </div>
