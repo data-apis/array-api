@@ -39,29 +39,27 @@ The results of the element-wise operation must be stored in an array having a sh
 
 #.  Repeat, while ``i >= 0``
 
-	#.  Let ``n1`` be ``N1 - N + i``.
+    #.  Let ``n1`` be ``N1 - N + i``.
 
-	#.  If ``n1 >= 0``, let ``d1`` be the size of dimension ``n1`` for array ``A`` (i.e., the result of ``shape1[n1]``); else, let ``d1`` be ``1``.
+    #.  If ``n1 >= 0``, let ``d1`` be the size of dimension ``n1`` for array ``A`` (i.e., the result of ``shape1[n1]``); else, let ``d1`` be ``1``.
 
-	#.  Let ``n2`` be ``N2 - N + i``.
+    #.  Let ``n2`` be ``N2 - N + i``.
 
-	#.  If ``n2 >= 0``, let ``d2`` be the size of dimension ``n2`` for array ``B`` (i.e., the result of ``shape2[n2]``); else, let ``d2`` be ``1``.
+    #.  If ``n2 >= 0``, let ``d2`` be the size of dimension ``n2`` for array ``B`` (i.e., the result of ``shape2[n2]``); else, let ``d2`` be ``1``.
 
-	#.  If ``d1 == 1``, then
+    #.  If ``d1 == 1``, then set the ``i``\th element of ``shape`` to ``d2``.
 
-		-   set the ``i``\th element of ``shape`` to ``d2``.
+    #.  Else, if ``d2 == 1``, then
 
-	#.  Else, if ``d2 == 1``, then
+        -   set the ``i``\th element of ``shape`` to ``d1``.
 
-		-   set the ``i``\th element of ``shape`` to ``d1``.
+    #.  Else, if ``d1 == d2``, then
 
-	#.  Else, if ``d1 == d2``, then
+        -   set the ``i``\th element of ``shape`` to ``d1``.
 
-		-   set the ``i``\th element of ``shape`` to ``d1``.
+    #.  Else, throw an exception.
 
-	#.  Else, throw an exception.
-
-	#.  Set ``i`` to ``i-1``.
+    #.  Set ``i`` to ``i-1``.
 
 #.  Let ``tuple(shape)`` be the shape of the result array.
 
