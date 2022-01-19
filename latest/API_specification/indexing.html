@@ -445,7 +445,7 @@
      </div>
      <div class="md-content">
       <article class="md-content__inner md-typeset" role="main">
-       <section class="tex2jax_ignore mathjax_ignore" id="indexing">
+       <section id="indexing">
         <span id="id1">
         </span>
         <h1 id="api-specification-indexing--page-root">
@@ -485,11 +485,7 @@
            <p>
             An integer index must be an object satisfying
             <a class="reference external" href="https://www.python.org/dev/peps/pep-0357/">
-             <code class="docutils literal notranslate">
-              <span class="pre">
-               operator.index
-              </span>
-             </code>
+             operator.index
             </a>
             (e.g.,
             <code class="docutils literal notranslate">
@@ -659,16 +655,16 @@
             </code>
             is exclusive.
            </p>
+           <div class="admonition note">
+            <p class="admonition-title">
+             Note
+            </p>
+            <p>
+             The specification does not support returning scalar (i.e., non-array) values from operations, including indexing. In contrast to standard Python indexing rules, for any index, or combination of indices, which select a single value, the result must be a zero-dimensional array containing the selected value.
+            </p>
+           </div>
           </li>
          </ul>
-         <div class="admonition note">
-          <p class="admonition-title">
-           Note
-          </p>
-          <p>
-           The specification does not support returning scalar (i.e., non-array) values from operations, including indexing. In contrast to standard Python indexing rules, for any index, or combination of indices, which select a single value, the result must be a zero-dimensional array containing the selected value.
-          </p>
-         </div>
          <section id="slice-syntax">
           <h3 id="slice-syntax">
            Slice Syntax
@@ -715,21 +711,21 @@
            </code>
            ). A slice may contain either one or two colons, with either an integer value or nothing on either side of each colon. The following are valid slices.
           </p>
-          <div class="highlight-text notranslate">
+          <div class="highlight-default notranslate">
            <div class="highlight">
-            <pre><span></span>A[:]
-A[i:]
-A[:j]
-A[i:k]
-A[::]
-A[i::]
-A[:j:]
-A[::k]
-A[i:j:]
-A[i::k]
-A[:j:k]
-A[i::k]
-A[i:j:k]
+            <pre><span></span><span class="n">A</span><span class="p">[:]</span>
+<span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">:]</span>
+<span class="n">A</span><span class="p">[:</span><span class="n">j</span><span class="p">]</span>
+<span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">k</span><span class="p">]</span>
+<span class="n">A</span><span class="p">[::]</span>
+<span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">::]</span>
+<span class="n">A</span><span class="p">[:</span><span class="n">j</span><span class="p">:]</span>
+<span class="n">A</span><span class="p">[::</span><span class="n">k</span><span class="p">]</span>
+<span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">j</span><span class="p">:]</span>
+<span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">::</span><span class="n">k</span><span class="p">]</span>
+<span class="n">A</span><span class="p">[:</span><span class="n">j</span><span class="p">:</span><span class="n">k</span><span class="p">]</span>
+<span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">::</span><span class="n">k</span><span class="p">]</span>
+<span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">j</span><span class="p">:</span><span class="n">k</span><span class="p">]</span>
 </pre>
            </div>
           </div>
@@ -740,11 +736,7 @@ A[i:j:k]
            <p>
             Slice syntax can be equivalently achieved using the Python built-in
             <a class="reference external" href="https://docs.python.org/3/library/functions.html#slice">
-             <code class="docutils literal notranslate">
-              <span class="pre">
-               slice()
-              </span>
-             </code>
+             slice()
             </a>
             API. From the perspective of
             <code class="docutils literal notranslate">
@@ -788,18 +780,18 @@ A[i:j:k]
            </code>
            elements with index values
           </p>
-          <div class="highlight-text notranslate">
+          <div class="highlight-default notranslate">
            <div class="highlight">
-            <pre><span></span>i, i+k, i+2k, i+3k, ..., i+(m-1)k
+            <pre><span></span><span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="n">k</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="n">k</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">3</span><span class="n">k</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="p">(</span><span class="n">m</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="n">k</span>
 </pre>
            </div>
           </div>
           <p>
            where
           </p>
-          <div class="highlight-text notranslate">
+          <div class="highlight-default notranslate">
            <div class="highlight">
-            <pre><span></span>m = q + r
+            <pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">q</span> <span class="o">+</span> <span class="n">r</span>
 </pre>
            </div>
           </div>
@@ -841,18 +833,18 @@ A[i:j:k]
             </span>
            </code>
           </p>
-          <div class="highlight-text notranslate">
+          <div class="highlight-default notranslate">
            <div class="highlight">
-            <pre><span></span>j - i = qk + r
+            <pre><span></span><span class="n">j</span> <span class="o">-</span> <span class="n">i</span> <span class="o">=</span> <span class="n">qk</span> <span class="o">+</span> <span class="n">r</span>
 </pre>
            </div>
           </div>
           <p>
            such that
           </p>
-          <div class="highlight-text notranslate">
+          <div class="highlight-default notranslate">
            <div class="highlight">
-            <pre><span></span>j &gt; i + (m-1)k
+            <pre><span></span><span class="n">j</span> <span class="o">&gt;</span> <span class="n">i</span> <span class="o">+</span> <span class="p">(</span><span class="n">m</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="n">k</span>
 </pre>
            </div>
           </div>
@@ -1171,7 +1163,7 @@ A[i:j:k]
            </code>
            be the axis (dimension) size.
           </p>
-          <ul class="simple">
+          <ul>
            <li>
             <p>
              If
@@ -1223,34 +1215,34 @@ A[i:j:k]
              </code>
              indicate to select all elements along a single axis (dimension).
             </p>
+            <div class="admonition note">
+             <p class="admonition-title">
+              Note
+             </p>
+             <p>
+              This specification does not require “clipping” out-of-bounds slice indices. This is in contrast to Python slice semantics where
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                0:100
+               </span>
+              </code>
+              and
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                0:10
+               </span>
+              </code>
+              are equivalent on a list of length
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                10
+               </span>
+              </code>
+              .
+             </p>
+            </div>
            </li>
           </ul>
-          <div class="admonition note">
-           <p class="admonition-title">
-            Note
-           </p>
-           <p>
-            This specification does not require “clipping” out-of-bounds slice indices. This is in contrast to Python slice semantics where
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              0:100
-             </span>
-            </code>
-            and
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              0:10
-             </span>
-            </code>
-            are equivalent on a list of length
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              10
-             </span>
-            </code>
-            .
-           </p>
-          </div>
           <p>
            The following ranges for the start and stop values of a slice must be supported. Let
            <code class="docutils literal notranslate">
@@ -1419,11 +1411,13 @@ A[i:j:k]
            <p>
             <em>
              Rationale: this is consistent with bounds checking for integer indexing; the behavior of out-of-bounds indices is left unspecified. Implementations may choose to clip (consistent with Python
-             <code class="docutils literal notranslate">
-              <span class="pre">
-               list
-              </span>
-             </code>
+            </em>
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              list
+             </span>
+            </code>
+            <em>
              slicing semantics), raise an exception, return junk values, or some other behavior depending on device requirements and performance considerations.
             </em>
            </p>
@@ -1923,27 +1917,29 @@ A[i:j:k]
             </code>
             .
            </p>
+           <div class="admonition note">
+            <p class="admonition-title">
+             Note
+            </p>
+            <p>
+             This specification leaves unspecified the behavior of providing a slice which attempts to select elements along a particular axis, but whose starting index is out-of-bounds.
+            </p>
+            <p>
+             <em>
+              Rationale: this is consistent with bounds-checking for single-axis indexing. An implementation may choose to set the axis (dimension) size of the result array to
+             </em>
+             <code class="docutils literal notranslate">
+              <span class="pre">
+               0
+              </span>
+             </code>
+             <em>
+              , raise an exception, return junk values, or some other behavior depending on device requirements and performance considerations.
+             </em>
+            </p>
+           </div>
           </li>
          </ul>
-         <div class="admonition note">
-          <p class="admonition-title">
-           Note
-          </p>
-          <p>
-           This specification leaves unspecified the behavior of providing a slice which attempts to select elements along a particular axis, but whose starting index is out-of-bounds.
-          </p>
-          <p>
-           <em>
-            Rationale: this is consistent with bounds-checking for single-axis indexing. An implementation may choose to set the axis (dimension) size of the result array to
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              0
-             </span>
-            </code>
-            , raise an exception, return junk values, or some other behavior depending on device requirements and performance considerations.
-           </em>
-          </p>
-         </div>
         </section>
         <section id="boolean-array-indexing">
          <h2 id="boolean-array-indexing">
@@ -1952,7 +1948,7 @@ A[i:j:k]
            ¶
           </a>
          </h2>
-         <div class="important admonition">
+         <div class="admonition important">
           <p class="admonition-title">
            Data-dependent output shape
           </p>
