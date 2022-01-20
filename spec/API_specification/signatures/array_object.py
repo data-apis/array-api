@@ -63,11 +63,12 @@ class array():
         out: Tuple[Optional[int], ...]
             array dimensions. An array dimension must be ``None`` if and only if a dimension is unknown.
 
-        Notes
-        -----
-        - For array libraries having graph-based computational models, array dimensions may be unknown due to data-dependent operations (e.g., boolean indexing; ``A[:, B > 0]``) and thus cannot be statically resolved without knowing array contents.
 
-        - The returned value should be a tuple; however, where warranted, an array library may choose to return a custom shape object. If an array library returns a custom shape object, the object must be immutable, must support indexing for dimension retrieval, and must behave similarly to a tuple.
+        .. note::
+           For array libraries having graph-based computational models, array dimensions may be unknown due to data-dependent operations (e.g., boolean indexing; ``A[:, B > 0]``) and thus cannot be statically resolved without knowing array contents.
+
+        .. note::
+           The returned value should be a tuple; however, where warranted, an array library may choose to return a custom shape object. If an array library returns a custom shape object, the object must be immutable, must support indexing for dimension retrieval, and must behave similarly to a tuple.
         """
 
     @property
@@ -75,16 +76,17 @@ class array():
         """
         Number of elements in an array.
 
+        .. note::
+           This must equal the product of the array's dimensions.
+
         Returns
         -------
         out: Optional[int]
             number of elements in an array. The returned value must be ``None`` if and only if one or more array dimensions are unknown.
 
-        Notes
-        -----
-        - This must equal the product of the array's dimensions.
 
-        - For array libraries having graph-based computational models, an array may have unknown dimensions due to data-dependent operations.
+        .. note::
+           For array libraries having graph-based computational models, an array may have unknown dimensions due to data-dependent operations.
         """
 
     @property
@@ -99,14 +101,25 @@ class array():
         out: array
             two-dimensional array whose first and last dimensions (axes) are permuted in reverse order relative to original array. The returned array must have the same data type as the original array.two-dimensional array whose first and last dimensions (axes) are permuted in reverse order relative to original array. The returned array must have the same data type as the original array.
 
-        Notes
-        -----
-        - Limiting the transpose to two-dimensional arrays (matrices) deviates from the NumPy et al practice of reversing all axes for arrays having more than two-dimensions. This is intentional, as reversing all axes was found to be problematic (e.g., conflicting with the mathematical definition of a transpose which is limited to matrices; not operating on batches of matrices; et cetera). In order to reverse all axes, one is recommended to use the functional ``permute_dims`` interface found in this specification.
+
+        .. note::
+           Limiting the transpose to two-dimensional arrays (matrices) deviates from the NumPy et al practice of reversing all axes for arrays having more than two-dimensions. This is intentional, as reversing all axes was found to be problematic (e.g., conflicting with the mathematical definition of a transpose which is limited to matrices; not operating on batches of matrices; et cetera). In order to reverse all axes, one is recommended to use the functional ``permute_dims`` interface found in this specification.
         """
 
     def __abs__(self: array, /) -> array:
         """
         Calculates the absolute value for each element of an array instance (i.e., the element-wise result has the same magnitude as the respective element but has positive sign).
+
+        .. note::
+           For signed integer data types, the absolute value of the minimum representable integer is implementation-dependent.
+
+        **Special cases**
+
+        For floating-point operands, let ``self`` equal ``x``.
+
+        -   If ``x_i`` is ``NaN``, the result is ``NaN``.
+        -   If ``x_i`` is ``-0``, the result is ``+0``.
+        -   If ``x_i`` is ``-infinity``, the result is ``+infinity``.
 
         Parameters
         ----------
@@ -118,42 +131,14 @@ class array():
         out: array
             an array containing the element-wise absolute value. The returned array must have the same data type as ``self``.
 
-        Notes
-        -----
-        - For signed integer data types, the absolute value of the minimum representable integer is implementation-dependent.
 
-        - Element-wise results must equal the results returned by the equivalent element-wise function :ref:`function-abs`.
-
-        **Special cases**
-
-        For floating-point operands, let ``self`` equal ``x``.
-
-        -   If ``x_i`` is ``NaN``, the result is ``NaN``.
-        -   If ``x_i`` is ``-0``, the result is ``+0``.
-        -   If ``x_i`` is ``-infinity``, the result is ``+infinity``.
+        .. note::
+           Element-wise results must equal the results returned by the equivalent element-wise function :ref:`function-abs`.
         """
 
     def __add__(self: array, other: Union[int, float, array], /) -> array:
         """
         Calculates the sum for each element of an array instance with the respective element of the array ``other``.
-
-        Parameters
-        ----------
-        self: array
-            array instance (augend array). Should have a numeric data type.
-        other: Union[int, float, array]
-            addend array. Must be compatible with ``self`` (see :ref:`broadcasting`). Should have a numeric data type.
-
-        Returns
-        -------
-        out: array
-            an array containing the element-wise sums. The returned array must have a data type determined by :ref:`type-promotion`.
-
-        Notes
-        -----
-        - Floating-point addition is a commutative operation, but not always associative.
-
-        - Element-wise results must equal the results returned by the equivalent element-wise function :ref:`function-add`.
 
         **Special cases**
 
@@ -176,6 +161,25 @@ class array():
         -   If ``x1_i`` is a nonzero finite number and ``x2_i`` is either ``+0`` or ``-0``, the result is ``x1_i``.
         -   If ``x1_i`` is a nonzero finite number and ``x2_i`` is ``-x1_i``, the result is ``+0``.
         -   In the remaining cases, when neither ``infinity``, ``+0``, ``-0``, nor a ``NaN`` is involved, and the operands have the same mathematical sign or have different magnitudes, the sum must be computed and rounded to the nearest representable value according to IEEE 754-2019 and a supported round mode. If the magnitude is too large to represent, the operation overflows and the result is an ``infinity`` of appropriate mathematical sign.
+
+        .. note::
+           Floating-point addition is a commutative operation, but not always associative.
+
+        Parameters
+        ----------
+        self: array
+            array instance (augend array). Should have a numeric data type.
+        other: Union[int, float, array]
+            addend array. Must be compatible with ``self`` (see :ref:`broadcasting`). Should have a numeric data type.
+
+        Returns
+        -------
+        out: array
+            an array containing the element-wise sums. The returned array must have a data type determined by :ref:`type-promotion`.
+
+
+        .. note::
+           Element-wise results must equal the results returned by the equivalent element-wise function :ref:`function-add`.
         """
 
     def __and__(self: array, other: Union[int, bool, array], /) -> array:
@@ -194,9 +198,9 @@ class array():
         out: array
             an array containing the element-wise results. The returned array must have a data type determined by :ref:`type-promotion`.
 
-        Notes
-        -----
-        - Element-wise results must equal the results returned by the equivalent element-wise function :ref:`function-bitwise_and`.
+
+        .. note::
+           Element-wise results must equal the results returned by the equivalent element-wise function :ref:`function-bitwise_and`.
         """
 
     def __array_namespace__(self: array, /, *, api_version: Optional[str] = None) -> Any:
@@ -240,12 +244,39 @@ class array():
         self: array
             array instance.
         stream: Optional[Union[int, Any]]
-            for CUDA and ROCm, a Python integer representing a pointer to a stream, on devices that support streams. ``stream`` is provided by the consumer to the producer to instruct the producer to ensure that operations can safely be performed on the array (e.g., by inserting a dependency between streams via "wait for event"). The pointer must be a positive integer or ``-1``. If ``stream`` is ``-1``, the value may be used by the consumer to signal "producer must not perform any synchronization". The ownership of the stream stays with the consumer.
-            On CPU and other device types without streams, only ``None`` is accepted.
+            for CUDA and ROCm, a Python integer representing a pointer to a stream, on devices that support streams. ``stream`` is provided by the consumer to the producer to instruct the producer to ensure that operations can safely be performed on the array (e.g., by inserting a dependency between streams via "wait for event"). The pointer must be a positive integer or ``-1``. If ``stream`` is ``-1``, the value may be used by the consumer to signal "producer must not perform any synchronization". The ownership of the stream stays with the consumer. On CPU and other device types without streams, only ``None`` is accepted.
 
-            For other device types which do have a stream, queue or similar synchronization mechanism, the most appropriate type to use for `stream` is not yet determined. E.g., for SYCL one may want to use an object containing an in-order ``cl::sycl::queue``. This is allowed when libraries agree on such a convention, and may be standardized in a future version of this API standard.
+            For other device types which do have a stream, queue or similar synchronization mechanism, the most appropriate type to use for ``stream`` is not yet determined. E.g., for SYCL one may want to use an object containing an in-order ``cl::sycl::queue``. This is allowed when libraries agree on such a convention, and may be standardized in a future version of this API standard.
 
-            **Tip**
+
+        .. note::
+            Support for a ``stream`` value other than ``None`` is optional and implementation-dependent.
+
+
+        Device-specific notes:
+
+
+        .. admonition:: CUDA
+            :class: note
+
+            - ``None``: producer must assume the legacy default stream (default).
+            - ``1``: the legacy default stream.
+            - ``2``: the per-thread default stream.
+            - ``> 2``: stream number represented as a Python integer.
+            - ``0`` is disallowed due to its ambiguity: ``0`` could mean either ``None``, ``1``, or ``2``.
+
+
+        .. admonition:: ROCm
+            :class: note
+
+            - ``None``: producer must assume the legacy default stream (default).
+            - ``0``: the default stream.
+            - ``> 2``: stream number represented as a Python integer.
+            - Using ``1`` and ``2`` is not supported.
+
+
+        .. admonition:: Tip
+            :class: important
 
             It is recommended that implementers explicitly handle streams. If
             they use the legacy default stream, specifying ``1`` (CUDA) or ``0``
@@ -257,28 +288,6 @@ class array():
         -------
         capsule: PyCapsule
             a DLPack capsule for the array. See :ref:`data-interchange` for details.
-
-        Notes
-        -----
-        - Support for a ``stream`` value other than ``None`` is optional and implementation-dependent.
-        - Device-specific notes:
-
-        **CUDA**
-
-            -   ``None``: producer must assume the legacy default stream (default).
-            -   ``1``: the legacy default stream.
-            -   ``2``: the per-thread default stream.
-            -   ``> 2``: stream number represented as a Python integer.
-
-            ``0`` is disallowed due to its ambiguity: ``0`` could mean either ``None``, ``1``, or ``2``.
-
-        **ROCm**
-
-            -   ``None``: producer must assume the legacy default stream (default).
-            -   ``0``: the default stream.
-            -   ``> 2``: stream number represented as a Python integer.
-
-            Using ``1`` and ``2`` is not supported.
         """
 
     def __dlpack_device__(self: array, /) -> Tuple[Enum, int]:
@@ -295,14 +304,16 @@ class array():
         device: Tuple[Enum, int]
             a tuple ``(device_type, device_id)`` in DLPack format. Valid device type enum members are:
 
-            - ``CPU = 1``
-            - ``CUDA = 2``
-            - ``CPU_PINNED = 3``
-            - ``OPENCL = 4``
-            - ``VULKAN = 7``
-            - ``METAL = 8``
-            - ``VPI = 9``
-            - ``ROCM = 10``
+            ::
+
+              CPU = 1
+              CUDA = 2
+              CPU_PINNED = 3
+              OPENCL = 4
+              VULKAN = 7
+              METAL = 8
+              VPI = 9
+              ROCM = 10
         """
 
     def __eq__(self: array, other: Union[int, float, bool, array], /) -> array:
@@ -321,9 +332,9 @@ class array():
         out: array
             an array containing the element-wise results. The returned array must have a data type of ``bool``.
 
-        Notes
-        -----
-        - Element-wise results must equal the results returned by the equivalent element-wise function :ref:`function-equal`.
+
+        .. note::
+           Element-wise results must equal the results returned by the equivalent element-wise function :ref:`function-equal`.
         """
 
     def __float__(self: array, /) -> float:
@@ -345,25 +356,19 @@ class array():
         """
         Evaluates ``self_i // other_i`` for each element of an array instance with the respective element of the array ``other``.
 
-        Parameters
-        ----------
-        self: array
-            array instance. Should have a numeric data type.
-        other: Union[int, float, array]
-            other array. Must be compatible with ``self`` (see :ref:`broadcasting`). Should have a numeric data type.
-
-        Returns
-        -------
-        out: array
-            an array containing the element-wise results. The returned array must have a data type determined by :ref:`type-promotion`.
-
-        Notes
-        -----
-        - For input arrays which promote to an integer data type, the result of division by zero is unspecified and thus implementation-defined.
-        - Element-wise results must equal the results returned by the equivalent element-wise function :ref:`function-floor_divide`.
-        - Floor division was introduced in Python via `PEP 238 <https://www.python.org/dev/peps/pep-0238/>`_ with the goal to disambiguate "true division" (i.e., computing an approximation to the mathematical operation of division) from "floor division" (i.e., rounding the result of division toward negative infinity). The former was computed when one of the operands was a ``float``, while the latter was computed when both operands were ``int``s. Overloading the ``/`` operator to support both behaviors led to subtle numerical bugs when integers are possible, but not expected. To resolve this ambiguity, ``/`` was designated for true division, and ``//`` was designated for floor division. Semantically, floor division was `defined <https://www.python.org/dev/peps/pep-0238/#semantics-of-floor-division>`_ as equivalent to ``a // b == floor(a/b)``; however, special floating-point cases were left ill-defined. Accordingly, floor division is not implemented consistently across array libraries for some of the special cases documented below. Namely, when one of the operands is ``infinity``, libraries may diverge with some choosing to strictly follow ``floor(a/b)`` and others choosing to pair ``//`` with ``%`` according to the relation ``b = a % b + b * (a // b)``. The special cases leading to divergent behavior are documented below. This specification prefers floor division to match ``floor(divide(x1, x2))`` in order to avoid surprising and unexpected results; however, array libraries may choose to more strictly follow Python behavior.
+        .. note::
+           For input arrays which promote to an integer data type, the result of division by zero is unspecified and thus implementation-defined.
 
         **Special cases**
+
+        .. note::
+            Floor division was introduced in Python via `PEP 238 <https://www.python.org/dev/peps/pep-0238/>`_ with the goal to disambiguate "true division" (i.e., computing an approximation to the mathematical operation of division) from "floor division" (i.e., rounding the result of division toward negative infinity). The former was computed when one of the operands was a ``float``, while the latter was computed when both operands were ``int``s. Overloading the ``/`` operator to support both behaviors led to subtle numerical bugs when integers are possible, but not expected.
+
+            To resolve this ambiguity, ``/`` was designated for true division, and ``//`` was designated for floor division. Semantically, floor division was `defined <https://www.python.org/dev/peps/pep-0238/#semantics-of-floor-division>`_ as equivalent to ``a // b == floor(a/b)``; however, special floating-point cases were left ill-defined.
+
+            Accordingly, floor division is not implemented consistently across array libraries for some of the special cases documented below. Namely, when one of the operands is ``infinity``, libraries may diverge with some choosing to strictly follow ``floor(a/b)`` and others choosing to pair ``//`` with ``%`` according to the relation ``b = a % b + b * (a // b)``. The special cases leading to divergent behavior are documented below.
+
+            This specification prefers floor division to match ``floor(divide(x1, x2))`` in order to avoid surprising and unexpected results; however, array libraries may choose to more strictly follow Python behavior.
 
         For floating-point operands, let ``self`` equal ``x1`` and ``other`` equal ``x2``.
 
@@ -389,6 +394,22 @@ class array():
         -   If ``x1_i`` and ``x2_i`` have the same mathematical sign and are both nonzero finite numbers, the result has a positive mathematical sign.
         -   If ``x1_i`` and ``x2_i`` have different mathematical signs and are both nonzero finite numbers, the result has a negative mathematical sign.
         -   In the remaining cases, where neither ``-infinity``, ``+0``, ``-0``, nor ``NaN`` is involved, the quotient must be computed and rounded to the greatest (i.e., closest to ``+infinity``) representable integer-value number that is not greater than the division result. If the magnitude is too large to represent, the operation overflows and the result is an ``infinity`` of appropriate mathematical sign. If the magnitude is too small to represent, the operation underflows and the result is a zero of appropriate mathematical sign.
+
+        Parameters
+        ----------
+        self: array
+            array instance. Should have a numeric data type.
+        other: Union[int, float, array]
+            other array. Must be compatible with ``self`` (see :ref:`broadcasting`). Should have a numeric data type.
+
+        Returns
+        -------
+        out: array
+            an array containing the element-wise results. The returned array must have a data type determined by :ref:`type-promotion`.
+
+
+        .. note::
+           Element-wise results must equal the results returned by the equivalent element-wise function :ref:`function-floor_divide`.
         """
 
     def __ge__(self: array, other: Union[int, float, array], /) -> array:
@@ -407,10 +428,10 @@ class array():
         out: array
             an array containing the element-wise results. The returned array must have a data type of ``bool``.
 
-        Notes
-        -----
-        - Element-wise results must equal the results returned by the equivalent element-wise function :ref:`function-greater_equal`.
-            """
+
+        .. note::
+           Element-wise results must equal the results returned by the equivalent element-wise function :ref:`function-greater_equal`.
+        """
 
     def __getitem__(self: array, key: Union[int, slice, ellipsis, Tuple[Union[int, slice, ellipsis], ...], array], /) -> array:
         """
@@ -445,14 +466,17 @@ class array():
         out: array
             an array containing the element-wise results. The returned array must have a data type of ``bool``.
 
-        Notes
-        -----
-        - Element-wise results must equal the results returned by the equivalent element-wise function :ref:`function-greater`.
+
+        .. note::
+           Element-wise results must equal the results returned by the equivalent element-wise function :ref:`function-greater`.
         """
 
     def __index__(self: array, /) -> int:
         """
         Converts a zero-dimensional integer array to a Python ``int`` object.
+
+        .. note::
+           This method is called to implement `operator.index() <https://docs.python.org/3/reference/datamodel.html#object.__index__>`_. See also `PEP 357 <https://www.python.org/dev/peps/pep-0357/>`_.
 
         Parameters
         ----------
@@ -463,10 +487,6 @@ class array():
         -------
         out: int
             a Python ``int`` object representing the single element of the array instance.
-
-        Notes
-        -----
-        - This method is called to implement `operator.index() <https://docs.python.org/3/reference/datamodel.html#object.__index__>`_. See also `PEP 357 <https://www.python.org/dev/peps/pep-0357/>`_.
         """
 
     def __int__(self: array, /) -> int:
@@ -498,9 +518,9 @@ class array():
         out: array
             an array containing the element-wise results. The returned array must have the same data type as `self`.
 
-        Notes
-        -----
-        - Element-wise results must equal the results returned by the equivalent element-wise function :ref:`function-bitwise_invert`.
+
+        .. note::
+           Element-wise results must equal the results returned by the equivalent element-wise function :ref:`function-bitwise_invert`.
         """
 
     def __le__(self: array, other: Union[int, float, array], /) -> array:
@@ -519,9 +539,9 @@ class array():
         out: array
             an array containing the element-wise results. The returned array must have a data type of ``bool``.
 
-        Notes
-        -----
-        - Element-wise results must equal the results returned by the equivalent element-wise function :ref:`function-less_equal`.
+
+        .. note::
+           Element-wise results must equal the results returned by the equivalent element-wise function :ref:`function-less_equal`.
         """
 
     def __lshift__(self: array, other: Union[int, array], /) -> array:
@@ -540,9 +560,9 @@ class array():
         out: array
             an array containing the element-wise results. The returned array must have the same data type as ``self``.
 
-        Notes
-        -----
-        - Element-wise results must equal the results returned by the equivalent element-wise function :ref:`function-bitwise_left_shift`.
+
+        .. note::
+           Element-wise results must equal the results returned by the equivalent element-wise function :ref:`function-bitwise_left_shift`.
         """
 
     def __lt__(self: array, other: Union[int, float, array], /) -> array:
@@ -561,14 +581,17 @@ class array():
         out: array
             an array containing the element-wise results. The returned array must have a data type of ``bool``.
 
-        Notes
-        -----
-        - Element-wise results must equal the results returned by the equivalent element-wise function :ref:`function-less`.
+
+        .. note::
+           Element-wise results must equal the results returned by the equivalent element-wise function :ref:`function-less`.
         """
 
     def __matmul__(self: array, other: array, /) -> array:
         """
         Computes the matrix product.
+
+        .. note::
+           The ``matmul`` function must implement the same semantics as the built-in ``@`` operator (see `PEP 465 <https://www.python.org/dev/peps/pep-0465>`_).
 
         Parameters
         ----------
@@ -589,10 +612,9 @@ class array():
             -   if either ``self`` or ``other`` has more than two dimensions, an array having a shape determined by :ref:`broadcasting` ``shape(self)[:-2]`` against ``shape(other)[:-2]`` and containing the `conventional matrix product <https://en.wikipedia.org/wiki/Matrix_multiplication>`_ for each stacked matrix.
             -   The returned array must have a data type determined by :ref:`type-promotion`.
 
-        Notes
-        -----
-        - The ``matmul`` function must implement the same semantics as the built-in ``@`` operator (see `PEP 465 <https://www.python.org/dev/peps/pep-0465>`_).
-        - Results must equal the results returned by the equivalent function :ref:`function-matmul`.
+
+        .. note::
+           Results must equal the results returned by the equivalent function :ref:`function-matmul`.
 
         **Raises**
 
@@ -607,6 +629,9 @@ class array():
         """
         Evaluates ``self_i % other_i`` for each element of an array instance with the respective element of the array ``other``.
 
+        .. note::
+           For input arrays which promote to an integer data type, the result of division by zero is unspecified and thus implementation-defined.
+
         Parameters
         ----------
         self: array
@@ -619,32 +644,14 @@ class array():
         out: array
             an array containing the element-wise results. Each element-wise result must have the same sign as the respective element ``other_i``. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
 
-        Notes
-        -----
-        - For input arrays which promote to an integer data type, the result of division by zero is unspecified and thus implementation-defined.
-        - Element-wise results must equal the results returned by the equivalent element-wise function :ref:`function-remainder`.
+
+        .. note::
+           Element-wise results must equal the results returned by the equivalent element-wise function :ref:`function-remainder`.
         """
 
     def __mul__(self: array, other: Union[int, float, array], /) -> array:
         """
         Calculates the product for each element of an array instance with the respective element of the array ``other``.
-
-        Parameters
-        ----------
-        self: array
-            array instance. Should have a numeric data type.
-        other: Union[int, float, array]
-            other array. Must be compatible with ``self`` (see :ref:`broadcasting`). Should have a numeric data type.
-
-        Returns
-        -------
-        out: array
-            an array containing the element-wise products. The returned array must have a data type determined by :ref:`type-promotion`.
-
-        Notes
-        -----
-        - Floating-point multiplication is not always associative due to finite precision.
-        - Element-wise results must equal the results returned by the equivalent element-wise function :ref:`function-multiply`.
 
         **Special cases**
 
@@ -659,6 +666,26 @@ class array():
         -   If ``x1_i`` is either ``+infinity`` or ``-infinity`` and ``x2_i`` is a nonzero finite number, the result is a signed infinity with the mathematical sign determined by the rule already stated above.
         -   If ``x1_i`` is a nonzero finite number and ``x2_i`` is either ``+infinity`` or ``-infinity``, the result is a signed infinity with the mathematical sign determined by the rule already stated above.
         -   In the remaining cases, where neither ``infinity`` nor `NaN` is involved, the product must be computed and rounded to the nearest representable value according to IEEE 754-2019 and a supported rounding mode. If the magnitude is too large to represent, the result is an ``infinity`` of appropriate mathematical sign. If the magnitude is too small to represent, the result is a zero of appropriate mathematical sign.
+
+
+        .. note::
+           Floating-point multiplication is not always associative due to finite precision.
+
+        Parameters
+        ----------
+        self: array
+            array instance. Should have a numeric data type.
+        other: Union[int, float, array]
+            other array. Must be compatible with ``self`` (see :ref:`broadcasting`). Should have a numeric data type.
+
+        Returns
+        -------
+        out: array
+            an array containing the element-wise products. The returned array must have a data type determined by :ref:`type-promotion`.
+
+
+        .. note::
+           Element-wise results must equal the results returned by the equivalent element-wise function :ref:`function-multiply`.
         """
 
     def __ne__(self: array, other: Union[int, float, bool, array], /) -> array:
@@ -677,14 +704,17 @@ class array():
         out: array
             an array containing the element-wise results. The returned array must have a data type of ``bool`` (i.e., must be a boolean array).
 
-        Notes
-        -----
-        - Element-wise results must equal the results returned by the equivalent element-wise function :ref:`function-not_equal`.
+
+        .. note::
+           Element-wise results must equal the results returned by the equivalent element-wise function :ref:`function-not_equal`.
         """
 
     def __neg__(self: array, /) -> array:
         """
         Evaluates ``-self_i`` for each element of an array instance.
+
+        .. note::
+           For signed integer data types, the numerical negative of the minimum representable integer is implementation-dependent.
 
         Parameters
         ----------
@@ -696,10 +726,9 @@ class array():
         out: array
             an array containing the evaluated result for each element in ``self``. The returned array must have a data type determined by :ref:`type-promotion`.
 
-        Notes
-        -----
-        - For signed integer data types, the numerical negative of the minimum representable integer is implementation-dependent.
-        - Element-wise results must equal the results returned by the equivalent element-wise function :ref:`function-negative`.
+
+        .. note::
+           Element-wise results must equal the results returned by the equivalent element-wise function :ref:`function-negative`.
         """
 
     def __or__(self: array, other: Union[int, bool, array], /) -> array:
@@ -718,9 +747,9 @@ class array():
         out: array
             an array containing the element-wise results. The returned array must have a data type determined by :ref:`type-promotion`.
 
-        Notes
-        -----
-        - Element-wise results must equal the results returned by the equivalent element-wise function :ref:`function-bitwise_or`.
+
+        .. note::
+           Element-wise results must equal the results returned by the equivalent element-wise function :ref:`function-bitwise_or`.
         """
 
     def __pos__(self: array, /) -> array:
@@ -737,32 +766,19 @@ class array():
         out: array
             an array containing the evaluated result for each element. The returned array must have the same data type as ``self``.
 
-        Notes
-        -----
-        - Element-wise results must equal the results returned by the equivalent element-wise function :ref:`function-positive`.
+
+        .. note::
+           Element-wise results must equal the results returned by the equivalent element-wise function :ref:`function-positive`.
         """
 
     def __pow__(self: array, other: Union[int, float, array], /) -> array:
         """
         Calculates an implementation-dependent approximation of exponentiation by raising each element (the base) of an array instance to the power of ``other_i`` (the exponent), where ``other_i`` is the corresponding element of the array ``other``.
 
-        Parameters
-        ----------
-        self: array
-            array instance whose elements correspond to the exponentiation base. Should have a numeric data type.
-        other: Union[int, float, array]
-            other array whose elements correspond to the exponentiation exponent. Must be compatible with ``self`` (see :ref:`broadcasting`). Should have a numeric data type.
+        .. note::
+           If both ``self`` and ``other`` have integer data types, the result of ``__pow__`` when `other_i` is negative (i.e., less than zero) is unspecified and thus implementation-dependent.
 
-        Returns
-        -------
-        out: array
-            an array containing the element-wise results. The returned array must have a data type determined by :ref:`type-promotion`.
-
-        Notes
-        -----
-        - If both ``self`` and ``other`` have integer data types, the result of ``__pow__`` when `other_i` is negative (i.e., less than zero) is unspecified and thus implementation-dependent.
-        - If ``self`` has an integer data type and ``other`` has a floating-point data type, behavior is implementation-dependent, as type promotion between data type "kinds" (e.g., integer versus floating-point) is unspecified.
-        - Element-wise results must equal the results returned by the equivalent element-wise function :ref:`function-pow`.
+           If ``self`` has an integer data type and ``other`` has a floating-point data type, behavior is implementation-dependent, as type promotion between data type "kinds" (e.g., integer versus floating-point) is unspecified.
 
         **Special cases**
 
@@ -792,6 +808,22 @@ class array():
         -   If ``x1_i`` is ``-0``, ``x2_i`` is less than ``0``, and ``x2_i`` is an odd integer value, the result is ``-infinity``.
         -   If ``x1_i`` is ``-0``, ``x2_i`` is less than ``0``, and ``x2_i`` is not an odd integer value, the result is ``+infinity``.
         -   If ``x1_i`` is less than ``0``, ``x1_i`` is a finite number, ``x2_i`` is a finite number, and ``x2_i`` is not an integer value, the result is ``NaN``.
+
+        Parameters
+        ----------
+        self: array
+            array instance whose elements correspond to the exponentiation base. Should have a numeric data type.
+        other: Union[int, float, array]
+            other array whose elements correspond to the exponentiation exponent. Must be compatible with ``self`` (see :ref:`broadcasting`). Should have a numeric data type.
+
+        Returns
+        -------
+        out: array
+            an array containing the element-wise results. The returned array must have a data type determined by :ref:`type-promotion`.
+
+
+        .. note::
+           Element-wise results must equal the results returned by the equivalent element-wise function :ref:`function-pow`.
         """
 
     def __rshift__(self: array, other: Union[int, array], /) -> array:
@@ -810,9 +842,9 @@ class array():
         out: array
             an array containing the element-wise results. The returned array must have the same data type as ``self``.
 
-        Notes
-        -----
-        - Element-wise results must equal the results returned by the equivalent element-wise function :ref:`function-bitwise_right_shift`.
+
+        .. note::
+           Element-wise results must equal the results returned by the equivalent element-wise function :ref:`function-bitwise_right_shift`.
         """
 
     def __setitem__(self: array, key: Union[int, slice, ellipsis, Tuple[Union[int, slice, ellipsis], ...], array], value: Union[int, float, bool, array], /) -> None:
@@ -828,11 +860,14 @@ class array():
         value: Union[int, float, bool, array]
             value(s) to set. Must be compatible with ``self[key]`` (see :ref:`broadcasting`).
 
-        Notes
-        -----
-        - Setting array values must not affect the data type of ``self``.
-        - When ``value`` is a Python scalar (i.e., ``int``, ``float``, ``bool``), behavior must follow specification guidance on mixing arrays with Python scalars (see :ref:`type-promotion`).
-        - When ``value`` is an ``array`` of a different data type than ``self``, how values are cast to the data type of ``self`` is implementation defined.
+
+        .. note::
+
+           Setting array values must not affect the data type of ``self``.
+
+           When ``value`` is a Python scalar (i.e., ``int``, ``float``, ``bool``), behavior must follow specification guidance on mixing arrays with Python scalars (see :ref:`type-promotion`).
+
+           When ``value`` is an ``array`` of a different data type than ``self``, how values are cast to the data type of ``self`` is implementation defined.
         """
 
     def __sub__(self: array, other: Union[int, float, array], /) -> array:
@@ -851,32 +886,19 @@ class array():
         out: array
             an array containing the element-wise differences. The returned array must have a data type determined by :ref:`type-promotion`.
 
-        Notes
-        -----
-        - Element-wise results must equal the results returned by the equivalent element-wise function :ref:`function-subtract`.
+
+        .. note::
+           Element-wise results must equal the results returned by the equivalent element-wise function :ref:`function-subtract`.
         """
 
     def __truediv__(self: array, other: Union[int, float, array], /) -> array:
         """
         Evaluates ``self_i / other_i`` for each element of an array instance with the respective element of the array ``other``.
 
-        Parameters
-        ----------
-        self: array
-            array instance. Should have a numeric data type.
-        other: Union[int, float, array]
-            other array. Must be compatible with ``self`` (see :ref:`broadcasting`). Should have a numeric data type.
+        .. note::
+           If one or both of ``self`` and ``other`` have integer data types, the result is implementation-dependent, as type promotion between data type "kinds" (e.g., integer versus floating-point) is unspecified.
 
-        Returns
-        -------
-        out: array
-            an array containing the element-wise results. The returned array should have a floating-point data type determined by :ref:`type-promotion`.
-
-        Notes
-        -----
-        - Element-wise results must equal the results returned by the equivalent element-wise function :ref:`function-divide`.
-        - If one or both of ``self`` and ``other`` have integer data types, the result is implementation-dependent, as type promotion between data type "kinds" (e.g., integer versus floating-point) is unspecified.
-        - Specification-compliant libraries may choose to raise an error or return an array containing the element-wise results. If an array is returned, the array must have a floating-point data type.
+           Specification-compliant libraries may choose to raise an error or return an array containing the element-wise results. If an array is returned, the array must have a floating-point data type.
 
         **Special cases**
 
@@ -904,6 +926,22 @@ class array():
         -   If ``x1_i`` and ``x2_i`` have the same mathematical sign and are both nonzero finite numbers, the result has a positive mathematical sign.
         -   If ``x1_i`` and ``x2_i`` have different mathematical signs and are both nonzero finite numbers, the result has a negative mathematical sign.
         -   In the remaining cases, where neither ``-infinity``, ``+0``, ``-0``, nor ``NaN`` is involved, the quotient must be computed and rounded to the nearest representable value according to IEEE 754-2019 and a supported rounding mode. If the magnitude is too large to represent, the operation overflows and the result is an ``infinity`` of appropriate mathematical sign. If the magnitude is too small to represent, the operation underflows and the result is a zero of appropriate mathematical sign.
+
+        Parameters
+        ----------
+        self: array
+            array instance. Should have a numeric data type.
+        other: Union[int, float, array]
+            other array. Must be compatible with ``self`` (see :ref:`broadcasting`). Should have a numeric data type.
+
+        Returns
+        -------
+        out: array
+            an array containing the element-wise results. The returned array should have a floating-point data type determined by :ref:`type-promotion`.
+
+
+        .. note::
+           Element-wise results must equal the results returned by the equivalent element-wise function :ref:`function-divide`.
         """
 
     def __xor__(self: array, other: Union[int, bool, array], /) -> array:
@@ -922,9 +960,9 @@ class array():
         out: array
             an array containing the element-wise results. The returned array must have a data type determined by :ref:`type-promotion`.
 
-        Notes
-        -----
-        - Element-wise results must equal the results returned by the equivalent element-wise function :ref:`function-bitwise_xor`.
+
+        .. note::
+           Element-wise results must equal the results returned by the equivalent element-wise function :ref:`function-bitwise_xor`.
         """
 
     def to_device(self: array, device: Device, /, *, stream: Optional[Union[int, Any]] = None) -> array:
@@ -945,7 +983,7 @@ class array():
         out: array
             an array with the same data and data type as ``self`` and located on the specified ``device``.
 
-        Notes
-        -----
-        - If ``stream`` is given, the copy operation should be enqueued on the provided ``stream``; otherwise, the copy operation should be enqueued on the default stream/queue. Whether the copy is performed synchronously or asynchronously is implementation-dependent. Accordingly, if synchronization is required to guarantee data safety, this must be clearly explained in a conforming library's documentation.
+
+        .. note::
+           If ``stream`` is given, the copy operation should be enqueued on the provided ``stream``; otherwise, the copy operation should be enqueued on the default stream/queue. Whether the copy is performed synchronously or asynchronously is implementation-dependent. Accordingly, if synchronization is required to guarantee data safety, this must be clearly explained in a conforming library's documentation.
         """
