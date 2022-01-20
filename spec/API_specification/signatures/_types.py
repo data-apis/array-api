@@ -8,6 +8,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from typing import Any, List, Literal, Optional, Sequence, Tuple, TypeVar, Union, Protocol
+from enum import Enum
 
 array = TypeVar('array')
 device = TypeVar('device')
@@ -43,4 +44,4 @@ class NestedSequence(Protocol[_T_co]):
 
 __all__ = ['Any', 'List', 'Literal', 'NestedSequence', 'Optional',
 'PyCapsule', 'SupportsBufferProtocol', 'SupportsDLPack', 'Tuple', 'Union',
-'array', 'device', 'dtype', 'ellipsis', 'finfo_object', 'iinfo_object']
+'array', 'device', 'dtype', 'ellipsis', 'finfo_object', 'iinfo_object', 'Enum']
