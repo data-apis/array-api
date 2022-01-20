@@ -1,0 +1,6 @@
+﻿signatures.array\_object.array.T
+================================
+
+.. currentmodule:: signatures.array_object
+
+.. autoproperty:: array.T

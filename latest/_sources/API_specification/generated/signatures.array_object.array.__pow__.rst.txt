@@ -1,0 +1,6 @@
+﻿signatures.array\_object.array.\_\_pow\_\_
+==========================================
+
+.. currentmodule:: signatures.array_object
+
+.. automethod:: array.__pow__

@@ -1,0 +1,6 @@
+﻿signatures.array\_object.array.to\_device
+=========================================
+
+.. currentmodule:: signatures.array_object
+
+.. automethod:: array.to_device

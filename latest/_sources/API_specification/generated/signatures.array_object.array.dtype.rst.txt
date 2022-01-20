@@ -1,0 +1,6 @@
+﻿signatures.array\_object.array.dtype
+====================================
+
+.. currentmodule:: signatures.array_object
+
+.. autoproperty:: array.dtype

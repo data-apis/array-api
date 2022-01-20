@@ -1,0 +1,6 @@
+﻿signatures.array\_object.array.shape
+====================================
+
+.. currentmodule:: signatures.array_object
+
+.. autoproperty:: array.shape
