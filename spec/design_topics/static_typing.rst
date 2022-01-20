@@ -10,8 +10,8 @@ simply as ``array``; what that means is dealt with in this section.
 Introducing type annotations in libraries became more relevant only when
 Python 2.7 support was dropped at the start of 2020. As a consequence, using
 type annotations with array libraries is largely still a work in progress.
-This version of the API standard does not deal with trying to type _array
-properties_ like shape, dimensionality or dtype, because that's not a solved
+This version of the API standard does not deal with trying to type *array
+properties* like shape, dimensionality or dtype, because that's not a solved
 problem in individual array libraries yet.
 
 An ``array`` type annotation can mean either the type of one specific array
