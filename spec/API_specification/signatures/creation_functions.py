@@ -18,14 +18,14 @@ def arange(start: Union[int, float], /, stop: Optional[Union[int, float]] = None
     device: Optional[device]
         device on which to place the created array. Default: ``None``.
 
+
+    .. note::
+       This function cannot guarantee that the interval does not include the ``stop`` value in those cases where ``step`` is not an integer and floating-point rounding errors affect the length of the output array.
+
     Returns
     -------
     out: array
         a one-dimensional array containing evenly spaced values. The length of the output array must be ``ceil((stop-start)/step)`` if ``stop - start`` and ``step`` have the same sign, and length ``0`` otherwise.
-
-    Notes
-    -----
-    - This function cannot guarantee that the interval does not include the ``stop`` value in those cases where ``step`` is not an integer and floating-point rounding errors affect the length of the output array.
     """
 
 def asarray(obj: Union[array, bool, int, float, NestedSequence, SupportsBufferProtocol], /, *, dtype: Optional[dtype] = None, device: Optional[device] = None, copy: Optional[bool] = None) -> array:
@@ -37,9 +37,11 @@ def asarray(obj: Union[array, bool, int, float, NestedSequence, SupportsBufferPr
     obj: Union[array, bool, int, float, NestedSequence[bool | int | float], SupportsBufferProtocol]
         object to be converted to an array. May be a Python scalar, a (possibly nested) sequence of Python scalars, or an object supporting the Python buffer protocol.
 
-        **Tip**
+        .. admonition:: Tip
+           :class: important
 
-        An object supporting the buffer protocol can be turned into a memoryview through ``memoryview(obj)``.
+           An object supporting the buffer protocol can be turned into a memoryview through ``memoryview(obj)``.
+
     dtype: Optional[dtype]
         output array data type. If ``dtype`` is ``None``, the output array data type must be inferred from the data type(s) in ``obj``. If all input values are Python scalars, then
 
@@ -48,6 +50,12 @@ def asarray(obj: Union[array, bool, int, float, NestedSequence, SupportsBufferPr
         -   if one or more values are ``float``\s, the output data type must be the default floating-point data type.
 
         Default: ``None``.
+
+        .. admonition:: Note
+           :class: note
+
+           If ``dtype`` is not ``None``, then array conversions should obey :ref:`type-promotion` rules. Conversions not specified according to :ref:`type-promotion` rules may or may not be permitted by a conforming array library. To perform an explicit cast, use :ref:`function-astype`.
+
     device: Optional[device]
         device on which to place the created array. If ``device`` is ``None`` and ``x`` is an array, the output array device must be inferred from ``x``. Default: ``None``.
     copy: Optional[bool]
@@ -57,10 +65,6 @@ def asarray(obj: Union[array, bool, int, float, NestedSequence, SupportsBufferPr
     -------
     out: array
         an array containing the data from ``obj``.
-
-    Notes
-    -----
-    - If ``dtype`` is not ``None``, then array conversions should obey :ref:`type-promotion` rules. Conversions not specified according to :ref:`type-promotion` rules may or may not be permitted by a conforming array library. To perform an explicit cast, use :ref:`function-astype`.
     """
 
 def empty(shape: Union[int, Tuple[int, ...]], *, dtype: Optional[dtype] = None, device: Optional[device] = None) -> array:
@@ -138,9 +142,10 @@ def from_dlpack(x: object, /) -> array:
     out: array
         an array containing the data in `x`.
 
-    Notes
-    -----
-    - The returned array may be either a copy or a view. See :ref:`data-interchange` for details.
+        .. admonition:: Note
+           :class: note
+
+           The returned array may be either a copy or a view. See :ref:`data-interchange` for details.
     """
 
 def full(shape: Union[int, Tuple[int, ...]], fill_value: Union[int, float], *, dtype: Optional[dtype] = None, device: Optional[device] = None) -> array:
@@ -155,6 +160,10 @@ def full(shape: Union[int, Tuple[int, ...]], fill_value: Union[int, float], *, d
         fill value.
     dtype: Optional[dtype]
         output array data type. If ``dtype`` is ``None``, the output array data type must be inferred from ``fill_value``. If the fill value is an ``int``, the output array data type must be the default integer data type. If the fill value is a ``float``, the output array data type must be the default floating-point data type. If the fill value is a ``bool``, the output array must have boolean data type. Default: ``None``.
+
+        .. note::
+           If ``dtype`` is ``None`` and the ``fill_value`` exceeds the precision of the resolved default output array data type, behavior is left unspecified and, thus, implementation-defined.
+
     device: Optional[device]
         device on which to place the created array. Default: ``None``.
 
@@ -162,10 +171,6 @@ def full(shape: Union[int, Tuple[int, ...]], fill_value: Union[int, float], *, d
     -------
     out: array
         an array where every element is equal to ``fill_value``.
-
-    Notes
-    -----
-    - If ``dtype`` is ``None`` and the ``fill_value`` exceeds the precision of the resolved default output array data type, behavior is left unspecified and, thus, implementation-defined.
     """
 
 def full_like(x: array, /, fill_value: Union[int, float], *, dtype: Optional[dtype] = None, device: Optional[device] = None) -> array:
@@ -180,6 +185,13 @@ def full_like(x: array, /, fill_value: Union[int, float], *, dtype: Optional[dty
         fill value.
     dtype: Optional[dtype]
         output array data type. If ``dtype`` is ``None``, the output array data type must be inferred from ``x``. Default: ``None``.
+
+        .. note::
+           If ``dtype`` is ``None`` and the ``fill_value`` exceeds the precision of the resolved output array data type, behavior is unspecified and, thus, implementation-defined.
+
+        .. note::
+           If ``dtype`` is ``None`` and the ``fill_value`` has a data type (``int`` or ``float``) which is not of the same data type kind as the resolved output array data type (see :ref:`type-promotion`), behavior is unspecified and, thus, implementation-defined.
+
     device: Optional[device]
         device on which to place the created array. If ``device`` is ``None``, the output array device must be inferred from ``x``. Default: ``None``.
 
@@ -187,11 +199,6 @@ def full_like(x: array, /, fill_value: Union[int, float], *, dtype: Optional[dty
     -------
     out: array
         an array having the same shape as ``x`` and where every element is equal to ``fill_value``.
-
-    Notes
-    -----
-    - If ``dtype`` is ``None`` and the ``fill_value`` exceeds the precision of the resolved output array data type, behavior is unspecified and, thus, implementation-defined.
-    - If ``dtype`` is ``None`` and the ``fill_value`` has a data type (``int`` or ``float``) which is not of the same data type kind as the resolved output array data type (see :ref:`type-promotion`), behavior is unspecified and, thus, implementation-defined.
     """
 
 def linspace(start: Union[int, float], stop: Union[int, float], /, num: int, *, dtype: Optional[dtype] = None, device: Optional[device] = None, endpoint: bool = True) -> array:
@@ -204,6 +211,10 @@ def linspace(start: Union[int, float], stop: Union[int, float], /, num: int, *, 
         the start of the interval.
     stop: Union[int, float]
         the end of the interval. If ``endpoint`` is ``False``, the function must generate a sequence of ``num+1`` evenly spaced numbers starting with ``start`` and ending with ``stop`` and exclude the ``stop`` from the returned array such that the returned array consists of evenly spaced numbers over the half-open interval ``[start, stop)``. If ``endpoint`` is ``True``, the output array must consist of evenly spaced numbers over the closed interval ``[start, stop]``. Default: ``True``.
+
+        .. note::
+           The step size changes when `endpoint` is `False`.
+
     num: int
         number of samples. Must be a non-negative integer value; otherwise, the function must raise an exception.
     dtype: Optional[dtype]
@@ -217,10 +228,6 @@ def linspace(start: Union[int, float], stop: Union[int, float], /, num: int, *, 
     -------
     out: array
         a one-dimensional array containing evenly spaced values.
-
-    Notes
-    -----
-    - The step size changes when `endpoint` is `False`.
     """
 
 def meshgrid(*arrays: array, indexing: str = 'xy') -> List[array]:
@@ -291,6 +298,9 @@ def tril(x: array, /, *, k: int = 0) -> array:
     """
     Returns the lower triangular part of a matrix (or a stack of matrices) ``x``.
 
+    .. note::
+       The lower triangular part of the matrix is defined as the elements on and below the specified diagonal ``k``.
+
     Parameters
     ----------
     x: array
@@ -298,20 +308,21 @@ def tril(x: array, /, *, k: int = 0) -> array:
     k: int
         diagonal above which to zero elements. If ``k = 0``, the diagonal is the main diagonal. If ``k < 0``, the diagonal is below the main diagonal. If ``k > 0``, the diagonal is above the main diagonal. Default: ``0``.
 
+        .. note::
+           The main diagonal is defined as the set of indices ``{(i, i)}`` for ``i`` on the interval ``[0, min(M, N) - 1]``.
+
     Returns
     -------
     out: array
         an array containing the lower triangular part(s). The returned array must have the same shape and data type as ``x``. All elements above the specified diagonal ``k`` must be zeroed. The returned array should be allocated on the same device as ``x``.
-
-    Notes
-    -----
-    - The lower triangular part of the matrix is defined as the elements on and below the specified diagonal ``k``.
-    - The main diagonal is defined as the set of indices ``{(i, i)}`` for ``i`` on the interval ``[0, min(M, N) - 1]``.
     """
 
 def triu(x: array, /, *, k: int = 0) -> array:
     """
     Returns the upper triangular part of a matrix (or a stack of matrices) ``x``.
+
+    .. note::
+       The upper triangular part of the matrix is defined as the elements on and above the specified diagonal ``k``.
 
     Parameters
     ----------
@@ -320,15 +331,13 @@ def triu(x: array, /, *, k: int = 0) -> array:
     k: int
         diagonal below which to zero elements. If ``k = 0``, the diagonal is the main diagonal. If ``k < 0``, the diagonal is below the main diagonal. If ``k > 0``, the diagonal is above the main diagonal. Default: ``0``.
 
+        .. note::
+           The main diagonal is defined as the set of indices ``{(i, i)}`` for ``i`` on the interval ``[0, min(M, N) - 1]``.
+
     Returns
     -------
     out: array
         an array containing the upper triangular part(s). The returned array must have the same shape and data type as ``x``. All elements below the specified diagonal ``k`` must be zeroed. The returned array should be allocated on the same device as ``x``.
-
-    Notes
-    -----
-    - The upper triangular part of the matrix is defined as the elements on and above the specified diagonal ``k``.
-    - The main diagonal is defined as the set of indices ``{(i, i)}`` for ``i`` on the interval ``[0, min(M, N) - 1]``.
     """
 
 def zeros(shape: Union[int, Tuple[int, ...]], *, dtype: Optional[dtype] = None, device: Optional[device] = None) -> array:
