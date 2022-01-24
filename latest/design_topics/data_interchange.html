@@ -390,7 +390,7 @@
      </div>
      <div class="md-content">
       <article class="md-content__inner md-typeset" role="main">
-       <section class="tex2jax_ignore mathjax_ignore" id="data-interchange-mechanisms">
+       <section id="data-interchange-mechanisms">
         <span id="data-interchange">
         </span>
         <h1 id="design-topics-data-interchange--page-root">
@@ -737,8 +737,7 @@ may make a copy of the data. In both cases:
                y
               </span>
              </code>
-             may or may not be a view, therefore the user must keep the
-recommendation to avoid mutating
+             may or may not be a view, therefore the user must keep the recommendation to avoid mutating
              <code class="docutils literal notranslate">
               <span class="pre">
                y
@@ -812,9 +811,7 @@ here because data interchange requires coordination between
 implementers on, e.g., memory management.
            </em>
           </p>
-          <p>
-           <img alt="Diagram of DLPack structs" src="../_images/DLPack_diagram.png"/>
-          </p>
+          <img alt="Diagram of DLPack structs" src="../_images/DLPack_diagram.png"/>
           <p>
            <em>
             DLPack diagram. Dark blue are the structs it defines, light blue
