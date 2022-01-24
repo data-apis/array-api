@@ -4,9 +4,10 @@ This file defines the types for type annotations.
 The type variables should be replaced with the actual types for a given
 library, e.g., for NumPy TypeVar('array') would be replaced with ndarray.
 """
+from __future__ import annotations
 
 from dataclasses import dataclass
-from typing import Any, List, Literal, Optional, Sequence, Tuple, TypeVar, Union
+from typing import Any, List, Literal, Optional, Sequence, Tuple, TypeVar, Union, Protocol
 from enum import Enum
 
 array = TypeVar('array')
@@ -33,8 +34,13 @@ class iinfo_object:
     max: int
     min: int
 
-# This should really be recursive, but that isn't supported yet.
-NestedSequence = Sequence[Sequence[Any]]
+
+_T_co = TypeVar("_T_co", covariant=True)
+
+class NestedSequence(Protocol[_T_co]):
+    def __getitem__(self, key: int, /) -> Union[_T_co, NestedSequence[_T_co]]: ...
+    def __len__(self, /) -> int: ...
+
 
 __all__ = ['Any', 'List', 'Literal', 'NestedSequence', 'Optional',
 'PyCapsule', 'SupportsBufferProtocol', 'SupportsDLPack', 'Tuple', 'Union',

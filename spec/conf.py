@@ -46,6 +46,7 @@ autosummary_generate = True
 autodoc_typehints = 'signature'
 add_module_names = False
 napoleon_custom_sections = [('Returns', 'params_style')]
+default_role = 'code'
 
 # Make autosummary show the signatures of functions in the tables using actual
 # Python syntax. There's currently no supported way to do this, so we have to

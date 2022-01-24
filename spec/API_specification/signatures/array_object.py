@@ -237,7 +237,7 @@ class array():
 
     def __dlpack__(self: array, /, *, stream: Optional[Union[int, Any]] = None) -> PyCapsule:
         """
-        Exports the array for consumption by :ref:`function-from_dlpack` as a DLPack capsule.
+        Exports the array for consumption by :func:`signatures.creation_functions.from_dlpack` as a DLPack capsule.
 
         Parameters
         ----------
@@ -292,7 +292,7 @@ class array():
 
     def __dlpack_device__(self: array, /) -> Tuple[Enum, int]:
         """
-        Returns device type and device ID in DLPack format. Meant for use within :ref:`function-from_dlpack`.
+        Returns device type and device ID in DLPack format. Meant for use within :func:`signatures.creation_functions.from_dlpack`.
 
         Parameters
         ----------
