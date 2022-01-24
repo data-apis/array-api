@@ -106,7 +106,7 @@ Notes
 ~~~~~
 
 -   Type promotion rules must apply when determining the common result type for two **array** operands during an arithmetic operation, regardless of array dimension. Accordingly, zero-dimensional arrays must be subject to the same type promotion rules as dimensional arrays.
--   Type promotion of non-numerical data types to numerical data types is unspecified (e.g., `bool` to ``intxx`` or ``floatxx``).
+-   Type promotion of non-numerical data types to numerical data types is unspecified (e.g., ``bool`` to ``intxx`` or ``floatxx``).
 
 .. note::
    Mixed integer and floating-point type promotion rules are not specified because behavior varies between implementations.
