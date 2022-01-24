@@ -318,7 +318,7 @@
      </div>
      <div class="md-content">
       <article class="md-content__inner md-typeset" role="main">
-       <section class="tex2jax_ignore mathjax_ignore" id="copy-view-behaviour-and-mutability">
+       <section id="copy-view-behaviour-and-mutability">
         <span id="copyview-mutability">
         </span>
         <h1 id="design-topics-copies-views-and-mutation--page-root">
@@ -435,21 +435,19 @@ contained in arrays. These include:
          <li>
           <p>
            The
-           <code class="docutils literal notranslate">
-            <span class="pre">
-             out=
-            </span>
-           </code>
+           <cite>
+            out=
+           </cite>
            keyword present in some strided array libraries (e.g.
            <code class="docutils literal notranslate">
             <span class="pre">
              sin(x,
             </span>
             <span class="pre">
-             out=y
+             out=y)
             </span>
            </code>
-           ))
+           )
           </p>
          </li>
         </ol>
@@ -517,11 +515,7 @@ standard chooses to include them.
          is slightly different - it’s less heavily used, and
 easier to avoid. It’s also not an optimal API, because it mixes an
 “efficiency of implementation” consideration (“you’re allowed to do this
-inplace”) with the semantics of a function (“the output
-         <em>
-          must
-         </em>
-         be placed into
+inplace”) with the semantics of a function (“the output _must_ be placed into
 this array). There are libraries that do some form of tracing or abstract
 interpretation over a language that does not support mutation (to make
 analysis easier); in those cases implementing
@@ -533,11 +527,7 @@ analysis easier); in those cases implementing
          with correct handling of
 views may even be impossible to do. There’s alternatives, for example the
 donated arguments in JAX or working buffers in LAPACK, that allow the user to
-express “you
-         <em>
-          may
-         </em>
-         overwrite this data, do whatever is fastest”. Given that
+express “you _may_ overwrite this data, do whatever is fastest”. Given that
 those alternatives aren’t widely used in array libraries today, this API
 standard chooses to (a) leave out
          <code class="docutils literal notranslate">
