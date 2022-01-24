@@ -1,0 +1,6 @@
+﻿signatures.utility\_functions.any
+=================================
+
+.. currentmodule:: signatures.utility_functions
+
+.. autofunction:: any
