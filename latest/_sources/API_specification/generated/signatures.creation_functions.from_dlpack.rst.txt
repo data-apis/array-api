@@ -1,0 +1,6 @@
+﻿.. currentmodule:: signatures.creation_functions
+
+from_dlpack
+===========
+
+.. autofunction:: from_dlpack

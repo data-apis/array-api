@@ -38,7 +38,7 @@
   </script>
   <link href="../../_static/images/apple-icon-152x152.png" rel="apple-touch-icon"/>
   <title>
-   signatures.array_object.array.__invert__ — Python array API standard 2021.01-DRAFT documentation
+   full_like — Python array API standard 2021.01-DRAFT documentation
   </title>
   <link href="../../_static/pygments.css" rel="stylesheet" type="text/css"/>
   <link href="../../_static/material.css" rel="stylesheet" type="text/css"/>
@@ -57,8 +57,8 @@
   </script>
   <link href="../../genindex.html" rel="index" title="Index"/>
   <link href="../../search.html" rel="search" title="Search"/>
-  <link href="signatures.array_object.array.__le__.html" rel="next" title="signatures.array_object.array.__le__"/>
-  <link href="signatures.array_object.array.__int__.html" rel="prev" title="signatures.array_object.array.__int__"/>
+  <link href="signatures.creation_functions.linspace.html" rel="next" title="linspace"/>
+  <link href="signatures.creation_functions.full.html" rel="prev" title="full"/>
   <link href="../../_static/images/apple-icon-152x152.png" rel="apple-touch-icon"/>
  </head>
  <body data-md-color-accent="green" data-md-color-primary="indigo" dir="ltr">
@@ -74,7 +74,7 @@
   <input class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
   <label class="md-overlay" data-md-component="overlay" for="__drawer">
   </label>
-  <a class="md-skip" href="#API_specification/generated/signatures.array_object.array.__invert__" tabindex="1">
+  <a class="md-skip" href="#API_specification/generated/signatures.creation_functions.full_like" tabindex="1">
    Skip to content
   </a>
   <header class="md-header" data-md-component="header">
@@ -97,7 +97,7 @@
         Python array API standard
        </span>
        <span class="md-header-nav__topic">
-        signatures.array_object.array.__invert__
+        full_like
        </span>
       </div>
      </div>
@@ -161,8 +161,8 @@
        </a>
       </li>
       <li class="md-tabs__item">
-       <a class="md-tabs__link" href="../array_object.html">
-        Array object
+       <a class="md-tabs__link" href="../creation_functions.html">
+        Creation Functions
        </a>
       </li>
      </ul>
@@ -360,28 +360,195 @@
      </div>
      <div class="md-content">
       <article class="md-content__inner md-typeset" role="main">
-       <section id="signatures-array-object-array-invert">
-        <h1 id="api-specification-generated-signatures-array-object-array-invert--page-root">
-         signatures.array_object.array.__invert__
-         <a class="headerlink" href="#api-specification-generated-signatures-array-object-array-invert--page-root" title="Permalink to this headline">
+       <section id="full-like">
+        <h1 id="api-specification-generated-signatures-creation-functions-full-like--page-root">
+         full_like
+         <a class="headerlink" href="#api-specification-generated-signatures-creation-functions-full-like--page-root" title="Permalink to this headline">
           ¶
          </a>
         </h1>
-        <dl class="py method">
-         <dt class="sig sig-object py" id="signatures.array_object.array.__invert__">
-          <span class="sig-prename descclassname">
-           <span class="pre">
-            array.
-           </span>
-          </span>
+        <dl class="py function">
+         <dt class="sig sig-object py" id="signatures.creation_functions.full_like">
           <span class="sig-name descname">
            <span class="pre">
-            __invert__
+            full_like
            </span>
           </span>
           <span class="sig-paren">
            (
           </span>
+          <em class="sig-param">
+           <span class="n">
+            <span class="pre">
+             x
+            </span>
+           </span>
+           <span class="p">
+            <span class="pre">
+             :
+            </span>
+           </span>
+           <span class="w">
+           </span>
+           <span class="n">
+            <span class="pre">
+             array
+            </span>
+           </span>
+          </em>
+          ,
+          <em class="sig-param">
+           <span class="o">
+            <span class="pre">
+             /
+            </span>
+           </span>
+          </em>
+          ,
+          <em class="sig-param">
+           <span class="n">
+            <span class="pre">
+             fill_value
+            </span>
+           </span>
+           <span class="p">
+            <span class="pre">
+             :
+            </span>
+           </span>
+           <span class="w">
+           </span>
+           <span class="n">
+            <span class="pre">
+             Union
+            </span>
+            <span class="p">
+             <span class="pre">
+              [
+             </span>
+            </span>
+            <span class="pre">
+             int
+            </span>
+            <span class="p">
+             <span class="pre">
+              ,
+             </span>
+            </span>
+            <span class="w">
+            </span>
+            <span class="pre">
+             float
+            </span>
+            <span class="p">
+             <span class="pre">
+              ]
+             </span>
+            </span>
+           </span>
+          </em>
+          ,
+          <em class="sig-param">
+           <span class="o">
+            <span class="pre">
+             *
+            </span>
+           </span>
+          </em>
+          ,
+          <em class="sig-param">
+           <span class="n">
+            <span class="pre">
+             dtype
+            </span>
+           </span>
+           <span class="p">
+            <span class="pre">
+             :
+            </span>
+           </span>
+           <span class="w">
+           </span>
+           <span class="n">
+            <span class="pre">
+             Optional
+            </span>
+            <span class="p">
+             <span class="pre">
+              [
+             </span>
+            </span>
+            <span class="pre">
+             dtype
+            </span>
+            <span class="p">
+             <span class="pre">
+              ]
+             </span>
+            </span>
+           </span>
+           <span class="w">
+           </span>
+           <span class="o">
+            <span class="pre">
+             =
+            </span>
+           </span>
+           <span class="w">
+           </span>
+           <span class="default_value">
+            <span class="pre">
+             None
+            </span>
+           </span>
+          </em>
+          ,
+          <em class="sig-param">
+           <span class="n">
+            <span class="pre">
+             device
+            </span>
+           </span>
+           <span class="p">
+            <span class="pre">
+             :
+            </span>
+           </span>
+           <span class="w">
+           </span>
+           <span class="n">
+            <span class="pre">
+             Optional
+            </span>
+            <span class="p">
+             <span class="pre">
+              [
+             </span>
+            </span>
+            <span class="pre">
+             device
+            </span>
+            <span class="p">
+             <span class="pre">
+              ]
+             </span>
+            </span>
+           </span>
+           <span class="w">
+           </span>
+           <span class="o">
+            <span class="pre">
+             =
+            </span>
+           </span>
+           <span class="w">
+           </span>
+           <span class="default_value">
+            <span class="pre">
+             None
+            </span>
+           </span>
+          </em>
           <span class="sig-paren">
            )
           </span>
@@ -395,35 +562,241 @@
             </span>
            </span>
           </span>
-          <a class="headerlink" href="#signatures.array_object.array.__invert__" title="Permalink to this definition">
+          <a class="headerlink" href="#signatures.creation_functions.full_like" title="Permalink to this definition">
            ¶
           </a>
          </dt>
          <dd>
           <p>
-           Evaluates
+           Returns a new array filled with
            <code class="docutils literal notranslate">
             <span class="pre">
-             ~self_i
+             fill_value
             </span>
            </code>
-           for each element of an array instance.
+           and having the same
+           <code class="docutils literal notranslate">
+            <span class="pre">
+             shape
+            </span>
+           </code>
+           as an input array
+           <code class="docutils literal notranslate">
+            <span class="pre">
+             x
+            </span>
+           </code>
+           .
           </p>
           <dl class="field-list simple">
            <dt class="field-odd">
             Parameters
            </dt>
            <dd class="field-odd">
-            <p>
-             <strong>
-              self
-             </strong>
-             (
-             <em>
-              array
-             </em>
-             ) – array instance. Should have an integer or boolean data type.
-            </p>
+            <ul class="simple">
+             <li>
+              <p>
+               <strong>
+                x
+               </strong>
+               (
+               <em>
+                array
+               </em>
+               ) – input array from which to derive the output array shape.
+              </p>
+             </li>
+             <li>
+              <p>
+               <strong>
+                fill_value
+               </strong>
+               (
+               <em>
+                Union
+               </em>
+               <em>
+                [
+               </em>
+               <em>
+                int
+               </em>
+               <em>
+                ,
+               </em>
+               <em>
+                float
+               </em>
+               <em>
+                ]
+               </em>
+               ) – fill value.
+              </p>
+             </li>
+             <li>
+              <p>
+               <strong>
+                dtype
+               </strong>
+               (
+               <em>
+                Optional
+               </em>
+               <em>
+                [
+               </em>
+               <em>
+                dtype
+               </em>
+               <em>
+                ]
+               </em>
+               ) –
+              </p>
+              <p>
+               output array data type. If
+               <code class="docutils literal notranslate">
+                <span class="pre">
+                 dtype
+                </span>
+               </code>
+               is
+               <code class="docutils literal notranslate">
+                <span class="pre">
+                 None
+                </span>
+               </code>
+               , the output array data type must be inferred from
+               <code class="docutils literal notranslate">
+                <span class="pre">
+                 x
+                </span>
+               </code>
+               . Default:
+               <code class="docutils literal notranslate">
+                <span class="pre">
+                 None
+                </span>
+               </code>
+               .
+              </p>
+              <div class="admonition note">
+               <p class="admonition-title">
+                Note
+               </p>
+               <p>
+                If
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  dtype
+                 </span>
+                </code>
+                is
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  None
+                 </span>
+                </code>
+                and the
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  fill_value
+                 </span>
+                </code>
+                exceeds the precision of the resolved output array data type, behavior is unspecified and, thus, implementation-defined.
+               </p>
+              </div>
+              <div class="admonition note">
+               <p class="admonition-title">
+                Note
+               </p>
+               <p>
+                If
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  dtype
+                 </span>
+                </code>
+                is
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  None
+                 </span>
+                </code>
+                and the
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  fill_value
+                 </span>
+                </code>
+                has a data type (
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  int
+                 </span>
+                </code>
+                or
+                <code class="docutils literal notranslate">
+                 <span class="pre">
+                  float
+                 </span>
+                </code>
+                ) which is not of the same data type kind as the resolved output array data type (see
+                <a class="reference internal" href="../type_promotion.html#type-promotion">
+                 <span class="std std-ref">
+                  Type Promotion Rules
+                 </span>
+                </a>
+                ), behavior is unspecified and, thus, implementation-defined.
+               </p>
+              </div>
+             </li>
+             <li>
+              <p>
+               <strong>
+                device
+               </strong>
+               (
+               <em>
+                Optional
+               </em>
+               <em>
+                [
+               </em>
+               <em>
+                device
+               </em>
+               <em>
+                ]
+               </em>
+               ) – device on which to place the created array. If
+               <code class="docutils literal notranslate">
+                <span class="pre">
+                 device
+                </span>
+               </code>
+               is
+               <code class="docutils literal notranslate">
+                <span class="pre">
+                 None
+                </span>
+               </code>
+               , the output array device must be inferred from
+               <code class="docutils literal notranslate">
+                <span class="pre">
+                 x
+                </span>
+               </code>
+               . Default:
+               <code class="docutils literal notranslate">
+                <span class="pre">
+                 None
+                </span>
+               </code>
+               .
+              </p>
+             </li>
+            </ul>
            </dd>
            <dt class="field-even">
             Returns
@@ -437,30 +810,22 @@
              <em>
               array
              </em>
-             ) – an array containing the element-wise results. The returned array must have the same data type as
-             <code class="code docutils literal notranslate">
+             ) – an array having the same shape as
+             <code class="docutils literal notranslate">
               <span class="pre">
-               self
+               x
+              </span>
+             </code>
+             and where every element is equal to
+             <code class="docutils literal notranslate">
+              <span class="pre">
+               fill_value
               </span>
              </code>
              .
             </p>
            </dd>
           </dl>
-          <div class="admonition note">
-           <p class="admonition-title">
-            Note
-           </p>
-           <p>
-            Element-wise results must equal the results returned by the equivalent element-wise function
-            <a class="reference internal" href="../elementwise_functions.html#function-bitwise-invert">
-             <span class="std std-ref">
-              bitwise_invert(x, /)
-             </span>
-            </a>
-            .
-           </p>
-          </div>
          </dd>
         </dl>
        </section>
@@ -472,7 +837,7 @@
   <footer class="md-footer">
    <div class="md-footer-nav">
     <nav class="md-footer-nav__inner md-grid">
-     <a class="md-flex md-footer-nav__link md-footer-nav__link--prev" href="signatures.array_object.array.__int__.html" rel="prev" title="signatures.array_object.array.__int__">
+     <a class="md-flex md-footer-nav__link md-footer-nav__link--prev" href="signatures.creation_functions.full.html" rel="prev" title="full">
       <div class="md-flex__cell md-flex__cell--shrink">
        <i class="md-icon md-icon--arrow-back md-footer-nav__button">
        </i>
@@ -482,17 +847,17 @@
         <span class="md-footer-nav__direction">
          Previous
         </span>
-        signatures.array_object.array.__int__
+        full
        </span>
       </div>
      </a>
-     <a class="md-flex md-footer-nav__link md-footer-nav__link--next" href="signatures.array_object.array.__le__.html" rel="next" title="signatures.array_object.array.__le__">
+     <a class="md-flex md-footer-nav__link md-footer-nav__link--next" href="signatures.creation_functions.linspace.html" rel="next" title="linspace">
       <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
        <span class="md-flex__ellipsis">
         <span class="md-footer-nav__direction">
          Next
         </span>
-        signatures.array_object.array.__le__
+        linspace
        </span>
       </div>
       <div class="md-flex__cell md-flex__cell--shrink">
