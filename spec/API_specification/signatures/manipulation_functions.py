@@ -16,9 +16,8 @@ def concat(arrays: Union[Tuple[array, ...], List[array]], /, *, axis: Optional[i
     out: array
         an output array containing the concatenated values. If the input arrays have different data types, normal :ref:`type-promotion` must apply. If the input arrays have the same data type, the output array must have the same data type as the input arrays.
 
-    Notes
-    -----
-    - This specification leaves type promotion between data type families (i.e., ``intxx`` and ``floatxx``) unspecified.
+        .. note::
+           This specification leaves type promotion between data type families (i.e., ``intxx`` and ``floatxx``) unspecified.
     """
 
 def expand_dims(x: array, /, *, axis: int = 0) -> array:
@@ -141,9 +140,8 @@ def stack(arrays: Union[Tuple[array, ...], List[array]], /, *, axis: int = 0) ->
     out: array
         an output array having rank ``N+1``, where ``N`` is the rank (number of dimensions) of ``x``. If the input arrays have different data types, normal :ref:`type-promotion` must apply. If the input arrays have the same data type, the output array must have the same data type as the input arrays.
 
-    Notes
-    -----
-    - This specification leaves type promotion between data type families (i.e., ``intxx`` and ``floatxx``) unspecified.
+        .. note::
+           This specification leaves type promotion between data type families (i.e., ``intxx`` and ``floatxx``) unspecified.
     """
 
 __all__ = ['concat', 'expand_dims', 'flip', 'permute_dims', 'reshape', 'roll', 'squeeze', 'stack']
