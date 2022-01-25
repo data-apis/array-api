@@ -105,7 +105,7 @@ however those are out of scope for this standard:
    libraries (NumPy being the exception). There are concerns with using a
    context manager however. A context manager can be tricky to use at a high
    level, since it may affect library code below function calls (non-local
-   effects). See, e.g., [this PyTorch issue](https://github.com/pytorch/pytorch/issues/27878)
+   effects). See, e.g., `this PyTorch issue <https://github.com/pytorch/pytorch/issues/27878>`_
    for a discussion on a good context manager API.
 
    Adding a context manager may be considered in a future version of this API standard.
