@@ -5,6 +5,9 @@ def matmul(x1: array, x2: array, /) -> array:
     """
     Computes the matrix product.
 
+    .. note::
+       The ``matmul`` function must implement the same semantics as the built-in ``@`` operator (see `PEP 465 <https://www.python.org/dev/peps/pep-0465>`_).
+
     Parameters
     ----------
     x1: array
@@ -25,9 +28,6 @@ def matmul(x1: array, x2: array, /) -> array:
 
         The returned array must have a data type determined by :ref:`type-promotion`.
 
-    Notes
-    -----
-    - The ``matmul`` function must implement the same semantics as the built-in ``@`` operator (see `PEP 465 <https://www.python.org/dev/peps/pep-0465>`_).
 
     **Raises**
 
@@ -63,6 +63,10 @@ def tensordot(x1: array, x2: array, /, *, axes: Union[int, Tuple[Sequence[int], 
         first input array. Should have a numeric data type.
     x2: array
         second input array. Must be compatible with ``x1`` for all non-contracted axes (see :ref:`broadcasting`). Should have a numeric data type.
+
+        .. note::
+           Contracted axes (dimensions) must not be broadcasted.
+
     axes: Union[int, Tuple[Sequence[int], Sequence[int]]]
         number of axes (dimensions) to contract or explicit sequences of axes (dimensions) for ``x1`` and ``x2``, respectively.
 
@@ -78,10 +82,6 @@ def tensordot(x1: array, x2: array, /, *, axes: Union[int, Tuple[Sequence[int], 
     -------
     out: array
         an array containing the tensor contraction whose shape consists of the non-contracted axes (dimensions) of the first array ``x1``, followed by the non-contracted axes (dimensions) of the second array ``x2``. The returned array must have a data type determined by :ref:`type-promotion`.
-
-    Notes
-    -----
-    - Contracted axes (dimensions) must not be broadcasted.
     """
 
 def vecdot(x1: array, x2: array, /, *, axis: int = -1) -> array:
