@@ -10,7 +10,7 @@ Type promotion rules can be understood at a high level from the following diagra
 .. image:: /_static/images/dtype_promotion_lattice.png
     :target: Type promotion diagram
 
-_Type promotion diagram. Promotion between any two types is given by their join on this lattice. Only the types of participating arrays matter, not their values. Dashed lines indicate that behavior for Python scalars is undefined on overflow. Boolean, integer and floating-point dtypes are not connected, indicating mixed-kind promotion is undefined._
+*Type promotion diagram. Promotion between any two types is given by their join on this lattice. Only the types of participating arrays matter, not their values. Dashed lines indicate that behavior for Python scalars is undefined on overflow. Boolean, integer and floating-point dtypes are not connected, indicating mixed-kind promotion is undefined.*
 
 Rules
 -----
@@ -106,7 +106,7 @@ Notes
 ~~~~~
 
 -   Type promotion rules must apply when determining the common result type for two **array** operands during an arithmetic operation, regardless of array dimension. Accordingly, zero-dimensional arrays must be subject to the same type promotion rules as dimensional arrays.
--   Type promotion of non-numerical data types to numerical data types is unspecified (e.g., `bool` to ``intxx`` or ``floatxx``).
+-   Type promotion of non-numerical data types to numerical data types is unspecified (e.g., ``bool`` to ``intxx`` or ``floatxx``).
 
 .. note::
    Mixed integer and floating-point type promotion rules are not specified because behavior varies between implementations.
