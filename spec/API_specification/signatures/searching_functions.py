@@ -42,7 +42,7 @@ def nonzero(x: array, /) -> Tuple[array, ...]:
     """
     Returns the indices of the array elements which are non-zero.
 
-    .. admonition:: Future extension
+    .. admonition:: Data-dependent output shape
        :class: admonition important
 
        The shape of the output array for this function depends on the data values in the input array; hence, array libraries which build computation graphs (e.g., JAX, Dask, etc.) may find this function difficult to implement without knowing array values. Accordingly, such libraries may choose to omit this function. See :ref:`data-dependent-output-shapes` section for more details.
