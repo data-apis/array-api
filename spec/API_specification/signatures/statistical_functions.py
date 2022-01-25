@@ -4,6 +4,15 @@ def max(x: array, /, *, axis: Optional[Union[int, Tuple[int, ...]]] = None, keep
     """
     Calculates the maximum value of the input array ``x``.
 
+    .. note::
+       When the number of elements over which to compute the maximum value is zero, the maximum value is implementation-defined. Specification-compliant libraries may choose to raise an error, return a sentinel value (e.g., if ``x`` is a floating-point input array, return ``NaN``), or return the minimum possible value for the input array ``x`` data type (e.g., if ``x`` is a floating-point array, return ``-infinity``).
+
+    **Special Cases**
+
+    For floating-point operands,
+
+    -   If ``x_i`` is ``NaN``, the maximum value is ``NaN`` (i.e., ``NaN`` values propagate).
+
     Parameters
     ----------
     x: array
@@ -17,22 +26,18 @@ def max(x: array, /, *, axis: Optional[Union[int, Tuple[int, ...]]] = None, keep
     -------
     out: array
         if the maximum value was computed over the entire array, a zero-dimensional array containing the maximum value; otherwise, a non-zero-dimensional array containing the maximum values. The returned array must have the same data type as ``x``.
-
-    Notes
-    -----
-    - When the number of elements over which to compute the maximum value is zero, the maximum value is implementation-defined. Specification-compliant libraries may choose to raise an error, return a sentinel value (e.g., if ``x`` is a floating-point input array, return ``NaN``), or return the minimum possible value for the input array ``x`` data type (e.g., if ``x`` is a floating-point array, return ``-infinity``).
-
-
-    **Special Cases**
-
-    For floating-point operands,
-
-    -   If ``x_i`` is ``NaN``, the maximum value is ``NaN`` (i.e., ``NaN`` values propagate).
     """
 
 def mean(x: array, /, *, axis: Optional[Union[int, Tuple[int, ...]]] = None, keepdims: bool = False) -> array:
     """
     Calculates the arithmetic mean of the input array ``x``.
+
+    **Special Cases**
+
+    Let ``N`` equal the number of elements over which to compute the arithmetic mean.
+
+    -   If ``N`` is ``0``, the arithmetic mean is ``NaN``.
+    -   If ``x_i`` is ``NaN``, the arithmetic mean is ``NaN`` (i.e., ``NaN`` values propagate).
 
     Parameters
     ----------
@@ -48,22 +53,22 @@ def mean(x: array, /, *, axis: Optional[Union[int, Tuple[int, ...]]] = None, kee
     out: array
         if the arithmetic mean was computed over the entire array, a zero-dimensional array containing the arithmetic mean; otherwise, a non-zero-dimensional array containing the arithmetic means. The returned array must have the same data type as ``x``.
 
-    Notes
-    -----
-    - While this specification recommends that this function only accept input arrays having a floating-point data type, specification-compliant array libraries may choose to accept input arrays having an integer data type. While mixed data type promotion is implementation-defined, if the input array ``x`` has an integer data type, the returned array must have the default floating-point data type.
-
-
-    **Special Cases**
-
-    Let ``N`` equal the number of elements over which to compute the arithmetic mean.
-
-    -   If ``N`` is ``0``, the arithmetic mean is ``NaN``.
-    -   If ``x_i`` is ``NaN``, the arithmetic mean is ``NaN`` (i.e., ``NaN`` values propagate).
+        .. note::
+           While this specification recommends that this function only accept input arrays having a floating-point data type, specification-compliant array libraries may choose to accept input arrays having an integer data type. While mixed data type promotion is implementation-defined, if the input array ``x`` has an integer data type, the returned array must have the default floating-point data type.
     """
 
 def min(x: array, /, *, axis: Optional[Union[int, Tuple[int, ...]]] = None, keepdims: bool = False) -> array:
     """
     Calculates the minimum value of the input array ``x``.
+
+    .. note::
+       When the number of elements over which to compute the minimum value is zero, the minimum value is implementation-defined. Specification-compliant libraries may choose to raise an error, return a sentinel value (e.g., if ``x`` is a floating-point input array, return ``NaN``), or return the maximum possible value for the input array ``x`` data type (e.g., if ``x`` is a floating-point array, return ``+infinity``).
+
+    **Special Cases**
+
+    For floating-point operands,
+
+    -   If ``x_i`` is ``NaN``, the minimum value is ``NaN`` (i.e., ``NaN`` values propagate).
 
     Parameters
     ----------
@@ -78,21 +83,21 @@ def min(x: array, /, *, axis: Optional[Union[int, Tuple[int, ...]]] = None, keep
     -------
     out: array
         if the minimum value was computed over the entire array, a zero-dimensional array containing the minimum value; otherwise, a non-zero-dimensional array containing the minimum values. The returned array must have the same data type as ``x``.
-
-    Notes
-    -----
-    - When the number of elements over which to compute the minimum value is zero, the minimum value is implementation-defined. Specification-compliant libraries may choose to raise an error, return a sentinel value (e.g., if ``x`` is a floating-point input array, return ``NaN``), or return the maximum possible value for the input array ``x`` data type (e.g., if ``x`` is a floating-point array, return ``+infinity``).
-
-    **Special Cases**
-
-    For floating-point operands,
-
-    -   If ``x_i`` is ``NaN``, the minimum value is ``NaN`` (i.e., ``NaN`` values propagate).
     """
 
 def prod(x: array, /, *, axis: Optional[Union[int, Tuple[int, ...]]] = None, dtype: Optional[dtype] = None, keepdims: bool = False) -> array:
     """
     Calculates the product of input array ``x`` elements.
+
+    **Special Cases**
+
+    Let ``N`` equal the number of elements over which to compute the product.
+
+    -   If ``N`` is ``0``, the product is `1` (i.e., the empty product).
+
+    For floating-point operands,
+
+    -   If ``x_i`` is ``NaN``, the product is ``NaN`` (i.e., ``NaN`` values propagate).
 
     Parameters
     ----------
@@ -109,6 +114,10 @@ def prod(x: array, /, *, axis: Optional[Union[int, Tuple[int, ...]]] = None, dty
         -   if ``x`` has an unsigned integer data type (e.g., ``uint16``), the returned array must have an unsigned integer data type having the same number of bits as the default integer data type (e.g., if the default integer data type is ``int32``, the returned array must have a ``uint32`` data type).
 
         If the data type (either specified or resolved) differs from the data type of ``x``, the input array should be cast to the specified data type before computing the product. Default: ``None``.
+
+        .. note::
+           This keyword argument is intended to help prevent data type overflows.
+
     keepdims: bool
         If ``True``, the reduced axes (dimensions) must be included in the result as singleton dimensions, and, accordingly, the result must be compatible with the input array (see :ref:`broadcasting`). Otherwise, if ``False``, the reduced axes (dimensions) must not be included in the result. Default: ``False``.
 
@@ -116,25 +125,18 @@ def prod(x: array, /, *, axis: Optional[Union[int, Tuple[int, ...]]] = None, dty
     -------
     out: array
         if the product was computed over the entire array, a zero-dimensional array containing the product; otherwise, a non-zero-dimensional array containing the products. The returned array must have a data type as described by the ``dtype`` parameter above.
-
-    Notes
-    -----
-    - ``dtype`` keyword argument is intended to help prevent data type overflows.
-
-    **Special Cases**
-
-    Let ``N`` equal the number of elements over which to compute the product.
-
-    -   If ``N`` is ``0``, the product is `1` (i.e., the empty product).
-
-    For floating-point operands,
-
-    -   If ``x_i`` is ``NaN``, the product is ``NaN`` (i.e., ``NaN`` values propagate).
     """
 
 def std(x: array, /, *, axis: Optional[Union[int, Tuple[int, ...]]] = None, correction: Union[int, float] = 0.0, keepdims: bool = False) -> array:
     """
     Calculates the standard deviation of the input array ``x``.
+
+    **Special Cases**
+
+    Let ``N`` equal the number of elements over which to compute the standard deviation.
+
+    -   If ``N - correction`` is less than or equal to ``0``, the standard deviation is ``NaN``.
+    -   If ``x_i`` is ``NaN``, the standard deviation is ``NaN`` (i.e., ``NaN`` values propagate).
 
     Parameters
     ----------
@@ -152,22 +154,23 @@ def std(x: array, /, *, axis: Optional[Union[int, Tuple[int, ...]]] = None, corr
     out: array
         if the standard deviation was computed over the entire array, a zero-dimensional array containing the standard deviation; otherwise, a non-zero-dimensional array containing the standard deviations. The returned array must have the same data type as ``x``.
 
-    Notes
-    -----
-    - While this specification recommends that this function only accept input arrays having a floating-point data type, specification-compliant array libraries may choose to accept input arrays having an integer data type. While mixed data type promotion is implementation-defined, if the input array ``x`` has an integer data type, the returned array must have the default floating-point data type.
-
-
-    **Special Cases**
-
-    Let ``N`` equal the number of elements over which to compute the standard deviation.
-
-    -   If ``N - correction`` is less than or equal to ``0``, the standard deviation is ``NaN``.
-    -   If ``x_i`` is ``NaN``, the standard deviation is ``NaN`` (i.e., ``NaN`` values propagate).
+        .. note::
+           While this specification recommends that this function only accept input arrays having a floating-point data type, specification-compliant array libraries may choose to accept input arrays having an integer data type. While mixed data type promotion is implementation-defined, if the input array ``x`` has an integer data type, the returned array must have the default floating-point data type.
     """
 
 def sum(x: array, /, *, axis: Optional[Union[int, Tuple[int, ...]]] = None, dtype: Optional[dtype] = None, keepdims: bool = False) -> array:
     """
     Calculates the sum of the input array ``x``.
+
+    **Special Cases**
+
+    Let ``N`` equal the number of elements over which to compute the sum.
+
+    -   If ``N`` is ``0``, the sum is ``0`` (i.e., the empty sum).
+
+    For floating-point operands,
+
+    -   If ``x_i`` is ``NaN``, the sum is ``NaN`` (i.e., ``NaN`` values propagate).
 
     Parameters
     ----------
@@ -184,6 +187,10 @@ def sum(x: array, /, *, axis: Optional[Union[int, Tuple[int, ...]]] = None, dtyp
         -   if ``x`` has an unsigned integer data type (e.g., ``uint16``), the returned array must have an unsigned integer data type having the same number of bits as the default integer data type (e.g., if the default integer data type is ``int32``, the returned array must have a ``uint32`` data type).
 
         If the data type (either specified or resolved) differs from the data type of ``x``, the input array should be cast to the specified data type before computing the sum. Default: ``None``.
+
+        .. note::
+           keyword argument is intended to help prevent data type overflows.
+
     keepdims: bool
         If ``True``, the reduced axes (dimensions) must be included in the result as singleton dimensions, and, accordingly, the result must be compatible with the input array (see :ref:`broadcasting`). Otherwise, if ``False``, the reduced axes (dimensions) must not be included in the result. Default: ``False``.
 
@@ -191,26 +198,18 @@ def sum(x: array, /, *, axis: Optional[Union[int, Tuple[int, ...]]] = None, dtyp
     -------
     out: array
         if the sum was computed over the entire array, a zero-dimensional array containing the sum; otherwise, an array containing the sums. The returned array must have a data type as described by the ``dtype`` parameter above.
-
-    Notes
-    -----
-    - ``dtype`` keyword argument is intended to help prevent data type overflows.
-
-
-    **Special Cases**
-
-    Let ``N`` equal the number of elements over which to compute the sum.
-
-    -   If ``N`` is ``0``, the sum is ``0`` (i.e., the empty sum).
-
-    For floating-point operands,
-
-    -   If ``x_i`` is ``NaN``, the sum is ``NaN`` (i.e., ``NaN`` values propagate).
     """
 
 def var(x: array, /, *, axis: Optional[Union[int, Tuple[int, ...]]] = None, correction: Union[int, float] = 0.0, keepdims: bool = False) -> array:
     """
     Calculates the variance of the input array ``x``.
+
+    **Special Cases**
+
+    Let ``N`` equal the number of elements over which to compute the variance.
+
+    -   If ``N - correction`` is less than or equal to ``0``, the variance is ``NaN``.
+    -   If ``x_i`` is ``NaN``, the variance is ``NaN`` (i.e., ``NaN`` values propagate).
 
     Parameters
     ----------
@@ -228,16 +227,9 @@ def var(x: array, /, *, axis: Optional[Union[int, Tuple[int, ...]]] = None, corr
     out: array
         if the variance was computed over the entire array, a zero-dimensional array containing the variance; otherwise, a non-zero-dimensional array containing the variances. The returned array must have the same data type as ``x``.
 
-    Notes
-    -----
-    - While this specification recommends that this function only accept input arrays having a floating-point data type, specification-compliant array libraries may choose to accept input arrays having an integer data type. While mixed data type promotion is implementation-defined, if the input array ``x`` has an integer data type, the returned array must have the default floating-point data type.
 
-    **Special Cases**
-
-    Let ``N`` equal the number of elements over which to compute the variance.
-
-    -   If ``N - correction`` is less than or equal to ``0``, the variance is ``NaN``.
-    -   If ``x_i`` is ``NaN``, the variance is ``NaN`` (i.e., ``NaN`` values propagate).
+    .. note::
+       While this specification recommends that this function only accept input arrays having a floating-point data type, specification-compliant array libraries may choose to accept input arrays having an integer data type. While mixed data type promotion is implementation-defined, if the input array ``x`` has an integer data type, the returned array must have the default floating-point data type.
     """
 
 __all__ = ['max', 'mean', 'min', 'prod', 'std', 'sum', 'var']
