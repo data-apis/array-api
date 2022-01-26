@@ -573,7 +573,7 @@ Returns the sum along the specified diagonals of a matrix (or a stack of matrice
         The returned array must have the same data type as `x`.
 
 (function-linalg-vecdot)=
-### linalg.vecdot(x1, x2, /, *, axis=None)
+### linalg.vecdot(x1, x2, /, *, axis=-1)
 
 Alias for {ref}`function-vecdot`.
 

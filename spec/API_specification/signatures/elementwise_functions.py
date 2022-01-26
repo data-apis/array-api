@@ -467,6 +467,11 @@ def divide(x1: array, x2: array, /) -> array:
     """
     Calculates the division for each element ``x1_i`` of the input array ``x1`` with the respective element ``x2_i`` of the input array ``x2``.
 
+    .. note::
+       If one or both of the input arrays have integer data types, the result is implementation-dependent, as type promotion between data type "kinds" (e.g., integer versus floating-point) is unspecified.
+
+       Specification-compliant libraries may choose to raise an error or return an array containing the element-wise results. If an array is returned, the array must have a floating-point data type.
+
     Parameters
     ----------
     x1: array
