@@ -4,6 +4,14 @@ def astype(x: array, dtype: dtype, /, *, copy: bool = True) -> array:
     """
     Copies an array to a specified data type irrespective of :ref:`type-promotion` rules.
 
+    .. note::
+       Casting floating-point ``NaN`` and ``infinity`` values to integral data types is not specified and is implementation-dependent.
+
+    .. note::
+       When casting a boolean input array to a numeric data type, a value of ``True`` must cast to a numeric value equal to ``1``, and a value of ``False`` must cast to a numeric value equal to ``0``.
+
+       When casting a numeric input array to ``bool``, a value of ``0`` must cast to ``False``, and a non-zero value must cast to ``True``.
+
     Parameters
     ----------
     x: array
@@ -17,12 +25,6 @@ def astype(x: array, dtype: dtype, /, *, copy: bool = True) -> array:
     -------
     out: array
         an array having the specified data type. The returned array must have the same shape as ``x``.
-
-    Notes
-    -----
-    - Casting floating-point ``NaN`` and ``infinity`` values to integral data types is not specified and is implementation-dependent.
-    - When casting a boolean input array to a numeric data type, a value of ``True`` must cast to a numeric value equal to ``1``, and a value of ``False`` must cast to a numeric value equal to ``0``.
-    - When casting a numeric input array to ``bool``, a value of ``0`` must cast to ``False``, and a non-zero value must cast to ``True``.
     """
 
 def broadcast_arrays(*arrays: array) -> List[array]:
@@ -129,6 +131,9 @@ def result_type(*arrays_and_dtypes: Union[array, dtype]) -> dtype:
     """
     Returns the dtype that results from applying the type promotion rules (see :ref:`type-promotion`) to the arguments.
 
+    .. note::
+       If provided mixed dtypes (e.g., integer and floating-point), the returned dtype will be implementation-specific.
+
     Parameters
     ----------
     arrays_and_dtypes: Union[array, dtype]
@@ -138,10 +143,6 @@ def result_type(*arrays_and_dtypes: Union[array, dtype]) -> dtype:
     -------
     out: dtype
         the dtype resulting from an operation involving the input arrays and dtypes.
-
-    Notes
-    -----
-    - If provided mixed dtypes (e.g., integer and floating-point), the returned dtype will be implementation-specific.
     """
 
 __all__ = ['astype', 'broadcast_arrays', 'broadcast_to', 'can_cast', 'finfo', 'iinfo', 'result_type']
