@@ -19,7 +19,7 @@ jobs:
           name: build docs
           no_output_timeout: 25m
           command: |
-            sudo pip install -r requirements.txt
+            pip install -r requirements.txt
             sphinx-build -b html -WT --keep-going spec build/latest -d doctrees
       - store_artifacts:
           path: build/latest
