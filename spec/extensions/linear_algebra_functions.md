@@ -258,7 +258,7 @@ Returns the multiplicative inverse of a square matrix (or a stack of square matr
 (function-linalg-matmul)=
 ### linalg.matmul(x1, x2, /)
 
-Alias for {ref}`function-matmul`.
+Alias for {func}`signatures.linear_algebra_functions.matmul`.
 
 (function-linalg-matrix-norm)=
 ### linalg.matrix_norm(x, /, *, keepdims=False, ord='fro')
@@ -352,7 +352,7 @@ Returns the rank (i.e., number of non-zero singular values) of a matrix (or a st
 (function-linalg-matrix-transpose)=
 ### linalg.matrix_transpose(x, /)
 
-Alias for {ref}`function-matrix-transpose`.
+Alias for {func}`signatures.linear_algebra_functions.matrix_transpose`.
 
 (function-linalg-outer)=
 ### linalg.outer(x1, x2, /)
@@ -537,7 +537,7 @@ Returns the singular values of a matrix (or a stack of matrices) `x`.
 (function-linalg-tensordot)=
 ### linalg.tensordot(x1, x2, /, *, axes=2)
 
-Alias for {ref}`function-tensordot`.
+Alias for {func}`signatures.linear_algebra_functions.tensordot`.
 
 (function-linalg-trace)=
 ### linalg.trace(x, /, *, offset=0)
@@ -575,7 +575,7 @@ Returns the sum along the specified diagonals of a matrix (or a stack of matrice
 (function-linalg-vecdot)=
 ### linalg.vecdot(x1, x2, /, *, axis=-1)
 
-Alias for {ref}`function-vecdot`.
+Alias for {func}`signatures.linear_algebra_functions.vecdot`.
 
 (function-linalg-vector-norm)=
 ### linalg.vector_norm(x, /, *, axis=None, keepdims=False, ord=2)
