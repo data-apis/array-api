@@ -614,7 +614,7 @@ class array():
 
 
         .. note::
-           Results must equal the results returned by the equivalent function :ref:`function-matmul`.
+           Results must equal the results returned by the equivalent function :func:`signatures.linear_algebra_functions.matmul`.
 
         **Raises**
 

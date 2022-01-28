@@ -5,7 +5,7 @@ _defaults: &defaults
   docker:
     # CircleCI maintains a library of pre-built images
     # documented at https://circleci.com/docs/2.0/circleci-images/
-    - image: circleci/python:3.8.0
+    - image: cimg/python:3.10.2
   working_directory: ~/repo
 
 jobs:
@@ -19,7 +19,7 @@ jobs:
           name: build docs
           no_output_timeout: 25m
           command: |
-            sudo pip install -r requirements.txt
+            pip install -r requirements.txt
             sphinx-build -b html -WT --keep-going spec build/latest -d doctrees
       - store_artifacts:
           path: build/latest
