@@ -1,0 +1,6 @@
+﻿signatures.statistical\_functions.mean
+======================================
+
+.. currentmodule:: signatures.statistical_functions
+
+.. autofunction:: mean

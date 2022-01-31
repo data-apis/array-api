@@ -1,0 +1,6 @@
+﻿signatures.statistical\_functions.var
+=====================================
+
+.. currentmodule:: signatures.statistical_functions
+
+.. autofunction:: var
