@@ -465,7 +465,7 @@
      </div>
      <div class="md-content">
       <article class="md-content__inner md-typeset" role="main">
-       <section class="tex2jax_ignore mathjax_ignore" id="type-promotion-rules">
+       <section id="type-promotion-rules">
         <span id="type-promotion">
         </span>
         <h1 id="api-specification-type-promotion--page-root">
@@ -484,9 +484,9 @@
         <p>
          Type promotion rules can be understood at a high level from the following diagram:
         </p>
-        <p>
-         <img alt="Type promotion diagram" src="../_images/dtype_promotion_lattice.png"/>
-        </p>
+        <a class="reference external image-reference" href="Typepromotiondiagram">
+         <img alt="../_images/dtype_promotion_lattice.png" src="../_images/dtype_promotion_lattice.png"/>
+        </a>
         <p>
          <em>
           Type promotion diagram. Promotion between any two types is given by their join on this lattice. Only the types of participating arrays matter, not their values. Dashed lines indicate that behavior for Python scalars is undefined on overflow. Boolean, integer and floating-point dtypes are not connected, indicating mixed-kind promotion is undefined.
@@ -535,7 +535,6 @@
            ).
           </p>
          </div>
-         <!-- Note: please keep table columns aligned -->
          <p>
           The following type promotion tables specify the casting behavior for operations involving two array operands. When more than two array operands participate, application of the promotion tables is associative (i.e., the result does not depend on operand order).
          </p>
@@ -546,100 +545,155 @@
             ¶
            </a>
           </h3>
-          <table border="1">
+          <table>
+           <colgroup>
+            <col style="width: 33%"/>
+            <col style="width: 17%"/>
+            <col style="width: 17%"/>
+            <col style="width: 17%"/>
+            <col style="width: 17%"/>
+           </colgroup>
            <thead>
-            <tr>
-             <th>
+            <tr class="row-odd">
+             <th class="head">
              </th>
-             <th>
-              i1
+             <th class="head">
+              <p>
+               i1
+              </p>
              </th>
-             <th>
-              i2
+             <th class="head">
+              <p>
+               i2
+              </p>
              </th>
-             <th>
-              i4
+             <th class="head">
+              <p>
+               i4
+              </p>
              </th>
-             <th>
-              i8
+             <th class="head">
+              <p>
+               i8
+              </p>
              </th>
             </tr>
            </thead>
            <tbody>
-            <tr>
+            <tr class="row-even">
              <td>
-              <strong>
+              <p>
+               <strong>
+                i1
+               </strong>
+              </p>
+             </td>
+             <td>
+              <p>
                i1
-              </strong>
+              </p>
              </td>
              <td>
-              i1
-             </td>
-             <td>
-              i2
-             </td>
-             <td>
-              i4
-             </td>
-             <td>
-              i8
-             </td>
-            </tr>
-            <tr>
-             <td>
-              <strong>
+              <p>
                i2
-              </strong>
+              </p>
              </td>
              <td>
-              i2
-             </td>
-             <td>
-              i2
-             </td>
-             <td>
-              i4
-             </td>
-             <td>
-              i8
-             </td>
-            </tr>
-            <tr>
-             <td>
-              <strong>
+              <p>
                i4
-              </strong>
+              </p>
              </td>
              <td>
-              i4
-             </td>
-             <td>
-              i4
-             </td>
-             <td>
-              i4
-             </td>
-             <td>
-              i8
+              <p>
+               i8
+              </p>
              </td>
             </tr>
-            <tr>
+            <tr class="row-odd">
              <td>
-              <strong>
+              <p>
+               <strong>
+                i2
+               </strong>
+              </p>
+             </td>
+             <td>
+              <p>
+               i2
+              </p>
+             </td>
+             <td>
+              <p>
+               i2
+              </p>
+             </td>
+             <td>
+              <p>
+               i4
+              </p>
+             </td>
+             <td>
+              <p>
                i8
-              </strong>
+              </p>
+             </td>
+            </tr>
+            <tr class="row-even">
+             <td>
+              <p>
+               <strong>
+                i4
+               </strong>
+              </p>
              </td>
              <td>
-              i8
+              <p>
+               i4
+              </p>
              </td>
              <td>
-              i8
+              <p>
+               i4
+              </p>
              </td>
              <td>
-              i8
+              <p>
+               i4
+              </p>
              </td>
              <td>
-              i8
+              <p>
+               i8
+              </p>
+             </td>
+            </tr>
+            <tr class="row-odd">
+             <td>
+              <p>
+               <strong>
+                i8
+               </strong>
+              </p>
+             </td>
+             <td>
+              <p>
+               i8
+              </p>
+             </td>
+             <td>
+              <p>
+               i8
+              </p>
+             </td>
+             <td>
+              <p>
+               i8
+              </p>
+             </td>
+             <td>
+              <p>
+               i8
+              </p>
              </td>
             </tr>
            </tbody>
@@ -713,100 +767,155 @@
             ¶
            </a>
           </h3>
-          <table border="1">
+          <table>
+           <colgroup>
+            <col style="width: 33%"/>
+            <col style="width: 17%"/>
+            <col style="width: 17%"/>
+            <col style="width: 17%"/>
+            <col style="width: 17%"/>
+           </colgroup>
            <thead>
-            <tr>
-             <th>
+            <tr class="row-odd">
+             <th class="head">
              </th>
-             <th>
-              u1
+             <th class="head">
+              <p>
+               u1
+              </p>
              </th>
-             <th>
-              u2
+             <th class="head">
+              <p>
+               u2
+              </p>
              </th>
-             <th>
-              u4
+             <th class="head">
+              <p>
+               u4
+              </p>
              </th>
-             <th>
-              u8
+             <th class="head">
+              <p>
+               u8
+              </p>
              </th>
             </tr>
            </thead>
            <tbody>
-            <tr>
+            <tr class="row-even">
              <td>
-              <strong>
+              <p>
+               <strong>
+                u1
+               </strong>
+              </p>
+             </td>
+             <td>
+              <p>
                u1
-              </strong>
+              </p>
              </td>
              <td>
-              u1
-             </td>
-             <td>
-              u2
-             </td>
-             <td>
-              u4
-             </td>
-             <td>
-              u8
-             </td>
-            </tr>
-            <tr>
-             <td>
-              <strong>
+              <p>
                u2
-              </strong>
+              </p>
              </td>
              <td>
-              u2
-             </td>
-             <td>
-              u2
-             </td>
-             <td>
-              u4
-             </td>
-             <td>
-              u8
-             </td>
-            </tr>
-            <tr>
-             <td>
-              <strong>
+              <p>
                u4
-              </strong>
+              </p>
              </td>
              <td>
-              u4
-             </td>
-             <td>
-              u4
-             </td>
-             <td>
-              u4
-             </td>
-             <td>
-              u8
+              <p>
+               u8
+              </p>
              </td>
             </tr>
-            <tr>
+            <tr class="row-odd">
              <td>
-              <strong>
+              <p>
+               <strong>
+                u2
+               </strong>
+              </p>
+             </td>
+             <td>
+              <p>
+               u2
+              </p>
+             </td>
+             <td>
+              <p>
+               u2
+              </p>
+             </td>
+             <td>
+              <p>
+               u4
+              </p>
+             </td>
+             <td>
+              <p>
                u8
-              </strong>
+              </p>
+             </td>
+            </tr>
+            <tr class="row-even">
+             <td>
+              <p>
+               <strong>
+                u4
+               </strong>
+              </p>
              </td>
              <td>
-              u8
+              <p>
+               u4
+              </p>
              </td>
              <td>
-              u8
+              <p>
+               u4
+              </p>
              </td>
              <td>
-              u8
+              <p>
+               u4
+              </p>
              </td>
              <td>
-              u8
+              <p>
+               u8
+              </p>
+             </td>
+            </tr>
+            <tr class="row-odd">
+             <td>
+              <p>
+               <strong>
+                u8
+               </strong>
+              </p>
+             </td>
+             <td>
+              <p>
+               u8
+              </p>
+             </td>
+             <td>
+              <p>
+               u8
+              </p>
+             </td>
+             <td>
+              <p>
+               u8
+              </p>
+             </td>
+             <td>
+              <p>
+               u8
+              </p>
              </td>
             </tr>
            </tbody>
@@ -880,85 +989,129 @@
             ¶
            </a>
           </h3>
-          <table border="1">
+          <table>
+           <colgroup>
+            <col style="width: 40%"/>
+            <col style="width: 20%"/>
+            <col style="width: 20%"/>
+            <col style="width: 20%"/>
+           </colgroup>
            <thead>
-            <tr>
-             <th>
+            <tr class="row-odd">
+             <th class="head">
              </th>
-             <th>
-              u1
+             <th class="head">
+              <p>
+               u1
+              </p>
              </th>
-             <th>
-              u2
+             <th class="head">
+              <p>
+               u2
+              </p>
              </th>
-             <th>
-              u4
+             <th class="head">
+              <p>
+               u4
+              </p>
              </th>
             </tr>
            </thead>
            <tbody>
-            <tr>
+            <tr class="row-even">
              <td>
-              <strong>
-               i1
-              </strong>
+              <p>
+               <strong>
+                i1
+               </strong>
+              </p>
              </td>
              <td>
-              i2
-             </td>
-             <td>
-              i4
-             </td>
-             <td>
-              i8
-             </td>
-            </tr>
-            <tr>
-             <td>
-              <strong>
+              <p>
                i2
-              </strong>
+              </p>
              </td>
              <td>
-              i2
-             </td>
-             <td>
-              i4
-             </td>
-             <td>
-              i8
-             </td>
-            </tr>
-            <tr>
-             <td>
-              <strong>
+              <p>
                i4
-              </strong>
+              </p>
              </td>
              <td>
-              i4
-             </td>
-             <td>
-              i4
-             </td>
-             <td>
-              i8
+              <p>
+               i8
+              </p>
              </td>
             </tr>
-            <tr>
+            <tr class="row-odd">
              <td>
-              <strong>
+              <p>
+               <strong>
+                i2
+               </strong>
+              </p>
+             </td>
+             <td>
+              <p>
+               i2
+              </p>
+             </td>
+             <td>
+              <p>
+               i4
+              </p>
+             </td>
+             <td>
+              <p>
                i8
-              </strong>
+              </p>
+             </td>
+            </tr>
+            <tr class="row-even">
+             <td>
+              <p>
+               <strong>
+                i4
+               </strong>
+              </p>
              </td>
              <td>
-              i8
+              <p>
+               i4
+              </p>
              </td>
              <td>
-              i8
+              <p>
+               i4
+              </p>
              </td>
              <td>
-              i8
+              <p>
+               i8
+              </p>
+             </td>
+            </tr>
+            <tr class="row-odd">
+             <td>
+              <p>
+               <strong>
+                i8
+               </strong>
+              </p>
+             </td>
+             <td>
+              <p>
+               i8
+              </p>
+             </td>
+             <td>
+              <p>
+               i8
+              </p>
+             </td>
+             <td>
+              <p>
+               i8
+              </p>
              </td>
             </tr>
            </tbody>
@@ -971,44 +1124,65 @@
             ¶
            </a>
           </h3>
-          <table border="1">
+          <table>
+           <colgroup>
+            <col style="width: 50%"/>
+            <col style="width: 25%"/>
+            <col style="width: 25%"/>
+           </colgroup>
            <thead>
-            <tr>
-             <th>
+            <tr class="row-odd">
+             <th class="head">
              </th>
-             <th>
-              f4
+             <th class="head">
+              <p>
+               f4
+              </p>
              </th>
-             <th>
-              f8
+             <th class="head">
+              <p>
+               f8
+              </p>
              </th>
             </tr>
            </thead>
            <tbody>
-            <tr>
+            <tr class="row-even">
              <td>
-              <strong>
+              <p>
+               <strong>
+                f4
+               </strong>
+              </p>
+             </td>
+             <td>
+              <p>
                f4
-              </strong>
+              </p>
              </td>
              <td>
-              f4
-             </td>
-             <td>
-              f8
+              <p>
+               f8
+              </p>
              </td>
             </tr>
-            <tr>
+            <tr class="row-odd">
              <td>
-              <strong>
+              <p>
+               <strong>
+                f8
+               </strong>
+              </p>
+             </td>
+             <td>
+              <p>
                f8
-              </strong>
+              </p>
              </td>
              <td>
-              f8
-             </td>
-             <td>
-              f8
+              <p>
+               f8
+              </p>
              </td>
             </tr>
            </tbody>
@@ -1210,13 +1384,13 @@
                int
               </span>
              </code>
-             within the
+             within the bounds of the given data type for integer array
              <a class="reference internal" href="data_types.html#data-types">
               <span class="std std-ref">
-               bounds
+               Data Types
               </span>
              </a>
-             of the given data type for integer array data types.
+             .
             </p>
            </li>
            <li>
