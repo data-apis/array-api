@@ -382,7 +382,7 @@
      </div>
      <div class="md-content">
       <article class="md-content__inner md-typeset" role="main">
-       <section class="tex2jax_ignore mathjax_ignore" id="device-support">
+       <section id="device-support">
         <span id="id1">
         </span>
         <h1 id="design-topics-device-support--page-root">
@@ -645,28 +645,23 @@ rather than hard requirements:
               device=
              </span>
             </code>
-            keyword
-is not
+            keyword is not
             <code class="docutils literal notranslate">
              <span class="pre">
               None
              </span>
             </code>
-            , guarantee that the array is created on the given device, and
-raise an exception otherwise).
+            , guarantee that the array is created on the given device, and raise an exception otherwise).
            </p>
           </li>
           <li>
            <p>
-            Preserve device assignment as much as possible (e.g. output arrays from a
-function are expected to be on the same device as input arrays to the
-function).
+            Preserve device assignment as much as possible (e.g. output arrays from a function are expected to be on the same device as input arrays to the function).
            </p>
           </li>
           <li>
            <p>
-            Raise an exception if an operation involves arrays on different devices
-(i.e. avoid implicit data transfer between devices).
+            Raise an exception if an operation involves arrays on different devices (i.e. avoid implicit data transfer between devices).
            </p>
           </li>
           <li>
@@ -677,14 +672,12 @@ function).
               device=None
              </span>
             </code>
-            which is consistent between functions
-within the same library.
+            which is consistent between functions within the same library.
            </p>
           </li>
           <li>
            <p>
-            If a library has multiple ways of controlling device placement, the most
-explicit method should have the highest priority. For example:
+            If a library has multiple ways of controlling device placement, the most explicit method should have the highest priority. For example:
            </p>
            <ol class="arabic simple">
             <li>
