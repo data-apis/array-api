@@ -29,37 +29,37 @@
         font-family: "Roboto Mono", "Courier New", Courier, monospace
       }
   </style>
-  <link href="../_static/stylesheets/application.css" rel="stylesheet"/>
-  <link href="../_static/stylesheets/application-palette.css" rel="stylesheet"/>
-  <link href="../_static/stylesheets/application-fixes.css" rel="stylesheet"/>
-  <link href="../_static/fonts/material-icons.css" rel="stylesheet"/>
+  <link href="../../_static/stylesheets/application.css" rel="stylesheet"/>
+  <link href="../../_static/stylesheets/application-palette.css" rel="stylesheet"/>
+  <link href="../../_static/stylesheets/application-fixes.css" rel="stylesheet"/>
+  <link href="../../_static/fonts/material-icons.css" rel="stylesheet"/>
   <meta content="#2196f3" name="theme-color"/>
-  <script src="../_static/javascripts/modernizr.js">
+  <script src="../../_static/javascripts/modernizr.js">
   </script>
-  <link href="../_static/images/apple-icon-152x152.png" rel="apple-touch-icon"/>
+  <link href="../../_static/images/apple-icon-152x152.png" rel="apple-touch-icon"/>
   <title>
-   Set Functions — Python array API standard 2021.01-DRAFT documentation
+   signatures.set_functions.unique_values — Python array API standard 2021.01-DRAFT documentation
   </title>
-  <link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
-  <link href="../_static/material.css" rel="stylesheet" type="text/css"/>
-  <link href="../_static/copybutton.css" rel="stylesheet" type="text/css"/>
-  <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js">
+  <link href="../../_static/pygments.css" rel="stylesheet" type="text/css"/>
+  <link href="../../_static/material.css" rel="stylesheet" type="text/css"/>
+  <link href="../../_static/copybutton.css" rel="stylesheet" type="text/css"/>
+  <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js">
   </script>
-  <script src="../_static/jquery.js">
+  <script src="../../_static/jquery.js">
   </script>
-  <script src="../_static/underscore.js">
+  <script src="../../_static/underscore.js">
   </script>
-  <script src="../_static/doctools.js">
+  <script src="../../_static/doctools.js">
   </script>
-  <script src="../_static/clipboard.min.js">
+  <script src="../../_static/clipboard.min.js">
   </script>
-  <script src="../_static/copybutton.js">
+  <script src="../../_static/copybutton.js">
   </script>
-  <link href="../genindex.html" rel="index" title="Index"/>
-  <link href="../search.html" rel="search" title="Search"/>
-  <link href="generated/signatures.set_functions.unique_all.html" rel="next" title="signatures.set_functions.unique_all"/>
-  <link href="searching_functions.html" rel="prev" title="Searching Functions"/>
-  <link href="../_static/images/apple-icon-152x152.png" rel="apple-touch-icon"/>
+  <link href="../../genindex.html" rel="index" title="Index"/>
+  <link href="../../search.html" rel="search" title="Search"/>
+  <link href="../sorting_functions.html" rel="next" title="Sorting Functions"/>
+  <link href="signatures.set_functions.unique_inverse.html" rel="prev" title="signatures.set_functions.unique_inverse"/>
+  <link href="../../_static/images/apple-icon-152x152.png" rel="apple-touch-icon"/>
  </head>
  <body data-md-color-accent="green" data-md-color-primary="indigo" dir="ltr">
   <svg class="md-svg">
@@ -74,14 +74,14 @@
   <input class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
   <label class="md-overlay" data-md-component="overlay" for="__drawer">
   </label>
-  <a class="md-skip" href="#API_specification/set_functions" tabindex="1">
+  <a class="md-skip" href="#API_specification/generated/signatures.set_functions.unique_values" tabindex="1">
    Skip to content
   </a>
   <header class="md-header" data-md-component="header">
    <nav class="md-header-nav md-grid">
     <div class="md-flex navheader">
      <div class="md-flex__cell md-flex__cell--shrink">
-      <a class="md-header-nav__button md-logo" href="../index.html" title="Python array API standard 2021.01-DRAFT documentation">
+      <a class="md-header-nav__button md-logo" href="../../index.html" title="Python array API standard 2021.01-DRAFT documentation">
        <i class="md-icon">
         
        </i>
@@ -97,7 +97,7 @@
         Python array API standard
        </span>
        <span class="md-header-nav__topic">
-        Set Functions
+        signatures.set_functions.unique_values
        </span>
       </div>
      </div>
@@ -108,7 +108,7 @@
        <label class="md-search__overlay" for="__search">
        </label>
        <div class="md-search__inner" role="search">
-        <form action="../search.html" class="md-search__form" method="GET" name="search">
+        <form action="../../search.html" class="md-search__form" method="GET" name="search">
          <input autocapitalize="off" autocomplete="off" class="md-search__input" data-md-component="query" data-md-state="active" name="q" placeholder="Search" spellcheck="false" type="text"/>
          <label class="md-icon md-search__icon" for="__search">
          </label>
@@ -130,11 +130,11 @@
        </div>
       </div>
      </div>
-     <script src="../_static/javascripts/version_dropdown.js">
+     <script src="../../_static/javascripts/version_dropdown.js">
      </script>
      <script>
-      var json_loc = "../"versions.json"",
-        target_loc = "../../",
+      var json_loc = "../../"versions.json"",
+        target_loc = "../../../",
         text = "Versions";
     $( document ).ready( add_version_dropdown(json_loc, target_loc, text));
      </script>
@@ -146,7 +146,7 @@
     <div class="md-tabs__inner md-grid">
      <ul class="md-tabs__list">
       <li class="md-tabs__item">
-       <a class="md-tabs__link" href="../index.html">
+       <a class="md-tabs__link" href="../../index.html">
         Array API standard
        </a>
       </li>
@@ -156,8 +156,13 @@
        </a>
       </li>
       <li class="md-tabs__item">
-       <a class="md-tabs__link" href="index.html">
+       <a class="md-tabs__link" href="../index.html">
         API specification
+       </a>
+      </li>
+      <li class="md-tabs__item">
+       <a class="md-tabs__link" href="../set_functions.html">
+        Set Functions
        </a>
       </li>
      </ul>
@@ -170,12 +175,12 @@
        <div class="md-sidebar__inner">
         <nav class="md-nav md-nav--primary" data-md-level="0">
          <label class="md-nav__title md-nav__title--site" for="__drawer">
-          <a class="md-nav__button md-logo" href="../index.html" title="Python array API standard 2021.01-DRAFT documentation">
+          <a class="md-nav__button md-logo" href="../../index.html" title="Python array API standard 2021.01-DRAFT documentation">
            <i class="md-icon">
             
            </i>
           </a>
-          <a href="../index.html" title="Python array API standard 2021.01-DRAFT documentation">
+          <a href="../../index.html" title="Python array API standard 2021.01-DRAFT documentation">
            Python array API standard
           </a>
          </label>
@@ -188,17 +193,17 @@
            </span>
           </li>
           <li class="md-nav__item">
-           <a class="md-nav__link" href="../purpose_and_scope.html">
+           <a class="md-nav__link" href="../../purpose_and_scope.html">
             Purpose and scope
            </a>
           </li>
           <li class="md-nav__item">
-           <a class="md-nav__link" href="../use_cases.html">
+           <a class="md-nav__link" href="../../use_cases.html">
             Use cases
            </a>
           </li>
           <li class="md-nav__item">
-           <a class="md-nav__link" href="../assumptions.html">
+           <a class="md-nav__link" href="../../assumptions.html">
             Assumptions
            </a>
           </li>
@@ -210,134 +215,109 @@
            </span>
           </li>
           <li class="md-nav__item">
-           <a class="md-nav__link" href="../design_topics/index.html">
+           <a class="md-nav__link" href="../../design_topics/index.html">
             Design topics &amp; constraints
            </a>
           </li>
           <li class="md-nav__item">
-           <a class="md-nav__link" href="../future_API_evolution.html">
+           <a class="md-nav__link" href="../../future_API_evolution.html">
             Future API standard evolution
            </a>
           </li>
           <li class="md-nav__item">
-           <a class="md-nav__link" href="index.html">
+           <a class="md-nav__link" href="../index.html">
             API specification
            </a>
            <ul class="md-nav__list">
             <li class="md-nav__item">
-             <a class="md-nav__link" href="array_object.html">
+             <a class="md-nav__link" href="../array_object.html">
               Array object
              </a>
             </li>
             <li class="md-nav__item">
-             <a class="md-nav__link" href="broadcasting.html">
+             <a class="md-nav__link" href="../broadcasting.html">
               Broadcasting
              </a>
             </li>
             <li class="md-nav__item">
-             <a class="md-nav__link" href="constants.html">
+             <a class="md-nav__link" href="../constants.html">
               Constants
              </a>
             </li>
             <li class="md-nav__item">
-             <a class="md-nav__link" href="creation_functions.html">
+             <a class="md-nav__link" href="../creation_functions.html">
               Creation Functions
              </a>
             </li>
             <li class="md-nav__item">
-             <a class="md-nav__link" href="data_type_functions.html">
+             <a class="md-nav__link" href="../data_type_functions.html">
               Data type functions
              </a>
             </li>
             <li class="md-nav__item">
-             <a class="md-nav__link" href="data_types.html">
+             <a class="md-nav__link" href="../data_types.html">
               Data Types
              </a>
             </li>
             <li class="md-nav__item">
-             <a class="md-nav__link" href="elementwise_functions.html">
+             <a class="md-nav__link" href="../elementwise_functions.html">
               Element-wise Functions
              </a>
             </li>
             <li class="md-nav__item">
-             <a class="md-nav__link" href="function_and_method_signatures.html">
+             <a class="md-nav__link" href="../function_and_method_signatures.html">
               Function and method signatures
              </a>
             </li>
             <li class="md-nav__item">
-             <a class="md-nav__link" href="indexing.html">
+             <a class="md-nav__link" href="../indexing.html">
               Indexing
              </a>
             </li>
             <li class="md-nav__item">
-             <a class="md-nav__link" href="linear_algebra_functions.html">
+             <a class="md-nav__link" href="../linear_algebra_functions.html">
               Linear Algebra Functions
              </a>
             </li>
             <li class="md-nav__item">
-             <a class="md-nav__link" href="manipulation_functions.html">
+             <a class="md-nav__link" href="../manipulation_functions.html">
               Manipulation Functions
              </a>
             </li>
             <li class="md-nav__item">
-             <a class="md-nav__link" href="searching_functions.html">
+             <a class="md-nav__link" href="../searching_functions.html">
               Searching Functions
              </a>
             </li>
             <li class="md-nav__item">
-             <input class="md-toggle md-nav__toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
-             <label class="md-nav__link md-nav__link--active" for="__toc">
-              Set Functions
-             </label>
-             <a class="md-nav__link md-nav__link--active" href="#">
+             <a class="md-nav__link" href="../set_functions.html">
               Set Functions
              </a>
-             <nav class="md-nav md-nav--secondary">
-              <label class="md-nav__title" for="__toc">
-               Contents
-              </label>
-              <ul class="md-nav__list" data-md-scrollfix="">
-               <li class="md-nav__item">
-                <a class="md-nav__link" href="#api-specification-set-functions--page-root">
-                 Set Functions
-                </a>
-                <nav class="md-nav">
-                 <ul class="md-nav__list">
-                  <li class="md-nav__item">
-                   <a class="md-nav__link" href="#objects-in-api">
-                    Objects in API
-                   </a>
-                  </li>
-                 </ul>
-                </nav>
-               </li>
-              </ul>
-             </nav>
             </li>
             <li class="md-nav__item">
-             <a class="md-nav__link" href="sorting_functions.html">
+             <a class="md-nav__link" href="../sorting_functions.html">
               Sorting Functions
              </a>
             </li>
             <li class="md-nav__item">
-             <a class="md-nav__link" href="statistical_functions.html">
+             <a class="md-nav__link" href="../statistical_functions.html">
               Statistical Functions
              </a>
             </li>
             <li class="md-nav__item">
-             <a class="md-nav__link" href="type_promotion.html">
+             <a class="md-nav__link" href="../type_promotion.html">
               Type Promotion Rules
              </a>
             </li>
             <li class="md-nav__item">
-             <a class="md-nav__link" href="utility_functions.html">
+             <a class="md-nav__link" href="../utility_functions.html">
               Utility Functions
              </a>
             </li>
            </ul>
           </li>
           <li class="md-nav__item">
-           <a class="md-nav__link" href="../extensions/index.html">
+           <a class="md-nav__link" href="../../extensions/index.html">
             Extensions
            </a>
           </li>
@@ -349,17 +329,17 @@
            </span>
           </li>
           <li class="md-nav__item">
-           <a class="md-nav__link" href="../usage_data.html">
+           <a class="md-nav__link" href="../../usage_data.html">
             Usage Data
            </a>
           </li>
           <li class="md-nav__item">
-           <a class="md-nav__link" href="../verification_test_suite.html">
+           <a class="md-nav__link" href="../../verification_test_suite.html">
             Verification - test suite
            </a>
           </li>
           <li class="md-nav__item">
-           <a class="md-nav__link" href="../benchmark_suite.html">
+           <a class="md-nav__link" href="../../benchmark_suite.html">
             Benchmark suite
            </a>
           </li>
@@ -372,24 +352,7 @@
       <div class="md-sidebar__scrollwrap">
        <div class="md-sidebar__inner">
         <nav class="md-nav md-nav--secondary">
-         <label class="md-nav__title" for="__toc">
-          Contents
-         </label>
          <ul class="md-nav__list" data-md-scrollfix="">
-          <li class="md-nav__item">
-           <a class="md-nav__link" href="#api-specification-set-functions--page-root">
-            Set Functions
-           </a>
-           <nav class="md-nav">
-            <ul class="md-nav__list">
-             <li class="md-nav__item">
-              <a class="md-nav__link" href="#objects-in-api">
-               Objects in API
-              </a>
-             </li>
-            </ul>
-           </nav>
-          </li>
          </ul>
         </nav>
        </div>
@@ -397,200 +360,243 @@
      </div>
      <div class="md-content">
       <article class="md-content__inner md-typeset" role="main">
-       <section id="set-functions">
-        <h1 id="api-specification-set-functions--page-root">
-         Set Functions
-         <a class="headerlink" href="#api-specification-set-functions--page-root" title="Permalink to this headline">
+       <section id="signatures-set-functions-unique-values">
+        <h1 id="api-specification-generated-signatures-set-functions-unique-values--page-root">
+         signatures.set_functions.unique_values
+         <a class="headerlink" href="#api-specification-generated-signatures-set-functions-unique-values--page-root" title="Permalink to this headline">
           ¶
          </a>
         </h1>
-        <blockquote>
-         <div>
-          <p>
-           Array API specification for creating and operating on sets.
-          </p>
-         </div>
-        </blockquote>
-        <p>
-         A conforming implementation of the array API standard must provide and support the following functions adhering to the following conventions.
-        </p>
-        <ul class="simple">
-         <li>
-          <p>
-           Positional parameters must be
-           <a class="reference external" href="https://www.python.org/dev/peps/pep-0570/">
-            positional-only
-           </a>
-           parameters. Positional-only parameters have no externally-usable name. When a function accepting positional-only parameters is called, positional arguments are mapped to these parameters based solely on their order.
-          </p>
-         </li>
-         <li>
-          <p>
-           Optional parameters must be
-           <a class="reference external" href="https://www.python.org/dev/peps/pep-3102/">
-            keyword-only
-           </a>
-           arguments.
-          </p>
-         </li>
-         <li>
-          <p>
-           Unless stated otherwise, functions must support the data types defined in
-           <a class="reference internal" href="data_types.html#data-types">
-            <span class="std std-ref">
-             Data Types
+        <dl class="py function">
+         <dt class="sig sig-object py" id="signatures.set_functions.unique_values">
+          <span class="sig-name descname">
+           <span class="pre">
+            unique_values
+           </span>
+          </span>
+          <span class="sig-paren">
+           (
+          </span>
+          <em class="sig-param">
+           <span class="n">
+            <span class="pre">
+             x
             </span>
-           </a>
-           .
-          </p>
-         </li>
-        </ul>
-        <section id="objects-in-api">
-         <h2 id="objects-in-api">
-          Objects in API
-          <a class="headerlink" href="#objects-in-api" title="Permalink to this headline">
+           </span>
+           <span class="p">
+            <span class="pre">
+             :
+            </span>
+           </span>
+           <span class="w">
+           </span>
+           <span class="n">
+            <span class="pre">
+             array
+            </span>
+           </span>
+          </em>
+          ,
+          <em class="sig-param">
+           <span class="o">
+            <span class="pre">
+             /
+            </span>
+           </span>
+          </em>
+          <span class="sig-paren">
+           )
+          </span>
+          <span class="sig-return">
+           <span class="sig-return-icon">
+            →
+           </span>
+           <span class="sig-return-typehint">
+            <span class="pre">
+             array
+            </span>
+           </span>
+          </span>
+          <a class="headerlink" href="#signatures.set_functions.unique_values" title="Permalink to this definition">
            ¶
           </a>
-         </h2>
-         <table class="longtable docutils align-default">
-          <colgroup>
-           <col style="width: 10%"/>
-           <col style="width: 90%"/>
-          </colgroup>
-          <tbody>
-           <tr class="row-odd">
-            <td>
+         </dt>
+         <dd>
+          <p>
+           Returns the unique elements of an input array
+           <code class="docutils literal notranslate">
+            <span class="pre">
+             x
+            </span>
+           </code>
+           .
+          </p>
+          <div class="important admonition">
+           <p class="admonition-title">
+            Data-dependent output shape
+           </p>
+           <p>
+            The shapes of two of the output arrays for this function depend on the data values in the input array; hence, array libraries which build computation graphs (e.g., JAX, Dask, etc.) may find this function difficult to implement without knowing array values. Accordingly, such libraries may choose to omit this function. See
+            <a class="reference internal" href="../../design_topics/data_dependent_output_shapes.html#data-dependent-output-shapes">
+             <span class="std std-ref">
+              Data-dependent output shapes
+             </span>
+            </a>
+            section for more details.
+           </p>
+          </div>
+          <div class="admonition note">
+           <p class="admonition-title">
+            Note
+           </p>
+           <p>
+            Uniqueness should be determined based on value equality (i.e.,
+            <code class="docutils literal notranslate">
+             <span class="pre">
+              x_i
+             </span>
+             <span class="pre">
+              ==
+             </span>
+             <span class="pre">
+              x_j
+             </span>
+            </code>
+            ). For input arrays having floating-point data types, value-based equality implies the following behavior.
+           </p>
+           <ul class="simple">
+            <li>
              <p>
-              <a class="reference internal" href="generated/signatures.set_functions.unique_all.html#signatures.set_functions.unique_all" title="signatures.set_functions.unique_all">
-               <code class="xref py py-obj docutils literal notranslate">
-                <span class="pre">
-                 unique_all
-                </span>
-               </code>
-              </a>
-              (x, /)
+              As
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                nan
+               </span>
+              </code>
+              values compare as
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                False
+               </span>
+              </code>
+              ,
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                nan
+               </span>
+              </code>
+              values should be considered distinct.
              </p>
-            </td>
-            <td>
+            </li>
+            <li>
              <p>
-              Returns the unique elements of an input array
+              As
               <code class="docutils literal notranslate">
                <span class="pre">
-                x
+                -0
                </span>
               </code>
-              , the first occurring indices for each unique element in
+              and
               <code class="docutils literal notranslate">
                <span class="pre">
-                x
+                +0
                </span>
               </code>
-              , the indices from the set of unique elements that reconstruct
+              compare as
               <code class="docutils literal notranslate">
                <span class="pre">
-                x
+                True
                </span>
               </code>
-              , and the corresponding counts for each unique element in
+              , signed zeros should not be considered distinct, and the corresponding unique element will be implementation-dependent (e.g., an implementation could choose to return
               <code class="docutils literal notranslate">
                <span class="pre">
-                x
+                -0
                </span>
               </code>
-              .
+              if
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                -0
+               </span>
+              </code>
+              occurs before
+              <code class="docutils literal notranslate">
+               <span class="pre">
+                +0
+               </span>
+              </code>
+              ).
              </p>
-            </td>
-           </tr>
-           <tr class="row-even">
-            <td>
+            </li>
+           </ul>
+          </div>
+          <dl class="field-list">
+           <dt class="field-odd">
+            Parameters
+           </dt>
+           <dd class="field-odd">
+            <p>
+             <strong>
+              x
+             </strong>
+             (
+             <em>
+              array
+             </em>
+             ) – input array. If
+             <code class="docutils literal notranslate">
+              <span class="pre">
+               x
+              </span>
+             </code>
+             has more than one dimension, the function must flatten
+             <code class="docutils literal notranslate">
+              <span class="pre">
+               x
+              </span>
+             </code>
+             and return the unique elements of the flattened array.
+            </p>
+           </dd>
+           <dt class="field-even">
+            Returns
+           </dt>
+           <dd class="field-even">
+            <p>
+             <strong>
+              out
+             </strong>
+             (
+             <em>
+              array
+             </em>
+             ) – an array containing the set of unique elements in
+             <code class="docutils literal notranslate">
+              <span class="pre">
+               x
+              </span>
+             </code>
+             . The returned array must have the same data type as
+             <code class="docutils literal notranslate">
+              <span class="pre">
+               x
+              </span>
+             </code>
+             .
+            </p>
+            <div class="admonition note">
+             <p class="admonition-title">
+              Note
+             </p>
              <p>
-              <a class="reference internal" href="generated/signatures.set_functions.unique_counts.html#signatures.set_functions.unique_counts" title="signatures.set_functions.unique_counts">
-               <code class="xref py py-obj docutils literal notranslate">
-                <span class="pre">
-                 unique_counts
-                </span>
-               </code>
-              </a>
-              (x, /)
+              The order of unique elements is not specified and may vary between implementations.
              </p>
-            </td>
-            <td>
-             <p>
-              Returns the unique elements of an input array
-              <code class="docutils literal notranslate">
-               <span class="pre">
-                x
-               </span>
-              </code>
-              and the corresponding counts for each unique element in
-              <code class="docutils literal notranslate">
-               <span class="pre">
-                x
-               </span>
-              </code>
-              .
-             </p>
-            </td>
-           </tr>
-           <tr class="row-odd">
-            <td>
-             <p>
-              <a class="reference internal" href="generated/signatures.set_functions.unique_inverse.html#signatures.set_functions.unique_inverse" title="signatures.set_functions.unique_inverse">
-               <code class="xref py py-obj docutils literal notranslate">
-                <span class="pre">
-                 unique_inverse
-                </span>
-               </code>
-              </a>
-              (x, /)
-             </p>
-            </td>
-            <td>
-             <p>
-              Returns the unique elements of an input array
-              <code class="docutils literal notranslate">
-               <span class="pre">
-                x
-               </span>
-              </code>
-              and the indices from the set of unique elements that reconstruct
-              <code class="docutils literal notranslate">
-               <span class="pre">
-                x
-               </span>
-              </code>
-              .
-             </p>
-            </td>
-           </tr>
-           <tr class="row-even">
-            <td>
-             <p>
-              <a class="reference internal" href="generated/signatures.set_functions.unique_values.html#signatures.set_functions.unique_values" title="signatures.set_functions.unique_values">
-               <code class="xref py py-obj docutils literal notranslate">
-                <span class="pre">
-                 unique_values
-                </span>
-               </code>
-              </a>
-              (x, /)
-             </p>
-            </td>
-            <td>
-             <p>
-              Returns the unique elements of an input array
-              <code class="docutils literal notranslate">
-               <span class="pre">
-                x
-               </span>
-              </code>
-              .
-             </p>
-            </td>
-           </tr>
-          </tbody>
-         </table>
-        </section>
+            </div>
+           </dd>
+          </dl>
+         </dd>
+        </dl>
        </section>
       </article>
      </div>
@@ -600,7 +606,7 @@
   <footer class="md-footer">
    <div class="md-footer-nav">
     <nav class="md-footer-nav__inner md-grid">
-     <a class="md-flex md-footer-nav__link md-footer-nav__link--prev" href="searching_functions.html" rel="prev" title="Searching Functions">
+     <a class="md-flex md-footer-nav__link md-footer-nav__link--prev" href="signatures.set_functions.unique_inverse.html" rel="prev" title="signatures.set_functions.unique_inverse">
       <div class="md-flex__cell md-flex__cell--shrink">
        <i class="md-icon md-icon--arrow-back md-footer-nav__button">
        </i>
@@ -610,17 +616,17 @@
         <span class="md-footer-nav__direction">
          Previous
         </span>
-        Searching Functions
+        signatures.set_functions.unique_inverse
        </span>
       </div>
      </a>
-     <a class="md-flex md-footer-nav__link md-footer-nav__link--next" href="generated/signatures.set_functions.unique_all.html" rel="next" title="signatures.set_functions.unique_all">
+     <a class="md-flex md-footer-nav__link md-footer-nav__link--next" href="../sorting_functions.html" rel="next" title="Sorting Functions">
       <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
        <span class="md-flex__ellipsis">
         <span class="md-footer-nav__direction">
          Next
         </span>
-        signatures.set_functions.unique_all
+        Sorting Functions
        </span>
       </div>
       <div class="md-flex__cell md-flex__cell--shrink">
@@ -650,7 +656,7 @@
     </div>
    </div>
   </footer>
-  <script src="../_static/javascripts/application.js">
+  <script src="../../_static/javascripts/application.js">
   </script>
   <script>
    app.initialize({version: "1.0.4", url: {base: ".."}})

@@ -1,0 +1,6 @@
+﻿signatures.set\_functions.unique\_counts
+========================================
+
+.. currentmodule:: signatures.set_functions
+
+.. autofunction:: unique_counts
