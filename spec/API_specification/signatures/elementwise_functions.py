@@ -1336,6 +1336,7 @@ def trunc(x: array, /) -> array:
     Rounds each element ``x_i`` of the input array ``x`` to the integer-valued number that is closest to but no greater than ``x_i``.
 
     **Special cases**
+
     - If ``x_i`` is already integer-valued, the result is ``x_i``.
 
     For floating-point operands,
