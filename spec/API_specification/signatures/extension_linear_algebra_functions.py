@@ -158,7 +158,7 @@ def inv(x: array, /) -> array:
 
 def matmul(x1: array, x2: array, /) -> array:
     """
-    Alias for :func:`signatures.linear_algebra_functions.matmul`.
+    Alias for :func:`~signatures.linear_algebra_functions.matmul`.
     """
 
 def matrix_norm(x: array, /, *, keepdims: bool = False, ord: Optional[Union[int, float, Literal[inf, -inf, 'fro', 'nuc']]] = 'fro') -> array:
@@ -250,7 +250,7 @@ def matrix_rank(x: array, /, *, rtol: Optional[Union[float, array]] = None) -> a
 
 def matrix_transpose(x: array, /) -> array:
     """
-    Alias for :func:`signatures.linear_algebra_functions.matrix_transpose`.
+    Alias for :func:`~signatures.linear_algebra_functions.matrix_transpose`.
     """
 
 def outer(x1: array, x2: array, /) -> array:
@@ -407,7 +407,7 @@ def svdvals(x: array, /) -> array:
 
 def tensordot(x1: array, x2: array, /, *, axes: Union[int, Tuple[Sequence[int], Sequence[int]]] = 2) -> array:
     """
-    Alias for :func:`signatures.linear_algebra_functions.tensordot`.
+    Alias for :func:`~signatures.linear_algebra_functions.tensordot`.
     """
 
 def trace(x: array, /, *, offset: int = 0) -> array:
@@ -441,7 +441,7 @@ def trace(x: array, /, *, offset: int = 0) -> array:
 
 def vecdot(x1: array, x2: array, /, *, axis: int = None) -> array:
     """
-    Alias for :func:`signatures.linear_algebra_functions.vecdot`.
+    Alias for :func:`~signatures.linear_algebra_functions.vecdot`.
     """
 
 def vector_norm(x: array, /, *, axis: Optional[Union[int, Tuple[int, ...]]] = None, keepdims: bool = False, ord: Union[int, float, Literal[inf, -inf]] = 2) -> array:
