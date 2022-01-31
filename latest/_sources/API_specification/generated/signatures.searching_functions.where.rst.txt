@@ -1,0 +1,6 @@
+﻿signatures.searching\_functions.where
+=====================================
+
+.. currentmodule:: signatures.searching_functions
+
+.. autofunction:: where
