@@ -94,16 +94,26 @@ def finfo(type: Union[dtype, array], /) -> finfo_object:
     -------
     out: finfo object
         an object having the followng attributes:
-            bits: int
-                number of bits occupied by the floating-point data type.
-            eps: float
-                difference between 1.0 and the next smallest representable floating-point number larger than 1.0 according to the IEEE-754 standard.
-            max: float
-                largest representable number.
-            min: float
-                smallest representable number.
-            smallest_normal: float
-                smallest positive floating-point number with full precision.
+
+        - **bits**: *int*
+
+          number of bits occupied by the floating-point data type.
+
+        - **eps**: *float*
+
+          difference between 1.0 and the next smallest representable floating-point number larger than 1.0 according to the IEEE-754 standard.
+
+        - **max**: *float*
+
+          largest representable number.
+
+        - **min**: *float*
+
+          smallest representable number.
+
+        - **smallest_normal**: *float*
+
+          smallest positive floating-point number with full precision.
     """
 
 def iinfo(type: Union[dtype, array], /) -> iinfo_object:
@@ -119,12 +129,18 @@ def iinfo(type: Union[dtype, array], /) -> iinfo_object:
     -------
     out: iinfo object
         a class with that encapsules the following attributes:
-            bits: int
-                number of bits occupied by the type.
-            max: int
-                largest representable number.
-            min: int
-                smallest representable number.
+
+        - **bits**: *int*
+
+          number of bits occupied by the type.
+
+        - **max**: *int*
+
+          largest representable number.
+
+        - **min**: *int*
+
+          smallest representable number.
     """
 
 def result_type(*arrays_and_dtypes: Union[array, dtype]) -> dtype:
