@@ -11,7 +11,7 @@ def argmax(x: array, /, *, axis: Optional[int] = None, keepdims: bool = False) -
     axis: Optional[int]
         axis along which to search. If ``None``, the function must return the index of the maximum value of the flattened array. Default: ``None``.
     keepdims: bool
-        If ``True``, the reduced axes (dimensions) must be included in the result as singleton dimensions, and, accordingly, the result must be compatible with the input array (see :ref:`broadcasting`). Otherwise, if ``False``, the reduced axes (dimensions) must not be included in the result. Default: ``False``.
+        if ``True``, the reduced axes (dimensions) must be included in the result as singleton dimensions, and, accordingly, the result must be compatible with the input array (see :ref:`broadcasting`). Otherwise, if ``False``, the reduced axes (dimensions) must not be included in the result. Default: ``False``.
 
     Returns
     -------
@@ -30,7 +30,7 @@ def argmin(x: array, /, *, axis: Optional[int] = None, keepdims: bool = False) -
     axis: Optional[int]
         axis along which to search. If ``None``, the function must return the index of the minimum value of the flattened array. Default: ``None``.
     keepdims: bool
-        If ``True``, the reduced axes (dimensions) must be included in the result as singleton dimensions, and, accordingly, the result must be compatible with the input array (see :ref:`broadcasting`). Otherwise, if ``False``, the reduced axes (dimensions) must not be included in the result. Default: ``False``.
+        if ``True``, the reduced axes (dimensions) must be included in the result as singleton dimensions, and, accordingly, the result must be compatible with the input array (see :ref:`broadcasting`). Otherwise, if ``False``, the reduced axes (dimensions) must not be included in the result. Default: ``False``.
 
     Returns
     -------
