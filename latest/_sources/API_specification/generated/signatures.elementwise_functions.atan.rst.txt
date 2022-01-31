@@ -1,0 +1,6 @@
+﻿.. currentmodule:: signatures.elementwise_functions
+
+atan
+====
+
+.. autofunction:: atan
