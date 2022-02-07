@@ -1,0 +1,6 @@
+﻿.. currentmodule:: signatures.data_type_functions
+
+can_cast
+========
+
+.. autofunction:: can_cast
