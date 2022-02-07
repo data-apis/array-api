@@ -56,12 +56,7 @@ def broadcast_to(x: array, /, shape: Tuple[int, ...]) -> array:
     Returns
     -------
     out: array
-        an array having a specified shape. Must have the same data type as ``x``.
-
-
-    **Raises**
-
-    if the array is incompatible with the specified shape (see :ref:`broadcasting`).
+        an array having a specified shape. Must have the same data type as ``x``. If the array is incompatible with the specified shape (see :ref:`broadcasting`), the function should raise an exception.
     """
 
 def can_cast(from_: Union[dtype, array], to: dtype, /) -> bool:
