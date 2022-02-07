@@ -5,7 +5,7 @@ def all(x: array, /, *, axis: Optional[Union[int, Tuple[int, ...]]] = None, keep
     Tests whether all input array elements evaluate to ``True`` along a specified axis.
 
     .. note::
-       Positive infinity, negative infinity, and NaN must all evaluate to ``True``.
+       Positive infinity, negative infinity, and NaN must evaluate to ``True``.
 
     .. note::
        If ``x`` is an empty array or the size of the axis (dimension) along which to evaluate elements is zero, the test result must be ``True``.
@@ -30,7 +30,7 @@ def any(x: array, /, *, axis: Optional[Union[int, Tuple[int, ...]]] = None, keep
     Tests whether any input array element evaluates to ``True`` along a specified axis.
 
     .. note::
-       Positive infinity, negative infinity, and NaN must all evaluate to ``True``.
+       Positive infinity, negative infinity, and NaN must evaluate to ``True``.
 
     .. note::
        If ``x`` is an empty array or the size of the axis (dimension) along which to evaluate elements is zero, the test result must be ``False``.
