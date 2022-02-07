@@ -54,7 +54,7 @@ def asarray(obj: Union[array, bool, int, float, NestedSequence, SupportsBufferPr
         .. admonition:: Note
            :class: note
 
-           If ``dtype`` is not ``None``, then array conversions should obey :ref:`type-promotion` rules. Conversions not specified according to :ref:`type-promotion` rules may or may not be permitted by a conforming array library. To perform an explicit cast, use :ref:`function-astype`.
+           If ``dtype`` is not ``None``, then array conversions should obey :ref:`type-promotion` rules. Conversions not specified according to :ref:`type-promotion` rules may or may not be permitted by a conforming array library. To perform an explicit cast, use :func:`signatures.data_type_functions.astype`.
 
     device: Optional[device]
         device on which to place the created array. If ``device`` is ``None`` and ``x`` is an array, the output array device must be inferred from ``x``. Default: ``None``.
