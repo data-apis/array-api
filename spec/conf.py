@@ -114,7 +114,7 @@ html_theme_options = {
     #'repo_name': 'Project',
 
     "html_minify": False,
-    "html_prettify": True,
+    "html_prettify": False,
     "css_minify": True,
     "logo_icon": "&#xe869",
     "repo_type": "github",
