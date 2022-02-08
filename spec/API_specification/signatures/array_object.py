@@ -1,14 +1,16 @@
-from ._types import array, dtype, Optional, Tuple, Union, Any, PyCapsule, Enum, ellipsis
-from ._types import device as Device
+from __future__ import annotations
 
-class array():
+from ._types import (array, dtype as Dtype, device as Device, Optional, Tuple,
+                     Union, Any, PyCapsule, Enum, ellipsis)
+
+class _array():
     def __init__(self) -> None:
         """
         Initialize the attributes for the array object class.
         """
 
     @property
-    def dtype() -> dtype:
+    def dtype() -> Dtype:
         """
         Data type of the array elements.
 
@@ -987,3 +989,5 @@ class array():
         .. note::
            If ``stream`` is given, the copy operation should be enqueued on the provided ``stream``; otherwise, the copy operation should be enqueued on the default stream/queue. Whether the copy is performed synchronously or asynchronously is implementation-dependent. Accordingly, if synchronization is required to guarantee data safety, this must be clearly explained in a conforming library's documentation.
         """
+
+array = _array

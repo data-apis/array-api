@@ -37,47 +37,47 @@ Arithmetic Operators
 
 A conforming implementation of the array API standard must provide and support an array object supporting the following Python arithmetic operators.
 
--   ``+x``: :meth:`array.__pos__`
+-   ``+x``: :meth:`.array.__pos__`
 
     -   `operator.pos(x) <https://docs.python.org/3/library/operator.html#operator.pos>`_
     -   `operator.__pos__(x) <https://docs.python.org/3/library/operator.html#operator.__pos__>`_
 
--   `-x`: :meth:`array.__neg__`
+-   `-x`: :meth:`.array.__neg__`
 
     -   `operator.neg(x) <https://docs.python.org/3/library/operator.html#operator.neg>`_
     -   `operator.__neg__(x) <https://docs.python.org/3/library/operator.html#operator.__neg__>`_
 
--   `x1 + x2`: :meth:`array.__add__`
+-   `x1 + x2`: :meth:`.array.__add__`
 
     -   `operator.add(x1, x2) <https://docs.python.org/3/library/operator.html#operator.add>`_
     -   `operator.__add__(x1, x2) <https://docs.python.org/3/library/operator.html#operator.__add__>`_
 
--   `x1 - x2`: :meth:`array.__sub__`
+-   `x1 - x2`: :meth:`.array.__sub__`
 
     -   `operator.sub(x1, x2) <https://docs.python.org/3/library/operator.html#operator.sub>`_
     -   `operator.__sub__(x1, x2) <https://docs.python.org/3/library/operator.html#operator.__sub__>`_
 
--   `x1 * x2`: :meth:`array.__mul__`
+-   `x1 * x2`: :meth:`.array.__mul__`
 
     -   `operator.mul(x1, x2) <https://docs.python.org/3/library/operator.html#operator.mul>`_
     -   `operator.__mul__(x1, x2) <https://docs.python.org/3/library/operator.html#operator.__mul__>`_
 
--   `x1 / x2`: :meth:`array.__truediv__`
+-   `x1 / x2`: :meth:`.array.__truediv__`
 
     -   `operator.truediv(x1,x2) <https://docs.python.org/3/library/operator.html#operator.truediv>`_
     -   `operator.__truediv__(x1, x2) <https://docs.python.org/3/library/operator.html#operator.__truediv__>`_
 
--   `x1 // x2`: :meth:`array.__floordiv__`
+-   `x1 // x2`: :meth:`.array.__floordiv__`
 
     -   `operator.floordiv(x1, x2) <https://docs.python.org/3/library/operator.html#operator.floordiv>`_
     -   `operator.__floordiv__(x1, x2) <https://docs.python.org/3/library/operator.html#operator.__floordiv__>`_
 
--   `x1 % x2`: :meth:`array.__mod__`
+-   `x1 % x2`: :meth:`.array.__mod__`
 
     -   `operator.mod(x1, x2) <https://docs.python.org/3/library/operator.html#operator.mod>`_
     -   `operator.__mod__(x1, x2) <https://docs.python.org/3/library/operator.html#operator.__mod__>`_
 
--   `x1 ** x2`: :meth:`array.__pow__`
+-   `x1 ** x2`: :meth:`.array.__pow__`
 
     -   `operator.pow(x1, x2) <https://docs.python.org/3/library/operator.html#operator.pow>`_
     -   `operator.__pow__(x1, x2) <https://docs.python.org/3/library/operator.html#operator.__pow__>`_
@@ -89,7 +89,7 @@ Array Operators
 
 A conforming implementation of the array API standard must provide and support an array object supporting the following Python array operators.
 
--   `x1 @ x2`: :meth:`array.__matmul__`
+-   `x1 @ x2`: :meth:`.array.__matmul__`
 
     -   `operator.matmul(x1, x2) <https://docs.python.org/3/library/operator.html#operator.matmul>`_
     -   `operator.__matmul__(x1, x2) <https://docs.python.org/3/library/operator.html#operator.__matmul__>`_
@@ -101,34 +101,34 @@ Bitwise Operators
 
 A conforming implementation of the array API standard must provide and support an array object supporting the following Python bitwise operators.
 
--   `~x`: :meth:`array.__invert__`
+-   `~x`: :meth:`.array.__invert__`
 
     -   `operator.inv(x) <https://docs.python.org/3/library/operator.html#operator.inv>`_
     -   `operator.invert(x) <https://docs.python.org/3/library/operator.html#operator.invert>`_
     -   `operator.__inv__(x) <https://docs.python.org/3/library/operator.html#operator.__inv__>`_
     -   `operator.__invert__(x) <https://docs.python.org/3/library/operator.html#operator.__invert__>`_
 
--   `x1 & x2`: :meth:`array.__and__`
+-   `x1 & x2`: :meth:`.array.__and__`
 
     -   `operator.and(x1, x2) <https://docs.python.org/3/library/operator.html#operator.and>`_
     -   `operator.__and__(x1, x2) <https://docs.python.org/3/library/operator.html#operator.__and__>`_
 
--   `x1 | x2`: :meth:`array.__or__`
+-   `x1 | x2`: :meth:`.array.__or__`
 
     -   `operator.or(x1, x2) <https://docs.python.org/3/library/operator.html#operator.or>`_
     -   `operator.__or__(x1, x2) <https://docs.python.org/3/library/operator.html#operator.__or__>`_
 
--   `x1 ^ x2`: :meth:`array.__xor__`
+-   `x1 ^ x2`: :meth:`.array.__xor__`
 
     -   `operator.xor(x1, x2) <https://docs.python.org/3/library/operator.html#operator.xor>`_
     -   `operator.__xor__(x1, x2) <https://docs.python.org/3/library/operator.html#operator.__xor__>`_
 
--   `x1 << x2`: :meth:`array.__lshift__`
+-   `x1 << x2`: :meth:`.array.__lshift__`
 
     -   `operator.lshift(x1, x2) <https://docs.python.org/3/library/operator.html#operator.lshift>`_
     -   `operator.__lshift__(x1, x2) <https://docs.python.org/3/library/operator.html#operator.__lshift__>`_
 
--   `x1 >> x2`: :meth:`array.__rshift__`
+-   `x1 >> x2`: :meth:`.array.__rshift__`
 
     -   `operator.rshift(x1, x2) <https://docs.python.org/3/library/operator.html#operator.rshift>`_
     -   `operator.__rshift__(x1, x2) <https://docs.python.org/3/library/operator.html#operator.__rshift__>`_
@@ -140,32 +140,32 @@ Comparison Operators
 
 A conforming implementation of the array API standard must provide and support an array object supporting the following Python comparison operators.
 
--   `x1 < x2`: :meth:`array.__lt__`
+-   `x1 < x2`: :meth:`.array.__lt__`
 
     -   `operator.lt(x1, x2) <https://docs.python.org/3/library/operator.html#operator.lt>`_
     -   `operator.__lt__(x1, x2) <https://docs.python.org/3/library/operator.html#operator.__lt__>`_
 
--   `x1 <= x2`: :meth:`array.__le__`
+-   `x1 <= x2`: :meth:`.array.__le__`
 
     -   `operator.le(x1, x2) <https://docs.python.org/3/library/operator.html#operator.le>`_
     -   `operator.__le__(x1, x2) <https://docs.python.org/3/library/operator.html#operator.__le__>`_
 
--   `x1 > x2`: :meth:`array.__gt__`
+-   `x1 > x2`: :meth:`.array.__gt__`
 
     -   `operator.gt(x1, x2) <https://docs.python.org/3/library/operator.html#operator.gt>`_
     -   `operator.__gt__(x1, x2) <https://docs.python.org/3/library/operator.html#operator.__gt__>`_
 
--   `x1 >= x2`: :meth:`array.__ge__`
+-   `x1 >= x2`: :meth:`.array.__ge__`
 
     -   `operator.ge(x1, x2) <https://docs.python.org/3/library/operator.html#operator.ge>`_
     -   `operator.__ge__(x1, x2) <https://docs.python.org/3/library/operator.html#operator.__ge__>`_
 
--   `x1 == x2`: :meth:`array.__eq__`
+-   `x1 == x2`: :meth:`.array.__eq__`
 
     -   `operator.eq(x1, x2) <https://docs.python.org/3/library/operator.html#operator.eq>`_
     -   `operator.__eq__(x1, x2) <https://docs.python.org/3/library/operator.html#operator.__eq__>`_
 
--   `x1 != x2`: :meth:`array.__ne__`
+-   `x1 != x2`: :meth:`.array.__ne__`
 
     -   `operator.ne(x1, x2) <https://docs.python.org/3/library/operator.html#operator.ne>`_
     -   `operator.__ne__(x1, x2) <https://docs.python.org/3/library/operator.html#operator.__ne__>`_
