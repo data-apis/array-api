@@ -48,6 +48,34 @@ add_module_names = False
 napoleon_custom_sections = [('Returns', 'params_style')]
 default_role = 'code'
 
+# nitpicky = True makes Sphinx warn whenever a cross-reference target can't be
+# found.
+nitpicky = True
+# autodoc wants to make cross-references for every type hint. But a lot of
+# them don't actually refer to anything that we have a document for.
+nitpick_ignore = [
+    ('py:class', 'array'),
+    ('py:class', 'device'),
+    ('py:class', 'dtype'),
+    ('py:class', 'NestedSequence'),
+    ('py:class', 'SupportsBufferProtocol'),
+    ('py:class', 'collections.abc.Sequence'),
+    ('py:class', "Optional[Union[int, float, Literal[inf, - inf, 'fro', 'nuc']]]"),
+    ('py:class', "Union[int, float, Literal[inf, - inf]]"),
+    ('py:class', 'PyCapsule'),
+    ('py:class', 'enum.Enum'),
+    ('py:class', 'ellipsis'),
+    ('py:class', 'finfo_object'),
+    ('py:class', 'iinfo_object'),
+]
+# In array_object.py we have to use aliased names for some types because they
+# would otherwise refer back to method objects of array
+autodoc_type_aliases = {
+    'array': 'array',
+    'Device': 'device',
+    'Dtype': 'dtype',
+}
+
 # Make autosummary show the signatures of functions in the tables using actual
 # Python syntax. There's currently no supported way to do this, so we have to
 # just patch out the function that processes the signatures. See
