@@ -1,6 +1,5 @@
-from ._types import Literal, Optional, Tuple, Union, array
+from ._types import Literal, Optional, Tuple, Union, Sequence, array
 from .constants import inf
-from collections.abc import Sequence
 
 def cholesky(x: array, /, *, upper: bool = False) -> array:
     """
