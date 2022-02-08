@@ -92,6 +92,8 @@ html_sidebars = {
     "**": ["logo-text.html", "globaltoc.html", "localtoc.html", "searchbox.html"]
 }
 
+nitpicky = True
+
 html_theme_options = {
 
     # Set the name of the project to appear in the navigation.
