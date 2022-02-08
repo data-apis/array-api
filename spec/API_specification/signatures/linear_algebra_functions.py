@@ -1,5 +1,4 @@
-from ._types import Tuple, Union, array
-from collections.abc import Sequence
+from ._types import Tuple, Union, Sequence, array
 
 def matmul(x1: array, x2: array, /) -> array:
     """
