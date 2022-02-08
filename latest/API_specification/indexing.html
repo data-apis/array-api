@@ -1,24 +1,29 @@
+
 <!DOCTYPE html>
+
 <html>
- <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <meta content="Docutils 0.17.1: http://docutils.sourceforge.net/" name="generator"/>
-  <meta content="width=device-width,initial-scale=1" name="viewport"/>
-  <meta content="ie=edge" http-equiv="x-ua-compatible"/>
-  <meta content="Copy to clipboard" name="lang:clipboard.copy"/>
-  <meta content="Copied to clipboard" name="lang:clipboard.copied"/>
-  <meta content="en" name="lang:search.language"/>
-  <meta content="True" name="lang:search.pipeline.stopwords"/>
-  <meta content="True" name="lang:search.pipeline.trimmer"/>
-  <meta content="No matching documents" name="lang:search.result.none"/>
-  <meta content="1 matching document" name="lang:search.result.one"/>
-  <meta content="# matching documents" name="lang:search.result.other"/>
-  <meta content="[\s\-]+" name="lang:search.tokenizer"/>
-  <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
-  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700|Roboto:300,400,400i,700&amp;display=fallback" rel="stylesheet"/>
-  <style>
-   body,
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="lang:clipboard.copy" content="Copy to clipboard">
+  <meta name="lang:clipboard.copied" content="Copied to clipboard">
+  <meta name="lang:search.language" content="en">
+  <meta name="lang:search.pipeline.stopwords" content="True">
+  <meta name="lang:search.pipeline.trimmer" content="True">
+  <meta name="lang:search.result.none" content="No matching documents">
+  <meta name="lang:search.result.one" content="1 matching document">
+  <meta name="lang:search.result.other" content="# matching documents">
+  <meta name="lang:search.tokenizer" content="[\s\-]+">
+
+  
+    <link href="https://fonts.gstatic.com/" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700|Roboto:300,400,400i,700&display=fallback" rel="stylesheet">
+
+    <style>
+      body,
       input {
         font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif
       }
@@ -28,692 +33,469 @@
       pre {
         font-family: "Roboto Mono", "Courier New", Courier, monospace
       }
-  </style>
-  <link href="../_static/stylesheets/application.css" rel="stylesheet"/>
-  <link href="../_static/stylesheets/application-palette.css" rel="stylesheet"/>
-  <link href="../_static/stylesheets/application-fixes.css" rel="stylesheet"/>
-  <link href="../_static/fonts/material-icons.css" rel="stylesheet"/>
-  <meta content="#2196f3" name="theme-color"/>
-  <script src="../_static/javascripts/modernizr.js">
-  </script>
-  <link href="../_static/images/apple-icon-152x152.png" rel="apple-touch-icon"/>
-  <title>
-   Indexing — Python array API standard 2021.01-DRAFT documentation
-  </title>
-  <link href="../_static/pygments.css" rel="stylesheet" type="text/css"/>
-  <link href="../_static/material.css" rel="stylesheet" type="text/css"/>
-  <link href="../_static/copybutton.css" rel="stylesheet" type="text/css"/>
-  <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js">
-  </script>
-  <script src="../_static/jquery.js">
-  </script>
-  <script src="../_static/underscore.js">
-  </script>
-  <script src="../_static/doctools.js">
-  </script>
-  <script src="../_static/clipboard.min.js">
-  </script>
-  <script src="../_static/copybutton.js">
-  </script>
-  <link href="../genindex.html" rel="index" title="Index"/>
-  <link href="../search.html" rel="search" title="Search"/>
-  <link href="linear_algebra_functions.html" rel="next" title="Linear Algebra Functions"/>
-  <link href="function_and_method_signatures.html" rel="prev" title="Function and method signatures"/>
-  <link href="../_static/images/apple-icon-152x152.png" rel="apple-touch-icon"/>
- </head>
- <body data-md-color-accent="green" data-md-color-primary="indigo" dir="ltr">
+    </style>
+  
+
+  <link rel="stylesheet" href="../_static/stylesheets/application.css"/>
+  <link rel="stylesheet" href="../_static/stylesheets/application-palette.css"/>
+  <link rel="stylesheet" href="../_static/stylesheets/application-fixes.css"/>
+  
+  <link rel="stylesheet" href="../_static/fonts/material-icons.css"/>
+  
+  <meta name="theme-color" content="#2196f3">
+  <script src="../_static/javascripts/modernizr.js"></script>
+  
+  
+    <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
+  
+  
+    <title>Indexing &#8212; Python array API standard 2021.01-DRAFT documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/material.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Linear Algebra Functions" href="linear_algebra_functions.html" />
+    <link rel="prev" title="Function and method signatures" href="function_and_method_signatures.html" />
+  
+    <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
+  
+   
+
+  </head>
+  <body dir=ltr
+        data-md-color-primary=indigo data-md-color-accent=green>
+  
   <svg class="md-svg">
-   <defs data-children-count="0">
-    <svg height="448" id="__github" viewbox="0 0 416 448" width="416" xmlns="http://www.w3.org/2000/svg">
-     <path d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z" fill="currentColor">
-     </path>
-    </svg>
-   </defs>
+    <defs data-children-count="0">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+      
+    </defs>
   </svg>
-  <input class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
-  <input class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
-  <label class="md-overlay" data-md-component="overlay" for="__drawer">
-  </label>
-  <a class="md-skip" href="#API_specification/indexing" tabindex="1">
-   Skip to content
-  </a>
+  
+  <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer">
+  <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search">
+  <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+  <a href="#API_specification/indexing" tabindex="1" class="md-skip"> Skip to content </a>
   <header class="md-header" data-md-component="header">
-   <nav class="md-header-nav md-grid">
+  <nav class="md-header-nav md-grid">
     <div class="md-flex navheader">
-     <div class="md-flex__cell md-flex__cell--shrink">
-      <a class="md-header-nav__button md-logo" href="../index.html" title="Python array API standard 2021.01-DRAFT documentation">
-       <i class="md-icon">
-        
-       </i>
-      </a>
-     </div>
-     <div class="md-flex__cell md-flex__cell--shrink">
-      <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer">
-      </label>
-     </div>
-     <div class="md-flex__cell md-flex__cell--stretch">
-      <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-       <span class="md-header-nav__topic">
-        Python array API standard
-       </span>
-       <span class="md-header-nav__topic">
-        Indexing
-       </span>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../index.html" title="Python array API standard 2021.01-DRAFT documentation"
+           class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">&#xe869</i>
+          
+        </a>
       </div>
-     </div>
-     <div class="md-flex__cell md-flex__cell--shrink">
-      <label class="md-icon md-icon--search md-header-nav__button" for="__search">
-      </label>
-      <div class="md-search" data-md-component="search" role="dialog">
-       <label class="md-search__overlay" for="__search">
-       </label>
-       <div class="md-search__inner" role="search">
-        <form action="../search.html" class="md-search__form" method="GET" name="search">
-         <input autocapitalize="off" autocomplete="off" class="md-search__input" data-md-component="query" data-md-state="active" name="q" placeholder="Search" spellcheck="false" type="text"/>
-         <label class="md-icon md-search__icon" for="__search">
-         </label>
-         <button class="md-icon md-search__icon" data-md-component="reset" tabindex="-1" type="reset">
-          
-         </button>
-        </form>
-        <div class="md-search__output">
-         <div class="md-search__scrollwrap" data-md-scrollfix="">
-          <div class="md-search-result" data-md-component="result">
-           <div class="md-search-result__meta">
-            Type to start searching
-           </div>
-           <ol class="md-search-result__list">
-           </ol>
-          </div>
-         </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          <span class="md-header-nav__topic">Python array API standard</span>
+          <span class="md-header-nav__topic"> Indexing </span>
         </div>
-       </div>
       </div>
-     </div>
-     <script src="../_static/javascripts/version_dropdown.js">
-     </script>
-     <script>
-      var json_loc = "../"versions.json"",
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+        
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" action="../search.html" method="GET" name="search">
+      <input type="text" class="md-search__input" name="q" placeholder="Search"
+             autocapitalize="off" autocomplete="off" spellcheck="false"
+             data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      </div>
+      
+      
+  
+  <script src="../_static/javascripts/version_dropdown.js"></script>
+  <script>
+    var json_loc = "../"versions.json"",
         target_loc = "../../",
         text = "Versions";
     $( document ).ready( add_version_dropdown(json_loc, target_loc, text));
-     </script>
+  </script>
+  
+
     </div>
-   </nav>
-  </header>
+  </nav>
+</header>
+
+  
   <div class="md-container">
-   <nav class="md-tabs" data-md-component="tabs">
+    
+    
+    
+  <nav class="md-tabs" data-md-component="tabs">
     <div class="md-tabs__inner md-grid">
-     <ul class="md-tabs__list">
-      <li class="md-tabs__item">
-       <a class="md-tabs__link" href="../index.html">
-        Array API standard
-       </a>
-      </li>
-      <li class="md-tabs__item">
-       <a class="md-tabs__link" href="https://data-apis.org">
-        Consortium for Python Data API Standards
-       </a>
-      </li>
-      <li class="md-tabs__item">
-       <a class="md-tabs__link" href="index.html">
-        API specification
-       </a>
-      </li>
-     </ul>
+      <ul class="md-tabs__list">
+            
+            <li class="md-tabs__item"><a href="../index.html" class="md-tabs__link">Array API standard</a></li>
+            
+            <li class="md-tabs__item"><a href="https://data-apis.org" class="md-tabs__link">Consortium for Python Data API Standards</a></li>
+          <li class="md-tabs__item"><a href="index.html" class="md-tabs__link">API specification</a></li>
+      </ul>
     </div>
-   </nav>
-   <main class="md-main">
-    <div class="md-main__inner md-grid" data-md-component="container">
-     <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
-      <div class="md-sidebar__scrollwrap">
-       <div class="md-sidebar__inner">
-        <nav class="md-nav md-nav--primary" data-md-level="0">
-         <label class="md-nav__title md-nav__title--site" for="__drawer">
-          <a class="md-nav__button md-logo" href="../index.html" title="Python array API standard 2021.01-DRAFT documentation">
-           <i class="md-icon">
-            
-           </i>
-          </a>
-          <a href="../index.html" title="Python array API standard 2021.01-DRAFT documentation">
-           Python array API standard
-          </a>
-         </label>
-         <ul class="md-nav__list">
-          <li class="md-nav__item">
-           <span class="md-nav__link caption">
-            <span class="caption-text">
-             Context
-            </span>
-           </span>
-          </li>
-          <li class="md-nav__item">
-           <a class="md-nav__link" href="../purpose_and_scope.html">
-            Purpose and scope
-           </a>
-          </li>
-          <li class="md-nav__item">
-           <a class="md-nav__link" href="../use_cases.html">
-            Use cases
-           </a>
-          </li>
-          <li class="md-nav__item">
-           <a class="md-nav__link" href="../assumptions.html">
-            Assumptions
-           </a>
-          </li>
-          <li class="md-nav__item">
-           <span class="md-nav__link caption">
-            <span class="caption-text">
-             API
-            </span>
-           </span>
-          </li>
-          <li class="md-nav__item">
-           <a class="md-nav__link" href="../design_topics/index.html">
-            Design topics &amp; constraints
-           </a>
-          </li>
-          <li class="md-nav__item">
-           <a class="md-nav__link" href="../future_API_evolution.html">
-            Future API standard evolution
-           </a>
-          </li>
-          <li class="md-nav__item">
-           <a class="md-nav__link" href="index.html">
-            API specification
-           </a>
-           <ul class="md-nav__list">
-            <li class="md-nav__item">
-             <a class="md-nav__link" href="array_object.html">
-              Array object
-             </a>
-            </li>
-            <li class="md-nav__item">
-             <a class="md-nav__link" href="broadcasting.html">
-              Broadcasting
-             </a>
-            </li>
-            <li class="md-nav__item">
-             <a class="md-nav__link" href="constants.html">
-              Constants
-             </a>
-            </li>
-            <li class="md-nav__item">
-             <a class="md-nav__link" href="creation_functions.html">
-              Creation Functions
-             </a>
-            </li>
-            <li class="md-nav__item">
-             <a class="md-nav__link" href="data_type_functions.html">
-              Data Type Functions
-             </a>
-            </li>
-            <li class="md-nav__item">
-             <a class="md-nav__link" href="data_types.html">
-              Data Types
-             </a>
-            </li>
-            <li class="md-nav__item">
-             <a class="md-nav__link" href="elementwise_functions.html">
-              Element-wise Functions
-             </a>
-            </li>
-            <li class="md-nav__item">
-             <a class="md-nav__link" href="function_and_method_signatures.html">
-              Function and method signatures
-             </a>
-            </li>
-            <li class="md-nav__item">
-             <input class="md-toggle md-nav__toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
-             <label class="md-nav__link md-nav__link--active" for="__toc">
-              Indexing
-             </label>
-             <a class="md-nav__link md-nav__link--active" href="#">
-              Indexing
-             </a>
-             <nav class="md-nav md-nav--secondary">
-              <label class="md-nav__title" for="__toc">
-               Contents
-              </label>
-              <ul class="md-nav__list" data-md-scrollfix="">
-               <li class="md-nav__item">
-                <a class="md-nav__link" href="#api-specification-indexing--page-root">
-                 Indexing
-                </a>
-                <nav class="md-nav">
-                 <ul class="md-nav__list">
-                  <li class="md-nav__item">
-                   <a class="md-nav__link" href="#single-axis-indexing">
-                    Single-axis Indexing
-                   </a>
-                   <nav class="md-nav">
-                    <ul class="md-nav__list">
-                     <li class="md-nav__item">
-                      <a class="md-nav__link" href="#slice-syntax">
-                       Slice Syntax
-                      </a>
-                     </li>
-                    </ul>
-                   </nav>
-                  </li>
-                  <li class="md-nav__item">
-                   <a class="md-nav__link" href="#multi-axis-indexing">
-                    Multi-axis Indexing
-                   </a>
-                  </li>
-                  <li class="md-nav__item">
-                   <a class="md-nav__link" href="#boolean-array-indexing">
-                    Boolean Array Indexing
-                   </a>
-                  </li>
-                  <li class="md-nav__item">
-                   <a class="md-nav__link" href="#return-values">
-                    Return Values
-                   </a>
-                  </li>
-                 </ul>
-                </nav>
-               </li>
-              </ul>
-             </nav>
-            </li>
-            <li class="md-nav__item">
-             <a class="md-nav__link" href="linear_algebra_functions.html">
-              Linear Algebra Functions
-             </a>
-            </li>
-            <li class="md-nav__item">
-             <a class="md-nav__link" href="manipulation_functions.html">
-              Manipulation Functions
-             </a>
-            </li>
-            <li class="md-nav__item">
-             <a class="md-nav__link" href="searching_functions.html">
-              Searching Functions
-             </a>
-            </li>
-            <li class="md-nav__item">
-             <a class="md-nav__link" href="set_functions.html">
-              Set Functions
-             </a>
-            </li>
-            <li class="md-nav__item">
-             <a class="md-nav__link" href="sorting_functions.html">
-              Sorting Functions
-             </a>
-            </li>
-            <li class="md-nav__item">
-             <a class="md-nav__link" href="statistical_functions.html">
-              Statistical Functions
-             </a>
-            </li>
-            <li class="md-nav__item">
-             <a class="md-nav__link" href="type_promotion.html">
-              Type Promotion Rules
-             </a>
-            </li>
-            <li class="md-nav__item">
-             <a class="md-nav__link" href="utility_functions.html">
-              Utility Functions
-             </a>
-            </li>
-           </ul>
-          </li>
-          <li class="md-nav__item">
-           <a class="md-nav__link" href="../extensions/index.html">
-            Extensions
-           </a>
-          </li>
-          <li class="md-nav__item">
-           <span class="md-nav__link caption">
-            <span class="caption-text">
-             Methodology and Usage
-            </span>
-           </span>
-          </li>
-          <li class="md-nav__item">
-           <a class="md-nav__link" href="../usage_data.html">
-            Usage Data
-           </a>
-          </li>
-          <li class="md-nav__item">
-           <a class="md-nav__link" href="../verification_test_suite.html">
-            Verification - test suite
-           </a>
-          </li>
-          <li class="md-nav__item">
-           <a class="md-nav__link" href="../benchmark_suite.html">
-            Benchmark suite
-           </a>
-          </li>
-         </ul>
-        </nav>
-       </div>
-      </div>
-     </div>
-     <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
-      <div class="md-sidebar__scrollwrap">
-       <div class="md-sidebar__inner">
-        <nav class="md-nav md-nav--secondary">
-         <label class="md-nav__title" for="__toc">
-          Contents
-         </label>
-         <ul class="md-nav__list" data-md-scrollfix="">
-          <li class="md-nav__item">
-           <a class="md-nav__link" href="#api-specification-indexing--page-root">
-            Indexing
-           </a>
-           <nav class="md-nav">
-            <ul class="md-nav__list">
-             <li class="md-nav__item">
-              <a class="md-nav__link" href="#single-axis-indexing">
-               Single-axis Indexing
-              </a>
-              <nav class="md-nav">
-               <ul class="md-nav__list">
-                <li class="md-nav__item">
-                 <a class="md-nav__link" href="#slice-syntax">
-                  Slice Syntax
-                 </a>
-                </li>
-               </ul>
-              </nav>
-             </li>
-             <li class="md-nav__item">
-              <a class="md-nav__link" href="#multi-axis-indexing">
-               Multi-axis Indexing
-              </a>
-             </li>
-             <li class="md-nav__item">
-              <a class="md-nav__link" href="#boolean-array-indexing">
-               Boolean Array Indexing
-              </a>
-             </li>
-             <li class="md-nav__item">
-              <a class="md-nav__link" href="#return-values">
-               Return Values
-              </a>
-             </li>
-            </ul>
-           </nav>
-          </li>
-         </ul>
-        </nav>
-       </div>
-      </div>
-     </div>
-     <div class="md-content">
-      <article class="md-content__inner md-typeset" role="main">
-       <section id="indexing">
-        <span id="id1">
-        </span>
-        <h1 id="api-specification-indexing--page-root">
-         Indexing
-         <a class="headerlink" href="#api-specification-indexing--page-root" title="Permalink to this headline">
-          ¶
-         </a>
-        </h1>
-        <blockquote>
-         <div>
-          <p>
-           Array API specification for indexing arrays.
-          </p>
-         </div>
-        </blockquote>
-        <p>
-         A conforming implementation of the array API standard must adhere to the following conventions.
-        </p>
-        <section id="single-axis-indexing">
-         <h2 id="single-axis-indexing">
-          Single-axis Indexing
-          <a class="headerlink" href="#single-axis-indexing" title="Permalink to this headline">
-           ¶
-          </a>
-         </h2>
-         <p>
-          To index a single array axis, an array must support standard Python indexing rules. Let
-          <code class="docutils literal notranslate">
-           <span class="pre">
-            n
-           </span>
-          </code>
-          be the axis (dimension) size.
-         </p>
-         <ul>
-          <li>
-           <p>
-            An integer index must be an object satisfying
-            <a class="reference external" href="https://www.python.org/dev/peps/pep-0357/">
-             operator.index
-            </a>
-            (e.g.,
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              int
-             </span>
-            </code>
-            ).
-           </p>
-          </li>
-          <li>
-           <p>
-            Nonnegative indices must start at
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              0
-             </span>
-            </code>
-            (i.e., zero-based indexing).
-           </p>
-          </li>
-          <li>
-           <p>
-            <strong>
-             Valid
-            </strong>
-            nonnegative indices must reside on the half-open interval
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              [0,
-             </span>
-             <span class="pre">
-              n)
-             </span>
-            </code>
-            .
-           </p>
-           <div class="admonition note">
-            <p class="admonition-title">
-             Note
-            </p>
-            <p>
-             This specification does not require bounds checking. The behavior for out-of-bounds integer indices is left unspecified.
-            </p>
-           </div>
-          </li>
-          <li>
-           <p>
-            Negative indices must count backward from the last array index, starting from
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              -1
-             </span>
-            </code>
-            (i.e., negative-one-based indexing, where
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              -1
-             </span>
-            </code>
-            refers to the last array index).
-           </p>
-           <div class="admonition note">
-            <p class="admonition-title">
-             Note
-            </p>
-            <p>
-             A negative index
-             <code class="docutils literal notranslate">
-              <span class="pre">
-               j
-              </span>
-             </code>
-             is equivalent to
-             <code class="docutils literal notranslate">
-              <span class="pre">
-               n-j
-              </span>
-             </code>
-             ; the former is syntactic sugar for the latter, providing a shorthand for indexing elements that would otherwise need to be specified in terms of the axis (dimension) size.
-            </p>
-           </div>
-          </li>
-          <li>
-           <p>
-            <strong>
-             Valid
-            </strong>
-            negative indices must reside on the closed interval
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              [-n,
-             </span>
-             <span class="pre">
-              -1]
-             </span>
-            </code>
-            .
-           </p>
-           <div class="admonition note">
-            <p class="admonition-title">
-             Note
-            </p>
-            <p>
-             This specification does not require bounds checking. The behavior for out-of-bounds integer indices is left unspecified.
-            </p>
-           </div>
-          </li>
-          <li>
-           <p>
-            A negative index
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              j
-             </span>
-            </code>
-            is related to a zero-based nonnegative index
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              i
-             </span>
-            </code>
-            via
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              i
-             </span>
-             <span class="pre">
-              =
-             </span>
-             <span class="pre">
-              n+j
-             </span>
-            </code>
-            .
-           </p>
-          </li>
-          <li>
-           <p>
-            Colons
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              :
-             </span>
-            </code>
-            must be used for
-            <a class="reference external" href="https://docs.python.org/3/library/functions.html#slice">
-             slices
-            </a>
-            :
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              start:stop:step
-             </span>
-            </code>
-            , where
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              start
-             </span>
-            </code>
-            is inclusive and
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              stop
-             </span>
-            </code>
-            is exclusive.
-           </p>
-           <div class="admonition note">
-            <p class="admonition-title">
-             Note
-            </p>
-            <p>
-             The specification does not support returning scalar (i.e., non-array) values from operations, including indexing. In contrast to standard Python indexing rules, for any index, or combination of indices, which select a single value, the result must be a zero-dimensional array containing the selected value.
-            </p>
-           </div>
-          </li>
-         </ul>
-         <section id="slice-syntax">
-          <h3 id="slice-syntax">
-           Slice Syntax
-           <a class="headerlink" href="#slice-syntax" title="Permalink to this headline">
-            ¶
-           </a>
-          </h3>
-          <p>
-           The basic slice syntax is
-           <code class="docutils literal notranslate">
-            <span class="pre">
-             i:j:k
-            </span>
-           </code>
-           where
-           <code class="docutils literal notranslate">
-            <span class="pre">
-             i
-            </span>
-           </code>
-           is the starting index,
-           <code class="docutils literal notranslate">
-            <span class="pre">
-             j
-            </span>
-           </code>
-           is the stopping index, and
-           <code class="docutils literal notranslate">
-            <span class="pre">
-             k
-            </span>
-           </code>
-           is the step (
-           <code class="docutils literal notranslate">
-            <span class="pre">
-             k
-            </span>
-            <span class="pre">
-             !=
-            </span>
-            <span class="pre">
-             0
-            </span>
-           </code>
-           ). A slice may contain either one or two colons, with either an integer value or nothing on either side of each colon. The following are valid slices.
-          </p>
-          <div class="highlight-default notranslate">
-           <div class="highlight">
-            <pre><span></span><span class="n">A</span><span class="p">[:]</span>
+  </nav>
+    <main class="md-main">
+      <div class="md-main__inner md-grid" data-md-component="container">
+        
+          <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../index.html" title="Python array API standard 2021.01-DRAFT documentation" class="md-nav__button md-logo">
+      
+        <i class="md-icon">&#xe869</i>
+      
+    </a>
+    <a href="../index.html"
+       title="Python array API standard 2021.01-DRAFT documentation">Python array API standard</a>
+  </label>
+  
+
+  
+  <ul class="md-nav__list">
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">Context</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../purpose_and_scope.html" class="md-nav__link">Purpose and scope</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../use_cases.html" class="md-nav__link">Use cases</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../assumptions.html" class="md-nav__link">Assumptions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">API</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../design_topics/index.html" class="md-nav__link">Design topics & constraints</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../future_API_evolution.html" class="md-nav__link">Future API standard evolution</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="index.html" class="md-nav__link">API specification</a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="array_object.html" class="md-nav__link">Array object</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="broadcasting.html" class="md-nav__link">Broadcasting</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="constants.html" class="md-nav__link">Constants</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="creation_functions.html" class="md-nav__link">Creation Functions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="data_type_functions.html" class="md-nav__link">Data Type Functions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="data_types.html" class="md-nav__link">Data Types</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="elementwise_functions.html" class="md-nav__link">Element-wise Functions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="function_and_method_signatures.html" class="md-nav__link">Function and method signatures</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    <label class="md-nav__link md-nav__link--active" for="__toc"> Indexing </label>
+    
+      <a href="#" class="md-nav__link md-nav__link--active">Indexing</a>
+      
+        
+<nav class="md-nav md-nav--secondary">
+    <label class="md-nav__title" for="__toc">Contents</label>
+  <ul class="md-nav__list" data-md-scrollfix="">
+        <li class="md-nav__item"><a href="#api-specification-indexing--page-root" class="md-nav__link">Indexing</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#single-axis-indexing" class="md-nav__link">Single-axis Indexing</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#slice-syntax" class="md-nav__link">Slice Syntax</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#multi-axis-indexing" class="md-nav__link">Multi-axis Indexing</a>
+        </li>
+        <li class="md-nav__item"><a href="#boolean-array-indexing" class="md-nav__link">Boolean Array Indexing</a>
+        </li>
+        <li class="md-nav__item"><a href="#return-values" class="md-nav__link">Return Values</a>
+        </li></ul>
+            </nav>
+        </li>
+  </ul>
+</nav>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="linear_algebra_functions.html" class="md-nav__link">Linear Algebra Functions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="manipulation_functions.html" class="md-nav__link">Manipulation Functions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="searching_functions.html" class="md-nav__link">Searching Functions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="set_functions.html" class="md-nav__link">Set Functions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="sorting_functions.html" class="md-nav__link">Sorting Functions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="statistical_functions.html" class="md-nav__link">Statistical Functions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="type_promotion.html" class="md-nav__link">Type Promotion Rules</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="utility_functions.html" class="md-nav__link">Utility Functions</a>
+      
+    
+    </li></ul>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../extensions/index.html" class="md-nav__link">Extensions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">Methodology and Usage</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../usage_data.html" class="md-nav__link">Usage Data</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../verification_test_suite.html" class="md-nav__link">Verification - test suite</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../benchmark_suite.html" class="md-nav__link">Benchmark suite</a>
+      
+    
+    </li>
+  </ul>
+  
+
+</nav>
+              </div>
+            </div>
+          </div>
+          <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                
+<nav class="md-nav md-nav--secondary">
+    <label class="md-nav__title" for="__toc">Contents</label>
+  <ul class="md-nav__list" data-md-scrollfix="">
+        <li class="md-nav__item"><a href="#api-specification-indexing--page-root" class="md-nav__link">Indexing</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#single-axis-indexing" class="md-nav__link">Single-axis Indexing</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#slice-syntax" class="md-nav__link">Slice Syntax</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#multi-axis-indexing" class="md-nav__link">Multi-axis Indexing</a>
+        </li>
+        <li class="md-nav__item"><a href="#boolean-array-indexing" class="md-nav__link">Boolean Array Indexing</a>
+        </li>
+        <li class="md-nav__item"><a href="#return-values" class="md-nav__link">Return Values</a>
+        </li></ul>
+            </nav>
+        </li>
+  </ul>
+</nav>
+              </div>
+            </div>
+          </div>
+        
+        <div class="md-content">
+          <article class="md-content__inner md-typeset" role="main">
+            
+  <section id="indexing">
+<span id="id1"></span><h1 id="api-specification-indexing--page-root">Indexing<a class="headerlink" href="#api-specification-indexing--page-root" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p>Array API specification for indexing arrays.</p>
+</div></blockquote>
+<p>A conforming implementation of the array API standard must adhere to the following conventions.</p>
+<section id="single-axis-indexing">
+<h2 id="single-axis-indexing">Single-axis Indexing<a class="headerlink" href="#single-axis-indexing" title="Permalink to this headline">¶</a></h2>
+<p>To index a single array axis, an array must support standard Python indexing rules. Let <code class="docutils literal notranslate"><span class="pre">n</span></code> be the axis (dimension) size.</p>
+<ul>
+<li><p>An integer index must be an object satisfying <a class="reference external" href="https://www.python.org/dev/peps/pep-0357/">operator.index</a> (e.g., <code class="docutils literal notranslate"><span class="pre">int</span></code>).</p></li>
+<li><p>Nonnegative indices must start at <code class="docutils literal notranslate"><span class="pre">0</span></code> (i.e., zero-based indexing).</p></li>
+<li><p><strong>Valid</strong> nonnegative indices must reside on the half-open interval <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">n)</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This specification does not require bounds checking. The behavior for out-of-bounds integer indices is left unspecified.</p>
+</div>
+</li>
+<li><p>Negative indices must count backward from the last array index, starting from <code class="docutils literal notranslate"><span class="pre">-1</span></code> (i.e., negative-one-based indexing, where <code class="docutils literal notranslate"><span class="pre">-1</span></code> refers to the last array index).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A negative index <code class="docutils literal notranslate"><span class="pre">j</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">n-j</span></code>; the former is syntactic sugar for the latter, providing a shorthand for indexing elements that would otherwise need to be specified in terms of the axis (dimension) size.</p>
+</div>
+</li>
+<li><p><strong>Valid</strong> negative indices must reside on the closed interval <code class="docutils literal notranslate"><span class="pre">[-n,</span> <span class="pre">-1]</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This specification does not require bounds checking. The behavior for out-of-bounds integer indices is left unspecified.</p>
+</div>
+</li>
+<li><p>A negative index <code class="docutils literal notranslate"><span class="pre">j</span></code> is related to a zero-based nonnegative index <code class="docutils literal notranslate"><span class="pre">i</span></code> via <code class="docutils literal notranslate"><span class="pre">i</span> <span class="pre">=</span> <span class="pre">n+j</span></code>.</p></li>
+<li><p>Colons <code class="docutils literal notranslate"><span class="pre">:</span></code> must be used for <a class="reference external" href="https://docs.python.org/3/library/functions.html#slice">slices</a>: <code class="docutils literal notranslate"><span class="pre">start:stop:step</span></code>, where <code class="docutils literal notranslate"><span class="pre">start</span></code> is inclusive and <code class="docutils literal notranslate"><span class="pre">stop</span></code> is exclusive.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The specification does not support returning scalar (i.e., non-array) values from operations, including indexing. In contrast to standard Python indexing rules, for any index, or combination of indices, which select a single value, the result must be a zero-dimensional array containing the selected value.</p>
+</div>
+</li>
+</ul>
+<section id="slice-syntax">
+<h3 id="slice-syntax">Slice Syntax<a class="headerlink" href="#slice-syntax" title="Permalink to this headline">¶</a></h3>
+<p>The basic slice syntax is <code class="docutils literal notranslate"><span class="pre">i:j:k</span></code> where <code class="docutils literal notranslate"><span class="pre">i</span></code> is the starting index, <code class="docutils literal notranslate"><span class="pre">j</span></code> is the stopping index, and <code class="docutils literal notranslate"><span class="pre">k</span></code> is the step (<code class="docutils literal notranslate"><span class="pre">k</span> <span class="pre">!=</span> <span class="pre">0</span></code>). A slice may contain either one or two colons, with either an integer value or nothing on either side of each colon. The following are valid slices.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="p">[:]</span>
 <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">:]</span>
 <span class="n">A</span><span class="p">[:</span><span class="n">j</span><span class="p">]</span>
 <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">k</span><span class="p">]</span>
@@ -726,1685 +508,197 @@
 <span class="n">A</span><span class="p">[:</span><span class="n">j</span><span class="p">:</span><span class="n">k</span><span class="p">]</span>
 <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">::</span><span class="n">k</span><span class="p">]</span>
 <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">j</span><span class="p">:</span><span class="n">k</span><span class="p">]</span>
-</pre>
-           </div>
-          </div>
-          <div class="admonition note">
-           <p class="admonition-title">
-            Note
-           </p>
-           <p>
-            Slice syntax can be equivalently achieved using the Python built-in
-            <a class="reference external" href="https://docs.python.org/3/library/functions.html#slice">
-             slice()
-            </a>
-            API. From the perspective of
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              A
-             </span>
-            </code>
-            , the behavior of
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              A[i:j:k]
-             </span>
-            </code>
-            and
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              A[slice(i,
-             </span>
-             <span class="pre">
-              j,
-             </span>
-             <span class="pre">
-              k)]
-             </span>
-            </code>
-            is indistinguishable (i.e., both retrieve the same set of items from
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              __getitem__
-             </span>
-            </code>
-            ).
-           </p>
-          </div>
-          <p>
-           Using a slice to index a single array axis must select
-           <code class="docutils literal notranslate">
-            <span class="pre">
-             m
-            </span>
-           </code>
-           elements with index values
-          </p>
-          <div class="highlight-default notranslate">
-           <div class="highlight">
-            <pre><span></span><span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="n">k</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="n">k</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">3</span><span class="n">k</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="p">(</span><span class="n">m</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="n">k</span>
-</pre>
-           </div>
-          </div>
-          <p>
-           where
-          </p>
-          <div class="highlight-default notranslate">
-           <div class="highlight">
-            <pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">q</span> <span class="o">+</span> <span class="n">r</span>
-</pre>
-           </div>
-          </div>
-          <p>
-           and
-           <code class="docutils literal notranslate">
-            <span class="pre">
-             q
-            </span>
-           </code>
-           and
-           <code class="docutils literal notranslate">
-            <span class="pre">
-             r
-            </span>
-           </code>
-           (
-           <code class="docutils literal notranslate">
-            <span class="pre">
-             r
-            </span>
-            <span class="pre">
-             !=
-            </span>
-            <span class="pre">
-             0
-            </span>
-           </code>
-           ) are the quotient and remainder obtained by dividing
-           <code class="docutils literal notranslate">
-            <span class="pre">
-             j-i
-            </span>
-           </code>
-           by
-           <code class="docutils literal notranslate">
-            <span class="pre">
-             k
-            </span>
-           </code>
-          </p>
-          <div class="highlight-default notranslate">
-           <div class="highlight">
-            <pre><span></span><span class="n">j</span> <span class="o">-</span> <span class="n">i</span> <span class="o">=</span> <span class="n">qk</span> <span class="o">+</span> <span class="n">r</span>
-</pre>
-           </div>
-          </div>
-          <p>
-           such that
-          </p>
-          <div class="highlight-default notranslate">
-           <div class="highlight">
-            <pre><span></span><span class="n">j</span> <span class="o">&gt;</span> <span class="n">i</span> <span class="o">+</span> <span class="p">(</span><span class="n">m</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="n">k</span>
-</pre>
-           </div>
-          </div>
-          <div class="admonition note">
-           <p class="admonition-title">
-            Note
-           </p>
-           <p>
-            For
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              i
-             </span>
-            </code>
-            on the interval
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              [0,
-             </span>
-             <span class="pre">
-              n)
-             </span>
-            </code>
-            (where
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              n
-             </span>
-            </code>
-            is the axis size),
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              j
-             </span>
-            </code>
-            on the interval
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              (0,
-             </span>
-             <span class="pre">
-              n]
-             </span>
-            </code>
-            ,
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              i
-             </span>
-            </code>
-            less than
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              j
-             </span>
-            </code>
-            , and positive step
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              k
-             </span>
-            </code>
-            , a starting index
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              i
-             </span>
-            </code>
-            is
-            <strong>
-             always
-            </strong>
-            included, while the stopping index
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              j
-             </span>
-            </code>
-            is
-            <strong>
-             always
-            </strong>
-            excluded. This preserves
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              x[:i]+x[i:]
-             </span>
-            </code>
-            always being equal to
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              x
-             </span>
-            </code>
-            .
-           </p>
-          </div>
-          <div class="admonition note">
-           <p class="admonition-title">
-            Note
-           </p>
-           <p>
-            Using a slice to index into a single array axis should select the same elements as using a slice to index a Python list of the same size.
-           </p>
-          </div>
-          <p>
-           Slice syntax must have the following defaults. Let
-           <code class="docutils literal notranslate">
-            <span class="pre">
-             n
-            </span>
-           </code>
-           be the axis (dimension) size.
-          </p>
-          <ul class="simple">
-           <li>
-            <p>
-             If
-             <code class="docutils literal notranslate">
-              <span class="pre">
-               k
-              </span>
-             </code>
-             is not provided (e.g.,
-             <code class="docutils literal notranslate">
-              <span class="pre">
-               0:10
-              </span>
-             </code>
-             ),
-             <code class="docutils literal notranslate">
-              <span class="pre">
-               k
-              </span>
-             </code>
-             must equal
-             <code class="docutils literal notranslate">
-              <span class="pre">
-               1
-              </span>
-             </code>
-             .
-            </p>
-           </li>
-           <li>
-            <p>
-             If
-             <code class="docutils literal notranslate">
-              <span class="pre">
-               k
-              </span>
-             </code>
-             is greater than
-             <code class="docutils literal notranslate">
-              <span class="pre">
-               0
-              </span>
-             </code>
-             and
-             <code class="docutils literal notranslate">
-              <span class="pre">
-               i
-              </span>
-             </code>
-             is not provided (e.g.,
-             <code class="docutils literal notranslate">
-              <span class="pre">
-               :10:2
-              </span>
-             </code>
-             ),
-             <code class="docutils literal notranslate">
-              <span class="pre">
-               i
-              </span>
-             </code>
-             must equal
-             <code class="docutils literal notranslate">
-              <span class="pre">
-               0
-              </span>
-             </code>
-             .
-            </p>
-           </li>
-           <li>
-            <p>
-             If
-             <code class="docutils literal notranslate">
-              <span class="pre">
-               k
-              </span>
-             </code>
-             is greater than
-             <code class="docutils literal notranslate">
-              <span class="pre">
-               0
-              </span>
-             </code>
-             and
-             <code class="docutils literal notranslate">
-              <span class="pre">
-               j
-              </span>
-             </code>
-             is not provided (e.g.,
-             <code class="docutils literal notranslate">
-              <span class="pre">
-               0::2
-              </span>
-             </code>
-             ),
-             <code class="docutils literal notranslate">
-              <span class="pre">
-               j
-              </span>
-             </code>
-             must equal
-             <code class="docutils literal notranslate">
-              <span class="pre">
-               n
-              </span>
-             </code>
-             .
-            </p>
-           </li>
-           <li>
-            <p>
-             If
-             <code class="docutils literal notranslate">
-              <span class="pre">
-               k
-              </span>
-             </code>
-             is less than
-             <code class="docutils literal notranslate">
-              <span class="pre">
-               0
-              </span>
-             </code>
-             and
-             <code class="docutils literal notranslate">
-              <span class="pre">
-               i
-              </span>
-             </code>
-             is not provided (e.g.,
-             <code class="docutils literal notranslate">
-              <span class="pre">
-               :10:-2
-              </span>
-             </code>
-             ),
-             <code class="docutils literal notranslate">
-              <span class="pre">
-               i
-              </span>
-             </code>
-             must equal
-             <code class="docutils literal notranslate">
-              <span class="pre">
-               n-1
-              </span>
-             </code>
-             .
-            </p>
-           </li>
-           <li>
-            <p>
-             If
-             <code class="docutils literal notranslate">
-              <span class="pre">
-               k
-              </span>
-             </code>
-             is less than
-             <code class="docutils literal notranslate">
-              <span class="pre">
-               0
-              </span>
-             </code>
-             and
-             <code class="docutils literal notranslate">
-              <span class="pre">
-               j
-              </span>
-             </code>
-             is not provided (e.g.,
-             <code class="docutils literal notranslate">
-              <span class="pre">
-               0::-2
-              </span>
-             </code>
-             ),
-             <code class="docutils literal notranslate">
-              <span class="pre">
-               j
-              </span>
-             </code>
-             must equal
-             <code class="docutils literal notranslate">
-              <span class="pre">
-               -n-1
-              </span>
-             </code>
-             .
-            </p>
-           </li>
-          </ul>
-          <p>
-           Using a slice to index a single array axis must adhere to the following rules. Let
-           <code class="docutils literal notranslate">
-            <span class="pre">
-             n
-            </span>
-           </code>
-           be the axis (dimension) size.
-          </p>
-          <ul>
-           <li>
-            <p>
-             If
-             <code class="docutils literal notranslate">
-              <span class="pre">
-               i
-              </span>
-             </code>
-             equals
-             <code class="docutils literal notranslate">
-              <span class="pre">
-               j
-              </span>
-             </code>
-             , a slice must return an empty array, whose axis (dimension) size along the indexed axis is
-             <code class="docutils literal notranslate">
-              <span class="pre">
-               0
-              </span>
-             </code>
-             .
-            </p>
-           </li>
-           <li>
-            <p>
-             Indexing via
-             <code class="docutils literal notranslate">
-              <span class="pre">
-               :
-              </span>
-             </code>
-             and
-             <code class="docutils literal notranslate">
-              <span class="pre">
-               ::
-              </span>
-             </code>
-             must be equivalent and have defaults derived from the rules above. Both
-             <code class="docutils literal notranslate">
-              <span class="pre">
-               :
-              </span>
-             </code>
-             and
-             <code class="docutils literal notranslate">
-              <span class="pre">
-               ::
-              </span>
-             </code>
-             indicate to select all elements along a single axis (dimension).
-            </p>
-            <div class="admonition note">
-             <p class="admonition-title">
-              Note
-             </p>
-             <p>
-              This specification does not require “clipping” out-of-bounds slice indices. This is in contrast to Python slice semantics where
-              <code class="docutils literal notranslate">
-               <span class="pre">
-                0:100
-               </span>
-              </code>
-              and
-              <code class="docutils literal notranslate">
-               <span class="pre">
-                0:10
-               </span>
-              </code>
-              are equivalent on a list of length
-              <code class="docutils literal notranslate">
-               <span class="pre">
-                10
-               </span>
-              </code>
-              .
-             </p>
-            </div>
-           </li>
-          </ul>
-          <p>
-           The following ranges for the start and stop values of a slice must be supported. Let
-           <code class="docutils literal notranslate">
-            <span class="pre">
-             n
-            </span>
-           </code>
-           be the axis (dimension) size being sliced. For a slice
-           <code class="docutils literal notranslate">
-            <span class="pre">
-             i:j:k
-            </span>
-           </code>
-           , the behavior specified above should be implemented for the following:
-          </p>
-          <ul class="simple">
-           <li>
-            <p>
-             <code class="docutils literal notranslate">
-              <span class="pre">
-               i
-              </span>
-             </code>
-             or
-             <code class="docutils literal notranslate">
-              <span class="pre">
-               j
-              </span>
-             </code>
-             omitted (
-             <code class="docutils literal notranslate">
-              <span class="pre">
-               None
-              </span>
-             </code>
-             ).
-            </p>
-           </li>
-           <li>
-            <p>
-             <code class="docutils literal notranslate">
-              <span class="pre">
-               -n
-              </span>
-              <span class="pre">
-               &lt;=
-              </span>
-              <span class="pre">
-               i
-              </span>
-              <span class="pre">
-               &lt;=
-              </span>
-              <span class="pre">
-               n
-              </span>
-             </code>
-             .
-            </p>
-           </li>
-           <li>
-            <p>
-             For
-             <code class="docutils literal notranslate">
-              <span class="pre">
-               k
-              </span>
-              <span class="pre">
-               &gt;
-              </span>
-              <span class="pre">
-               0
-              </span>
-             </code>
-             or
-             <code class="docutils literal notranslate">
-              <span class="pre">
-               k
-              </span>
-             </code>
-             omitted (
-             <code class="docutils literal notranslate">
-              <span class="pre">
-               None
-              </span>
-             </code>
-             ),
-             <code class="docutils literal notranslate">
-              <span class="pre">
-               -n
-              </span>
-              <span class="pre">
-               &lt;=
-              </span>
-              <span class="pre">
-               j
-              </span>
-              <span class="pre">
-               &lt;=
-              </span>
-              <span class="pre">
-               n
-              </span>
-             </code>
-             .
-            </p>
-           </li>
-           <li>
-            <p>
-             For
-             <code class="docutils literal notranslate">
-              <span class="pre">
-               k
-              </span>
-              <span class="pre">
-               &lt;
-              </span>
-              <span class="pre">
-               0
-              </span>
-             </code>
-             ,
-             <code class="docutils literal notranslate">
-              <span class="pre">
-               -n
-              </span>
-              <span class="pre">
-               -
-              </span>
-              <span class="pre">
-               1
-              </span>
-              <span class="pre">
-               &lt;=
-              </span>
-              <span class="pre">
-               j
-              </span>
-              <span class="pre">
-               &lt;=
-              </span>
-              <span class="pre">
-               max(0,
-              </span>
-              <span class="pre">
-               n
-              </span>
-              <span class="pre">
-               -
-              </span>
-              <span class="pre">
-               1)
-              </span>
-             </code>
-             .
-            </p>
-           </li>
-          </ul>
-          <p>
-           The behavior outside of these bounds is unspecified.
-          </p>
-          <div class="admonition note">
-           <p class="admonition-title">
-            Note
-           </p>
-           <p>
-            <em>
-             Rationale: this is consistent with bounds checking for integer indexing; the behavior of out-of-bounds indices is left unspecified. Implementations may choose to clip (consistent with Python
-            </em>
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              list
-             </span>
-            </code>
-            <em>
-             slicing semantics), raise an exception, return junk values, or some other behavior depending on device requirements and performance considerations.
-            </em>
-           </p>
-          </div>
-         </section>
-        </section>
-        <section id="multi-axis-indexing">
-         <h2 id="multi-axis-indexing">
-          Multi-axis Indexing
-          <a class="headerlink" href="#multi-axis-indexing" title="Permalink to this headline">
-           ¶
-          </a>
-         </h2>
-         <p>
-          Multi-dimensional arrays must extend the concept of single-axis indexing to multiple axes by applying single-axis indexing rules along each axis (dimension) and supporting the following additional rules. Let
-          <code class="docutils literal notranslate">
-           <span class="pre">
-            N
-           </span>
-          </code>
-          be the number of dimensions (“rank”) of a multi-dimensional array
-          <code class="docutils literal notranslate">
-           <span class="pre">
-            A
-           </span>
-          </code>
-          .
-         </p>
-         <ul>
-          <li>
-           <p>
-            Each axis may be independently indexed via single-axis indexing by providing a comma-separated sequence (“selection tuple”) of single-axis indexing expressions (e.g.,
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              A[:,
-             </span>
-             <span class="pre">
-              2:10,
-             </span>
-             <span class="pre">
-              :,
-             </span>
-             <span class="pre">
-              5]
-             </span>
-            </code>
-            ).
-           </p>
-           <div class="admonition note">
-            <p class="admonition-title">
-             Note
-            </p>
-            <p>
-             In Python,
-             <code class="docutils literal notranslate">
-              <span class="pre">
-               A[(exp1,
-              </span>
-              <span class="pre">
-               exp2,
-              </span>
-              <span class="pre">
-               ...,
-              </span>
-              <span class="pre">
-               expN)]
-              </span>
-             </code>
-             is equivalent to
-             <code class="docutils literal notranslate">
-              <span class="pre">
-               A[exp1,
-              </span>
-              <span class="pre">
-               exp2,
-              </span>
-              <span class="pre">
-               ...,
-              </span>
-              <span class="pre">
-               expN]
-              </span>
-             </code>
-             ; the latter is syntactic sugar for the former.
-            </p>
-            <p>
-             Accordingly, if
-             <code class="docutils literal notranslate">
-              <span class="pre">
-               A
-              </span>
-             </code>
-             has rank
-             <code class="docutils literal notranslate">
-              <span class="pre">
-               1
-              </span>
-             </code>
-             , then
-             <code class="docutils literal notranslate">
-              <span class="pre">
-               A[(2:10,)]
-              </span>
-             </code>
-             must be equivalent to
-             <code class="docutils literal notranslate">
-              <span class="pre">
-               A[2:10]
-              </span>
-             </code>
-             . If
-             <code class="docutils literal notranslate">
-              <span class="pre">
-               A
-              </span>
-             </code>
-             has rank
-             <code class="docutils literal notranslate">
-              <span class="pre">
-               2
-              </span>
-             </code>
-             , then
-             <code class="docutils literal notranslate">
-              <span class="pre">
-               A[(2:10,
-              </span>
-              <span class="pre">
-               :)]
-              </span>
-             </code>
-             must be equivalent to
-             <code class="docutils literal notranslate">
-              <span class="pre">
-               A[2:10,
-              </span>
-              <span class="pre">
-               :]
-              </span>
-             </code>
-             . And so on and so forth.
-            </p>
-           </div>
-          </li>
-          <li>
-           <p>
-            Providing a single nonnegative integer
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              i
-             </span>
-            </code>
-            as a single-axis index must index the same elements as the slice
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              i:i+1
-             </span>
-            </code>
-            .
-           </p>
-          </li>
-          <li>
-           <p>
-            Providing a single negative integer
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              i
-             </span>
-            </code>
-            as a single-axis index must index the same elements as the slice
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              n+i:n+i+1
-             </span>
-            </code>
-            , where
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              n
-             </span>
-            </code>
-            is the axis (dimension) size.
-           </p>
-          </li>
-          <li>
-           <p>
-            Providing a single integer as a single-axis index must reduce the number of array dimensions by
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              1
-             </span>
-            </code>
-            (i.e., the array rank should decrease by one; if
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              A
-             </span>
-            </code>
-            has rank
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              2
-             </span>
-            </code>
-            ,
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              rank(A)-1
-             </span>
-             <span class="pre">
-              ==
-             </span>
-             <span class="pre">
-              rank(A[0,
-             </span>
-             <span class="pre">
-              :])
-             </span>
-            </code>
-            ). In particular, a selection tuple with the
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              m
-             </span>
-            </code>
-            th element an integer (and all other entries
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              :
-             </span>
-            </code>
-            ) indexes a sub-array with rank
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              N-1
-             </span>
-            </code>
-            .
-           </p>
-           <div class="admonition note">
-            <p class="admonition-title">
-             Note
-            </p>
-            <p>
-             When providing a single integer as a single-axis index to an array of rank
-             <code class="docutils literal notranslate">
-              <span class="pre">
-               1
-              </span>
-             </code>
-             , the result should be an array of rank
-             <code class="docutils literal notranslate">
-              <span class="pre">
-               0
-              </span>
-             </code>
-             , not a NumPy scalar. Note that this behavior differs from NumPy.
-            </p>
-           </div>
-          </li>
-          <li>
-           <p>
-            Providing a slice must retain array dimensions (i.e., the array rank must remain the same;
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              rank(A)
-             </span>
-             <span class="pre">
-              ==
-             </span>
-             <span class="pre">
-              rank(A[:])
-             </span>
-            </code>
-            ).
-           </p>
-          </li>
-          <li>
-           <p>
-            Providing
-            <a class="reference external" href="https://docs.python.org/3/library/constants.html#Ellipsis">
-             ellipsis
-            </a>
-            must apply
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              :
-             </span>
-            </code>
-            to each dimension necessary to index all dimensions (e.g., if
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              A
-             </span>
-            </code>
-            has rank
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              4
-             </span>
-            </code>
-            ,
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              A[1:,
-             </span>
-             <span class="pre">
-              ...,
-             </span>
-             <span class="pre">
-              2:5]
-             </span>
-             <span class="pre">
-              ==
-             </span>
-             <span class="pre">
-              A[1:,
-             </span>
-             <span class="pre">
-              :,
-             </span>
-             <span class="pre">
-              :,
-             </span>
-             <span class="pre">
-              2:5]
-             </span>
-            </code>
-            ). Only a single ellipsis must be allowed. An
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              IndexError
-             </span>
-            </code>
-            exception must be raised if more than one ellipsis is provided.
-           </p>
-          </li>
-          <li>
-           <p>
-            Providing an empty tuple or an ellipsis to an array of rank
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              0
-             </span>
-            </code>
-            must result in an array of the same rank (i.e., if
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              A
-             </span>
-            </code>
-            has rank
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              0
-             </span>
-            </code>
-            ,
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              A
-             </span>
-             <span class="pre">
-              ==
-             </span>
-             <span class="pre">
-              A[()]
-             </span>
-            </code>
-            and
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              A
-             </span>
-             <span class="pre">
-              ==
-             </span>
-             <span class="pre">
-              A[...]
-             </span>
-            </code>
-            ).
-           </p>
-           <div class="admonition note">
-            <p class="admonition-title">
-             Note
-            </p>
-            <p>
-             This behavior differs from NumPy where providing an empty tuple to an array of rank
-             <code class="docutils literal notranslate">
-              <span class="pre">
-               0
-              </span>
-             </code>
-             returns a NumPy scalar.
-            </p>
-           </div>
-          </li>
-          <li>
-           <p>
-            Except in the case of providing a single ellipsis (e.g.,
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              A[2:10,
-             </span>
-             <span class="pre">
-              ...]
-             </span>
-            </code>
-            or
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              A[1:,
-             </span>
-             <span class="pre">
-              ...,
-             </span>
-             <span class="pre">
-              2:5]
-             </span>
-            </code>
-            ), the number of provided single-axis indexing expressions should equal
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              N
-             </span>
-            </code>
-            . For example, if
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              A
-             </span>
-            </code>
-            has rank
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              2
-             </span>
-            </code>
-            , a single-axis indexing expression should be explicitly provided for both axes (e.g.,
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              A[2:10,
-             </span>
-             <span class="pre">
-              :]
-             </span>
-            </code>
-            ). An
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              IndexError
-             </span>
-            </code>
-            exception should be raised if the number of provided single-axis indexing expressions is less than
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              N
-             </span>
-            </code>
-            .
-           </p>
-           <div class="admonition note">
-            <p class="admonition-title">
-             Note
-            </p>
-            <p>
-             Some libraries, such as SymPy, support flat indexing (i.e., providing a single-axis indexing expression to a higher-dimensional array). That practice is not supported here.
-            </p>
-            <p>
-             To perform flat indexing, use
-             <code class="docutils literal notranslate">
-              <span class="pre">
-               reshape(x,
-              </span>
-              <span class="pre">
-               (-1,))[integer]
-              </span>
-             </code>
-             .
-            </p>
-           </div>
-          </li>
-          <li>
-           <p>
-            An
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              IndexError
-             </span>
-            </code>
-            exception must be raised if the number of provided single-axis indexing expressions is greater than
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              N
-             </span>
-            </code>
-            .
-           </p>
-           <div class="admonition note">
-            <p class="admonition-title">
-             Note
-            </p>
-            <p>
-             This specification leaves unspecified the behavior of providing a slice which attempts to select elements along a particular axis, but whose starting index is out-of-bounds.
-            </p>
-            <p>
-             <em>
-              Rationale: this is consistent with bounds-checking for single-axis indexing. An implementation may choose to set the axis (dimension) size of the result array to
-             </em>
-             <code class="docutils literal notranslate">
-              <span class="pre">
-               0
-              </span>
-             </code>
-             <em>
-              , raise an exception, return junk values, or some other behavior depending on device requirements and performance considerations.
-             </em>
-            </p>
-           </div>
-          </li>
-         </ul>
-        </section>
-        <section id="boolean-array-indexing">
-         <h2 id="boolean-array-indexing">
-          Boolean Array Indexing
-          <a class="headerlink" href="#boolean-array-indexing" title="Permalink to this headline">
-           ¶
-          </a>
-         </h2>
-         <div class="admonition important">
-          <p class="admonition-title">
-           Data-dependent output shape
-          </p>
-          <p>
-           For common boolean array use cases (e.g., using a dynamically-sized boolean array mask to filter the values of another array), the shape of the output array is data-dependent; hence, array libraries which build computation graphs (e.g., JAX, Dask, etc.) may find boolean array indexing difficult to implement. Accordingly, such libraries may choose to omit boolean array indexing. See
-           <a class="reference internal" href="../design_topics/data_dependent_output_shapes.html#data-dependent-output-shapes">
-            <span class="std std-ref">
-             Data-dependent output shapes
-            </span>
-           </a>
-           section for more details.
-          </p>
-         </div>
-         <p>
-          An array must support indexing where the
-          <strong>
-           sole index
-          </strong>
-          is an
-          <code class="docutils literal notranslate">
-           <span class="pre">
-            M
-           </span>
-          </code>
-          -dimensional boolean array
-          <code class="docutils literal notranslate">
-           <span class="pre">
-            B
-           </span>
-          </code>
-          with shape
-          <code class="docutils literal notranslate">
-           <span class="pre">
-            S1
-           </span>
-           <span class="pre">
-            =
-           </span>
-           <span class="pre">
-            (s1,
-           </span>
-           <span class="pre">
-            ...,
-           </span>
-           <span class="pre">
-            sM)
-           </span>
-          </code>
-          according to the following rules. Let
-          <code class="docutils literal notranslate">
-           <span class="pre">
-            A
-           </span>
-          </code>
-          be an
-          <code class="docutils literal notranslate">
-           <span class="pre">
-            N
-           </span>
-          </code>
-          -dimensional array with shape
-          <code class="docutils literal notranslate">
-           <span class="pre">
-            S2
-           </span>
-           <span class="pre">
-            =
-           </span>
-           <span class="pre">
-            (s1,
-           </span>
-           <span class="pre">
-            ...,
-           </span>
-           <span class="pre">
-            sM,
-           </span>
-           <span class="pre">
-            ...,
-           </span>
-           <span class="pre">
-            sN)
-           </span>
-          </code>
-          .
-         </p>
-         <ul>
-          <li>
-           <p>
-            If
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              N
-             </span>
-             <span class="pre">
-              &gt;=
-             </span>
-             <span class="pre">
-              M
-             </span>
-            </code>
-            , then
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              A[B]
-             </span>
-            </code>
-            must replace the first
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              M
-             </span>
-            </code>
-            dimensions of
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              A
-             </span>
-            </code>
-            with a single dimension having a size equal to the number of
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              True
-             </span>
-            </code>
-            elements in
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              B
-             </span>
-            </code>
-            . The values in the resulting array must be in row-major (C-style order); this is equivalent to
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              A[nonzero(B)]
-             </span>
-            </code>
-            .
-           </p>
-           <div class="admonition note">
-            <p class="admonition-title">
-             Note
-            </p>
-            <p>
-             For example, if
-             <code class="docutils literal notranslate">
-              <span class="pre">
-               N
-              </span>
-              <span class="pre">
-               ==
-              </span>
-              <span class="pre">
-               M
-              </span>
-              <span class="pre">
-               ==
-              </span>
-              <span class="pre">
-               2
-              </span>
-             </code>
-             , indexing
-             <code class="docutils literal notranslate">
-              <span class="pre">
-               A
-              </span>
-             </code>
-             via a boolean array
-             <code class="docutils literal notranslate">
-              <span class="pre">
-               B
-              </span>
-             </code>
-             will return a one-dimensional array whose size is equal to the number of
-             <code class="docutils literal notranslate">
-              <span class="pre">
-               True
-              </span>
-             </code>
-             elements in
-             <code class="docutils literal notranslate">
-              <span class="pre">
-               B
-              </span>
-             </code>
-             .
-            </p>
-           </div>
-          </li>
-          <li>
-           <p>
-            If
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              N
-             </span>
-             <span class="pre">
-              &lt;
-             </span>
-             <span class="pre">
-              M
-             </span>
-            </code>
-            , then an
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              IndexError
-             </span>
-            </code>
-            exception must be raised.
-           </p>
-          </li>
-          <li>
-           <p>
-            The size of each dimension in
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              B
-             </span>
-            </code>
-            must equal the size of the corresponding dimension in
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              A
-             </span>
-            </code>
-            or be
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              0
-             </span>
-            </code>
-            , beginning with the first dimension in
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              A
-             </span>
-            </code>
-            . If a dimension size does not equal the size of the corresponding dimension in
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              A
-             </span>
-            </code>
-            and is not
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              0
-             </span>
-            </code>
-            , then an
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              IndexError
-             </span>
-            </code>
-            exception must be raised.
-           </p>
-          </li>
-          <li>
-           <p>
-            The elements of a boolean index array must be iterated in row-major, C-style order, with the exception of zero-dimensional boolean arrays.
-           </p>
-          </li>
-          <li>
-           <p>
-            A zero-dimensional boolean index array (equivalent to
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              True
-             </span>
-            </code>
-            or
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              False
-             </span>
-            </code>
-            ) must follow the same axis replacement rules stated above. Namely, a zero-dimensional boolean index array removes zero dimensions and adds a single dimension of length
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              1
-             </span>
-            </code>
-            if the index array’s value is
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              True
-             </span>
-            </code>
-            and of length
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              0
-             </span>
-            </code>
-            if the index array’s value is
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              False
-             </span>
-            </code>
-            . Accordingly, for a zero-dimensional boolean index array
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              B
-             </span>
-            </code>
-            , the result of
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              A[B]
-             </span>
-            </code>
-            has shape
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              S
-             </span>
-             <span class="pre">
-              =
-             </span>
-             <span class="pre">
-              (1,
-             </span>
-             <span class="pre">
-              s1,
-             </span>
-             <span class="pre">
-              ...,
-             </span>
-             <span class="pre">
-              sN)
-             </span>
-            </code>
-            if the index array’s value is
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              True
-             </span>
-            </code>
-            and has shape
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              S
-             </span>
-             <span class="pre">
-              =
-             </span>
-             <span class="pre">
-              (0,
-             </span>
-             <span class="pre">
-              s1,
-             </span>
-             <span class="pre">
-              ...,
-             </span>
-             <span class="pre">
-              sN)
-             </span>
-            </code>
-            if the index array’s value is
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              False
-             </span>
-            </code>
-            .
-           </p>
-          </li>
-         </ul>
-        </section>
-        <section id="return-values">
-         <h2 id="return-values">
-          Return Values
-          <a class="headerlink" href="#return-values" title="Permalink to this headline">
-           ¶
-          </a>
-         </h2>
-         <p>
-          The result of an indexing operation (e.g., multi-axis indexing, boolean array indexing, etc) must be an array of the same data type as the indexed array.
-         </p>
-         <div class="admonition note">
-          <p class="admonition-title">
-           Note
-          </p>
-          <p>
-           The specified return value behavior includes indexing operations which return a single value (e.g., accessing a single element within a one-dimensional array).
-          </p>
-         </div>
-        </section>
-       </section>
-      </article>
-     </div>
-    </div>
-   </main>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Slice syntax can be equivalently achieved using the Python built-in <a class="reference external" href="https://docs.python.org/3/library/functions.html#slice">slice()</a> API. From the perspective of <code class="docutils literal notranslate"><span class="pre">A</span></code>, the behavior of <code class="docutils literal notranslate"><span class="pre">A[i:j:k]</span></code> and <code class="docutils literal notranslate"><span class="pre">A[slice(i,</span> <span class="pre">j,</span> <span class="pre">k)]</span></code> is indistinguishable (i.e., both retrieve the same set of items from <code class="docutils literal notranslate"><span class="pre">__getitem__</span></code>).</p>
+</div>
+<p>Using a slice to index a single array axis must select <code class="docutils literal notranslate"><span class="pre">m</span></code> elements with index values</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">i</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="n">k</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">2</span><span class="n">k</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="mi">3</span><span class="n">k</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">i</span><span class="o">+</span><span class="p">(</span><span class="n">m</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="n">k</span>
+</pre></div>
+</div>
+<p>where</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">q</span> <span class="o">+</span> <span class="n">r</span>
+</pre></div>
+</div>
+<p>and <code class="docutils literal notranslate"><span class="pre">q</span></code> and <code class="docutils literal notranslate"><span class="pre">r</span></code> (<code class="docutils literal notranslate"><span class="pre">r</span> <span class="pre">!=</span> <span class="pre">0</span></code>) are the quotient and remainder obtained by dividing <code class="docutils literal notranslate"><span class="pre">j-i</span></code> by <code class="docutils literal notranslate"><span class="pre">k</span></code></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">j</span> <span class="o">-</span> <span class="n">i</span> <span class="o">=</span> <span class="n">qk</span> <span class="o">+</span> <span class="n">r</span>
+</pre></div>
+</div>
+<p>such that</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">j</span> <span class="o">&gt;</span> <span class="n">i</span> <span class="o">+</span> <span class="p">(</span><span class="n">m</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="n">k</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For <code class="docutils literal notranslate"><span class="pre">i</span></code> on the interval <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">n)</span></code> (where <code class="docutils literal notranslate"><span class="pre">n</span></code> is the axis size), <code class="docutils literal notranslate"><span class="pre">j</span></code> on the interval <code class="docutils literal notranslate"><span class="pre">(0,</span> <span class="pre">n]</span></code>, <code class="docutils literal notranslate"><span class="pre">i</span></code> less than <code class="docutils literal notranslate"><span class="pre">j</span></code>, and positive step <code class="docutils literal notranslate"><span class="pre">k</span></code>, a starting index <code class="docutils literal notranslate"><span class="pre">i</span></code> is <strong>always</strong> included, while the stopping index <code class="docutils literal notranslate"><span class="pre">j</span></code> is <strong>always</strong> excluded. This preserves <code class="docutils literal notranslate"><span class="pre">x[:i]+x[i:]</span></code> always being equal to <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Using a slice to index into a single array axis should select the same elements as using a slice to index a Python list of the same size.</p>
+</div>
+<p>Slice syntax must have the following defaults. Let <code class="docutils literal notranslate"><span class="pre">n</span></code> be the axis (dimension) size.</p>
+<ul class="simple">
+<li><p>If <code class="docutils literal notranslate"><span class="pre">k</span></code> is not provided (e.g., <code class="docutils literal notranslate"><span class="pre">0:10</span></code>), <code class="docutils literal notranslate"><span class="pre">k</span></code> must equal <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">k</span></code> is greater than <code class="docutils literal notranslate"><span class="pre">0</span></code> and <code class="docutils literal notranslate"><span class="pre">i</span></code> is not provided (e.g., <code class="docutils literal notranslate"><span class="pre">:10:2</span></code>), <code class="docutils literal notranslate"><span class="pre">i</span></code> must equal <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">k</span></code> is greater than <code class="docutils literal notranslate"><span class="pre">0</span></code> and <code class="docutils literal notranslate"><span class="pre">j</span></code> is not provided (e.g., <code class="docutils literal notranslate"><span class="pre">0::2</span></code>), <code class="docutils literal notranslate"><span class="pre">j</span></code> must equal <code class="docutils literal notranslate"><span class="pre">n</span></code>.</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">k</span></code> is less than <code class="docutils literal notranslate"><span class="pre">0</span></code> and <code class="docutils literal notranslate"><span class="pre">i</span></code> is not provided (e.g., <code class="docutils literal notranslate"><span class="pre">:10:-2</span></code>), <code class="docutils literal notranslate"><span class="pre">i</span></code> must equal <code class="docutils literal notranslate"><span class="pre">n-1</span></code>.</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">k</span></code> is less than <code class="docutils literal notranslate"><span class="pre">0</span></code> and <code class="docutils literal notranslate"><span class="pre">j</span></code> is not provided (e.g., <code class="docutils literal notranslate"><span class="pre">0::-2</span></code>), <code class="docutils literal notranslate"><span class="pre">j</span></code> must equal <code class="docutils literal notranslate"><span class="pre">-n-1</span></code>.</p></li>
+</ul>
+<p>Using a slice to index a single array axis must adhere to the following rules. Let <code class="docutils literal notranslate"><span class="pre">n</span></code> be the axis (dimension) size.</p>
+<ul>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">i</span></code> equals <code class="docutils literal notranslate"><span class="pre">j</span></code>, a slice must return an empty array, whose axis (dimension) size along the indexed axis is <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p></li>
+<li><p>Indexing via <code class="docutils literal notranslate"><span class="pre">:</span></code> and <code class="docutils literal notranslate"><span class="pre">::</span></code> must be equivalent and have defaults derived from the rules above. Both <code class="docutils literal notranslate"><span class="pre">:</span></code> and <code class="docutils literal notranslate"><span class="pre">::</span></code> indicate to select all elements along a single axis (dimension).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This specification does not require “clipping” out-of-bounds slice indices. This is in contrast to Python slice semantics where <code class="docutils literal notranslate"><span class="pre">0:100</span></code> and <code class="docutils literal notranslate"><span class="pre">0:10</span></code> are equivalent on a list of length <code class="docutils literal notranslate"><span class="pre">10</span></code>.</p>
+</div>
+</li>
+</ul>
+<p>The following ranges for the start and stop values of a slice must be supported. Let <code class="docutils literal notranslate"><span class="pre">n</span></code> be the axis (dimension) size being sliced. For a slice <code class="docutils literal notranslate"><span class="pre">i:j:k</span></code>, the behavior specified above should be implemented for the following:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">i</span></code> or <code class="docutils literal notranslate"><span class="pre">j</span></code> omitted (<code class="docutils literal notranslate"><span class="pre">None</span></code>).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-n</span> <span class="pre">&lt;=</span> <span class="pre">i</span> <span class="pre">&lt;=</span> <span class="pre">n</span></code>.</p></li>
+<li><p>For <code class="docutils literal notranslate"><span class="pre">k</span> <span class="pre">&gt;</span> <span class="pre">0</span></code> or <code class="docutils literal notranslate"><span class="pre">k</span></code> omitted (<code class="docutils literal notranslate"><span class="pre">None</span></code>), <code class="docutils literal notranslate"><span class="pre">-n</span> <span class="pre">&lt;=</span> <span class="pre">j</span> <span class="pre">&lt;=</span> <span class="pre">n</span></code>.</p></li>
+<li><p>For <code class="docutils literal notranslate"><span class="pre">k</span> <span class="pre">&lt;</span> <span class="pre">0</span></code>, <code class="docutils literal notranslate"><span class="pre">-n</span> <span class="pre">-</span> <span class="pre">1</span> <span class="pre">&lt;=</span> <span class="pre">j</span> <span class="pre">&lt;=</span> <span class="pre">max(0,</span> <span class="pre">n</span> <span class="pre">-</span> <span class="pre">1)</span></code>.</p></li>
+</ul>
+<p>The behavior outside of these bounds is unspecified.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><em>Rationale: this is consistent with bounds checking for integer indexing; the behavior of out-of-bounds indices is left unspecified. Implementations may choose to clip (consistent with Python</em> <code class="docutils literal notranslate"><span class="pre">list</span></code> <em>slicing semantics), raise an exception, return junk values, or some other behavior depending on device requirements and performance considerations.</em></p>
+</div>
+</section>
+</section>
+<section id="multi-axis-indexing">
+<h2 id="multi-axis-indexing">Multi-axis Indexing<a class="headerlink" href="#multi-axis-indexing" title="Permalink to this headline">¶</a></h2>
+<p>Multi-dimensional arrays must extend the concept of single-axis indexing to multiple axes by applying single-axis indexing rules along each axis (dimension) and supporting the following additional rules. Let <code class="docutils literal notranslate"><span class="pre">N</span></code> be the number of dimensions (“rank”) of a multi-dimensional array <code class="docutils literal notranslate"><span class="pre">A</span></code>.</p>
+<ul>
+<li><p>Each axis may be independently indexed via single-axis indexing by providing a comma-separated sequence (“selection tuple”) of single-axis indexing expressions (e.g., <code class="docutils literal notranslate"><span class="pre">A[:,</span> <span class="pre">2:10,</span> <span class="pre">:,</span> <span class="pre">5]</span></code>).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In Python, <code class="docutils literal notranslate"><span class="pre">A[(exp1,</span> <span class="pre">exp2,</span> <span class="pre">...,</span> <span class="pre">expN)]</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">A[exp1,</span> <span class="pre">exp2,</span> <span class="pre">...,</span> <span class="pre">expN]</span></code>; the latter is syntactic sugar for the former.</p>
+<p>Accordingly, if <code class="docutils literal notranslate"><span class="pre">A</span></code> has rank <code class="docutils literal notranslate"><span class="pre">1</span></code>, then <code class="docutils literal notranslate"><span class="pre">A[(2:10,)]</span></code> must be equivalent to <code class="docutils literal notranslate"><span class="pre">A[2:10]</span></code>. If <code class="docutils literal notranslate"><span class="pre">A</span></code> has rank <code class="docutils literal notranslate"><span class="pre">2</span></code>, then <code class="docutils literal notranslate"><span class="pre">A[(2:10,</span> <span class="pre">:)]</span></code> must be equivalent to <code class="docutils literal notranslate"><span class="pre">A[2:10,</span> <span class="pre">:]</span></code>. And so on and so forth.</p>
+</div>
+</li>
+<li><p>Providing a single nonnegative integer <code class="docutils literal notranslate"><span class="pre">i</span></code> as a single-axis index must index the same elements as the slice <code class="docutils literal notranslate"><span class="pre">i:i+1</span></code>.</p></li>
+<li><p>Providing a single negative integer <code class="docutils literal notranslate"><span class="pre">i</span></code> as a single-axis index must index the same elements as the slice <code class="docutils literal notranslate"><span class="pre">n+i:n+i+1</span></code>, where <code class="docutils literal notranslate"><span class="pre">n</span></code> is the axis (dimension) size.</p></li>
+<li><p>Providing a single integer as a single-axis index must reduce the number of array dimensions by <code class="docutils literal notranslate"><span class="pre">1</span></code> (i.e., the array rank should decrease by one; if <code class="docutils literal notranslate"><span class="pre">A</span></code> has rank <code class="docutils literal notranslate"><span class="pre">2</span></code>, <code class="docutils literal notranslate"><span class="pre">rank(A)-1</span> <span class="pre">==</span> <span class="pre">rank(A[0,</span> <span class="pre">:])</span></code>). In particular, a selection tuple with the <code class="docutils literal notranslate"><span class="pre">m</span></code>th element an integer (and all other entries <code class="docutils literal notranslate"><span class="pre">:</span></code>) indexes a sub-array with rank <code class="docutils literal notranslate"><span class="pre">N-1</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>When providing a single integer as a single-axis index to an array of rank <code class="docutils literal notranslate"><span class="pre">1</span></code>, the result should be an array of rank <code class="docutils literal notranslate"><span class="pre">0</span></code>, not a NumPy scalar. Note that this behavior differs from NumPy.</p>
+</div>
+</li>
+<li><p>Providing a slice must retain array dimensions (i.e., the array rank must remain the same; <code class="docutils literal notranslate"><span class="pre">rank(A)</span> <span class="pre">==</span> <span class="pre">rank(A[:])</span></code>).</p></li>
+<li><p>Providing <a class="reference external" href="https://docs.python.org/3/library/constants.html#Ellipsis">ellipsis</a> must apply <code class="docutils literal notranslate"><span class="pre">:</span></code> to each dimension necessary to index all dimensions (e.g., if <code class="docutils literal notranslate"><span class="pre">A</span></code> has rank <code class="docutils literal notranslate"><span class="pre">4</span></code>, <code class="docutils literal notranslate"><span class="pre">A[1:,</span> <span class="pre">...,</span> <span class="pre">2:5]</span> <span class="pre">==</span> <span class="pre">A[1:,</span> <span class="pre">:,</span> <span class="pre">:,</span> <span class="pre">2:5]</span></code>). Only a single ellipsis must be allowed. An <code class="docutils literal notranslate"><span class="pre">IndexError</span></code> exception must be raised if more than one ellipsis is provided.</p></li>
+<li><p>Providing an empty tuple or an ellipsis to an array of rank <code class="docutils literal notranslate"><span class="pre">0</span></code> must result in an array of the same rank (i.e., if <code class="docutils literal notranslate"><span class="pre">A</span></code> has rank <code class="docutils literal notranslate"><span class="pre">0</span></code>, <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">==</span> <span class="pre">A[()]</span></code> and <code class="docutils literal notranslate"><span class="pre">A</span> <span class="pre">==</span> <span class="pre">A[...]</span></code>).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This behavior differs from NumPy where providing an empty tuple to an array of rank <code class="docutils literal notranslate"><span class="pre">0</span></code> returns a NumPy scalar.</p>
+</div>
+</li>
+<li><p>Except in the case of providing a single ellipsis (e.g., <code class="docutils literal notranslate"><span class="pre">A[2:10,</span> <span class="pre">...]</span></code> or <code class="docutils literal notranslate"><span class="pre">A[1:,</span> <span class="pre">...,</span> <span class="pre">2:5]</span></code>), the number of provided single-axis indexing expressions should equal <code class="docutils literal notranslate"><span class="pre">N</span></code>. For example, if <code class="docutils literal notranslate"><span class="pre">A</span></code> has rank <code class="docutils literal notranslate"><span class="pre">2</span></code>, a single-axis indexing expression should be explicitly provided for both axes (e.g., <code class="docutils literal notranslate"><span class="pre">A[2:10,</span> <span class="pre">:]</span></code>). An <code class="docutils literal notranslate"><span class="pre">IndexError</span></code> exception should be raised if the number of provided single-axis indexing expressions is less than <code class="docutils literal notranslate"><span class="pre">N</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Some libraries, such as SymPy, support flat indexing (i.e., providing a single-axis indexing expression to a higher-dimensional array). That practice is not supported here.</p>
+<p>To perform flat indexing, use <code class="docutils literal notranslate"><span class="pre">reshape(x,</span> <span class="pre">(-1,))[integer]</span></code>.</p>
+</div>
+</li>
+<li><p>An <code class="docutils literal notranslate"><span class="pre">IndexError</span></code> exception must be raised if the number of provided single-axis indexing expressions is greater than <code class="docutils literal notranslate"><span class="pre">N</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This specification leaves unspecified the behavior of providing a slice which attempts to select elements along a particular axis, but whose starting index is out-of-bounds.</p>
+<p><em>Rationale: this is consistent with bounds-checking for single-axis indexing. An implementation may choose to set the axis (dimension) size of the result array to</em> <code class="docutils literal notranslate"><span class="pre">0</span></code> <em>, raise an exception, return junk values, or some other behavior depending on device requirements and performance considerations.</em></p>
+</div>
+</li>
+</ul>
+</section>
+<section id="boolean-array-indexing">
+<h2 id="boolean-array-indexing">Boolean Array Indexing<a class="headerlink" href="#boolean-array-indexing" title="Permalink to this headline">¶</a></h2>
+<div class="admonition important">
+<p class="admonition-title">Data-dependent output shape</p>
+<p>For common boolean array use cases (e.g., using a dynamically-sized boolean array mask to filter the values of another array), the shape of the output array is data-dependent; hence, array libraries which build computation graphs (e.g., JAX, Dask, etc.) may find boolean array indexing difficult to implement. Accordingly, such libraries may choose to omit boolean array indexing. See <a class="reference internal" href="../design_topics/data_dependent_output_shapes.html#data-dependent-output-shapes"><span class="std std-ref">Data-dependent output shapes</span></a> section for more details.</p>
+</div>
+<p>An array must support indexing where the <strong>sole index</strong> is an <code class="docutils literal notranslate"><span class="pre">M</span></code>-dimensional boolean array <code class="docutils literal notranslate"><span class="pre">B</span></code> with shape <code class="docutils literal notranslate"><span class="pre">S1</span> <span class="pre">=</span> <span class="pre">(s1,</span> <span class="pre">...,</span> <span class="pre">sM)</span></code> according to the following rules. Let <code class="docutils literal notranslate"><span class="pre">A</span></code> be an <code class="docutils literal notranslate"><span class="pre">N</span></code>-dimensional array with shape <code class="docutils literal notranslate"><span class="pre">S2</span> <span class="pre">=</span> <span class="pre">(s1,</span> <span class="pre">...,</span> <span class="pre">sM,</span> <span class="pre">...,</span> <span class="pre">sN)</span></code>.</p>
+<ul>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">N</span> <span class="pre">&gt;=</span> <span class="pre">M</span></code>, then <code class="docutils literal notranslate"><span class="pre">A[B]</span></code> must replace the first <code class="docutils literal notranslate"><span class="pre">M</span></code> dimensions of <code class="docutils literal notranslate"><span class="pre">A</span></code> with a single dimension having a size equal to the number of <code class="docutils literal notranslate"><span class="pre">True</span></code> elements in <code class="docutils literal notranslate"><span class="pre">B</span></code>. The values in the resulting array must be in row-major (C-style order); this is equivalent to <code class="docutils literal notranslate"><span class="pre">A[nonzero(B)]</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For example, if <code class="docutils literal notranslate"><span class="pre">N</span> <span class="pre">==</span> <span class="pre">M</span> <span class="pre">==</span> <span class="pre">2</span></code>, indexing <code class="docutils literal notranslate"><span class="pre">A</span></code> via a boolean array <code class="docutils literal notranslate"><span class="pre">B</span></code> will return a one-dimensional array whose size is equal to the number of <code class="docutils literal notranslate"><span class="pre">True</span></code> elements in <code class="docutils literal notranslate"><span class="pre">B</span></code>.</p>
+</div>
+</li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">N</span> <span class="pre">&lt;</span> <span class="pre">M</span></code>, then an <code class="docutils literal notranslate"><span class="pre">IndexError</span></code> exception must be raised.</p></li>
+<li><p>The size of each dimension in <code class="docutils literal notranslate"><span class="pre">B</span></code> must equal the size of the corresponding dimension in <code class="docutils literal notranslate"><span class="pre">A</span></code> or be <code class="docutils literal notranslate"><span class="pre">0</span></code>, beginning with the first dimension in <code class="docutils literal notranslate"><span class="pre">A</span></code>. If a dimension size does not equal the size of the corresponding dimension in <code class="docutils literal notranslate"><span class="pre">A</span></code> and is not <code class="docutils literal notranslate"><span class="pre">0</span></code>, then an <code class="docutils literal notranslate"><span class="pre">IndexError</span></code> exception must be raised.</p></li>
+<li><p>The elements of a boolean index array must be iterated in row-major, C-style order, with the exception of zero-dimensional boolean arrays.</p></li>
+<li><p>A zero-dimensional boolean index array (equivalent to <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>) must follow the same axis replacement rules stated above. Namely, a zero-dimensional boolean index array removes zero dimensions and adds a single dimension of length <code class="docutils literal notranslate"><span class="pre">1</span></code> if the index array’s value is <code class="docutils literal notranslate"><span class="pre">True</span></code> and of length <code class="docutils literal notranslate"><span class="pre">0</span></code> if the index array’s value is <code class="docutils literal notranslate"><span class="pre">False</span></code>. Accordingly, for a zero-dimensional boolean index array <code class="docutils literal notranslate"><span class="pre">B</span></code>, the result of <code class="docutils literal notranslate"><span class="pre">A[B]</span></code> has shape <code class="docutils literal notranslate"><span class="pre">S</span> <span class="pre">=</span> <span class="pre">(1,</span> <span class="pre">s1,</span> <span class="pre">...,</span> <span class="pre">sN)</span></code> if the index array’s value is <code class="docutils literal notranslate"><span class="pre">True</span></code> and has shape <code class="docutils literal notranslate"><span class="pre">S</span> <span class="pre">=</span> <span class="pre">(0,</span> <span class="pre">s1,</span> <span class="pre">...,</span> <span class="pre">sN)</span></code> if the index array’s value is <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
+</ul>
+</section>
+<section id="return-values">
+<h2 id="return-values">Return Values<a class="headerlink" href="#return-values" title="Permalink to this headline">¶</a></h2>
+<p>The result of an indexing operation (e.g., multi-axis indexing, boolean array indexing, etc) must be an array of the same data type as the indexed array.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The specified return value behavior includes indexing operations which return a single value (e.g., accessing a single element within a one-dimensional array).</p>
+</div>
+</section>
+</section>
+
+
+          </article>
+        </div>
+      </div>
+    </main>
   </div>
   <footer class="md-footer">
-   <div class="md-footer-nav">
-    <nav class="md-footer-nav__inner md-grid">
-     <a class="md-flex md-footer-nav__link md-footer-nav__link--prev" href="function_and_method_signatures.html" rel="prev" title="Function and method signatures">
-      <div class="md-flex__cell md-flex__cell--shrink">
-       <i class="md-icon md-icon--arrow-back md-footer-nav__button">
-       </i>
-      </div>
-      <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-       <span class="md-flex__ellipsis">
-        <span class="md-footer-nav__direction">
-         Previous
-        </span>
-        Function and method signatures
-       </span>
-      </div>
-     </a>
-     <a class="md-flex md-footer-nav__link md-footer-nav__link--next" href="linear_algebra_functions.html" rel="next" title="Linear Algebra Functions">
-      <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-       <span class="md-flex__ellipsis">
-        <span class="md-footer-nav__direction">
-         Next
-        </span>
-        Linear Algebra Functions
-       </span>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-       <i class="md-icon md-icon--arrow-forward md-footer-nav__button">
-       </i>
-      </div>
-     </a>
-    </nav>
-   </div>
-   <div class="md-footer-meta md-typeset">
-    <div class="md-footer-meta__inner md-grid">
-     <div class="md-footer-copyright">
-      <div class="md-footer-copyright__highlight">
-       © Copyright 2020, Consortium for Python Data API Standards.
-      </div>
-      Created using
-      <a href="http://www.sphinx-doc.org/">
-       Sphinx
-      </a>
-      4.3.0.
-             and
-      <a href="https://github.com/bashtage/sphinx-material/">
-       Material for
-              Sphinx
-      </a>
-     </div>
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+          
+            <a href="function_and_method_signatures.html" title="Function and method signatures"
+               class="md-flex md-footer-nav__link md-footer-nav__link--prev"
+               rel="prev">
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+              </div>
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span
+                      class="md-footer-nav__direction"> Previous </span> Function and method signatures </span>
+              </div>
+            </a>
+          
+          
+            <a href="linear_algebra_functions.html" title="Linear Algebra Functions"
+               class="md-flex md-footer-nav__link md-footer-nav__link--next"
+               rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
+                class="md-flex__ellipsis"> <span
+                class="md-footer-nav__direction"> Next </span> Linear Algebra Functions </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink"><i
+                class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          
+        </a>
+        
+      </nav>
     </div>
-   </div>
+    <div class="md-footer-meta md-typeset">
+      <div class="md-footer-meta__inner md-grid">
+        <div class="md-footer-copyright">
+          <div class="md-footer-copyright__highlight">
+              &#169; Copyright 2020, Consortium for Python Data API Standards.
+              
+          </div>
+            Created using
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.3.0.
+             and
+            <a href="https://github.com/bashtage/sphinx-material/">Material for
+              Sphinx</a>
+        </div>
+      </div>
+    </div>
   </footer>
-  <script src="../_static/javascripts/application.js">
-  </script>
-  <script>
-   app.initialize({version: "1.0.4", url: {base: ".."}})
-  </script>
- </body>
+  <script src="../_static/javascripts/application.js"></script>
+  <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
+  </body>
 </html>

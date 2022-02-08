@@ -1,24 +1,29 @@
+
 <!DOCTYPE html>
+
 <html>
- <head>
-  <meta charset="utf-8"/>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-  <meta content="Docutils 0.17.1: http://docutils.sourceforge.net/" name="generator"/>
-  <meta content="width=device-width,initial-scale=1" name="viewport"/>
-  <meta content="ie=edge" http-equiv="x-ua-compatible"/>
-  <meta content="Copy to clipboard" name="lang:clipboard.copy"/>
-  <meta content="Copied to clipboard" name="lang:clipboard.copied"/>
-  <meta content="en" name="lang:search.language"/>
-  <meta content="True" name="lang:search.pipeline.stopwords"/>
-  <meta content="True" name="lang:search.pipeline.trimmer"/>
-  <meta content="No matching documents" name="lang:search.result.none"/>
-  <meta content="1 matching document" name="lang:search.result.one"/>
-  <meta content="# matching documents" name="lang:search.result.other"/>
-  <meta content="[\s\-]+" name="lang:search.tokenizer"/>
-  <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
-  <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700|Roboto:300,400,400i,700&amp;display=fallback" rel="stylesheet"/>
-  <style>
-   body,
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="lang:clipboard.copy" content="Copy to clipboard">
+  <meta name="lang:clipboard.copied" content="Copied to clipboard">
+  <meta name="lang:search.language" content="en">
+  <meta name="lang:search.pipeline.stopwords" content="True">
+  <meta name="lang:search.pipeline.trimmer" content="True">
+  <meta name="lang:search.result.none" content="No matching documents">
+  <meta name="lang:search.result.one" content="1 matching document">
+  <meta name="lang:search.result.other" content="# matching documents">
+  <meta name="lang:search.tokenizer" content="[\s\-]+">
+
+  
+    <link href="https://fonts.gstatic.com/" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700|Roboto:300,400,400i,700&display=fallback" rel="stylesheet">
+
+    <style>
+      body,
       input {
         font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif
       }
@@ -28,601 +33,459 @@
       pre {
         font-family: "Roboto Mono", "Courier New", Courier, monospace
       }
-  </style>
-  <link href="_static/stylesheets/application.css" rel="stylesheet"/>
-  <link href="_static/stylesheets/application-palette.css" rel="stylesheet"/>
-  <link href="_static/stylesheets/application-fixes.css" rel="stylesheet"/>
-  <link href="_static/fonts/material-icons.css" rel="stylesheet"/>
-  <meta content="#2196f3" name="theme-color"/>
-  <script src="_static/javascripts/modernizr.js">
-  </script>
-  <link href="_static/images/apple-icon-152x152.png" rel="apple-touch-icon"/>
-  <title>
-   Purpose and scope — Python array API standard 2021.01-DRAFT documentation
-  </title>
-  <link href="_static/pygments.css" rel="stylesheet" type="text/css"/>
-  <link href="_static/material.css" rel="stylesheet" type="text/css"/>
-  <link href="_static/copybutton.css" rel="stylesheet" type="text/css"/>
-  <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js">
-  </script>
-  <script src="_static/jquery.js">
-  </script>
-  <script src="_static/underscore.js">
-  </script>
-  <script src="_static/doctools.js">
-  </script>
-  <script src="_static/clipboard.min.js">
-  </script>
-  <script src="_static/copybutton.js">
-  </script>
-  <link href="genindex.html" rel="index" title="Index"/>
-  <link href="search.html" rel="search" title="Search"/>
-  <link href="use_cases.html" rel="next" title="Use cases"/>
-  <link href="index.html" rel="prev" title="Python array API standard"/>
-  <link href="_static/images/apple-icon-152x152.png" rel="apple-touch-icon"/>
- </head>
- <body data-md-color-accent="green" data-md-color-primary="indigo" dir="ltr">
+    </style>
+  
+
+  <link rel="stylesheet" href="_static/stylesheets/application.css"/>
+  <link rel="stylesheet" href="_static/stylesheets/application-palette.css"/>
+  <link rel="stylesheet" href="_static/stylesheets/application-fixes.css"/>
+  
+  <link rel="stylesheet" href="_static/fonts/material-icons.css"/>
+  
+  <meta name="theme-color" content="#2196f3">
+  <script src="_static/javascripts/modernizr.js"></script>
+  
+  
+    <link rel="apple-touch-icon" href="_static/images/apple-icon-152x152.png"/>
+  
+  
+    <title>Purpose and scope &#8212; Python array API standard 2021.01-DRAFT documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/material.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Use cases" href="use_cases.html" />
+    <link rel="prev" title="Python array API standard" href="index.html" />
+  
+    <link rel="apple-touch-icon" href="_static/images/apple-icon-152x152.png"/>
+  
+   
+
+  </head>
+  <body dir=ltr
+        data-md-color-primary=indigo data-md-color-accent=green>
+  
   <svg class="md-svg">
-   <defs data-children-count="0">
-    <svg height="448" id="__github" viewbox="0 0 416 448" width="416" xmlns="http://www.w3.org/2000/svg">
-     <path d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z" fill="currentColor">
-     </path>
-    </svg>
-   </defs>
+    <defs data-children-count="0">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+      
+    </defs>
   </svg>
-  <input class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
-  <input class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
-  <label class="md-overlay" data-md-component="overlay" for="__drawer">
-  </label>
-  <a class="md-skip" href="#purpose_and_scope" tabindex="1">
-   Skip to content
-  </a>
+  
+  <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer">
+  <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search">
+  <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+  <a href="#purpose_and_scope" tabindex="1" class="md-skip"> Skip to content </a>
   <header class="md-header" data-md-component="header">
-   <nav class="md-header-nav md-grid">
+  <nav class="md-header-nav md-grid">
     <div class="md-flex navheader">
-     <div class="md-flex__cell md-flex__cell--shrink">
-      <a class="md-header-nav__button md-logo" href="index.html" title="Python array API standard 2021.01-DRAFT documentation">
-       <i class="md-icon">
-        
-       </i>
-      </a>
-     </div>
-     <div class="md-flex__cell md-flex__cell--shrink">
-      <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer">
-      </label>
-     </div>
-     <div class="md-flex__cell md-flex__cell--stretch">
-      <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-       <span class="md-header-nav__topic">
-        Python array API standard
-       </span>
-       <span class="md-header-nav__topic">
-        Purpose and scope
-       </span>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="index.html" title="Python array API standard 2021.01-DRAFT documentation"
+           class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">&#xe869</i>
+          
+        </a>
       </div>
-     </div>
-     <div class="md-flex__cell md-flex__cell--shrink">
-      <label class="md-icon md-icon--search md-header-nav__button" for="__search">
-      </label>
-      <div class="md-search" data-md-component="search" role="dialog">
-       <label class="md-search__overlay" for="__search">
-       </label>
-       <div class="md-search__inner" role="search">
-        <form action="search.html" class="md-search__form" method="GET" name="search">
-         <input autocapitalize="off" autocomplete="off" class="md-search__input" data-md-component="query" data-md-state="active" name="q" placeholder="Search" spellcheck="false" type="text"/>
-         <label class="md-icon md-search__icon" for="__search">
-         </label>
-         <button class="md-icon md-search__icon" data-md-component="reset" tabindex="-1" type="reset">
-          
-         </button>
-        </form>
-        <div class="md-search__output">
-         <div class="md-search__scrollwrap" data-md-scrollfix="">
-          <div class="md-search-result" data-md-component="result">
-           <div class="md-search-result__meta">
-            Type to start searching
-           </div>
-           <ol class="md-search-result__list">
-           </ol>
-          </div>
-         </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          <span class="md-header-nav__topic">Python array API standard</span>
+          <span class="md-header-nav__topic"> Purpose and scope </span>
         </div>
-       </div>
       </div>
-     </div>
-     <script src="_static/javascripts/version_dropdown.js">
-     </script>
-     <script>
-      var json_loc = ""versions.json"",
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+        
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" action="search.html" method="GET" name="search">
+      <input type="text" class="md-search__input" name="q" placeholder="Search"
+             autocapitalize="off" autocomplete="off" spellcheck="false"
+             data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      </div>
+      
+      
+  
+  <script src="_static/javascripts/version_dropdown.js"></script>
+  <script>
+    var json_loc = ""versions.json"",
         target_loc = "../",
         text = "Versions";
     $( document ).ready( add_version_dropdown(json_loc, target_loc, text));
-     </script>
+  </script>
+  
+
     </div>
-   </nav>
-  </header>
+  </nav>
+</header>
+
+  
   <div class="md-container">
-   <nav class="md-tabs" data-md-component="tabs">
+    
+    
+    
+  <nav class="md-tabs" data-md-component="tabs">
     <div class="md-tabs__inner md-grid">
-     <ul class="md-tabs__list">
-      <li class="md-tabs__item">
-       <a class="md-tabs__link" href="index.html">
-        Array API standard
-       </a>
-      </li>
-      <li class="md-tabs__item">
-       <a class="md-tabs__link" href="https://data-apis.org">
-        Consortium for Python Data API Standards
-       </a>
-      </li>
-     </ul>
+      <ul class="md-tabs__list">
+            
+            <li class="md-tabs__item"><a href="index.html" class="md-tabs__link">Array API standard</a></li>
+            
+            <li class="md-tabs__item"><a href="https://data-apis.org" class="md-tabs__link">Consortium for Python Data API Standards</a></li>
+      </ul>
     </div>
-   </nav>
-   <main class="md-main">
-    <div class="md-main__inner md-grid" data-md-component="container">
-     <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
-      <div class="md-sidebar__scrollwrap">
-       <div class="md-sidebar__inner">
-        <nav class="md-nav md-nav--primary" data-md-level="0">
-         <label class="md-nav__title md-nav__title--site" for="__drawer">
-          <a class="md-nav__button md-logo" href="index.html" title="Python array API standard 2021.01-DRAFT documentation">
-           <i class="md-icon">
-            
-           </i>
-          </a>
-          <a href="index.html" title="Python array API standard 2021.01-DRAFT documentation">
-           Python array API standard
-          </a>
-         </label>
-         <ul class="md-nav__list">
-          <li class="md-nav__item">
-           <span class="md-nav__link caption">
-            <span class="caption-text">
-             Context
-            </span>
-           </span>
-          </li>
-          <li class="md-nav__item">
-           <input class="md-toggle md-nav__toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
-           <label class="md-nav__link md-nav__link--active" for="__toc">
-            Purpose and scope
-           </label>
-           <a class="md-nav__link md-nav__link--active" href="#">
-            Purpose and scope
-           </a>
-           <nav class="md-nav md-nav--secondary">
-            <label class="md-nav__title" for="__toc">
-             Contents
-            </label>
-            <ul class="md-nav__list" data-md-scrollfix="">
-             <li class="md-nav__item">
-              <a class="md-nav__link" href="#purpose-and-scope--page-root">
-               Purpose and scope
-              </a>
-              <nav class="md-nav">
-               <ul class="md-nav__list">
-                <li class="md-nav__item">
-                 <a class="md-nav__link" href="#introduction">
-                  Introduction
-                 </a>
-                 <nav class="md-nav">
-                  <ul class="md-nav__list">
-                   <li class="md-nav__item">
-                    <a class="md-nav__link" href="#this-api-standard">
-                     This API standard
-                    </a>
-                   </li>
-                   <li class="md-nav__item">
-                    <a class="md-nav__link" href="#history">
-                     History
-                    </a>
-                   </li>
-                  </ul>
-                 </nav>
-                </li>
-                <li class="md-nav__item">
-                 <a class="md-nav__link" href="#scope-includes-out-of-scope-non-goals">
-                  Scope (includes out-of-scope / non-goals)
-                 </a>
-                 <nav class="md-nav">
-                  <ul class="md-nav__list">
-                   <li class="md-nav__item">
-                    <a class="md-nav__link" href="#in-scope">
-                     In scope
-                    </a>
-                   </li>
-                   <li class="md-nav__item">
-                    <a class="md-nav__link" href="#out-of-scope">
-                     Out of scope
-                    </a>
-                   </li>
-                   <li class="md-nav__item">
-                    <a class="md-nav__link" href="#implications-of-in-out-of-scope">
-                     Implications of in/out of scope
-                    </a>
-                   </li>
-                  </ul>
-                 </nav>
-                </li>
-                <li class="md-nav__item">
-                 <a class="md-nav__link" href="#stakeholders">
-                  Stakeholders
-                 </a>
-                </li>
-                <li class="md-nav__item">
-                 <a class="md-nav__link" href="#how-to-read-this-document">
-                  How to read this document
-                 </a>
-                </li>
-                <li class="md-nav__item">
-                 <a class="md-nav__link" href="#how-to-adopt-this-api">
-                  How to adopt this API
-                 </a>
-                 <nav class="md-nav">
-                  <ul class="md-nav__list">
-                   <li class="md-nav__item">
-                    <a class="md-nav__link" href="#checking-an-array-object-for-compliance">
-                     Checking an array object for Compliance
-                    </a>
-                   </li>
-                   <li class="md-nav__item">
-                    <a class="md-nav__link" href="#discoverability-of-conforming-implementations">
-                     Discoverability of conforming implementations
-                    </a>
-                   </li>
-                  </ul>
-                 </nav>
-                </li>
-                <li class="md-nav__item">
-                 <a class="md-nav__link" href="#conformance">
-                  Conformance
-                 </a>
-                </li>
-                <li class="md-nav__item">
-                 <a class="md-nav__link" href="#terms-and-definitions">
-                  Terms and Definitions
-                 </a>
-                </li>
-                <li class="md-nav__item">
-                 <a class="md-nav__link" href="#normative-references">
-                  Normative References
-                 </a>
-                </li>
-               </ul>
-              </nav>
-             </li>
-            </ul>
-           </nav>
-           <ul class="md-nav__list">
-            <li class="md-nav__item">
-             <a class="md-nav__link" href="#introduction">
-              Introduction
-             </a>
-            </li>
-            <li class="md-nav__item">
-             <a class="md-nav__link" href="#scope-includes-out-of-scope-non-goals">
-              Scope (includes out-of-scope / non-goals)
-             </a>
-            </li>
-            <li class="md-nav__item">
-             <a class="md-nav__link" href="#stakeholders">
-              Stakeholders
-             </a>
-            </li>
-            <li class="md-nav__item">
-             <a class="md-nav__link" href="#how-to-read-this-document">
-              How to read this document
-             </a>
-            </li>
-            <li class="md-nav__item">
-             <a class="md-nav__link" href="#how-to-adopt-this-api">
-              How to adopt this API
-             </a>
-            </li>
-            <li class="md-nav__item">
-             <a class="md-nav__link" href="#conformance">
-              Conformance
-             </a>
-            </li>
-            <li class="md-nav__item">
-             <a class="md-nav__link" href="#terms-and-definitions">
-              Terms and Definitions
-             </a>
-            </li>
-            <li class="md-nav__item">
-             <a class="md-nav__link" href="#normative-references">
-              Normative References
-             </a>
-            </li>
-           </ul>
-          </li>
-          <li class="md-nav__item">
-           <a class="md-nav__link" href="use_cases.html">
-            Use cases
-           </a>
-          </li>
-          <li class="md-nav__item">
-           <a class="md-nav__link" href="assumptions.html">
-            Assumptions
-           </a>
-          </li>
-          <li class="md-nav__item">
-           <span class="md-nav__link caption">
-            <span class="caption-text">
-             API
-            </span>
-           </span>
-          </li>
-          <li class="md-nav__item">
-           <a class="md-nav__link" href="design_topics/index.html">
-            Design topics &amp; constraints
-           </a>
-          </li>
-          <li class="md-nav__item">
-           <a class="md-nav__link" href="future_API_evolution.html">
-            Future API standard evolution
-           </a>
-          </li>
-          <li class="md-nav__item">
-           <a class="md-nav__link" href="API_specification/index.html">
-            API specification
-           </a>
-          </li>
-          <li class="md-nav__item">
-           <a class="md-nav__link" href="extensions/index.html">
-            Extensions
-           </a>
-          </li>
-          <li class="md-nav__item">
-           <span class="md-nav__link caption">
-            <span class="caption-text">
-             Methodology and Usage
-            </span>
-           </span>
-          </li>
-          <li class="md-nav__item">
-           <a class="md-nav__link" href="usage_data.html">
-            Usage Data
-           </a>
-          </li>
-          <li class="md-nav__item">
-           <a class="md-nav__link" href="verification_test_suite.html">
-            Verification - test suite
-           </a>
-          </li>
-          <li class="md-nav__item">
-           <a class="md-nav__link" href="benchmark_suite.html">
-            Benchmark suite
-           </a>
-          </li>
-         </ul>
-        </nav>
-       </div>
-      </div>
-     </div>
-     <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
-      <div class="md-sidebar__scrollwrap">
-       <div class="md-sidebar__inner">
-        <nav class="md-nav md-nav--secondary">
-         <label class="md-nav__title" for="__toc">
-          Contents
-         </label>
-         <ul class="md-nav__list" data-md-scrollfix="">
-          <li class="md-nav__item">
-           <a class="md-nav__link" href="#purpose-and-scope--page-root">
-            Purpose and scope
-           </a>
-           <nav class="md-nav">
-            <ul class="md-nav__list">
-             <li class="md-nav__item">
-              <a class="md-nav__link" href="#introduction">
-               Introduction
-              </a>
-              <nav class="md-nav">
-               <ul class="md-nav__list">
-                <li class="md-nav__item">
-                 <a class="md-nav__link" href="#this-api-standard">
-                  This API standard
-                 </a>
-                </li>
-                <li class="md-nav__item">
-                 <a class="md-nav__link" href="#history">
-                  History
-                 </a>
-                </li>
-               </ul>
-              </nav>
-             </li>
-             <li class="md-nav__item">
-              <a class="md-nav__link" href="#scope-includes-out-of-scope-non-goals">
-               Scope (includes out-of-scope / non-goals)
-              </a>
-              <nav class="md-nav">
-               <ul class="md-nav__list">
-                <li class="md-nav__item">
-                 <a class="md-nav__link" href="#in-scope">
-                  In scope
-                 </a>
-                </li>
-                <li class="md-nav__item">
-                 <a class="md-nav__link" href="#out-of-scope">
-                  Out of scope
-                 </a>
-                </li>
-                <li class="md-nav__item">
-                 <a class="md-nav__link" href="#implications-of-in-out-of-scope">
-                  Implications of in/out of scope
-                 </a>
-                </li>
-               </ul>
-              </nav>
-             </li>
-             <li class="md-nav__item">
-              <a class="md-nav__link" href="#stakeholders">
-               Stakeholders
-              </a>
-             </li>
-             <li class="md-nav__item">
-              <a class="md-nav__link" href="#how-to-read-this-document">
-               How to read this document
-              </a>
-             </li>
-             <li class="md-nav__item">
-              <a class="md-nav__link" href="#how-to-adopt-this-api">
-               How to adopt this API
-              </a>
-              <nav class="md-nav">
-               <ul class="md-nav__list">
-                <li class="md-nav__item">
-                 <a class="md-nav__link" href="#checking-an-array-object-for-compliance">
-                  Checking an array object for Compliance
-                 </a>
-                </li>
-                <li class="md-nav__item">
-                 <a class="md-nav__link" href="#discoverability-of-conforming-implementations">
-                  Discoverability of conforming implementations
-                 </a>
-                </li>
-               </ul>
-              </nav>
-             </li>
-             <li class="md-nav__item">
-              <a class="md-nav__link" href="#conformance">
-               Conformance
-              </a>
-             </li>
-             <li class="md-nav__item">
-              <a class="md-nav__link" href="#terms-and-definitions">
-               Terms and Definitions
-              </a>
-             </li>
-             <li class="md-nav__item">
-              <a class="md-nav__link" href="#normative-references">
-               Normative References
-              </a>
-             </li>
-            </ul>
-           </nav>
-          </li>
-         </ul>
-        </nav>
-       </div>
-      </div>
-     </div>
-     <div class="md-content">
-      <article class="md-content__inner md-typeset" role="main">
-       <section class="tex2jax_ignore mathjax_ignore" id="purpose-and-scope">
-        <h1 id="purpose-and-scope--page-root">
-         Purpose and scope
-         <a class="headerlink" href="#purpose-and-scope--page-root" title="Permalink to this headline">
-          ¶
-         </a>
-        </h1>
-        <section id="introduction">
-         <h2 id="introduction">
-          Introduction
-          <a class="headerlink" href="#introduction" title="Permalink to this headline">
-           ¶
-          </a>
-         </h2>
-         <p>
-          Python users have a wealth of choice for libraries and frameworks for
+  </nav>
+    <main class="md-main">
+      <div class="md-main__inner md-grid" data-md-component="container">
+        
+          <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="index.html" title="Python array API standard 2021.01-DRAFT documentation" class="md-nav__button md-logo">
+      
+        <i class="md-icon">&#xe869</i>
+      
+    </a>
+    <a href="index.html"
+       title="Python array API standard 2021.01-DRAFT documentation">Python array API standard</a>
+  </label>
+  
+
+  
+  <ul class="md-nav__list">
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">Context</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    <label class="md-nav__link md-nav__link--active" for="__toc"> Purpose and scope </label>
+    
+      <a href="#" class="md-nav__link md-nav__link--active">Purpose and scope</a>
+      
+        
+<nav class="md-nav md-nav--secondary">
+    <label class="md-nav__title" for="__toc">Contents</label>
+  <ul class="md-nav__list" data-md-scrollfix="">
+        <li class="md-nav__item"><a href="#purpose-and-scope--page-root" class="md-nav__link">Purpose and scope</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#introduction" class="md-nav__link">Introduction</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#this-api-standard" class="md-nav__link">This API standard</a>
+        </li>
+        <li class="md-nav__item"><a href="#history" class="md-nav__link">History</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#scope-includes-out-of-scope-non-goals" class="md-nav__link">Scope (includes out-of-scope / non-goals)</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#in-scope" class="md-nav__link">In scope</a>
+        </li>
+        <li class="md-nav__item"><a href="#out-of-scope" class="md-nav__link">Out of scope</a>
+        </li>
+        <li class="md-nav__item"><a href="#implications-of-in-out-of-scope" class="md-nav__link">Implications of in/out of scope</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#stakeholders" class="md-nav__link">Stakeholders</a>
+        </li>
+        <li class="md-nav__item"><a href="#how-to-read-this-document" class="md-nav__link">How to read this document</a>
+        </li>
+        <li class="md-nav__item"><a href="#how-to-adopt-this-api" class="md-nav__link">How to adopt this API</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#checking-an-array-object-for-compliance" class="md-nav__link">Checking an array object for Compliance</a>
+        </li>
+        <li class="md-nav__item"><a href="#discoverability-of-conforming-implementations" class="md-nav__link">Discoverability of conforming implementations</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#conformance" class="md-nav__link">Conformance</a>
+        </li>
+        <li class="md-nav__item"><a href="#terms-and-definitions" class="md-nav__link">Terms and Definitions</a>
+        </li>
+        <li class="md-nav__item"><a href="#normative-references" class="md-nav__link">Normative References</a>
+        </li></ul>
+            </nav>
+        </li>
+  </ul>
+</nav>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="#introduction" class="md-nav__link">Introduction</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="#scope-includes-out-of-scope-non-goals" class="md-nav__link">Scope (includes out-of-scope / non-goals)</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="#stakeholders" class="md-nav__link">Stakeholders</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="#how-to-read-this-document" class="md-nav__link">How to read this document</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="#how-to-adopt-this-api" class="md-nav__link">How to adopt this API</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="#conformance" class="md-nav__link">Conformance</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="#terms-and-definitions" class="md-nav__link">Terms and Definitions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="#normative-references" class="md-nav__link">Normative References</a>
+      
+    
+    </li></ul>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="use_cases.html" class="md-nav__link">Use cases</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="assumptions.html" class="md-nav__link">Assumptions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">API</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="design_topics/index.html" class="md-nav__link">Design topics & constraints</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="future_API_evolution.html" class="md-nav__link">Future API standard evolution</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="API_specification/index.html" class="md-nav__link">API specification</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="extensions/index.html" class="md-nav__link">Extensions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">Methodology and Usage</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="usage_data.html" class="md-nav__link">Usage Data</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="verification_test_suite.html" class="md-nav__link">Verification - test suite</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="benchmark_suite.html" class="md-nav__link">Benchmark suite</a>
+      
+    
+    </li>
+  </ul>
+  
+
+</nav>
+              </div>
+            </div>
+          </div>
+          <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                
+<nav class="md-nav md-nav--secondary">
+    <label class="md-nav__title" for="__toc">Contents</label>
+  <ul class="md-nav__list" data-md-scrollfix="">
+        <li class="md-nav__item"><a href="#purpose-and-scope--page-root" class="md-nav__link">Purpose and scope</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#introduction" class="md-nav__link">Introduction</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#this-api-standard" class="md-nav__link">This API standard</a>
+        </li>
+        <li class="md-nav__item"><a href="#history" class="md-nav__link">History</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#scope-includes-out-of-scope-non-goals" class="md-nav__link">Scope (includes out-of-scope / non-goals)</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#in-scope" class="md-nav__link">In scope</a>
+        </li>
+        <li class="md-nav__item"><a href="#out-of-scope" class="md-nav__link">Out of scope</a>
+        </li>
+        <li class="md-nav__item"><a href="#implications-of-in-out-of-scope" class="md-nav__link">Implications of in/out of scope</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#stakeholders" class="md-nav__link">Stakeholders</a>
+        </li>
+        <li class="md-nav__item"><a href="#how-to-read-this-document" class="md-nav__link">How to read this document</a>
+        </li>
+        <li class="md-nav__item"><a href="#how-to-adopt-this-api" class="md-nav__link">How to adopt this API</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#checking-an-array-object-for-compliance" class="md-nav__link">Checking an array object for Compliance</a>
+        </li>
+        <li class="md-nav__item"><a href="#discoverability-of-conforming-implementations" class="md-nav__link">Discoverability of conforming implementations</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#conformance" class="md-nav__link">Conformance</a>
+        </li>
+        <li class="md-nav__item"><a href="#terms-and-definitions" class="md-nav__link">Terms and Definitions</a>
+        </li>
+        <li class="md-nav__item"><a href="#normative-references" class="md-nav__link">Normative References</a>
+        </li></ul>
+            </nav>
+        </li>
+  </ul>
+</nav>
+              </div>
+            </div>
+          </div>
+        
+        <div class="md-content">
+          <article class="md-content__inner md-typeset" role="main">
+            
+  <section class="tex2jax_ignore mathjax_ignore" id="purpose-and-scope">
+<h1 id="purpose-and-scope--page-root">Purpose and scope<a class="headerlink" href="#purpose-and-scope--page-root" title="Permalink to this headline">¶</a></h1>
+<section id="introduction">
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>Python users have a wealth of choice for libraries and frameworks for
 numerical computing, data science, machine learning, and deep learning. New
 frameworks pushing forward the state of the art in these fields are appearing
 every year. One unintended consequence of all this activity and creativity
 has been fragmentation in multidimensional array (a.k.a. tensor) libraries -
 which are the fundamental data structure for these fields. Choices include
-NumPy, Tensorflow, PyTorch, Dask, JAX, CuPy, MXNet, Xarray, and others.
-         </p>
-         <p>
-          The APIs of each of these libraries are largely similar, but with enough
+NumPy, Tensorflow, PyTorch, Dask, JAX, CuPy, MXNet, Xarray, and others.</p>
+<p>The APIs of each of these libraries are largely similar, but with enough
 differences that it’s quite difficult to write code that works with multiple
 (or all) of these libraries. This array API standard aims to address that
 issue, by specifying an API for the most common ways arrays are constructed
-and used.
-         </p>
-         <p>
-          Why not simply pick an existing API and bless that as the standard? In short,
+and used.</p>
+<p>Why not simply pick an existing API and bless that as the standard? In short,
 because there are often good reasons for the current inconsistencies between
 libraries. The most obvious candidate for that existing API is NumPy. However
 NumPy was not designed with non-CPU devices, graph-based libraries, or JIT
 compilers in mind. Other libraries often deviate from NumPy for good
 (necessary) reasons. Choices made in this API standard are often the same
 ones NumPy makes, or close to it, but are different where necessary to make
-sure all existing array libraries can adopt this API.
-         </p>
-         <section id="this-api-standard">
-          <h3 id="this-api-standard">
-           This API standard
-           <a class="headerlink" href="#this-api-standard" title="Permalink to this headline">
-            ¶
-           </a>
-          </h3>
-          <p>
-           This document aims to standardize functionality that exists in most/all array
+sure all existing array libraries can adopt this API.</p>
+<section id="this-api-standard">
+<h3 id="this-api-standard">This API standard<a class="headerlink" href="#this-api-standard" title="Permalink to this headline">¶</a></h3>
+<p>This document aims to standardize functionality that exists in most/all array
 libraries and either is commonly used or is needed for
 consistency/completeness. Usage is determined via analysis of downstream
-libraries, see
-           <a class="reference internal" href="usage_data.html#usage-data">
-            <span class="std std-ref">
-             Usage Data
-            </span>
-           </a>
-           . An example of consistency is: there are
+libraries, see <a class="reference internal" href="usage_data.html#usage-data"><span class="std std-ref">Usage Data</span></a>. An example of consistency is: there are
 functional equivalents for all Python operators (including the rarely used
-ones).
-          </p>
-          <p>
-           Beyond usage and consistency, there’s a set of use cases that inform the API
+ones).</p>
+<p>Beyond usage and consistency, there’s a set of use cases that inform the API
 design to ensure it’s fit for a wide range of users and situations - see
-           <a class="reference internal" href="use_cases.html#use-cases">
-            <span class="std std-ref">
-             Use cases
-            </span>
-           </a>
-           .
-          </p>
-          <p>
-           A question that may arise when reading this document is:
-           <em>
-            “what about
-functionality that’s not present in this document?
-           </em>
-           This:
-          </p>
-          <ul class="simple">
-           <li>
-            <p>
-             means that there is no guarantee the functionality is present in libraries
-adhering to the standard
-            </p>
-           </li>
-           <li>
-            <p>
-             does
-             <em>
-              not
-             </em>
-             mean that that functionality is unimportant
-            </p>
-           </li>
-           <li>
-            <p>
-             may indicate that that functionality, if present in a particular array
-library, is unlikely to be present in all other libraries
-            </p>
-           </li>
-          </ul>
-         </section>
-         <section id="history">
-          <h3 id="history">
-           History
-           <a class="headerlink" href="#history" title="Permalink to this headline">
-            ¶
-           </a>
-          </h3>
-          <p>
-           The first library for numerical and scientific computing in Python was
+<a class="reference internal" href="use_cases.html#use-cases"><span class="std std-ref">Use cases</span></a>.</p>
+<p>A question that may arise when reading this document is: <em>“what about
+functionality that’s not present in this document?</em> This:</p>
+<ul class="simple">
+<li><p>means that there is no guarantee the functionality is present in libraries
+adhering to the standard</p></li>
+<li><p>does <em>not</em> mean that that functionality is unimportant</p></li>
+<li><p>may indicate that that functionality, if present in a particular array
+library, is unlikely to be present in all other libraries</p></li>
+</ul>
+</section>
+<section id="history">
+<h3 id="history">History<a class="headerlink" href="#history" title="Permalink to this headline">¶</a></h3>
+<p>The first library for numerical and scientific computing in Python was
 Numeric, developed in the mid-1990s. In the early 2000s a second, similar
 library, Numarray, was created. In 2005 NumPy was written, superceding both
 Numeric and Numarray and resolving the fragmentation at that time. For
@@ -634,965 +497,297 @@ fragmentation. Concepts and APIs in newer libraries were often inspired by
 fit new needs and use cases. Individual library authors discussed ideas,
 however there was never (before this array API standard) an serious attempt
 to coordinate between all libraries to avoid fragmentation and arrive at a
-common API standard.
-          </p>
-          <p>
-           The idea for this array API standard grew gradually out of many conversations
+common API standard.</p>
+<p>The idea for this array API standard grew gradually out of many conversations
 between maintainers during 2019-2020. It quickly became clear that any
 attempt to write a new “reference library” to fix the current fragmentation
 was infeasible - unlike in 2005, there are now too many different use cases
 and too many stakeholders, and the speed of innovation is too high. In May
-2020 an initial group of maintainers was assembled in the
-           <a class="reference external" href="https://data-apis.org/">
-            Consortium for
-Python Data API Standards
-           </a>
-           to start drafting a
+2020 an initial group of maintainers was assembled in the <a class="reference external" href="https://data-apis.org/">Consortium for
+Python Data API Standards</a> to start drafting a
 specification for an array API that could be adopted by each of the existing
 array and tensor libraries. That resulted in this document, describing that
-API.
-          </p>
-         </section>
-        </section>
-        <section id="scope-includes-out-of-scope-non-goals">
-         <span id="scope">
-         </span>
-         <h2 id="scope-includes-out-of-scope-non-goals">
-          Scope (includes out-of-scope / non-goals)
-          <a class="headerlink" href="#scope-includes-out-of-scope-non-goals" title="Permalink to this headline">
-           ¶
-          </a>
-         </h2>
-         <p>
-          This section outlines what is in scope and out of scope for this API standard.
-         </p>
-         <section id="in-scope">
-          <h3 id="in-scope">
-           In scope
-           <a class="headerlink" href="#in-scope" title="Permalink to this headline">
-            ¶
-           </a>
-          </h3>
-          <p>
-           The scope of the array API standard includes:
-          </p>
-          <ul class="simple">
-           <li>
-            <p>
-             Functionality which needs to be included in an array library for it to adhere
-to this standard.
-            </p>
-           </li>
-           <li>
-            <p>
-             Names of functions, methods, classes and other objects.
-            </p>
-           </li>
-           <li>
-            <p>
-             Function signatures, including type annotations.
-            </p>
-           </li>
-           <li>
-            <p>
-             Semantics of functions and methods. I.e. expected outputs including precision
-for and dtypes of numerical results.
-            </p>
-           </li>
-           <li>
-            <p>
-             Semantics in the presence of
-             <code class="docutils literal notranslate">
-              <span class="pre">
-               nan
-              </span>
-             </code>
-             ’s,
-             <code class="docutils literal notranslate">
-              <span class="pre">
-               inf
-              </span>
-             </code>
-             ’s, empty arrays (i.e. arrays
-including one or more dimensions of size
-             <code class="docutils literal notranslate">
-              <span class="pre">
-               0
-              </span>
-             </code>
-             ).
-            </p>
-           </li>
-           <li>
-            <p>
-             Casting rules, broadcasting, indexing
-            </p>
-           </li>
-           <li>
-            <p>
-             Data interchange. I.e. protocols to convert one type of array into another
-type, potentially sharing memory.
-            </p>
-           </li>
-           <li>
-            <p>
-             Device support.
-            </p>
-           </li>
-          </ul>
-          <p>
-           Furthermore, meta-topics included in this standard include:
-          </p>
-          <ul class="simple">
-           <li>
-            <p>
-             Use cases for the API standard and assumptions made in it
-            </p>
-           </li>
-           <li>
-            <p>
-             API standard adoption
-            </p>
-           </li>
-           <li>
-            <p>
-             API standard versioning
-            </p>
-           </li>
-           <li>
-            <p>
-             Future API standard evolution
-            </p>
-           </li>
-           <li>
-            <p>
-             Array library and API standard versioning
-            </p>
-           </li>
-           <li>
-            <p>
-             Verification of API standard conformance
-            </p>
-           </li>
-          </ul>
-          <p>
-           The concrete set of functionality that is in scope for this version of the
-standard is shown in this diagram:
-          </p>
-          <p>
-           <img alt="Scope of array API" src="_images/scope_of_array_API.png"/>
-          </p>
-          <p>
-           <strong>
-            Goals
-           </strong>
-           for the API standard include:
-          </p>
-          <ul class="simple">
-           <li>
-            <p>
-             Make it possible for array-consuming libraries to start using multiple types
-of arrays as inputs.
-            </p>
-           </li>
-           <li>
-            <p>
-             Enable more sharing and reuse of code built on top of the core functionality
-in the API standard.
-            </p>
-           </li>
-           <li>
-            <p>
-             For authors of new array libraries, provide a concrete API that can be
+API.</p>
+</section>
+</section>
+<section id="scope-includes-out-of-scope-non-goals">
+<span id="scope"></span><h2 id="scope-includes-out-of-scope-non-goals">Scope (includes out-of-scope / non-goals)<a class="headerlink" href="#scope-includes-out-of-scope-non-goals" title="Permalink to this headline">¶</a></h2>
+<p>This section outlines what is in scope and out of scope for this API standard.</p>
+<section id="in-scope">
+<h3 id="in-scope">In scope<a class="headerlink" href="#in-scope" title="Permalink to this headline">¶</a></h3>
+<p>The scope of the array API standard includes:</p>
+<ul class="simple">
+<li><p>Functionality which needs to be included in an array library for it to adhere
+to this standard.</p></li>
+<li><p>Names of functions, methods, classes and other objects.</p></li>
+<li><p>Function signatures, including type annotations.</p></li>
+<li><p>Semantics of functions and methods. I.e. expected outputs including precision
+for and dtypes of numerical results.</p></li>
+<li><p>Semantics in the presence of <code class="docutils literal notranslate"><span class="pre">nan</span></code>’s, <code class="docutils literal notranslate"><span class="pre">inf</span></code>’s, empty arrays (i.e. arrays
+including one or more dimensions of size <code class="docutils literal notranslate"><span class="pre">0</span></code>).</p></li>
+<li><p>Casting rules, broadcasting, indexing</p></li>
+<li><p>Data interchange. I.e. protocols to convert one type of array into another
+type, potentially sharing memory.</p></li>
+<li><p>Device support.</p></li>
+</ul>
+<p>Furthermore, meta-topics included in this standard include:</p>
+<ul class="simple">
+<li><p>Use cases for the API standard and assumptions made in it</p></li>
+<li><p>API standard adoption</p></li>
+<li><p>API standard versioning</p></li>
+<li><p>Future API standard evolution</p></li>
+<li><p>Array library and API standard versioning</p></li>
+<li><p>Verification of API standard conformance</p></li>
+</ul>
+<p>The concrete set of functionality that is in scope for this version of the
+standard is shown in this diagram:</p>
+<p><img alt="Scope of array API" src="_images/scope_of_array_API.png"/></p>
+<p><strong>Goals</strong> for the API standard include:</p>
+<ul class="simple">
+<li><p>Make it possible for array-consuming libraries to start using multiple types
+of arrays as inputs.</p></li>
+<li><p>Enable more sharing and reuse of code built on top of the core functionality
+in the API standard.</p></li>
+<li><p>For authors of new array libraries, provide a concrete API that can be
 adopted as is, rather than each author having to decide what to borrow from
-where and where to deviate.
-            </p>
-           </li>
-           <li>
-            <p>
-             Make the learning curve for users less steep when they switch from one array
-library to another one.
-            </p>
-           </li>
-          </ul>
-         </section>
-         <section id="out-of-scope">
-          <h3 id="out-of-scope">
-           Out of scope
-           <a class="headerlink" href="#out-of-scope" title="Permalink to this headline">
-            ¶
-           </a>
-          </h3>
-          <ol class="arabic">
-           <li>
-            <p>
-             Implementations of the standard are out of scope.
-            </p>
-            <p>
-             <em>
-              Rationale: the standard will consist of a document and an accompanying test
+where and where to deviate.</p></li>
+<li><p>Make the learning curve for users less steep when they switch from one array
+library to another one.</p></li>
+</ul>
+</section>
+<section id="out-of-scope">
+<h3 id="out-of-scope">Out of scope<a class="headerlink" href="#out-of-scope" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p>Implementations of the standard are out of scope.</p>
+<p><em>Rationale: the standard will consist of a document and an accompanying test
 suite with which the conformance of an implementation can be verified. Actual
 implementations will live in array libraries; no reference implementation is
-planned.
-             </em>
-            </p>
-           </li>
-           <li>
-            <p>
-             Execution semantics are out of scope. This includes single-threaded vs.
+planned.</em></p>
+</li>
+<li><p>Execution semantics are out of scope. This includes single-threaded vs.
 parallel execution, task scheduling and synchronization, eager vs. delayed
 evaluation, performance characteristics of a particular implementation of the
-standard, and other such topics.
-            </p>
-            <p>
-             <em>
-              Rationale: execution is the domain of implementations. Attempting to specify
+standard, and other such topics.</p>
+<p><em>Rationale: execution is the domain of implementations. Attempting to specify
 execution behavior in a standard is likely to require much more fine-grained
 coordination between developers of implementations, and hence is likely to
-become an obstable to adoption.
-             </em>
-            </p>
-           </li>
-           <li>
-            <p>
-             Non-Python API standardization (e.g., Cython or NumPy C APIs)
-            </p>
-            <p>
-             <em>
-              Rationale: this is an important topic for some array-consuming libraries,
+become an obstable to adoption.</em></p>
+</li>
+<li><p>Non-Python API standardization (e.g., Cython or NumPy C APIs)</p>
+<p><em>Rationale: this is an important topic for some array-consuming libraries,
 but there is no widely shared C/Cython API and hence it doesn’t make sense at
 this point in time to standardize anything. See
-the
-              <a class="reference internal" href="design_topics/C_API.html">
-               <span class="doc std std-doc">
-                C API section
-               </span>
-              </a>
-              for more details.
-             </em>
-            </p>
-           </li>
-           <li>
-            <p>
-             Standardization of these dtypes is out of scope: bfloat16, complex, extended
-precision floating point, datetime, string, object and void dtypes.
-            </p>
-            <p>
-             <em>
-              Rationale: these dtypes aren’t uniformly supported, and their inclusion at
+the <a class="reference internal" href="design_topics/C_API.html"><span class="doc std std-doc">C API section</span></a> for more details.</em></p>
+</li>
+<li><p>Standardization of these dtypes is out of scope: bfloat16, complex, extended
+precision floating point, datetime, string, object and void dtypes.</p>
+<p><em>Rationale: these dtypes aren’t uniformly supported, and their inclusion at
 this point in time could put a significant implementation burden on
 libraries. It is expected that some of these dtypes - in particular
-              <code class="docutils literal notranslate">
-               <span class="pre">
-                bfloat16
-               </span>
-              </code>
-              ,
-              <code class="docutils literal notranslate">
-               <span class="pre">
-                complex64
-               </span>
-              </code>
-              , and
-              <code class="docutils literal notranslate">
-               <span class="pre">
-                complex128
-               </span>
-              </code>
-              - will be included in a future
-version of the standard.
-             </em>
-            </p>
-           </li>
-           <li>
-            <p>
-             The following topics are out of scope: I/O, polynomials, error handling,
+<code class="docutils literal notranslate"><span class="pre">bfloat16</span></code>, <code class="docutils literal notranslate"><span class="pre">complex64</span></code>, and <code class="docutils literal notranslate"><span class="pre">complex128</span></code> - will be included in a future
+version of the standard.</em></p>
+</li>
+<li><p>The following topics are out of scope: I/O, polynomials, error handling,
 testing routines, building and packaging related functionality, methods of
-binding compiled code (e.g.,
-             <code class="docutils literal notranslate">
-              <span class="pre">
-               cffi
-              </span>
-             </code>
-             ,
-             <code class="docutils literal notranslate">
-              <span class="pre">
-               ctypes
-              </span>
-             </code>
-             ), subclassing of an array
-class, masked arrays, and missing data.
-            </p>
-            <p>
-             <em>
-              Rationale: these topics are not core functionality for an array library,
-and/or are too tied to implementation details.
-             </em>
-            </p>
-           </li>
-           <li>
-            <p>
-             NumPy (generalized) universal functions, i.e. ufuncs and gufuncs.
-            </p>
-            <p>
-             <em>
-              Rationale: these are NumPy-specific concepts, and are mostly just a
+binding compiled code (e.g., <code class="docutils literal notranslate"><span class="pre">cffi</span></code>, <code class="docutils literal notranslate"><span class="pre">ctypes</span></code>), subclassing of an array
+class, masked arrays, and missing data.</p>
+<p><em>Rationale: these topics are not core functionality for an array library,
+and/or are too tied to implementation details.</em></p>
+</li>
+<li><p>NumPy (generalized) universal functions, i.e. ufuncs and gufuncs.</p>
+<p><em>Rationale: these are NumPy-specific concepts, and are mostly just a
 particular way of building regular functions with a few extra
-methods/properties.
-             </em>
-            </p>
-           </li>
-           <li>
-            <p>
-             Behaviour for unexpected/invalid input to functions and methods.
-            </p>
-            <p>
-             <em>
-              Rationale: there are a huge amount of ways in which users can provide
+methods/properties.</em></p>
+</li>
+<li><p>Behaviour for unexpected/invalid input to functions and methods.</p>
+<p><em>Rationale: there are a huge amount of ways in which users can provide
 invalid or unspecified input to functionality in the standard. Exception
 types or other resulting behaviour cannot be completely covered and would
-be hard to make consistent between libraries.
-             </em>
-            </p>
-           </li>
-          </ol>
-          <p>
-           <strong>
-            Non-goals
-           </strong>
-           for the API standard include:
-          </p>
-          <ul>
-           <li>
-            <p>
-             Making array libraries identical so they can be merged.
-            </p>
-            <p>
-             <em>
-              Each library will keep having its own particular strength, whether it’s
+be hard to make consistent between libraries.</em></p>
+</li>
+</ol>
+<p><strong>Non-goals</strong> for the API standard include:</p>
+<ul>
+<li><p>Making array libraries identical so they can be merged.</p>
+<p><em>Each library will keep having its own particular strength, whether it’s
 offering functionality beyond what’s in the standard, performance advantages
 for a given use case, specific hardware or software environment support, or
-more.
-             </em>
-            </p>
-           </li>
-           <li>
-            <p>
-             Implement a backend or runtime switching system to be able to switch from one
-array library to another with a single setting or line of code.
-            </p>
-            <p>
-             <em>
-              This may be feasible, however it’s assumed that when an array-consuming
+more.</em></p>
+</li>
+<li><p>Implement a backend or runtime switching system to be able to switch from one
+array library to another with a single setting or line of code.</p>
+<p><em>This may be feasible, however it’s assumed that when an array-consuming
 library switches from one array type to another, some testing and possibly
-code adjustment for performance or other reasons may be needed.
-             </em>
-            </p>
-           </li>
-           <li>
-            <p>
-             Making it possible to mix multiple array libraries in function calls.
-            </p>
-            <p>
-             <em>
-              Most array libraries do not know about other libraries, and the functions
+code adjustment for performance or other reasons may be needed.</em></p>
+</li>
+<li><p>Making it possible to mix multiple array libraries in function calls.</p>
+<p><em>Most array libraries do not know about other libraries, and the functions
 they implement may try to convert “foreign” input, or raise an exception.
 This behaviour is hard to specify; ensuring only a single array type is
-used is best left to the end user.
-             </em>
-            </p>
-           </li>
-          </ul>
-         </section>
-         <section id="implications-of-in-out-of-scope">
-          <h3 id="implications-of-in-out-of-scope">
-           Implications of in/out of scope
-           <a class="headerlink" href="#implications-of-in-out-of-scope" title="Permalink to this headline">
-            ¶
-           </a>
-          </h3>
-          <p>
-           If something is out of scope and therefore will not be part of (the current
+used is best left to the end user.</em></p>
+</li>
+</ul>
+</section>
+<section id="implications-of-in-out-of-scope">
+<h3 id="implications-of-in-out-of-scope">Implications of in/out of scope<a class="headerlink" href="#implications-of-in-out-of-scope" title="Permalink to this headline">¶</a></h3>
+<p>If something is out of scope and therefore will not be part of (the current
 version of) the API standard, that means that there are no guarantees that that
 functionality works the same way, or even exists at all, across the set of
-array libraries that conform to the standard. It does
-           <em>
-            not
-           </em>
-           imply that this
-functionality is less important or should not be used.
-          </p>
-         </section>
-        </section>
-        <section id="stakeholders">
-         <h2 id="stakeholders">
-          Stakeholders
-          <a class="headerlink" href="#stakeholders" title="Permalink to this headline">
-           ¶
-          </a>
-         </h2>
-         <p>
-          Arrays are fundamental to scientific computing, data science, and machine
+array libraries that conform to the standard. It does <em>not</em> imply that this
+functionality is less important or should not be used.</p>
+</section>
+</section>
+<section id="stakeholders">
+<h2 id="stakeholders">Stakeholders<a class="headerlink" href="#stakeholders" title="Permalink to this headline">¶</a></h2>
+<p>Arrays are fundamental to scientific computing, data science, and machine
 learning and deep learning. Hence there are many stakeholders for an array API
-standard. The
-          <em>
-           direct
-          </em>
-          stakeholders of this standard are
-          <strong>
-           authors/maintainers of
-Python array libraries
-          </strong>
-          . There are many more types of
-          <em>
-           indirect
-          </em>
-          stakeholders
-though, including:
-         </p>
-         <ul class="simple">
-          <li>
-           <p>
-            maintainers of libraries and other programs which depend on array libraries
-(called “array-consuming libraries” in the rest of this document)
-           </p>
-          </li>
-          <li>
-           <p>
-            authors of non-Python array libraries
-           </p>
-          </li>
-          <li>
-           <p>
-            developers of compilers and runtimes with array-specific functionality
-           </p>
-          </li>
-          <li>
-           <p>
-            end users
-           </p>
-          </li>
-         </ul>
-         <p>
-          Libraries that are being actively considered - in terms of current behaviour and
+standard. The <em>direct</em> stakeholders of this standard are <strong>authors/maintainers of
+Python array libraries</strong>. There are many more types of <em>indirect</em> stakeholders
+though, including:</p>
+<ul class="simple">
+<li><p>maintainers of libraries and other programs which depend on array libraries
+(called “array-consuming libraries” in the rest of this document)</p></li>
+<li><p>authors of non-Python array libraries</p></li>
+<li><p>developers of compilers and runtimes with array-specific functionality</p></li>
+<li><p>end users</p></li>
+</ul>
+<p>Libraries that are being actively considered - in terms of current behaviour and
 API surface - during the creation of the first version of this standard
-include:
-         </p>
-         <ul class="simple">
-          <li>
-           <p>
-            <a class="reference external" href="https://numpy.org">
-             NumPy
-            </a>
-           </p>
-          </li>
-          <li>
-           <p>
-            <a class="reference external" href="https://www.tensorflow.org/">
-             TensorFlow
-            </a>
-           </p>
-          </li>
-          <li>
-           <p>
-            <a class="reference external" href="https://pytorch.org/">
-             PyTorch
-            </a>
-           </p>
-          </li>
-          <li>
-           <p>
-            <a class="reference external" href="https://numpy.mxnet.io/">
-             MXNet
-            </a>
-           </p>
-          </li>
-          <li>
-           <p>
-            <a class="reference external" href="https://github.com/google/jax">
-             JAX
-            </a>
-           </p>
-          </li>
-          <li>
-           <p>
-            <a class="reference external" href="https://dask.org/">
-             Dask
-            </a>
-           </p>
-          </li>
-          <li>
-           <p>
-            <a class="reference external" href="https://cupy.chainer.org/">
-             CuPy
-            </a>
-           </p>
-          </li>
-         </ul>
-         <p>
-          Other Python array libraries that are currently under active development and
-could adopt this API standard include:
-         </p>
-         <ul class="simple">
-          <li>
-           <p>
-            <a class="reference external" href="https://xarray.pydata.org/">
-             xarray
-            </a>
-           </p>
-          </li>
-          <li>
-           <p>
-            <a class="reference external" href="https://sparse.pydata.org">
-             PyData/Sparse
-            </a>
-           </p>
-          </li>
-          <li>
-           <p>
-            <a class="reference external" href="https://github.com/weld-project/weld">
-             Weld
-            </a>
-           </p>
-          </li>
-          <li>
-           <p>
-            <a class="reference external" href="https://bohrium.readthedocs.io/">
-             Bohrium
-            </a>
-           </p>
-          </li>
-          <li>
-           <p>
-            <a class="reference external" href="https://github.com/mhmerrill/arkouda">
-             Arkouda
-            </a>
-           </p>
-          </li>
-          <li>
-           <p>
-            <a class="reference external" href="https://research.nvidia.com/publication/2019-11_Legate-NumPy%3A-Accelerated">
-             Legate
-            </a>
-           </p>
-          </li>
-         </ul>
-         <p>
-          There are a huge amount of array-consuming libraries; some of the most
+include:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://numpy.org">NumPy</a></p></li>
+<li><p><a class="reference external" href="https://www.tensorflow.org/">TensorFlow</a></p></li>
+<li><p><a class="reference external" href="https://pytorch.org/">PyTorch</a></p></li>
+<li><p><a class="reference external" href="https://numpy.mxnet.io/">MXNet</a></p></li>
+<li><p><a class="reference external" href="https://github.com/google/jax">JAX</a></p></li>
+<li><p><a class="reference external" href="https://dask.org/">Dask</a></p></li>
+<li><p><a class="reference external" href="https://cupy.chainer.org/">CuPy</a></p></li>
+</ul>
+<p>Other Python array libraries that are currently under active development and
+could adopt this API standard include:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://xarray.pydata.org/">xarray</a></p></li>
+<li><p><a class="reference external" href="https://sparse.pydata.org">PyData/Sparse</a></p></li>
+<li><p><a class="reference external" href="https://github.com/weld-project/weld">Weld</a></p></li>
+<li><p><a class="reference external" href="https://bohrium.readthedocs.io/">Bohrium</a></p></li>
+<li><p><a class="reference external" href="https://github.com/mhmerrill/arkouda">Arkouda</a></p></li>
+<li><p><a class="reference external" href="https://research.nvidia.com/publication/2019-11_Legate-NumPy%3A-Accelerated">Legate</a></p></li>
+</ul>
+<p>There are a huge amount of array-consuming libraries; some of the most
 prominent ones that are being taken into account - in terms of current array
 API usage or impact of design decisions on them - include (this list is likely
-to grow it over time):
-         </p>
-         <ul class="simple">
-          <li>
-           <p>
-            <a class="reference external" href="https://pandas.pydata.org/">
-             Pandas
-            </a>
-           </p>
-          </li>
-          <li>
-           <p>
-            <a class="reference external" href="https://github.com/scipy/scipy">
-             SciPy
-            </a>
-           </p>
-          </li>
-          <li>
-           <p>
-            <a class="reference external" href="https://scikit-learn.org/">
-             scikit-learn
-            </a>
-           </p>
-          </li>
-          <li>
-           <p>
-            <a class="reference external" href="https://matplotlib.org/">
-             Matplotlib
-            </a>
-           </p>
-          </li>
-          <li>
-           <p>
-            <a class="reference external" href="https://scikit-image.org/">
-             scikit-image
-            </a>
-           </p>
-          </li>
-          <li>
-           <p>
-            <a class="reference external" href="https://networkx.github.io/">
-             NetworkX
-            </a>
-           </p>
-          </li>
-         </ul>
-         <p>
-          Array libraries in other languages, some of which may grow a Python API in the
-future or have taken inspiration from NumPy or other array libraries, include:
-         </p>
-         <ul class="simple">
-          <li>
-           <p>
-            <a class="reference external" href="https://xtensor.readthedocs.io">
-             Xtensor
-            </a>
-            (C++, cross-language)
-           </p>
-          </li>
-          <li>
-           <p>
-            <a class="reference external" href="https://xnd.io/">
-             XND
-            </a>
-            (C, cross-language)
-           </p>
-          </li>
-          <li>
-           <p>
-            <a class="reference external" href="https://stdlib.io/">
-             stdlib
-            </a>
-            (JavaScript)
-           </p>
-          </li>
-          <li>
-           <p>
-            <a class="reference external" href="https://github.com/rust-ndarray/ndarray">
-             rust-ndarray
-            </a>
-            (Rust)
-           </p>
-          </li>
-          <li>
-           <p>
-            <a class="reference external" href="https://github.com/r-lib/rray">
-             rray
-            </a>
-            (R)
-           </p>
-          </li>
-          <li>
-           <p>
-            <a class="reference external" href="https://github.com/deeplearning4j/nd4j">
-             ND4J
-            </a>
-            (JVM)
-           </p>
-          </li>
-          <li>
-           <p>
-            <a class="reference external" href="https://github.com/SciSharp/NumSharp">
-             NumSharp
-            </a>
-            (C#)
-           </p>
-          </li>
-         </ul>
-         <p>
-          Compilers, runtimes, and dispatching layers for which this API standard may be
-relevant:
-         </p>
-         <ul class="simple">
-          <li>
-           <p>
-            <a class="reference external" href="https://cython.org/">
-             Cython
-            </a>
-           </p>
-          </li>
-          <li>
-           <p>
-            <a class="reference external" href="http://numba.pydata.org/">
-             Numba
-            </a>
-           </p>
-          </li>
-          <li>
-           <p>
-            <a class="reference external" href="https://pythran.readthedocs.io/en/latest/">
-             Pythran
-            </a>
-           </p>
-          </li>
-          <li>
-           <p>
-            <a class="reference external" href="https://transonic.readthedocs.io">
-             Transonic
-            </a>
-           </p>
-          </li>
-          <li>
-           <p>
-            <a class="reference external" href="https://onnx.ai/">
-             ONNX
-            </a>
-           </p>
-          </li>
-          <li>
-           <p>
-            <a class="reference external" href="https://tvm.apache.org/">
-             Apache TVM
-            </a>
-           </p>
-          </li>
-          <li>
-           <p>
-            <a class="reference external" href="https://mlir.llvm.org/">
-             MLIR
-            </a>
-           </p>
-          </li>
-          <li>
-           <p>
-            <a class="reference external" href="https://github.com/tensor-compiler/taco">
-             TACO
-            </a>
-           </p>
-          </li>
-          <li>
-           <p>
-            <a class="reference external" href="https://github.com/Quansight-Labs/unumpy">
-             unumpy
-            </a>
-           </p>
-          </li>
-          <li>
-           <p>
-            <a class="reference external" href="https://github.com/arogozhnikov/einops">
-             einops
-            </a>
-           </p>
-          </li>
-          <li>
-           <p>
-            <a class="reference external" href="https://arrow.apache.org/">
-             Apache Arrow
-            </a>
-           </p>
-          </li>
-         </ul>
-        </section>
-        <section id="how-to-read-this-document">
-         <h2 id="how-to-read-this-document">
-          How to read this document
-          <a class="headerlink" href="#how-to-read-this-document" title="Permalink to this headline">
-           ¶
-          </a>
-         </h2>
-         <p>
-          For guidance on how to read and understand the type annotations included in this specification, consult the Python
-          <a class="reference external" href="https://docs.python.org/3/library/typing.html">
-           documentation
-          </a>
-          .
-         </p>
-        </section>
-        <section id="how-to-adopt-this-api">
-         <span id="id1">
-         </span>
-         <h2 id="how-to-adopt-this-api">
-          How to adopt this API
-          <a class="headerlink" href="#how-to-adopt-this-api" title="Permalink to this headline">
-           ¶
-          </a>
-         </h2>
-         <p>
-          Most (all) existing array libraries will find something in this API standard
+to grow it over time):</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://pandas.pydata.org/">Pandas</a></p></li>
+<li><p><a class="reference external" href="https://github.com/scipy/scipy">SciPy</a></p></li>
+<li><p><a class="reference external" href="https://scikit-learn.org/">scikit-learn</a></p></li>
+<li><p><a class="reference external" href="https://matplotlib.org/">Matplotlib</a></p></li>
+<li><p><a class="reference external" href="https://scikit-image.org/">scikit-image</a></p></li>
+<li><p><a class="reference external" href="https://networkx.github.io/">NetworkX</a></p></li>
+</ul>
+<p>Array libraries in other languages, some of which may grow a Python API in the
+future or have taken inspiration from NumPy or other array libraries, include:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://xtensor.readthedocs.io">Xtensor</a> (C++, cross-language)</p></li>
+<li><p><a class="reference external" href="https://xnd.io/">XND</a> (C, cross-language)</p></li>
+<li><p><a class="reference external" href="https://stdlib.io/">stdlib</a> (JavaScript)</p></li>
+<li><p><a class="reference external" href="https://github.com/rust-ndarray/ndarray">rust-ndarray</a> (Rust)</p></li>
+<li><p><a class="reference external" href="https://github.com/r-lib/rray">rray</a> (R)</p></li>
+<li><p><a class="reference external" href="https://github.com/deeplearning4j/nd4j">ND4J</a> (JVM)</p></li>
+<li><p><a class="reference external" href="https://github.com/SciSharp/NumSharp">NumSharp</a> (C#)</p></li>
+</ul>
+<p>Compilers, runtimes, and dispatching layers for which this API standard may be
+relevant:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://cython.org/">Cython</a></p></li>
+<li><p><a class="reference external" href="http://numba.pydata.org/">Numba</a></p></li>
+<li><p><a class="reference external" href="https://pythran.readthedocs.io/en/latest/">Pythran</a></p></li>
+<li><p><a class="reference external" href="https://transonic.readthedocs.io">Transonic</a></p></li>
+<li><p><a class="reference external" href="https://onnx.ai/">ONNX</a></p></li>
+<li><p><a class="reference external" href="https://tvm.apache.org/">Apache TVM</a></p></li>
+<li><p><a class="reference external" href="https://mlir.llvm.org/">MLIR</a></p></li>
+<li><p><a class="reference external" href="https://github.com/tensor-compiler/taco">TACO</a></p></li>
+<li><p><a class="reference external" href="https://github.com/Quansight-Labs/unumpy">unumpy</a></p></li>
+<li><p><a class="reference external" href="https://github.com/arogozhnikov/einops">einops</a></p></li>
+<li><p><a class="reference external" href="https://arrow.apache.org/">Apache Arrow</a></p></li>
+</ul>
+</section>
+<section id="how-to-read-this-document">
+<h2 id="how-to-read-this-document">How to read this document<a class="headerlink" href="#how-to-read-this-document" title="Permalink to this headline">¶</a></h2>
+<p>For guidance on how to read and understand the type annotations included in this specification, consult the Python <a class="reference external" href="https://docs.python.org/3/library/typing.html">documentation</a>.</p>
+</section>
+<section id="how-to-adopt-this-api">
+<span id="id1"></span><h2 id="how-to-adopt-this-api">How to adopt this API<a class="headerlink" href="#how-to-adopt-this-api" title="Permalink to this headline">¶</a></h2>
+<p>Most (all) existing array libraries will find something in this API standard
 that is incompatible with a current implementation, and that they cannot
 change due to backwards compatibility concerns. Therefore we expect that each
-of those libraries will want to offer a standard-compliant API in a
-          <em>
-           new
-namespace
-          </em>
-          . The question then becomes: how does a user access this namespace?
-         </p>
-         <p>
-          The simplest method is: document the import to use to directly access the
-namespace (e.g.
-          <code class="docutils literal notranslate">
-           <span class="pre">
-            import
-           </span>
-           <span class="pre">
-            package_name.array_api
-           </span>
-          </code>
-          ). This has two issues though:
-         </p>
-         <ol class="arabic simple">
-          <li>
-           <p>
-            Array-consuming libraries that want to support multiple array libraries
-then have to explicitly import each library.
-           </p>
-          </li>
-          <li>
-           <p>
-            It is difficult to
-            <em>
-             version
-            </em>
-            the array API standard implementation (see
-            <a class="reference internal" href="future_API_evolution.html#api-versioning">
-             <span class="std std-ref">
-              Versioning
-             </span>
-            </a>
-            ).
-           </p>
-          </li>
-         </ol>
-         <p>
-          To address both issues, a uniform way must be provided by a conforming
-implementation to access the API namespace, namely a
-          <a class="reference internal" href="API_specification/generated/signatures.array_object.array.__array_namespace__.html#signatures.array_object.array.__array_namespace__" title="signatures.array_object.array.__array_namespace__">
-           <span class="xref myst py py-meth">
-            method on the array
-object
-           </span>
-          </a>
-          :
-         </p>
-         <div class="highlight-default notranslate">
-          <div class="highlight">
-           <pre><span></span><span class="n">xp</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">__array_namespace__</span><span class="p">()</span>
-</pre>
-          </div>
-         </div>
-         <p>
-          The method must take one keyword,
-          <code class="docutils literal notranslate">
-           <span class="pre">
-            api_version=None
-           </span>
-          </code>
-          , to make it possible to
-request a specific API version:
-         </p>
-         <div class="highlight-default notranslate">
-          <div class="highlight">
-           <pre><span></span><span class="n">xp</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">__array_namespace__</span><span class="p">(</span><span class="n">api_version</span><span class="o">=</span><span class="s1">'2020.10'</span><span class="p">)</span>
-</pre>
-          </div>
-         </div>
-         <p>
-          The
-          <code class="docutils literal notranslate">
-           <span class="pre">
-            xp
-           </span>
-          </code>
-          namespace must contain all functionality specified in
-          <a class="reference internal" href="API_specification/index.html#api-specification">
-           <span class="std std-ref">
-            API specification
-           </span>
-          </a>
-          . The namespace may contain other functionality; however,
+of those libraries will want to offer a standard-compliant API in a <em>new
+namespace</em>. The question then becomes: how does a user access this namespace?</p>
+<p>The simplest method is: document the import to use to directly access the
+namespace (e.g. <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">package_name.array_api</span></code>). This has two issues though:</p>
+<ol class="arabic simple">
+<li><p>Array-consuming libraries that want to support multiple array libraries
+then have to explicitly import each library.</p></li>
+<li><p>It is difficult to <em>version</em> the array API standard implementation (see
+<a class="reference internal" href="future_API_evolution.html#api-versioning"><span class="std std-ref">Versioning</span></a>).</p></li>
+</ol>
+<p>To address both issues, a uniform way must be provided by a conforming
+implementation to access the API namespace, namely a <a class="reference internal" href="API_specification/generated/signatures.array_object.array.__array_namespace__.html#signatures.array_object.array.__array_namespace__" title="signatures.array_object.array.__array_namespace__"><span class="xref myst py py-meth">method on the array
+object</span></a>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">xp</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">__array_namespace__</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>The method must take one keyword, <code class="docutils literal notranslate"><span class="pre">api_version=None</span></code>, to make it possible to
+request a specific API version:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">xp</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">__array_namespace__</span><span class="p">(</span><span class="n">api_version</span><span class="o">=</span><span class="s1">'2020.10'</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">xp</span></code> namespace must contain all functionality specified in
+<a class="reference internal" href="API_specification/index.html#api-specification"><span class="std std-ref">API specification</span></a>. The namespace may contain other functionality; however,
 including additional functionality is not recommended as doing so may hinder
-portability and inter-operation of array libraries within user code.
-         </p>
-         <section id="checking-an-array-object-for-compliance">
-          <h3 id="checking-an-array-object-for-compliance">
-           Checking an array object for Compliance
-           <a class="headerlink" href="#checking-an-array-object-for-compliance" title="Permalink to this headline">
-            ¶
-           </a>
-          </h3>
-          <p>
-           Array-consuming libraries are likely to want a mechanism for determining
+portability and inter-operation of array libraries within user code.</p>
+<section id="checking-an-array-object-for-compliance">
+<h3 id="checking-an-array-object-for-compliance">Checking an array object for Compliance<a class="headerlink" href="#checking-an-array-object-for-compliance" title="Permalink to this headline">¶</a></h3>
+<p>Array-consuming libraries are likely to want a mechanism for determining
 whether a provided array is specification compliant. The recommended approach
 to check for compliance is by checking whether an array object has an
-           <code class="docutils literal notranslate">
-            <span class="pre">
-             __array_namespace__
-            </span>
-           </code>
-           attribute, as this is the one distinguishing feature of
-an array-compliant object.
-          </p>
-          <p>
-           Checking for an
-           <code class="docutils literal notranslate">
-            <span class="pre">
-             __array_namespace__
-            </span>
-           </code>
-           attribute can be implemented as a small
-utility function similar to the following.
-          </p>
-          <div class="highlight-python notranslate">
-           <div class="highlight">
-            <pre><span></span><span class="k">def</span> <span class="nf">is_array_api_obj</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<code class="docutils literal notranslate"><span class="pre">__array_namespace__</span></code> attribute, as this is the one distinguishing feature of
+an array-compliant object.</p>
+<p>Checking for an <code class="docutils literal notranslate"><span class="pre">__array_namespace__</span></code> attribute can be implemented as a small
+utility function similar to the following.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">is_array_api_obj</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s1">'__array_namespace__'</span><span class="p">)</span>
-</pre>
-           </div>
-          </div>
-          <div class="admonition note">
-           <p class="admonition-title">
-            Note
-           </p>
-           <p>
-            Providing a “reference library” on which people depend is out-of-scope for
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Providing a “reference library” on which people depend is out-of-scope for
 the standard. Hence the standard cannot, e.g., provide an array ABC from
-which libraries can inherit to enable an
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              isinstance
-             </span>
-            </code>
-            check. However, note
-that the
-            <code class="docutils literal notranslate">
-             <span class="pre">
-              numpy.array_api
-             </span>
-            </code>
-            implementation aims to provide a reference
+which libraries can inherit to enable an <code class="docutils literal notranslate"><span class="pre">isinstance</span></code> check. However, note
+that the <code class="docutils literal notranslate"><span class="pre">numpy.array_api</span></code> implementation aims to provide a reference
 implementation with only the behavior specified in this standard - it may
-prove useful for verifying one is writing portable code.
-           </p>
-          </div>
-         </section>
-         <section id="discoverability-of-conforming-implementations">
-          <h3 id="discoverability-of-conforming-implementations">
-           Discoverability of conforming implementations
-           <a class="headerlink" href="#discoverability-of-conforming-implementations" title="Permalink to this headline">
-            ¶
-           </a>
-          </h3>
-          <p>
-           It may be useful to have a way to discover all packages in a Python
+prove useful for verifying one is writing portable code.</p>
+</div>
+</section>
+<section id="discoverability-of-conforming-implementations">
+<h3 id="discoverability-of-conforming-implementations">Discoverability of conforming implementations<a class="headerlink" href="#discoverability-of-conforming-implementations" title="Permalink to this headline">¶</a></h3>
+<p>It may be useful to have a way to discover all packages in a Python
 environment which provide a conforming array API implementation, and the
 namespace that that implementation resides in.
 To assist array-consuming libraries which need to create arrays originating
 from multiple conforming array implementations, or developers who want to perform
 for example cross-library testing, libraries may provide an
-           <a class="reference external" href="https://packaging.python.org/specifications/entry-points/">
-            entry point
-           </a>
-           in order to make an array API
-namespace discoverable.
-          </p>
-          <div class="admonition-optional-feature admonition">
-           <p class="admonition-title">
-            Optional feature
-           </p>
-           <p>
-            Given that entry points typically require build system &amp; package installer
+<a class="reference external" href="https://packaging.python.org/specifications/entry-points/">entry point</a> in order to make an array API
+namespace discoverable.</p>
+<div class="admonition-optional-feature admonition">
+<p class="admonition-title">Optional feature</p>
+<p>Given that entry points typically require build system &amp; package installer
 specific implementation, this standard chooses to recommend rather than
-mandate providing an entry point.
-           </p>
-          </div>
-          <p>
-           The following code is an example for how one can discover installed
-conforming libraries:
-          </p>
-          <div class="highlight-python notranslate">
-           <div class="highlight">
-            <pre><span></span><span class="kn">from</span> <span class="nn">importlib.metadata</span> <span class="kn">import</span> <span class="n">entry_points</span>
+mandate providing an entry point.</p>
+</div>
+<p>The following code is an example for how one can discover installed
+conforming libraries:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">importlib.metadata</span> <span class="kn">import</span> <span class="n">entry_points</span>
 
 <span class="k">try</span><span class="p">:</span>
     <span class="n">eps</span> <span class="o">=</span> <span class="n">entry_points</span><span class="p">()[</span><span class="s1">'array_api'</span><span class="p">]</span>
@@ -1603,265 +798,123 @@ conforming libraries:
     <span class="n">ep</span> <span class="o">=</span> <span class="n">entry_points</span><span class="p">(</span><span class="n">group</span><span class="o">=</span><span class="s1">'array_api'</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'package_name'</span><span class="p">)</span>
 
 <span class="n">xp</span> <span class="o">=</span> <span class="n">ep</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
-</pre>
-           </div>
-          </div>
-          <p>
-           An entry point must have the following properties:
-          </p>
-          <ul class="simple">
-           <li>
-            <p>
-             <strong>
-              group
-             </strong>
-             : equal to
-             <code class="docutils literal notranslate">
-              <span class="pre">
-               array_api
-              </span>
-             </code>
-             .
-            </p>
-           </li>
-           <li>
-            <p>
-             <strong>
-              name
-             </strong>
-             : equal to the package name.
-            </p>
-           </li>
-           <li>
-            <p>
-             <strong>
-              object reference
-             </strong>
-             : equal to the array API namespace import path.
-            </p>
-           </li>
-          </ul>
-         </section>
-        </section>
-        <hr class="docutils"/>
-        <section id="conformance">
-         <h2 id="conformance">
-          Conformance
-          <a class="headerlink" href="#conformance" title="Permalink to this headline">
-           ¶
-          </a>
-         </h2>
-         <p>
-          A conforming implementation of the array API standard must provide and support
+</pre></div>
+</div>
+<p>An entry point must have the following properties:</p>
+<ul class="simple">
+<li><p><strong>group</strong>: equal to <code class="docutils literal notranslate"><span class="pre">array_api</span></code>.</p></li>
+<li><p><strong>name</strong>: equal to the package name.</p></li>
+<li><p><strong>object reference</strong>: equal to the array API namespace import path.</p></li>
+</ul>
+</section>
+</section>
+<hr class="docutils"/>
+<section id="conformance">
+<h2 id="conformance">Conformance<a class="headerlink" href="#conformance" title="Permalink to this headline">¶</a></h2>
+<p>A conforming implementation of the array API standard must provide and support
 all the functions, arguments, data types, syntax, and semantics described in
-this specification.
-         </p>
-         <p>
-          A conforming implementation of the array API standard may provide additional
+this specification.</p>
+<p>A conforming implementation of the array API standard may provide additional
 values, objects, properties, data types, and functions beyond those described
-in this specification.
-         </p>
-         <p>
-          Libraries which aim to provide a conforming implementation but haven’t yet
+in this specification.</p>
+<p>Libraries which aim to provide a conforming implementation but haven’t yet
 completed such an implementation may, and are encouraged to, provide details on
 the level of (non-)conformance. For details on how to do this, see
-          <a class="reference internal" href="verification_test_suite.html">
-           <span class="doc std std-doc">
-            Verification - measuring conformance
-           </span>
-          </a>
-          .
-         </p>
-        </section>
-        <hr class="docutils"/>
-        <section id="terms-and-definitions">
-         <h2 id="terms-and-definitions">
-          Terms and Definitions
-          <a class="headerlink" href="#terms-and-definitions" title="Permalink to this headline">
-           ¶
-          </a>
-         </h2>
-         <p>
-          For the purposes of this specification, the following terms and definitions apply.
-         </p>
-         <!-- NOTE: please keep terms in alphabetical order -->
-         <p>
-          <strong>
-           array
-          </strong>
-          :
-a (usually fixed-size) multidimensional container of items of the same type and size.
-         </p>
-         <p>
-          <strong>
-           axis
-          </strong>
-          :
-an array dimension.
-         </p>
-         <p>
-          <strong>
-           broadcast
-          </strong>
-          :
-automatic (implicit) expansion of array dimensions to be of equal sizes without copying array data for the purpose of making arrays with different shapes have compatible shapes for element-wise operations.
-         </p>
-         <p>
-          <strong>
-           compatible
-          </strong>
-          :
-two arrays whose dimensions are compatible (i.e., where the size of each dimension in one array is either equal to one or to the size of the corresponding dimension in a second array).
-         </p>
-         <p>
-          <strong>
-           element-wise
-          </strong>
-          :
-an operation performed element-by-element, in which individual array elements are considered in isolation and independently of other elements within the same array.
-         </p>
-         <p>
-          <strong>
-           matrix
-          </strong>
-          :
-a two-dimensional array.
-         </p>
-         <p>
-          <strong>
-           rank
-          </strong>
-          :
-number of array dimensions (not to be confused with the number of linearly independent columns of a matrix).
-         </p>
-         <p>
-          <strong>
-           shape
-          </strong>
-          :
-a tuple of
-          <code class="docutils literal notranslate">
-           <span class="pre">
-            N
-           </span>
-          </code>
-          non-negative integers that specify the sizes of each dimension and where
-          <code class="docutils literal notranslate">
-           <span class="pre">
-            N
-           </span>
-          </code>
-          corresponds to the number of dimensions.
-         </p>
-         <p>
-          <strong>
-           singleton dimension
-          </strong>
-          :
-a dimension whose size is one.
-         </p>
-         <p>
-          <strong>
-           vector
-          </strong>
-          :
-a one-dimensional array.
-         </p>
-        </section>
-        <hr class="docutils"/>
-        <section id="normative-references">
-         <h2 id="normative-references">
-          Normative References
-          <a class="headerlink" href="#normative-references" title="Permalink to this headline">
-           ¶
-          </a>
-         </h2>
-         <p>
-          The following referenced documents are indispensable for the application of this specification.
-         </p>
-         <ul class="simple">
-          <li>
-           <p>
-            <strong>
-             IEEE 754-2019: IEEE Standard for Floating-Point Arithmetic.
-            </strong>
-            Institute of Electrical and Electronic Engineers, New York (2019).
-           </p>
-          </li>
-          <li>
-           <p>
-            Scott Bradner. 1997. “Key words for use in RFCs to Indicate Requirement Levels”. RFC 2119. doi:
-            <a class="reference external" href="https://tools.ietf.org/html/rfc2119">
-             10.17487/rfc2119
-            </a>
-            .
-           </p>
-          </li>
-         </ul>
-        </section>
-       </section>
-      </article>
-     </div>
-    </div>
-   </main>
+<a class="reference internal" href="verification_test_suite.html"><span class="doc std std-doc">Verification - measuring conformance</span></a>.</p>
+</section>
+<hr class="docutils"/>
+<section id="terms-and-definitions">
+<h2 id="terms-and-definitions">Terms and Definitions<a class="headerlink" href="#terms-and-definitions" title="Permalink to this headline">¶</a></h2>
+<p>For the purposes of this specification, the following terms and definitions apply.</p>
+<!-- NOTE: please keep terms in alphabetical order -->
+<p><strong>array</strong>:
+a (usually fixed-size) multidimensional container of items of the same type and size.</p>
+<p><strong>axis</strong>:
+an array dimension.</p>
+<p><strong>broadcast</strong>:
+automatic (implicit) expansion of array dimensions to be of equal sizes without copying array data for the purpose of making arrays with different shapes have compatible shapes for element-wise operations.</p>
+<p><strong>compatible</strong>:
+two arrays whose dimensions are compatible (i.e., where the size of each dimension in one array is either equal to one or to the size of the corresponding dimension in a second array).</p>
+<p><strong>element-wise</strong>:
+an operation performed element-by-element, in which individual array elements are considered in isolation and independently of other elements within the same array.</p>
+<p><strong>matrix</strong>:
+a two-dimensional array.</p>
+<p><strong>rank</strong>:
+number of array dimensions (not to be confused with the number of linearly independent columns of a matrix).</p>
+<p><strong>shape</strong>:
+a tuple of <code class="docutils literal notranslate"><span class="pre">N</span></code> non-negative integers that specify the sizes of each dimension and where <code class="docutils literal notranslate"><span class="pre">N</span></code> corresponds to the number of dimensions.</p>
+<p><strong>singleton dimension</strong>:
+a dimension whose size is one.</p>
+<p><strong>vector</strong>:
+a one-dimensional array.</p>
+</section>
+<hr class="docutils"/>
+<section id="normative-references">
+<h2 id="normative-references">Normative References<a class="headerlink" href="#normative-references" title="Permalink to this headline">¶</a></h2>
+<p>The following referenced documents are indispensable for the application of this specification.</p>
+<ul class="simple">
+<li><p><strong>IEEE 754-2019: IEEE Standard for Floating-Point Arithmetic.</strong> Institute of Electrical and Electronic Engineers, New York (2019).</p></li>
+<li><p>Scott Bradner. 1997. “Key words for use in RFCs to Indicate Requirement Levels”. RFC 2119. doi:<a class="reference external" href="https://tools.ietf.org/html/rfc2119">10.17487/rfc2119</a>.</p></li>
+</ul>
+</section>
+</section>
+
+
+          </article>
+        </div>
+      </div>
+    </main>
   </div>
   <footer class="md-footer">
-   <div class="md-footer-nav">
-    <nav class="md-footer-nav__inner md-grid">
-     <a class="md-flex md-footer-nav__link md-footer-nav__link--prev" href="index.html" rel="prev" title="Python array API standard">
-      <div class="md-flex__cell md-flex__cell--shrink">
-       <i class="md-icon md-icon--arrow-back md-footer-nav__button">
-       </i>
-      </div>
-      <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-       <span class="md-flex__ellipsis">
-        <span class="md-footer-nav__direction">
-         Previous
-        </span>
-        Python array API standard
-       </span>
-      </div>
-     </a>
-     <a class="md-flex md-footer-nav__link md-footer-nav__link--next" href="use_cases.html" rel="next" title="Use cases">
-      <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-       <span class="md-flex__ellipsis">
-        <span class="md-footer-nav__direction">
-         Next
-        </span>
-        Use cases
-       </span>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-       <i class="md-icon md-icon--arrow-forward md-footer-nav__button">
-       </i>
-      </div>
-     </a>
-    </nav>
-   </div>
-   <div class="md-footer-meta md-typeset">
-    <div class="md-footer-meta__inner md-grid">
-     <div class="md-footer-copyright">
-      <div class="md-footer-copyright__highlight">
-       © Copyright 2020, Consortium for Python Data API Standards.
-      </div>
-      Created using
-      <a href="http://www.sphinx-doc.org/">
-       Sphinx
-      </a>
-      4.3.0.
-             and
-      <a href="https://github.com/bashtage/sphinx-material/">
-       Material for
-              Sphinx
-      </a>
-     </div>
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+          
+            <a href="index.html" title="Python array API standard"
+               class="md-flex md-footer-nav__link md-footer-nav__link--prev"
+               rel="prev">
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+              </div>
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span
+                      class="md-footer-nav__direction"> Previous </span> Python array API standard </span>
+              </div>
+            </a>
+          
+          
+            <a href="use_cases.html" title="Use cases"
+               class="md-flex md-footer-nav__link md-footer-nav__link--next"
+               rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
+                class="md-flex__ellipsis"> <span
+                class="md-footer-nav__direction"> Next </span> Use cases </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink"><i
+                class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          
+        </a>
+        
+      </nav>
     </div>
-   </div>
+    <div class="md-footer-meta md-typeset">
+      <div class="md-footer-meta__inner md-grid">
+        <div class="md-footer-copyright">
+          <div class="md-footer-copyright__highlight">
+              &#169; Copyright 2020, Consortium for Python Data API Standards.
+              
+          </div>
+            Created using
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.3.0.
+             and
+            <a href="https://github.com/bashtage/sphinx-material/">Material for
+              Sphinx</a>
+        </div>
+      </div>
+    </div>
   </footer>
-  <script src="_static/javascripts/application.js">
-  </script>
-  <script>
-   app.initialize({version: "1.0.4", url: {base: ".."}})
-  </script>
- </body>
+  <script src="_static/javascripts/application.js"></script>
+  <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
+  </body>
 </html>
