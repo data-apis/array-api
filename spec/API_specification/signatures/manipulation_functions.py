@@ -71,7 +71,7 @@ def permute_dims(x: array, /, axes: Tuple[int, ...]) -> array:
         an array containing the axes permutation. The returned array must have the same data type as ``x``.
     """
 
-def reshape(x: array, /, shape: Tuple[int, ...]) -> array:
+def reshape(x: array, /, shape: Tuple[int, ...], *, copy: Optional[bool] = None) -> array:
     """
     Reshapes an array without changing its data.
 
@@ -81,11 +81,13 @@ def reshape(x: array, /, shape: Tuple[int, ...]) -> array:
         input array to reshape.
     shape: Tuple[int, ...]
         a new shape compatible with the original shape. One shape dimension is allowed to be ``-1``. When a shape dimension is ``-1``, the corresponding output array shape dimension must be inferred from the length of the array and the remaining dimensions.
+    copy: Optional[bool]
+        boolean indicating whether or not to copy the input array. If ``True``, the function must always copy. If ``False``, the function must never copy and must raise a ``ValueError`` in case a copy would be necessary. If ``None``, the function must reuse existing memory buffer if possible and copy otherwise. Default: ``None``.
 
     Returns
     -------
     out: array
-        an output array having the same data type, elements, and underlying element order as ``x``.
+        an output array having the same data type and elements as ``x``.
     """
 
 def roll(x: array, /, shift: Union[int, Tuple[int, ...]], *, axis: Optional[Union[int, Tuple[int, ...]]] = None) -> array:
