@@ -29,7 +29,7 @@ def expand_dims(x: array, /, *, axis: int = 0) -> array:
     x: array
         input array.
     axis: int
-        axis position. Must follow Python's indexing rules: zero-based and negative indices must be counted backward from the last dimension. If ``x`` has rank ``N``, a valid ``axis`` must reside on the interval ``[-N-1, N+1]``. An ``IndexError`` exception must be raised if provided an invalid ``axis`` position.
+        axis position (zero-based). If ``x`` has rank (i.e, number of dimensions) ``N``, a valid ``axis`` must reside on the closed-interval ``[-N-1, N]``. If provided a negative ``axis``, the axis position at which to insert a singleton dimension must be computed as ``N + axis + 1``. Hence, if provided ``-1``, the resolved axis position must be ``N`` (i.e., a singleton dimension must be appended to the input array ``x``). If provided ``-N-1``, the resolved axis position must be ``0`` (i.e., a singleton dimension must be prepended to the input array ``x``). An ``IndexError`` exception must be raised if provided an invalid ``axis`` position.
 
     Returns
     -------
