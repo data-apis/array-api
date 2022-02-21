@@ -125,7 +125,7 @@ html_sidebars = {
 html_theme_options = {
 
     # Set the name of the project to appear in the navigation.
-    'nav_title': 'Python array API standard',
+    'nav_title': f'Python array API standard {release}',
 
     # Set you GA account ID to enable tracking
     #'google_analytics_account': 'UA-XXXXX',
