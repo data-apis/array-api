@@ -62,6 +62,8 @@ nitpick_ignore = [
     ('py:class', 'collections.abc.Sequence'),
     ('py:class', "Optional[Union[int, float, Literal[inf, - inf, 'fro', 'nuc']]]"),
     ('py:class', "Union[int, float, Literal[inf, - inf]]"),
+    ('py:obj', "typing.Optional[typing.Union[int, float, typing.Literal[inf, - inf, 'fro', 'nuc']]]"),
+    ('py:obj', "typing.Union[int, float, typing.Literal[inf, - inf]]"),
     ('py:class', 'PyCapsule'),
     ('py:class', 'enum.Enum'),
     ('py:class', 'ellipsis'),
