@@ -172,8 +172,8 @@ html_theme_options = {
         #"customization": "Configuration options to personalize your site.",
     },
 
-    #"version_dropdown": True,
-    #"version_json": "_static/versions.json",
+    "version_dropdown": True,
+    "version_json": "../versions.json",
     "table_classes": ["plain"],
 }
 
