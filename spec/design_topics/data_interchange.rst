@@ -70,8 +70,7 @@ support libraries that already implement buffer protocol support.
    See the `RFC to adopt DLPack <https://github.com/data-apis/consortium-feedback/issues/1>`_
    for discussion that preceded the adoption of DLPack.
 
-DLPack's documentation can be found at:
-`https://dmlc.github.io/dlpack/latest/ <https://dmlc.github.io/dlpack/latest/>`__.
+DLPack's documentation can be found at: https://dmlc.github.io/dlpack/latest/.
 
 The `Python specification of DLPack <https://dmlc.github.io/dlpack/latest/python_spec.html>`__
 page gives a high-level specification for data exchange in Python using DLPack.
