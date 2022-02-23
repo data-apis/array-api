@@ -39,6 +39,9 @@ The interchange mechanism must offer the following:
    C/C++, and are released independently from each other. Hence a stable C
    ABI is required for packages to work well together.*
 
+DLPack: An in-memory tensor structure
+-------------------------------------
+
 The best candidate for this protocol is
 `DLPack <https://dmlc.github.io/dlpack/latest/>`_, and hence that is what this
 standard has chosen as the primary/recommended protocol. Note that the
