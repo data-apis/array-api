@@ -249,15 +249,7 @@
   <ul class="md-nav__list" data-md-scrollfix="">
         <li class="md-nav__item"><a href="#design-topics-data-interchange--page-root" class="md-nav__link">Data interchange mechanisms</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#dlpack-support" class="md-nav__link">DLPack support</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#syntax-for-data-interchange-with-dlpack" class="md-nav__link">Syntax for data interchange with DLPack</a>
-        </li>
-        <li class="md-nav__item"><a href="#semantics" class="md-nav__link">Semantics</a>
-        </li>
-        <li class="md-nav__item"><a href="#implementation" class="md-nav__link">Implementation</a>
-        </li></ul>
-            </nav>
+        <li class="md-nav__item"><a href="#dlpack-an-in-memory-tensor-structure" class="md-nav__link">DLPack: An in-memory tensor structure</a>
         </li></ul>
             </nav>
         </li>
@@ -366,15 +358,7 @@
   <ul class="md-nav__list" data-md-scrollfix="">
         <li class="md-nav__item"><a href="#design-topics-data-interchange--page-root" class="md-nav__link">Data interchange mechanisms</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#dlpack-support" class="md-nav__link">DLPack support</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#syntax-for-data-interchange-with-dlpack" class="md-nav__link">Syntax for data interchange with DLPack</a>
-        </li>
-        <li class="md-nav__item"><a href="#semantics" class="md-nav__link">Semantics</a>
-        </li>
-        <li class="md-nav__item"><a href="#implementation" class="md-nav__link">Implementation</a>
-        </li></ul>
-            </nav>
+        <li class="md-nav__item"><a href="#dlpack-an-in-memory-tensor-structure" class="md-nav__link">DLPack: An in-memory tensor structure</a>
         </li></ul>
             </nav>
         </li>
@@ -420,8 +404,10 @@ C/C++, and are released independently from each other. Hence a stable C
 ABI is required for packages to work well together.</em></p>
 </li>
 </ol>
+<section id="dlpack-an-in-memory-tensor-structure">
+<h2 id="dlpack-an-in-memory-tensor-structure">DLPack: An in-memory tensor structure<a class="headerlink" href="#dlpack-an-in-memory-tensor-structure" title="Permalink to this headline">¶</a></h2>
 <p>The best candidate for this protocol is
-<a class="reference external" href="https://github.com/dmlc/dlpack">DLPack</a>, and hence that is what this
+<a class="reference external" href="https://dmlc.github.io/dlpack/latest/">DLPack</a>, and hence that is what this
 standard has chosen as the primary/recommended protocol. Note that the
 <code class="docutils literal notranslate"><span class="pre">asarray</span></code> function also supports the Python buffer protocol (CPU-only) to
 support libraries that already implement buffer protocol support.</p>
@@ -449,8 +435,9 @@ containing the data the object holds).</p>
 <p>See the <a class="reference external" href="https://github.com/data-apis/consortium-feedback/issues/1">RFC to adopt DLPack</a>
 for discussion that preceded the adoption of DLPack.</p>
 </div>
-<section id="dlpack-support">
-<h2 id="dlpack-support">DLPack support<a class="headerlink" href="#dlpack-support" title="Permalink to this headline">¶</a></h2>
+<p>DLPack’s documentation can be found at: <a class="reference external" href="https://dmlc.github.io/dlpack/latest/">https://dmlc.github.io/dlpack/latest/</a>.</p>
+<p>The <a class="reference external" href="https://dmlc.github.io/dlpack/latest/python_spec.html">Python specification of DLPack</a>
+page gives a high-level specification for data exchange in Python using DLPack.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>DLPack is a standalone protocol/project and can therefore be used outside of
@@ -458,94 +445,7 @@ this standard. Python libraries that want to implement only DLPack support
 are recommended to do so using the same syntax and semantics as outlined
 below. They are not required to return an array object from <code class="docutils literal notranslate"><span class="pre">from_dlpack</span></code>
 which conforms to this standard.</p>
-<p>DLPack itself has no documentation currently outside of the inline comments in
-<a class="reference external" href="https://github.com/dmlc/dlpack/blob/main/include/dlpack/dlpack.h">dlpack.h</a>.
-In the future, the below content may be migrated to the (to-be-written) DLPack docs.</p>
 </div>
-<section id="syntax-for-data-interchange-with-dlpack">
-<h3 id="syntax-for-data-interchange-with-dlpack">Syntax for data interchange with DLPack<a class="headerlink" href="#syntax-for-data-interchange-with-dlpack" title="Permalink to this headline">¶</a></h3>
-<p>The array API will offer the following syntax for data interchange:</p>
-<ol class="arabic simple">
-<li><p>A <code class="docutils literal notranslate"><span class="pre">from_dlpack(x)</span></code> function, which accepts (array) objects with a
-<code class="docutils literal notranslate"><span class="pre">__dlpack__</span></code> method and uses that method to construct a new array
-containing the data from <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">__dlpack__(self,</span> <span class="pre">stream=None)</span></code> and <code class="docutils literal notranslate"><span class="pre">__dlpack_device__</span></code> methods on the
-array object, which will be called from within <code class="docutils literal notranslate"><span class="pre">from_dlpack</span></code>, to query
-what device the array is on (may be needed to pass in the correct
-stream, e.g. in the case of multiple GPUs) and to access the data.</p></li>
-</ol>
-</section>
-<section id="semantics">
-<h3 id="semantics">Semantics<a class="headerlink" href="#semantics" title="Permalink to this headline">¶</a></h3>
-<p>DLPack describe the memory layout of strided, n-dimensional arrays.
-When a user calls <code class="docutils literal notranslate"><span class="pre">y</span> <span class="pre">=</span> <span class="pre">from_dlpack(x)</span></code>, the library implementing <code class="docutils literal notranslate"><span class="pre">x</span></code> (the
-“producer”) will provide access to the data from <code class="docutils literal notranslate"><span class="pre">x</span></code> to the library
-containing <code class="docutils literal notranslate"><span class="pre">from_dlpack</span></code> (the “consumer”). If possible, this must be
-zero-copy (i.e. <code class="docutils literal notranslate"><span class="pre">y</span></code> will be a <em>view</em> on <code class="docutils literal notranslate"><span class="pre">x</span></code>). If not possible, that library
-may make a copy of the data. In both cases:</p>
-<ul class="simple">
-<li><p>the producer keeps owning the memory</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">y</span></code> may or may not be a view, therefore the user must keep the recommendation to avoid mutating <code class="docutils literal notranslate"><span class="pre">y</span></code> in mind - see <a class="reference internal" href="copies_views_and_mutation.html#copyview-mutability"><span class="std std-ref">Copy-view behaviour and mutability</span></a>.</p></li>
-<li><p>Both <code class="docutils literal notranslate"><span class="pre">x</span></code> and <code class="docutils literal notranslate"><span class="pre">y</span></code> may continue to be used just like arrays created in other ways.</p></li>
-</ul>
-<p>If an array that is accessed via the interchange protocol lives on a
-device that the requesting library does not support, it is recommended to
-raise a <code class="docutils literal notranslate"><span class="pre">TypeError</span></code>.</p>
-<p>Stream handling through the <code class="docutils literal notranslate"><span class="pre">stream</span></code> keyword applies to CUDA and ROCm (perhaps
-to other devices that have a stream concept as well, however those haven’t been
-considered in detail). The consumer must pass the stream it will use to the
-producer; the producer must synchronize or wait on the stream when necessary.
-In the common case of the default stream being used, synchronization will be
-unnecessary so asynchronous execution is enabled.</p>
-</section>
-<section id="implementation">
-<h3 id="implementation">Implementation<a class="headerlink" href="#implementation" title="Permalink to this headline">¶</a></h3>
-<p><em>Note that while this API standard largely tries to avoid discussing
-implementation details, some discussion and requirements are needed
-here because data interchange requires coordination between
-implementers on, e.g., memory management.</em></p>
-<img alt="Diagram of DLPack structs" src="../_images/DLPack_diagram.png"/>
-<p><em>DLPack diagram. Dark blue are the structs it defines, light blue
-struct members, gray text enum values of supported devices and data
-types.</em></p>
-<p>The <code class="docutils literal notranslate"><span class="pre">__dlpack__</span></code> method will produce a <code class="docutils literal notranslate"><span class="pre">PyCapsule</span></code> containing a
-<code class="docutils literal notranslate"><span class="pre">DLManagedTensor</span></code>, which will be consumed immediately within
-<code class="docutils literal notranslate"><span class="pre">from_dlpack</span></code> - therefore it is consumed exactly once, and it will not be
-visible to users of the Python API.</p>
-<p>The producer must set the <code class="docutils literal notranslate"><span class="pre">PyCapsule</span></code> name to <code class="docutils literal notranslate"><span class="pre">"dltensor"</span></code> so that
-it can be inspected by name, and set <code class="docutils literal notranslate"><span class="pre">PyCapsule_Destructor</span></code> that calls
-the <code class="docutils literal notranslate"><span class="pre">deleter</span></code> of the <code class="docutils literal notranslate"><span class="pre">DLManagedTensor</span></code> when the <code class="docutils literal notranslate"><span class="pre">"dltensor"</span></code>-named
-capsule is no longer needed.</p>
-<p>The consumer must transer ownership of the <code class="docutils literal notranslate"><span class="pre">DLManangedTensor</span></code> from the
-capsule to its own object. It does so by renaming the capsule to
-<code class="docutils literal notranslate"><span class="pre">"used_dltensor"</span></code> to ensure that <code class="docutils literal notranslate"><span class="pre">PyCapsule_Destructor</span></code> will not get
-called (ensured if <code class="docutils literal notranslate"><span class="pre">PyCapsule_Destructor</span></code> calls <code class="docutils literal notranslate"><span class="pre">deleter</span></code> only for
-capsules whose name is <code class="docutils literal notranslate"><span class="pre">"dltensor"</span></code>), but the <code class="docutils literal notranslate"><span class="pre">deleter</span></code> of the
-<code class="docutils literal notranslate"><span class="pre">DLManagedTensor</span></code> will be called by the destructor of the consumer
-library object created to own the <code class="docutils literal notranslate"><span class="pre">DLManagerTensor</span></code> obtained from the
-capsule.</p>
-<p>Note: the capsule names <code class="docutils literal notranslate"><span class="pre">"dltensor"</span></code> and <code class="docutils literal notranslate"><span class="pre">"used_dltensor"</span></code> must be
-statically allocated.</p>
-<p>When the <code class="docutils literal notranslate"><span class="pre">strides</span></code> field in the <code class="docutils literal notranslate"><span class="pre">DLTensor</span></code> struct is <code class="docutils literal notranslate"><span class="pre">NULL</span></code>, it indicates a
-row-major compact array. If the array is of size zero, the data pointer in
-<code class="docutils literal notranslate"><span class="pre">DLTensor</span></code> should be set to either <code class="docutils literal notranslate"><span class="pre">NULL</span></code> or <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
-<p>DLPack version used must be <code class="docutils literal notranslate"><span class="pre">0.2</span> <span class="pre">&lt;=</span> <span class="pre">DLPACK_VERSION</span> <span class="pre">&lt;</span> <span class="pre">1.0</span></code>. For further
-details on DLPack design and how to implement support for it,
-refer to <a class="reference external" href="https://github.com/dmlc/dlpack">github.com/dmlc/dlpack</a>.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>DLPack contains a <code class="docutils literal notranslate"><span class="pre">device_id</span></code>, which will be the device
-ID (an integer, <code class="docutils literal notranslate"><span class="pre">0,</span> <span class="pre">1,</span> <span class="pre">...</span></code>) which the producer library uses. In
-practice this will likely be the same numbering as that of the
-consumer, however that is not guaranteed. Depending on the hardware
-type, it may be possible for the consumer library implementation to
-look up the actual device from the pointer to the data - this is
-possible for example for CUDA device pointers.</p>
-<p>It is recommended that implementers of this array API consider and document
-whether the <code class="docutils literal notranslate"><span class="pre">.device</span></code> attribute of the array returned from <code class="docutils literal notranslate"><span class="pre">from_dlpack</span></code> is
-guaranteed to be in a certain order or not.</p>
-</div>
-</section>
 </section>
 </section>
 
