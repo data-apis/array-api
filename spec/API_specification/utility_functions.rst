@@ -22,6 +22,7 @@ Objects in API
 
 .. autosummary::
    :toctree: generated
+   :template: method.rst
 
    all
    any

@@ -17,6 +17,7 @@ Objects in API
 
 .. autosummary::
    :toctree: generated
+   :template: attribute.rst
 
    e
    inf
