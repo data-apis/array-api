@@ -1,6 +1,6 @@
-﻿signatures.searching\_functions.argmax
-======================================
+﻿.. currentmodule:: signatures.searching_functions
 
-.. currentmodule:: signatures.searching_functions
+argmax
+======
 
 .. autofunction:: argmax

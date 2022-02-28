@@ -1,6 +1,6 @@
-﻿signatures.constants.e
-======================
+﻿.. currentmodule:: signatures.constants
 
-.. currentmodule:: signatures.constants
+e
+=
 
 .. autodata:: e

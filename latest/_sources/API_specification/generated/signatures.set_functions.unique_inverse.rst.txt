@@ -1,6 +1,6 @@
-﻿signatures.set\_functions.unique\_inverse
-=========================================
+﻿.. currentmodule:: signatures.set_functions
 
-.. currentmodule:: signatures.set_functions
+unique_inverse
+==============
 
 .. autofunction:: unique_inverse

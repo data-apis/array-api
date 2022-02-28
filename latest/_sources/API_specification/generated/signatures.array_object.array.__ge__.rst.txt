@@ -1,6 +1,6 @@
-﻿signatures.array\_object.array.\_\_ge\_\_
-=========================================
+﻿.. currentmodule:: signatures.array_object
 
-.. currentmodule:: signatures.array_object
+__ge__
+======
 
 .. automethod:: array.__ge__

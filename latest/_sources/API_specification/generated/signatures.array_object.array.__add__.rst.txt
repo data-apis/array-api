@@ -1,6 +1,6 @@
-﻿signatures.array\_object.array.\_\_add\_\_
-==========================================
+﻿.. currentmodule:: signatures.array_object
 
-.. currentmodule:: signatures.array_object
+__add__
+=======
 
 .. automethod:: array.__add__

@@ -1,6 +1,6 @@
-﻿signatures.constants.nan
-========================
+﻿.. currentmodule:: signatures.constants
 
-.. currentmodule:: signatures.constants
+nan
+===
 
 .. autodata:: nan

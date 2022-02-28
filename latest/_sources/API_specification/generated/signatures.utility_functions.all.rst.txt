@@ -1,6 +1,6 @@
-﻿signatures.utility\_functions.all
-=================================
+﻿.. currentmodule:: signatures.utility_functions
 
-.. currentmodule:: signatures.utility_functions
+all
+===
 
 .. autofunction:: all

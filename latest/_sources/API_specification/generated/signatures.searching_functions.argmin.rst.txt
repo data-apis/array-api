@@ -1,6 +1,6 @@
-﻿signatures.searching\_functions.argmin
-======================================
+﻿.. currentmodule:: signatures.searching_functions
 
-.. currentmodule:: signatures.searching_functions
+argmin
+======
 
 .. autofunction:: argmin

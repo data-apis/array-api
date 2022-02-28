@@ -1,6 +1,6 @@
-﻿signatures.array\_object.array.\_\_rshift\_\_
-=============================================
+﻿.. currentmodule:: signatures.array_object
 
-.. currentmodule:: signatures.array_object
+__rshift__
+==========
 
 .. automethod:: array.__rshift__

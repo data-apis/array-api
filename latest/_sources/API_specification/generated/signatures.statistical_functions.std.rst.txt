@@ -1,6 +1,6 @@
-﻿signatures.statistical\_functions.std
-=====================================
+﻿.. currentmodule:: signatures.statistical_functions
 
-.. currentmodule:: signatures.statistical_functions
+std
+===
 
 .. autofunction:: std

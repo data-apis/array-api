@@ -1,6 +1,6 @@
-﻿signatures.set\_functions.unique\_all
-=====================================
+﻿.. currentmodule:: signatures.set_functions
 
-.. currentmodule:: signatures.set_functions
+unique_all
+==========
 
 .. autofunction:: unique_all

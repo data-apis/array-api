@@ -1,6 +1,6 @@
-﻿signatures.array\_object.array.\_\_dlpack\_device\_\_
-=====================================================
+﻿.. currentmodule:: signatures.array_object
 
-.. currentmodule:: signatures.array_object
+__dlpack_device__
+=================
 
 .. automethod:: array.__dlpack_device__

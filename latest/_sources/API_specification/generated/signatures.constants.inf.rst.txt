@@ -1,6 +1,6 @@
-﻿signatures.constants.inf
-========================
+﻿.. currentmodule:: signatures.constants
 
-.. currentmodule:: signatures.constants
+inf
+===
 
 .. autodata:: inf

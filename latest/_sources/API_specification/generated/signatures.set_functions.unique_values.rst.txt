@@ -1,6 +1,6 @@
-﻿signatures.set\_functions.unique\_values
-========================================
+﻿.. currentmodule:: signatures.set_functions
 
-.. currentmodule:: signatures.set_functions
+unique_values
+=============
 
 .. autofunction:: unique_values

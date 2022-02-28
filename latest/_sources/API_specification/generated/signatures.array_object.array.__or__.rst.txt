@@ -1,6 +1,6 @@
-﻿signatures.array\_object.array.\_\_or\_\_
-=========================================
+﻿.. currentmodule:: signatures.array_object
 
-.. currentmodule:: signatures.array_object
+__or__
+======
 
 .. automethod:: array.__or__

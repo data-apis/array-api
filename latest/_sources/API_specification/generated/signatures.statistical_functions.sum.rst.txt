@@ -1,6 +1,6 @@
-﻿signatures.statistical\_functions.sum
-=====================================
+﻿.. currentmodule:: signatures.statistical_functions
 
-.. currentmodule:: signatures.statistical_functions
+sum
+===
 
 .. autofunction:: sum

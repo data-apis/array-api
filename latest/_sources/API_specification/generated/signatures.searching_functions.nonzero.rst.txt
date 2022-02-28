@@ -1,6 +1,6 @@
-﻿signatures.searching\_functions.nonzero
-=======================================
+﻿.. currentmodule:: signatures.searching_functions
 
-.. currentmodule:: signatures.searching_functions
+nonzero
+=======
 
 .. autofunction:: nonzero

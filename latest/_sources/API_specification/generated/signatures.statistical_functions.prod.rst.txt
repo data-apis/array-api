@@ -1,6 +1,6 @@
-﻿signatures.statistical\_functions.prod
-======================================
+﻿.. currentmodule:: signatures.statistical_functions
 
-.. currentmodule:: signatures.statistical_functions
+prod
+====
 
 .. autofunction:: prod
