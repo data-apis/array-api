@@ -48,14 +48,6 @@ functionality that's not present in this document?_ This:
 - may indicate that that functionality, if present in a particular array
   library, is unlikely to be present in all other libraries
 
-```{note}
-
-This document is ready for wider community review, but still contains a
-number of TODOs, and is expected to change and evolve before a first
-official release. See {ref}`future-API-evolution` for proposed
-versioning.
-```
-
 ### History
 
 The first library for numerical and scientific computing in Python was
@@ -117,8 +109,7 @@ Furthermore, meta-topics included in this standard include:
 - Verification of API standard conformance
 
 The concrete set of functionality that is in scope for this version of the
-standard is shown in this diagram (_TODO: update after deciding on how optional
-extensions are dealt with_):
+standard is shown in this diagram:
 
 ![Scope of array API](_static/images/scope_of_array_API.png)
 
@@ -215,15 +206,6 @@ extensions are dealt with_):
   they implement may try to convert "foreign" input, or raise an exception.
   This behaviour is hard to specify; ensuring only a single array type is
   used is best left to the end user._
-
-
-### TBD whether or not in scope, or for a later version
-
-- Random number generation, Fourier transforms, and miscellaneous functionality
-  like a padding function.
-
-  _This will be decided later, depending on whether "optional extensions" will
-  be added to the standard._
 
 
 ### Implications of in/out of scope
@@ -336,7 +318,7 @@ namespace (e.g. `import package_name.array_api`). This has two issues though:
 
 To address both issues, a uniform way must be provided by a conforming
 implementation to access the API namespace, namely a [method on the array
-object](method-__array_namespace__):
+object](array.__array_namespace__):
 
 ```
 xp = x.__array_namespace__()
@@ -349,24 +331,75 @@ request a specific API version:
 xp = x.__array_namespace__(api_version='2020.10')
 ```
 
-```{note}
+The `xp` namespace must contain all functionality specified in
+{ref}`api-specification`. The namespace may contain other functionality; however,
+including additional functionality is not recommended as doing so may hinder
+portability and inter-operation of array libraries within user code.
 
-This is inspired by [NEP 37](https://numpy.org/neps/nep-0037-array-module.html#how-to-use-get-array-module),
-however it avoids adding a dependency on NumPy or having to provide a
-separate package just to do `get_array_module(x)`
+### Checking an array object for Compliance
 
-NEP 37 is still in flux (it was just accepted by JAX and TensorFlow on an
-experimental basis), and it's possible that that should be accepted instead.
+Array-consuming libraries are likely to want a mechanism for determining
+whether a provided array is specification compliant. The recommended approach
+to check for compliance is by checking whether an array object has an
+`__array_namespace__` attribute, as this is the one distinguishing feature of
+an array-compliant object.
 
-TBD: a decision must be made on this topic before a first version of the
-standard can become final. We prefer to delay this decision, to see how
-NEP 37 adoption will work out.
+Checking for an `__array_namespace__` attribute can be implemented as a small
+utility function similar to the following.
+
+```python
+def is_array_api_obj(x):
+    return hasattr(x, '__array_namespace__')
 ```
 
-The `xp` namespace must contain all functionality specified in
-{ref}`api-specification`. It may contain other functionality, however it is
-recommended not to add other functions or objects, because that may make it
-harder for users to write code that will work with multiple array libraries.
+```{note}
+Providing a "reference library" on which people depend is out-of-scope for
+the standard. Hence the standard cannot, e.g., provide an array ABC from
+which libraries can inherit to enable an `isinstance` check. However, note
+that the `numpy.array_api` implementation aims to provide a reference
+implementation with only the behavior specified in this standard - it may
+prove useful for verifying one is writing portable code.
+```
+
+### Discoverability of conforming implementations
+
+It may be useful to have a way to discover all packages in a Python
+environment which provide a conforming array API implementation, and the
+namespace that that implementation resides in.
+To assist array-consuming libraries which need to create arrays originating
+from multiple conforming array implementations, or developers who want to perform
+for example cross-library testing, libraries may provide an
+{pypa}`entry point <specifications/entry-points/>` in order to make an array API
+namespace discoverable.
+
+:::{admonition} Optional feature
+Given that entry points typically require build system & package installer
+specific implementation, this standard chooses to recommend rather than
+mandate providing an entry point.
+:::
+
+The following code is an example for how one can discover installed
+conforming libraries:
+
+```python
+from importlib.metadata import entry_points
+
+try:
+    eps = entry_points()['array_api']
+    ep = next(ep for ep in eps if ep.name == 'package_name')
+except TypeError:
+    # The dict interface for entry_points() is deprecated in py3.10,
+    # supplanted by a new select interface.
+    ep = entry_points(group='array_api', name='package_name')
+
+xp = ep.load()
+```
+
+An entry point must have the following properties:
+
+-   **group**: equal to `array_api`.
+-   **name**: equal to the package name.
+-   **object reference**: equal to the array API namespace import path.
 
 
 * * *

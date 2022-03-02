@@ -10,11 +10,10 @@
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
-# import os
-# import sys
-# sys.path.insert(0, os.path.abspath('.'))
-
+import os
+import sys
 import sphinx_material
+sys.path.insert(0, os.path.abspath('./API_specification'))
 
 # -- Project information -----------------------------------------------------
 
@@ -38,7 +37,54 @@ extensions = [
     'sphinx.ext.todo',
     'sphinx_markdown_tables',
     'sphinx_copybutton',
+    'sphinx.ext.autosummary',
+    'sphinx.ext.napoleon',
+    'sphinx.ext.autodoc',
 ]
+
+autosummary_generate = True
+autodoc_typehints = 'signature'
+add_module_names = False
+napoleon_custom_sections = [('Returns', 'params_style')]
+default_role = 'code'
+
+# nitpicky = True makes Sphinx warn whenever a cross-reference target can't be
+# found.
+nitpicky = True
+# autodoc wants to make cross-references for every type hint. But a lot of
+# them don't actually refer to anything that we have a document for.
+nitpick_ignore = [
+    ('py:class', 'array'),
+    ('py:class', 'device'),
+    ('py:class', 'dtype'),
+    ('py:class', 'NestedSequence'),
+    ('py:class', 'SupportsBufferProtocol'),
+    ('py:class', 'collections.abc.Sequence'),
+    ('py:class', "Optional[Union[int, float, Literal[inf, - inf, 'fro', 'nuc']]]"),
+    ('py:class', "Union[int, float, Literal[inf, - inf]]"),
+    ('py:class', 'PyCapsule'),
+    ('py:class', 'enum.Enum'),
+    ('py:class', 'ellipsis'),
+    ('py:class', 'finfo_object'),
+    ('py:class', 'iinfo_object'),
+]
+# In array_object.py we have to use aliased names for some types because they
+# would otherwise refer back to method objects of array
+autodoc_type_aliases = {
+    'array': 'array',
+    'Device': 'device',
+    'Dtype': 'dtype',
+}
+
+# Make autosummary show the signatures of functions in the tables using actual
+# Python syntax. There's currently no supported way to do this, so we have to
+# just patch out the function that processes the signatures. See
+# https://github.com/sphinx-doc/sphinx/issues/10053.
+import sphinx.ext.autosummary as autosummary_mod
+if hasattr(autosummary_mod, '_module'):
+    # It's a sphinx deprecated module wrapper object
+    autosummary_mod = autosummary_mod._module
+autosummary_mod.mangle_signature = lambda sig, max_chars=30: sig
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -96,7 +142,7 @@ html_theme_options = {
     #'repo_name': 'Project',
 
     "html_minify": False,
-    "html_prettify": True,
+    "html_prettify": False,
     "css_minify": True,
     "logo_icon": "&#xe869",
     "repo_type": "github",
@@ -143,4 +189,16 @@ extlinks = {
     ),
     "durole": ("http://docutils.sourceforge.net/docs/ref/rst/" "roles.html#%s", ""),
     "dudir": ("http://docutils.sourceforge.net/docs/ref/rst/" "directives.html#%s", ""),
+    "pypa": ("https://packaging.python.org/%s", ""),
 }
+
+
+def process_signature(app, what, name, obj, options, signature, return_annotation):
+    if signature:
+        signature = signature.replace("signatures._types.", "")
+    if return_annotation:
+        return_annotation = return_annotation.replace("signatures._types.", "")
+    return signature, return_annotation
+
+def setup(app):
+    app.connect("autodoc-process-signature", process_signature)
