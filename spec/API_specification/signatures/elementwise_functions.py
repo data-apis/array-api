@@ -1118,7 +1118,7 @@ def remainder(x1: array, x2: array, /) -> array:
     .. note::
        For input arrays which promote to an integer data type, the result of division by zero is unspecified and thus implementation-defined.
 
-    **Special Cases**
+    **Special cases**
 
     .. note::
        In general, similar to Python's ``%`` operator, this function is **not** recommended for floating-point operands as semantics do not follow IEEE 754. That this function is specified to accept floating-point operands is primarily for reasons of backward compatibility.
