@@ -1113,7 +1113,7 @@ def remainder(x1: array, x2: array, /) -> array:
     Returns the remainder of division for each element ``x1_i`` of the input array ``x1`` and the respective element ``x2_i`` of the input array ``x2``.
 
     .. note::
-       This function is equivalent to the Python modulus operator ``x1_i % x2_i`` and is complementary to the :func:`~signatures.elementwise_functions.floor_divide`.
+       This function is equivalent to the Python modulus operator ``x1_i % x2_i``.
 
     .. note::
        For input arrays which promote to an integer data type, the result of division by zero is unspecified and thus implementation-defined.
