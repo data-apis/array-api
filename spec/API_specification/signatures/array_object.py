@@ -660,7 +660,7 @@ class _array():
         - If ``x1_i`` is a positive (i.e., greater than ``0``) finite number and ``x2_i`` is ``-infinity``, the result is ``x2_i``. (**note**: this result matches Python behavior.)
         - If ``x1_i`` is a negative (i.e., less than ``0``) finite number and ``x2_i`` is ``+infinity``, the result is ``x2_i``. (**note**: this results matches Python behavior.)
         - If ``x1_i`` is a negative (i.e., less than ``0``) finite number and ``x2_i`` is ``-infinity``, the result is ``x1_i``. (**note**: this result matches Python behavior.)
-        -   In the remaining cases, the result must match that of the Python ``%`` operator.
+        - In the remaining cases, the result must match that of the Python ``%`` operator.
 
         Parameters
         ----------
