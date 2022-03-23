@@ -870,7 +870,7 @@ def log10(x: array, /) -> array:
         an array containing the evaluated base ``10`` logarithm for each element in ``x``. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
     """
 
-def logaddexp(x1: array, x2: array) -> array:
+def logaddexp(x1: array, x2: array, /) -> array:
     """
     Calculates the logarithm of the sum of exponentiations ``log(exp(x1) + exp(x2))`` for each element ``x1_i`` of the input array ``x1`` with the respective element ``x2_i`` of the input array ``x2``.
 
