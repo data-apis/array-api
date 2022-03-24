@@ -74,22 +74,27 @@ The following examples demonstrate the application of the broadcasting algorithm
    B      (3d array):      7 x 1 x 5
   ---------------------------------
    Result (4d array):  8 x 7 x 6 x 5
+
    A      (2d array):  5 x 4
    B      (1d array):      1
    -------------------------
    Result (2d array):  5 x 4
+
    A      (2d array):  5 x 4
    B      (1d array):      4
    -------------------------
    Result (2d array):   5 x 4
+
    A      (3d array):  15 x 3 x 5
    B      (3d array):  15 x 1 x 5
    ------------------------------
    Result (3d array):  15 x 3 x 5
+
    A      (3d array):  15 x 3 x 5
    B      (2d array):       3 x 5
    ------------------------------
    Result (3d array):  15 x 3 x 5
+   
    A      (3d array):  15 x 3 x 5
    B      (2d array):       3 x 1
    ------------------------------
