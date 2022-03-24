@@ -199,7 +199,7 @@ def full_like(x: array, /, fill_value: Union[int, float], *, dtype: Optional[dty
            If the ``fill_value`` exceeds the precision of the resolved output array data type, behavior is unspecified and, thus, implementation-defined.
 
         .. note::
-           If ``dtype`` is ``None`` and the ``fill_value`` has a data type (``int`` or ``float``) which is not of the same data type kind as the resolved output array data type (see :ref:`type-promotion`), behavior is unspecified and, thus, implementation-defined.
+           If the ``fill_value`` has a data type (``int`` or ``float``) which is not of the same data type kind as the resolved output array data type (see :ref:`type-promotion`), behavior is unspecified and, thus, implementation-defined.
 
     device: Optional[device]
         device on which to place the created array. If ``device`` is ``None``, the output array device must be inferred from ``x``. Default: ``None``.
