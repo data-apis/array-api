@@ -100,6 +100,11 @@ The following examples demonstrate the application of the broadcasting algorithm
    ---------------------------------
    Result (4d array):  8 x 7 x 6 x 5
 
+   A      (4d array):  8 x 1 x 0 x 1
+   B      (3d array):      7 x 1 x 5
+   ---------------------------------
+   Result (4d array):  8 x 7 x 0 x 5
+
    A      (2d array):  5 x 4
    B      (1d array):      1
    -------------------------
