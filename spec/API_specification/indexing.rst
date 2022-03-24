@@ -158,6 +158,11 @@ Multi-dimensional arrays must extend the concept of single-axis indexing to mult
 
     To perform flat indexing, use ``reshape(x, (-1,))[integer]``.
 
+- Each ``None`` in the selection tuple must expand the dimensions of the resulting selection by one dimension of size ``1``. The position of the added dimension must be the same as the position of ``None`` in the selection tuple.
+
+  .. note::
+    Expanding dimensions can be equivalently achieved via repeated invocation of :func:`~signatures.manipulation_functions.expand_dims`.
+
 - An ``IndexError`` exception must be raised if the number of provided single-axis indexing expressions is greater than ``N``.
 
   .. note::
