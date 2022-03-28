@@ -60,7 +60,7 @@ learning, many other libraries have appeared, leading to more severe
 fragmentation. Concepts and APIs in newer libraries were often inspired by
 (or copied from) those in older ones - and then changed or improved upon to
 fit new needs and use cases. Individual library authors discussed ideas,
-however there was never (before this array API standard) an serious attempt
+however there was never (before this array API standard) a serious attempt
 to coordinate between all libraries to avoid fragmentation and arrive at a
 common API standard.
 
