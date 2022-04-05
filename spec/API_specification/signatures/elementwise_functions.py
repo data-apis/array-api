@@ -562,7 +562,7 @@ def expm1(x: array, /) -> array:
     Parameters
     ----------
     x: array
-        input array. Should have a numeric data type.
+        input array. Should have a floating-point data type.
 
     Returns
     -------
