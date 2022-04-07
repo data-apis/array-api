@@ -151,7 +151,12 @@ Multi-dimensional arrays must extend the concept of single-axis indexing to mult
   .. note::
     This behavior differs from NumPy where providing an empty tuple to an array of rank ``0`` returns a NumPy scalar.
 
-- Except in the case of providing a single ellipsis (e.g., ``A[2:10, ...]`` or ``A[1:, ..., 2:5]``), the number of provided single-axis indexing expressions should equal ``N``. For example, if ``A`` has rank ``2``, a single-axis indexing expression should be explicitly provided for both axes (e.g., ``A[2:10, :]``). An ``IndexError`` exception should be raised if the number of provided single-axis indexing expressions is less than ``N``.
+- Each ``None`` in the selection tuple must expand the dimensions of the resulting selection by one dimension of size ``1``. The position of the added dimension must be the same as the position of ``None`` in the selection tuple.
+
+  .. note::
+    Expanding dimensions can be equivalently achieved via repeated invocation of :func:`~signatures.manipulation_functions.expand_dims`.
+
+- Except in the case of providing a single ellipsis (e.g., ``A[2:10, ...]`` or ``A[1:, ..., 2:5]``), the number of provided single-axis indexing expressions (excluding ``None``) should equal ``N``. For example, if ``A`` has rank ``2``, a single-axis indexing expression should be explicitly provided for both axes (e.g., ``A[2:10, :]``). An ``IndexError`` exception should be raised if the number of provided single-axis indexing expressions (excluding ``None``) is less than ``N``.
 
   .. note::
     Some libraries, such as SymPy, support flat indexing (i.e., providing a single-axis indexing expression to a higher-dimensional array). That practice is not supported here.
@@ -164,11 +169,6 @@ Multi-dimensional arrays must extend the concept of single-axis indexing to mult
     This specification leaves unspecified the behavior of providing a slice which attempts to select elements along a particular axis, but whose starting index is out-of-bounds.
 
     *Rationale: this is consistent with bounds-checking for single-axis indexing. An implementation may choose to set the axis (dimension) size of the result array to ``0`` , raise an exception, return junk values, or some other behavior depending on device requirements and performance considerations.*
-
-- Each ``None`` in the selection tuple must expand the dimensions of the resulting selection by one dimension of size ``1``. The position of the added dimension must be the same as the position of ``None`` in the selection tuple.
-
-  .. note::
-    Expanding dimensions can be equivalently achieved via repeated invocation of :func:`~signatures.manipulation_functions.expand_dims`.
 
 Boolean Array Indexing
 ----------------------
