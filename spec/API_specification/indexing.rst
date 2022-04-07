@@ -119,7 +119,7 @@ The following ranges for the start and stop values of a slice must be supported.
 The behavior outside of these bounds is unspecified.
 
 .. note::
-   *Rationale: this is consistent with bounds checking for integer indexing; the behavior of out-of-bounds indices is left unspecified. Implementations may choose to clip (consistent with Python* ``list`` *slicing semantics), raise an exception, return junk values, or some other behavior depending on device requirements and performance considerations.*
+   *Rationale: this is consistent with bounds checking for integer indexing; the behavior of out-of-bounds indices is left unspecified. Implementations may choose to clip (consistent with Python ``list`` slicing semantics), raise an exception, return junk values, or some other behavior depending on device requirements and performance considerations.*
 
 Multi-axis Indexing
 -------------------
@@ -158,17 +158,17 @@ Multi-dimensional arrays must extend the concept of single-axis indexing to mult
 
     To perform flat indexing, use ``reshape(x, (-1,))[integer]``.
 
-- Each ``None`` in the selection tuple must expand the dimensions of the resulting selection by one dimension of size ``1``. The position of the added dimension must be the same as the position of ``None`` in the selection tuple.
-
-  .. note::
-    Expanding dimensions can be equivalently achieved via repeated invocation of :func:`~signatures.manipulation_functions.expand_dims`.
-
-- An ``IndexError`` exception must be raised if the number of provided single-axis indexing expressions is greater than ``N``.
+- An ``IndexError`` exception must be raised if the number of provided single-axis indexing expressions (excluding ``None``) is greater than ``N``.
 
   .. note::
     This specification leaves unspecified the behavior of providing a slice which attempts to select elements along a particular axis, but whose starting index is out-of-bounds.
 
-    *Rationale: this is consistent with bounds-checking for single-axis indexing. An implementation may choose to set the axis (dimension) size of the result array to* ``0`` *, raise an exception, return junk values, or some other behavior depending on device requirements and performance considerations.*
+    *Rationale: this is consistent with bounds-checking for single-axis indexing. An implementation may choose to set the axis (dimension) size of the result array to ``0`` , raise an exception, return junk values, or some other behavior depending on device requirements and performance considerations.*
+
+- Each ``None`` in the selection tuple must expand the dimensions of the resulting selection by one dimension of size ``1``. The position of the added dimension must be the same as the position of ``None`` in the selection tuple.
+
+  .. note::
+    Expanding dimensions can be equivalently achieved via repeated invocation of :func:`~signatures.manipulation_functions.expand_dims`.
 
 Boolean Array Indexing
 ----------------------
@@ -179,6 +179,9 @@ Boolean Array Indexing
    For common boolean array use cases (e.g., using a dynamically-sized boolean array mask to filter the values of another array), the shape of the output array is data-dependent; hence, array libraries which build computation graphs (e.g., JAX, Dask, etc.) may find boolean array indexing difficult to implement. Accordingly, such libraries may choose to omit boolean array indexing. See :ref:`data-dependent-output-shapes` section for more details.
 
 An array must support indexing where the **sole index** is an ``M``-dimensional boolean array ``B`` with shape ``S1 = (s1, ..., sM)`` according to the following rules. Let ``A`` be an ``N``-dimensional array with shape ``S2 = (s1, ..., sM, ..., sN)``.
+
+  .. note::
+     The prohibition against combining boolean array indices with other single-axis indexing expressions includes the use of ``None``. To expand dimensions of the returned array, use repeated invocation of :func:`~signatures.manipulation_functions.expand_dims`.
 
 - If ``N >= M``, then ``A[B]`` must replace the first ``M`` dimensions of ``A`` with a single dimension having a size equal to the number of ``True`` elements in ``B``. The values in the resulting array must be in row-major (C-style order); this is equivalent to ``A[nonzero(B)]``.
 
