@@ -137,7 +137,7 @@ Multi-dimensional arrays must extend the concept of single-axis indexing to mult
 
 - Providing a single negative integer ``i`` as a single-axis index must index the same elements as the slice ``n+i:n+i+1``, where ``n`` is the axis (dimension) size.
 
-- Providing a single integer as a single-axis index must reduce the number of array dimensions by ``1`` (i.e., the array rank should decrease by one; if ``A`` has rank ``2``, ``rank(A)-1 == rank(A[0, :])``). In particular, a selection tuple with the ``m``\th element an integer (and all other entries ``:``) indexes a sub-array with rank ``N-1``.
+- Providing a single integer as a single-axis index must reduce the number of array dimensions by ``1`` (i.e., the array rank must decrease by one; if ``A`` has rank ``2``, ``rank(A)-1 == rank(A[0, :])``). In particular, a selection tuple with the ``m``\th element an integer (and all other entries ``:``) indexes a sub-array with rank ``N-1``.
 
   .. note::
     When providing a single integer as a single-axis index to an array of rank ``1``, the result should be an array of rank ``0``, not a NumPy scalar. Note that this behavior differs from NumPy.
