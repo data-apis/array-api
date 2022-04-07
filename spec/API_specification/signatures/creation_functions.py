@@ -62,6 +62,9 @@ def asarray(obj: Union[array, bool, int, float, NestedSequence, SupportsBufferPr
 
            If ``dtype`` is not ``None``, then array conversions should obey :ref:`type-promotion` rules. Conversions not specified according to :ref:`type-promotion` rules may or may not be permitted by a conforming array library. To perform an explicit cast, use :func:`signatures.data_type_functions.astype`.
 
+        .. note::
+           If an input value exceeds the precision of the resolved output array data type, behavior is left unspecified and, thus, implementation-defined.
+
     device: Optional[device]
         device on which to place the created array. If ``device`` is ``None`` and ``x`` is an array, the output array device must be inferred from ``x``. Default: ``None``.
     copy: Optional[bool]
@@ -168,7 +171,7 @@ def full(shape: Union[int, Tuple[int, ...]], fill_value: Union[int, float], *, d
         output array data type. If ``dtype`` is ``None``, the output array data type must be inferred from ``fill_value``. If the fill value is an ``int``, the output array data type must be the default integer data type. If the fill value is a ``float``, the output array data type must be the default floating-point data type. If the fill value is a ``bool``, the output array must have boolean data type. Default: ``None``.
 
         .. note::
-           If ``dtype`` is ``None`` and the ``fill_value`` exceeds the precision of the resolved default output array data type, behavior is left unspecified and, thus, implementation-defined.
+           If the ``fill_value`` exceeds the precision of the resolved default output array data type, behavior is left unspecified and, thus, implementation-defined.
 
     device: Optional[device]
         device on which to place the created array. Default: ``None``.
@@ -193,10 +196,10 @@ def full_like(x: array, /, fill_value: Union[int, float], *, dtype: Optional[dty
         output array data type. If ``dtype`` is ``None``, the output array data type must be inferred from ``x``. Default: ``None``.
 
         .. note::
-           If ``dtype`` is ``None`` and the ``fill_value`` exceeds the precision of the resolved output array data type, behavior is unspecified and, thus, implementation-defined.
+           If the ``fill_value`` exceeds the precision of the resolved output array data type, behavior is unspecified and, thus, implementation-defined.
 
         .. note::
-           If ``dtype`` is ``None`` and the ``fill_value`` has a data type (``int`` or ``float``) which is not of the same data type kind as the resolved output array data type (see :ref:`type-promotion`), behavior is unspecified and, thus, implementation-defined.
+           If the ``fill_value`` has a data type (``int`` or ``float``) which is not of the same data type kind as the resolved output array data type (see :ref:`type-promotion`), behavior is unspecified and, thus, implementation-defined.
 
     device: Optional[device]
         device on which to place the created array. If ``device`` is ``None``, the output array device must be inferred from ``x``. Default: ``None``.
