@@ -22,4 +22,5 @@ Objects in API
    e
    inf
    nan
+   newaxis
    pi
