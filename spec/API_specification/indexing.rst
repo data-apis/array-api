@@ -119,7 +119,7 @@ The following ranges for the start and stop values of a slice must be supported.
 The behavior outside of these bounds is unspecified.
 
 .. note::
-   *Rationale: this is consistent with bounds checking for integer indexing; the behavior of out-of-bounds indices is left unspecified. Implementations may choose to clip (consistent with Python ``list`` slicing semantics), raise an exception, return junk values, or some other behavior depending on device requirements and performance considerations.*
+   *Rationale: this is consistent with bounds checking for integer indexing; the behavior of out-of-bounds indices is left unspecified. Implementations may choose to clip (consistent with Python* ``list`` *slicing semantics), raise an exception, return junk values, or some other behavior depending on device requirements and performance considerations.*
 
 Multi-axis Indexing
 -------------------
@@ -168,7 +168,7 @@ Multi-dimensional arrays must extend the concept of single-axis indexing to mult
   .. note::
     This specification leaves unspecified the behavior of providing a slice which attempts to select elements along a particular axis, but whose starting index is out-of-bounds.
 
-    *Rationale: this is consistent with bounds-checking for single-axis indexing. An implementation may choose to set the axis (dimension) size of the result array to ``0`` , raise an exception, return junk values, or some other behavior depending on device requirements and performance considerations.*
+    *Rationale: this is consistent with bounds-checking for single-axis indexing. An implementation may choose to set the axis (dimension) size of the result array to* ``0`` *, raise an exception, return junk values, or some other behavior depending on device requirements and performance considerations.*
 
 Boolean Array Indexing
 ----------------------
