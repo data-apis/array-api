@@ -41,6 +41,12 @@ def cross(x1: array, x2: array, /, *, axis: int = -1) -> array:
     -------
     out: array
         an array containing the cross products. The returned array must have a data type determined by :ref:`type-promotion`.
+
+
+    **Raises**
+
+    -   if provided an invalid ``axis``.
+    -   if the size of the axis over which to compute the cross product is not equal to ``3`` and is not the same (before broadcasting) for both ``x1`` and ``x2``.
     """
 
 def det(x: array, /) -> array:
