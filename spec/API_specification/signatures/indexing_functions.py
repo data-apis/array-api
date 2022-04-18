@@ -12,7 +12,7 @@ def take(x: array, indices: Union[int, array], /, *, axis: int) -> array:
     x: array
         input array.
     indices: Union[int, array]
-        array indices. If ``indices`` is an array, the array must be one-dimensional and have an integer data type. If ``indices`` is an integer, the function must follow multi-axis indexing semantics when providing an integer for a single-axis index (see :ref:`indexing`).
+        array indices. If ``indices`` is an integer (or a zero-dimensional array satisfying ``operator.index``), the function must follow multi-axis indexing semantics when providing an integer for a single-axis index (see :ref:`indexing`). If ``indices`` is a non-zero-dimensional array, the array must be one-dimensional and have an integer data type.
     axis: int
         axis over which to select values. If ``axis`` is negative, the function must determine the axis along which to select values by counting from the last dimension.
 
