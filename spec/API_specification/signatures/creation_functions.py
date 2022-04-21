@@ -14,7 +14,7 @@ def arange(start: Union[int, float], /, stop: Optional[Union[int, float]] = None
     step: Union[int, float]
         the distance between two adjacent elements (``out[i+1] - out[i]``). Must not be ``0``; may be negative, this results in an empty array if ``stop >= start``. Default: ``1``.
     dtype: Optional[dtype]
-       output array data type. If ``dtype`` is ``None``, the output array data type must be inferred from ``start``, ``stop`` and ``step``. If those are all integers, the output array dtype must be the default integer dtype; if one or more have type ``float``, then the output array dtype must be the default floating-point data type. Default: ``None``.
+        output array data type. If ``dtype`` is ``None``, the output array data type must be inferred from ``start``, ``stop`` and ``step``. If those are all integers, the output array dtype must be the default integer dtype; if one or more have type ``float``, then the output array dtype must be the default floating-point data type. Default: ``None``.
     device: Optional[device]
         device on which to place the created array. Default: ``None``.
 
