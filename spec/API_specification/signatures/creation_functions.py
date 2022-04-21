@@ -18,6 +18,7 @@ def arange(start: Union[int, float], /, stop: Optional[Union[int, float]] = None
     device: Optional[device]
         device on which to place the created array. Default: ``None``.
 
+
     .. note::
        This function cannot guarantee that the interval does not include the ``stop`` value in those cases where ``step`` is not an integer and floating-point rounding errors affect the length of the output array.
 
