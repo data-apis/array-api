@@ -429,7 +429,7 @@
 </div>
 </p></li>
 <li><p><strong>num</strong> (<em>int</em>) – number of samples. Must be a non-negative integer value; otherwise, the function must raise an exception.</p></li>
-<li><p><strong>dtype</strong> (<em>Optional</em><em>[</em><em>dtype</em><em>]</em>) – output array data type. If <code class="docutils literal notranslate"><span class="pre">dtype</span></code> is <code class="docutils literal notranslate"><span class="pre">None</span></code>, the output array data type must be the default floating-point data type. Default: <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+<li><p><strong>dtype</strong> (<em>Optional</em><em>[</em><em>dtype</em><em>]</em>) – output array data type. Should be a floating-point data type. If <code class="docutils literal notranslate"><span class="pre">dtype</span></code> is <code class="docutils literal notranslate"><span class="pre">None</span></code>, the output array data type must be the default floating-point data type. Default: <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
 <li><p><strong>device</strong> (<em>Optional</em><em>[</em><em>device</em><em>]</em>) – device on which to place the created array. Default: <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
 <li><p><strong>endpoint</strong> (<em>bool</em>) – boolean indicating whether to include <code class="docutils literal notranslate"><span class="pre">stop</span></code> in the interval. Default: <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p></li>
 </ul>
@@ -438,6 +438,14 @@
 <dd class="field-even"><p><strong>out</strong> (<em>array</em>) – a one-dimensional array containing evenly spaced values.</p>
 </dd>
 </dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>While this specification recommends that this function only return arrays having a floating-point data type, specification-compliant array libraries may choose to support output arrays having an integer data type (e.g., due to backward compatibility concerns). However, function behavior when generating integer output arrays is unspecified and, thus, is implementation-defined. Accordingly, using this function to generate integer output arrays is not portable.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>As mixed data type promotion is implementation-defined, behavior when <code class="docutils literal notranslate"><span class="pre">start</span></code> or <code class="docutils literal notranslate"><span class="pre">stop</span></code> exceeds the maximum safe integer of an output floating-point data type is implementation-defined. An implementation may choose to overflow or raise an exception.</p>
+</div>
 </dd></dl>
 </section>
 
