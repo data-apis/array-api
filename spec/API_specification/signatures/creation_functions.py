@@ -232,6 +232,7 @@ def linspace(start: Union[int, float], stop: Union[int, float], /, num: int, *, 
     out: array
         a one-dimensional array containing evenly spaced values.
 
+
     .. note::
        While this specification recommends that this function only return arrays having a floating-point data type, specification-compliant array libraries may choose to support output arrays having an integer data type (e.g., due to backward compatibility concerns). However, function behavior when generating integer output arrays is unspecified and, thus, is implementation-defined. Accordingly, using this function to generate integer output arrays is not portable.
 
