@@ -121,7 +121,7 @@ jobs:
       - name: 'Commit changes'
         run: |
           git add . && git commit -m "Deploy: ${{ github.sha }}"
-        continue_on_error: true
+        continue-on-error: true
         timeout-minutes: 10
 
       # Push changes:
