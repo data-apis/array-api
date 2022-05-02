@@ -1,6 +1,0 @@
-﻿.. currentmodule:: signatures.data_type_functions
-
-broadcast_arrays
-================
-
-.. autofunction:: broadcast_arrays

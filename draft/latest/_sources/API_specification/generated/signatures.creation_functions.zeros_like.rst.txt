@@ -1,6 +1,0 @@
-﻿.. currentmodule:: signatures.creation_functions
-
-zeros_like
-==========
-
-.. autofunction:: zeros_like

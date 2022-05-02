@@ -1,6 +1,0 @@
-﻿.. currentmodule:: signatures.creation_functions
-
-empty_like
-==========
-
-.. autofunction:: empty_like

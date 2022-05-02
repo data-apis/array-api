@@ -1,6 +1,0 @@
-﻿.. currentmodule:: signatures.elementwise_functions
-
-logaddexp
-=========
-
-.. autofunction:: logaddexp

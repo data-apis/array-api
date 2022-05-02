@@ -1,6 +1,0 @@
-﻿.. currentmodule:: signatures.linalg
-
-cholesky
-========
-
-.. autofunction:: cholesky

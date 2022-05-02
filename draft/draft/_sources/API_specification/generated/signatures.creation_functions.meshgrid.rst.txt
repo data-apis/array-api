@@ -1,6 +1,0 @@
-﻿.. currentmodule:: signatures.creation_functions
-
-meshgrid
-========
-
-.. autofunction:: meshgrid

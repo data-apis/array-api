@@ -1,6 +1,0 @@
-﻿.. currentmodule:: signatures.elementwise_functions
-
-sign
-====
-
-.. autofunction:: sign

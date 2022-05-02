@@ -1,6 +1,0 @@
-﻿.. currentmodule:: signatures.set_functions
-
-unique_values
-=============
-
-.. autofunction:: unique_values

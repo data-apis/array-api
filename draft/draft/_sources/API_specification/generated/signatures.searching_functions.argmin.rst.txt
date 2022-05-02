@@ -1,6 +1,0 @@
-﻿.. currentmodule:: signatures.searching_functions
-
-argmin
-======
-
-.. autofunction:: argmin

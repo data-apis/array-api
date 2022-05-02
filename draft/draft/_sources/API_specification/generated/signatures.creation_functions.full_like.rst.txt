@@ -1,6 +1,0 @@
-﻿.. currentmodule:: signatures.creation_functions
-
-full_like
-=========
-
-.. autofunction:: full_like

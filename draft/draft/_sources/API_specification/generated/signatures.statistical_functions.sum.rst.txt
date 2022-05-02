@@ -1,6 +1,0 @@
-﻿.. currentmodule:: signatures.statistical_functions
-
-sum
-===
-
-.. autofunction:: sum

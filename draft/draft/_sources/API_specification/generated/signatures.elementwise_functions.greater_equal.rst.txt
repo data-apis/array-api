@@ -1,6 +1,0 @@
-﻿.. currentmodule:: signatures.elementwise_functions
-
-greater_equal
-=============
-
-.. autofunction:: greater_equal
