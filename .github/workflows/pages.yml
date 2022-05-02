@@ -107,6 +107,7 @@ jobs:
       # Checkout the gh-pages branch:
       - name: 'Checkout gh-pages'
         run: |
+          git fetch --all
           git checkout gh-pages
         timeout-minutes: 5
 
@@ -116,8 +117,14 @@ jobs:
           cp -R ./build/latest ./latest
         timeout-minutes: 10
 
-      # Push changes to GitHub:
-      - name: 'Committing changes'
+      # Commit changes to:
+      - name: 'Commit changes'
         run: |
-          git commit -m "Deploy: ${{ github.sha }}" && git push origin gh-pages
+          git add . && git commit -m "Deploy: ${{ github.sha }}"
+        timeout-minutes: 10
+
+      # Push changes:
+      - name: 'Push changes'
+        run: |
+          git push "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/${{ github.repository }}.git"
         timeout-minutes: 10
