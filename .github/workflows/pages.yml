@@ -114,7 +114,7 @@ jobs:
       # Copy build artifact:
       - name: 'Copy build artifact'
         run: |
-          cp -R ./build/draft ./draft
+          rm -rf ./draft && cp -R ./build/draft ./draft
         timeout-minutes: 10
 
       # Commit changes to:
