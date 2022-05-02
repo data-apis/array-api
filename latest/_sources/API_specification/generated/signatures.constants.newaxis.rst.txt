@@ -1,0 +1,6 @@
+﻿.. currentmodule:: signatures.constants
+
+newaxis
+=======
+
+.. autodata:: newaxis

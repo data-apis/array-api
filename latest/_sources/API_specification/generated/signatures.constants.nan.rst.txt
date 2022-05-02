@@ -1,0 +1,6 @@
+﻿.. currentmodule:: signatures.constants
+
+nan
+===
+
+.. autodata:: nan

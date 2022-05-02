@@ -1,0 +1,972 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="lang:clipboard.copy" content="Copy to clipboard">
+  <meta name="lang:clipboard.copied" content="Copied to clipboard">
+  <meta name="lang:search.language" content="en">
+  <meta name="lang:search.pipeline.stopwords" content="True">
+  <meta name="lang:search.pipeline.trimmer" content="True">
+  <meta name="lang:search.result.none" content="No matching documents">
+  <meta name="lang:search.result.one" content="1 matching document">
+  <meta name="lang:search.result.other" content="# matching documents">
+  <meta name="lang:search.tokenizer" content="[\s\-]+">
+
+  
+    <link href="https://fonts.gstatic.com/" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700|Roboto:300,400,400i,700&display=fallback" rel="stylesheet">
+
+    <style>
+      body,
+      input {
+        font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif
+      }
+
+      code,
+      kbd,
+      pre {
+        font-family: "Roboto Mono", "Courier New", Courier, monospace
+      }
+    </style>
+  
+
+  <link rel="stylesheet" href="../_static/stylesheets/application.css"/>
+  <link rel="stylesheet" href="../_static/stylesheets/application-palette.css"/>
+  <link rel="stylesheet" href="../_static/stylesheets/application-fixes.css"/>
+  
+  <link rel="stylesheet" href="../_static/fonts/material-icons.css"/>
+  
+  <meta name="theme-color" content="#2196f3">
+  <script src="../_static/javascripts/modernizr.js"></script>
+  
+  
+    <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
+  
+  
+    <title>Array object &#8212; Python array API standard 2021.12 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/material.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="dtype" href="generated/signatures.array_object.array.dtype.html" />
+    <link rel="prev" title="API specification" href="index.html" />
+  
+    <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
+  
+   
+
+  </head>
+  <body dir=ltr
+        data-md-color-primary=indigo data-md-color-accent=green>
+  
+  <svg class="md-svg">
+    <defs data-children-count="0">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+      
+    </defs>
+  </svg>
+  
+  <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer">
+  <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search">
+  <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+  <a href="#API_specification/array_object" tabindex="1" class="md-skip"> Skip to content </a>
+  <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex navheader">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../index.html" title="Python array API standard 2021.12 documentation"
+           class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">&#xe869</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          <span class="md-header-nav__topic">Python array API standard 2021.12</span>
+          <span class="md-header-nav__topic"> Array object </span>
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+        
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" action="../search.html" method="GET" name="search">
+      <input type="text" class="md-search__input" name="q" placeholder="Search"
+             autocapitalize="off" autocomplete="off" spellcheck="false"
+             data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      </div>
+      
+      
+  
+  <script src="../_static/javascripts/version_dropdown.js"></script>
+  <script>
+    var json_loc = "../../versions.json",
+        target_loc = "../../",
+        text = "Versions";
+    $( document ).ready( add_version_dropdown(json_loc, target_loc, text));
+  </script>
+  
+
+    </div>
+  </nav>
+</header>
+
+  
+  <div class="md-container">
+    
+    
+    
+  <nav class="md-tabs" data-md-component="tabs">
+    <div class="md-tabs__inner md-grid">
+      <ul class="md-tabs__list">
+            
+            <li class="md-tabs__item"><a href="../index.html" class="md-tabs__link">Array API standard</a></li>
+            
+            <li class="md-tabs__item"><a href="https://data-apis.org" class="md-tabs__link">Consortium for Python Data API Standards</a></li>
+          <li class="md-tabs__item"><a href="index.html" class="md-tabs__link">API specification</a></li>
+      </ul>
+    </div>
+  </nav>
+    <main class="md-main">
+      <div class="md-main__inner md-grid" data-md-component="container">
+        
+          <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../index.html" title="Python array API standard 2021.12 documentation" class="md-nav__button md-logo">
+      
+        <i class="md-icon">&#xe869</i>
+      
+    </a>
+    <a href="../index.html"
+       title="Python array API standard 2021.12 documentation">Python array API standard 2021.12</a>
+  </label>
+  
+
+  
+  <ul class="md-nav__list">
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">Context</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../purpose_and_scope.html" class="md-nav__link">Purpose and scope</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../use_cases.html" class="md-nav__link">Use cases</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../assumptions.html" class="md-nav__link">Assumptions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">API</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../design_topics/index.html" class="md-nav__link">Design topics & constraints</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../future_API_evolution.html" class="md-nav__link">Future API standard evolution</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="index.html" class="md-nav__link">API specification</a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    <label class="md-nav__link md-nav__link--active" for="__toc"> Array object </label>
+    
+      <a href="#" class="md-nav__link md-nav__link--active">Array object</a>
+      
+        
+<nav class="md-nav md-nav--secondary">
+    <label class="md-nav__title" for="__toc">Contents</label>
+  <ul class="md-nav__list" data-md-scrollfix="">
+        <li class="md-nav__item"><a href="#api-specification-array-object--page-root" class="md-nav__link">Array object</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#operators" class="md-nav__link">Operators</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#arithmetic-operators" class="md-nav__link">Arithmetic Operators</a>
+        </li>
+        <li class="md-nav__item"><a href="#array-operators" class="md-nav__link">Array Operators</a>
+        </li>
+        <li class="md-nav__item"><a href="#bitwise-operators" class="md-nav__link">Bitwise Operators</a>
+        </li>
+        <li class="md-nav__item"><a href="#comparison-operators" class="md-nav__link">Comparison Operators</a>
+        </li>
+        <li class="md-nav__item"><a href="#in-place-operators" class="md-nav__link">In-place Operators</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#id26" class="md-nav__link">Arithmetic Operators</a>
+        </li>
+        <li class="md-nav__item"><a href="#id27" class="md-nav__link">Array Operators</a>
+        </li>
+        <li class="md-nav__item"><a href="#id28" class="md-nav__link">Bitwise Operators</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#reflected-operators" class="md-nav__link">Reflected Operators</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#id29" class="md-nav__link">Arithmetic Operators</a>
+        </li>
+        <li class="md-nav__item"><a href="#id30" class="md-nav__link">Array Operators</a>
+        </li>
+        <li class="md-nav__item"><a href="#id31" class="md-nav__link">Bitwise Operators</a>
+        </li></ul>
+            </nav>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#attributes" class="md-nav__link">Attributes</a>
+        </li>
+        <li class="md-nav__item"><a href="#methods" class="md-nav__link">Methods</a>
+        </li></ul>
+            </nav>
+        </li>
+  </ul>
+</nav>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="broadcasting.html" class="md-nav__link">Broadcasting</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="constants.html" class="md-nav__link">Constants</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="creation_functions.html" class="md-nav__link">Creation Functions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="data_type_functions.html" class="md-nav__link">Data Type Functions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="data_types.html" class="md-nav__link">Data Types</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="elementwise_functions.html" class="md-nav__link">Element-wise Functions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="function_and_method_signatures.html" class="md-nav__link">Function and method signatures</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="indexing.html" class="md-nav__link">Indexing</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="linear_algebra_functions.html" class="md-nav__link">Linear Algebra Functions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="manipulation_functions.html" class="md-nav__link">Manipulation Functions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="searching_functions.html" class="md-nav__link">Searching Functions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="set_functions.html" class="md-nav__link">Set Functions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="sorting_functions.html" class="md-nav__link">Sorting Functions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="statistical_functions.html" class="md-nav__link">Statistical Functions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="type_promotion.html" class="md-nav__link">Type Promotion Rules</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="utility_functions.html" class="md-nav__link">Utility Functions</a>
+      
+    
+    </li></ul>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../extensions/index.html" class="md-nav__link">Extensions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">Methodology and Usage</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../usage_data.html" class="md-nav__link">Usage Data</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../verification_test_suite.html" class="md-nav__link">Verification - test suite</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../benchmark_suite.html" class="md-nav__link">Benchmark suite</a>
+      
+    
+    </li>
+  </ul>
+  
+
+</nav>
+              </div>
+            </div>
+          </div>
+          <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                
+<nav class="md-nav md-nav--secondary">
+    <label class="md-nav__title" for="__toc">Contents</label>
+  <ul class="md-nav__list" data-md-scrollfix="">
+        <li class="md-nav__item"><a href="#api-specification-array-object--page-root" class="md-nav__link">Array object</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#operators" class="md-nav__link">Operators</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#arithmetic-operators" class="md-nav__link">Arithmetic Operators</a>
+        </li>
+        <li class="md-nav__item"><a href="#array-operators" class="md-nav__link">Array Operators</a>
+        </li>
+        <li class="md-nav__item"><a href="#bitwise-operators" class="md-nav__link">Bitwise Operators</a>
+        </li>
+        <li class="md-nav__item"><a href="#comparison-operators" class="md-nav__link">Comparison Operators</a>
+        </li>
+        <li class="md-nav__item"><a href="#in-place-operators" class="md-nav__link">In-place Operators</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#id26" class="md-nav__link">Arithmetic Operators</a>
+        </li>
+        <li class="md-nav__item"><a href="#id27" class="md-nav__link">Array Operators</a>
+        </li>
+        <li class="md-nav__item"><a href="#id28" class="md-nav__link">Bitwise Operators</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#reflected-operators" class="md-nav__link">Reflected Operators</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#id29" class="md-nav__link">Arithmetic Operators</a>
+        </li>
+        <li class="md-nav__item"><a href="#id30" class="md-nav__link">Array Operators</a>
+        </li>
+        <li class="md-nav__item"><a href="#id31" class="md-nav__link">Bitwise Operators</a>
+        </li></ul>
+            </nav>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#attributes" class="md-nav__link">Attributes</a>
+        </li>
+        <li class="md-nav__item"><a href="#methods" class="md-nav__link">Methods</a>
+        </li></ul>
+            </nav>
+        </li>
+  </ul>
+</nav>
+              </div>
+            </div>
+          </div>
+        
+        <div class="md-content">
+          <article class="md-content__inner md-typeset" role="main">
+            
+  <section id="array-object">
+<span id="id1"></span><h1 id="api-specification-array-object--page-root">Array object<a class="headerlink" href="#api-specification-array-object--page-root" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p>Array API specification for array object attributes and methods.</p>
+</div></blockquote>
+<p>A conforming implementation of the array API standard must provide and support an array object having the following attributes and methods adhering to the following conventions.</p>
+<ul class="simple">
+<li><p>Positional parameters must be <a class="reference external" href="https://www.python.org/dev/peps/pep-0570/">positional-only</a> parameters. Positional-only parameters have no externally-usable name. When a method accepting positional-only parameters is called, positional arguments are mapped to these parameters based solely on their order.</p></li>
+<li><p>Optional parameters must be <a class="reference external" href="https://www.python.org/dev/peps/pep-3102/">keyword-only</a> arguments.</p></li>
+<li><p>Broadcasting semantics must follow the semantics defined in <a class="reference internal" href="broadcasting.html#broadcasting"><span class="std std-ref">Broadcasting</span></a>.</p></li>
+<li><p>Unless stated otherwise, methods must support the data types defined in <a class="reference internal" href="data_types.html#data-types"><span class="std std-ref">Data Types</span></a>.</p></li>
+<li><p>Unless stated otherwise, methods must adhere to the type promotion rules defined in <a class="reference internal" href="type_promotion.html#type-promotion"><span class="std std-ref">Type Promotion Rules</span></a>.</p></li>
+<li><p>Unless stated otherwise, floating-point operations must adhere to IEEE 754-2019.</p></li>
+</ul>
+<p>Furthermore, a conforming implementation of the array API standard must support array objects of arbitrary rank <code class="docutils literal notranslate"><span class="pre">N</span></code> (i.e., number of dimensions), where <code class="docutils literal notranslate"><span class="pre">N</span></code> is greater than or equal to zero.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Conforming implementations must support zero-dimensional arrays.</p>
+<p>Apart from array object attributes, such as <code class="docutils literal notranslate"><span class="pre">ndim</span></code>, <code class="docutils literal notranslate"><span class="pre">device</span></code>, and <code class="docutils literal notranslate"><span class="pre">dtype</span></code>, all operations in this standard return arrays (or tuples of arrays), including those operations, such as <code class="docutils literal notranslate"><span class="pre">mean</span></code>, <code class="docutils literal notranslate"><span class="pre">var</span></code>, and <code class="docutils literal notranslate"><span class="pre">std</span></code>, from which some common array libraries (e.g., NumPy) return scalar values.</p>
+<p><em>Rationale: always returning arrays is necessary to (1) support accelerator libraries where non-array return values could force device synchronization and (2) support delayed execution models where an array represents a future value.</em></p>
+</div>
+<hr class="docutils"/>
+<section id="operators">
+<span id="id2"></span><h2 id="operators">Operators<a class="headerlink" href="#operators" title="Permalink to this headline">¶</a></h2>
+<p>A conforming implementation of the array API standard must provide and support an array object supporting the following Python operators.</p>
+<section id="arithmetic-operators">
+<h3 id="arithmetic-operators">Arithmetic Operators<a class="headerlink" href="#arithmetic-operators" title="Permalink to this headline">¶</a></h3>
+<p>A conforming implementation of the array API standard must provide and support an array object supporting the following Python arithmetic operators.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">+x</span></code>: <a class="reference internal" href="generated/signatures.array_object.array.__pos__.html#signatures.array_object.array.__pos__" title="signatures.array_object.array.__pos__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">array.__pos__()</span></code></a></p>
+<ul>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/operator.html#operator.pos">operator.pos(x)</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/operator.html#operator.__pos__">operator.__pos__(x)</a></p></li>
+</ul>
+</li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">-x</span></code>: <a class="reference internal" href="generated/signatures.array_object.array.__neg__.html#signatures.array_object.array.__neg__" title="signatures.array_object.array.__neg__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">array.__neg__()</span></code></a></p>
+<ul>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/operator.html#operator.neg">operator.neg(x)</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/operator.html#operator.__neg__">operator.__neg__(x)</a></p></li>
+</ul>
+</li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">x1</span> <span class="pre">+</span> <span class="pre">x2</span></code>: <a class="reference internal" href="generated/signatures.array_object.array.__add__.html#signatures.array_object.array.__add__" title="signatures.array_object.array.__add__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">array.__add__()</span></code></a></p>
+<ul>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/operator.html#operator.add">operator.add(x1, x2)</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/operator.html#operator.__add__">operator.__add__(x1, x2)</a></p></li>
+</ul>
+</li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">x1</span> <span class="pre">-</span> <span class="pre">x2</span></code>: <a class="reference internal" href="generated/signatures.array_object.array.__sub__.html#signatures.array_object.array.__sub__" title="signatures.array_object.array.__sub__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">array.__sub__()</span></code></a></p>
+<ul>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/operator.html#operator.sub">operator.sub(x1, x2)</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/operator.html#operator.__sub__">operator.__sub__(x1, x2)</a></p></li>
+</ul>
+</li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">x1</span> <span class="pre">*</span> <span class="pre">x2</span></code>: <a class="reference internal" href="generated/signatures.array_object.array.__mul__.html#signatures.array_object.array.__mul__" title="signatures.array_object.array.__mul__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">array.__mul__()</span></code></a></p>
+<ul>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/operator.html#operator.mul">operator.mul(x1, x2)</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/operator.html#operator.__mul__">operator.__mul__(x1, x2)</a></p></li>
+</ul>
+</li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">x1</span> <span class="pre">/</span> <span class="pre">x2</span></code>: <a class="reference internal" href="generated/signatures.array_object.array.__truediv__.html#signatures.array_object.array.__truediv__" title="signatures.array_object.array.__truediv__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">array.__truediv__()</span></code></a></p>
+<ul>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/operator.html#operator.truediv">operator.truediv(x1,x2)</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/operator.html#operator.__truediv__">operator.__truediv__(x1, x2)</a></p></li>
+</ul>
+</li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">x1</span> <span class="pre">//</span> <span class="pre">x2</span></code>: <a class="reference internal" href="generated/signatures.array_object.array.__floordiv__.html#signatures.array_object.array.__floordiv__" title="signatures.array_object.array.__floordiv__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">array.__floordiv__()</span></code></a></p>
+<ul>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/operator.html#operator.floordiv">operator.floordiv(x1, x2)</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/operator.html#operator.__floordiv__">operator.__floordiv__(x1, x2)</a></p></li>
+</ul>
+</li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">x1</span> <span class="pre">%</span> <span class="pre">x2</span></code>: <a class="reference internal" href="generated/signatures.array_object.array.__mod__.html#signatures.array_object.array.__mod__" title="signatures.array_object.array.__mod__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">array.__mod__()</span></code></a></p>
+<ul>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/operator.html#operator.mod">operator.mod(x1, x2)</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/operator.html#operator.__mod__">operator.__mod__(x1, x2)</a></p></li>
+</ul>
+</li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">x1</span> <span class="pre">**</span> <span class="pre">x2</span></code>: <a class="reference internal" href="generated/signatures.array_object.array.__pow__.html#signatures.array_object.array.__pow__" title="signatures.array_object.array.__pow__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">array.__pow__()</span></code></a></p>
+<ul>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/operator.html#operator.pow">operator.pow(x1, x2)</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/operator.html#operator.__pow__">operator.__pow__(x1, x2)</a></p></li>
+</ul>
+</li>
+</ul>
+<p>Arithmetic operators should be defined for arrays having numeric data types.</p>
+</section>
+<section id="array-operators">
+<h3 id="array-operators">Array Operators<a class="headerlink" href="#array-operators" title="Permalink to this headline">¶</a></h3>
+<p>A conforming implementation of the array API standard must provide and support an array object supporting the following Python array operators.</p>
+<ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">x1</span> <span class="pre">@</span> <span class="pre">x2</span></code>: <a class="reference internal" href="generated/signatures.array_object.array.__matmul__.html#signatures.array_object.array.__matmul__" title="signatures.array_object.array.__matmul__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">array.__matmul__()</span></code></a></p>
+<ul>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/operator.html#operator.matmul">operator.matmul(x1, x2)</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/operator.html#operator.__matmul__">operator.__matmul__(x1, x2)</a></p></li>
+</ul>
+</li>
+</ul>
+<p>The matmul <code class="docutils literal notranslate"><span class="pre">@</span></code> operator should be defined for arrays having numeric data types.</p>
+</section>
+<section id="bitwise-operators">
+<h3 id="bitwise-operators">Bitwise Operators<a class="headerlink" href="#bitwise-operators" title="Permalink to this headline">¶</a></h3>
+<p>A conforming implementation of the array API standard must provide and support an array object supporting the following Python bitwise operators.</p>
+<ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">~x</span></code>: <a class="reference internal" href="generated/signatures.array_object.array.__invert__.html#signatures.array_object.array.__invert__" title="signatures.array_object.array.__invert__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">array.__invert__()</span></code></a></p>
+<ul>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/operator.html#operator.inv">operator.inv(x)</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/operator.html#operator.invert">operator.invert(x)</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/operator.html#operator.__inv__">operator.__inv__(x)</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/operator.html#operator.__invert__">operator.__invert__(x)</a></p></li>
+</ul>
+</li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">x1</span> <span class="pre">&amp;</span> <span class="pre">x2</span></code>: <a class="reference internal" href="generated/signatures.array_object.array.__and__.html#signatures.array_object.array.__and__" title="signatures.array_object.array.__and__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">array.__and__()</span></code></a></p>
+<ul>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/operator.html#operator.and">operator.and(x1, x2)</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/operator.html#operator.__and__">operator.__and__(x1, x2)</a></p></li>
+</ul>
+</li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">x1</span> <span class="pre">|</span> <span class="pre">x2</span></code>: <a class="reference internal" href="generated/signatures.array_object.array.__or__.html#signatures.array_object.array.__or__" title="signatures.array_object.array.__or__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">array.__or__()</span></code></a></p>
+<ul>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/operator.html#operator.or">operator.or(x1, x2)</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/operator.html#operator.__or__">operator.__or__(x1, x2)</a></p></li>
+</ul>
+</li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">x1</span> <span class="pre">^</span> <span class="pre">x2</span></code>: <a class="reference internal" href="generated/signatures.array_object.array.__xor__.html#signatures.array_object.array.__xor__" title="signatures.array_object.array.__xor__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">array.__xor__()</span></code></a></p>
+<ul>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/operator.html#operator.xor">operator.xor(x1, x2)</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/operator.html#operator.__xor__">operator.__xor__(x1, x2)</a></p></li>
+</ul>
+</li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">x1</span> <span class="pre">&lt;&lt;</span> <span class="pre">x2</span></code>: <a class="reference internal" href="generated/signatures.array_object.array.__lshift__.html#signatures.array_object.array.__lshift__" title="signatures.array_object.array.__lshift__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">array.__lshift__()</span></code></a></p>
+<ul>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/operator.html#operator.lshift">operator.lshift(x1, x2)</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/operator.html#operator.__lshift__">operator.__lshift__(x1, x2)</a></p></li>
+</ul>
+</li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">x1</span> <span class="pre">&gt;&gt;</span> <span class="pre">x2</span></code>: <a class="reference internal" href="generated/signatures.array_object.array.__rshift__.html#signatures.array_object.array.__rshift__" title="signatures.array_object.array.__rshift__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">array.__rshift__()</span></code></a></p>
+<ul>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/operator.html#operator.rshift">operator.rshift(x1, x2)</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/operator.html#operator.__rshift__">operator.__rshift__(x1, x2)</a></p></li>
+</ul>
+</li>
+</ul>
+<p>Bitwise operators should be defined for arrays having integer and boolean data types.</p>
+</section>
+<section id="comparison-operators">
+<h3 id="comparison-operators">Comparison Operators<a class="headerlink" href="#comparison-operators" title="Permalink to this headline">¶</a></h3>
+<p>A conforming implementation of the array API standard must provide and support an array object supporting the following Python comparison operators.</p>
+<ul class="simple">
+<li><p><code class="code docutils literal notranslate"><span class="pre">x1</span> <span class="pre">&lt;</span> <span class="pre">x2</span></code>: <a class="reference internal" href="generated/signatures.array_object.array.__lt__.html#signatures.array_object.array.__lt__" title="signatures.array_object.array.__lt__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">array.__lt__()</span></code></a></p>
+<ul>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/operator.html#operator.lt">operator.lt(x1, x2)</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/operator.html#operator.__lt__">operator.__lt__(x1, x2)</a></p></li>
+</ul>
+</li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">x1</span> <span class="pre">&lt;=</span> <span class="pre">x2</span></code>: <a class="reference internal" href="generated/signatures.array_object.array.__le__.html#signatures.array_object.array.__le__" title="signatures.array_object.array.__le__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">array.__le__()</span></code></a></p>
+<ul>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/operator.html#operator.le">operator.le(x1, x2)</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/operator.html#operator.__le__">operator.__le__(x1, x2)</a></p></li>
+</ul>
+</li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">x1</span> <span class="pre">&gt;</span> <span class="pre">x2</span></code>: <a class="reference internal" href="generated/signatures.array_object.array.__gt__.html#signatures.array_object.array.__gt__" title="signatures.array_object.array.__gt__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">array.__gt__()</span></code></a></p>
+<ul>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/operator.html#operator.gt">operator.gt(x1, x2)</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/operator.html#operator.__gt__">operator.__gt__(x1, x2)</a></p></li>
+</ul>
+</li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">x1</span> <span class="pre">&gt;=</span> <span class="pre">x2</span></code>: <a class="reference internal" href="generated/signatures.array_object.array.__ge__.html#signatures.array_object.array.__ge__" title="signatures.array_object.array.__ge__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">array.__ge__()</span></code></a></p>
+<ul>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/operator.html#operator.ge">operator.ge(x1, x2)</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/operator.html#operator.__ge__">operator.__ge__(x1, x2)</a></p></li>
+</ul>
+</li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">x1</span> <span class="pre">==</span> <span class="pre">x2</span></code>: <a class="reference internal" href="generated/signatures.array_object.array.__eq__.html#signatures.array_object.array.__eq__" title="signatures.array_object.array.__eq__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">array.__eq__()</span></code></a></p>
+<ul>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/operator.html#operator.eq">operator.eq(x1, x2)</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/operator.html#operator.__eq__">operator.__eq__(x1, x2)</a></p></li>
+</ul>
+</li>
+<li><p><code class="code docutils literal notranslate"><span class="pre">x1</span> <span class="pre">!=</span> <span class="pre">x2</span></code>: <a class="reference internal" href="generated/signatures.array_object.array.__ne__.html#signatures.array_object.array.__ne__" title="signatures.array_object.array.__ne__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">array.__ne__()</span></code></a></p>
+<ul>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/operator.html#operator.ne">operator.ne(x1, x2)</a></p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/operator.html#operator.__ne__">operator.__ne__(x1, x2)</a></p></li>
+</ul>
+</li>
+</ul>
+<p>Comparison operators should be defined for arrays having any data type.</p>
+</section>
+<section id="in-place-operators">
+<h3 id="in-place-operators">In-place Operators<a class="headerlink" href="#in-place-operators" title="Permalink to this headline">¶</a></h3>
+<p>A conforming implementation of the array API standard must provide and support an array object supporting the following in-place Python operators.</p>
+<p>An in-place operation must not change the data type or shape of the in-place array as a result of <a class="reference internal" href="type_promotion.html#type-promotion"><span class="std std-ref">Type Promotion Rules</span></a> or <a class="reference internal" href="broadcasting.html#broadcasting"><span class="std std-ref">Broadcasting</span></a>.</p>
+<p>An in-place operation must have the same behavior (including special cases) as its respective binary (i.e., two operand, non-assignment) operation. For example, after in-place addition <code class="docutils literal notranslate"><span class="pre">x1</span> <span class="pre">+=</span> <span class="pre">x2</span></code>, the modified array <code class="docutils literal notranslate"><span class="pre">x1</span></code> must always equal the result of the equivalent binary arithmetic operation <code class="docutils literal notranslate"><span class="pre">x1</span> <span class="pre">=</span> <span class="pre">x1</span> <span class="pre">+</span> <span class="pre">x2</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In-place operators must be supported as discussed in <a class="reference internal" href="../design_topics/copies_views_and_mutation.html#copyview-mutability"><span class="std std-ref">Copy-view behaviour and mutability</span></a>.</p>
+</div>
+<section id="id26">
+<h4 id="id26">Arithmetic Operators<a class="headerlink" href="#id26" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">+=</span></code>. May be implemented via <code class="docutils literal notranslate"><span class="pre">__iadd__</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-=</span></code>. May be implemented via <code class="docutils literal notranslate"><span class="pre">__isub__</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">*=</span></code>. May be implemented via <code class="docutils literal notranslate"><span class="pre">__imul__</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">/=</span></code>. May be implemented via <code class="docutils literal notranslate"><span class="pre">__itruediv__</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">//=</span></code>. May be implemented via <code class="docutils literal notranslate"><span class="pre">__ifloordiv__</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">**=</span></code>. May be implemented via <code class="docutils literal notranslate"><span class="pre">__ipow__</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">%=</span></code>. May be implemented via <code class="docutils literal notranslate"><span class="pre">__imod__</span></code>.</p></li>
+</ul>
+</section>
+<section id="id27">
+<h4 id="id27">Array Operators<a class="headerlink" href="#id27" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">@=</span></code>. May be implemented via <code class="docutils literal notranslate"><span class="pre">__imatmul__</span></code>.</p></li>
+</ul>
+</section>
+<section id="id28">
+<h4 id="id28">Bitwise Operators<a class="headerlink" href="#id28" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&amp;=</span></code>. May be implemented via <code class="docutils literal notranslate"><span class="pre">__iand__</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">|=</span></code>. May be implemented via <code class="docutils literal notranslate"><span class="pre">__ior__</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">^=</span></code>. May be implemented via <code class="docutils literal notranslate"><span class="pre">__ixor__</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&lt;&lt;=</span></code>. May be implemented via <code class="docutils literal notranslate"><span class="pre">__ilshift__</span></code>.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&gt;&gt;=</span></code>. May be implemented via <code class="docutils literal notranslate"><span class="pre">__irshift__</span></code>.</p></li>
+</ul>
+</section>
+</section>
+<section id="reflected-operators">
+<h3 id="reflected-operators">Reflected Operators<a class="headerlink" href="#reflected-operators" title="Permalink to this headline">¶</a></h3>
+<p>A conforming implementation of the array API standard must provide and support an array object supporting the following reflected operators.</p>
+<p>The results of applying reflected operators must match their non-reflected equivalents.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>All operators for which <code class="docutils literal notranslate"><span class="pre">array</span> <span class="pre">&lt;op&gt;</span> <span class="pre">scalar</span></code> is implemented must have an equivalent reflected operator implementation.</p>
+</div>
+<section id="id29">
+<h4 id="id29">Arithmetic Operators<a class="headerlink" href="#id29" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">__radd__</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__rsub__</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__rmul__</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__rtruediv__</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__rfloordiv__</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__rpow__</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__rmod__</span></code></p></li>
+</ul>
+</section>
+<section id="id30">
+<h4 id="id30">Array Operators<a class="headerlink" href="#id30" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">__rmatmul__</span></code></p></li>
+</ul>
+</section>
+<section id="id31">
+<h4 id="id31">Bitwise Operators<a class="headerlink" href="#id31" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">__rand__</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__ror__</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__rxor__</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__rlshift__</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__rrshift__</span></code></p></li>
+</ul>
+</section>
+</section>
+</section>
+<hr class="docutils"/>
+<section id="attributes">
+<h2 id="attributes">Attributes<a class="headerlink" href="#attributes" title="Permalink to this headline">¶</a></h2>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%"/>
+<col style="width: 90%"/>
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/signatures.array_object.array.dtype.html#signatures.array_object.array.dtype" title="signatures.array_object.array.dtype"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array.dtype</span></code></a></p></td>
+<td><p>Data type of the array elements.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/signatures.array_object.array.device.html#signatures.array_object.array.device" title="signatures.array_object.array.device"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array.device</span></code></a></p></td>
+<td><p>Hardware device the array data resides on.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/signatures.array_object.array.mT.html#signatures.array_object.array.mT" title="signatures.array_object.array.mT"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array.mT</span></code></a></p></td>
+<td><p>Transpose of a matrix (or a stack of matrices).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/signatures.array_object.array.ndim.html#signatures.array_object.array.ndim" title="signatures.array_object.array.ndim"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array.ndim</span></code></a></p></td>
+<td><p>Number of array dimensions (axes).</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/signatures.array_object.array.shape.html#signatures.array_object.array.shape" title="signatures.array_object.array.shape"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array.shape</span></code></a></p></td>
+<td><p>Array dimensions.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/signatures.array_object.array.size.html#signatures.array_object.array.size" title="signatures.array_object.array.size"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array.size</span></code></a></p></td>
+<td><p>Number of elements in an array.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/signatures.array_object.array.T.html#signatures.array_object.array.T" title="signatures.array_object.array.T"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array.T</span></code></a></p></td>
+<td><p>Transpose of the array.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<hr class="docutils"/>
+<section id="methods">
+<h2 id="methods">Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%"/>
+<col style="width: 90%"/>
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/signatures.array_object.array.__abs__.html#signatures.array_object.array.__abs__" title="signatures.array_object.array.__abs__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array.__abs__</span></code></a>()</p></td>
+<td><p>Calculates the absolute value for each element of an array instance (i.e., the element-wise result has the same magnitude as the respective element but has positive sign).</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/signatures.array_object.array.__add__.html#signatures.array_object.array.__add__" title="signatures.array_object.array.__add__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array.__add__</span></code></a>(other, /)</p></td>
+<td><p>Calculates the sum for each element of an array instance with the respective element of the array <code class="docutils literal notranslate"><span class="pre">other</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/signatures.array_object.array.__and__.html#signatures.array_object.array.__and__" title="signatures.array_object.array.__and__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array.__and__</span></code></a>(other, /)</p></td>
+<td><p>Evaluates <code class="docutils literal notranslate"><span class="pre">self_i</span> <span class="pre">&amp;</span> <span class="pre">other_i</span></code> for each element of an array instance with the respective element of the array <code class="docutils literal notranslate"><span class="pre">other</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/signatures.array_object.array.__array_namespace__.html#signatures.array_object.array.__array_namespace__" title="signatures.array_object.array.__array_namespace__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array.__array_namespace__</span></code></a>(*, api_version=None)</p></td>
+<td><p>Returns an object that has all the array API functions on it.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/signatures.array_object.array.__bool__.html#signatures.array_object.array.__bool__" title="signatures.array_object.array.__bool__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array.__bool__</span></code></a>()</p></td>
+<td><p>Converts a zero-dimensional boolean array to a Python <code class="docutils literal notranslate"><span class="pre">bool</span></code> object.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/signatures.array_object.array.__dlpack__.html#signatures.array_object.array.__dlpack__" title="signatures.array_object.array.__dlpack__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array.__dlpack__</span></code></a>(*, stream=None)</p></td>
+<td><p>Exports the array for consumption by <a class="reference internal" href="generated/signatures.creation_functions.from_dlpack.html#signatures.creation_functions.from_dlpack" title="signatures.creation_functions.from_dlpack"><code class="xref py py-func docutils literal notranslate"><span class="pre">from_dlpack()</span></code></a> as a DLPack capsule.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/signatures.array_object.array.__dlpack_device__.html#signatures.array_object.array.__dlpack_device__" title="signatures.array_object.array.__dlpack_device__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array.__dlpack_device__</span></code></a>()</p></td>
+<td><p>Returns device type and device ID in DLPack format.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/signatures.array_object.array.__eq__.html#signatures.array_object.array.__eq__" title="signatures.array_object.array.__eq__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array.__eq__</span></code></a>(other, /)</p></td>
+<td><p>Computes the truth value of <code class="docutils literal notranslate"><span class="pre">self_i</span> <span class="pre">==</span> <span class="pre">other_i</span></code> for each element of an array instance with the respective element of the array <code class="docutils literal notranslate"><span class="pre">other</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/signatures.array_object.array.__float__.html#signatures.array_object.array.__float__" title="signatures.array_object.array.__float__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array.__float__</span></code></a>()</p></td>
+<td><p>Converts a zero-dimensional floating-point array to a Python <code class="docutils literal notranslate"><span class="pre">float</span></code> object.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/signatures.array_object.array.__floordiv__.html#signatures.array_object.array.__floordiv__" title="signatures.array_object.array.__floordiv__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array.__floordiv__</span></code></a>(other, /)</p></td>
+<td><p>Evaluates <code class="docutils literal notranslate"><span class="pre">self_i</span> <span class="pre">//</span> <span class="pre">other_i</span></code> for each element of an array instance with the respective element of the array <code class="docutils literal notranslate"><span class="pre">other</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/signatures.array_object.array.__ge__.html#signatures.array_object.array.__ge__" title="signatures.array_object.array.__ge__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array.__ge__</span></code></a>(other, /)</p></td>
+<td><p>Computes the truth value of <code class="docutils literal notranslate"><span class="pre">self_i</span> <span class="pre">&gt;=</span> <span class="pre">other_i</span></code> for each element of an array instance with the respective element of the array <code class="docutils literal notranslate"><span class="pre">other</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/signatures.array_object.array.__getitem__.html#signatures.array_object.array.__getitem__" title="signatures.array_object.array.__getitem__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array.__getitem__</span></code></a>(key, /)</p></td>
+<td><p>Returns <code class="docutils literal notranslate"><span class="pre">self[key]</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/signatures.array_object.array.__gt__.html#signatures.array_object.array.__gt__" title="signatures.array_object.array.__gt__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array.__gt__</span></code></a>(other, /)</p></td>
+<td><p>Computes the truth value of <code class="docutils literal notranslate"><span class="pre">self_i</span> <span class="pre">&gt;</span> <span class="pre">other_i</span></code> for each element of an array instance with the respective element of the array <code class="docutils literal notranslate"><span class="pre">other</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/signatures.array_object.array.__index__.html#signatures.array_object.array.__index__" title="signatures.array_object.array.__index__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array.__index__</span></code></a>()</p></td>
+<td><p>Converts a zero-dimensional integer array to a Python <code class="docutils literal notranslate"><span class="pre">int</span></code> object.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/signatures.array_object.array.__int__.html#signatures.array_object.array.__int__" title="signatures.array_object.array.__int__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array.__int__</span></code></a>()</p></td>
+<td><p>Converts a zero-dimensional integer array to a Python <code class="docutils literal notranslate"><span class="pre">int</span></code> object.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/signatures.array_object.array.__invert__.html#signatures.array_object.array.__invert__" title="signatures.array_object.array.__invert__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array.__invert__</span></code></a>()</p></td>
+<td><p>Evaluates <code class="docutils literal notranslate"><span class="pre">~self_i</span></code> for each element of an array instance.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/signatures.array_object.array.__le__.html#signatures.array_object.array.__le__" title="signatures.array_object.array.__le__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array.__le__</span></code></a>(other, /)</p></td>
+<td><p>Computes the truth value of <code class="docutils literal notranslate"><span class="pre">self_i</span> <span class="pre">&lt;=</span> <span class="pre">other_i</span></code> for each element of an array instance with the respective element of the array <code class="docutils literal notranslate"><span class="pre">other</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/signatures.array_object.array.__lshift__.html#signatures.array_object.array.__lshift__" title="signatures.array_object.array.__lshift__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array.__lshift__</span></code></a>(other, /)</p></td>
+<td><p>Evaluates <code class="docutils literal notranslate"><span class="pre">self_i</span> <span class="pre">&lt;&lt;</span> <span class="pre">other_i</span></code> for each element of an array instance with the respective element  of the array <code class="docutils literal notranslate"><span class="pre">other</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/signatures.array_object.array.__lt__.html#signatures.array_object.array.__lt__" title="signatures.array_object.array.__lt__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array.__lt__</span></code></a>(other, /)</p></td>
+<td><p>Computes the truth value of <code class="docutils literal notranslate"><span class="pre">self_i</span> <span class="pre">&lt;</span> <span class="pre">other_i</span></code> for each element of an array instance with the respective element of the array <code class="docutils literal notranslate"><span class="pre">other</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/signatures.array_object.array.__matmul__.html#signatures.array_object.array.__matmul__" title="signatures.array_object.array.__matmul__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array.__matmul__</span></code></a>(other, /)</p></td>
+<td><p>Computes the matrix product.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/signatures.array_object.array.__mod__.html#signatures.array_object.array.__mod__" title="signatures.array_object.array.__mod__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array.__mod__</span></code></a>(other, /)</p></td>
+<td><p>Evaluates <code class="docutils literal notranslate"><span class="pre">self_i</span> <span class="pre">%</span> <span class="pre">other_i</span></code> for each element of an array instance with the respective element of the array <code class="docutils literal notranslate"><span class="pre">other</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/signatures.array_object.array.__mul__.html#signatures.array_object.array.__mul__" title="signatures.array_object.array.__mul__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array.__mul__</span></code></a>(other, /)</p></td>
+<td><p>Calculates the product for each element of an array instance with the respective element of the array <code class="docutils literal notranslate"><span class="pre">other</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/signatures.array_object.array.__ne__.html#signatures.array_object.array.__ne__" title="signatures.array_object.array.__ne__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array.__ne__</span></code></a>(other, /)</p></td>
+<td><p>Computes the truth value of <code class="docutils literal notranslate"><span class="pre">self_i</span> <span class="pre">!=</span> <span class="pre">other_i</span></code> for each element of an array instance with the respective element of the array <code class="docutils literal notranslate"><span class="pre">other</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/signatures.array_object.array.__neg__.html#signatures.array_object.array.__neg__" title="signatures.array_object.array.__neg__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array.__neg__</span></code></a>()</p></td>
+<td><p>Evaluates <code class="docutils literal notranslate"><span class="pre">-self_i</span></code> for each element of an array instance.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/signatures.array_object.array.__or__.html#signatures.array_object.array.__or__" title="signatures.array_object.array.__or__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array.__or__</span></code></a>(other, /)</p></td>
+<td><p>Evaluates <code class="docutils literal notranslate"><span class="pre">self_i</span> <span class="pre">|</span> <span class="pre">other_i</span></code> for each element of an array instance with the respective element of the array <code class="docutils literal notranslate"><span class="pre">other</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/signatures.array_object.array.__pos__.html#signatures.array_object.array.__pos__" title="signatures.array_object.array.__pos__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array.__pos__</span></code></a>()</p></td>
+<td><p>Evaluates <code class="docutils literal notranslate"><span class="pre">+self_i</span></code> for each element of an array instance.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/signatures.array_object.array.__pow__.html#signatures.array_object.array.__pow__" title="signatures.array_object.array.__pow__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array.__pow__</span></code></a>(other, /)</p></td>
+<td><p>Calculates an implementation-dependent approximation of exponentiation by raising each element (the base) of an array instance to the power of <code class="docutils literal notranslate"><span class="pre">other_i</span></code> (the exponent), where <code class="docutils literal notranslate"><span class="pre">other_i</span></code> is the corresponding element of the array <code class="docutils literal notranslate"><span class="pre">other</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/signatures.array_object.array.__rshift__.html#signatures.array_object.array.__rshift__" title="signatures.array_object.array.__rshift__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array.__rshift__</span></code></a>(other, /)</p></td>
+<td><p>Evaluates <code class="docutils literal notranslate"><span class="pre">self_i</span> <span class="pre">&gt;&gt;</span> <span class="pre">other_i</span></code> for each element of an array instance with the respective element of the array <code class="docutils literal notranslate"><span class="pre">other</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/signatures.array_object.array.__setitem__.html#signatures.array_object.array.__setitem__" title="signatures.array_object.array.__setitem__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array.__setitem__</span></code></a>(key, value, /)</p></td>
+<td><p>Sets <code class="docutils literal notranslate"><span class="pre">self[key]</span></code> to <code class="docutils literal notranslate"><span class="pre">value</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/signatures.array_object.array.__sub__.html#signatures.array_object.array.__sub__" title="signatures.array_object.array.__sub__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array.__sub__</span></code></a>(other, /)</p></td>
+<td><p>Calculates the difference for each element of an array instance with the respective element of the array <code class="docutils literal notranslate"><span class="pre">other</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/signatures.array_object.array.__truediv__.html#signatures.array_object.array.__truediv__" title="signatures.array_object.array.__truediv__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array.__truediv__</span></code></a>(other, /)</p></td>
+<td><p>Evaluates <code class="docutils literal notranslate"><span class="pre">self_i</span> <span class="pre">/</span> <span class="pre">other_i</span></code> for each element of an array instance with the respective element of the array <code class="docutils literal notranslate"><span class="pre">other</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/signatures.array_object.array.__xor__.html#signatures.array_object.array.__xor__" title="signatures.array_object.array.__xor__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array.__xor__</span></code></a>(other, /)</p></td>
+<td><p>Evaluates <code class="docutils literal notranslate"><span class="pre">self_i</span> <span class="pre">^</span> <span class="pre">other_i</span></code> for each element of an array instance with the respective element of the array <code class="docutils literal notranslate"><span class="pre">other</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/signatures.array_object.array.to_device.html#signatures.array_object.array.to_device" title="signatures.array_object.array.to_device"><code class="xref py py-obj docutils literal notranslate"><span class="pre">array.to_device</span></code></a>(device, /, *, stream=None)</p></td>
+<td><p>Copy the array from the device on which it currently resides to the specified <code class="docutils literal notranslate"><span class="pre">device</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+
+
+          </article>
+        </div>
+      </div>
+    </main>
+  </div>
+  <footer class="md-footer">
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+          
+            <a href="index.html" title="API specification"
+               class="md-flex md-footer-nav__link md-footer-nav__link--prev"
+               rel="prev">
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+              </div>
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span
+                      class="md-footer-nav__direction"> Previous </span> API specification </span>
+              </div>
+            </a>
+          
+          
+            <a href="generated/signatures.array_object.array.dtype.html" title="dtype"
+               class="md-flex md-footer-nav__link md-footer-nav__link--next"
+               rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
+                class="md-flex__ellipsis"> <span
+                class="md-footer-nav__direction"> Next </span> dtype </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink"><i
+                class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          
+        </a>
+        
+      </nav>
+    </div>
+    <div class="md-footer-meta md-typeset">
+      <div class="md-footer-meta__inner md-grid">
+        <div class="md-footer-copyright">
+          <div class="md-footer-copyright__highlight">
+              &#169; Copyright 2020, Consortium for Python Data API Standards.
+              
+          </div>
+            Created using
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.3.0.
+             and
+            <a href="https://github.com/bashtage/sphinx-material/">Material for
+              Sphinx</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="../_static/javascripts/application.js"></script>
+  <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
+  </body>
+</html>

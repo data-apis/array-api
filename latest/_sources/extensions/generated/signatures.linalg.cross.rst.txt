@@ -1,0 +1,6 @@
+﻿.. currentmodule:: signatures.linalg
+
+cross
+=====
+
+.. autofunction:: cross

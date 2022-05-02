@@ -1,0 +1,6 @@
+﻿.. currentmodule:: signatures.linalg
+
+matrix_transpose
+================
+
+.. autofunction:: matrix_transpose
