@@ -1,0 +1,6 @@
+﻿.. currentmodule:: signatures.data_type_functions
+
+result_type
+===========
+
+.. autofunction:: result_type

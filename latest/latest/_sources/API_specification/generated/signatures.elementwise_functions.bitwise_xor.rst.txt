@@ -1,0 +1,6 @@
+﻿.. currentmodule:: signatures.elementwise_functions
+
+bitwise_xor
+===========
+
+.. autofunction:: bitwise_xor

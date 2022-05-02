@@ -1,0 +1,6 @@
+﻿.. currentmodule:: signatures.statistical_functions
+
+min
+===
+
+.. autofunction:: min

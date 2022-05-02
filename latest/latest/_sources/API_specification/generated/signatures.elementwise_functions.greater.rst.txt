@@ -1,0 +1,6 @@
+﻿.. currentmodule:: signatures.elementwise_functions
+
+greater
+=======
+
+.. autofunction:: greater

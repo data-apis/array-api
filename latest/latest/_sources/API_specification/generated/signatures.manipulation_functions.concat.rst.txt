@@ -1,0 +1,6 @@
+﻿.. currentmodule:: signatures.manipulation_functions
+
+concat
+======
+
+.. autofunction:: concat
