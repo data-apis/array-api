@@ -121,10 +121,12 @@ jobs:
       - name: 'Commit changes'
         run: |
           git add . && git commit -m "Deploy: ${{ github.sha }}"
+        continue_on_error: true
         timeout-minutes: 10
 
       # Push changes:
       - name: 'Push changes'
+        if: success()
         run: |
           git push "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/${{ github.repository }}.git"
         timeout-minutes: 10
