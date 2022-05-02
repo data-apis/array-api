@@ -3,6 +3,11 @@
 Copy-view behaviour and mutability
 ==================================
 
+.. admonition:: Mutating views
+   :class: important
+
+   Array API consumers are *strongly* advised to avoid *any* mutating operations when an array object may be either a "view" (i.e., an array whose data refers to memory that belongs to another array) or own memory of which one or more other array objects may be views. This admonition may become more strict in the future (e.g., this specification may require that view mutation be prohibited and trigger an exception). Accordingly, only perform mutation operations (e.g., in-place assignment) when absolutely confident that array data belongs to one, and only one, array object.
+
 Strided array implementations (e.g. NumPy, PyTorch, CuPy, MXNet) typically
 have the concept of a "view", meaning an array containing data in memory that
 belongs to another array (i.e. a different "view" on the original data).
@@ -70,6 +75,3 @@ of reusing arrays that are no longer needed as buffers.
 This leaves the problem of the initial example - with this API standard it
 remains possible to write code that will not work the same for all array
 libraries. This is something that the user must be careful about.
-
-.. note::
-   It is recommended that users avoid any mutating operations when a view may be involved.
