@@ -1,0 +1,6 @@
+﻿.. currentmodule:: signatures.elementwise_functions
+
+bitwise_and
+===========
+
+.. autofunction:: bitwise_and
