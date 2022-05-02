@@ -65,6 +65,9 @@ jobs:
 
           # Specify whether to download Git-LFS files:
           lfs: false
+
+          # GitHub token:
+          token: ${{ secrets.GITHUB_TOKEN }}
         timeout-minutes: 10
 
       # Install Python:
@@ -82,9 +85,8 @@ jobs:
       # Generate the documentation:
       - name: 'Build documentation'
         run: |
-          # Turn warnings into errors; ensure .doctrees doesn't get deployed
+          # Turn warnings into errors and ensure .doctrees is not deployed:
           sphinx-build -b html -WT --keep-going spec build/latest -d doctrees
-          touch build/.nojekyll
 
       # Upload the build artifact:
       - name: 'Upload build artifact'
@@ -95,10 +97,27 @@ jobs:
           path: build/
           if-no-files-found: error
 
-      # Deploy the build artifact to gh-pages:
-      - name: 'Deploy'
-        uses: peaceiris/actions-gh-pages@v3
-        if: ${{ github.ref == 'refs/heads/main'}}
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build
+      # Configure Git:
+      - name: 'Configure Git'
+        run: |
+          git config --local user.email "noreply@data-apis.org"
+          git config --local user.name "array-api-bot"
+        timeout-minutes: 5
+
+      # Checkout the gh-pages branch:
+      - name: 'Checkout gh-pages'
+        run: |
+          git checkout gh-pages
+        timeout-minutes: 5
+
+      # Copy build artifact:
+      - name: 'Copy build artifact'
+        run: |
+          cp -R ./build/latest ./latest
+        timeout-minutes: 10
+
+      # Push changes to GitHub:
+      - name: 'Committing changes'
+        run: |
+          git commit -m "Deploy: ${{ github.sha }}" && git push origin gh-pages
+        timeout-minutes: 10
