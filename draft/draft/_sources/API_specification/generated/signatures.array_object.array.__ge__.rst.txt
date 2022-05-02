@@ -1,0 +1,6 @@
+﻿.. currentmodule:: signatures.array_object
+
+__ge__
+======
+
+.. automethod:: array.__ge__

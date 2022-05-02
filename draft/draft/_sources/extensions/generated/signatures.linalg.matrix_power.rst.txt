@@ -1,0 +1,6 @@
+﻿.. currentmodule:: signatures.linalg
+
+matrix_power
+============
+
+.. autofunction:: matrix_power
