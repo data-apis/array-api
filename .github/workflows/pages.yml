@@ -86,7 +86,7 @@ jobs:
       - name: 'Build documentation'
         run: |
           # Turn warnings into errors and ensure .doctrees is not deployed:
-          sphinx-build -b html -WT --keep-going spec build/latest -d doctrees
+          sphinx-build -b html -WT --keep-going spec build/draft -d doctrees
 
       # Upload the build artifact:
       - name: 'Upload build artifact'
@@ -114,7 +114,7 @@ jobs:
       # Copy build artifact:
       - name: 'Copy build artifact'
         run: |
-          cp -R ./build/latest ./latest
+          cp -R ./build/draft ./draft
         timeout-minutes: 10
 
       # Commit changes to:
