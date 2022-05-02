@@ -22,7 +22,7 @@ copyright = '2020, Consortium for Python Data API Standards'
 author = 'Consortium for Python Data API Standards'
 
 # The full version, including alpha/beta/rc tags
-release = '2021.01-DRAFT'
+release = '2021.12'
 
 
 # -- General configuration ---------------------------------------------------
