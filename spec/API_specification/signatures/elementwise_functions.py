@@ -1108,6 +1108,16 @@ def pow(x1: array, x2: array, /) -> array:
         an array containing the element-wise results. The returned array must have a data type determined by :ref:`type-promotion`.
     """
 
+def real(x: array, /) -> array:
+    """
+    Returns the real component of a complex number for each element ``x_i`` of the input array ``x``.
+
+    Parameters
+    ----------
+    x: array
+        input array.
+    """
+
 def remainder(x1: array, x2: array, /) -> array:
     """
     Returns the remainder of division for each element ``x1_i`` of the input array ``x1`` and the respective element ``x2_i`` of the input array ``x2``.
