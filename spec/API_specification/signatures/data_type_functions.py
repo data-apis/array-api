@@ -8,9 +8,9 @@ def astype(x: array, dtype: dtype, /, *, copy: bool = True) -> array:
        Casting floating-point ``NaN`` and ``infinity`` values to integral data types is not specified and is implementation-dependent.
 
     .. note::
-       When casting a boolean input array to a numeric data type, a value of ``True`` must cast to a numeric value equal to ``1``, and a value of ``False`` must cast to a numeric value equal to ``0``.
+       When casting a boolean input array to a real-valued data type, a value of ``True`` must cast to a numeric value equal to ``1``, and a value of ``False`` must cast to a numeric value equal to ``0``.
 
-       When casting a numeric input array to ``bool``, a value of ``0`` must cast to ``False``, and a non-zero value must cast to ``True``.
+       When casting a real-valued input array to ``bool``, a value of ``0`` must cast to ``False``, and a non-zero value must cast to ``True``.
 
     Parameters
     ----------

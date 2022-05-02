@@ -31,9 +31,9 @@ def cross(x1: array, x2: array, /, *, axis: int = -1) -> array:
     Parameters
     ----------
     x1: array
-        first input array. Should have a numeric data type.
+        first input array. Should have a real-valued data type.
     x2: array
-        second input array. Must have the same shape as ``x1``.  Should have a numeric data type.
+        second input array. Must have the same shape as ``x1``.  Should have a real-valued data type.
     axis: int
         the axis (dimension) of ``x1`` and ``x2`` containing the vectors for which to compute the cross product. If set to ``-1``, the function computes the cross product for vectors defined by the last axis (dimension). Default: ``-1``.
 
@@ -259,9 +259,9 @@ def outer(x1: array, x2: array, /) -> array:
     Parameters
     ----------
     x1: array
-        first one-dimensional input array of size ``N``. Should have a numeric data type.
+        first one-dimensional input array of size ``N``. Should have a real-valued data type.
     x2: array
-        second one-dimensional input array of size ``M``. Should have a numeric data type.
+        second one-dimensional input array of size ``M``. Should have a real-valued data type.
 
     Returns
     -------
@@ -416,7 +416,7 @@ def trace(x: array, /, *, offset: int = 0) -> array:
     Parameters
     ----------
     x: array
-        input array having shape ``(..., M, N)`` and whose innermost two dimensions form ``MxN`` matrices. Should have a numeric data type.
+        input array having shape ``(..., M, N)`` and whose innermost two dimensions form ``MxN`` matrices. Should have a real-valued data type.
     offset: int
         offset specifying the off-diagonal relative to the main diagonal.
 

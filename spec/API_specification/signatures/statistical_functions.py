@@ -16,7 +16,7 @@ def max(x: array, /, *, axis: Optional[Union[int, Tuple[int, ...]]] = None, keep
     Parameters
     ----------
     x: array
-        input array. Should have a numeric data type.
+        input array. Should have a real-valued data type.
     axis: Optional[Union[int, Tuple[int, ...]]]
         axis or axes along which maximum values must be computed. By default, the maximum value must be computed over the entire array. If a tuple of integers, maximum values must be computed over multiple axes. Default: ``None``.
     keepdims: bool
@@ -73,7 +73,7 @@ def min(x: array, /, *, axis: Optional[Union[int, Tuple[int, ...]]] = None, keep
     Parameters
     ----------
     x: array
-        input array. Should have a numeric data type.
+        input array. Should have a real-valued data type.
     axis: Optional[Union[int, Tuple[int, ...]]]
         axis or axes along which minimum values must be computed. By default, the minimum value must be computed over the entire array. If a tuple of integers, minimum values must be computed over multiple axes. Default: ``None``.
     keepdims: bool
@@ -102,7 +102,7 @@ def prod(x: array, /, *, axis: Optional[Union[int, Tuple[int, ...]]] = None, dty
     Parameters
     ----------
     x: array
-        input array. Should have a numeric data type.
+        input array. Should have a real-valued data type.
     axis: Optional[Union[int, Tuple[int, ...]]]
         axis or axes along which products must be computed. By default, the product must be computed over the entire array. If a tuple of integers, products must be computed over multiple axes. Default: ``None``.
     dtype: Optional[dtype]
@@ -175,7 +175,7 @@ def sum(x: array, /, *, axis: Optional[Union[int, Tuple[int, ...]]] = None, dtyp
     Parameters
     ----------
     x: array
-        input array. Should have a numeric data type.
+        input array. Should have a real-valued data type.
     axis: Optional[Union[int, Tuple[int, ...]]]
         axis or axes along which sums must be computed. By default, the sum must be computed over the entire array. If a tuple of integers, sums must be computed over multiple axes. Default: ``None``.
     dtype: Optional[dtype]

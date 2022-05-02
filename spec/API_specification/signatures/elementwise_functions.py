@@ -18,7 +18,7 @@ def abs(x: array, /) -> array:
     Parameters
     ----------
     x: array
-        input array. Should have a numeric data type.
+        input array. Should have a real-valued data type.
 
     Returns
     -------
@@ -106,9 +106,9 @@ def add(x1: array, x2: array, /) -> array:
     Parameters
     ----------
     x1: array
-        first input array. Should have a numeric data type.
+        first input array. Should have a real-valued data type.
     x2: array
-        second input array. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have a numeric data type.
+        second input array. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have a real-valued data type.
 
     Returns
     -------
@@ -393,7 +393,7 @@ def ceil(x: array, /) -> array:
     Parameters
     ----------
     x: array
-        input array. Should have a numeric data type.
+        input array. Should have a real-valued data type.
 
     Returns
     -------
@@ -490,9 +490,9 @@ def divide(x1: array, x2: array, /) -> array:
     Parameters
     ----------
     x1: array
-        dividend input array. Should have a numeric data type.
+        dividend input array. Should have a real-valued data type.
     x2: array
-        divisor input array. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have a numeric data type.
+        divisor input array. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have a real-valued data type.
 
     Returns
     -------
@@ -589,7 +589,7 @@ def floor(x: array, /) -> array:
     Parameters
     ----------
     x: array
-        input array. Should have a numeric data type.
+        input array. Should have a real-valued data type.
 
     Returns
     -------
@@ -643,9 +643,9 @@ def floor_divide(x1: array, x2: array, /) -> array:
     Parameters
     ----------
     x1: array
-        dividend input array. Should have a numeric data type.
+        dividend input array. Should have a real-valued data type.
     x2: array
-        divisor input array. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have a numeric data type.
+        divisor input array. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have a real-valued data type.
 
     Returns
     -------
@@ -660,9 +660,9 @@ def greater(x1: array, x2: array, /) -> array:
     Parameters
     ----------
     x1: array
-        first input array. Should have a numeric data type.
+        first input array. Should have a real-valued data type.
     x2: array
-        second input array. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have a numeric data type.
+        second input array. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have a real-valued data type.
 
     Returns
     -------
@@ -677,9 +677,9 @@ def greater_equal(x1: array, x2: array, /) -> array:
     Parameters
     ----------
     x1: array
-        first input array. Should have a numeric data type.
+        first input array. Should have a real-valued data type.
     x2: array
-        second input array. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have a numeric data type.
+        second input array. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have a real-valued data type.
 
     Returns
     -------
@@ -694,7 +694,7 @@ def isfinite(x: array, /) -> array:
     Parameters
     ----------
     x: array
-        input array. Should have a numeric data type.
+        input array. Should have a real-valued data type.
 
     Returns
     -------
@@ -709,7 +709,7 @@ def isinf(x: array, /) -> array:
     Parameters
     ----------
     x: array
-        input array. Should have a numeric data type.
+        input array. Should have a real-valued data type.
 
     Returns
     -------
@@ -724,7 +724,7 @@ def isnan(x: array, /) -> array:
     Parameters
     ----------
     x: array
-        input array. Should have a numeric data type.
+        input array. Should have a real-valued data type.
 
     Returns
     -------
@@ -739,9 +739,9 @@ def less(x1: array, x2: array, /) -> array:
     Parameters
     ----------
     x1: array
-        first input array. Should have a numeric data type.
+        first input array. Should have a real-valued data type.
     x2: array
-        second input array. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have a numeric data type.
+        second input array. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have a real-valued data type.
 
     Returns
     -------
@@ -756,9 +756,9 @@ def less_equal(x1: array, x2: array, /) -> array:
     Parameters
     ----------
     x1: array
-        first input array. Should have a numeric data type.
+        first input array. Should have a real-valued data type.
     x2: array
-        second input array. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have a numeric data type.
+        second input array. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have a real-valued data type.
 
     Returns
     -------
@@ -900,7 +900,7 @@ def logical_and(x1: array, x2: array, /) -> array:
     Computes the logical AND for each element ``x1_i`` of the input array ``x1`` with the respective element ``x2_i`` of the input array ``x2``.
 
     .. note::
-       While this specification recommends that this function only accept input arrays having a boolean data type, specification-compliant array libraries may choose to accept input arrays having numeric data types. If non-boolean data types are supported, zeros must be considered the equivalent of ``False``, while non-zeros must be considered the equivalent of ``True``.
+       While this specification recommends that this function only accept input arrays having a boolean data type, specification-compliant array libraries may choose to accept input arrays having real-valued data types. If non-boolean data types are supported, zeros must be considered the equivalent of ``False``, while non-zeros must be considered the equivalent of ``True``.
 
     Parameters
     ----------
@@ -920,7 +920,7 @@ def logical_not(x: array, /) -> array:
     Computes the logical NOT for each element ``x_i`` of the input array ``x``.
 
     .. note::
-       While this specification recommends that this function only accept input arrays having a boolean data type, specification-compliant array libraries may choose to accept input arrays having numeric data types. If non-boolean data types are supported, zeros must be considered the equivalent of ``False``, while non-zeros must be considered the equivalent of ``True``.
+       While this specification recommends that this function only accept input arrays having a boolean data type, specification-compliant array libraries may choose to accept input arrays having real-valued data types. If non-boolean data types are supported, zeros must be considered the equivalent of ``False``, while non-zeros must be considered the equivalent of ``True``.
 
     Parameters
     ----------
@@ -938,7 +938,7 @@ def logical_or(x1: array, x2: array, /) -> array:
     Computes the logical OR for each element ``x1_i`` of the input array ``x1`` with the respective element ``x2_i`` of the input array ``x2``.
 
     .. note::
-       While this specification recommends that this function only accept input arrays having a boolean data type, specification-compliant array libraries may choose to accept input arrays having numeric data types. If non-boolean data types are supported, zeros must be considered the equivalent of ``False``, while non-zeros must be considered the equivalent of ``True``.
+       While this specification recommends that this function only accept input arrays having a boolean data type, specification-compliant array libraries may choose to accept input arrays having real-valued data types. If non-boolean data types are supported, zeros must be considered the equivalent of ``False``, while non-zeros must be considered the equivalent of ``True``.
 
     Parameters
     ----------
@@ -958,7 +958,7 @@ def logical_xor(x1: array, x2: array, /) -> array:
     Computes the logical XOR for each element ``x1_i`` of the input array ``x1`` with the respective element ``x2_i`` of the input array ``x2``.
 
     .. note::
-       While this specification recommends that this function only accept input arrays having a boolean data type, specification-compliant array libraries may choose to accept input arrays having numeric data types. If non-boolean data types are supported, zeros must be considered the equivalent of ``False``, while non-zeros must be considered the equivalent of ``True``.
+       While this specification recommends that this function only accept input arrays having a boolean data type, specification-compliant array libraries may choose to accept input arrays having real-valued data types. If non-boolean data types are supported, zeros must be considered the equivalent of ``False``, while non-zeros must be considered the equivalent of ``True``.
 
     Parameters
     ----------
@@ -997,9 +997,9 @@ def multiply(x1: array, x2: array, /) -> array:
     Parameters
     ----------
     x1: array
-        first input array. Should have a numeric data type.
+        first input array. Should have a real-valued data type.
     x2: array
-        second input array. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have a numeric data type.
+        second input array. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have a real-valued data type.
 
     Returns
     -------
@@ -1017,7 +1017,7 @@ def negative(x: array, /) -> array:
     Parameters
     ----------
     x: array
-        input array. Should have a numeric data type.
+        input array. Should have a real-valued data type.
 
     Returns
     -------
@@ -1049,7 +1049,7 @@ def positive(x: array, /) -> array:
     Parameters
     ----------
     x: array
-        input array. Should have a numeric data type.
+        input array. Should have a real-valued data type.
 
     Returns
     -------
@@ -1098,9 +1098,9 @@ def pow(x1: array, x2: array, /) -> array:
     Parameters
     ----------
     x1: array
-        first input array whose elements correspond to the exponentiation base. Should have a numeric data type.
+        first input array whose elements correspond to the exponentiation base. Should have a real-valued data type.
     x2: array
-        second input array whose elements correspond to the exponentiation exponent. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have a numeric data type.
+        second input array whose elements correspond to the exponentiation exponent. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have a real-valued data type.
 
     Returns
     -------
@@ -1149,9 +1149,9 @@ def remainder(x1: array, x2: array, /) -> array:
     Parameters
     ----------
     x1: array
-        dividend input array. Should have a numeric data type.
+        dividend input array. Should have a real-valued data type.
     x2: array
-        divisor input array. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have a numeric data type.
+        divisor input array. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have a real-valued data type.
 
     Returns
     -------
@@ -1179,7 +1179,7 @@ def round(x: array, /) -> array:
     Parameters
     ----------
     x: array
-        input array. Should have a numeric data type.
+        input array. Should have a real-valued data type.
 
     Returns
     -------
@@ -1200,7 +1200,7 @@ def sign(x: array, /) -> array:
     Parameters
     ----------
     x: array
-        input array. Should have a numeric data type.
+        input array. Should have a real-valued data type.
 
     Returns
     -------
@@ -1264,7 +1264,7 @@ def square(x: array, /) -> array:
     Parameters
     ----------
     x: array
-        input array. Should have a numeric data type.
+        input array. Should have a real-valued data type.
 
     Returns
     -------
@@ -1304,9 +1304,9 @@ def subtract(x1: array, x2: array, /) -> array:
     Parameters
     ----------
     x1: array
-        first input array. Should have a numeric data type.
+        first input array. Should have a real-valued data type.
     x2: array
-        second input array. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have a numeric data type.
+        second input array. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have a real-valued data type.
 
     Returns
     -------
@@ -1382,7 +1382,7 @@ def trunc(x: array, /) -> array:
     Parameters
     ----------
     x: array
-        input array. Should have a numeric data type.
+        input array. Should have a real-valued data type.
 
     Returns
     -------

@@ -126,7 +126,7 @@ class _array():
         Parameters
         ----------
         self: array
-            array instance. Should have a numeric data type.
+            array instance. Should have a real-valued data type.
 
         Returns
         -------
@@ -170,9 +170,9 @@ class _array():
         Parameters
         ----------
         self: array
-            array instance (augend array). Should have a numeric data type.
+            array instance (augend array). Should have a real-valued data type.
         other: Union[int, float, array]
-            addend array. Must be compatible with ``self`` (see :ref:`broadcasting`). Should have a numeric data type.
+            addend array. Must be compatible with ``self`` (see :ref:`broadcasting`). Should have a real-valued data type.
 
         Returns
         -------
@@ -400,9 +400,9 @@ class _array():
         Parameters
         ----------
         self: array
-            array instance. Should have a numeric data type.
+            array instance. Should have a real-valued data type.
         other: Union[int, float, array]
-            other array. Must be compatible with ``self`` (see :ref:`broadcasting`). Should have a numeric data type.
+            other array. Must be compatible with ``self`` (see :ref:`broadcasting`). Should have a real-valued data type.
 
         Returns
         -------
@@ -421,9 +421,9 @@ class _array():
         Parameters
         ----------
         self: array
-            array instance. Should have a numeric data type.
+            array instance. Should have a real-valued data type.
         other: Union[int, float, array]
-            other array. Must be compatible with ``self`` (see :ref:`broadcasting`). Should have a numeric data type.
+            other array. Must be compatible with ``self`` (see :ref:`broadcasting`). Should have a real-valued data type.
 
         Returns
         -------
@@ -459,9 +459,9 @@ class _array():
         Parameters
         ----------
         self: array
-            array instance. Should have a numeric data type.
+            array instance. Should have a real-valued data type.
         other: Union[int, float, array]
-            other array. Must be compatible with ``self`` (see :ref:`broadcasting`). Should have a numeric data type.
+            other array. Must be compatible with ``self`` (see :ref:`broadcasting`). Should have a real-valued data type.
 
         Returns
         -------
@@ -532,9 +532,9 @@ class _array():
         Parameters
         ----------
         self: array
-            array instance. Should have a numeric data type.
+            array instance. Should have a real-valued data type.
         other: Union[int, float, array]
-            other array. Must be compatible with ``self`` (see :ref:`broadcasting`). Should have a numeric data type.
+            other array. Must be compatible with ``self`` (see :ref:`broadcasting`). Should have a real-valued data type.
 
         Returns
         -------
@@ -574,9 +574,9 @@ class _array():
         Parameters
         ----------
         self: array
-            array instance. Should have a numeric data type.
+            array instance. Should have a real-valued data type.
         other: Union[int, float, array]
-            other array. Must be compatible with ``self`` (see :ref:`broadcasting`). Should have a numeric data type.
+            other array. Must be compatible with ``self`` (see :ref:`broadcasting`). Should have a real-valued data type.
 
         Returns
         -------
@@ -598,9 +598,9 @@ class _array():
         Parameters
         ----------
         self: array
-            array instance. Should have a numeric data type. Must have at least one dimension. If ``self`` is one-dimensional having shape ``(M,)`` and ``other`` has more than one dimension, ``self`` must be promoted to a two-dimensional array by prepending ``1`` to its dimensions (i.e., must have shape ``(1, M)``). After matrix multiplication, the prepended dimensions in the returned array must be removed. If ``self`` has more than one dimension (including after vector-to-matrix promotion), ``shape(self)[:-2]`` must be compatible with ``shape(other)[:-2]`` (after vector-to-matrix promotion) (see :ref:`broadcasting`). If ``self`` has shape ``(..., M, K)``, the innermost two dimensions form matrices on which to perform matrix multiplication.
+            array instance. Should have a real-valued data type. Must have at least one dimension. If ``self`` is one-dimensional having shape ``(M,)`` and ``other`` has more than one dimension, ``self`` must be promoted to a two-dimensional array by prepending ``1`` to its dimensions (i.e., must have shape ``(1, M)``). After matrix multiplication, the prepended dimensions in the returned array must be removed. If ``self`` has more than one dimension (including after vector-to-matrix promotion), ``shape(self)[:-2]`` must be compatible with ``shape(other)[:-2]`` (after vector-to-matrix promotion) (see :ref:`broadcasting`). If ``self`` has shape ``(..., M, K)``, the innermost two dimensions form matrices on which to perform matrix multiplication.
         other: array
-            other array. Should have a numeric data type. Must have at least one dimension. If ``other`` is one-dimensional having shape ``(N,)`` and ``self`` has more than one dimension, ``other`` must be promoted to a two-dimensional array by appending ``1`` to its dimensions (i.e., must have shape ``(N, 1)``). After matrix multiplication, the appended dimensions in the returned array must be removed. If ``other`` has more than one dimension (including after vector-to-matrix promotion), ``shape(other)[:-2]`` must be compatible with ``shape(self)[:-2]`` (after vector-to-matrix promotion) (see :ref:`broadcasting`). If ``other`` has shape ``(..., K, N)``, the innermost two dimensions form matrices on which to perform matrix multiplication.
+            other array. Should have a real-valued data type. Must have at least one dimension. If ``other`` is one-dimensional having shape ``(N,)`` and ``self`` has more than one dimension, ``other`` must be promoted to a two-dimensional array by appending ``1`` to its dimensions (i.e., must have shape ``(N, 1)``). After matrix multiplication, the appended dimensions in the returned array must be removed. If ``other`` has more than one dimension (including after vector-to-matrix promotion), ``shape(other)[:-2]`` must be compatible with ``shape(self)[:-2]`` (after vector-to-matrix promotion) (see :ref:`broadcasting`). If ``other`` has shape ``(..., K, N)``, the innermost two dimensions form matrices on which to perform matrix multiplication.
 
         Returns
         -------
@@ -665,9 +665,9 @@ class _array():
         Parameters
         ----------
         self: array
-            array instance. Should have a numeric data type.
+            array instance. Should have a real-valued data type.
         other: Union[int, float, array]
-            other array. Must be compatible with ``self`` (see :ref:`broadcasting`). Should have a numeric data type.
+            other array. Must be compatible with ``self`` (see :ref:`broadcasting`). Should have a real-valued data type.
 
         Returns
         -------
@@ -704,9 +704,9 @@ class _array():
         Parameters
         ----------
         self: array
-            array instance. Should have a numeric data type.
+            array instance. Should have a real-valued data type.
         other: Union[int, float, array]
-            other array. Must be compatible with ``self`` (see :ref:`broadcasting`). Should have a numeric data type.
+            other array. Must be compatible with ``self`` (see :ref:`broadcasting`). Should have a real-valued data type.
 
         Returns
         -------
@@ -749,7 +749,7 @@ class _array():
         Parameters
         ----------
         self: array
-            array instance. Should have a numeric data type.
+            array instance. Should have a real-valued data type.
 
         Returns
         -------
@@ -789,7 +789,7 @@ class _array():
         Parameters
         ----------
         self: array
-            array instance. Should have a numeric data type.
+            array instance. Should have a real-valued data type.
 
         Returns
         -------
@@ -842,9 +842,9 @@ class _array():
         Parameters
         ----------
         self: array
-            array instance whose elements correspond to the exponentiation base. Should have a numeric data type.
+            array instance whose elements correspond to the exponentiation base. Should have a real-valued data type.
         other: Union[int, float, array]
-            other array whose elements correspond to the exponentiation exponent. Must be compatible with ``self`` (see :ref:`broadcasting`). Should have a numeric data type.
+            other array whose elements correspond to the exponentiation exponent. Must be compatible with ``self`` (see :ref:`broadcasting`). Should have a real-valued data type.
 
         Returns
         -------
@@ -907,9 +907,9 @@ class _array():
         Parameters
         ----------
         self: array
-            array instance (minuend array). Should have a numeric data type.
+            array instance (minuend array). Should have a real-valued data type.
         other: Union[int, float, array]
-            subtrahend array. Must be compatible with ``self`` (see :ref:`broadcasting`). Should have a numeric data type.
+            subtrahend array. Must be compatible with ``self`` (see :ref:`broadcasting`). Should have a real-valued data type.
 
         Returns
         -------
@@ -960,9 +960,9 @@ class _array():
         Parameters
         ----------
         self: array
-            array instance. Should have a numeric data type.
+            array instance. Should have a real-valued data type.
         other: Union[int, float, array]
-            other array. Must be compatible with ``self`` (see :ref:`broadcasting`). Should have a numeric data type.
+            other array. Must be compatible with ``self`` (see :ref:`broadcasting`). Should have a real-valued data type.
 
         Returns
         -------

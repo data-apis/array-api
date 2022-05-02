@@ -247,7 +247,7 @@ def meshgrid(*arrays: array, indexing: str = 'xy') -> List[array]:
     Parameters
     ----------
     arrays: array
-        an arbitrary number of one-dimensional arrays representing grid coordinates. Each array should have the same numeric data type.
+        an arbitrary number of one-dimensional arrays representing grid coordinates. Each array should have the same real-valued data type.
     indexing: str
         Cartesian ``'xy'`` or matrix ``'ij'`` indexing of output. If provided zero or one one-dimensional vector(s) (i.e., the zero- and one-dimensional cases, respectively), the ``indexing`` keyword has no effect and should be ignored. Default: ``'xy'``.
 
