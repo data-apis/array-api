@@ -14,19 +14,13 @@ def arange(start: Union[int, float], /, stop: Optional[Union[int, float]] = None
     step: Union[int, float]
         the distance between two adjacent elements (``out[i+1] - out[i]``). Must not be ``0``; may be negative, this results in an empty array if ``stop >= start``. Default: ``1``.
     dtype: Optional[dtype]
-        output array data type. Should be a floating-point data type. If ``dtype`` is ``None``, the output array data type must be the default floating-point data type. Default: ``None``.
+        output array data type. If ``dtype`` is ``None``, the output array data type must be inferred from ``start``, ``stop`` and ``step``. If those are all integers, the output array dtype must be the default integer dtype; if one or more have type ``float``, then the output array dtype must be the default floating-point data type. Default: ``None``.
     device: Optional[device]
         device on which to place the created array. Default: ``None``.
 
 
     .. note::
        This function cannot guarantee that the interval does not include the ``stop`` value in those cases where ``step`` is not an integer and floating-point rounding errors affect the length of the output array.
-
-    .. note::
-       While this specification recommends that this function only return arrays having a floating-point data type, specification-compliant array libraries may choose to support output arrays having an integer data type (e.g., due to backward compatibility concerns). However, function behavior when generating integer output arrays is unspecified and, thus, is implementation-defined. Accordingly, using this function to generate integer output arrays is not portable.
-
-    .. note::
-       As mixed data type promotion is implementation-defined, behavior when ``start`` or ``stop`` exceeds the maximum safe integer of an output floating-point data type is implementation-defined. An implementation may choose to overflow or raise an exception.
 
     Returns
     -------
@@ -227,7 +221,7 @@ def linspace(start: Union[int, float], stop: Union[int, float], /, num: int, *, 
     num: int
         number of samples. Must be a non-negative integer value; otherwise, the function must raise an exception.
     dtype: Optional[dtype]
-        output array data type. If ``dtype`` is ``None``, the output array data type must be the default floating-point data type. Default: ``None``.
+        output array data type. Should be a floating-point data type. If ``dtype`` is ``None``, the output array data type must be the default floating-point data type. Default: ``None``.
     device: Optional[device]
         device on which to place the created array. Default: ``None``.
     endpoint: bool
@@ -237,6 +231,13 @@ def linspace(start: Union[int, float], stop: Union[int, float], /, num: int, *, 
     -------
     out: array
         a one-dimensional array containing evenly spaced values.
+
+
+    .. note::
+       While this specification recommends that this function only return arrays having a floating-point data type, specification-compliant array libraries may choose to support output arrays having an integer data type (e.g., due to backward compatibility concerns). However, function behavior when generating integer output arrays is unspecified and, thus, is implementation-defined. Accordingly, using this function to generate integer output arrays is not portable.
+
+    .. note::
+       As mixed data type promotion is implementation-defined, behavior when ``start`` or ``stop`` exceeds the maximum safe integer of an output floating-point data type is implementation-defined. An implementation may choose to overflow or raise an exception.
     """
 
 def meshgrid(*arrays: array, indexing: str = 'xy') -> List[array]:

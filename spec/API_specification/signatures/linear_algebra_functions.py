@@ -61,7 +61,7 @@ def tensordot(x1: array, x2: array, /, *, axes: Union[int, Tuple[Sequence[int], 
     x1: array
         first input array. Should have a numeric data type.
     x2: array
-        second input array. Must be compatible with ``x1`` for all non-contracted axes (see :ref:`broadcasting`). Should have a numeric data type.
+        second input array. Should have a numeric data type. Corresponding contracted axes of ``x1`` and ``x2`` must be equal.
 
         .. note::
            Contracted axes (dimensions) must not be broadcasted.
