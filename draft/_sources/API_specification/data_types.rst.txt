@@ -62,19 +62,20 @@ float64
 
 IEEE 754 double-precision (64-bit) binary floating-point number (see IEEE 754-2019).
 
+complex64
+---------
+
+Single-precision (64-bit) complex floating-point number whose real and imaginary components must be IEEE 754 single-precision (32-bit) binary floating-point numbers (see IEEE 754-2019).
+
+complex128
+----------
+
+Double-precision (128-bit) complex floating-point number whose real and imaginary components must be IEEE 754 double-precision (64-bit) binary floating-point numbers (see IEEE 754-2019).
+
 .. note::
    IEEE 754-2019 requires support for subnormal (a.k.a., denormal) numbers, which are useful for supporting gradual underflow. However, hardware support for subnormal numbers is not universal, and many platforms (e.g., accelerators) and compilers support toggling denormals-are-zero (DAZ) and/or flush-to-zero (FTZ) behavior to increase performance and to guard against timing attacks.
 
    Accordingly, subnormal behavior is left unspecified and, thus, implementation-defined. Conforming implementations may vary in their support for subnormal numbers.
-
-.. admonition:: Future extension
-   :class: admonition tip
-
-   ``complex64`` and ``complex128`` data types are expected to be included in the next version of this standard and to have the following casting rules (will be added to :ref:`type-promotion`):
-
-   .. image:: /_static/images/dtype_promotion_complex.png
-
-   See `array-api/issues/102 <https://github.com/data-apis/array-api/issues/102>`_ for more details
 
 .. note::
    A conforming implementation of the array API standard may provide and support additional data types beyond those described in this specification.
@@ -117,10 +118,13 @@ Default Data Types
 A conforming implementation of the array API standard must define the following default data types.
 
 -   a default floating-point data type (either ``float32`` or ``float64``).
+-   a default complex floating-point data type (either ``complex64`` or ``complex128``).
 -   a default integer data type (either ``int32`` or ``int64``).
 -   a default array index data type (either ``int32`` or ``int64``).
 
-The default floating-point data type must be the same across platforms.
+The default floating-point and complex floating-point data types must be the same across platforms.
+
+The default complex floating-point point data type should match the default floating-point data type. For example, if the default floating-point data type is ``float32``, the default complex floating-point data type must be ``complex64``. If the default floating-point data type is ``float64``, the default complex floating-point data type must be ``complex128``.
 
 The default integer data type should be the same across platforms, but the default may vary depending on whether Python is 32-bit or 64-bit.
 
@@ -139,14 +143,16 @@ For the purpose of organizing functions within this specification, the following
 .. note::
    Conforming libraries are not required to organize data types according to these categories. These categories are only intended for use within this specification.
 
-.. note::
-   Future versions of the specification will include additional categories for complex data types.
-
 
 Numeric Data Types
 ~~~~~~~~~~~~~~~~~~
 
-``int8``, ``int16``, ``int32``, ``int64``, ``uint8``, ``uint16``, ``uint32``, ``uint64``, ``float32``, and ``float64`` (i.e., all data types except for ``bool``).
+``int8``, ``int16``, ``int32``, ``int64``, ``uint8``, ``uint16``, ``uint32``, ``uint64``, ``float32``, ``float64``, ``complex64``, and ``complex128``.
+
+Real-valued Data Types
+~~~~~~~~~~~~~~~~~~~~~~
+
+``int8``, ``int16``, ``int32``, ``int64``, ``uint8``, ``uint16``, ``uint32``, ``uint64``, ``float32``, and ``float64``.
 
 Integer Data Types
 ~~~~~~~~~~~~~~~~~~
@@ -157,6 +163,11 @@ Floating-point Data Types
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ``float32`` and ``float64``.
+
+Complex Floating-point Data Types
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+``complex64`` and ``complex128``.
 
 Boolean Data Types
 ~~~~~~~~~~~~~~~~~~

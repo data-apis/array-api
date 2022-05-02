@@ -306,6 +306,10 @@
         </li>
         <li class="md-nav__item"><a href="#float64" class="md-nav__link">float64</a>
         </li>
+        <li class="md-nav__item"><a href="#complex64" class="md-nav__link">complex64</a>
+        </li>
+        <li class="md-nav__item"><a href="#complex128" class="md-nav__link">complex128</a>
+        </li>
         <li class="md-nav__item"><a href="#data-type-objects" class="md-nav__link">Data Type Objects</a><nav class="md-nav">
               <ul class="md-nav__list">
         <li class="md-nav__item"><a href="#methods" class="md-nav__link">Methods</a>
@@ -318,9 +322,13 @@
               <ul class="md-nav__list">
         <li class="md-nav__item"><a href="#numeric-data-types" class="md-nav__link">Numeric Data Types</a>
         </li>
+        <li class="md-nav__item"><a href="#real-valued-data-types" class="md-nav__link">Real-valued Data Types</a>
+        </li>
         <li class="md-nav__item"><a href="#integer-data-types" class="md-nav__link">Integer Data Types</a>
         </li>
         <li class="md-nav__item"><a href="#floating-point-data-types" class="md-nav__link">Floating-point Data Types</a>
+        </li>
+        <li class="md-nav__item"><a href="#complex-floating-point-data-types" class="md-nav__link">Complex Floating-point Data Types</a>
         </li>
         <li class="md-nav__item"><a href="#boolean-data-types" class="md-nav__link">Boolean Data Types</a>
         </li></ul>
@@ -483,6 +491,10 @@
         </li>
         <li class="md-nav__item"><a href="#float64" class="md-nav__link">float64</a>
         </li>
+        <li class="md-nav__item"><a href="#complex64" class="md-nav__link">complex64</a>
+        </li>
+        <li class="md-nav__item"><a href="#complex128" class="md-nav__link">complex128</a>
+        </li>
         <li class="md-nav__item"><a href="#data-type-objects" class="md-nav__link">Data Type Objects</a><nav class="md-nav">
               <ul class="md-nav__list">
         <li class="md-nav__item"><a href="#methods" class="md-nav__link">Methods</a>
@@ -495,9 +507,13 @@
               <ul class="md-nav__list">
         <li class="md-nav__item"><a href="#numeric-data-types" class="md-nav__link">Numeric Data Types</a>
         </li>
+        <li class="md-nav__item"><a href="#real-valued-data-types" class="md-nav__link">Real-valued Data Types</a>
+        </li>
         <li class="md-nav__item"><a href="#integer-data-types" class="md-nav__link">Integer Data Types</a>
         </li>
         <li class="md-nav__item"><a href="#floating-point-data-types" class="md-nav__link">Floating-point Data Types</a>
+        </li>
+        <li class="md-nav__item"><a href="#complex-floating-point-data-types" class="md-nav__link">Complex Floating-point Data Types</a>
         </li>
         <li class="md-nav__item"><a href="#boolean-data-types" class="md-nav__link">Boolean Data Types</a>
         </li></ul>
@@ -563,16 +579,18 @@
 <section id="float64">
 <h2 id="float64">float64<a class="headerlink" href="#float64" title="Permalink to this headline">¶</a></h2>
 <p>IEEE 754 double-precision (64-bit) binary floating-point number (see IEEE 754-2019).</p>
+</section>
+<section id="complex64">
+<h2 id="complex64">complex64<a class="headerlink" href="#complex64" title="Permalink to this headline">¶</a></h2>
+<p>Single-precision (64-bit) complex floating-point number whose real and imaginary components must be IEEE 754 single-precision (32-bit) binary floating-point numbers (see IEEE 754-2019).</p>
+</section>
+<section id="complex128">
+<h2 id="complex128">complex128<a class="headerlink" href="#complex128" title="Permalink to this headline">¶</a></h2>
+<p>Double-precision (128-bit) complex floating-point number whose real and imaginary components must be IEEE 754 double-precision (64-bit) binary floating-point numbers (see IEEE 754-2019).</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>IEEE 754-2019 requires support for subnormal (a.k.a., denormal) numbers, which are useful for supporting gradual underflow. However, hardware support for subnormal numbers is not universal, and many platforms (e.g., accelerators) and compilers support toggling denormals-are-zero (DAZ) and/or flush-to-zero (FTZ) behavior to increase performance and to guard against timing attacks.</p>
 <p>Accordingly, subnormal behavior is left unspecified and, thus, implementation-defined. Conforming implementations may vary in their support for subnormal numbers.</p>
-</div>
-<div class="admonition tip">
-<p class="admonition-title">Future extension</p>
-<p><code class="docutils literal notranslate"><span class="pre">complex64</span></code> and <code class="docutils literal notranslate"><span class="pre">complex128</span></code> data types are expected to be included in the next version of this standard and to have the following casting rules (will be added to <a class="reference internal" href="type_promotion.html#type-promotion"><span class="std std-ref">Type Promotion Rules</span></a>):</p>
-<img alt="../_images/dtype_promotion_complex.png" src="../_images/dtype_promotion_complex.png"/>
-<p>See <a class="reference external" href="https://github.com/data-apis/array-api/issues/102">array-api/issues/102</a> for more details</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -611,10 +629,12 @@
 <p>A conforming implementation of the array API standard must define the following default data types.</p>
 <ul class="simple">
 <li><p>a default floating-point data type (either <code class="docutils literal notranslate"><span class="pre">float32</span></code> or <code class="docutils literal notranslate"><span class="pre">float64</span></code>).</p></li>
+<li><p>a default complex floating-point data type (either <code class="docutils literal notranslate"><span class="pre">complex64</span></code> or <code class="docutils literal notranslate"><span class="pre">complex128</span></code>).</p></li>
 <li><p>a default integer data type (either <code class="docutils literal notranslate"><span class="pre">int32</span></code> or <code class="docutils literal notranslate"><span class="pre">int64</span></code>).</p></li>
 <li><p>a default array index data type (either <code class="docutils literal notranslate"><span class="pre">int32</span></code> or <code class="docutils literal notranslate"><span class="pre">int64</span></code>).</p></li>
 </ul>
-<p>The default floating-point data type must be the same across platforms.</p>
+<p>The default floating-point and complex floating-point data types must be the same across platforms.</p>
+<p>The default complex floating-point point data type should match the default floating-point data type. For example, if the default floating-point data type is <code class="docutils literal notranslate"><span class="pre">float32</span></code>, the default complex floating-point data type must be <code class="docutils literal notranslate"><span class="pre">complex64</span></code>. If the default floating-point data type is <code class="docutils literal notranslate"><span class="pre">float64</span></code>, the default complex floating-point data type must be <code class="docutils literal notranslate"><span class="pre">complex128</span></code>.</p>
 <p>The default integer data type should be the same across platforms, but the default may vary depending on whether Python is 32-bit or 64-bit.</p>
 <p>The default array index data type may be <code class="docutils literal notranslate"><span class="pre">int32</span></code> on 32-bit platforms, but the default should be <code class="docutils literal notranslate"><span class="pre">int64</span></code> otherwise.</p>
 <div class="admonition note">
@@ -629,13 +649,13 @@
 <p class="admonition-title">Note</p>
 <p>Conforming libraries are not required to organize data types according to these categories. These categories are only intended for use within this specification.</p>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Future versions of the specification will include additional categories for complex data types.</p>
-</div>
 <section id="numeric-data-types">
 <h3 id="numeric-data-types">Numeric Data Types<a class="headerlink" href="#numeric-data-types" title="Permalink to this headline">¶</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">int8</span></code>, <code class="docutils literal notranslate"><span class="pre">int16</span></code>, <code class="docutils literal notranslate"><span class="pre">int32</span></code>, <code class="docutils literal notranslate"><span class="pre">int64</span></code>, <code class="docutils literal notranslate"><span class="pre">uint8</span></code>, <code class="docutils literal notranslate"><span class="pre">uint16</span></code>, <code class="docutils literal notranslate"><span class="pre">uint32</span></code>, <code class="docutils literal notranslate"><span class="pre">uint64</span></code>, <code class="docutils literal notranslate"><span class="pre">float32</span></code>, and <code class="docutils literal notranslate"><span class="pre">float64</span></code> (i.e., all data types except for <code class="docutils literal notranslate"><span class="pre">bool</span></code>).</p>
+<p><code class="docutils literal notranslate"><span class="pre">int8</span></code>, <code class="docutils literal notranslate"><span class="pre">int16</span></code>, <code class="docutils literal notranslate"><span class="pre">int32</span></code>, <code class="docutils literal notranslate"><span class="pre">int64</span></code>, <code class="docutils literal notranslate"><span class="pre">uint8</span></code>, <code class="docutils literal notranslate"><span class="pre">uint16</span></code>, <code class="docutils literal notranslate"><span class="pre">uint32</span></code>, <code class="docutils literal notranslate"><span class="pre">uint64</span></code>, <code class="docutils literal notranslate"><span class="pre">float32</span></code>, <code class="docutils literal notranslate"><span class="pre">float64</span></code>, <code class="docutils literal notranslate"><span class="pre">complex64</span></code>, and <code class="docutils literal notranslate"><span class="pre">complex128</span></code>.</p>
+</section>
+<section id="real-valued-data-types">
+<h3 id="real-valued-data-types">Real-valued Data Types<a class="headerlink" href="#real-valued-data-types" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">int8</span></code>, <code class="docutils literal notranslate"><span class="pre">int16</span></code>, <code class="docutils literal notranslate"><span class="pre">int32</span></code>, <code class="docutils literal notranslate"><span class="pre">int64</span></code>, <code class="docutils literal notranslate"><span class="pre">uint8</span></code>, <code class="docutils literal notranslate"><span class="pre">uint16</span></code>, <code class="docutils literal notranslate"><span class="pre">uint32</span></code>, <code class="docutils literal notranslate"><span class="pre">uint64</span></code>, <code class="docutils literal notranslate"><span class="pre">float32</span></code>, and <code class="docutils literal notranslate"><span class="pre">float64</span></code>.</p>
 </section>
 <section id="integer-data-types">
 <h3 id="integer-data-types">Integer Data Types<a class="headerlink" href="#integer-data-types" title="Permalink to this headline">¶</a></h3>
@@ -644,6 +664,10 @@
 <section id="floating-point-data-types">
 <h3 id="floating-point-data-types">Floating-point Data Types<a class="headerlink" href="#floating-point-data-types" title="Permalink to this headline">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">float32</span></code> and <code class="docutils literal notranslate"><span class="pre">float64</span></code>.</p>
+</section>
+<section id="complex-floating-point-data-types">
+<h3 id="complex-floating-point-data-types">Complex Floating-point Data Types<a class="headerlink" href="#complex-floating-point-data-types" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">complex64</span></code> and <code class="docutils literal notranslate"><span class="pre">complex128</span></code>.</p>
 </section>
 <section id="boolean-data-types">
 <h3 id="boolean-data-types">Boolean Data Types<a class="headerlink" href="#boolean-data-types" title="Permalink to this headline">¶</a></h3>
