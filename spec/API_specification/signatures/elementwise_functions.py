@@ -1115,7 +1115,12 @@ def real(x: array, /) -> array:
     Parameters
     ----------
     x: array
-        input array.
+        input array. Should have a complex floating-point data type.
+
+    Returns
+    -------
+    out: array
+        an array containing the element-wise results. The returned array must have a floating-point data type with the same floating-point precision as ``x`` (e.g., if ``x`` is ``complex64``, the returned array must have the floating-point data type ``float32``). 
     """
 
 def remainder(x1: array, x2: array, /) -> array:
