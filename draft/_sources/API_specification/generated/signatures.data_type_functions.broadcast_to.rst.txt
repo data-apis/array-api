@@ -1,4 +1,4 @@
-﻿.. currentmodule:: signatures.manipulation_functions
+﻿.. currentmodule:: signatures.data_type_functions
 
 broadcast_to
 ============
