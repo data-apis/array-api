@@ -421,8 +421,8 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>x1</strong> (<em>array</em>) – first input array. Should have a real-valued data type.</p></li>
-<li><p><strong>x2</strong> (<em>array</em>) – second input array. Must be compatible with <code class="docutils literal notranslate"><span class="pre">x1</span></code> (see <a class="reference internal" href="../broadcasting.html#broadcasting"><span class="std std-ref">Broadcasting</span></a>). Should have a real-valued data type.</p></li>
+<li><p><strong>x1</strong> (<em>array</em>) – first input array. Should have a numeric data type.</p></li>
+<li><p><strong>x2</strong> (<em>array</em>) – second input array. Must be compatible with <code class="docutils literal notranslate"><span class="pre">x1</span></code> (see <a class="reference internal" href="../broadcasting.html#broadcasting"><span class="std std-ref">Broadcasting</span></a>). Should have a numeric data type.</p></li>
 <li><p><strong>axis</strong> (<em>int</em>) – axis over which to compute the dot product. Must be an integer on the interval <code class="docutils literal notranslate"><span class="pre">[-N,</span> <span class="pre">N)</span></code>, where <code class="docutils literal notranslate"><span class="pre">N</span></code> is the rank (number of dimensions) of the shape determined according to <a class="reference internal" href="../broadcasting.html#broadcasting"><span class="std std-ref">Broadcasting</span></a>. If specified as a negative integer, the function must determine the axis along which to compute the dot product by counting backward from the last dimension (where <code class="docutils literal notranslate"><span class="pre">-1</span></code> refers to the last dimension). By default, the function must compute the dot product over the last axis. Default: <code class="docutils literal notranslate"><span class="pre">-1</span></code>.</p></li>
 </ul>
 </dd>

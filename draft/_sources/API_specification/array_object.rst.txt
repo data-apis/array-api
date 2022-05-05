@@ -82,7 +82,7 @@ A conforming implementation of the array API standard must provide and support a
     -   `operator.pow(x1, x2) <https://docs.python.org/3/library/operator.html#operator.pow>`_
     -   `operator.__pow__(x1, x2) <https://docs.python.org/3/library/operator.html#operator.__pow__>`_
 
-Arithmetic operators should be defined for arrays having real-valued data types.
+Arithmetic operators should be defined for arrays having numeric data types.
 
 Array Operators
 ~~~~~~~~~~~~~~~
@@ -94,7 +94,7 @@ A conforming implementation of the array API standard must provide and support a
     -   `operator.matmul(x1, x2) <https://docs.python.org/3/library/operator.html#operator.matmul>`_
     -   `operator.__matmul__(x1, x2) <https://docs.python.org/3/library/operator.html#operator.__matmul__>`_
 
-The matmul ``@`` operator should be defined for arrays having real-valued data types.
+The matmul ``@`` operator should be defined for arrays having numeric data types.
 
 Bitwise Operators
 ~~~~~~~~~~~~~~~~~
