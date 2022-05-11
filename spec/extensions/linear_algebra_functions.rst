@@ -74,7 +74,7 @@ Accordingly, the standardization process affords the opportunity to reduce inter
 
     where ``dot`` is overloaded based on input array dimensionality and ``vdot`` and ``inner`` exhibit a high degree of overlap with other interfaces. By consolidating interfaces and more clearly delineating behavior, this specification aims to ensure that each interface has a unique purpose and defined use case.
 
-.. currentmodule:: signatures.linalg
+.. currentmodule:: array_api.linalg
 
 Objects in API
 --------------

@@ -197,9 +197,9 @@ extlinks = {
 
 def process_signature(app, what, name, obj, options, signature, return_annotation):
     if signature:
-        signature = signature.replace("signatures._types.", "")
+        signature = signature.replace("array_api._types.", "")
     if return_annotation:
-        return_annotation = return_annotation.replace("signatures._types.", "")
+        return_annotation = return_annotation.replace("array_api._types.", "")
     return signature, return_annotation
 
 def setup(app):

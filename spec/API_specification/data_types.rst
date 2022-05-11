@@ -100,7 +100,7 @@ Methods
 ..
   NOTE: please keep the functions in alphabetical order
 
-.. currentmodule:: signatures.data_types
+.. currentmodule:: array_api.data_types
 
 .. autosummary::
    :toctree: generated
