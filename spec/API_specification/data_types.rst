@@ -165,7 +165,7 @@ Floating-point Data Types
 ``float32``, ``float64``, ``complex64``, and ``complex128``.
 
 Real-valued Floating-point Data Types
-~~~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ``float32`` and ``float64``.
 
