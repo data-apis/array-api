@@ -7,7 +7,7 @@ def argmax(x: array, /, *, axis: Optional[int] = None, keepdims: bool = False) -
     Parameters
     ----------
     x: array
-        input array. Should have a numeric data type.
+        input array. Should have a real-valued data type.
     axis: Optional[int]
         axis along which to search. If ``None``, the function must return the index of the maximum value of the flattened array. Default: ``None``.
     keepdims: bool
@@ -26,7 +26,7 @@ def argmin(x: array, /, *, axis: Optional[int] = None, keepdims: bool = False) -
     Parameters
     ----------
     x: array
-        input array. Should have a numeric data type.
+        input array. Should have a real-valued data type.
     axis: Optional[int]
         axis along which to search. If ``None``, the function must return the index of the minimum value of the flattened array. Default: ``None``.
     keepdims: bool
