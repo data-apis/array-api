@@ -40,6 +40,8 @@ extensions = [
     'sphinx.ext.autosummary',
     'sphinx.ext.napoleon',
     'sphinx.ext.autodoc',
+    'sphinx_math_dollar',
+    'sphinx.ext.mathjax'
 ]
 
 autosummary_generate = True
@@ -47,6 +49,21 @@ autodoc_typehints = 'signature'
 add_module_names = False
 napoleon_custom_sections = [('Returns', 'params_style')]
 default_role = 'code'
+
+# Mathjax configuration
+mathjax_config = {
+    'tex2jax': {
+        'inlineMath': [ ["\\(","\\)"] ],
+        'displayMath': [["\\[","\\]"] ],
+    },
+}
+
+mathjax3_config = {
+  "tex": {
+    "inlineMath": [['\\(', '\\)']],
+    "displayMath": [["\\[", "\\]"]],
+  }
+}
 
 # nitpicky = True makes Sphinx warn whenever a cross-reference target can't be
 # found.
