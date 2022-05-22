@@ -42,7 +42,7 @@ def mean(x: array, /, *, axis: Optional[Union[int, Tuple[int, ...]]] = None, kee
     Parameters
     ----------
     x: array
-        input array. Should have a floating-point data type.
+        input array. Should have a real-valued floating-point data type.
     axis: Optional[Union[int, Tuple[int, ...]]]
         axis or axes along which arithmetic means must be computed. By default, the mean must be computed over the entire array. If a tuple of integers, arithmetic means must be computed over multiple axes. Default: ``None``.
     keepdims: bool
@@ -54,7 +54,7 @@ def mean(x: array, /, *, axis: Optional[Union[int, Tuple[int, ...]]] = None, kee
         if the arithmetic mean was computed over the entire array, a zero-dimensional array containing the arithmetic mean; otherwise, a non-zero-dimensional array containing the arithmetic means. The returned array must have the same data type as ``x``.
 
         .. note::
-           While this specification recommends that this function only accept input arrays having a floating-point data type, specification-compliant array libraries may choose to accept input arrays having an integer data type. While mixed data type promotion is implementation-defined, if the input array ``x`` has an integer data type, the returned array must have the default floating-point data type.
+           While this specification recommends that this function only accept input arrays having a real-valued floating-point data type, specification-compliant array libraries may choose to accept input arrays having an integer data type. While mixed data type promotion is implementation-defined, if the input array ``x`` has an integer data type, the returned array must have the default real-valued floating-point data type.
     """
 
 def min(x: array, /, *, axis: Optional[Union[int, Tuple[int, ...]]] = None, keepdims: bool = False) -> array:
@@ -109,7 +109,7 @@ def prod(x: array, /, *, axis: Optional[Union[int, Tuple[int, ...]]] = None, dty
         data type of the returned array. If ``None``,
 
         -   if the default data type corresponding to the data type "kind" (integer or floating-point) of ``x`` has a smaller range of values than the data type of ``x`` (e.g., ``x`` has data type ``int64`` and the default data type is ``int32``, or ``x`` has data type ``uint64`` and the default data type is ``int64``), the returned array must have the same data type as ``x``.
-        -   if ``x`` has a floating-point data type, the returned array must have the default floating-point data type.
+        -   if ``x`` has a real-valued floating-point data type, the returned array must have the default real-valued floating-point data type.
         -   if ``x`` has a signed integer data type (e.g., ``int16``), the returned array must have the default integer data type.
         -   if ``x`` has an unsigned integer data type (e.g., ``uint16``), the returned array must have an unsigned integer data type having the same number of bits as the default integer data type (e.g., if the default integer data type is ``int32``, the returned array must have a ``uint32`` data type).
 
@@ -141,7 +141,7 @@ def std(x: array, /, *, axis: Optional[Union[int, Tuple[int, ...]]] = None, corr
     Parameters
     ----------
     x: array
-        input array. Should have a floating-point data type.
+        input array. Should have a real-valued floating-point data type.
     axis: Optional[Union[int, Tuple[int, ...]]]
         axis or axes along which standard deviations must be computed. By default, the standard deviation must be computed over the entire array. If a tuple of integers, standard deviations must be computed over multiple axes. Default: ``None``.
     correction: Union[int, float]
@@ -155,7 +155,7 @@ def std(x: array, /, *, axis: Optional[Union[int, Tuple[int, ...]]] = None, corr
         if the standard deviation was computed over the entire array, a zero-dimensional array containing the standard deviation; otherwise, a non-zero-dimensional array containing the standard deviations. The returned array must have the same data type as ``x``.
 
         .. note::
-           While this specification recommends that this function only accept input arrays having a floating-point data type, specification-compliant array libraries may choose to accept input arrays having an integer data type. While mixed data type promotion is implementation-defined, if the input array ``x`` has an integer data type, the returned array must have the default floating-point data type.
+           While this specification recommends that this function only accept input arrays having a real-valued floating-point data type, specification-compliant array libraries may choose to accept input arrays having an integer data type. While mixed data type promotion is implementation-defined, if the input array ``x`` has an integer data type, the returned array must have the default real-valued floating-point data type.
     """
 
 def sum(x: array, /, *, axis: Optional[Union[int, Tuple[int, ...]]] = None, dtype: Optional[dtype] = None, keepdims: bool = False) -> array:
@@ -182,7 +182,7 @@ def sum(x: array, /, *, axis: Optional[Union[int, Tuple[int, ...]]] = None, dtyp
         data type of the returned array. If ``None``,
 
         -   if the default data type corresponding to the data type "kind" (integer or floating-point) of ``x`` has a smaller range of values than the data type of ``x`` (e.g., ``x`` has data type ``int64`` and the default data type is ``int32``, or ``x`` has data type ``uint64`` and the default data type is ``int64``), the returned array must have the same data type as ``x``.
-        -   if ``x`` has a floating-point data type, the returned array must have the default floating-point data type.
+        -   if ``x`` has a real-valued floating-point data type, the returned array must have the default real-valued floating-point data type.
         -   if ``x`` has a signed integer data type (e.g., ``int16``), the returned array must have the default integer data type.
         -   if ``x`` has an unsigned integer data type (e.g., ``uint16``), the returned array must have an unsigned integer data type having the same number of bits as the default integer data type (e.g., if the default integer data type is ``int32``, the returned array must have a ``uint32`` data type).
 
@@ -214,7 +214,7 @@ def var(x: array, /, *, axis: Optional[Union[int, Tuple[int, ...]]] = None, corr
     Parameters
     ----------
     x: array
-        input array. Should have a floating-point data type.
+        input array. Should have a real-valued floating-point data type.
     axis: Optional[Union[int, Tuple[int, ...]]]
         axis or axes along which variances must be computed. By default, the variance must be computed over the entire array. If a tuple of integers, variances must be computed over multiple axes. Default: ``None``.
     correction: Union[int, float]
@@ -229,7 +229,7 @@ def var(x: array, /, *, axis: Optional[Union[int, Tuple[int, ...]]] = None, corr
 
 
     .. note::
-       While this specification recommends that this function only accept input arrays having a floating-point data type, specification-compliant array libraries may choose to accept input arrays having an integer data type. While mixed data type promotion is implementation-defined, if the input array ``x`` has an integer data type, the returned array must have the default floating-point data type.
+       While this specification recommends that this function only accept input arrays having a real-valued floating-point data type, specification-compliant array libraries may choose to accept input arrays having an integer data type. While mixed data type promotion is implementation-defined, if the input array ``x`` has an integer data type, the returned array must have the default real-valued floating-point data type.
     """
 
 __all__ = ['max', 'mean', 'min', 'prod', 'std', 'sum', 'var']

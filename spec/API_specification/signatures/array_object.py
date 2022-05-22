@@ -346,7 +346,7 @@ class _array():
         Parameters
         ----------
         self: array
-            zero-dimensional array instance. Must have a floating-point data type.
+            zero-dimensional array instance. Must have a real-valued floating-point data type.
 
         Returns
         -------
@@ -672,7 +672,7 @@ class _array():
         Returns
         -------
         out: array
-            an array containing the element-wise results. Each element-wise result must have the same sign as the respective element ``other_i``. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
+            an array containing the element-wise results. Each element-wise result must have the same sign as the respective element ``other_i``. The returned array must have a real-valued floating-point data type determined by :ref:`type-promotion`.
 
 
         .. note::
@@ -808,7 +808,7 @@ class _array():
         .. note::
            If both ``self`` and ``other`` have integer data types, the result of ``__pow__`` when `other_i` is negative (i.e., less than zero) is unspecified and thus implementation-dependent.
 
-           If ``self`` has an integer data type and ``other`` has a floating-point data type, behavior is implementation-dependent, as type promotion between data type "kinds" (e.g., integer versus floating-point) is unspecified.
+           If ``self`` has an integer data type and ``other`` has a real-valued floating-point data type, behavior is implementation-dependent, as type promotion between data type "kinds" (e.g., integer versus floating-point) is unspecified.
 
         **Special cases**
 
@@ -928,7 +928,7 @@ class _array():
         .. note::
            If one or both of ``self`` and ``other`` have integer data types, the result is implementation-dependent, as type promotion between data type "kinds" (e.g., integer versus floating-point) is unspecified.
 
-           Specification-compliant libraries may choose to raise an error or return an array containing the element-wise results. If an array is returned, the array must have a floating-point data type.
+           Specification-compliant libraries may choose to raise an error or return an array containing the element-wise results. If an array is returned, the array must have a real-valued floating-point data type.
 
         **Special cases**
 
@@ -967,7 +967,7 @@ class _array():
         Returns
         -------
         out: array
-            an array containing the element-wise results. The returned array should have a floating-point data type determined by :ref:`type-promotion`.
+            an array containing the element-wise results. The returned array should have a real-valued floating-point data type determined by :ref:`type-promotion`.
 
 
         .. note::

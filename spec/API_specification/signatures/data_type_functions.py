@@ -78,17 +78,17 @@ def can_cast(from_: Union[dtype, array], to: dtype, /) -> bool:
 
 def finfo(type: Union[dtype, array], /) -> finfo_object:
     """
-    Machine limits for floating-point data types.
+    Machine limits for real-valued floating-point data types.
 
     Parameters
     ----------
     type: Union[dtype, array]
-        the kind of floating-point data-type about which to get information.
+        the kind of real-valued floating-point data-type about which to get information.
 
     Returns
     -------
     out: finfo object
-        an object having the followng attributes:
+        an object having the following attributes:
 
         - **bits**: *int*
 

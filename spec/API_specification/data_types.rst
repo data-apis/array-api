@@ -117,14 +117,14 @@ Default Data Types
 
 A conforming implementation of the array API standard must define the following default data types.
 
--   a default floating-point data type (either ``float32`` or ``float64``).
+-   a default real-valued floating-point data type (either ``float32`` or ``float64``).
 -   a default complex floating-point data type (either ``complex64`` or ``complex128``).
 -   a default integer data type (either ``int32`` or ``int64``).
 -   a default array index data type (either ``int32`` or ``int64``).
 
-The default floating-point and complex floating-point data types must be the same across platforms.
+The default real-valued floating-point and complex floating-point data types must be the same across platforms.
 
-The default complex floating-point point data type should match the default floating-point data type. For example, if the default floating-point data type is ``float32``, the default complex floating-point data type must be ``complex64``. If the default floating-point data type is ``float64``, the default complex floating-point data type must be ``complex128``.
+The default complex floating-point point data type should match the default real-valued floating-point data type. For example, if the default real-valued floating-point data type is ``float32``, the default complex floating-point data type must be ``complex64``. If the default real-valued floating-point data type is ``float64``, the default complex floating-point data type must be ``complex128``.
 
 The default integer data type should be the same across platforms, but the default may vary depending on whether Python is 32-bit or 64-bit.
 
@@ -160,6 +160,11 @@ Integer Data Types
 ``int8``, ``int16``, ``int32``, ``int64``, ``uint8``, ``uint16``, ``uint32``, and ``uint64``.
 
 Floating-point Data Types
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+``float32``, ``float64``, ``complex64``, and ``complex128``.
+
+Real-valued Floating-point Data Types
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 ``float32`` and ``float64``.

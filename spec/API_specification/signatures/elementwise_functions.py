@@ -42,12 +42,12 @@ def acos(x: array, /) -> array:
     Parameters
     ----------
     x: array
-        input array. Should have a floating-point data type.
+        input array. Should have a real-valued floating-point data type.
 
     Returns
     -------
     out: array
-        an array containing the inverse cosine of each element in ``x``. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
+        an array containing the inverse cosine of each element in ``x``. The returned array must have a real-valued floating-point data type determined by :ref:`type-promotion`.
     """
 
 def acosh(x: array, /) -> array:
@@ -66,12 +66,12 @@ def acosh(x: array, /) -> array:
     Parameters
     ----------
     x: array
-        input array whose elements each represent the area of a hyperbolic sector. Should have a floating-point data type.
+        input array whose elements each represent the area of a hyperbolic sector. Should have a real-valued floating-point data type.
 
     Returns
     -------
     out: array
-        an array containing the inverse hyperbolic cosine of each element in ``x``. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
+        an array containing the inverse hyperbolic cosine of each element in ``x``. The returned array must have a real-valued floating-point data type determined by :ref:`type-promotion`.
     """
 
 def add(x1: array, x2: array, /) -> array:
@@ -133,12 +133,12 @@ def asin(x: array, /) -> array:
     Parameters
     ----------
     x: array
-        input array. Should have a floating-point data type.
+        input array. Should have a real-valued floating-point data type.
 
     Returns
     -------
     out: array
-        an array containing the inverse sine of each element in ``x``. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
+        an array containing the inverse sine of each element in ``x``. The returned array must have a real-valued floating-point data type determined by :ref:`type-promotion`.
     """
 
 def asinh(x: array, /) -> array:
@@ -158,12 +158,12 @@ def asinh(x: array, /) -> array:
     Parameters
     ----------
     x: array
-        input array whose elements each represent the area of a hyperbolic sector. Should have a floating-point data type.
+        input array whose elements each represent the area of a hyperbolic sector. Should have a real-valued floating-point data type.
 
     Returns
     -------
     out: array
-        an array containing the inverse hyperbolic sine of each element in ``x``. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
+        an array containing the inverse hyperbolic sine of each element in ``x``. The returned array must have a real-valued floating-point data type determined by :ref:`type-promotion`.
     """
 
 def atan(x: array, /) -> array:
@@ -183,12 +183,12 @@ def atan(x: array, /) -> array:
     Parameters
     ----------
     x: array
-        input array. Should have a floating-point data type.
+        input array. Should have a real-valued floating-point data type.
 
     Returns
     -------
     out: array
-        an array containing the inverse tangent of each element in ``x``. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
+        an array containing the inverse tangent of each element in ``x``. The returned array must have a real-valued floating-point data type determined by :ref:`type-promotion`.
     """
 
 def atan2(x1: array, x2: array, /) -> array:
@@ -233,14 +233,14 @@ def atan2(x1: array, x2: array, /) -> array:
     Parameters
     ----------
     x1: array
-        input array corresponding to the y-coordinates. Should have a floating-point data type.
+        input array corresponding to the y-coordinates. Should have a real-valued floating-point data type.
     x2: array
-        input array corresponding to the x-coordinates. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have a floating-point data type.
+        input array corresponding to the x-coordinates. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have a real-valued floating-point data type.
 
     Returns
     -------
     out: array
-        an array containing the inverse tangent of the quotient ``x1/x2``. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
+        an array containing the inverse tangent of the quotient ``x1/x2``. The returned array must have a real-valued floating-point data type determined by :ref:`type-promotion`.
 
     """
 
@@ -263,12 +263,12 @@ def atanh(x: array, /) -> array:
     Parameters
     ----------
     x: array
-        input array whose elements each represent the area of a hyperbolic sector. Should have a floating-point data type.
+        input array whose elements each represent the area of a hyperbolic sector. Should have a real-valued floating-point data type.
 
     Returns
     -------
     out: array
-        an array containing the inverse hyperbolic tangent of each element in ``x``. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
+        an array containing the inverse hyperbolic tangent of each element in ``x``. The returned array must have a real-valued floating-point data type determined by :ref:`type-promotion`.
     """
 
 def bitwise_and(x1: array, x2: array, /) -> array:
@@ -418,12 +418,12 @@ def cos(x: array, /) -> array:
     Parameters
     ----------
     x: array
-        input array whose elements are each expressed in radians. Should have a floating-point data type.
+        input array whose elements are each expressed in radians. Should have a real-valued floating-point data type.
 
     Returns
     -------
     out: array
-        an array containing the cosine of each element in ``x``. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
+        an array containing the cosine of each element in ``x``. The returned array must have a real-valued floating-point data type determined by :ref:`type-promotion`.
     """
 
 def cosh(x: array, /) -> array:
@@ -443,12 +443,12 @@ def cosh(x: array, /) -> array:
     Parameters
     ----------
     x: array
-        input array whose elements each represent a hyperbolic angle. Should have a floating-point data type.
+        input array whose elements each represent a hyperbolic angle. Should have a real-valued floating-point data type.
 
     Returns
     -------
     out: array
-        an array containing the hyperbolic cosine of each element in ``x``. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
+        an array containing the hyperbolic cosine of each element in ``x``. The returned array must have a real-valued floating-point data type determined by :ref:`type-promotion`.
     """
 
 def divide(x1: array, x2: array, /) -> array:
@@ -458,7 +458,7 @@ def divide(x1: array, x2: array, /) -> array:
     .. note::
        If one or both of the input arrays have integer data types, the result is implementation-dependent, as type promotion between data type "kinds" (e.g., integer versus floating-point) is unspecified.
 
-       Specification-compliant libraries may choose to raise an error or return an array containing the element-wise results. If an array is returned, the array must have a floating-point data type.
+       Specification-compliant libraries may choose to raise an error or return an array containing the element-wise results. If an array is returned, the array must have a real-valued floating-point data type.
 
     **Special cases**
 
@@ -497,7 +497,7 @@ def divide(x1: array, x2: array, /) -> array:
     Returns
     -------
     out: array
-        an array containing the element-wise results. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
+        an array containing the element-wise results. The returned array must have a real-valued floating-point data type determined by :ref:`type-promotion`.
     """
 
 def equal(x1: array, x2: array, /) -> array:
@@ -534,12 +534,12 @@ def exp(x: array, /) -> array:
     Parameters
     ----------
     x: array
-        input array. Should have a floating-point data type.
+        input array. Should have a real-valued floating-point data type.
 
     Returns
     -------
     out: array
-        an array containing the evaluated exponential function result for each element in ``x``. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
+        an array containing the evaluated exponential function result for each element in ``x``. The returned array must have a real-valued floating-point data type determined by :ref:`type-promotion`.
     """
 
 def expm1(x: array, /) -> array:
@@ -562,12 +562,12 @@ def expm1(x: array, /) -> array:
     Parameters
     ----------
     x: array
-        input array. Should have a floating-point data type.
+        input array. Should have a real-valued floating-point data type.
 
     Returns
     -------
     out: array
-        an array containing the evaluated result for each element in ``x``. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
+        an array containing the evaluated result for each element in ``x``. The returned array must have a real-valued floating-point data type determined by :ref:`type-promotion`.
     """
 
 def floor(x: array, /) -> array:
@@ -783,12 +783,12 @@ def log(x: array, /) -> array:
     Parameters
     ----------
     x: array
-        input array. Should have a floating-point data type.
+        input array. Should have a real-valued floating-point data type.
 
     Returns
     -------
     out: array
-        an array containing the evaluated natural logarithm for each element in ``x``. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
+        an array containing the evaluated natural logarithm for each element in ``x``. The returned array must have a real-valued floating-point data type determined by :ref:`type-promotion`.
     """
 
 def log1p(x: array, /) -> array:
@@ -812,12 +812,12 @@ def log1p(x: array, /) -> array:
     Parameters
     ----------
     x: array
-        input array. Should have a floating-point data type.
+        input array. Should have a real-valued floating-point data type.
 
     Returns
     -------
     out: array
-        an array containing the evaluated result for each element in ``x``. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
+        an array containing the evaluated result for each element in ``x``. The returned array must have a real-valued floating-point data type determined by :ref:`type-promotion`.
     """
 
 def log2(x: array, /) -> array:
@@ -837,12 +837,12 @@ def log2(x: array, /) -> array:
     Parameters
     ----------
     x: array
-        input array. Should have a floating-point data type.
+        input array. Should have a real-valued floating-point data type.
 
     Returns
     -------
     out: array
-        an array containing the evaluated base ``2`` logarithm for each element in ``x``. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
+        an array containing the evaluated base ``2`` logarithm for each element in ``x``. The returned array must have a real-valued floating-point data type determined by :ref:`type-promotion`.
     """
 
 def log10(x: array, /) -> array:
@@ -862,12 +862,12 @@ def log10(x: array, /) -> array:
     Parameters
     ----------
     x: array
-        input array. Should have a floating-point data type.
+        input array. Should have a real-valued floating-point data type.
 
     Returns
     -------
     out: array
-        an array containing the evaluated base ``10`` logarithm for each element in ``x``. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
+        an array containing the evaluated base ``10`` logarithm for each element in ``x``. The returned array must have a real-valued floating-point data type determined by :ref:`type-promotion`.
     """
 
 def logaddexp(x1: array, x2: array, /) -> array:
@@ -885,14 +885,14 @@ def logaddexp(x1: array, x2: array, /) -> array:
     Parameters
     ----------
     x1: array
-        first input array. Should have a floating-point data type.
+        first input array. Should have a real-valued floating-point data type.
     x2: array
-        second input array. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have a floating-point data type.
+        second input array. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have a real-valued floating-point data type.
 
     Returns
     -------
     out: array
-        an array containing the element-wise results. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
+        an array containing the element-wise results. The returned array must have a real-valued floating-point data type determined by :ref:`type-promotion`.
     """
 
 def logical_and(x1: array, x2: array, /) -> array:
@@ -1064,7 +1064,7 @@ def pow(x1: array, x2: array, /) -> array:
     .. note::
        If both ``x1`` and ``x2`` have integer data types, the result of ``pow`` when ``x2_i`` is negative (i.e., less than zero) is unspecified and thus implementation-dependent.
 
-       If ``x1`` has an integer data type and ``x2`` has a floating-point data type, behavior is implementation-dependent (type promotion between data type "kinds" (integer versus floating-point) is unspecified).
+       If ``x1`` has an integer data type and ``x2`` has a real-valued floating-point data type, behavior is implementation-dependent (type promotion between data type "kinds" (integer versus floating-point) is unspecified).
 
     **Special cases**
 
@@ -1224,12 +1224,12 @@ def sin(x: array, /) -> array:
     Parameters
     ----------
     x: array
-        input array whose elements are each expressed in radians. Should have a floating-point data type.
+        input array whose elements are each expressed in radians. Should have a real-valued floating-point data type.
 
     Returns
     -------
     out: array
-        an array containing the sine of each element in ``x``. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
+        an array containing the sine of each element in ``x``. The returned array must have a real-valued floating-point data type determined by :ref:`type-promotion`.
     """
 
 def sinh(x: array, /) -> array:
@@ -1249,12 +1249,12 @@ def sinh(x: array, /) -> array:
     Parameters
     ----------
     x: array
-        input array whose elements each represent a hyperbolic angle. Should have a floating-point data type.
+        input array whose elements each represent a hyperbolic angle. Should have a real-valued floating-point data type.
 
     Returns
     -------
     out: array
-        an array containing the hyperbolic sine of each element in ``x``. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
+        an array containing the hyperbolic sine of each element in ``x``. The returned array must have a real-valued floating-point data type determined by :ref:`type-promotion`.
     """
 
 def square(x: array, /) -> array:
@@ -1289,12 +1289,12 @@ def sqrt(x: array, /) -> array:
     Parameters
     ----------
     x: array
-        input array. Should have a floating-point data type.
+        input array. Should have a real-valued floating-point data type.
 
     Returns
     -------
     out: array
-        an array containing the square root of each element in ``x``. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
+        an array containing the square root of each element in ``x``. The returned array must have a real-valued floating-point data type determined by :ref:`type-promotion`.
     """
 
 def subtract(x1: array, x2: array, /) -> array:
@@ -1330,12 +1330,12 @@ def tan(x: array, /) -> array:
     Parameters
     ----------
     x: array
-        input array whose elements are expressed in radians. Should have a floating-point data type.
+        input array whose elements are expressed in radians. Should have a real-valued floating-point data type.
 
     Returns
     -------
     out: array
-        an array containing the tangent of each element in ``x``. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
+        an array containing the tangent of each element in ``x``. The returned array must have a real-valued floating-point data type determined by :ref:`type-promotion`.
     """
 
 def tanh(x: array, /) -> array:
@@ -1355,12 +1355,12 @@ def tanh(x: array, /) -> array:
     Parameters
     ----------
     x: array
-        input array whose elements each represent a hyperbolic angle. Should have a floating-point data type.
+        input array whose elements each represent a hyperbolic angle. Should have a real-valued floating-point data type.
 
     Returns
     -------
     out: array
-        an array containing the hyperbolic tangent of each element in ``x``. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
+        an array containing the hyperbolic tangent of each element in ``x``. The returned array must have a real-valued floating-point data type determined by :ref:`type-promotion`.
     """
 
 def trunc(x: array, /) -> array:
