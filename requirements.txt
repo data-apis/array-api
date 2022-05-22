@@ -4,3 +4,4 @@ myst-parser
 sphinx_markdown_tables
 sphinx_copybutton
 docutils<0.18
+sphinx-math-dollar
