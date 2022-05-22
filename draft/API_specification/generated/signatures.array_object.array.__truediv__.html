@@ -421,7 +421,7 @@
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>If one or both of <code class="docutils literal notranslate"><span class="pre">self</span></code> and <code class="docutils literal notranslate"><span class="pre">other</span></code> have integer data types, the result is implementation-dependent, as type promotion between data type “kinds” (e.g., integer versus floating-point) is unspecified.</p>
-<p>Specification-compliant libraries may choose to raise an error or return an array containing the element-wise results. If an array is returned, the array must have a floating-point data type.</p>
+<p>Specification-compliant libraries may choose to raise an error or return an array containing the element-wise results. If an array is returned, the array must have a real-valued floating-point data type.</p>
 </div>
 <p><strong>Special cases</strong></p>
 <p>For floating-point operands, let <code class="docutils literal notranslate"><span class="pre">self</span></code> equal <code class="docutils literal notranslate"><span class="pre">x1</span></code> and <code class="docutils literal notranslate"><span class="pre">other</span></code> equal <code class="docutils literal notranslate"><span class="pre">x2</span></code>.</p>
@@ -452,12 +452,12 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>self</strong> (<em>array</em>) – array instance. Should have a numeric data type.</p></li>
-<li><p><strong>other</strong> (<em>Union</em><em>[</em><em>int</em><em>, </em><em>float</em><em>, </em><em>array</em><em>]</em>) – other array. Must be compatible with <code class="docutils literal notranslate"><span class="pre">self</span></code> (see <a class="reference internal" href="../broadcasting.html#broadcasting"><span class="std std-ref">Broadcasting</span></a>). Should have a numeric data type.</p></li>
+<li><p><strong>self</strong> (<em>array</em>) – array instance. Should have a real-valued data type.</p></li>
+<li><p><strong>other</strong> (<em>Union</em><em>[</em><em>int</em><em>, </em><em>float</em><em>, </em><em>array</em><em>]</em>) – other array. Must be compatible with <code class="docutils literal notranslate"><span class="pre">self</span></code> (see <a class="reference internal" href="../broadcasting.html#broadcasting"><span class="std std-ref">Broadcasting</span></a>). Should have a real-valued data type.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>out</strong> (<em>array</em>) – an array containing the element-wise results. The returned array should have a floating-point data type determined by <a class="reference internal" href="../type_promotion.html#type-promotion"><span class="std std-ref">Type Promotion Rules</span></a>.</p>
+<dd class="field-even"><p><strong>out</strong> (<em>array</em>) – an array containing the element-wise results. The returned array should have a real-valued floating-point data type determined by <a class="reference internal" href="../type_promotion.html#type-promotion"><span class="std std-ref">Type Promotion Rules</span></a>.</p>
 </dd>
 </dl>
 <div class="admonition note">

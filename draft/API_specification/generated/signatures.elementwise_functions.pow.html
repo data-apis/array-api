@@ -421,7 +421,7 @@
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>If both <code class="docutils literal notranslate"><span class="pre">x1</span></code> and <code class="docutils literal notranslate"><span class="pre">x2</span></code> have integer data types, the result of <code class="docutils literal notranslate"><span class="pre">pow</span></code> when <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> is negative (i.e., less than zero) is unspecified and thus implementation-dependent.</p>
-<p>If <code class="docutils literal notranslate"><span class="pre">x1</span></code> has an integer data type and <code class="docutils literal notranslate"><span class="pre">x2</span></code> has a floating-point data type, behavior is implementation-dependent (type promotion between data type “kinds” (integer versus floating-point) is unspecified).</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">x1</span></code> has an integer data type and <code class="docutils literal notranslate"><span class="pre">x2</span></code> has a real-valued floating-point data type, behavior is implementation-dependent (type promotion between data type “kinds” (integer versus floating-point) is unspecified).</p>
 </div>
 <p><strong>Special cases</strong></p>
 <p>For floating-point operands,</p>
@@ -454,8 +454,8 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>x1</strong> (<em>array</em>) – first input array whose elements correspond to the exponentiation base. Should have a numeric data type.</p></li>
-<li><p><strong>x2</strong> (<em>array</em>) – second input array whose elements correspond to the exponentiation exponent. Must be compatible with <code class="docutils literal notranslate"><span class="pre">x1</span></code> (see <a class="reference internal" href="../broadcasting.html#broadcasting"><span class="std std-ref">Broadcasting</span></a>). Should have a numeric data type.</p></li>
+<li><p><strong>x1</strong> (<em>array</em>) – first input array whose elements correspond to the exponentiation base. Should have a real-valued data type.</p></li>
+<li><p><strong>x2</strong> (<em>array</em>) – second input array whose elements correspond to the exponentiation exponent. Must be compatible with <code class="docutils literal notranslate"><span class="pre">x1</span></code> (see <a class="reference internal" href="../broadcasting.html#broadcasting"><span class="std std-ref">Broadcasting</span></a>). Should have a real-valued data type.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
