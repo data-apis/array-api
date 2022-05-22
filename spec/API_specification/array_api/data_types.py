@@ -17,4 +17,4 @@ def __eq__(self: dtype, other: dtype, /) -> bool:
         a boolean indicating whether the data type objects are equal.
     """
 
-all = ['__eq__']
+__all__ = ['__eq__']

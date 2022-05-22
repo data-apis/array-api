@@ -2,7 +2,7 @@ from .array_object import *
 from .constants import *
 from .creation_functions import *
 from .data_type_functions import *
-from .data_types import *
+import data_types as dtype
 from .elementwise_functions import *
 from .linear_algebra_functions import *
 from .manipulation_functions import *
