@@ -1,4 +1,4 @@
-from ._types import List, Tuple, Union, array, dtype, finfo_object, iinfo_object
+from ._types import Union, array, dtype, finfo_object, iinfo_object
 
 def astype(x: array, dtype: dtype, /, *, copy: bool = True) -> array:
     """
@@ -25,38 +25,6 @@ def astype(x: array, dtype: dtype, /, *, copy: bool = True) -> array:
     -------
     out: array
         an array having the specified data type. The returned array must have the same shape as ``x``.
-    """
-
-def broadcast_arrays(*arrays: array) -> List[array]:
-    """
-    Broadcasts one or more arrays against one another.
-
-    Parameters
-    ----------
-    arrays: array
-        an arbitrary number of to-be broadcasted arrays.
-
-    Returns
-    -------
-    out: List[array]
-        a list of broadcasted arrays. Each array must have the same shape. Each array must have the same dtype as its corresponding input array.
-    """
-
-def broadcast_to(x: array, /, shape: Tuple[int, ...]) -> array:
-    """
-    Broadcasts an array to a specified shape.
-
-    Parameters
-    ----------
-    x: array
-        array to broadcast.
-    shape: Tuple[int, ...]
-        array shape. Must be compatible with ``x`` (see :ref:`broadcasting`). If the array is incompatible with the specified shape, the function should raise an exception.
-
-    Returns
-    -------
-    out: array
-        an array having a specified shape. Must have the same data type as ``x``.
     """
 
 def can_cast(from_: Union[dtype, array], to: dtype, /) -> bool:
@@ -156,4 +124,4 @@ def result_type(*arrays_and_dtypes: Union[array, dtype]) -> dtype:
         the dtype resulting from an operation involving the input arrays and dtypes.
     """
 
-__all__ = ['astype', 'broadcast_arrays', 'broadcast_to', 'can_cast', 'finfo', 'iinfo', 'result_type']
+__all__ = ['astype', 'can_cast', 'finfo', 'iinfo', 'result_type']
