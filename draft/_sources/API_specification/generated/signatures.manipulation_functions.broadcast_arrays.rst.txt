@@ -1,4 +1,4 @@
-﻿.. currentmodule:: signatures.data_type_functions
+﻿.. currentmodule:: signatures.manipulation_functions
 
 broadcast_arrays
 ================
