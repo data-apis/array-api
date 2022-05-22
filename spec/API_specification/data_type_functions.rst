@@ -19,8 +19,6 @@ Objects in API
    :template: method.rst
 
    astype
-   broadcast_arrays
-   broadcast_to
    can_cast
    finfo
    iinfo

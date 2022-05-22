@@ -21,6 +21,8 @@ Objects in API
    :toctree: generated
    :template: method.rst
 
+   broadcast_arrays
+   broadcast_to
    concat
    expand_dims
    flip
