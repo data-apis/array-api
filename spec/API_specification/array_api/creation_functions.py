@@ -270,6 +270,9 @@ def ones(shape: Union[int, Tuple[int, ...]], *, dtype: Optional[dtype] = None, d
     """
     Returns a new array having a specified ``shape`` and filled with ones.
 
+    .. note::
+       An output array having a complex floating-point data type must contain complex numbers having a real component equal to one and an imaginary component equal to zero (i.e., ``1 + 0j``).  
+
     Parameters
     ----------
     shape: Union[int, Tuple[int, ...]]
@@ -288,6 +291,9 @@ def ones(shape: Union[int, Tuple[int, ...]], *, dtype: Optional[dtype] = None, d
 def ones_like(x: array, /, *, dtype: Optional[dtype] = None, device: Optional[device] = None) -> array:
     """
     Returns a new array filled with ones and having the same ``shape`` as an input array ``x``.
+
+    .. note::
+       An output array having a complex floating-point data type must contain complex numbers having a real component equal to one and an imaginary component equal to zero (i.e., ``1 + 0j``).  
 
     Parameters
     ----------
