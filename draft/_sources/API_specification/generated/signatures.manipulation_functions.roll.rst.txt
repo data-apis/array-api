@@ -1,6 +1,0 @@
-﻿.. currentmodule:: signatures.manipulation_functions
-
-roll
-====
-
-.. autofunction:: roll

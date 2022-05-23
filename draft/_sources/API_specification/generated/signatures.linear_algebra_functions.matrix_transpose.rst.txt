@@ -1,6 +1,0 @@
-﻿.. currentmodule:: signatures.linear_algebra_functions
-
-matrix_transpose
-================
-
-.. autofunction:: matrix_transpose

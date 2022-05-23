@@ -1,6 +1,0 @@
-﻿.. currentmodule:: signatures.array_object
-
-__eq__
-======
-
-.. automethod:: array.__eq__

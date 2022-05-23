@@ -1,0 +1,6 @@
+﻿.. currentmodule:: array_api
+
+less_equal
+==========
+
+.. autofunction:: less_equal

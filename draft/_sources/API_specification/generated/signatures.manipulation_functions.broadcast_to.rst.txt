@@ -1,6 +1,0 @@
-﻿.. currentmodule:: signatures.manipulation_functions
-
-broadcast_to
-============
-
-.. autofunction:: broadcast_to

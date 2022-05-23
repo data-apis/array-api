@@ -1,6 +1,0 @@
-﻿.. currentmodule:: signatures.linalg
-
-vector_norm
-===========
-
-.. autofunction:: vector_norm

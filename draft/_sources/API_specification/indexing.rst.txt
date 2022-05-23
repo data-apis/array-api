@@ -154,7 +154,7 @@ Multi-dimensional arrays must extend the concept of single-axis indexing to mult
 - Each ``None`` in the selection tuple must expand the dimensions of the resulting selection by one dimension of size ``1``. The position of the added dimension must be the same as the position of ``None`` in the selection tuple.
 
   .. note::
-    Expanding dimensions can be equivalently achieved via repeated invocation of :func:`~signatures.manipulation_functions.expand_dims`.
+    Expanding dimensions can be equivalently achieved via repeated invocation of :func:`~array_api.expand_dims`.
 
 - Except in the case of providing a single ellipsis (e.g., ``A[2:10, ...]`` or ``A[1:, ..., 2:5]``), the number of provided single-axis indexing expressions (excluding ``None``) should equal ``N``. For example, if ``A`` has rank ``2``, a single-axis indexing expression should be explicitly provided for both axes (e.g., ``A[2:10, :]``). An ``IndexError`` exception should be raised if the number of provided single-axis indexing expressions (excluding ``None``) is less than ``N``.
 
@@ -181,7 +181,7 @@ Boolean Array Indexing
 An array must support indexing where the **sole index** is an ``M``-dimensional boolean array ``B`` with shape ``S1 = (s1, ..., sM)`` according to the following rules. Let ``A`` be an ``N``-dimensional array with shape ``S2 = (s1, ..., sM, ..., sN)``.
 
   .. note::
-     The prohibition against combining boolean array indices with other single-axis indexing expressions includes the use of ``None``. To expand dimensions of the returned array, use repeated invocation of :func:`~signatures.manipulation_functions.expand_dims`.
+     The prohibition against combining boolean array indices with other single-axis indexing expressions includes the use of ``None``. To expand dimensions of the returned array, use repeated invocation of :func:`~array_api.expand_dims`.
 
 - If ``N >= M``, then ``A[B]`` must replace the first ``M`` dimensions of ``A`` with a single dimension having a size equal to the number of ``True`` elements in ``B``. The values in the resulting array must be in row-major (C-style order); this is equivalent to ``A[nonzero(B)]``.
 

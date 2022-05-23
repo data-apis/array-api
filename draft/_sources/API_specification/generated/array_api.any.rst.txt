@@ -1,0 +1,6 @@
+﻿.. currentmodule:: array_api
+
+any
+===
+
+.. autofunction:: any

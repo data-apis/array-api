@@ -1,0 +1,6 @@
+﻿.. currentmodule:: array_api
+
+from_dlpack
+===========
+
+.. autofunction:: from_dlpack
