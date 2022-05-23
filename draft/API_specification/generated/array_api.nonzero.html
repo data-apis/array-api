@@ -418,14 +418,6 @@
 <dt class="sig sig-object py" id="array_api.nonzero">
 <span class="sig-name descname"><span class="pre">nonzero</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">array</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#array_api.nonzero" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the indices of the array elements which are non-zero.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If <code class="docutils literal notranslate"><span class="pre">x</span></code> has a complex floating-point data type, non-zero elements are those elements having at least one component (real or imaginary) which is non-zero.</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If <code class="docutils literal notranslate"><span class="pre">x</span></code> has a boolean data type, non-zero elements are those elements which are equal to <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
-</div>
 <div class="admonition important">
 <p class="admonition-title">Data-dependent output shape</p>
 <p>The shape of the output array for this function depends on the data values in the input array; hence, array libraries which build computation graphs (e.g., JAX, Dask, etc.) may find this function difficult to implement without knowing array values. Accordingly, such libraries may choose to omit this function. See <a class="reference internal" href="../../design_topics/data_dependent_output_shapes.html#data-dependent-output-shapes"><span class="std std-ref">Data-dependent output shapes</span></a> section for more details.</p>
