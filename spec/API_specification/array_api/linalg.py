@@ -3,11 +3,11 @@ from .constants import inf
 
 def cholesky(x: array, /, *, upper: bool = False) -> array:
     """
-    Returns the lower (upper) Cholesky decomposition of a complex Hermitian \\(x = LL^{H}\\) (\\(x = U^{H}U\\)) or real symmetric positive-definite matrix \\(x = LL^{T}\\) (\\(x = U^{T}U\\)) ``x``.
+    Returns the lower (upper) Cholesky decomposition of a complex Hermitian or real symmetric positive-definite matrix ``x``.
 
-    If ``x`` is real-valued, let \\(\mathbb{K}\\) be the set of real numbers \\(\mathbb{R}\\), and, if ``x`` is complex-valued, let \\(\mathbb{K}\\) be the set of complex numbers \\(\mathbb{C}\\). The *cholesky decomposition* of a complex Hermitian or real symmetric positive-definite matrix \\(A \exists \mathbb{K}^{n \times n}\\) is defined as
+    If ``x`` is real-valued, let $\mathbb{K}$ be the set of real numbers $\mathbb{R}$, and, if ``x`` is complex-valued, let $\mathbb{K}$ be the set of complex numbers $\mathbb{C}$. The *cholesky decomposition* of a complex Hermitian or real symmetric positive-definite matrix $A \exists \mathbb{K}^{n \times n}$ is defined as
 
-    \\[A = LL^{H} \quad \text{L \exists \mathbb{K}^{n \times n}}\\]
+    $$A = LL^{H} \quad \text{L \exists \mathbb{K}^{n \times n}}$$
 
     TODO: add sentence on batching
 
