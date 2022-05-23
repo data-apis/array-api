@@ -12,7 +12,7 @@ A conforming implementation of the array API standard must provide and support t
 * Unless stated otherwise, functions must adhere to the type promotion rules defined in :ref:`type-promotion`.
 * Unless stated otherwise, floating-point operations must adhere to IEEE 754-2019.
 
-.. currentmodule:: signatures.linear_algebra_functions
+.. currentmodule:: array_api
 
 Objects in API
 --------------
