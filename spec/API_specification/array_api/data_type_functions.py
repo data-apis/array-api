@@ -91,7 +91,7 @@ def iinfo(type: Union[dtype, array], /) -> iinfo_object:
     Returns
     -------
     out: iinfo object
-        a class with that encapsules the following attributes:
+        an object having the following attributes:
 
         - **bits**: *int*
 
