@@ -151,7 +151,7 @@ def from_dlpack(x: object, /) -> array:
            The returned array may be either a copy or a view. See :ref:`data-interchange` for details.
     """
 
-def full(shape: Union[int, Tuple[int, ...]], fill_value: Union[int, float, complex], *, dtype: Optional[dtype] = None, device: Optional[device] = None) -> array:
+def full(shape: Union[int, Tuple[int, ...]], fill_value: Union[bool, int, float, complex], *, dtype: Optional[dtype] = None, device: Optional[device] = None) -> array:
     """
     Returns a new array having a specified ``shape`` and filled with ``fill_value``.
 
@@ -159,7 +159,7 @@ def full(shape: Union[int, Tuple[int, ...]], fill_value: Union[int, float, compl
     ----------
     shape: Union[int, Tuple[int, ...]]
         output array shape.
-    fill_value: Union[int, float, complex]
+    fill_value: Union[bool, int, float, complex]
         fill value.
     dtype: Optional[dtype]
         output array data type. If ``dtype`` is ``None``, the output array data type must be inferred from ``fill_value`` according to the following rules:
@@ -181,7 +181,7 @@ def full(shape: Union[int, Tuple[int, ...]], fill_value: Union[int, float, compl
         an array where every element is equal to ``fill_value``.
     """
 
-def full_like(x: array, /, fill_value: Union[int, float, complex], *, dtype: Optional[dtype] = None, device: Optional[device] = None) -> array:
+def full_like(x: array, /, fill_value: Union[bool, int, float, complex], *, dtype: Optional[dtype] = None, device: Optional[device] = None) -> array:
     """
     Returns a new array filled with ``fill_value`` and having the same ``shape`` as an input array ``x``.
 
@@ -189,7 +189,7 @@ def full_like(x: array, /, fill_value: Union[int, float, complex], *, dtype: Opt
     ----------
     x: array
         input array from which to derive the output array shape.
-    fill_value: Union[int, float, complex]
+    fill_value: Union[bool, int, float, complex]
         fill value.
     dtype: Optional[dtype]
         output array data type. If ``dtype`` is ``None``, the output array data type must be inferred from ``x``. Default: ``None``.
@@ -198,7 +198,7 @@ def full_like(x: array, /, fill_value: Union[int, float, complex], *, dtype: Opt
            If the ``fill_value`` exceeds the precision of the resolved output array data type, behavior is unspecified and, thus, implementation-defined.
 
         .. note::
-           If the ``fill_value`` has a data type (``int``, ``float``, or ``complex``) which is not of the same data type kind (integer versus floating-point) as the resolved output array data type (see :ref:`type-promotion`), behavior is unspecified and, thus, implementation-defined.
+           If the ``fill_value`` has a data type which is not of the same data type kind (boolean, integer, or floating-point) as the resolved output array data type (see :ref:`type-promotion`), behavior is unspecified and, thus, implementation-defined.
 
     device: Optional[device]
         device on which to place the created array. If ``device`` is ``None``, the output array device must be inferred from ``x``. Default: ``None``.
