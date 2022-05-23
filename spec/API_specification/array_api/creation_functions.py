@@ -167,7 +167,7 @@ def full(shape: Union[int, Tuple[int, ...]], fill_value: Union[int, float, compl
         - If the fill value is an ``int``, the output array data type must be the default integer data type.
         - If the fill value is a ``float``, the output array data type must be the default real-valued floating-point data type.
         - If the fill value is a ``complex`` number, the output array data type must be the default complex floating-point data type.
-        - If the fill value is a ``bool``, the output array must have boolean data type. Default: ``None``.
+        - If the fill value is a ``bool``, the output array must have a boolean data type. Default: ``None``.
 
         .. note::
            If the ``fill_value`` exceeds the precision of the resolved default output array data type, behavior is left unspecified and, thus, implementation-defined.
