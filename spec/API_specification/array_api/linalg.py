@@ -3,13 +3,16 @@ from .constants import inf
 
 def cholesky(x: array, /, *, upper: bool = False) -> array:
     """
-    Returns the lower (upper) Cholesky decomposition x = LLᵀ (x = UᵀU) of a symmetric positive-definite matrix (or a stack of matrices) ``x``, where ``L`` is a lower-triangular matrix or a stack of matrices (``U`` is an upper-triangular matrix or a stack of matrices).
+    Returns the lower (upper) Cholesky decomposition of a complex Hermitian \\(x = LL^{H}\\) (\\(x = U^{H}U\\)) or real symmetric positive-definite matrix \\(x = LL^{T}\\) (\\(x = U^{T}U\\)) ``x``.
 
-    ..
-      NOTE: once complex numbers are supported, each square matrix must be Hermitian.
+    If ``x`` is real-valued, let \\(\mathbb{K}\\) be the set of real numbers \\(\mathbb{R}\\), and, if ``x`` is complex-valued, let \\(\mathbb{K}\\) be the set of complex numbers \\(\mathbb{C}\\). The *cholesky decomposition* of a complex Hermitian or real symmetric positive-definite matrix \\(A \exists \mathbb{K}^{n \times n}\\) is defined as
+
+    \\[A = LL^{H} \quad \text{L \exists \mathbb{K}^{n \times n}}\\]
+
+    TODO: add sentence on batching
 
     .. note::
-       Whether an array library explicitly checks whether an input array is a symmetric positive-definite matrix (or a stack of matrices) is implementation-defined.
+       Whether an array library explicitly checks whether an input array is Hermitian or a symmetric positive-definite matrix (or a stack of matrices) is implementation-defined.
 
     Parameters
     ----------
