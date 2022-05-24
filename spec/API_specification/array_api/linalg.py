@@ -7,7 +7,7 @@ def cholesky(x: array, /, *, upper: bool = False) -> array:
 
     If ``x`` is real-valued, let :math:`\mathbb{K}` be the set of real numbers $\mathbb{R}$, and, if ``x`` is complex-valued, let $\mathbb{K}$ be the set of complex numbers $\mathbb{C}$.
 
-    The lower **Cholesky decomposition** of a complex Hermitian or real symmetric positive-definite matrix :math:`x\ \in\ \mathbb{K}^{n \times n}` is defined as
+    The lower **Cholesky decomposition** of a complex Hermitian or real symmetric positive-definite matrix :math:`x \in\ \mathbb{K}^{n \times n}` is defined as
 
     .. math::
        x = LL^{H} \qquad \text{L $\in\ \mathbb{K}^{n \times n}$}
