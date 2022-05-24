@@ -2,22 +2,22 @@ from ._types import Literal, Optional, Tuple, Union, Sequence, array
 from .constants import inf
 
 def cholesky(x: array, /, *, upper: bool = False) -> array:
-    """
+    r"""
     Returns the lower (upper) Cholesky decomposition of a complex Hermitian or real symmetric positive-definite matrix ``x``.
 
-    If ``x`` is real-valued, let :math:`\\mathbb{K}` be the set of real numbers $\\mathbb{R}$, and, if ``x`` is complex-valued, let $\\mathbb{K}$ be the set of complex numbers $\\mathbb{C}$.
+    If ``x`` is real-valued, let :math:`\mathbb{K}` be the set of real numbers $\mathbb{R}$, and, if ``x`` is complex-valued, let $\mathbb{K}$ be the set of complex numbers $\mathbb{C}$.
 
-    The lower **Cholesky decomposition** of a complex Hermitian or real symmetric positive-definite matrix :math:`x\\ \\in\\ \\mathbb{K}^{n \\times n}` is defined as
+    The lower **Cholesky decomposition** of a complex Hermitian or real symmetric positive-definite matrix :math:`x\ \in\ \mathbb{K}^{n \times n}` is defined as
 
     .. math::
-       x = LL^{H} \\qquad \\text{L $\\in\\ \\mathbb{K}^{n \\times n}$}
+       x = LL^{H} \qquad \text{L $\in\ \mathbb{K}^{n \times n}$}
 
     where :math:`L` is a lower triangular matrix and :math:`L^{H}` is the conjugate transpose when :math:`L` is complex-valued and the transpose when :math:`L` is real-valued.
 
     The upper Cholesky decomposition is defined similarly
 
     .. math::
-       x = UU^{H} \\qquad \\text{U $\\in\\ \\mathbb{K}^{n \\times n}$}
+       x = UU^{H} \qquad \text{U $\in\ \mathbb{K}^{n \times n}$}
 
     where :math:`U` is an upper triangular matrix.
 
