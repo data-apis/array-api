@@ -46,7 +46,7 @@ def asarray(obj: Union[array, bool, int, float, complex, NestedSequence, Support
         output array data type. If ``dtype`` is ``None``, the output array data type must be inferred from the data type(s) in ``obj``. If all input values are Python scalars, then, in order of precedence,
 
         -   if all values are of type ``bool``, the output data type must be ``bool``.
-        -   if the values are a mixture of ``bool``\s and ``int``, the output data type must be the default integer data type.
+        -   if all values are of type ``int`` or are a mixture of ``bool`` and ``int``, the output data type must be the default integer data type.
         -   if one or more values are ``complex`` numbers, the output data type must be the default complex floating-point data type.
         -   if one or more values are ``float``\s, the output data type must be the default real-valued floating-point data type.
 
