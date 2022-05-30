@@ -1,6 +1,0 @@
-﻿.. currentmodule:: array_api
-
-conj
-====
-
-.. autofunction:: conj
