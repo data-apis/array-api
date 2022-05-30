@@ -378,15 +378,7 @@ def ceil(x: array, /) -> array:
     """
     Rounds each element ``x_i`` of the input array ``x`` to the smallest (i.e., closest to ``-infinity``) integer-valued number that is not less than ``x_i``.
 
-    .. note::
-       For complex floating-point operands, real and imaginary components must be independently rounded to the smallest integer-valued number that is not less than the component value.
-    
-       Rounded real and imaginary components must be equal to their equivalent rounded real-valued floating-point counterparts (i.e., for complex-valued ``x``, ``real(ceil(x))`` must equal ``ceil(real(x)))`` and ``imag(ceil(x))`` must equal ``ceil(imag(x))``).
-
     **Special cases**
-
-    .. note::
-       For complex floating-point operands, the following special cases apply to real and imaginary components independently (e.g., if ``real(x_i)`` is ``NaN``, the rounded real component is ``NaN``).
 
     - If ``x_i`` is already integer-valued, the result is ``x_i``.
 
@@ -401,7 +393,7 @@ def ceil(x: array, /) -> array:
     Parameters
     ----------
     x: array
-        input array. Should have a numeric data type.
+        input array. Should have a real-valued data type.
 
     Returns
     -------
@@ -582,15 +574,7 @@ def floor(x: array, /) -> array:
     """
     Rounds each element ``x_i`` of the input array ``x`` to the greatest (i.e., closest to ``+infinity``) integer-valued number that is not greater than ``x_i``.
 
-    .. note::
-       For complex floating-point operands, real and imaginary components must be independently rounded to the greatest integer-valued number that is not greater than the component value.
-    
-       Rounded real and imaginary components must be equal to their equivalent rounded real-valued floating-point counterparts (i.e., for complex-valued ``x``, ``real(floor(x))`` must equal ``floor(real(x)))`` and ``imag(floor(x))`` must equal ``floor(imag(x))``).
-
     **Special cases**
-
-    .. note::
-       For complex floating-point operands, the following special cases apply to real and imaginary components independently (e.g., if ``real(x_i)`` is ``NaN``, the rounded real component is ``NaN``).
 
     - If ``x_i`` is already integer-valued, the result is ``x_i``.
 
@@ -605,7 +589,7 @@ def floor(x: array, /) -> array:
     Parameters
     ----------
     x: array
-        input array. Should have a numeric data type.
+        input array. Should have a real-valued data type.
 
     Returns
     -------
@@ -1391,15 +1375,7 @@ def trunc(x: array, /) -> array:
     """
     Rounds each element ``x_i`` of the input array ``x`` to the integer-valued number that is closest to but no greater than ``x_i``.
 
-    .. note::
-       For complex floating-point operands, real and imaginary components must be independently rounded to the integer-valued number that is closest to but no greater than the component value.
-    
-       Rounded real and imaginary components must be equal to their equivalent rounded real-valued floating-point counterparts (i.e., for complex-valued ``x``, ``real(trunc(x))`` must equal ``trunc(real(x)))`` and ``imag(trunc(x))`` must equal ``trunc(imag(x))``).
-
     **Special cases**
-
-    .. note::
-       For complex floating-point operands, the following special cases apply to real and imaginary components independently (e.g., if ``real(x_i)`` is ``NaN``, the rounded real component is ``NaN``).
 
     - If ``x_i`` is already integer-valued, the result is ``x_i``.
 
@@ -1414,7 +1390,7 @@ def trunc(x: array, /) -> array:
     Parameters
     ----------
     x: array
-        input array. Should have a numeric data type.
+        input array. Should have a real-valued data type.
 
     Returns
     -------
