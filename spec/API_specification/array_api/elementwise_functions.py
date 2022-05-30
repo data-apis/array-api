@@ -415,7 +415,7 @@ def conj(x: array, /) -> array:
     .. math::
        a - bj
 
-    Hence, the returned complex conjugate must be computed by negating the imaginary component of each element ``x_i``.
+    Hence, the returned complex conjugates must be computed by negating the imaginary component of each element ``x_i``.
 
     Parameters
     ----------
