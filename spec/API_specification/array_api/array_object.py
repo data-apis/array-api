@@ -746,10 +746,13 @@ class _array():
         .. note::
            For signed integer data types, the numerical negative of the minimum representable integer is implementation-dependent.
 
+        .. note::
+           If ``self`` has a complex floating-point data type, both the real and imaginary components for each ``self_i`` must be negated (a result which follows from the rules of complex number multiplication).
+
         Parameters
         ----------
         self: array
-            array instance. Should have a real-valued data type.
+            array instance. Should have a numeric data type.
 
         Returns
         -------
