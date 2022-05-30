@@ -789,7 +789,7 @@ class _array():
         Parameters
         ----------
         self: array
-            array instance. Should have a real-valued data type.
+            array instance. Should have a numeric data type.
 
         Returns
         -------
