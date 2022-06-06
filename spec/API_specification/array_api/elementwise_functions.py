@@ -1052,7 +1052,7 @@ def positive(x: array, /) -> array:
     Parameters
     ----------
     x: array
-        input array. Should have a real-valued data type.
+        input array. Should have a numeric data type.
 
     Returns
     -------
