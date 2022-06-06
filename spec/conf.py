@@ -50,14 +50,7 @@ add_module_names = False
 napoleon_custom_sections = [('Returns', 'params_style')]
 default_role = 'code'
 
-# Mathjax configuration
-mathjax_config = {
-    'tex2jax': {
-        'inlineMath': [ ["\\(","\\)"] ],
-        'displayMath': [["\\[","\\]"] ],
-    },
-}
-
+# Mathjax configuration:
 mathjax3_config = {
   "tex": {
     "inlineMath": [['\\(', '\\)']],

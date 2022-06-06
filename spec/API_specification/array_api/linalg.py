@@ -2,26 +2,41 @@ from ._types import Literal, Optional, Tuple, Union, Sequence, array
 from .constants import inf
 
 def cholesky(x: array, /, *, upper: bool = False) -> array:
-    """
-    Returns the lower (upper) Cholesky decomposition x = LLᵀ (x = UᵀU) of a symmetric positive-definite matrix (or a stack of matrices) ``x``, where ``L`` is a lower-triangular matrix or a stack of matrices (``U`` is an upper-triangular matrix or a stack of matrices).
+    r"""
+    Returns the lower (upper) Cholesky decomposition of a complex Hermitian or real symmetric positive-definite matrix ``x``.
 
-    ..
-      NOTE: once complex numbers are supported, each square matrix must be Hermitian.
+    If ``x`` is real-valued, let :math:`\mathbb{K}` be the set of real numbers $\mathbb{R}$, and, if ``x`` is complex-valued, let $\mathbb{K}$ be the set of complex numbers $\mathbb{C}$.
+
+    The lower **Cholesky decomposition** of a complex Hermitian or real symmetric positive-definite matrix :math:`x \in\ \mathbb{K}^{n \times n}` is defined as
+
+    .. math::
+       x = LL^{H} \qquad \text{L $\in\ \mathbb{K}^{n \times n}$}
+
+    where :math:`L` is a lower triangular matrix and :math:`L^{H}` is the conjugate transpose when :math:`L` is complex-valued and the transpose when :math:`L` is real-valued.
+
+    The upper Cholesky decomposition is defined similarly
+
+    .. math::
+       x = UU^{H} \qquad \text{U $\in\ \mathbb{K}^{n \times n}$}
+
+    where :math:`U` is an upper triangular matrix.
+
+    When ``x`` is a stack of matrices, the function must compute the Cholesky decomposition for each matrix in the stack.
 
     .. note::
-       Whether an array library explicitly checks whether an input array is a symmetric positive-definite matrix (or a stack of matrices) is implementation-defined.
+       Whether an array library explicitly checks whether an input array is Hermitian or a symmetric positive-definite matrix (or a stack of matrices) is implementation-defined.
 
     Parameters
     ----------
     x: array
-        input array having shape ``(..., M, M)`` and whose innermost two dimensions form square symmetric positive-definite matrices. Should have a real-valued floating-point data type.
+        input array having shape ``(..., M, M)`` and whose innermost two dimensions form square complex Hermitian or real symmetric positive-definite matrices. Should have a floating-point data type.
     upper: bool
-        If ``True``, the result must be the upper-triangular Cholesky factor ``U``. If ``False``, the result must be the lower-triangular Cholesky factor ``L``. Default: ``False``.
+        If ``True``, the result must be the upper-triangular Cholesky factor :math:`U`. If ``False``, the result must be the lower-triangular Cholesky factor :math:`L`. Default: ``False``.
 
     Returns
     -------
     out: array
-        an array containing the Cholesky factors for each square matrix. If ``upper`` is ``False``, the returned array must contain lower-triangular matrices; otherwise, the returned array must contain upper-triangular matrices. The returned array must have a real-valued floating-point data type determined by :ref:`type-promotion` and must have the same shape as ``x``.
+        an array containing the Cholesky factors for each square matrix. If ``upper`` is ``False``, the returned array must contain lower-triangular matrices; otherwise, the returned array must contain upper-triangular matrices. The returned array must have a floating-point data type determined by :ref:`type-promotion` and must have the same shape as ``x``.
     """
 
 def cross(x1: array, x2: array, /, *, axis: int = -1) -> array:
