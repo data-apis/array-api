@@ -28,13 +28,13 @@ def arange(start: Union[int, float], /, stop: Optional[Union[int, float]] = None
         a one-dimensional array containing evenly spaced values. The length of the output array must be ``ceil((stop-start)/step)`` if ``stop - start`` and ``step`` have the same sign, and length ``0`` otherwise.
     """
 
-def asarray(obj: Union[array, bool, int, float, NestedSequence, SupportsBufferProtocol], /, *, dtype: Optional[dtype] = None, device: Optional[device] = None, copy: Optional[bool] = None) -> array:
+def asarray(obj: Union[array, bool, int, float, complex, NestedSequence, SupportsBufferProtocol], /, *, dtype: Optional[dtype] = None, device: Optional[device] = None, copy: Optional[bool] = None) -> array:
     """
     Convert the input to an array.
 
     Parameters
     ----------
-    obj: Union[array, bool, int, float, NestedSequence[bool | int | float], SupportsBufferProtocol]
+    obj: Union[array, bool, int, float, complex, NestedSequence[bool | int | float | complex], SupportsBufferProtocol]
         object to be converted to an array. May be a Python scalar, a (possibly nested) sequence of Python scalars, or an object supporting the Python buffer protocol.
 
         .. admonition:: Tip
@@ -43,10 +43,11 @@ def asarray(obj: Union[array, bool, int, float, NestedSequence, SupportsBufferPr
            An object supporting the buffer protocol can be turned into a memoryview through ``memoryview(obj)``.
 
     dtype: Optional[dtype]
-        output array data type. If ``dtype`` is ``None``, the output array data type must be inferred from the data type(s) in ``obj``. If all input values are Python scalars, then
+        output array data type. If ``dtype`` is ``None``, the output array data type must be inferred from the data type(s) in ``obj``. If all input values are Python scalars, then, in order of precedence,
 
         -   if all values are of type ``bool``, the output data type must be ``bool``.
-        -   if the values are a mixture of ``bool``\s and ``int``, the output data type must be the default integer data type.
+        -   if all values are of type ``int`` or are a mixture of ``bool`` and ``int``, the output data type must be the default integer data type.
+        -   if one or more values are ``complex`` numbers, the output data type must be the default complex floating-point data type.
         -   if one or more values are ``float``\s, the output data type must be the default real-valued floating-point data type.
 
         Default: ``None``.
