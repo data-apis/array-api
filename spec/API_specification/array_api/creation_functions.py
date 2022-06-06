@@ -112,6 +112,9 @@ def eye(n_rows: int, n_cols: Optional[int] = None, /, *, k: int = 0, dtype: Opti
     """
     Returns a two-dimensional array with ones on the ``k``\th diagonal and zeros elsewhere.
 
+    .. note::
+       An output array having a complex floating-point data type must have the value ``1 + 0j`` along the ``k``\th diagonal and ``0 + 0j`` elsewhere. 
+
     Parameters
     ----------
     n_rows: int
