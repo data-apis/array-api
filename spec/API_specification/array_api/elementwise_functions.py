@@ -544,7 +544,7 @@ def exp(x: array, /) -> array:
 
 def expm1(x: array, /) -> array:
     """
-    Calculates an implementation-dependent approximation to ``exp(x)-1``, having domain ``[-infinity, +infinity]`` and codomain ``[-1, +infinity]``, for each element ``x_i`` of the input array ``x``.
+    Calculates an implementation-dependent approximation to ``exp(x)-1`` for each element ``x_i`` of the input array ``x``.
 
     .. note::
        The purpose of this function is to calculate ``exp(x)-1.0`` more accurately when `x` is close to zero. Accordingly, conforming implementations should avoid implementing this function as simply ``exp(x)-1.0``. See FDLIBM, or some other IEEE 754-2019 compliant mathematical library, for a potential reference implementation.
@@ -559,15 +559,34 @@ def expm1(x: array, /) -> array:
     - If ``x_i`` is ``+infinity``, the result is ``+infinity``.
     - If ``x_i`` is ``-infinity``, the result is ``-1``.
 
+    For complex floating-point operands, let ``a = real(x_i)``, ``b = imag(x_i)``, and
+
+    - If ``a`` is either ``+0`` or ``-0`` and ``b`` is either ``+0`` or ``-0``, the result is ``0+0j``.
+    - If ``a`` is a finite number and ``b`` is ``+infinity``, the result is ``NaN + NaN j``.
+    - If ``a`` is a finite number and ``b`` is ``NaN``, the result is ``NaN + NaN j``.
+    - If ``a`` is ``+infinity`` and ``b`` is either ``+0`` or ``-0``, the result is ``infinity + 0j``.
+    - If ``a`` is ``-infinity`` and ``b`` is a finite number, the result is ``-1 + 0j``.
+    - If ``a`` is ``+infinity`` and ``b`` is a nonzero finite number, the result is ``infinity + infinity j``.
+    - If ``a`` is ``-infinity`` and ``b`` is ``+infinity``, the result is ``-1 + 0j`` (sign of imaginary component is unspecified).
+    - If ``a`` is ``+infinity`` and ``b`` is ``+infinity``, the result is ``infinity + NaN j`` (sign of real component is unspecified).
+    - If ``a`` is ``-infinity`` and ``b`` is ``NaN``, the result is ``-1 + 0j`` (sign of imaginary component is unspecified).
+    - If ``a`` is ``+infinity`` and ``b`` is ``NaN``, the result is ``infinity + NaN j`` (sign of real component is unspecified).
+    - If ``a`` is ``NaN`` and ``b`` is either ``+0`` or ``-0``, the result is ``NaN + 0j``.
+    - If ``a`` is ``NaN`` and ``b`` is not equal to ``0``, the result is ``NaN + NaN j``.
+    - If ``a`` is ``NaN`` and ``b`` is ``NaN``, the result is ``NaN + NaN j``.
+
+    .. note::
+       The exponential function is an entire function in the complex plane and has no branch cuts.
+
     Parameters
     ----------
     x: array
-        input array. Should have a real-valued floating-point data type.
+        input array. Should have a floating-point data type.
 
     Returns
     -------
     out: array
-        an array containing the evaluated result for each element in ``x``. The returned array must have a real-valued floating-point data type determined by :ref:`type-promotion`.
+        an array containing the evaluated result for each element in ``x``. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
     """
 
 def floor(x: array, /) -> array:
