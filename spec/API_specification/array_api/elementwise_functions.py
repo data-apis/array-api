@@ -565,8 +565,8 @@ def expm1(x: array, /) -> array:
     - If ``a`` is a finite number and ``b`` is ``+infinity``, the result is ``NaN + NaN j``.
     - If ``a`` is a finite number and ``b`` is ``NaN``, the result is ``NaN + NaN j``.
     - If ``a`` is ``+infinity`` and ``b`` is either ``+0`` or ``-0``, the result is ``infinity + 0j``.
-    - If ``a`` is ``-infinity`` and ``b`` is a finite number, the result is ``-1 + 0j``.
-    - If ``a`` is ``+infinity`` and ``b`` is a nonzero finite number, the result is ``infinity + infinity j``.
+    - If ``a`` is ``-infinity`` and ``b`` is a finite number, the result is ``+0 * cis(x_i) - 1.0``.
+    - If ``a`` is ``+infinity`` and ``b`` is a nonzero finite number, the result is ``+infinity * cis(x_i) - 1.0``.
     - If ``a`` is ``-infinity`` and ``b`` is ``+infinity``, the result is ``-1 + 0j`` (sign of imaginary component is unspecified).
     - If ``a`` is ``+infinity`` and ``b`` is ``+infinity``, the result is ``infinity + NaN j`` (sign of real component is unspecified).
     - If ``a`` is ``-infinity`` and ``b`` is ``NaN``, the result is ``-1 + 0j`` (sign of imaginary component is unspecified).
@@ -574,6 +574,8 @@ def expm1(x: array, /) -> array:
     - If ``a`` is ``NaN`` and ``b`` is either ``+0`` or ``-0``, the result is ``NaN + 0j``.
     - If ``a`` is ``NaN`` and ``b`` is not equal to ``0``, the result is ``NaN + NaN j``.
     - If ``a`` is ``NaN`` and ``b`` is ``NaN``, the result is ``NaN + NaN j``.
+
+    where ``cis(x_i)`` is ``cos(x_i) + sin(x_i)*1j``.
 
     .. note::
        The exponential function is an entire function in the complex plane and has no branch cuts.
