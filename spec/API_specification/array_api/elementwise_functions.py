@@ -550,6 +550,9 @@ def exp(x: array, /) -> array:
     .. note::
        The exponential function is an entire function in the complex plane and has no branch cuts.
 
+    .. note::
+       For complex floating-point operands, ``exp(conj(x))`` must equal ``conj(exp(x))``.
+
     Parameters
     ----------
     x: array
