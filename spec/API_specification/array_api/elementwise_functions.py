@@ -426,7 +426,7 @@ def cos(x: array, /) -> array:
        For complex arguments, the mathematical definition of cosine is
 
        .. math::
-          \begin{align} \operatorname{cos}(x) &= \sum_{n=0}^\inf \frac{(-1)^n}{(2n)!} z^{2n} \\ &= \frac{e^{jz} + e^{-jz}}{2} \\ &= \operatorname{cosh}(jx) \end{align}
+          \begin{align} \operatorname{cos}(x) &= \sum_{n=0}^\infty \frac{(-1)^n}{(2n)!} z^{2n} \\ &= \frac{e^{jz} + e^{-jz}}{2} \\ &= \operatorname{cosh}(jx) \end{align}
 
        where :math:`\operatorname{cosh}` is the hyperbolic cosine.
 
