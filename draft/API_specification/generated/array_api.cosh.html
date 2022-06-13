@@ -59,8 +59,6 @@
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>window.MathJax = {"tex": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]]}}</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="divide" href="array_api.divide.html" />
@@ -419,12 +417,9 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="array_api.cosh">
 <span class="sig-name descname"><span class="pre">cosh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">array</span></span></span><a class="headerlink" href="#array_api.cosh" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calculates an implementation-dependent approximation to the hyperbolic cosine for each element <code class="docutils literal notranslate"><span class="pre">x_i</span></code> in the input array <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
-<p>The mathematical definition of the hyperbolic cosine is</p>
-<div class="math notranslate nohighlight">
-\[\operatorname{cosh}(x) = \frac{e^x + e^{-x}}{2}\]</div>
+<dd><p>Calculates an implementation-dependent approximation to the hyperbolic cosine, having domain <code class="docutils literal notranslate"><span class="pre">[-infinity,</span> <span class="pre">+infinity]</span></code> and codomain <code class="docutils literal notranslate"><span class="pre">[-infinity,</span> <span class="pre">+infinity]</span></code>, for each element <code class="docutils literal notranslate"><span class="pre">x_i</span></code> in the input array <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
 <p><strong>Special cases</strong></p>
-<p>For real-valued floating-point operands,</p>
+<p>For floating-point operands,</p>
 <ul class="simple">
 <li><p>If <code class="docutils literal notranslate"><span class="pre">x_i</span></code> is <code class="docutils literal notranslate"><span class="pre">NaN</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">NaN</span></code>.</p></li>
 <li><p>If <code class="docutils literal notranslate"><span class="pre">x_i</span></code> is <code class="docutils literal notranslate"><span class="pre">+0</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p></li>
@@ -432,40 +427,12 @@
 <li><p>If <code class="docutils literal notranslate"><span class="pre">x_i</span></code> is <code class="docutils literal notranslate"><span class="pre">+infinity</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">+infinity</span></code>.</p></li>
 <li><p>If <code class="docutils literal notranslate"><span class="pre">x_i</span></code> is <code class="docutils literal notranslate"><span class="pre">-infinity</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">+infinity</span></code>.</p></li>
 </ul>
-<p>For complex floating-point operands, let <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">real(x_i)</span></code>, <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">=</span> <span class="pre">imag(x_i)</span></code>, and</p>
-<ul class="simple">
-<li><p>If <code class="docutils literal notranslate"><span class="pre">a</span></code> is either <code class="docutils literal notranslate"><span class="pre">+0</span></code> or <code class="docutils literal notranslate"><span class="pre">-0</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> is either <code class="docutils literal notranslate"><span class="pre">+0</span></code> or <code class="docutils literal notranslate"><span class="pre">-0</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">+</span> <span class="pre">0j</span></code>.</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">a</span></code> is either <code class="docutils literal notranslate"><span class="pre">+0</span></code> or <code class="docutils literal notranslate"><span class="pre">-0</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> is <code class="docutils literal notranslate"><span class="pre">+infinity</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">NaN</span> <span class="pre">+</span> <span class="pre">0j</span></code> (sign of the imaginary component is unspecified).</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">a</span></code> is either <code class="docutils literal notranslate"><span class="pre">+0</span></code> or <code class="docutils literal notranslate"><span class="pre">-0</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> is <code class="docutils literal notranslate"><span class="pre">NaN</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">NaN</span> <span class="pre">+</span> <span class="pre">0j</span></code> (sign of the imaginary component is unspecified).</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">a</span></code> is a nonzero finite number and <code class="docutils literal notranslate"><span class="pre">b</span></code> is <code class="docutils literal notranslate"><span class="pre">+infinity</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">NaN</span> <span class="pre">+</span> <span class="pre">NaN</span> <span class="pre">j</span></code>.</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">a</span></code> is a nonzero finite number and <code class="docutils literal notranslate"><span class="pre">b</span></code> is <code class="docutils literal notranslate"><span class="pre">NaN</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">NaN</span> <span class="pre">+</span> <span class="pre">NaN</span> <span class="pre">j</span></code>.</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">a</span></code> is <code class="docutils literal notranslate"><span class="pre">+infinity</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> is either <code class="docutils literal notranslate"><span class="pre">+0</span></code> or <code class="docutils literal notranslate"><span class="pre">-0</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">+infinity</span> <span class="pre">+</span> <span class="pre">0j</span></code>.</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">a</span></code> is <code class="docutils literal notranslate"><span class="pre">+infinity</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> is a nonzero finite number, the result is <code class="docutils literal notranslate"><span class="pre">+infinity</span> <span class="pre">*</span> <span class="pre">cis(x_i)</span></code>.</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">a</span></code> is <code class="docutils literal notranslate"><span class="pre">+infinity</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> is <code class="docutils literal notranslate"><span class="pre">+infinity</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">+infinity</span> <span class="pre">+</span> <span class="pre">NaN</span> <span class="pre">j</span></code> (sign of the real component is unspecified).</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">a</span></code> is <code class="docutils literal notranslate"><span class="pre">+infinity</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> is <code class="docutils literal notranslate"><span class="pre">NaN</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">+infinity</span> <span class="pre">+</span> <span class="pre">NaN</span> <span class="pre">j</span></code>.</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">a</span></code> is <code class="docutils literal notranslate"><span class="pre">NaN</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> is either <code class="docutils literal notranslate"><span class="pre">+0</span></code> or <code class="docutils literal notranslate"><span class="pre">-0</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">NaN</span> <span class="pre">+</span> <span class="pre">0j</span></code> (sign of the imaginary component is unspecified).</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">a</span></code> is <code class="docutils literal notranslate"><span class="pre">NaN</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> is a nonzero finite number, the result is <code class="docutils literal notranslate"><span class="pre">NaN</span> <span class="pre">+</span> <span class="pre">NaN</span> <span class="pre">j</span></code>.</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">a</span></code> is <code class="docutils literal notranslate"><span class="pre">NaN</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> is <code class="docutils literal notranslate"><span class="pre">NaN</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">NaN</span> <span class="pre">+</span> <span class="pre">NaN</span> <span class="pre">j</span></code>.</p></li>
-</ul>
-<p>where <code class="docutils literal notranslate"><span class="pre">cis(x_i)</span></code> is <code class="docutils literal notranslate"><span class="pre">cos(x_i)</span> <span class="pre">+</span> <span class="pre">sin(x_i)*1j</span></code>.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The hyperbolic cosine is an entire function in the complex plane and has no branch cuts. The function is periodic, with period <span class="math notranslate nohighlight">\(2\pi j\)</span>, with respect to the imaginary component.</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>For complex floating-point operands, <code class="docutils literal notranslate"><span class="pre">cosh(conj(x))</span></code> must equal <code class="docutils literal notranslate"><span class="pre">conj(cosh(x))</span></code>.</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>For all operands, <code class="docutils literal notranslate"><span class="pre">cosh(x)</span></code> must equal <code class="docutils literal notranslate"><span class="pre">cosh(-x)</span></code>.</p>
-</div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>x</strong> (<em>array</em>) – input array whose elements each represent a hyperbolic angle. Should have a floating-point data type.</p>
+<dd class="field-odd"><p><strong>x</strong> (<em>array</em>) – input array whose elements each represent a hyperbolic angle. Should have a real-valued floating-point data type.</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>out</strong> (<em>array</em>) – an array containing the hyperbolic cosine of each element in <code class="docutils literal notranslate"><span class="pre">x</span></code>. The returned array must have a floating-point data type determined by <a class="reference internal" href="../type_promotion.html#type-promotion"><span class="std std-ref">Type Promotion Rules</span></a>.</p>
+<dd class="field-even"><p><strong>out</strong> (<em>array</em>) – an array containing the hyperbolic cosine of each element in <code class="docutils literal notranslate"><span class="pre">x</span></code>. The returned array must have a real-valued floating-point data type determined by <a class="reference internal" href="../type_promotion.html#type-promotion"><span class="std std-ref">Type Promotion Rules</span></a>.</p>
 </dd>
 </dl>
 </dd></dl>
