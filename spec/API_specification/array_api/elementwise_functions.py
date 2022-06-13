@@ -463,7 +463,7 @@ def cosh(x: array, /) -> array:
     where ``cis(x_i)`` is ``cos(x_i) + sin(x_i)*1j``.
 
     .. note::
-       The hyperbolic cosine is an entire function in the complex plane and has no branch cuts. The function is periodic, with period :math:`2\pi j` with respect to the imaginary component.
+       The hyperbolic cosine is an entire function in the complex plane and has no branch cuts. The function is periodic, with period :math:`2\pi j`, with respect to the imaginary component.
 
     .. note::
        For complex floating-point operands, ``cosh(conj(x))`` must equal ``conj(cosh(x))``.
