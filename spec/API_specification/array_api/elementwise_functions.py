@@ -551,7 +551,7 @@ def expm1(x: array, /) -> array:
 
     **Special cases**
 
-    For floating-point operands,
+    For real-valued floating-point operands,
 
     - If ``x_i`` is ``NaN``, the result is ``NaN``.
     - If ``x_i`` is ``+0``, the result is ``+0``.
