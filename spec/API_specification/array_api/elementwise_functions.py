@@ -223,8 +223,8 @@ def atan2(x1: array, x2: array, /) -> array:
     - If ``x1_i`` is greater than ``0``, ``x1_i`` is a finite number, and ``x2_i`` is ``-infinity``, the result is an implementation-dependent approximation to ``+π``.
     - If ``x1_i`` is less than ``0``, ``x1_i`` is a finite number, and ``x2_i`` is ``+infinity``, the result is ``-0``.
     - If ``x1_i`` is less than ``0``, ``x1_i`` is a finite number, and ``x2_i`` is ``-infinity``, the result is an implementation-dependent approximation to ``-π``.
-    - If ``x1_i`` is ``+infinity`` and ``x2_i`` is finite, the result is an implementation-dependent approximation to ``+π/2``.
-    - If ``x1_i`` is ``-infinity`` and ``x2_i`` is finite, the result is an implementation-dependent approximation to ``-π/2``.
+    - If ``x1_i`` is ``+infinity`` and ``x2_i`` is a finite number, the result is an implementation-dependent approximation to ``+π/2``.
+    - If ``x1_i`` is ``-infinity`` and ``x2_i`` is a finite number, the result is an implementation-dependent approximation to ``-π/2``.
     - If ``x1_i`` is ``+infinity`` and ``x2_i`` is ``+infinity``, the result is an implementation-dependent approximation to ``+π/4``.
     - If ``x1_i`` is ``+infinity`` and ``x2_i`` is ``-infinity``, the result is an implementation-dependent approximation to ``+3π/4``.
     - If ``x1_i`` is ``-infinity`` and ``x2_i`` is ``+infinity``, the result is an implementation-dependent approximation to ``-π/4``.
@@ -523,13 +523,32 @@ def exp(x: array, /) -> array:
 
     **Special cases**
 
-    For floating-point operands,
+    For real-valued floating-point operands,
 
     - If ``x_i`` is ``NaN``, the result is ``NaN``.
     - If ``x_i`` is ``+0``, the result is ``1``.
     - If ``x_i`` is ``-0``, the result is ``1``.
     - If ``x_i`` is ``+infinity``, the result is ``+infinity``.
     - If ``x_i`` is ``-infinity``, the result is ``+0``.
+
+    For complex floating-point operands, let ``a = real(x_i)``, ``b = imag(x_i)``, and
+
+    - If ``a`` is either ``+0`` or ``-0`` and ``b`` is either ``+0`` or ``-0``, the result is ``1+0j``.
+    - If ``a`` is a finite number and ``b`` is ``+infinity``, the result is ``NaN + NaN j``.
+    - If ``a`` is a finite number and ``b`` is ``NaN``, the result is ``NaN + NaN j``.
+    - If ``a`` is ``+infinity`` and ``b`` is either ``+0`` or ``-0``, the result is ``infinity + 0j``.
+    - If ``a`` is ``-infinity`` and ``b`` is a finite number, the result is ``0 + 0j``.
+    - If ``a`` is ``+infinity`` and ``b`` is a nonzero finite number, the result is ``infinity + infinity j``.
+    - If ``a`` is ``-infinity`` and ``b`` is ``+infinity``, the result is ``0 + 0j`` (signs of real and imaginary components are unspecified).
+    - If ``a`` is ``+infinity`` and ``b`` is ``+infinity``, the result is ``infinity + NaN j`` (sign of real component is unspecified).
+    - If ``a`` is ``-infinity`` and ``b`` is ``NaN``, the result is ``0 + 0j`` (signs of real and imaginary components are unspecified).
+    - If ``a`` is ``+infinity`` and ``b`` is ``NaN``, the result is ``infinity + NaN j`` (sign of real component is unspecified).
+    - If ``a`` is ``NaN`` and ``b`` is either ``+0`` or ``-0``, the result is ``NaN + 0j``.
+    - If ``a`` is ``NaN`` and ``b`` is not equal to ``0``, the result is ``NaN + NaN j``.
+    - If ``a`` is ``NaN`` and ``b`` is ``NaN``, the result is ``NaN + NaN j``.
+
+    .. note::
+       The exponential function is an entire function in the complex plane and has no branch cuts.
 
     Parameters
     ----------
