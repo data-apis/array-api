@@ -459,7 +459,7 @@ def vecdot(x1: array, x2: array, /, *, axis: int = None) -> array:
     """
 
 def vector_norm(x: array, /, *, axis: Optional[Union[int, Tuple[int, ...]]] = None, keepdims: bool = False, ord: Union[int, float, Literal[inf, -inf]] = 2) -> array:
-    """
+    r"""
     Computes the vector norm of a vector (or batch of vectors) ``x``.
 
     Parameters
