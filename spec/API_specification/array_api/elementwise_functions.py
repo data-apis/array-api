@@ -1246,6 +1246,9 @@ def sinh(x: array, /) -> array:
 
     **Special cases**
 
+    .. note::
+       For all operands, ``sinh(x)`` must equal ``-sinh(-x)``.
+
     For real-valued floating-point operands,
 
     - If ``x_i`` is ``NaN``, the result is ``NaN``.
@@ -1255,6 +1258,9 @@ def sinh(x: array, /) -> array:
     - If ``x_i`` is ``-infinity``, the result is ``-infinity``.
 
     For complex floating-point operands, let ``a = real(x_i)``, ``b = imag(x_i)``, and
+
+    .. note::
+       For complex floating-point operands, ``sinh(conj(x))`` must equal ``conj(sinh(x))``.
 
     - If ``a`` is ``+0`` and ``b`` is ``+0``, the result is ``+0 + 0j``.
     - If ``a`` is ``+0`` and ``b`` is ``+infinity``, the result is ``0 + NaN j`` (sign of the real component is unspecified).
@@ -1273,12 +1279,6 @@ def sinh(x: array, /) -> array:
 
     .. note::
        The hyperbolic sine is an entire function in the complex plane and has no branch cuts. The function is periodic, with period :math:`2\pi j`, with respect to the imaginary component.
-
-    .. note::
-       For complex floating-point operands, ``sinh(conj(x))`` must equal ``conj(sinh(x))``.
-
-    .. note::
-       For all operands, ``sinh(x)`` must equal ``-sinh(-x)``.
 
     Parameters
     ----------
