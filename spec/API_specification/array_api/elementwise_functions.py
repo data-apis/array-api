@@ -1235,7 +1235,7 @@ def sin(x: array, /) -> array:
        For complex arguments, the mathematical definition of sine is
 
        .. math::
-          \begin{align} \operatorname{sin}(x) &= \frac{e^{jx} - e^{-jx}}{2j} \\ &= \frac{\operatorname{sinh}(jx)}{1j} \\ &= \frac{\operatorname{sinh}(jx)}{1j} \cdot \frac{1j}{1j} \\ &= (-1j) \cdot \operatorname{sinh}(jx) \end{align}
+          \begin{align} \operatorname{sin}(x) &= \frac{e^{jx} - e^{-jx}}{2j} \\ &= \frac{\operatorname{sinh}(jx)}{j} \\ &= \frac{\operatorname{sinh}(jx)}{j} \cdot \frac{j}{j} \\ &= -j \cdot \operatorname{sinh}(jx) \end{align}
 
        where :math:`\operatorname{sinh}` is the hyperbolic sine.
 
