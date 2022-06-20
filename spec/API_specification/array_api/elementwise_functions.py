@@ -437,6 +437,9 @@ def cosh(x: array, /) -> array:
 
     **Special cases**
 
+    .. note::
+       For all operands, ``cosh(x)`` must equal ``cosh(-x)``.
+
     For real-valued floating-point operands,
 
     - If ``x_i`` is ``NaN``, the result is ``NaN``.
@@ -447,29 +450,26 @@ def cosh(x: array, /) -> array:
 
     For complex floating-point operands, let ``a = real(x_i)``, ``b = imag(x_i)``, and
 
-    - If ``a`` is either ``+0`` or ``-0`` and ``b`` is either ``+0`` or ``-0``, the result is ``1 + 0j``.
-    - If ``a`` is either ``+0`` or ``-0`` and ``b`` is ``+infinity``, the result is ``NaN + 0j`` (sign of the imaginary component is unspecified).
-    - If ``a`` is either ``+0`` or ``-0`` and ``b`` is ``NaN``, the result is ``NaN + 0j`` (sign of the imaginary component is unspecified).
+    .. note::
+       For complex floating-point operands, ``cosh(conj(x))`` must equal ``conj(cosh(x))``.
+
+    - If ``a`` is ``+0`` and ``b`` is ``+0``, the result is ``1 + 0j``.
+    - If ``a`` is ``+0`` and ``b`` is ``+infinity``, the result is ``NaN + 0j`` (sign of the imaginary component is unspecified).
+    - If ``a`` is ``+0`` and ``b`` is ``NaN``, the result is ``NaN + 0j`` (sign of the imaginary component is unspecified).
     - If ``a`` is a nonzero finite number and ``b`` is ``+infinity``, the result is ``NaN + NaN j``.
     - If ``a`` is a nonzero finite number and ``b`` is ``NaN``, the result is ``NaN + NaN j``.
-    - If ``a`` is ``+infinity`` and ``b`` is either ``+0`` or ``-0``, the result is ``+infinity + 0j``.
-    - If ``a`` is ``+infinity`` and ``b`` is a nonzero finite number, the result is ``+infinity * cis(x_i)``.
+    - If ``a`` is ``+infinity`` and ``b`` is ``+0``, the result is ``+infinity + 0j``.
+    - If ``a`` is ``+infinity`` and ``b`` is a nonzero finite number, the result is ``+infinity * cis(b)``.
     - If ``a`` is ``+infinity`` and ``b`` is ``+infinity``, the result is ``+infinity + NaN j`` (sign of the real component is unspecified).
     - If ``a`` is ``+infinity`` and ``b`` is ``NaN``, the result is ``+infinity + NaN j``.
     - If ``a`` is ``NaN`` and ``b`` is either ``+0`` or ``-0``, the result is ``NaN + 0j`` (sign of the imaginary component is unspecified).
     - If ``a`` is ``NaN`` and ``b`` is a nonzero finite number, the result is ``NaN + NaN j``.
     - If ``a`` is ``NaN`` and ``b`` is ``NaN``, the result is ``NaN + NaN j``.
 
-    where ``cis(x_i)`` is ``cos(x_i) + sin(x_i)*1j``.
+    where ``cis(v)`` is ``cos(v) + sin(v)*1j``.
 
     .. note::
        The hyperbolic cosine is an entire function in the complex plane and has no branch cuts. The function is periodic, with period :math:`2\pi j`, with respect to the imaginary component.
-
-    .. note::
-       For complex floating-point operands, ``cosh(conj(x))`` must equal ``conj(cosh(x))``.
-
-    .. note::
-       For all operands, ``cosh(x)`` must equal ``cosh(-x)``.
 
     Parameters
     ----------
