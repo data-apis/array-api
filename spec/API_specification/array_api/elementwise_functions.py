@@ -1342,12 +1342,22 @@ def tan(x: array, /) -> array:
     """
 
 def tanh(x: array, /) -> array:
-    """
-    Calculates an implementation-dependent approximation to the hyperbolic tangent, having domain ``[-infinity, +infinity]`` and codomain ``[-1, +1]``, for each element ``x_i`` of the input array ``x``.
+    r"""
+    Calculates an implementation-dependent approximation to the hyperbolic tangent for each element ``x_i`` of the input array ``x``.
+
+    The mathematical definition of the hyperbolic tangent is
+
+    .. math::
+       \begin{align} \operatorname{tanh}(x) &= \frac{\operatorname{sinh}(x)}{\operatorname{cosh}(x)} \\ &= \frac{e^x - e^{-x}}{e^x + e^{-x}} \end{align}
+
+    where :math:`\operatorname{sinh}(x)` is the hyperbolic sine and :math:`operatorname{cosh}(x)` is the hyperbolic cosine.
 
     **Special cases**
 
-    For floating-point operands,
+    .. note::
+       For all operands, ``tanh(-x)`` must equal ``-tanh(x)``.
+
+    For real-valued floating-point operands,
 
     - If ``x_i`` is ``NaN``, the result is ``NaN``.
     - If ``x_i`` is ``+0``, the result is ``+0``.
@@ -1355,15 +1365,35 @@ def tanh(x: array, /) -> array:
     - If ``x_i`` is ``+infinity``, the result is ``+1``.
     - If ``x_i`` is ``-infinity``, the result is ``-1``.
 
+    For complex floating-point operands, let ``a = real(x_i)``, ``b = imag(x_i)``, and
+
+    .. note::
+       For complex floating-point operands, ``tanh(conj(x))`` must equal ``conj(tanh(x))``.
+
+    - If ``a`` is ``+0`` and ``b`` is ``+0``, the result is ``+0 + 0j``.
+    - If ``a`` is a nonzero finite number and ``b`` is ``+infinity``, the result is ``NaN + NaN j``.
+    - If ``a`` is ``+0`` and ``b`` is ``+infinity``, the result is ``+0 + NaN j``.
+    - If ``a`` is a nonzero finite number and ``b`` is ``NaN``, the result is ``NaN + NaN j``.
+    - If ``a`` is ``+0`` and ``b`` is ``NaN``, the result is ``+0 + NaN j``.
+    - If ``a`` is ``+infinity`` and ``b`` is a positive (i.e., greater than ``0``) finite number, the result is ``1 + 0j``.
+    - If ``a`` is ``+infinity`` and ``b`` is ``+infinity``, the result is ``1 + 0j`` (sign of the imaginary component is unspecified).
+    - If ``a`` is ``+infinity`` and ``b`` is ``NaN``, the result is ``1 + 0j`` (sign of the imaginary component is unspecified).
+    - If ``a`` is ``NaN`` and ``b`` is ``+0``, the result is ``NaN + 0j``.
+    - If ``a`` is ``NaN`` and ``b`` is a nonzero number, the result is ``NaN + NaN j``.
+    - If ``a`` is ``NaN`` and ``b`` is ``NaN``, the result is ``NaN + NaN j``.
+
+    .. note::
+       The hyperbolic tangent is an analytical function on the complex plane and has no branch cuts. The function is periodic, with period :math:`\pi j`, with respect to the imaginary component and has first order poles along the imaginary line at coordinates :math:`(0, \pi (\frac{1}{2} + n))`. However, IEEE 754 binary floating-point representation cannot represent :math:`\pi / 2` exactly, and, thus, no argument value is possible such that a pole error occurs.
+
     Parameters
     ----------
     x: array
-        input array whose elements each represent a hyperbolic angle. Should have a real-valued floating-point data type.
+        input array whose elements each represent a hyperbolic angle. Should have a floating-point data type.
 
     Returns
     -------
     out: array
-        an array containing the hyperbolic tangent of each element in ``x``. The returned array must have a real-valued floating-point data type determined by :ref:`type-promotion`.
+        an array containing the hyperbolic tangent of each element in ``x``. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
     """
 
 def trunc(x: array, /) -> array:
