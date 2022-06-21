@@ -1343,7 +1343,7 @@ def tan(x: array, /) -> array:
        .. math::
           \begin{align} \operatorname{tan}(x) &= \frac{(e^{-jx} - e^{jx})j}{e^{-jx} + e^{jx}} \\ &= (-1) \frac{(e^{jx} - e^{-jx})j}{e^{jx} + e^{-jx}} \\ &= -j \cdot \operatorname{tanh}(jx) \end{align}
 
-       where :math:`operatorname{tanh}` is the hyperbolic tangent.
+       where :math:`\operatorname{tanh}` is the hyperbolic tangent.
 
     Parameters
     ----------
