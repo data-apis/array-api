@@ -1332,8 +1332,7 @@ def tan(x: array, /) -> array:
     - If ``x_i`` is ``-0``, the result is ``-0``.
     - If ``x_i`` is either ``+infinity`` or ``-infinity``, the result is ``NaN``.
 
-    For complex floating-point operands, special cases must be handled as if the operation is implemented as ``-1j
-* tanh(x*1j)``.
+    For complex floating-point operands, special cases must be handled as if the operation is implemented as ``-1j * tanh(x*1j)``.
 
     .. note::
        Tangent is an analytical function on the complex plane and has no branch cuts. The function is periodic, with period :math:`\pi j`, with respect to the real component and has first order poles along the real line at coordinates :math:`(\pi (\frac{1}{2} + n), 0)`. However, IEEE 754 binary floating-point representation cannot represent the value :math:`\pi / 2` exactly, and, thus, no argument value is possible for which a pole error occurs.
