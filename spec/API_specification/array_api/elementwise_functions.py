@@ -1350,7 +1350,7 @@ def tanh(x: array, /) -> array:
     .. math::
        \begin{align} \operatorname{tanh}(x) &= \frac{\operatorname{sinh}(x)}{\operatorname{cosh}(x)} \\ &= \frac{e^x - e^{-x}}{e^x + e^{-x}} \end{align}
 
-    where :math:`\operatorname{sinh}(x)` is the hyperbolic sine and :math:`operatorname{cosh}(x)` is the hyperbolic cosine.
+    where :math:`\operatorname{sinh}(x)` is the hyperbolic sine and :math:`\operatorname{cosh}(x)` is the hyperbolic cosine.
 
     **Special cases**
 
