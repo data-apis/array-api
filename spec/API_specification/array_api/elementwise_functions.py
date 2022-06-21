@@ -1341,7 +1341,7 @@ def tan(x: array, /) -> array:
        For complex arguments, the mathematical definition of tangent is
 
        .. math::
-          \begin{align} \operatorname{tan}(x) &= \frac{(e^{-jx} - e^{jx})j}{e^{-jx} + e^{jx}} \\ &= (-1) \frac{(e^{jx} - e^{-jx})j}{e^{jx} + e^{-jx}} \\ &= -j \cdot \operatorname{tanh}(jx) \end{align}
+          \begin{align} \operatorname{tan}(x) &= \frac{j(e^{-jx} - e^{jx})}{e^{-jx} + e^{jx}} \\ &= (-1) \frac{j(e^{jx} - e^{-jx})}{e^{jx} + e^{-jx}} \\ &= -j \cdot \operatorname{tanh}(jx) \end{align}
 
        where :math:`\operatorname{tanh}` is the hyperbolic tangent.
 
