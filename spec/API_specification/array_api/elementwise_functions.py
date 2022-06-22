@@ -1382,6 +1382,11 @@ def tanh(x: array, /) -> array:
     - If ``a`` is ``NaN`` and ``b`` is a nonzero number, the result is ``NaN + NaN j``.
     - If ``a`` is ``NaN`` and ``b`` is ``NaN``, the result is ``NaN + NaN j``.
 
+    .. warning::
+       For historical reasons stemming from the C standard, array libraries may not return the expected result when ``a`` is ``+0`` and ``b`` is either ``+infinity`` or ``NaN``. The result should be ``+0 + NaN j`` in both cases; however, for libraries compiled against older C versions, the result may be ``NaN + NaN j``.
+
+       Array libraries are not required to patch these older C versions, and, thus, users are advised that results may vary across array library implementations for these special cases.
+
     .. note::
        The hyperbolic tangent is an analytical function on the complex plane and has no branch cuts. The function is periodic, with period :math:`\pi j`, with respect to the imaginary component and has first order poles along the imaginary line at coordinates :math:`(0, \pi (\frac{1}{2} + n))`. However, IEEE 754 binary floating-point representation cannot represent :math:`\pi / 2` exactly, and, thus, no argument value is possible such that a pole error occurs.
 
