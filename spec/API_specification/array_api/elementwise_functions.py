@@ -402,12 +402,14 @@ def ceil(x: array, /) -> array:
     """
 
 def cos(x: array, /) -> array:
-    """
-    Calculates an implementation-dependent approximation to the cosine, having domain ``(-infinity, +infinity)`` and codomain ``[-1, +1]``, for each element ``x_i`` of the input array ``x``. Each element ``x_i`` is assumed to be expressed in radians.
+    r"""
+    Calculates an implementation-dependent approximation to the cosine for each element ``x_i`` of the input array ``x``.
+
+    Each element ``x_i`` is assumed to be expressed in radians.
 
     **Special cases**
 
-    For floating-point operands,
+    For real-valued floating-point operands,
 
     - If ``x_i`` is ``NaN``, the result is ``NaN``.
     - If ``x_i`` is ``+0``, the result is ``1``.
@@ -415,15 +417,28 @@ def cos(x: array, /) -> array:
     - If ``x_i`` is ``+infinity``, the result is ``NaN``.
     - If ``x_i`` is ``-infinity``, the result is ``NaN``.
 
+    For complex floating-point operands, special cases must be handled as if the operation is implemented as ``cosh(x*1j)``.
+
+    .. note::
+       The cosine is an entire function on the complex plane and has no branch cuts.
+
+    .. note::
+       For complex arguments, the mathematical definition of cosine is
+
+       .. math::
+          \begin{align} \operatorname{cos}(x) &= \sum_{n=0}^\infty \frac{(-1)^n}{(2n)!} x^{2n} \\ &= \frac{e^{jx} + e^{-jx}}{2} \\ &= \operatorname{cosh}(jx) \end{align}
+
+       where :math:`\operatorname{cosh}` is the hyperbolic cosine.
+
     Parameters
     ----------
     x: array
-        input array whose elements are each expressed in radians. Should have a real-valued floating-point data type.
+        input array whose elements are each expressed in radians. Should have a floating-point data type.
 
     Returns
     -------
     out: array
-        an array containing the cosine of each element in ``x``. The returned array must have a real-valued floating-point data type determined by :ref:`type-promotion`.
+        an array containing the cosine of each element in ``x``. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
     """
 
 def cosh(x: array, /) -> array:
