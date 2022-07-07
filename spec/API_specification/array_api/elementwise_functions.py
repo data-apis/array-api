@@ -1166,7 +1166,15 @@ def round(x: array, /) -> array:
     """
     Rounds each element ``x_i`` of the input array ``x`` to the nearest integer-valued number.
 
+    .. note::
+       For complex floating-point operands, real and imaginary components must be independently rounded to the nearest integer-valued number.
+    
+       Rounded real and imaginary components must be equal to their equivalent rounded real-valued floating-point counterparts (i.e., for complex-valued ``x``, ``real(round(x))`` must equal ``round(real(x)))`` and ``imag(round(x))`` must equal ``round(imag(x))``).
+
     **Special cases**
+
+    .. note::
+       For complex floating-point operands, the following special cases apply to real and imaginary components independently (e.g., if ``real(x_i)`` is ``NaN``, the rounded real component is ``NaN``).
 
     - If ``x_i`` is already integer-valued, the result is ``x_i``.
 
@@ -1182,7 +1190,7 @@ def round(x: array, /) -> array:
     Parameters
     ----------
     x: array
-        input array. Should have a real-valued data type.
+        input array. Should have a numeric data type.
 
     Returns
     -------
