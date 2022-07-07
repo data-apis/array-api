@@ -427,12 +427,20 @@ def cos(x: array, /) -> array:
     """
 
 def cosh(x: array, /) -> array:
-    """
-    Calculates an implementation-dependent approximation to the hyperbolic cosine, having domain ``[-infinity, +infinity]`` and codomain ``[-infinity, +infinity]``, for each element ``x_i`` in the input array ``x``.
+    r"""
+    Calculates an implementation-dependent approximation to the hyperbolic cosine for each element ``x_i`` in the input array ``x``.
+
+    The mathematical definition of the hyperbolic cosine is
+
+    .. math::
+       \operatorname{cosh}(x) = \frac{e^x + e^{-x}}{2}
 
     **Special cases**
 
-    For floating-point operands,
+    .. note::
+       For all operands, ``cosh(x)`` must equal ``cosh(-x)``.
+
+    For real-valued floating-point operands,
 
     - If ``x_i`` is ``NaN``, the result is ``NaN``.
     - If ``x_i`` is ``+0``, the result is ``1``.
@@ -440,15 +448,38 @@ def cosh(x: array, /) -> array:
     - If ``x_i`` is ``+infinity``, the result is ``+infinity``.
     - If ``x_i`` is ``-infinity``, the result is ``+infinity``.
 
+    For complex floating-point operands, let ``a = real(x_i)``, ``b = imag(x_i)``, and
+
+    .. note::
+       For complex floating-point operands, ``cosh(conj(x))`` must equal ``conj(cosh(x))``.
+
+    - If ``a`` is ``+0`` and ``b`` is ``+0``, the result is ``1 + 0j``.
+    - If ``a`` is ``+0`` and ``b`` is ``+infinity``, the result is ``NaN + 0j`` (sign of the imaginary component is unspecified).
+    - If ``a`` is ``+0`` and ``b`` is ``NaN``, the result is ``NaN + 0j`` (sign of the imaginary component is unspecified).
+    - If ``a`` is a nonzero finite number and ``b`` is ``+infinity``, the result is ``NaN + NaN j``.
+    - If ``a`` is a nonzero finite number and ``b`` is ``NaN``, the result is ``NaN + NaN j``.
+    - If ``a`` is ``+infinity`` and ``b`` is ``+0``, the result is ``+infinity + 0j``.
+    - If ``a`` is ``+infinity`` and ``b`` is a nonzero finite number, the result is ``+infinity * cis(b)``.
+    - If ``a`` is ``+infinity`` and ``b`` is ``+infinity``, the result is ``+infinity + NaN j`` (sign of the real component is unspecified).
+    - If ``a`` is ``+infinity`` and ``b`` is ``NaN``, the result is ``+infinity + NaN j``.
+    - If ``a`` is ``NaN`` and ``b`` is either ``+0`` or ``-0``, the result is ``NaN + 0j`` (sign of the imaginary component is unspecified).
+    - If ``a`` is ``NaN`` and ``b`` is a nonzero finite number, the result is ``NaN + NaN j``.
+    - If ``a`` is ``NaN`` and ``b`` is ``NaN``, the result is ``NaN + NaN j``.
+
+    where ``cis(v)`` is ``cos(v) + sin(v)*1j``.
+
+    .. note::
+       The hyperbolic cosine is an entire function in the complex plane and has no branch cuts. The function is periodic, with period :math:`2\pi j`, with respect to the imaginary component.
+
     Parameters
     ----------
     x: array
-        input array whose elements each represent a hyperbolic angle. Should have a real-valued floating-point data type.
+        input array whose elements each represent a hyperbolic angle. Should have a floating-point data type.
 
     Returns
     -------
     out: array
-        an array containing the hyperbolic cosine of each element in ``x``. The returned array must have a real-valued floating-point data type determined by :ref:`type-promotion`.
+        an array containing the hyperbolic cosine of each element in ``x``. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
     """
 
 def divide(x1: array, x2: array, /) -> array:
