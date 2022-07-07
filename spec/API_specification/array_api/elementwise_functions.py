@@ -1290,27 +1290,42 @@ def sign(x: array, /) -> array:
     """
 
 def sin(x: array, /) -> array:
-    """
-    Calculates an implementation-dependent approximation to the sine, having domain ``(-infinity, +infinity)`` and codomain ``[-1, +1]``, for each element ``x_i`` of the input array ``x``. Each element ``x_i`` is assumed to be expressed in radians.
+    r"""
+    Calculates an implementation-dependent approximation to the sine for each element ``x_i`` of the input array ``x``.
+
+    Each element ``x_i`` is assumed to be expressed in radians.
 
     **Special cases**
 
-    For floating-point operands,
+    For real-valued floating-point operands,
 
     - If ``x_i`` is ``NaN``, the result is ``NaN``.
     - If ``x_i`` is ``+0``, the result is ``+0``.
     - If ``x_i`` is ``-0``, the result is ``-0``.
     - If ``x_i`` is either ``+infinity`` or ``-infinity``, the result is ``NaN``.
 
+    For complex floating-point operands, special cases must be handled as if the operation is implemented as ``-1j * sinh(x*1j)``.
+
+    .. note::
+       The sine is an entire function on the complex plane and has no branch cuts.
+
+    .. note::
+       For complex arguments, the mathematical definition of sine is
+
+       .. math::
+          \begin{align} \operatorname{sin}(x) &= \frac{e^{jx} - e^{-jx}}{2j} \\ &= \frac{\operatorname{sinh}(jx)}{j} \\ &= \frac{\operatorname{sinh}(jx)}{j} \cdot \frac{j}{j} \\ &= -j \cdot \operatorname{sinh}(jx) \end{align}
+
+       where :math:`\operatorname{sinh}` is the hyperbolic sine.
+
     Parameters
     ----------
     x: array
-        input array whose elements are each expressed in radians. Should have a real-valued floating-point data type.
+        input array whose elements are each expressed in radians. Should have a floating-point data type.
 
     Returns
     -------
     out: array
-        an array containing the sine of each element in ``x``. The returned array must have a real-valued floating-point data type determined by :ref:`type-promotion`.
+        an array containing the sine of each element in ``x``. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
     """
 
 def sinh(x: array, /) -> array:
