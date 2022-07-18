@@ -4,13 +4,13 @@ from ._types import (array, dtype as Dtype, device as Device, Optional, Tuple,
                      Union, Any, PyCapsule, Enum, ellipsis)
 
 class _array():
-    def __init__(self) -> None:
+    def __init__(self: array) -> None:
         """
         Initialize the attributes for the array object class.
         """
 
     @property
-    def dtype() -> Dtype:
+    def dtype(self: array) -> Dtype:
         """
         Data type of the array elements.
 
@@ -21,7 +21,7 @@ class _array():
         """
 
     @property
-    def device() -> Device:
+    def device(self: array) -> Device:
         """
         Hardware device the array data resides on.
 
@@ -32,7 +32,7 @@ class _array():
         """
 
     @property
-    def mT() -> array:
+    def mT(self: array) -> array:
         """
         Transpose of a matrix (or a stack of matrices).
 
@@ -45,7 +45,7 @@ class _array():
         """
 
     @property
-    def ndim() -> int:
+    def ndim(self: array) -> int:
         """
         Number of array dimensions (axes).
 
@@ -56,7 +56,7 @@ class _array():
         """
 
     @property
-    def shape() -> Tuple[Optional[int], ...]:
+    def shape(self: array) -> Tuple[Optional[int], ...]:
         """
         Array dimensions.
 
@@ -74,7 +74,7 @@ class _array():
         """
 
     @property
-    def size() -> Optional[int]:
+    def size(self: array) -> Optional[int]:
         """
         Number of elements in an array.
 
@@ -92,7 +92,7 @@ class _array():
         """
 
     @property
-    def T() -> array:
+    def T(self: array) -> array:
         """
         Transpose of the array.
 
