@@ -10,9 +10,9 @@ def matmul(x1: array, x2: array, /) -> array:
     Parameters
     ----------
     x1: array
-        first input array. Should have a numeric data type. Must have at least one dimension. If ``x1`` is one-dimensional having shape ``(M,)`` and ``x2`` has more than one dimension, ``x1`` must be promoted to a two-dimensional array by prepending ``1`` to its dimensions (i.e., must have shape ``(1, M)``). After matrix multiplication, the prepended dimensions in the returned array must be removed. If ``x1`` has more than one dimension (including after vector-to-matrix promotion), ``shape(x1)[:-2]`` must be compatible with ``shape(x2)[:-2]`` (after vector-to-matrix promotion) (see :ref:`broadcasting`). If ``x1`` has shape ``(..., M, K)``, the innermost two dimensions form matrices on which to perform matrix multiplication.
+        first input array. Should have a real-valued data type. Must have at least one dimension. If ``x1`` is one-dimensional having shape ``(M,)`` and ``x2`` has more than one dimension, ``x1`` must be promoted to a two-dimensional array by prepending ``1`` to its dimensions (i.e., must have shape ``(1, M)``). After matrix multiplication, the prepended dimensions in the returned array must be removed. If ``x1`` has more than one dimension (including after vector-to-matrix promotion), ``shape(x1)[:-2]`` must be compatible with ``shape(x2)[:-2]`` (after vector-to-matrix promotion) (see :ref:`broadcasting`). If ``x1`` has shape ``(..., M, K)``, the innermost two dimensions form matrices on which to perform matrix multiplication.
     x2: array
-        second input array. Should have a numeric data type. Must have at least one dimension. If ``x2`` is one-dimensional having shape ``(N,)`` and ``x1`` has more than one dimension, ``x2`` must be promoted to a two-dimensional array by appending ``1`` to its dimensions (i.e., must have shape ``(N, 1)``). After matrix multiplication, the appended dimensions in the returned array must be removed. If ``x2`` has more than one dimension (including after vector-to-matrix promotion), ``shape(x2)[:-2]`` must be compatible with ``shape(x1)[:-2]`` (after vector-to-matrix promotion) (see :ref:`broadcasting`). If ``x2`` has shape ``(..., K, N)``, the innermost two dimensions form matrices on which to perform matrix multiplication.
+        second input array. Should have a real-valued data type. Must have at least one dimension. If ``x2`` is one-dimensional having shape ``(N,)`` and ``x1`` has more than one dimension, ``x2`` must be promoted to a two-dimensional array by appending ``1`` to its dimensions (i.e., must have shape ``(N, 1)``). After matrix multiplication, the appended dimensions in the returned array must be removed. If ``x2`` has more than one dimension (including after vector-to-matrix promotion), ``shape(x2)[:-2]`` must be compatible with ``shape(x1)[:-2]`` (after vector-to-matrix promotion) (see :ref:`broadcasting`). If ``x2`` has shape ``(..., K, N)``, the innermost two dimensions form matrices on which to perform matrix multiplication.
 
     Returns
     -------
@@ -59,9 +59,9 @@ def tensordot(x1: array, x2: array, /, *, axes: Union[int, Tuple[Sequence[int], 
     Parameters
     ----------
     x1: array
-        first input array. Should have a numeric data type.
+        first input array. Should have a real-valued data type.
     x2: array
-        second input array. Must be compatible with ``x1`` for all non-contracted axes (see :ref:`broadcasting`). Should have a numeric data type.
+        second input array. Should have a real-valued data type. Corresponding contracted axes of ``x1`` and ``x2`` must be equal.
 
         .. note::
            Contracted axes (dimensions) must not be broadcasted.
@@ -90,9 +90,9 @@ def vecdot(x1: array, x2: array, /, *, axis: int = -1) -> array:
     Parameters
     ----------
     x1: array
-        first input array. Should have a numeric data type.
+        first input array. Should have a real-valued data type.
     x2: array
-        second input array. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have a numeric data type.
+        second input array. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have a real-valued data type.
     axis:int
         axis over which to compute the dot product. Must be an integer on the interval ``[-N, N)``, where ``N`` is the rank (number of dimensions) of the shape determined according to :ref:`broadcasting`. If specified as a negative integer, the function must determine the axis along which to compute the dot product by counting backward from the last dimension (where ``-1`` refers to the last dimension). By default, the function must compute the dot product over the last axis. Default: ``-1``.
 

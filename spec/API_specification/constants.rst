@@ -10,7 +10,7 @@ A conforming implementation of the array API standard must provide and support t
 Objects in API
 --------------
 
-.. currentmodule:: signatures.constants
+.. currentmodule:: array_api
 
 ..
   NOTE: please keep the functions in alphabetical order
@@ -22,4 +22,5 @@ Objects in API
    e
    inf
    nan
+   newaxis
    pi

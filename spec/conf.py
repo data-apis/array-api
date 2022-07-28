@@ -22,7 +22,7 @@ copyright = '2020, Consortium for Python Data API Standards'
 author = 'Consortium for Python Data API Standards'
 
 # The full version, including alpha/beta/rc tags
-release = '2021.01-DRAFT'
+release = '2022.05-DRAFT'
 
 
 # -- General configuration ---------------------------------------------------
@@ -40,6 +40,8 @@ extensions = [
     'sphinx.ext.autosummary',
     'sphinx.ext.napoleon',
     'sphinx.ext.autodoc',
+    'sphinx_math_dollar',
+    'sphinx.ext.mathjax'
 ]
 
 autosummary_generate = True
@@ -47,6 +49,14 @@ autodoc_typehints = 'signature'
 add_module_names = False
 napoleon_custom_sections = [('Returns', 'params_style')]
 default_role = 'code'
+
+# Mathjax configuration:
+mathjax3_config = {
+  "tex": {
+    "inlineMath": [['\\(', '\\)']],
+    "displayMath": [["\\[", "\\]"]],
+  }
+}
 
 # nitpicky = True makes Sphinx warn whenever a cross-reference target can't be
 # found.
@@ -62,6 +72,8 @@ nitpick_ignore = [
     ('py:class', 'collections.abc.Sequence'),
     ('py:class', "Optional[Union[int, float, Literal[inf, - inf, 'fro', 'nuc']]]"),
     ('py:class', "Union[int, float, Literal[inf, - inf]]"),
+    ('py:obj', "typing.Optional[typing.Union[int, float, typing.Literal[inf, - inf, 'fro', 'nuc']]]"),
+    ('py:obj', "typing.Union[int, float, typing.Literal[inf, - inf]]"),
     ('py:class', 'PyCapsule'),
     ('py:class', 'enum.Enum'),
     ('py:class', 'ellipsis'),
@@ -123,7 +135,7 @@ html_sidebars = {
 html_theme_options = {
 
     # Set the name of the project to appear in the navigation.
-    'nav_title': 'Python array API standard',
+    'nav_title': f'Python array API standard {release}',
 
     # Set you GA account ID to enable tracking
     #'google_analytics_account': 'UA-XXXXX',
@@ -170,8 +182,8 @@ html_theme_options = {
         #"customization": "Configuration options to personalize your site.",
     },
 
-    #"version_dropdown": True,
-    #"version_json": "_static/versions.json",
+    "version_dropdown": True,
+    "version_json": "../versions.json",
     "table_classes": ["plain"],
 }
 
@@ -195,9 +207,9 @@ extlinks = {
 
 def process_signature(app, what, name, obj, options, signature, return_annotation):
     if signature:
-        signature = signature.replace("signatures._types.", "")
+        signature = signature.replace("array_api._types.", "")
     if return_annotation:
-        return_annotation = return_annotation.replace("signatures._types.", "")
+        return_annotation = return_annotation.replace("array_api._types.", "")
     return signature, return_annotation
 
 def setup(app):

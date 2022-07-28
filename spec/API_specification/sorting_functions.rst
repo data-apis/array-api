@@ -19,7 +19,7 @@ A conforming implementation of the array API standard must provide and support t
 
   While defining a sort order for IEEE 754 floating-point numbers is recommended in order to facilitate reproducible and consistent sort results, doing so is not currently required by this specification.
 
-.. currentmodule:: signatures.sorting_functions
+.. currentmodule:: array_api
 
 Objects in API
 --------------

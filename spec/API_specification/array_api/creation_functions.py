@@ -14,7 +14,7 @@ def arange(start: Union[int, float], /, stop: Optional[Union[int, float]] = None
     step: Union[int, float]
         the distance between two adjacent elements (``out[i+1] - out[i]``). Must not be ``0``; may be negative, this results in an empty array if ``stop >= start``. Default: ``1``.
     dtype: Optional[dtype]
-        output array data type. Should be a floating-point data type. If ``dtype`` is ``None``, the output array data type must be the default floating-point data type. Default: ``None``.
+        output array data type. If ``dtype`` is ``None``, the output array data type must be inferred from ``start``, ``stop`` and ``step``. If those are all integers, the output array dtype must be the default integer dtype; if one or more have type ``float``, then the output array dtype must be the default real-valued floating-point data type. Default: ``None``.
     device: Optional[device]
         device on which to place the created array. Default: ``None``.
 
@@ -22,25 +22,19 @@ def arange(start: Union[int, float], /, stop: Optional[Union[int, float]] = None
     .. note::
        This function cannot guarantee that the interval does not include the ``stop`` value in those cases where ``step`` is not an integer and floating-point rounding errors affect the length of the output array.
 
-    .. note::
-       While this specification recommends that this function only return arrays having a floating-point data type, specification-compliant array libraries may choose to support output arrays having an integer data type (e.g., due to backward compatibility concerns). However, function behavior when generating integer output arrays is unspecified and, thus, is implementation-defined. Accordingly, using this function to generate integer output arrays is not portable.
-
-    .. note::
-       As mixed data type promotion is implementation-defined, behavior when ``start`` or ``stop`` exceeds the maximum safe integer of an output floating-point data type is implementation-defined. An implementation may choose to overflow or raise an exception.
-
     Returns
     -------
     out: array
         a one-dimensional array containing evenly spaced values. The length of the output array must be ``ceil((stop-start)/step)`` if ``stop - start`` and ``step`` have the same sign, and length ``0`` otherwise.
     """
 
-def asarray(obj: Union[array, bool, int, float, NestedSequence, SupportsBufferProtocol], /, *, dtype: Optional[dtype] = None, device: Optional[device] = None, copy: Optional[bool] = None) -> array:
-    """
+def asarray(obj: Union[array, bool, int, float, complex, NestedSequence, SupportsBufferProtocol], /, *, dtype: Optional[dtype] = None, device: Optional[device] = None, copy: Optional[bool] = None) -> array:
+    r"""
     Convert the input to an array.
 
     Parameters
     ----------
-    obj: Union[array, bool, int, float, NestedSequence[bool | int | float], SupportsBufferProtocol]
+    obj: Union[array, bool, int, float, complex, NestedSequence[bool | int | float | complex], SupportsBufferProtocol]
         object to be converted to an array. May be a Python scalar, a (possibly nested) sequence of Python scalars, or an object supporting the Python buffer protocol.
 
         .. admonition:: Tip
@@ -49,18 +43,22 @@ def asarray(obj: Union[array, bool, int, float, NestedSequence, SupportsBufferPr
            An object supporting the buffer protocol can be turned into a memoryview through ``memoryview(obj)``.
 
     dtype: Optional[dtype]
-        output array data type. If ``dtype`` is ``None``, the output array data type must be inferred from the data type(s) in ``obj``. If all input values are Python scalars, then
+        output array data type. If ``dtype`` is ``None``, the output array data type must be inferred from the data type(s) in ``obj``. If all input values are Python scalars, then, in order of precedence,
 
         -   if all values are of type ``bool``, the output data type must be ``bool``.
-        -   if the values are a mixture of ``bool``\s and ``int``, the output data type must be the default integer data type.
-        -   if one or more values are ``float``\s, the output data type must be the default floating-point data type.
+        -   if all values are of type ``int`` or are a mixture of ``bool`` and ``int``, the output data type must be the default integer data type.
+        -   if one or more values are ``complex`` numbers, the output data type must be the default complex floating-point data type.
+        -   if one or more values are ``float``\s, the output data type must be the default real-valued floating-point data type.
 
         Default: ``None``.
 
         .. admonition:: Note
            :class: note
 
-           If ``dtype`` is not ``None``, then array conversions should obey :ref:`type-promotion` rules. Conversions not specified according to :ref:`type-promotion` rules may or may not be permitted by a conforming array library. To perform an explicit cast, use :func:`signatures.data_type_functions.astype`.
+           If ``dtype`` is not ``None``, then array conversions should obey :ref:`type-promotion` rules. Conversions not specified according to :ref:`type-promotion` rules may or may not be permitted by a conforming array library. To perform an explicit cast, use :func:`array_api.astype`.
+
+        .. note::
+           If an input value exceeds the precision of the resolved output array data type, behavior is left unspecified and, thus, implementation-defined.
 
     device: Optional[device]
         device on which to place the created array. If ``device`` is ``None`` and ``x`` is an array, the output array device must be inferred from ``x``. Default: ``None``.
@@ -82,7 +80,7 @@ def empty(shape: Union[int, Tuple[int, ...]], *, dtype: Optional[dtype] = None, 
     shape: Union[int, Tuple[int, ...]]
         output array shape.
     dtype: Optional[dtype]
-        output array data type. If ``dtype`` is ``None``, the output array data type must be the default floating-point data type. Default: ``None``.
+        output array data type. If ``dtype`` is ``None``, the output array data type must be the default real-valued floating-point data type. Default: ``None``.
     device: Optional[device]
         device on which to place the created array. Default: ``None``.
 
@@ -115,6 +113,9 @@ def eye(n_rows: int, n_cols: Optional[int] = None, /, *, k: int = 0, dtype: Opti
     """
     Returns a two-dimensional array with ones on the ``k``\th diagonal and zeros elsewhere.
 
+    .. note::
+       An output array having a complex floating-point data type must have the value ``1 + 0j`` along the ``k``\th diagonal and ``0 + 0j`` elsewhere. 
+
     Parameters
     ----------
     n_rows: int
@@ -124,7 +125,7 @@ def eye(n_rows: int, n_cols: Optional[int] = None, /, *, k: int = 0, dtype: Opti
     k: int
         index of the diagonal. A positive value refers to an upper diagonal, a negative value to a lower diagonal, and ``0`` to the main diagonal. Default: ``0``.
     dtype: Optional[dtype]
-        output array data type. If ``dtype`` is ``None``, the output array data type must be the default floating-point data type. Default: ``None``.
+        output array data type. If ``dtype`` is ``None``, the output array data type must be the default real-valued floating-point data type. Default: ``None``.
     device: Optional[device]
         device on which to place the created array. Default: ``None``.
 
@@ -154,7 +155,7 @@ def from_dlpack(x: object, /) -> array:
            The returned array may be either a copy or a view. See :ref:`data-interchange` for details.
     """
 
-def full(shape: Union[int, Tuple[int, ...]], fill_value: Union[int, float], *, dtype: Optional[dtype] = None, device: Optional[device] = None) -> array:
+def full(shape: Union[int, Tuple[int, ...]], fill_value: Union[bool, int, float, complex], *, dtype: Optional[dtype] = None, device: Optional[device] = None) -> array:
     """
     Returns a new array having a specified ``shape`` and filled with ``fill_value``.
 
@@ -162,13 +163,18 @@ def full(shape: Union[int, Tuple[int, ...]], fill_value: Union[int, float], *, d
     ----------
     shape: Union[int, Tuple[int, ...]]
         output array shape.
-    fill_value: Union[int, float]
+    fill_value: Union[bool, int, float, complex]
         fill value.
     dtype: Optional[dtype]
-        output array data type. If ``dtype`` is ``None``, the output array data type must be inferred from ``fill_value``. If the fill value is an ``int``, the output array data type must be the default integer data type. If the fill value is a ``float``, the output array data type must be the default floating-point data type. If the fill value is a ``bool``, the output array must have boolean data type. Default: ``None``.
+        output array data type. If ``dtype`` is ``None``, the output array data type must be inferred from ``fill_value`` according to the following rules:
+
+        - If the fill value is an ``int``, the output array data type must be the default integer data type.
+        - If the fill value is a ``float``, the output array data type must be the default real-valued floating-point data type.
+        - If the fill value is a ``complex`` number, the output array data type must be the default complex floating-point data type.
+        - If the fill value is a ``bool``, the output array must have a boolean data type. Default: ``None``.
 
         .. note::
-           If ``dtype`` is ``None`` and the ``fill_value`` exceeds the precision of the resolved default output array data type, behavior is left unspecified and, thus, implementation-defined.
+           If the ``fill_value`` exceeds the precision of the resolved default output array data type, behavior is left unspecified and, thus, implementation-defined.
 
     device: Optional[device]
         device on which to place the created array. Default: ``None``.
@@ -179,7 +185,7 @@ def full(shape: Union[int, Tuple[int, ...]], fill_value: Union[int, float], *, d
         an array where every element is equal to ``fill_value``.
     """
 
-def full_like(x: array, /, fill_value: Union[int, float], *, dtype: Optional[dtype] = None, device: Optional[device] = None) -> array:
+def full_like(x: array, /, fill_value: Union[bool, int, float, complex], *, dtype: Optional[dtype] = None, device: Optional[device] = None) -> array:
     """
     Returns a new array filled with ``fill_value`` and having the same ``shape`` as an input array ``x``.
 
@@ -187,16 +193,16 @@ def full_like(x: array, /, fill_value: Union[int, float], *, dtype: Optional[dty
     ----------
     x: array
         input array from which to derive the output array shape.
-    fill_value: Union[int, float]
+    fill_value: Union[bool, int, float, complex]
         fill value.
     dtype: Optional[dtype]
         output array data type. If ``dtype`` is ``None``, the output array data type must be inferred from ``x``. Default: ``None``.
 
         .. note::
-           If ``dtype`` is ``None`` and the ``fill_value`` exceeds the precision of the resolved output array data type, behavior is unspecified and, thus, implementation-defined.
+           If the ``fill_value`` exceeds the precision of the resolved output array data type, behavior is unspecified and, thus, implementation-defined.
 
         .. note::
-           If ``dtype`` is ``None`` and the ``fill_value`` has a data type (``int`` or ``float``) which is not of the same data type kind as the resolved output array data type (see :ref:`type-promotion`), behavior is unspecified and, thus, implementation-defined.
+           If the ``fill_value`` has a data type which is not of the same data type kind (boolean, integer, or floating-point) as the resolved output array data type (see :ref:`type-promotion`), behavior is unspecified and, thus, implementation-defined.
 
     device: Optional[device]
         device on which to place the created array. If ``device`` is ``None``, the output array device must be inferred from ``x``. Default: ``None``.
@@ -224,7 +230,7 @@ def linspace(start: Union[int, float], stop: Union[int, float], /, num: int, *, 
     num: int
         number of samples. Must be a non-negative integer value; otherwise, the function must raise an exception.
     dtype: Optional[dtype]
-        output array data type. If ``dtype`` is ``None``, the output array data type must be the default floating-point data type. Default: ``None``.
+        output array data type. Should be a real-valued floating-point data type. If ``dtype`` is ``None``, the output array data type must be the default real-valued floating-point data type. Default: ``None``.
     device: Optional[device]
         device on which to place the created array. Default: ``None``.
     endpoint: bool
@@ -234,6 +240,13 @@ def linspace(start: Union[int, float], stop: Union[int, float], /, num: int, *, 
     -------
     out: array
         a one-dimensional array containing evenly spaced values.
+
+
+    .. note::
+       While this specification recommends that this function only return arrays having a real-valued floating-point data type, specification-compliant array libraries may choose to support output arrays having an integer data type (e.g., due to backward compatibility concerns). However, function behavior when generating integer output arrays is unspecified and, thus, is implementation-defined. Accordingly, using this function to generate integer output arrays is not portable.
+
+    .. note::
+       As mixed data type promotion is implementation-defined, behavior when ``start`` or ``stop`` exceeds the maximum safe integer of an output real-valued floating-point data type is implementation-defined. An implementation may choose to overflow or raise an exception.
     """
 
 def meshgrid(*arrays: array, indexing: str = 'xy') -> List[array]:
@@ -266,12 +279,15 @@ def ones(shape: Union[int, Tuple[int, ...]], *, dtype: Optional[dtype] = None, d
     """
     Returns a new array having a specified ``shape`` and filled with ones.
 
+    .. note::
+       An output array having a complex floating-point data type must contain complex numbers having a real component equal to one and an imaginary component equal to zero (i.e., ``1 + 0j``).  
+
     Parameters
     ----------
     shape: Union[int, Tuple[int, ...]]
         output array shape.
     dtype: Optional[dtype]
-        output array data type. If ``dtype`` is ``None``, the output array data type must be the default floating-point data type. Default: ``None``.
+        output array data type. If ``dtype`` is ``None``, the output array data type must be the default real-valued floating-point data type. Default: ``None``.
     device: Optional[device]
         device on which to place the created array. Default: ``None``.
 
@@ -284,6 +300,9 @@ def ones(shape: Union[int, Tuple[int, ...]], *, dtype: Optional[dtype] = None, d
 def ones_like(x: array, /, *, dtype: Optional[dtype] = None, device: Optional[device] = None) -> array:
     """
     Returns a new array filled with ones and having the same ``shape`` as an input array ``x``.
+
+    .. note::
+       An output array having a complex floating-point data type must contain complex numbers having a real component equal to one and an imaginary component equal to zero (i.e., ``1 + 0j``).  
 
     Parameters
     ----------
@@ -355,7 +374,7 @@ def zeros(shape: Union[int, Tuple[int, ...]], *, dtype: Optional[dtype] = None, 
     shape: Union[int, Tuple[int, ...]]
         output array shape.
     dtype: Optional[dtype]
-        output array data type. If ``dtype`` is ``None``, the output array data type must be the default floating-point data type. Default: ``None``.
+        output array data type. If ``dtype`` is ``None``, the output array data type must be the default real-valued floating-point data type. Default: ``None``.
     device: Optional[device]
         device on which to place the created array. Default: ``None``.
 

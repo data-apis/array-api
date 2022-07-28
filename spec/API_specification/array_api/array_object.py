@@ -4,13 +4,13 @@ from ._types import (array, dtype as Dtype, device as Device, Optional, Tuple,
                      Union, Any, PyCapsule, Enum, ellipsis)
 
 class _array():
-    def __init__(self) -> None:
+    def __init__(self: array) -> None:
         """
         Initialize the attributes for the array object class.
         """
 
     @property
-    def dtype() -> Dtype:
+    def dtype(self: array) -> Dtype:
         """
         Data type of the array elements.
 
@@ -21,7 +21,7 @@ class _array():
         """
 
     @property
-    def device() -> Device:
+    def device(self: array) -> Device:
         """
         Hardware device the array data resides on.
 
@@ -32,7 +32,7 @@ class _array():
         """
 
     @property
-    def mT() -> array:
+    def mT(self: array) -> array:
         """
         Transpose of a matrix (or a stack of matrices).
 
@@ -45,7 +45,7 @@ class _array():
         """
 
     @property
-    def ndim() -> int:
+    def ndim(self: array) -> int:
         """
         Number of array dimensions (axes).
 
@@ -56,7 +56,7 @@ class _array():
         """
 
     @property
-    def shape() -> Tuple[Optional[int], ...]:
+    def shape(self: array) -> Tuple[Optional[int], ...]:
         """
         Array dimensions.
 
@@ -74,7 +74,7 @@ class _array():
         """
 
     @property
-    def size() -> Optional[int]:
+    def size(self: array) -> Optional[int]:
         """
         Number of elements in an array.
 
@@ -92,7 +92,7 @@ class _array():
         """
 
     @property
-    def T() -> array:
+    def T(self: array) -> array:
         """
         Transpose of the array.
 
@@ -126,7 +126,7 @@ class _array():
         Parameters
         ----------
         self: array
-            array instance. Should have a numeric data type.
+            array instance. Should have a real-valued data type.
 
         Returns
         -------
@@ -135,7 +135,7 @@ class _array():
 
 
         .. note::
-           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~signatures.elementwise_functions.abs`.
+           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.abs`.
         """
 
     def __add__(self: array, other: Union[int, float, array], /) -> array:
@@ -170,9 +170,9 @@ class _array():
         Parameters
         ----------
         self: array
-            array instance (augend array). Should have a numeric data type.
+            array instance (augend array). Should have a real-valued data type.
         other: Union[int, float, array]
-            addend array. Must be compatible with ``self`` (see :ref:`broadcasting`). Should have a numeric data type.
+            addend array. Must be compatible with ``self`` (see :ref:`broadcasting`). Should have a real-valued data type.
 
         Returns
         -------
@@ -181,7 +181,7 @@ class _array():
 
 
         .. note::
-           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~signatures.elementwise_functions.add`.
+           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.add`.
         """
 
     def __and__(self: array, other: Union[int, bool, array], /) -> array:
@@ -202,7 +202,7 @@ class _array():
 
 
         .. note::
-           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~signatures.elementwise_functions.bitwise_and`.
+           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.bitwise_and`.
         """
 
     def __array_namespace__(self: array, /, *, api_version: Optional[str] = None) -> Any:
@@ -239,7 +239,7 @@ class _array():
 
     def __dlpack__(self: array, /, *, stream: Optional[Union[int, Any]] = None) -> PyCapsule:
         """
-        Exports the array for consumption by :func:`~signatures.creation_functions.from_dlpack` as a DLPack capsule.
+        Exports the array for consumption by :func:`~array_api.from_dlpack` as a DLPack capsule.
 
         Parameters
         ----------
@@ -294,7 +294,7 @@ class _array():
 
     def __dlpack_device__(self: array, /) -> Tuple[Enum, int]:
         """
-        Returns device type and device ID in DLPack format. Meant for use within :func:`~signatures.creation_functions.from_dlpack`.
+        Returns device type and device ID in DLPack format. Meant for use within :func:`~array_api.from_dlpack`.
 
         Parameters
         ----------
@@ -336,7 +336,7 @@ class _array():
 
 
         .. note::
-           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~signatures.elementwise_functions.equal`.
+           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.equal`.
         """
 
     def __float__(self: array, /) -> float:
@@ -346,7 +346,7 @@ class _array():
         Parameters
         ----------
         self: array
-            zero-dimensional array instance. Must have a floating-point data type.
+            zero-dimensional array instance. Must have a real-valued floating-point data type.
 
         Returns
         -------
@@ -400,9 +400,9 @@ class _array():
         Parameters
         ----------
         self: array
-            array instance. Should have a numeric data type.
+            array instance. Should have a real-valued data type.
         other: Union[int, float, array]
-            other array. Must be compatible with ``self`` (see :ref:`broadcasting`). Should have a numeric data type.
+            other array. Must be compatible with ``self`` (see :ref:`broadcasting`). Should have a real-valued data type.
 
         Returns
         -------
@@ -411,7 +411,7 @@ class _array():
 
 
         .. note::
-           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~signatures.elementwise_functions.floor_divide`.
+           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.floor_divide`.
         """
 
     def __ge__(self: array, other: Union[int, float, array], /) -> array:
@@ -421,9 +421,9 @@ class _array():
         Parameters
         ----------
         self: array
-            array instance. Should have a numeric data type.
+            array instance. Should have a real-valued data type.
         other: Union[int, float, array]
-            other array. Must be compatible with ``self`` (see :ref:`broadcasting`). Should have a numeric data type.
+            other array. Must be compatible with ``self`` (see :ref:`broadcasting`). Should have a real-valued data type.
 
         Returns
         -------
@@ -432,7 +432,7 @@ class _array():
 
 
         .. note::
-           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~signatures.elementwise_functions.greater_equal`.
+           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.greater_equal`.
         """
 
     def __getitem__(self: array, key: Union[int, slice, ellipsis, Tuple[Union[int, slice, ellipsis], ...], array], /) -> array:
@@ -459,9 +459,9 @@ class _array():
         Parameters
         ----------
         self: array
-            array instance. Should have a numeric data type.
+            array instance. Should have a real-valued data type.
         other: Union[int, float, array]
-            other array. Must be compatible with ``self`` (see :ref:`broadcasting`). Should have a numeric data type.
+            other array. Must be compatible with ``self`` (see :ref:`broadcasting`). Should have a real-valued data type.
 
         Returns
         -------
@@ -470,7 +470,7 @@ class _array():
 
 
         .. note::
-           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~signatures.elementwise_functions.greater`.
+           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.greater`.
         """
 
     def __index__(self: array, /) -> int:
@@ -522,7 +522,7 @@ class _array():
 
 
         .. note::
-           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~signatures.elementwise_functions.bitwise_invert`.
+           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.bitwise_invert`.
         """
 
     def __le__(self: array, other: Union[int, float, array], /) -> array:
@@ -532,9 +532,9 @@ class _array():
         Parameters
         ----------
         self: array
-            array instance. Should have a numeric data type.
+            array instance. Should have a real-valued data type.
         other: Union[int, float, array]
-            other array. Must be compatible with ``self`` (see :ref:`broadcasting`). Should have a numeric data type.
+            other array. Must be compatible with ``self`` (see :ref:`broadcasting`). Should have a real-valued data type.
 
         Returns
         -------
@@ -543,7 +543,7 @@ class _array():
 
 
         .. note::
-           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~signatures.elementwise_functions.less_equal`.
+           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.less_equal`.
         """
 
     def __lshift__(self: array, other: Union[int, array], /) -> array:
@@ -564,7 +564,7 @@ class _array():
 
 
         .. note::
-           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~signatures.elementwise_functions.bitwise_left_shift`.
+           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.bitwise_left_shift`.
         """
 
     def __lt__(self: array, other: Union[int, float, array], /) -> array:
@@ -574,9 +574,9 @@ class _array():
         Parameters
         ----------
         self: array
-            array instance. Should have a numeric data type.
+            array instance. Should have a real-valued data type.
         other: Union[int, float, array]
-            other array. Must be compatible with ``self`` (see :ref:`broadcasting`). Should have a numeric data type.
+            other array. Must be compatible with ``self`` (see :ref:`broadcasting`). Should have a real-valued data type.
 
         Returns
         -------
@@ -585,7 +585,7 @@ class _array():
 
 
         .. note::
-           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~signatures.elementwise_functions.less`.
+           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.less`.
         """
 
     def __matmul__(self: array, other: array, /) -> array:
@@ -598,9 +598,9 @@ class _array():
         Parameters
         ----------
         self: array
-            array instance. Should have a numeric data type. Must have at least one dimension. If ``self`` is one-dimensional having shape ``(M,)`` and ``other`` has more than one dimension, ``self`` must be promoted to a two-dimensional array by prepending ``1`` to its dimensions (i.e., must have shape ``(1, M)``). After matrix multiplication, the prepended dimensions in the returned array must be removed. If ``self`` has more than one dimension (including after vector-to-matrix promotion), ``shape(self)[:-2]`` must be compatible with ``shape(other)[:-2]`` (after vector-to-matrix promotion) (see :ref:`broadcasting`). If ``self`` has shape ``(..., M, K)``, the innermost two dimensions form matrices on which to perform matrix multiplication.
+            array instance. Should have a real-valued data type. Must have at least one dimension. If ``self`` is one-dimensional having shape ``(M,)`` and ``other`` has more than one dimension, ``self`` must be promoted to a two-dimensional array by prepending ``1`` to its dimensions (i.e., must have shape ``(1, M)``). After matrix multiplication, the prepended dimensions in the returned array must be removed. If ``self`` has more than one dimension (including after vector-to-matrix promotion), ``shape(self)[:-2]`` must be compatible with ``shape(other)[:-2]`` (after vector-to-matrix promotion) (see :ref:`broadcasting`). If ``self`` has shape ``(..., M, K)``, the innermost two dimensions form matrices on which to perform matrix multiplication.
         other: array
-            other array. Should have a numeric data type. Must have at least one dimension. If ``other`` is one-dimensional having shape ``(N,)`` and ``self`` has more than one dimension, ``other`` must be promoted to a two-dimensional array by appending ``1`` to its dimensions (i.e., must have shape ``(N, 1)``). After matrix multiplication, the appended dimensions in the returned array must be removed. If ``other`` has more than one dimension (including after vector-to-matrix promotion), ``shape(other)[:-2]`` must be compatible with ``shape(self)[:-2]`` (after vector-to-matrix promotion) (see :ref:`broadcasting`). If ``other`` has shape ``(..., K, N)``, the innermost two dimensions form matrices on which to perform matrix multiplication.
+            other array. Should have a real-valued data type. Must have at least one dimension. If ``other`` is one-dimensional having shape ``(N,)`` and ``self`` has more than one dimension, ``other`` must be promoted to a two-dimensional array by appending ``1`` to its dimensions (i.e., must have shape ``(N, 1)``). After matrix multiplication, the appended dimensions in the returned array must be removed. If ``other`` has more than one dimension (including after vector-to-matrix promotion), ``shape(other)[:-2]`` must be compatible with ``shape(self)[:-2]`` (after vector-to-matrix promotion) (see :ref:`broadcasting`). If ``other`` has shape ``(..., K, N)``, the innermost two dimensions form matrices on which to perform matrix multiplication.
 
         Returns
         -------
@@ -616,7 +616,7 @@ class _array():
 
 
         .. note::
-           Results must equal the results returned by the equivalent function :func:`~signatures.linear_algebra_functions.matmul`.
+           Results must equal the results returned by the equivalent function :func:`~array_api.matmul`.
 
         **Raises**
 
@@ -634,21 +634,49 @@ class _array():
         .. note::
            For input arrays which promote to an integer data type, the result of division by zero is unspecified and thus implementation-defined.
 
+        **Special Cases**
+
+        .. note::
+           In general, this method is **not** recommended for floating-point operands as semantics do not follow IEEE 754. That this method is specified to accept floating-point operands is primarily for reasons of backward compatibility.
+
+        For floating-point operands, let ``self`` equal ``x1`` and ``other`` equal ``x2``.
+
+        - If either ``x1_i`` or ``x2_i`` is ``NaN``, the result is ``NaN``.
+        - If ``x1_i`` is either ``+infinity`` or ``-infinity`` and ``x2_i`` is either ``+infinity`` or ``-infinity``, the result is ``NaN``.
+        - If ``x1_i`` is either ``+0`` or ``-0`` and ``x2_i`` is either ``+0`` or ``-0``, the result is ``NaN``.
+        - If ``x1_i`` is ``+0`` and ``x2_i`` is greater than ``0``, the result is ``+0``.
+        - If ``x1_i`` is ``-0`` and ``x2_i`` is greater than ``0``, the result is ``+0``.
+        - If ``x1_i`` is ``+0`` and ``x2_i`` is less than ``0``, the result is ``-0``.
+        - If ``x1_i`` is ``-0`` and ``x2_i`` is less than ``0``, the result is ``-0``.
+        - If ``x1_i`` is greater than ``0`` and ``x2_i`` is ``+0``, the result is ``NaN``.
+        - If ``x1_i`` is greater than ``0`` and ``x2_i`` is ``-0``, the result is ``NaN``.
+        - If ``x1_i`` is less than ``0`` and ``x2_i`` is ``+0``, the result is ``NaN``.
+        - If ``x1_i`` is less than ``0`` and ``x2_i`` is ``-0``, the result is ``NaN``.
+        - If ``x1_i`` is ``+infinity`` and ``x2_i`` is a positive (i.e., greater than ``0``) finite number, the result is ``NaN``.
+        - If ``x1_i`` is ``+infinity`` and ``x2_i`` is a negative (i.e., less than ``0``) finite number, the result is ``NaN``.
+        - If ``x1_i`` is ``-infinity`` and ``x2_i`` is a positive (i.e., greater than ``0``) finite number, the result is ``NaN``.
+        - If ``x1_i`` is ``-infinity`` and ``x2_i`` is a negative (i.e., less than ``0``) finite number, the result is ``NaN``.
+        - If ``x1_i`` is a positive (i.e., greater than ``0``) finite number and ``x2_i`` is ``+infinity``, the result is ``x1_i``. (**note**: this result matches Python behavior.)
+        - If ``x1_i`` is a positive (i.e., greater than ``0``) finite number and ``x2_i`` is ``-infinity``, the result is ``x2_i``. (**note**: this result matches Python behavior.)
+        - If ``x1_i`` is a negative (i.e., less than ``0``) finite number and ``x2_i`` is ``+infinity``, the result is ``x2_i``. (**note**: this results matches Python behavior.)
+        - If ``x1_i`` is a negative (i.e., less than ``0``) finite number and ``x2_i`` is ``-infinity``, the result is ``x1_i``. (**note**: this result matches Python behavior.)
+        - In the remaining cases, the result must match that of the Python ``%`` operator.
+
         Parameters
         ----------
         self: array
-            array instance. Should have a numeric data type.
+            array instance. Should have a real-valued data type.
         other: Union[int, float, array]
-            other array. Must be compatible with ``self`` (see :ref:`broadcasting`). Should have a numeric data type.
+            other array. Must be compatible with ``self`` (see :ref:`broadcasting`). Should have a real-valued data type.
 
         Returns
         -------
         out: array
-            an array containing the element-wise results. Each element-wise result must have the same sign as the respective element ``other_i``. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
+            an array containing the element-wise results. Each element-wise result must have the same sign as the respective element ``other_i``. The returned array must have a real-valued floating-point data type determined by :ref:`type-promotion`.
 
 
         .. note::
-           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~signatures.elementwise_functions.remainder`.
+           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.remainder`.
         """
 
     def __mul__(self: array, other: Union[int, float, array], /) -> array:
@@ -676,9 +704,9 @@ class _array():
         Parameters
         ----------
         self: array
-            array instance. Should have a numeric data type.
+            array instance. Should have a real-valued data type.
         other: Union[int, float, array]
-            other array. Must be compatible with ``self`` (see :ref:`broadcasting`). Should have a numeric data type.
+            other array. Must be compatible with ``self`` (see :ref:`broadcasting`). Should have a real-valued data type.
 
         Returns
         -------
@@ -687,7 +715,7 @@ class _array():
 
 
         .. note::
-           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~signatures.elementwise_functions.multiply`.
+           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.multiply`.
         """
 
     def __ne__(self: array, other: Union[int, float, bool, array], /) -> array:
@@ -708,7 +736,7 @@ class _array():
 
 
         .. note::
-           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~signatures.elementwise_functions.not_equal`.
+           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.not_equal`.
         """
 
     def __neg__(self: array, /) -> array:
@@ -717,6 +745,9 @@ class _array():
 
         .. note::
            For signed integer data types, the numerical negative of the minimum representable integer is implementation-dependent.
+
+        .. note::
+           If ``self`` has a complex floating-point data type, both the real and imaginary components for each ``self_i`` must be negated (a result which follows from the rules of complex number multiplication).
 
         Parameters
         ----------
@@ -730,7 +761,7 @@ class _array():
 
 
         .. note::
-           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~signatures.elementwise_functions.negative`.
+           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.negative`.
         """
 
     def __or__(self: array, other: Union[int, bool, array], /) -> array:
@@ -751,7 +782,7 @@ class _array():
 
 
         .. note::
-           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~signatures.elementwise_functions.bitwise_or`.
+           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.bitwise_or`.
         """
 
     def __pos__(self: array, /) -> array:
@@ -770,7 +801,7 @@ class _array():
 
 
         .. note::
-           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~signatures.elementwise_functions.positive`.
+           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.positive`.
         """
 
     def __pow__(self: array, other: Union[int, float, array], /) -> array:
@@ -780,7 +811,7 @@ class _array():
         .. note::
            If both ``self`` and ``other`` have integer data types, the result of ``__pow__`` when `other_i` is negative (i.e., less than zero) is unspecified and thus implementation-dependent.
 
-           If ``self`` has an integer data type and ``other`` has a floating-point data type, behavior is implementation-dependent, as type promotion between data type "kinds" (e.g., integer versus floating-point) is unspecified.
+           If ``self`` has an integer data type and ``other`` has a real-valued floating-point data type, behavior is implementation-dependent, as type promotion between data type "kinds" (e.g., integer versus floating-point) is unspecified.
 
         **Special cases**
 
@@ -814,9 +845,9 @@ class _array():
         Parameters
         ----------
         self: array
-            array instance whose elements correspond to the exponentiation base. Should have a numeric data type.
+            array instance whose elements correspond to the exponentiation base. Should have a real-valued data type.
         other: Union[int, float, array]
-            other array whose elements correspond to the exponentiation exponent. Must be compatible with ``self`` (see :ref:`broadcasting`). Should have a numeric data type.
+            other array whose elements correspond to the exponentiation exponent. Must be compatible with ``self`` (see :ref:`broadcasting`). Should have a real-valued data type.
 
         Returns
         -------
@@ -825,7 +856,7 @@ class _array():
 
 
         .. note::
-           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~signatures.elementwise_functions.pow`.
+           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.pow`.
         """
 
     def __rshift__(self: array, other: Union[int, array], /) -> array:
@@ -846,7 +877,7 @@ class _array():
 
 
         .. note::
-           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~signatures.elementwise_functions.bitwise_right_shift`.
+           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.bitwise_right_shift`.
         """
 
     def __setitem__(self: array, key: Union[int, slice, ellipsis, Tuple[Union[int, slice, ellipsis], ...], array], value: Union[int, float, bool, array], /) -> None:
@@ -879,9 +910,9 @@ class _array():
         Parameters
         ----------
         self: array
-            array instance (minuend array). Should have a numeric data type.
+            array instance (minuend array). Should have a real-valued data type.
         other: Union[int, float, array]
-            subtrahend array. Must be compatible with ``self`` (see :ref:`broadcasting`). Should have a numeric data type.
+            subtrahend array. Must be compatible with ``self`` (see :ref:`broadcasting`). Should have a real-valued data type.
 
         Returns
         -------
@@ -890,7 +921,7 @@ class _array():
 
 
         .. note::
-           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~signatures.elementwise_functions.subtract`.
+           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.subtract`.
         """
 
     def __truediv__(self: array, other: Union[int, float, array], /) -> array:
@@ -900,7 +931,7 @@ class _array():
         .. note::
            If one or both of ``self`` and ``other`` have integer data types, the result is implementation-dependent, as type promotion between data type "kinds" (e.g., integer versus floating-point) is unspecified.
 
-           Specification-compliant libraries may choose to raise an error or return an array containing the element-wise results. If an array is returned, the array must have a floating-point data type.
+           Specification-compliant libraries may choose to raise an error or return an array containing the element-wise results. If an array is returned, the array must have a real-valued floating-point data type.
 
         **Special cases**
 
@@ -932,18 +963,18 @@ class _array():
         Parameters
         ----------
         self: array
-            array instance. Should have a numeric data type.
+            array instance. Should have a real-valued data type.
         other: Union[int, float, array]
-            other array. Must be compatible with ``self`` (see :ref:`broadcasting`). Should have a numeric data type.
+            other array. Must be compatible with ``self`` (see :ref:`broadcasting`). Should have a real-valued data type.
 
         Returns
         -------
         out: array
-            an array containing the element-wise results. The returned array should have a floating-point data type determined by :ref:`type-promotion`.
+            an array containing the element-wise results. The returned array should have a real-valued floating-point data type determined by :ref:`type-promotion`.
 
 
         .. note::
-           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~signatures.elementwise_functions.divide`.
+           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.divide`.
         """
 
     def __xor__(self: array, other: Union[int, bool, array], /) -> array:
@@ -964,7 +995,7 @@ class _array():
 
 
         .. note::
-           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~signatures.elementwise_functions.bitwise_xor`.
+           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.bitwise_xor`.
         """
 
     def to_device(self: array, device: Device, /, *, stream: Optional[Union[int, Any]] = None) -> array:
@@ -991,3 +1022,5 @@ class _array():
         """
 
 array = _array
+
+__all__ = ['array']
