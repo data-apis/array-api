@@ -8,7 +8,7 @@ def fft(a: array, /, *, n: Optional[int] = None, axis: int = -1, norm: str = 'ba
     Parameters
     ----------
     a: array
-        input array
+        input array. Should have a floating-point data type.
     n: int
         length of the transformed axis of the output. If given, the input will be either zero-padded or trimmed to the length ``n`` before computing the Fourier transform. Otherwise, the length of the input along the axis given by the ``axis`` keyword. Default: ``None``.
     axis: int
@@ -25,7 +25,7 @@ def fft(a: array, /, *, n: Optional[int] = None, axis: int = -1, norm: str = 'ba
     Returns
     -------
     out: array
-        a complex-valued array transformed along the axis indicated by the ``axis`` keyword. The length along the transformed axis is ``n//2+1``.
+        a complex-valued array transformed along the axis indicated by the ``axis`` keyword. The length along the transformed axis is ``n//2+1``. The returned array must have a complex dtype with the same precision as the input ``x``.
 
 
     **Raises**
@@ -41,7 +41,7 @@ def ifft(a: array, /, *, n: Optional[int] = None, axis: int = -1, norm: str = 'b
     Parameters
     ----------
     a: array
-        input array
+        input array. Should have a floating-point data type.
     n: int
         length of the transformed axis of the output. If given, the input will be either zero-padded or trimmed to the length ``n`` before computing the inverse Fourier transform. Otherwise, the length of the input along the axis given by the ``axis`` keyword. Default: ``None``.
     axis: int
@@ -58,7 +58,7 @@ def ifft(a: array, /, *, n: Optional[int] = None, axis: int = -1, norm: str = 'b
     Returns
     -------
     out: array
-        a complex-valued array transformed along the axis indicated by the ``axis`` keyword. The length along the transformed axis is ``n//2+1``.
+        a complex-valued array transformed along the axis indicated by the ``axis`` keyword. The length along the transformed axis is ``n//2+1``. The returned array must have a complex dtype with the same precision as the input ``x``.
 
 
     **Raises**
@@ -74,7 +74,7 @@ def fftn(a: array, /, *, s: Union[Sequence[int], Tuple[int, ...]] = None, axes: 
     Parameters
     ----------
     a: array
-        input array
+        input array. Should have a floating-point data type.
     s: Union[Sequence[int], Tuple[int, ...]]
         size of each transformed axis of the output. If given, each axis ``i`` will be either zero-padded or trimmed to the length ``s[i]`` before computing the Fourier transform. Otherwise, the shape of the input along the axes given by the ``axes`` keyword. Default: ``None``.
     axes: Union[Sequence[int], Tuple[int, ...]]
@@ -91,7 +91,7 @@ def fftn(a: array, /, *, s: Union[Sequence[int], Tuple[int, ...]] = None, axes: 
     Returns
     -------
     out: array
-        an array transformed along the axes indicated by the ``axes`` keyword.
+        an array transformed along the axes indicated by the ``axes`` keyword. The returned array must have a complex dtype with the same precision as the input ``x``.
 
 
     **Raises**
@@ -108,7 +108,7 @@ def ifftn(a: array, /, *, s: Union[Sequence[int], Tuple[int, ...]] = None, axes:
     Parameters
     ----------
     a: array
-        input array
+        input array. Should have a floating-point data type.
     s: Union[Sequence[int], Tuple[int, ...]]
         size of each transformed axis of the output. If given, each axis will be either zero-padded or trimmed to the length ``s[i]`` before computing the inverse Fourier transform. Otherwise, the length of the input along the axis given by the ``axes`` keyword. Default: ``None``.
     axes: Union[Sequence[int], Tuple[int, ...]]
@@ -125,7 +125,7 @@ def ifftn(a: array, /, *, s: Union[Sequence[int], Tuple[int, ...]] = None, axes:
     Returns
     -------
     out: array
-        an array transformed along the axes indicated by the `axes` keyword.
+        an array transformed along the axes indicated by the `axes` keyword. The returned array must have a complex dtype with the same precision as the input ``x``.
 
 
     **Raises**
@@ -142,7 +142,7 @@ def rfft(a: array, /, *, n: Optional[int] = None, axis: int = -1, norm: str = 'b
     Parameters
     ----------
     a: array
-        input array
+        input array. Should have a floating-point data type.
     n: int
         length of the transformed axis of the **input**. If given, the input will be either zero-padded or trimmed to this length before computing the real Fourier transform. Otherwise, the length of the input along the axis specified by the ``axis`` keyword is used. Default: ``None``.
     axis: int
@@ -159,7 +159,7 @@ def rfft(a: array, /, *, n: Optional[int] = None, axis: int = -1, norm: str = 'b
     Returns
     -------
     out: array
-        a complex-valued array transformed along the axis indicated by the ``axis`` keyword. The length along the transformed axis is ``n//2+1``.
+        a complex-valued array transformed along the axis indicated by the ``axis`` keyword. The length along the transformed axis is ``n//2+1``. The returned array must have a complex dtype with the same precision as the input ``x``.
 
 
     **Raises**
@@ -175,7 +175,7 @@ def irfft(a: array, /, *, n: Optional[int] = None, axis: int = -1, norm: str = '
     Parameters
     ----------
     a: array
-        input array
+        input array. Should have a floating-point data type.
     n: int
         length of the transformed axis of the **output**. If given, the input will be either zero-padded or trimmed to ``n//2+1`` before computing the inverse of ``rfft``. Otherwise, it will default to ``2 * (m - 1)`` where ``m`` is the length of the input along the axis given by the ``axis`` keyword. Default: ``None``.
     axis: int
@@ -192,7 +192,7 @@ def irfft(a: array, /, *, n: Optional[int] = None, axis: int = -1, norm: str = '
     Returns
     -------
     out: array
-        a real-valued array transformed along the axis indicated by the ``axis`` keyword. The length along the transformed axis is ``n`` (if given) or ``2 * (m - 1)``.
+        a real-valued array transformed along the axis indicated by the ``axis`` keyword. The length along the transformed axis is ``n`` (if given) or ``2 * (m - 1)``. The returned array must have a complex dtype with the same precision as the input ``x``.
 
 
     **Raises**
@@ -208,7 +208,7 @@ def rfftn(a: array, /, *, s: Union[Sequence[int], Tuple[int, ...]] = None, axes:
     Parameters
     ----------
     a: array
-        input array
+        input array. Should have a floating-point data type.
     s: Union[Sequence[int], Tuple[int, ...]]
         size of each transformed axis of the output. If given, each axis ``i`` will be either zero-padded or trimmed to the length ``s[i]`` before computing the real Fourier transform. Otherwise, the shape of the input along the axes given by the `axes` keyword. The last element ``s[-1]`` is for computing ``rfft(a[axes[-1]], n=s[-1])`` whereas other elements for ``fft(a[axes[i]], n=s[i])``. Default: ``None``.
     axes: Union[Sequence[int], Tuple[int, ...]]
@@ -225,7 +225,7 @@ def rfftn(a: array, /, *, s: Union[Sequence[int], Tuple[int, ...]] = None, axes:
     Returns
     -------
     out: array
-        a complex-valued array transformed along the axes indicated by the ``axes`` keyword. The length along the last transformed axis is ``s[-1]//2+1`` and along other axes ``s[i]``.
+        a complex-valued array transformed along the axes indicated by the ``axes`` keyword. The length along the last transformed axis is ``s[-1]//2+1`` and along other axes ``s[i]``. The returned array must have a complex dtype with the same precision as the input ``x``.
 
 
     **Raises**
@@ -242,7 +242,7 @@ def irfftn(a: array, /, *, s: Union[Sequence[int], Tuple[int, ...]] = None, axes
     Parameters
     ----------
     a: array
-        input array
+        input array. Should have a floating-point data type.
     s: Union[Sequence[int], Tuple[int, ...]]
         size of each transformed axis of the **output**. If given, the last axis will be either zero-padded or trimmed to ``s[-1]//2+1``, whereas all other axes ``i`` are either zero-padded or trimmed to the length ``s[i]``, before computing the inverse of ``rfftn``. Otherwise, the last axis is either zero-padded or trimmed to ``2 * (m - 1)``, where `m` is the length of the input along the axis, and all other axes use the input shape. The last element ``s[-1]`` is for computing ``irfft(a[axes[-1]], n=s[-1])`` whereas other elements for ``ifft(a[axes[i]], n=s[i])``. Default: ``None``.
     axes: Union[Sequence[int], Tuple[int, ...]]
@@ -259,7 +259,7 @@ def irfftn(a: array, /, *, s: Union[Sequence[int], Tuple[int, ...]] = None, axes
     Returns
     -------
     out: array
-        a real-valued array transformed along the axes indicated by the ``axes`` keyword. The length along the last transformed axis is ``s[-1]`` (if given) or ``2 * (m - 1)``, and all other axes ``s[i]``.
+        a real-valued array transformed along the axes indicated by the ``axes`` keyword. The length along the last transformed axis is ``s[-1]`` (if given) or ``2 * (m - 1)``, and all other axes ``s[i]``. The returned array must have a complex dtype with the same precision as the input ``x``.
 
 
     **Raises**
@@ -276,7 +276,7 @@ def hfft(a: array, /, *, n: Optional[int] = None, axis: int = -1, norm: str = 'b
     Parameters
     ----------
     a: array
-        input array
+        input array. Should have a floating-point data type.
     n: int
         length of the transformed axis of the output. If given, the input will be either zero-padded or trimmed to this length before computing the Hermitian Fourier transform. Otherwise, it will default to ``2 * (m - 1)`` where ``m`` is the length of the input along the axis given by the ``axis`` keyword. Default: ``None``.
     axis: int
@@ -293,7 +293,7 @@ def hfft(a: array, /, *, n: Optional[int] = None, axis: int = -1, norm: str = 'b
     Returns
     -------
     out: array
-        a transformed array.
+        a transformed array. The returned array must have a complex dtype with the same precision as the input ``x``.
 
 
     **Raises**
@@ -309,7 +309,7 @@ def ihfft(a: array, /, *, n: Optional[int] = None, axis: int = -1, norm: str = '
     Parameters
     ----------
     a: array
-        input array
+        input array. Should have a floating-point data type.
     n: int
         length of the transformed axis of the output. If given, the input will be either zero-padded or trimmed to this length before computing the Hermitian Fourier transform. Otherwise, it will default to ``2 * (m - 1)`` where ``m`` is the length of the input along the axis given by the ``axis`` keyword. Default: ``None``.
     axis: int
@@ -326,7 +326,7 @@ def ihfft(a: array, /, *, n: Optional[int] = None, axis: int = -1, norm: str = '
     Returns
     -------
     out: array
-        a transformed array.
+        a transformed array. The returned array must have a complex dtype with the same precision as the input ``x``.
 
 
     **Raises**
@@ -392,7 +392,7 @@ def fftshift(x: array, /, *, axes: Union[int, Sequence[int], Tuple[int, ...]] = 
     Parameters
     ----------
     x: array
-        input array.
+        input array. Should have a floating-point data type.
     axes: Union[int, Sequence[int], Tuple[int, ...]]
         axes over which to shift. If not specified, it shifts all axes. Default: ``None``.
 
@@ -410,7 +410,7 @@ def ifftshift(x: array, /, *, axes: Union[int, Sequence[int], Tuple[int, ...]] =
     Parameters
     ----------
     x: array
-        input array.
+        input array. Should have a floating-point data type.
     axes: Union[int, Sequence[int], Tuple[int, ...]]
         axes over which to calculate. If not specified, it shifts all axes. Default: ``None``.
 
