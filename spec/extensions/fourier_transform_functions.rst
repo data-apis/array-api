@@ -15,7 +15,7 @@ A conforming implementation of the array API standard must provide and support t
 Objects in API
 --------------
 
-.. currentmodule:: signatures.fourier_transform_functions
+.. currentmodule:: array_api.fourier_transform_functions
 
 ..
   NOTE: please keep the functions and their inverse together
