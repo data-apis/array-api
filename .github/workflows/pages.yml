@@ -33,6 +33,7 @@ on:
 
   pull_request:
     branches:
+      # This should not run on PRs, we only need the preview one there
       - "**"
 
 # Workflow jobs:
