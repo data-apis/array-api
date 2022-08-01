@@ -1,337 +1,355 @@
-from ._types import Tuple, Union, Sequence, array, Optional
+from ._types import Tuple, Union, Sequence, array, Optional, Literal
 
-
-def fft(a: array, /, *, n: Optional[int] = None, axis: int = -1, norm: str = 'backward') -> array:
+def fft(x: array, /, *, n: Optional[int] = None, axis: int = -1, norm: Literal['backward', 'ortho', 'forward'] = 'backward') -> array:
     """
-    Computes the one-dimensional discrete Fourier transform. The expected behavior includes a round-trip transform using the inverse function, ``ifft(fft(a)) == a`` within numerical accuracy.
+    Computes the one-dimensional discrete Fourier transform.
+
+
+    .. note::
+       Applying the one-dimensional inverse discrete Fourier transform to the output of this function must return the original (i.e., non-transformed) input array within numerical accuracy: ``ifft(fft(x)) == x``.
 
     Parameters
     ----------
-    a: array
+    x: array
         input array. Should have a floating-point data type.
     n: int
-        length of the transformed axis of the output. If given, the input will be either zero-padded or trimmed to the length ``n`` before computing the Fourier transform. Otherwise, the length of the input along the axis given by the ``axis`` keyword. Default: ``None``.
-    axis: int
-        axis used to compute the Fourier transform. If it is not specified, the last axis is used. Default: ``-1``.
-    norm: str
-        specify the normalization mode. Should be one of the following modes:
+        length of the transformed axis of the output. If
 
-        - ``'backward'``: No normalization.
-        - ``'ortho'``: Normalize by ``1/sqrt(n)``.
-        - ``'forward'``: Normalize by ``1/n``.
+        - ``n`` is larger than the length of the input array, the input array must be zero-padded.
+        - ``n`` is less than the length of the input array, the input array must be trimmed to length ``n``.
+
+        if not provided, the length of the transformed axis of the output must equal the length of the input along the axis specified by ``axis``. Default: ``None``.
+    axis: int
+        axis (dimension) over which to compute the Fourier transform. If set to ``-1``, the function must compute the Fourier transform over the last axis (dimension). Default: ``-1``.
+    norm: Literal['backward', 'ortho', 'forward']
+        normalization mode. Should be one of the following modes:
+
+        - ``'backward'``: no normalization.
+        - ``'ortho'``: normalize by ``1/sqrt(n)``.
+        - ``'forward'``: normalize by ``1/n``.
 
         Default: ``'backward'``.
 
     Returns
     -------
     out: array
-        a complex-valued array transformed along the axis indicated by the ``axis`` keyword. The length along the transformed axis is ``n//2+1``. The returned array must have a complex dtype with the same precision as the input ``x``.
-
-
-    **Raises**
-
-    - If ``axis`` is not a valid axis of ``a``.
+        an array transformed along the axis (dimension) indicated by ``axis``. The returned array must have a complex floating-point data type determined by :ref:`type-promotion`.
     """
 
 
-def ifft(a: array, /, *, n: Optional[int] = None, axis: int = -1, norm: str = 'backward') -> array:
+def ifft(x: array, /, *, n: Optional[int] = None, axis: int = -1, norm: Literal['backward', 'ortho', 'forward'] = 'backward') -> array:
     """
-    Computes the one-dimensional inverse discrete Fourier transform. The expected behavior includes a round-trip transform using the inverse function, ``ifft(fft(a)) == a`` within numerical accuracy.
+    Computes the one-dimensional inverse discrete Fourier transform.
 
     Parameters
     ----------
-    a: array
+    x: array
         input array. Should have a floating-point data type.
     n: int
-        length of the transformed axis of the output. If given, the input will be either zero-padded or trimmed to the length ``n`` before computing the inverse Fourier transform. Otherwise, the length of the input along the axis given by the ``axis`` keyword. Default: ``None``.
-    axis: int
-        axis used to compute the inverse Fourier transform. If it is not specified, the last axis is used. Default: ``-1``.
-    norm: str
-        specify the normalization mode. Should be one of the following modes:
+        length of the transformed axis of the output. If
 
-        - ``'backward'``: Normalize by ``1/n``.
-        - ``'ortho'``: Normalize by ``1/sqrt(n)``
-        - ``'forward'``: No normalization.
+        - ``n`` is larger than the length of the input array, the input array must be zero-padded.
+        - ``n`` is less than the length of the input array, the input array must be trimmed to length ``n``.
+
+        if not provided, the length of the transformed axis of the output must equal the length of the input along the axis specified by ``axis``. Default: ``None``.
+    axis: int
+        axis (dimension) over which to compute the inverse Fourier transform. If set to ``-1``, the function must compute the Fourier transform over the last axis (dimension). Default: ``-1``.
+    norm: Literal['backward', 'ortho', 'forward']
+        normalization mode. Should be one of the following modes:
+
+        - ``'backward'``: normalize by ``1/n``.
+        - ``'ortho'``: normalize by ``1/sqrt(n)``
+        - ``'forward'``: no normalization.
 
         Default: ``'backward'``.
 
     Returns
     -------
     out: array
-        a complex-valued array transformed along the axis indicated by the ``axis`` keyword. The length along the transformed axis is ``n//2+1``. The returned array must have a complex dtype with the same precision as the input ``x``.
-
-
-    **Raises**
-
-    -   If ``axis`` is not a valid axis of ``a``.
+        an array transformed along the axis (dimension) indicated by ``axis``. The returned array must have a complex floating-point data type determined by :ref:`type-promotion`.
     """
 
 
-def fftn(a: array, /, *, s: Union[Sequence[int], Tuple[int, ...]] = None, axes: Union[Sequence[int], Tuple[int, ...]] = None, norm: str = 'backward') -> array:
+def fftn(x: array, /, *, s: Union[Sequence[int], Tuple[int, ...]] = None, axes: Union[Sequence[int], Tuple[int, ...]] = None, norm: Literal['backward', 'ortho', 'forward'] = 'backward') -> array:
     """
-    Computes the n-dimensional discrete Fourier transform. The expected behavior includes a round-trip transform using the inverse function, ``ifftn(fftn(a)) == a`` within numerical accuracy.
+    Computes the n-dimensional discrete Fourier transform.
+
+
+    .. note::
+       Applying the n-dimensional inverse discrete Fourier transform to the output of this function must return the original (i.e., non-transformed) input array within numerical accuracy: ``ifftn(fftn(x)) == x``.
 
     Parameters
     ----------
-    a: array
+    x: array
         input array. Should have a floating-point data type.
+    n: int
+        length of the transformed axis of the output. If
+
+        - ``n`` is larger than the length of the input array, the input array must be zero-padded.
+        - ``n`` is less than the length of the input array, the input array must be trimmed to length ``n``.
+
+        if not provided, the length of the transformed axis of the output must equal the length of the input along the axis specified by ``axis``. Default: ``None``.
     s: Union[Sequence[int], Tuple[int, ...]]
-        size of each transformed axis of the output. If given, each axis ``i`` will be either zero-padded or trimmed to the length ``s[i]`` before computing the Fourier transform. Otherwise, the shape of the input along the axes given by the ``axes`` keyword. Default: ``None``.
+        size of each transformed axis of the output. If
+
+        - ``s`` is larger than the length of the input array, each axis ``i`` of the input array must be zero-padded.
+        - ``s`` is less than the length of the input array, each axis ``i`` of the input array must be trimmed to the length ``s[i]``.
+
+        if not provided, the length of the transformed axes of the output must equal the length of the input along the axes specified by ``axes``. Default: ``None``.
     axes: Union[Sequence[int], Tuple[int, ...]]
-        axes over which to compute the Fourier transform. If not specified, the last ``len(s)`` axes are used, or all axes if ``s`` is not specified either. Default: ``None``.
-    norm: str
-        specify the normalization mode. Should be one of the following modes:
+        axes (dimension) over which to compute the Fourier transform. If set to ``None``, the last ``len(s)`` axes are used, or all axes if ``s`` is set to ``-1``. Default: ``None``.
+    norm: Literal['backward', 'ortho', 'forward']
+        normalization mode. Should be one of the following modes:
 
-        - ``'backward'``: No normalization.
-        - ``'ortho'``: Normalize by ``1/sqrt(n)``.
-        - ``'forward'``: Normalize by ``1/n``.
+        - ``'backward'``: no normalization.
+        - ``'ortho'``: normalize by ``1/sqrt(n)``.
+        - ``'forward'``: normalize by ``1/n``.
 
         Default: ``'backward'``.
 
     Returns
     -------
     out: array
-        an array transformed along the axes indicated by the ``axes`` keyword. The returned array must have a complex dtype with the same precision as the input ``x``.
-
-
-    **Raises**
-
-    - If ``s`` and ``axes`` have different lengths.
-    - If ``axes`` contains any invalid axis of ``a``.
+        an array transformed along the axes (dimension) indicated by ``axes``. The returned array must have a complex floating-point data type determine by :ref:`type-promotion`.
     """
 
 
-def ifftn(a: array, /, *, s: Union[Sequence[int], Tuple[int, ...]] = None, axes: Union[Sequence[int], Tuple[int, ...]] = None, norm: str = 'backward') -> array:
+def ifftn(x: array, /, *, s: Union[Sequence[int], Tuple[int, ...]] = None, axes: Union[Sequence[int], Tuple[int, ...]] = None, norm: Literal['backward', 'ortho', 'forward'] = 'backward') -> array:
     """
-    Computes the n-dimensional inverse discrete Fourier transform. The expected behavior includes a round-trip transform using the inverse function, ``ifftn(fftn(a)) == a`` within numerical accuracy.
+    Computes the n-dimensional inverse discrete Fourier transform.
 
     Parameters
     ----------
-    a: array
+    x: array
         input array. Should have a floating-point data type.
     s: Union[Sequence[int], Tuple[int, ...]]
-        size of each transformed axis of the output. If given, each axis will be either zero-padded or trimmed to the length ``s[i]`` before computing the inverse Fourier transform. Otherwise, the length of the input along the axis given by the ``axes`` keyword. Default: ``None``.
+        size of each transformed axis of the output. If
+
+        - ``s`` is larger than the length of the input array, each axis ``i`` of the input array must be zero-padded.
+        - ``s`` is less than the length of the input array, each axis ``i`` of the input array must be trimmed to the length ``s[i]``.
+
+        if not provided, the length of the transformed axes of the output must equal the length of the input along the axes specified by ``axes``. Default: ``None``.
     axes: Union[Sequence[int], Tuple[int, ...]]
         axes over which to compute the inverse Fourier transform. If not specified, the last ``len(s)`` axes are used, or all axes if ``s`` is not specified either. Default: ``None``.
-    norm: str
+    norm: Literal['backward', 'ortho', 'forward']
         specify the normalization mode. Should be one of the following modes:
 
-        - ``'backward'``: Normalize by ``1/n``.
-        - ``'ortho'``: Normalize by ``1/sqrt(n)``
-        - ``'forward'``: No normalization.
+        - ``'backward'``: normalize by ``1/n``.
+        - ``'ortho'``: normalize by ``1/sqrt(n)``
+        - ``'forward'``: no normalization.
 
         Default: ``'backward'``.
 
     Returns
     -------
     out: array
-        an array transformed along the axes indicated by the `axes` keyword. The returned array must have a complex dtype with the same precision as the input ``x``.
-
-
-    **Raises**
-
-    - If ``s`` and ``axes`` have different lengths.
-    - If ``axes`` contains any invalid axis of ``a``.
+        an array transformed along the axes (dimension) indicated by ``axes``. The returned array must have a complex floating-point data type determine by :ref:`type-promotion`.
     """
 
 
-def rfft(a: array, /, *, n: Optional[int] = None, axis: int = -1, norm: str = 'backward') -> array:
+def rfft(x: array, /, *, n: Optional[int] = None, axis: int = -1, norm: Literal['backward', 'ortho', 'forward'] = 'backward') -> array:
     """
-    Computes the one-dimensional discrete Fourier transform for real-valued input. The expected behavior includes a round-trip transform using the inverse function, ``irfft(rfft(a), n=a.shape[axis]) == a`` within numerical accuracy.
+    Computes the one-dimensional discrete Fourier transform for real-valued input.
+
+
+    .. note::
+       Applying the one-dimensional inverse discrete Fourier transform for real-valued input to the output of this function must return the original (i.e., non-transformed) input array within numerical accuracy: ``irfft(rfft(x), n=x.shape[axis]) == x``.
 
     Parameters
     ----------
-    a: array
-        input array. Should have a floating-point data type.
+    x: array
+        input array. Should have a real-valued floating-point data type.
     n: int
-        length of the transformed axis of the **input**. If given, the input will be either zero-padded or trimmed to this length before computing the real Fourier transform. Otherwise, the length of the input along the axis specified by the ``axis`` keyword is used. Default: ``None``.
-    axis: int
-        axis used to compute the Fourier transform. If it is not specified, the last axis is used. Default: ``-1``.
-    norm: str
-        specify the normalization mode. Should be one of the following modes:
+        length of the transformed axis of the **input**. If
 
-        - ``'backward'``: No normalization.
-        - ``'ortho'``: Normalize by ``1/sqrt(n)``.
-        - ``'forward'``: Normalize by ``1/n``.
+        - ``n`` is larger than the length of the input array, the input array must be zero-padded.
+        - ``n`` is less than the length of the input array, the input array must be trimmed to length ``n``.
+
+        if not provided, the length of the transformed axis of the output must equal the length of the input along the axis specified by ``axis``. Default: ``None``.
+    axis: int
+        axis (dimension) over which to compute the Fourier transform. If set to ``-1``, the function must compute the Fourier transform over the last axis (dimension). Default: ``-1``.
+    norm: Literal['backward', 'ortho', 'forward']
+        normalization mode. Should be one of the following modes:
+
+        - ``'backward'``: no normalization.
+        - ``'ortho'``: normalize by ``1/sqrt(n)``.
+        - ``'forward'``: normalize by ``1/n``.
 
         Default: ``'backward'``.
 
     Returns
     -------
     out: array
-        a complex-valued array transformed along the axis indicated by the ``axis`` keyword. The length along the transformed axis is ``n//2+1``. The returned array must have a complex dtype with the same precision as the input ``x``.
-
-
-    **Raises**
-
-    - If ``axis`` is not a valid axis of ``a``.
+        an array transformed along the axis (dimension) indicated by ``axis``. The returned array must have a complex floating-point data type determined by :ref:`type-promotion`.
     """
 
 
-def irfft(a: array, /, *, n: Optional[int] = None, axis: int = -1, norm: str = 'backward') -> array:
+def irfft(x: array, /, *, n: Optional[int] = None, axis: int = -1, norm: Literal['backward', 'ortho', 'forward'] = 'backward') -> array:
     """
-    Computes the one-dimensional inverse of ``rfft``. The expected behavior includes a round-trip transform using the inverse function, ``irfft(rfft(a), n=a.shape[axis]) == a`` within numerical accuracy.
+    Computes the one-dimensional inverse of ``rfft``.
 
     Parameters
     ----------
-    a: array
-        input array. Should have a floating-point data type.
+    x: array
+        input array. Should have a real-valued floating-point data type.
     n: int
-        length of the transformed axis of the **output**. If given, the input will be either zero-padded or trimmed to ``n//2+1`` before computing the inverse of ``rfft``. Otherwise, it will default to ``2 * (m - 1)`` where ``m`` is the length of the input along the axis given by the ``axis`` keyword. Default: ``None``.
-    axis: int
-        axis used to compute the real Fourier transform. If it is not specified, the last axis is used. Default: ``-1``.
-    norm: str
-        specify the normalization mode. Should be one of the following modes:
+        length of the transformed axis of the **output**. If
 
-        - ``'backward'``: Normalize by ``1/n``.
-        - ``'ortho'``: Normalize by ``1/sqrt(n)``
-        - ``'forward'``: No normalization.
+        - ``n`` is larger than the length of the input array, the input array must be zero-padded.
+        - ``n`` is less than the length of the input array, the input array must be trimmed to length ``n//2+1``.
+
+        if not provided, the length of the transformed axis of the output must equal the length ``2 * (m - 1)`` where ``m`` is the length of the input along the axis specified by ``axis``. Default: ``None``.
+    axis: int
+        axis (dimension) over which to compute the inverse Fourier transform. If set to ``-1``, the function must compute the Fourier transform over the last axis (dimension). Default: ``-1``.
+    norm: Literal['backward', 'ortho', 'forward']
+        normalization mode. Should be one of the following modes:
+
+        - ``'backward'``: normalize by ``1/n``.
+        - ``'ortho'``: normalize by ``1/sqrt(n)``
+        - ``'forward'``: no normalization.
 
         Default: ``'backward'``.
 
     Returns
     -------
     out: array
-        a real-valued array transformed along the axis indicated by the ``axis`` keyword. The length along the transformed axis is ``n`` (if given) or ``2 * (m - 1)``. The returned array must have a complex dtype with the same precision as the input ``x``.
-
-
-    **Raises**
-
-    -   If ``axis`` is not a valid axis of ``a``.
+        an array transformed along the axis (dimension) indicated by ``axis``. The returned array must have a real floating-point data type determined by :ref:`type-promotion`. The length along the transformed axis is ``n`` (if given) or ``2 * (m - 1)``.
     """
 
 
-def rfftn(a: array, /, *, s: Union[Sequence[int], Tuple[int, ...]] = None, axes: Union[Sequence[int], Tuple[int, ...]] = None, norm: str = 'backward') -> array:
+def rfftn(x: array, /, *, s: Union[Sequence[int], Tuple[int, ...]] = None, axes: Union[Sequence[int], Tuple[int, ...]] = None, norm: Literal['backward', 'ortho', 'forward'] = 'backward') -> array:
     """
-    Computes the n-dimensional discrete Fourier transform for real-valued input. The expected behavior includes a round-trip transform using the inverse function, ``irfftn(rfftn(a), s=a.shape) == a`` within numerical accuracy.
+    Computes the n-dimensional discrete Fourier transform for real-valued input.
+
+
+    .. note::
+       Applying the n-dimensional inverse discrete Fourier transform for real-valued input to the output of this function must return the original (i.e., non-transformed) input array within numerical accuracy: ``irfftn(rfftn(x), n=x.shape[axis]) == x``.
 
     Parameters
     ----------
-    a: array
-        input array. Should have a floating-point data type.
+    x: array
+        input array. Should have a real-valued floating-point data type.
     s: Union[Sequence[int], Tuple[int, ...]]
-        size of each transformed axis of the output. If given, each axis ``i`` will be either zero-padded or trimmed to the length ``s[i]`` before computing the real Fourier transform. Otherwise, the shape of the input along the axes given by the `axes` keyword. The last element ``s[-1]`` is for computing ``rfft(a[axes[-1]], n=s[-1])`` whereas other elements for ``fft(a[axes[i]], n=s[i])``. Default: ``None``.
+        size of each transformed axis of the output. If
+
+        - ``s`` is larger than the length of the input array, each axis ``i`` of the input array must be zero-padded.
+        - ``s`` is less than the length of the input array, each axis ``i`` of the input array must be trimmed to the length ``s[i]``.
+
+        if not provided, the length of the transformed axes of the output must equal the length of the input along the axes specified by ``axes``. Default: ``None``.
     axes: Union[Sequence[int], Tuple[int, ...]]
         axes over which to compute the Fourier transform. If not specified, the last ``len(s)`` axes are used, or all axes if ``s`` is not specified either. Default: ``None``.
-    norm: str
-        specify the normalization mode. Should be one of the following modes:
+    norm: Literal['backward', 'ortho', 'forward']
+        normalization mode. Should be one of the following modes:
 
-        - ``'backward'``: No normalization.
-        - ``'ortho'``: Normalize by ``1/sqrt(n)``.
-        - ``'forward'``: Normalize by ``1/n``.
+        - ``'backward'``: no normalization.
+        - ``'ortho'``: normalize by ``1/sqrt(n)``.
+        - ``'forward'``: normalize by ``1/n``.
 
         Default: ``'backward'``.
 
     Returns
     -------
     out: array
-        a complex-valued array transformed along the axes indicated by the ``axes`` keyword. The length along the last transformed axis is ``s[-1]//2+1`` and along other axes ``s[i]``. The returned array must have a complex dtype with the same precision as the input ``x``.
-
-
-    **Raises**
-
-    - If ``s`` and ``axes`` have different lengths.
-    - If ``axes`` contains any invalid axis of ``a``.
+        an array transformed along the axes (dimension) indicated by ``axes``. The returned array must have a complex floating-point data type determined by :ref:`type-promotion`.
     """
 
 
-def irfftn(a: array, /, *, s: Union[Sequence[int], Tuple[int, ...]] = None, axes: Union[Sequence[int], Tuple[int, ...]] = None, norm: str = 'backward') -> array:
+def irfftn(x: array, /, *, s: Union[Sequence[int], Tuple[int, ...]] = None, axes: Union[Sequence[int], Tuple[int, ...]] = None, norm: Literal['backward', 'ortho', 'forward'] = 'backward') -> array:
     """
-    Computes the n-dimensional inverse of ``rfftn``. The expected behavior includes a round-trip transform using the inverse function, ``irfftn(rfftn(a), s=a.shape) == a`` within numerical accuracy.
+    Computes the n-dimensional inverse of ``rfftn``.
 
     Parameters
     ----------
-    a: array
-        input array. Should have a floating-point data type.
+    x: array
+        input array. Should have a real-valued floating-point data type.
     s: Union[Sequence[int], Tuple[int, ...]]
-        size of each transformed axis of the **output**. If given, the last axis will be either zero-padded or trimmed to ``s[-1]//2+1``, whereas all other axes ``i`` are either zero-padded or trimmed to the length ``s[i]``, before computing the inverse of ``rfftn``. Otherwise, the last axis is either zero-padded or trimmed to ``2 * (m - 1)``, where `m` is the length of the input along the axis, and all other axes use the input shape. The last element ``s[-1]`` is for computing ``irfft(a[axes[-1]], n=s[-1])`` whereas other elements for ``ifft(a[axes[i]], n=s[i])``. Default: ``None``.
-    axes: Union[Sequence[int], Tuple[int, ...]]
-        axes over which to compute the inverse Fourier transform. If it is not specified, the last ``len(s)`` axes are used or all axes if ``s`` is also not specified. Default: ``None``.
-    norm: str
-        specify the normalization mode. Should be one of the following modes:
+        size of each transformed axis of the **output**. If
 
-        - ``'backward'``: Normalize by ``1/n``.
-        - ``'ortho'``: Normalize by ``1/sqrt(n)``
-        - ``'forward'``: No normalization.
+        - ``s`` is larger than the length of the input array, each axis ``i`` of the input array must be zero-padded.
+        - ``s`` is less than the length of the input array, each axis ``i`` of the input array must be trimmed to the length ``s[i]``. Except for the last axis is trimmed to ``2 * (m - 1)``, where `m` is the length of the input along the axis.
+
+        if not provided, the length of the transformed axes of the output must equal the length of the input along the axes specified by ``axes``. Default: ``None``.
+    axes: Union[Sequence[int], Tuple[int, ...]]
+        axes over which to compute the inverse Fourier transform. If not specified, the last ``len(s)`` axes are used, or all axes if ``s`` is not specified either. Default: ``None``.
+    norm: Literal['backward', 'ortho', 'forward']
+        normalization mode. Should be one of the following modes:
+
+        - ``'backward'``: normalize by ``1/n``.
+        - ``'ortho'``: normalize by ``1/sqrt(n)``
+        - ``'forward'``: no normalization.
 
         Default: ``'backward'``.
 
     Returns
     -------
     out: array
-        a real-valued array transformed along the axes indicated by the ``axes`` keyword. The length along the last transformed axis is ``s[-1]`` (if given) or ``2 * (m - 1)``, and all other axes ``s[i]``. The returned array must have a complex dtype with the same precision as the input ``x``.
-
-
-    **Raises**
-
-    - If ``s`` and ``axes`` have different lengths.
-    - If ``axes`` contains any invalid axis of ``a``.
+        an array transformed along the axes (dimension) indicated by ``axes``. The returned array must have a complex floating-point data type determined by :ref:`type-promotion`. The length along the last transformed axis is ``s[-1]`` (if given) or ``2 * (m - 1)``, and all other axes ``s[i]``.
     """
 
 
-def hfft(a: array, /, *, n: Optional[int] = None, axis: int = -1, norm: str = 'backward') -> array:
+def hfft(x: array, /, *, n: Optional[int] = None, axis: int = -1, norm: Literal['backward', 'ortho', 'forward'] = 'backward') -> array:
     """
     Computes the one-dimensional discrete Fourier transform of a signal with Hermitian symmetry.
 
     Parameters
     ----------
-    a: array
-        input array. Should have a floating-point data type.
+    x: array
+        input array. Should have a complex floating-point data type.
     n: int
-        length of the transformed axis of the output. If given, the input will be either zero-padded or trimmed to this length before computing the Hermitian Fourier transform. Otherwise, it will default to ``2 * (m - 1)`` where ``m`` is the length of the input along the axis given by the ``axis`` keyword. Default: ``None``.
-    axis: int
-        axis used to compute the Fourier transform. If it is not specified, the last axis is used. Default: ``-1``.
-    norm: str
-        specify the normalization mode. Should be one of the following modes:
+        length of the transformed axis of the output. If
 
-        - ``'backward'``: No normalization.
-        - ``'ortho'``: Normalize by ``1/sqrt(n)``.
-        - ``'forward'``: Normalize by ``1/n``.
+        - ``n`` is larger than the length of the input array, the input array must be zero-padded.
+        - ``n`` is less than the length of the input array, the input array must be trimmed to length ``n``.
+
+        if not provided, the length of the transformed axis of the output must equal the length of the input along the axis specified by ``axis``. Default: ``None``.
+    axis: int
+        axis (dimension) over which to compute the Fourier transform. If set to ``-1``, the function must compute the Fourier transform over the last axis (dimension). Default: ``-1``.
+    norm: Literal['backward', 'ortho', 'forward']
+        normalization mode. Should be one of the following modes:
+
+        - ``'backward'``: no normalization.
+        - ``'ortho'``: normalize by ``1/sqrt(n)``.
+        - ``'forward'``: normalize by ``1/n``.
 
         Default: ``'backward'``.
 
     Returns
     -------
     out: array
-        a transformed array. The returned array must have a complex dtype with the same precision as the input ``x``.
-
-
-    **Raises**
-
-    - If ``axis`` is not a valid axis of ``a``.
+        an array transformed along the axis (dimension) indicated by ``axis``. The returned array must have a real-valued floating-point data type determined by :ref:`type-promotion`.
     """
 
 
-def ihfft(a: array, /, *, n: Optional[int] = None, axis: int = -1, norm: str = 'backward') -> array:
+def ihfft(x: array, /, *, n: Optional[int] = None, axis: int = -1, norm: Literal['backward', 'ortho', 'forward'] = 'backward') -> array:
     """
     Computes the one-dimensional inverse discrete Fourier transform of a signal with Hermitian symmetry.
 
     Parameters
     ----------
-    a: array
+    x: array
         input array. Should have a floating-point data type.
     n: int
-        length of the transformed axis of the output. If given, the input will be either zero-padded or trimmed to this length before computing the Hermitian Fourier transform. Otherwise, it will default to ``2 * (m - 1)`` where ``m`` is the length of the input along the axis given by the ``axis`` keyword. Default: ``None``.
-    axis: int
-        axis used to compute the Fourier transform. If it is not specified, the last axis is used. Default: ``-1``.
-    norm: str
-        specify the normalization mode. Should be one of the following modes:
+        length of the transformed axis of the output. If
 
-        - ``'backward'``: Normalize by ``1/n``.
-        - ``'ortho'``: Normalize by ``1/sqrt(n)``
-        - ``'forward'``: No normalization.
+        - ``n`` is larger than the length of the input array, the input array must be zero-padded.
+        - ``n`` is less than the length of the input array, the input array must be trimmed to length ``n``.
+
+        if not provided, the length of the transformed axis of the output must equal the length of the input along the axis specified by ``axis``. Default: ``None``.
+    axis: int
+        axis (dimension) over which to compute the Fourier transform. If set to ``-1``, the function must compute the Fourier transform over the last axis (dimension). Default: ``-1``.
+    norm: Literal['backward', 'ortho', 'forward']
+        normalization mode. Should be one of the following modes:
+
+        - ``'backward'``: normalize by ``1/n``.
+        - ``'ortho'``: normalize by ``1/sqrt(n)``
+        - ``'forward'``: no normalization.
 
         Default: ``'backward'``.
 
     Returns
     -------
     out: array
-        a transformed array. The returned array must have a complex dtype with the same precision as the input ``x``.
-
-
-    **Raises**
-
-    -   If ``axis`` is not a valid axis of ``a``.
+        an array transformed along the axis (dimension) indicated by ``axis``. The returned array must have a complex floating-point data type determined by :ref:`type-promotion`.
     """
 
 
