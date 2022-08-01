@@ -191,7 +191,7 @@ def irfft(x: array, /, *, n: Optional[int] = None, axis: int = -1, norm: Literal
     Parameters
     ----------
     x: array
-        input array. Should have a real-valued floating-point data type.
+        input array. Should have a complex floating-point data type.
     n: int
         length of the transformed axis of the **output**. If
 
@@ -261,7 +261,7 @@ def irfftn(x: array, /, *, s: Union[Sequence[int], Tuple[int, ...]] = None, axes
     Parameters
     ----------
     x: array
-        input array. Should have a real-valued floating-point data type.
+        input array. Should have a complex floating-point data type.
     s: Union[Sequence[int], Tuple[int, ...]]
         size of each transformed axis of the **output**. If
 
@@ -283,7 +283,7 @@ def irfftn(x: array, /, *, s: Union[Sequence[int], Tuple[int, ...]] = None, axes
     Returns
     -------
     out: array
-        an array transformed along the axes (dimension) indicated by ``axes``. The returned array must have a complex floating-point data type determined by :ref:`type-promotion`. The length along the last transformed axis is ``s[-1]`` (if given) or ``2 * (m - 1)``, and all other axes ``s[i]``.
+        an array transformed along the axes (dimension) indicated by ``axes``. The returned array must have a real-valued floating-point data type determined by :ref:`type-promotion`. The length along the last transformed axis is ``s[-1]`` (if given) or ``2 * (m - 1)``, and all other axes ``s[i]``.
     """
 
 
@@ -294,7 +294,7 @@ def hfft(x: array, /, *, n: Optional[int] = None, axis: int = -1, norm: Literal[
     Parameters
     ----------
     x: array
-        input array. Should have a complex floating-point data type.
+        input array. Should have a real-valued floating-point data type.
     n: int
         length of the transformed axis of the output. If
 
@@ -327,7 +327,7 @@ def ihfft(x: array, /, *, n: Optional[int] = None, axis: int = -1, norm: Literal
     Parameters
     ----------
     x: array
-        input array. Should have a floating-point data type.
+        input array. Should have a real-valued floating-point data type.
     n: int
         length of the transformed axis of the output. If
 
@@ -349,7 +349,7 @@ def ihfft(x: array, /, *, n: Optional[int] = None, axis: int = -1, norm: Literal
     Returns
     -------
     out: array
-        an array transformed along the axis (dimension) indicated by ``axis``. The returned array must have a complex floating-point data type determined by :ref:`type-promotion`.
+        an array transformed along the axis (dimension) indicated by ``axis``. The returned array must have a real-valued floating-point data type determined by :ref:`type-promotion`.
     """
 
 
