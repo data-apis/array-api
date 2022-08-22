@@ -1442,27 +1442,42 @@ def subtract(x1: array, x2: array, /) -> array:
     """
 
 def tan(x: array, /) -> array:
-    """
-    Calculates an implementation-dependent approximation to the tangent, having domain ``(-infinity, +infinity)`` and codomain ``(-infinity, +infinity)``, for each element ``x_i`` of the input array ``x``. Each element ``x_i`` is assumed to be expressed in radians.
+    r"""
+    Calculates an implementation-dependent approximation to the tangent for each element ``x_i`` of the input array ``x``.
+
+    Each element ``x_i`` is assumed to be expressed in radians.
 
     **Special cases**
 
-    For floating-point operands,
+    For real-valued floating-point operands,
 
     - If ``x_i`` is ``NaN``, the result is ``NaN``.
     - If ``x_i`` is ``+0``, the result is ``+0``.
     - If ``x_i`` is ``-0``, the result is ``-0``.
     - If ``x_i`` is either ``+infinity`` or ``-infinity``, the result is ``NaN``.
 
+    For complex floating-point operands, special cases must be handled as if the operation is implemented as ``-1j * tanh(x*1j)``.
+
+    .. note::
+       Tangent is an analytical function on the complex plane and has no branch cuts. The function is periodic, with period :math:`\pi j`, with respect to the real component and has first order poles along the real line at coordinates :math:`(\pi (\frac{1}{2} + n), 0)`. However, IEEE 754 binary floating-point representation cannot represent the value :math:`\pi / 2` exactly, and, thus, no argument value is possible for which a pole error occurs.
+
+    .. note::
+       For complex arguments, the mathematical definition of tangent is
+
+       .. math::
+          \begin{align} \operatorname{tan}(x) &= \frac{j(e^{-jx} - e^{jx})}{e^{-jx} + e^{jx}} \\ &= (-1) \frac{j(e^{jx} - e^{-jx})}{e^{jx} + e^{-jx}} \\ &= -j \cdot \operatorname{tanh}(jx) \end{align}
+
+       where :math:`\operatorname{tanh}` is the hyperbolic tangent.
+
     Parameters
     ----------
     x: array
-        input array whose elements are expressed in radians. Should have a real-valued floating-point data type.
+        input array whose elements are expressed in radians. Should have a floating-point data type.
 
     Returns
     -------
     out: array
-        an array containing the tangent of each element in ``x``. The returned array must have a real-valued floating-point data type determined by :ref:`type-promotion`.
+        an array containing the tangent of each element in ``x``. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
     """
 
 def tanh(x: array, /) -> array:
