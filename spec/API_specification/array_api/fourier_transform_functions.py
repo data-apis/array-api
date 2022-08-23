@@ -4,9 +4,8 @@ def fft(x: array, /, *, n: Optional[int] = None, axis: int = -1, norm: Literal['
     """
     Computes the one-dimensional discrete Fourier transform.
 
-
     .. note::
-       Applying the one-dimensional inverse discrete Fourier transform to the output of this function must return the original (i.e., non-transformed) input array within numerical accuracy: ``ifft(fft(x)) == x``.
+       Applying the one-dimensional inverse discrete Fourier transform to the output of this function must return the original (i.e., non-transformed) input array within numerical accuracy (i.e., ``ifft(fft(x)) == x``), provided that the transform and inverse transform are performed with the same normalization mode.
 
     Parameters
     ----------
@@ -15,18 +14,20 @@ def fft(x: array, /, *, n: Optional[int] = None, axis: int = -1, norm: Literal['
     n: int
         length of the transformed axis of the output. If
 
-        - ``n`` is larger than the length of the input array, the input array must be zero-padded.
+        - ``n`` is greater than the length of the input array, the input array must be zero-padded such that the input array has length ``n``.
         - ``n`` is less than the length of the input array, the input array must be trimmed to length ``n``.
 
-        if not provided, the length of the transformed axis of the output must equal the length of the input along the axis specified by ``axis``. Default: ``None``.
+        If not provided, the length of the transformed axis of the output must equal the length of the input along the axis specified by ``axis``. Default: ``None``.
     axis: int
         axis (dimension) over which to compute the Fourier transform. If set to ``-1``, the function must compute the Fourier transform over the last axis (dimension). Default: ``-1``.
     norm: Literal['backward', 'ortho', 'forward']
         normalization mode. Should be one of the following modes:
 
         - ``'backward'``: no normalization.
-        - ``'ortho'``: normalize by ``1/sqrt(n)``.
+        - ``'ortho'``: normalize by ``1/sqrt(n)`` (i.e., make the FFT orthonormal).
         - ``'forward'``: normalize by ``1/n``.
+
+        where ``n`` equals ``prod(s)``, the logical FFT size.
 
         Default: ``'backward'``.
 
@@ -48,18 +49,20 @@ def ifft(x: array, /, *, n: Optional[int] = None, axis: int = -1, norm: Literal[
     n: int
         length of the transformed axis of the output. If
 
-        - ``n`` is larger than the length of the input array, the input array must be zero-padded.
+        - ``n`` is greater than the length of the input array, the input array must be zero-padded such that the input array has length ``n``.
         - ``n`` is less than the length of the input array, the input array must be trimmed to length ``n``.
 
-        if not provided, the length of the transformed axis of the output must equal the length of the input along the axis specified by ``axis``. Default: ``None``.
+        If not provided, the length of the transformed axis of the output must equal the length of the input along the axis specified by ``axis``. Default: ``None``.
     axis: int
         axis (dimension) over which to compute the inverse Fourier transform. If set to ``-1``, the function must compute the Fourier transform over the last axis (dimension). Default: ``-1``.
     norm: Literal['backward', 'ortho', 'forward']
         normalization mode. Should be one of the following modes:
 
         - ``'backward'``: normalize by ``1/n``.
-        - ``'ortho'``: normalize by ``1/sqrt(n)``
+        - ``'ortho'``: normalize by ``1/sqrt(n)`` (i.e., make the FFT orthonormal).
         - ``'forward'``: no normalization.
+
+        where ``n`` equals ``prod(s)``, the logical FFT size.
 
         Default: ``'backward'``.
 
@@ -70,40 +73,41 @@ def ifft(x: array, /, *, n: Optional[int] = None, axis: int = -1, norm: Literal[
     """
 
 
-def fftn(x: array, /, *, s: Union[Sequence[int], Tuple[int, ...]] = None, axes: Union[Sequence[int], Tuple[int, ...]] = None, norm: Literal['backward', 'ortho', 'forward'] = 'backward') -> array:
+def fftn(x: array, /, *, s: Sequence[int] = None, axes: Sequence[int] = None, norm: Literal['backward', 'ortho', 'forward'] = 'backward') -> array:
     """
     Computes the n-dimensional discrete Fourier transform.
 
 
     .. note::
-       Applying the n-dimensional inverse discrete Fourier transform to the output of this function must return the original (i.e., non-transformed) input array within numerical accuracy: ``ifftn(fftn(x)) == x``.
+       Applying the n-dimensional inverse discrete Fourier transform to the output of this function must return the original (i.e., non-transformed) input array within numerical accuracy (i.e., ``ifftn(fftn(x)) == x``), provided that the transform and inverse transform are performed with the same normalization mode..
 
     Parameters
     ----------
     x: array
         input array. Should have a floating-point data type.
-    n: int
-        length of the transformed axis of the output. If
-
-        - ``n`` is larger than the length of the input array, the input array must be zero-padded.
-        - ``n`` is less than the length of the input array, the input array must be trimmed to length ``n``.
-
-        if not provided, the length of the transformed axis of the output must equal the length of the input along the axis specified by ``axis``. Default: ``None``.
-    s: Union[Sequence[int], Tuple[int, ...]]
+    s: Sequence[int]
         size of each transformed axis of the output. If
 
-        - ``s`` is larger than the length of the input array, each axis ``i`` of the input array must be zero-padded.
-        - ``s`` is less than the length of the input array, each axis ``i`` of the input array must be trimmed to the length ``s[i]``.
+        - ``s[i]`` is greater than the size of the input array along a corresponding axis (dimension) ``j``, the corresponding axis of the input array must be zero-padded such that the axis has size ``s[i]``.
+        - ``s[i]`` is less than the size of the input array along a corresponding axis (dimension) ``j``, the corresponding axis of the input array must be trimmed such that the axis has size``s[i]``.
 
-        if not provided, the length of the transformed axes of the output must equal the length of the input along the axes specified by ``axes``. Default: ``None``.
-    axes: Union[Sequence[int], Tuple[int, ...]]
-        axes (dimension) over which to compute the Fourier transform. If set to ``None``, the last ``len(s)`` axes are used, or all axes if ``s`` is set to ``-1``. Default: ``None``.
+        If ``axes`` is ``None``, the last ``len(s)`` axes must be transformed, and, thus, ``j`` represents an axis index computed according to ``N - len(s) + i``, where ``N`` is the number of axes (e.g., if ``N = 4`` and ``s = (256, 256)``, then ``i = 0`` corresponds to axis ``2`` and ``i = 1`` corresponds to axis ``3``, the last axis).
+
+        If ``axes`` is not ``None``, size ``s[i]`` corresponds to the size of axis ``axes[j]`` where ``i == j``.
+
+        If not provided, the size of each transformed axis (dimension) in the output array must equal the size of the corresponding axis in the input array.
+
+        Default: ``None``.
+    axes: Sequence[int]
+        axes (dimension) over which to compute the Fourier transform. If ``None`` and ``s`` is not specified, all axes must be transformed. If ``None`` and ``s`` is specified, the last ``len(s)`` axes must be transformed. Default: ``None``.
     norm: Literal['backward', 'ortho', 'forward']
         normalization mode. Should be one of the following modes:
 
         - ``'backward'``: no normalization.
-        - ``'ortho'``: normalize by ``1/sqrt(n)``.
+        - ``'ortho'``: normalize by ``1/sqrt(n)`` (i.e., make the FFT orthonormal).
         - ``'forward'``: normalize by ``1/n``.
+
+        where ``n`` equals ``prod(s)``, the logical FFT size.
 
         Default: ``'backward'``.
 
@@ -114,7 +118,7 @@ def fftn(x: array, /, *, s: Union[Sequence[int], Tuple[int, ...]] = None, axes: 
     """
 
 
-def ifftn(x: array, /, *, s: Union[Sequence[int], Tuple[int, ...]] = None, axes: Union[Sequence[int], Tuple[int, ...]] = None, norm: Literal['backward', 'ortho', 'forward'] = 'backward') -> array:
+def ifftn(x: array, /, *, s: Sequence[int] = None, axes: Sequence[int] = None, norm: Literal['backward', 'ortho', 'forward'] = 'backward') -> array:
     """
     Computes the n-dimensional inverse discrete Fourier transform.
 
@@ -122,21 +126,23 @@ def ifftn(x: array, /, *, s: Union[Sequence[int], Tuple[int, ...]] = None, axes:
     ----------
     x: array
         input array. Should have a floating-point data type.
-    s: Union[Sequence[int], Tuple[int, ...]]
+    s: Sequence[int]
         size of each transformed axis of the output. If
 
-        - ``s`` is larger than the length of the input array, each axis ``i`` of the input array must be zero-padded.
-        - ``s`` is less than the length of the input array, each axis ``i`` of the input array must be trimmed to the length ``s[i]``.
+        - ``s[i]`` is greater than the size of the input array along a corresponding axis (dimension) ``j``, the corresponding axis of the input array must be zero-padded such that the axis has size ``s[i]``.
+        - ``s[i]`` is less than the length of the input array, each axis ``i`` of the input array must be trimmed to the length ``s[i]``.
 
-        if not provided, the length of the transformed axes of the output must equal the length of the input along the axes specified by ``axes``. Default: ``None``.
-    axes: Union[Sequence[int], Tuple[int, ...]]
+        If not provided, the length of the transformed axes of the output must equal the length of the input along the axes specified by ``axes``. Default: ``None``.
+    axes: Sequence[int]
         axes over which to compute the inverse Fourier transform. If not specified, the last ``len(s)`` axes are used, or all axes if ``s`` is not specified either. Default: ``None``.
     norm: Literal['backward', 'ortho', 'forward']
         specify the normalization mode. Should be one of the following modes:
 
         - ``'backward'``: normalize by ``1/n``.
-        - ``'ortho'``: normalize by ``1/sqrt(n)``
+        - ``'ortho'``: normalize by ``1/sqrt(n)`` (i.e., make the FFT orthonormal).
         - ``'forward'``: no normalization.
+
+        where ``n`` equals ``prod(s)``, the logical FFT size.
 
         Default: ``'backward'``.
 
@@ -153,7 +159,7 @@ def rfft(x: array, /, *, n: Optional[int] = None, axis: int = -1, norm: Literal[
 
 
     .. note::
-       Applying the one-dimensional inverse discrete Fourier transform for real-valued input to the output of this function must return the original (i.e., non-transformed) input array within numerical accuracy: ``irfft(rfft(x), n=x.shape[axis]) == x``.
+       Applying the one-dimensional inverse discrete Fourier transform for real-valued input to the output of this function must return the original (i.e., non-transformed) input array within numerical accuracy (i.e., ``irfft(rfft(x), n=x.shape[axis]) == x``), provided that the transform and inverse transform are performed with the same normalization mode..
 
     Parameters
     ----------
@@ -162,18 +168,20 @@ def rfft(x: array, /, *, n: Optional[int] = None, axis: int = -1, norm: Literal[
     n: int
         length of the transformed axis of the **input**. If
 
-        - ``n`` is larger than the length of the input array, the input array must be zero-padded.
+        - ``n`` is greater than the length of the input array, the input array must be zero-padded such that the input array has length ``n``.
         - ``n`` is less than the length of the input array, the input array must be trimmed to length ``n``.
 
-        if not provided, the length of the transformed axis of the output must equal the length of the input along the axis specified by ``axis``. Default: ``None``.
+        If not provided, the length of the transformed axis of the output must equal the length of the input along the axis specified by ``axis``. Default: ``None``.
     axis: int
         axis (dimension) over which to compute the Fourier transform. If set to ``-1``, the function must compute the Fourier transform over the last axis (dimension). Default: ``-1``.
     norm: Literal['backward', 'ortho', 'forward']
         normalization mode. Should be one of the following modes:
 
         - ``'backward'``: no normalization.
-        - ``'ortho'``: normalize by ``1/sqrt(n)``.
+        - ``'ortho'``: normalize by ``1/sqrt(n)`` (i.e., make the FFT orthonormal).
         - ``'forward'``: normalize by ``1/n``.
+
+        where ``n`` equals ``prod(s)``, the logical FFT size.
 
         Default: ``'backward'``.
 
@@ -195,18 +203,20 @@ def irfft(x: array, /, *, n: Optional[int] = None, axis: int = -1, norm: Literal
     n: int
         length of the transformed axis of the **output**. If
 
-        - ``n`` is larger than the length of the input array, the input array must be zero-padded.
+        - ``n`` is greater than the length of the input array, the input array must be zero-padded such that the input array has length ``n``.
         - ``n`` is less than the length of the input array, the input array must be trimmed to length ``n//2+1``.
 
-        if not provided, the length of the transformed axis of the output must equal the length ``2 * (m - 1)`` where ``m`` is the length of the input along the axis specified by ``axis``. Default: ``None``.
+        If not provided, the length of the transformed axis of the output must equal the length ``2 * (m - 1)`` where ``m`` is the length of the input along the axis specified by ``axis``. Default: ``None``.
     axis: int
         axis (dimension) over which to compute the inverse Fourier transform. If set to ``-1``, the function must compute the Fourier transform over the last axis (dimension). Default: ``-1``.
     norm: Literal['backward', 'ortho', 'forward']
         normalization mode. Should be one of the following modes:
 
         - ``'backward'``: normalize by ``1/n``.
-        - ``'ortho'``: normalize by ``1/sqrt(n)``
+        - ``'ortho'``: normalize by ``1/sqrt(n)`` (i.e., make the FFT orthonormal).
         - ``'forward'``: no normalization.
+
+        where ``n`` equals ``prod(s)``, the logical FFT size.
 
         Default: ``'backward'``.
 
@@ -217,33 +227,35 @@ def irfft(x: array, /, *, n: Optional[int] = None, axis: int = -1, norm: Literal
     """
 
 
-def rfftn(x: array, /, *, s: Union[Sequence[int], Tuple[int, ...]] = None, axes: Union[Sequence[int], Tuple[int, ...]] = None, norm: Literal['backward', 'ortho', 'forward'] = 'backward') -> array:
+def rfftn(x: array, /, *, s: Sequence[int] = None, axes: Sequence[int] = None, norm: Literal['backward', 'ortho', 'forward'] = 'backward') -> array:
     """
     Computes the n-dimensional discrete Fourier transform for real-valued input.
 
 
     .. note::
-       Applying the n-dimensional inverse discrete Fourier transform for real-valued input to the output of this function must return the original (i.e., non-transformed) input array within numerical accuracy: ``irfftn(rfftn(x), n=x.shape[axis]) == x``.
+       Applying the n-dimensional inverse discrete Fourier transform for real-valued input to the output of this function must return the original (i.e., non-transformed) input array within numerical accuracy (i.e., ``irfftn(rfftn(x), n=x.shape[axis]) == x``), provided that the transform and inverse transform are performed with the same normalization mode.
 
     Parameters
     ----------
     x: array
         input array. Should have a real-valued floating-point data type.
-    s: Union[Sequence[int], Tuple[int, ...]]
+    s: Sequence[int]
         size of each transformed axis of the output. If
 
-        - ``s`` is larger than the length of the input array, each axis ``i`` of the input array must be zero-padded.
-        - ``s`` is less than the length of the input array, each axis ``i`` of the input array must be trimmed to the length ``s[i]``.
+        - ``s[i]`` is greater than the size of the input array along a corresponding axis (dimension) ``j``, the corresponding axis of the input array must be zero-padded such that the axis has size ``s[i]``.
+        - ``s[i]`` is less than the length of the input array, each axis ``i`` of the input array must be trimmed to the length ``s[i]``.
 
-        if not provided, the length of the transformed axes of the output must equal the length of the input along the axes specified by ``axes``. Default: ``None``.
-    axes: Union[Sequence[int], Tuple[int, ...]]
+        If not provided, the length of the transformed axes of the output must equal the length of the input along the axes specified by ``axes``. Default: ``None``.
+    axes: Sequence[int]
         axes over which to compute the Fourier transform. If not specified, the last ``len(s)`` axes are used, or all axes if ``s`` is not specified either. Default: ``None``.
     norm: Literal['backward', 'ortho', 'forward']
         normalization mode. Should be one of the following modes:
 
         - ``'backward'``: no normalization.
-        - ``'ortho'``: normalize by ``1/sqrt(n)``.
+        - ``'ortho'``: normalize by ``1/sqrt(n)`` (i.e., make the FFT orthonormal).
         - ``'forward'``: normalize by ``1/n``.
+
+        where ``n`` equals ``prod(s)``, the logical FFT size.
 
         Default: ``'backward'``.
 
@@ -254,7 +266,7 @@ def rfftn(x: array, /, *, s: Union[Sequence[int], Tuple[int, ...]] = None, axes:
     """
 
 
-def irfftn(x: array, /, *, s: Union[Sequence[int], Tuple[int, ...]] = None, axes: Union[Sequence[int], Tuple[int, ...]] = None, norm: Literal['backward', 'ortho', 'forward'] = 'backward') -> array:
+def irfftn(x: array, /, *, s: Sequence[int] = None, axes: Sequence[int] = None, norm: Literal['backward', 'ortho', 'forward'] = 'backward') -> array:
     """
     Computes the n-dimensional inverse of ``rfftn``.
 
@@ -262,21 +274,23 @@ def irfftn(x: array, /, *, s: Union[Sequence[int], Tuple[int, ...]] = None, axes
     ----------
     x: array
         input array. Should have a complex floating-point data type.
-    s: Union[Sequence[int], Tuple[int, ...]]
+    s: Sequence[int]
         size of each transformed axis of the **output**. If
 
-        - ``s`` is larger than the length of the input array, each axis ``i`` of the input array must be zero-padded.
-        - ``s`` is less than the length of the input array, each axis ``i`` of the input array must be trimmed to the length ``s[i]``. Except for the last axis is trimmed to ``2 * (m - 1)``, where `m` is the length of the input along the axis.
+        - ``s[i]`` is greater than the size of the input array along a corresponding axis (dimension) ``j``, the corresponding axis of the input array must be zero-padded such that the axis has size ``s[i]``.
+        - ``s[i]`` is less than the length of the input array, each axis ``i`` of the input array must be trimmed to the length ``s[i]``. Except for the last axis is trimmed to ``2 * (m - 1)``, where `m` is the length of the input along the axis.
 
-        if not provided, the length of the transformed axes of the output must equal the length of the input along the axes specified by ``axes``. Default: ``None``.
-    axes: Union[Sequence[int], Tuple[int, ...]]
+        If not provided, the length of the transformed axes of the output must equal the length of the input along the axes specified by ``axes``. Default: ``None``.
+    axes: Sequence[int]
         axes over which to compute the inverse Fourier transform. If not specified, the last ``len(s)`` axes are used, or all axes if ``s`` is not specified either. Default: ``None``.
     norm: Literal['backward', 'ortho', 'forward']
         normalization mode. Should be one of the following modes:
 
         - ``'backward'``: normalize by ``1/n``.
-        - ``'ortho'``: normalize by ``1/sqrt(n)``
+        - ``'ortho'``: normalize by ``1/sqrt(n)`` (i.e., make the FFT orthonormal).
         - ``'forward'``: no normalization.
+
+        where ``n`` equals ``prod(s)``, the logical FFT size.
 
         Default: ``'backward'``.
 
@@ -298,17 +312,17 @@ def hfft(x: array, /, *, n: Optional[int] = None, axis: int = -1, norm: Literal[
     n: int
         length of the transformed axis of the output. If
 
-        - ``n`` is larger than the length of the input array, the input array must be zero-padded.
+        - ``n`` is greater than the length of the input array, the input array must be zero-padded such that the input array has length ``n``.
         - ``n`` is less than the length of the input array, the input array must be trimmed to length ``n``.
 
-        if not provided, the length of the transformed axis of the output must equal the length of the input along the axis specified by ``axis``. Default: ``None``.
+        If not provided, the length of the transformed axis of the output must equal the length of the input along the axis specified by ``axis``. Default: ``None``.
     axis: int
         axis (dimension) over which to compute the Fourier transform. If set to ``-1``, the function must compute the Fourier transform over the last axis (dimension). Default: ``-1``.
     norm: Literal['backward', 'ortho', 'forward']
         normalization mode. Should be one of the following modes:
 
         - ``'backward'``: no normalization.
-        - ``'ortho'``: normalize by ``1/sqrt(n)``.
+        - ``'ortho'``: normalize by ``1/sqrt(n)`` (i.e., make the FFT orthonormal).
         - ``'forward'``: normalize by ``1/n``.
 
         Default: ``'backward'``.
@@ -331,18 +345,20 @@ def ihfft(x: array, /, *, n: Optional[int] = None, axis: int = -1, norm: Literal
     n: int
         length of the transformed axis of the output. If
 
-        - ``n`` is larger than the length of the input array, the input array must be zero-padded.
+        - ``n`` is greater than the length of the input array, the input array must be zero-padded such that the input array has length ``n``.
         - ``n`` is less than the length of the input array, the input array must be trimmed to length ``n``.
 
-        if not provided, the length of the transformed axis of the output must equal the length of the input along the axis specified by ``axis``. Default: ``None``.
+        If not provided, the length of the transformed axis of the output must equal the length of the input along the axis specified by ``axis``. Default: ``None``.
     axis: int
         axis (dimension) over which to compute the Fourier transform. If set to ``-1``, the function must compute the Fourier transform over the last axis (dimension). Default: ``-1``.
     norm: Literal['backward', 'ortho', 'forward']
         normalization mode. Should be one of the following modes:
 
         - ``'backward'``: normalize by ``1/n``.
-        - ``'ortho'``: normalize by ``1/sqrt(n)``
+        - ``'ortho'``: normalize by ``1/sqrt(n)`` (i.e., make the FFT orthonormal).
         - ``'forward'``: no normalization.
+
+        where ``n`` equals ``prod(s)``, the logical FFT size.
 
         Default: ``'backward'``.
 
@@ -355,7 +371,9 @@ def ihfft(x: array, /, *, n: Optional[int] = None, axis: int = -1, norm: Literal
 
 def fftfreq(n: int, /, *, d: float = 1.0):
     """
-    Returns the discrete Fourier transform sample frequencies. For a Fourier transform of length ``n`` and length unit of ``d`` the frequencies are described as:
+    Returns the discrete Fourier transform sample frequencies.
+
+    For a Fourier transform of length ``n`` and length unit of ``d`` the frequencies are described as:
 
 
     .. code-block::
@@ -373,7 +391,7 @@ def fftfreq(n: int, /, *, d: float = 1.0):
     Returns
     -------
     out: array
-        an array of length ``n`` containing the sample frequencies.
+        an array of length ``n`` containing the sample frequencies. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
     """
 
 
@@ -399,43 +417,51 @@ def rfftfreq(n: int, /, *, d: float = 1.0):
     Returns
     -------
     out: array
-        an array of length ``n`` containing the sample frequencies.
+        an array of length ``n`` containing the sample frequencies. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
     """
 
 
-def fftshift(x: array, /, *, axes: Union[int, Sequence[int], Tuple[int, ...]] = None):
+def fftshift(x: array, /, *, axes: Union[int, Sequence[int]] = None):
     """
-    Reorders n-dimensional FTT data to have negative frequency terms first. In this way, the zero-frequency component shifts to the center of the spectrum. Note that ``out[0]`` is the Nyquist component only if the length of the input is even.
+    Shift the zero-frequency component to the center of the spectrum.
+
+    This function swaps half-spaces for all axes (dimensions) specified by `axes`.
+
+    .. note::
+       ``out[0]`` is the Nyquist component only if the length of the input is even.
 
     Parameters
     ----------
     x: array
         input array. Should have a floating-point data type.
-    axes: Union[int, Sequence[int], Tuple[int, ...]]
-        axes over which to shift. If not specified, it shifts all axes. Default: ``None``.
+    axes: Union[int, Sequence[int]]
+        axes over which to shift. If ``None``, the function must shift all axes. Default: ``None``.
 
     Returns
     -------
     out: array
-        the shifted array.
+        the shifted array. The returned array must have the same data type as ``x``.
     """
 
 
-def ifftshift(x: array, /, *, axes: Union[int, Sequence[int], Tuple[int, ...]] = None):
+def ifftshift(x: array, /, *, axes: Union[int, Sequence[int]] = None):
     """
     Inverse of ``fftshift``.
 
+    .. note::
+       Although identical for even-length ``x``, ``fftshift`` and `ifftshift`` differ by one sample for odd-length ``x``.
+
     Parameters
     ----------
     x: array
         input array. Should have a floating-point data type.
-    axes: Union[int, Sequence[int], Tuple[int, ...]]
-        axes over which to calculate. If not specified, it shifts all axes. Default: ``None``.
+    axes: Union[int, Sequence[int]]
+        axes over which to perform the inverse. If ``None``, the function must shift all axes. Default: ``None``.
 
     Returns
     -------
     out: array
-        the shifted array.
+        the shifted array. The returned array must have the same data type as ``x``.
     """
 
 
