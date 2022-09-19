@@ -22,3 +22,4 @@ help:
 clean:
 	-rm -rf $(BUILDDIR)
 	-rm -rf "$(SOURCEDIR)/API_specification/generated"
+	-rm -rf "$(SOURCEDIR)/extensions/generated"

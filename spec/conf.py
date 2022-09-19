@@ -40,6 +40,8 @@ extensions = [
     'sphinx.ext.autosummary',
     'sphinx.ext.napoleon',
     'sphinx.ext.autodoc',
+    'sphinx_math_dollar',
+    'sphinx.ext.mathjax'
 ]
 
 autosummary_generate = True
@@ -47,6 +49,14 @@ autodoc_typehints = 'signature'
 add_module_names = False
 napoleon_custom_sections = [('Returns', 'params_style')]
 default_role = 'code'
+
+# Mathjax configuration:
+mathjax3_config = {
+  "tex": {
+    "inlineMath": [['\\(', '\\)']],
+    "displayMath": [["\\[", "\\]"]],
+  }
+}
 
 # nitpicky = True makes Sphinx warn whenever a cross-reference target can't be
 # found.
@@ -197,9 +207,9 @@ extlinks = {
 
 def process_signature(app, what, name, obj, options, signature, return_annotation):
     if signature:
-        signature = signature.replace("signatures._types.", "")
+        signature = signature.replace("array_api._types.", "")
     if return_annotation:
-        return_annotation = return_annotation.replace("signatures._types.", "")
+        return_annotation = return_annotation.replace("array_api._types.", "")
     return signature, return_annotation
 
 def setup(app):

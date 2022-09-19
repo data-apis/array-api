@@ -9,7 +9,7 @@ A conforming implementation of the array API standard must provide and support t
 Objects in API
 --------------
 
-.. currentmodule:: signatures.data_type_functions
+.. currentmodule:: array_api
 
 ..
   NOTE: please keep the functions in alphabetical order
@@ -19,8 +19,6 @@ Objects in API
    :template: method.rst
 
    astype
-   broadcast_arrays
-   broadcast_to
    can_cast
    finfo
    iinfo
