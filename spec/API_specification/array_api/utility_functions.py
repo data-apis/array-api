@@ -8,6 +8,9 @@ def all(x: array, /, *, axis: Optional[Union[int, Tuple[int, ...]]] = None, keep
        Positive infinity, negative infinity, and NaN must evaluate to ``True``.
 
     .. note::
+       If ``x`` has a complex floating-point data type, elements having a non-zero component (real or imaginary) must evaluate to ``True``.
+
+    .. note::
        If ``x`` is an empty array or the size of the axis (dimension) along which to evaluate elements is zero, the test result must be ``True``.
 
     Parameters
@@ -31,6 +34,9 @@ def any(x: array, /, *, axis: Optional[Union[int, Tuple[int, ...]]] = None, keep
 
     .. note::
        Positive infinity, negative infinity, and NaN must evaluate to ``True``.
+
+    .. note::
+       If ``x`` has a complex floating-point data type, elements having a non-zero component (real or imaginary) must evaluate to ``True``.
 
     .. note::
        If ``x`` is an empty array or the size of the axis (dimension) along which to evaluate elements is zero, the test result must be ``False``.
