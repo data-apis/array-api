@@ -12,7 +12,7 @@ A conforming implementation of the array API standard must provide and support t
 Objects in API
 --------------
 
-.. currentmodule:: signatures.set_functions
+.. currentmodule:: array_api
 
 ..
   NOTE: please keep the functions in alphabetical order

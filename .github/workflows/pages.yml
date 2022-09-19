@@ -1,39 +1,128 @@
+#/
+# @license MIT
+#
+# Copyright (c) 2022 Python Data APIs Consortium.
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
+#/
+
+# Workflow name:
+name: gh_pages
+
+# Workflow triggers:
 on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-    - "**"
+
+# Workflow jobs:
 jobs:
-  run:
-    # Don't run Action on forks, and allow skipping CI
+
+  # Define a job for publishing to the gh-pages branch...
+  publish:
+
+    # Define a display name:
+    name: 'Publish'
+
+    # Define the type of virtual host machine:
+    runs-on: ubuntu-latest
+
+    # Avoid running this workflow for forks and allow skipping CI:
     if: "github.repository == 'data-apis/array-api' && !contains(github.event.head_commit.message, '[ci skip]') && !contains(github.event.head_commit.message, '[skip ci]') && !contains(github.event.head_commit.message, '[skip github]')"
-    runs-on: ubuntu-18.04
+    
+    # Define a sequence of job steps...
     steps:
-    # - uses: docker://pandoc/latex:2.9
-    - uses: actions/checkout@master
-    - uses: actions/setup-python@v2
-      with:
-        python-version: '3.10.2' # Version range or exact version of a Python version to use, using semvers version range syntax.
-        architecture: 'x64' # (x64 or x86)
-    - run: |
-        # add dependencies based on the conf.py
-        pip install -r requirements.txt
-    - name: Build docs
-      run: |
-        # Turn warnings into errors; ensure .doctrees doesn't get deployed
-        sphinx-build -b html -WT --keep-going spec build/latest -d doctrees
-        touch build/.nojekyll
-    - uses: actions/upload-artifact@v2
-      if: ${{ github.event_name == 'pull_request'}}
-      with:
-        name: html
-        path: build/
-        if-no-files-found: error
-    - name: Deploy
-      if: ${{ github.ref == 'refs/heads/main'}}
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./build
+      
+      # Checkout the repository:
+      - name: 'Checkout repository'
+        uses: actions/checkout@v2
+        with:
+          # Specify whether to remove untracked files before checking out the repository:
+          clean: false
+
+          # Limit clone depth to the most recent commit:
+          fetch-depth: 1
+
+          # Specify whether to download Git-LFS files:
+          lfs: false
+
+          # GitHub token:
+          token: ${{ secrets.GITHUB_TOKEN }}
+        timeout-minutes: 10
+
+      # Install Python:
+      - name: 'Install Python'
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.10.2'
+          architecture: 'x64'
+
+      # Install dependencies:
+      - name: 'Install dependencies'
+        run: |
+          pip install -r ./requirements.txt
+
+      # Generate the documentation:
+      - name: 'Build documentation'
+        run: |
+          # Turn warnings into errors and ensure .doctrees is not deployed:
+          sphinx-build -b html -WT --keep-going spec build/draft -d doctrees
+
+      # Upload the build artifact:
+      - name: 'Upload build artifact'
+        uses: actions/upload-artifact@v2
+        if: ${{ github.event_name == 'pull_request'}}
+        with:
+          name: html
+          path: build/
+          if-no-files-found: error
+
+      # Configure Git:
+      - name: 'Configure Git'
+        run: |
+          git config --local user.email "noreply@data-apis.org"
+          git config --local user.name "array-api-bot"
+        timeout-minutes: 5
+
+      # Checkout the gh-pages branch:
+      - name: 'Checkout gh-pages'
+        run: |
+          git fetch --all
+          git checkout gh-pages
+        timeout-minutes: 5
+
+      # Copy build artifact:
+      - name: 'Copy build artifact'
+        run: |
+          rm -rf ./draft && cp -R ./build/draft ./draft
+        timeout-minutes: 10
+
+      # Commit changes to:
+      - name: 'Commit changes'
+        run: |
+          git add . && git commit -m "Deploy: ${{ github.sha }}"
+        continue-on-error: true
+        timeout-minutes: 10
+
+      # Push changes:
+      - name: 'Push changes'
+        if: success()
+        run: |
+          git push origin gh-pages
+        timeout-minutes: 10

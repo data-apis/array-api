@@ -7,7 +7,7 @@ def argmax(x: array, /, *, axis: Optional[int] = None, keepdims: bool = False) -
     Parameters
     ----------
     x: array
-        input array. Should have a numeric data type.
+        input array. Should have a real-valued data type.
     axis: Optional[int]
         axis along which to search. If ``None``, the function must return the index of the maximum value of the flattened array. Default: ``None``.
     keepdims: bool
@@ -26,7 +26,7 @@ def argmin(x: array, /, *, axis: Optional[int] = None, keepdims: bool = False) -
     Parameters
     ----------
     x: array
-        input array. Should have a numeric data type.
+        input array. Should have a real-valued data type.
     axis: Optional[int]
         axis along which to search. If ``None``, the function must return the index of the minimum value of the flattened array. Default: ``None``.
     keepdims: bool
@@ -41,6 +41,12 @@ def argmin(x: array, /, *, axis: Optional[int] = None, keepdims: bool = False) -
 def nonzero(x: array, /) -> Tuple[array, ...]:
     """
     Returns the indices of the array elements which are non-zero.
+
+    .. note::
+       If ``x`` has a complex floating-point data type, non-zero elements are those elements having at least one component (real or imaginary) which is non-zero.
+
+    .. note::
+       If ``x`` has a boolean data type, non-zero elements are those elements which are equal to ``True``.
 
     .. admonition:: Data-dependent output shape
        :class: admonition important
