@@ -53,7 +53,7 @@ def cross(x1: array, x2: array, /, *, axis: int = -1) -> array:
         second input array. Must be compatible with ``x1`` for all non-compute axes (see :ref:`broadcasting`). The size of the axis over which to compute the cross product must be the same size as the respective axis in ``x1``. Should have a real-valued data type.
 
         .. note::
-        The compute axis (dimension) must not be broadcasted.
+           The compute axis (dimension) must not be broadcasted.
 
     axis: int
         the axis (dimension) of ``x1`` and ``x2`` containing the vectors for which to compute the cross product. Must be an integer on the interval ``[-N, N)``, where ``N`` is the rank (number of dimensions) of the shape determined according to :ref:`broadcasting`. If specified as a negative integer, the function must determine the axis along which to compute the cross product by counting backward from the last dimension (where ``-1`` refers to the last dimension). By default, the function must compute the cross product over the last axis. Default: ``-1``.
