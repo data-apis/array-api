@@ -1,5 +1,37 @@
 from ._types import List, Optional, Tuple, Union, array
 
+def broadcast_arrays(*arrays: array) -> List[array]:
+    """
+    Broadcasts one or more arrays against one another.
+
+    Parameters
+    ----------
+    arrays: array
+        an arbitrary number of to-be broadcasted arrays.
+
+    Returns
+    -------
+    out: List[array]
+        a list of broadcasted arrays. Each array must have the same shape. Each array must have the same dtype as its corresponding input array.
+    """
+
+def broadcast_to(x: array, /, shape: Tuple[int, ...]) -> array:
+    """
+    Broadcasts an array to a specified shape.
+
+    Parameters
+    ----------
+    x: array
+        array to broadcast.
+    shape: Tuple[int, ...]
+        array shape. Must be compatible with ``x`` (see :ref:`broadcasting`). If the array is incompatible with the specified shape, the function should raise an exception.
+
+    Returns
+    -------
+    out: array
+        an array having a specified shape. Must have the same data type as ``x``.
+    """
+
 def concat(arrays: Union[Tuple[array, ...], List[array]], /, *, axis: Optional[int] = 0) -> array:
     """
     Joins a sequence of arrays along an existing axis.
@@ -146,4 +178,4 @@ def stack(arrays: Union[Tuple[array, ...], List[array]], /, *, axis: int = 0) ->
            This specification leaves type promotion between data type families (i.e., ``intxx`` and ``floatxx``) unspecified.
     """
 
-__all__ = ['concat', 'expand_dims', 'flip', 'permute_dims', 'reshape', 'roll', 'squeeze', 'stack']
+__all__ = [ 'broadcast_arrays', 'broadcast_to', 'concat', 'expand_dims', 'flip', 'permute_dims', 'reshape', 'roll', 'squeeze', 'stack']

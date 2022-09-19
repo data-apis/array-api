@@ -89,6 +89,6 @@ C API and ABI than CPython offers. A Cython backend targeting HPy will be provid
 - Universal ABI - single binary for all supported Python versions
 - Cython backend generating HPy rather than CPython code
 
-HPy isn't quite ready for mainstream usage today, but once it does it may
+HPy isn't quite ready for mainstream usage today, but once it is it may
 help make supporting multiple array libraries or adding non-CPU device
 support to Cython more feasible.
