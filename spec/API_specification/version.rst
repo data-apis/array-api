@@ -17,5 +17,6 @@ Objects in API
 .. autosummary::
    :toctree: generated
    :template: attribute.rst
+   :nosignatures:
 
    __array_api_version__
