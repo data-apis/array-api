@@ -24,3 +24,4 @@ API specification
    statistical_functions
    type_promotion
    utility_functions
+   version
