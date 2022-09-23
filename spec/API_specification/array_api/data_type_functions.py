@@ -46,12 +46,15 @@ def can_cast(from_: Union[dtype, array], to: dtype, /) -> bool:
 
 def finfo(type: Union[dtype, array], /) -> finfo_object:
     """
-    Machine limits for real-valued floating-point data types.
+    Machine limits for floating-point data types.
 
     Parameters
     ----------
     type: Union[dtype, array]
-        the kind of real-valued floating-point data-type about which to get information.
+        the kind of floating-point data-type about which to get information. If complex, the information is about its component data type.
+
+        .. note::
+           Complex floating-point data types are specified to always use the same precision for both its real and imaginary components, so the information should be true for either component.
 
     Returns
     -------
