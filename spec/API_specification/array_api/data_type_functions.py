@@ -63,23 +63,23 @@ def finfo(type: Union[dtype, array], /) -> finfo_object:
 
         - **bits**: *int*
 
-          number of bits occupied by the floating-point data type.
+          number of bits occupied by the real-valued floating-point data type.
 
         - **eps**: *float*
 
-          difference between 1.0 and the next smallest representable floating-point number larger than 1.0 according to the IEEE-754 standard.
+          difference between 1.0 and the next smallest representable real-valued floating-point number larger than 1.0 according to the IEEE-754 standard.
 
         - **max**: *float*
 
-          largest representable number.
+          largest representable real-valued number.
 
         - **min**: *float*
 
-          smallest representable number.
+          smallest representable real-valued number.
 
         - **smallest_normal**: *float*
 
-          smallest positive floating-point number with full precision.
+          smallest positive real-valued floating-point number with full precision.
     """
 
 def iinfo(type: Union[dtype, array], /) -> iinfo_object:
