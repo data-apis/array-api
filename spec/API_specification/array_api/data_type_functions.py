@@ -111,6 +111,10 @@ def iinfo(type: Union[dtype, array], /) -> iinfo_object:
         - **min**: *int*
 
           smallest representable number.
+
+        - **dtype**: dtype
+
+          integer data type.
     """
 
 def result_type(*arrays_and_dtypes: Union[array, dtype]) -> dtype:
