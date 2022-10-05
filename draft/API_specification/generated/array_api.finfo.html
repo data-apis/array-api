@@ -417,28 +417,33 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="array_api.finfo">
 <span class="sig-name descname"><span class="pre">finfo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">dtype</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">array</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">finfo_object</span></span></span><a class="headerlink" href="#array_api.finfo" title="Permalink to this definition">¶</a></dt>
-<dd><p>Machine limits for real-valued floating-point data types.</p>
+<dd><p>Machine limits for floating-point data types.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>type</strong> (<em>Union</em><em>[</em><em>dtype</em><em>, </em><em>array</em><em>]</em>) – the kind of real-valued floating-point data-type about which to get information.</p>
+<dd class="field-odd"><p><strong>type</strong> (<em>Union</em><em>[</em><em>dtype</em><em>, </em><em>array</em><em>]</em>) – <p>the kind of floating-point data-type about which to get information. If complex, the information is about its component data type.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Complex floating-point data types are specified to always use the same precision for both its real and imaginary components, so the information should be true for either component.</p>
+</div>
+</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p><strong>out</strong> (<em>finfo object</em>) – an object having the following attributes:</p>
 <ul>
 <li><p><strong>bits</strong>: <em>int</em></p>
-<p>number of bits occupied by the floating-point data type.</p>
+<p>number of bits occupied by the real-valued floating-point data type.</p>
 </li>
 <li><p><strong>eps</strong>: <em>float</em></p>
-<p>difference between 1.0 and the next smallest representable floating-point number larger than 1.0 according to the IEEE-754 standard.</p>
+<p>difference between 1.0 and the next smallest representable real-valued floating-point number larger than 1.0 according to the IEEE-754 standard.</p>
 </li>
 <li><p><strong>max</strong>: <em>float</em></p>
-<p>largest representable number.</p>
+<p>largest representable real-valued number.</p>
 </li>
 <li><p><strong>min</strong>: <em>float</em></p>
-<p>smallest representable number.</p>
+<p>smallest representable real-valued number.</p>
 </li>
 <li><p><strong>smallest_normal</strong>: <em>float</em></p>
-<p>smallest positive floating-point number with full precision.</p>
+<p>smallest positive real-valued floating-point number with full precision.</p>
 </li>
 </ul>
 </dd>
