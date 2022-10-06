@@ -14,7 +14,7 @@ from .utility_functions import *
 from . import linalg
 
 
-__array_api_version__: str = "2021.12"
+__array_api_version__: str = "YYYY.MM"
 """
 String representing the version of the array API specification which the conforming implementation adheres to.
 """
