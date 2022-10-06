@@ -94,14 +94,17 @@ def fftn(x: array, /, *, s: Sequence[int] = None, axes: Sequence[int] = None, no
         - ``s[i]`` is greater than the size of the input array along a corresponding axis (dimension) ``i``, the corresponding axis of the input array must be zero-padded such that the axis has size ``s[i]``.
         - ``s[i]`` is less than the size of the input array along a corresponding axis (dimension) ``i``, the corresponding axis of the input array must be trimmed such that the axis has size ``s[i]``.
 
-
-        If ``axes`` is not ``None``, size ``s[i]`` corresponds to the size of axis ``axes[j]`` where ``i == j``.
+        If ``s`` is not ``None``, ``axes`` must not be ``None`` either, and ``s[i]`` corresponds to the size along the transformed axis specified by ``axes[i]``. 
 
         If not provided, the size of each transformed axis (dimension) in the output array must equal the size of the corresponding axis in the input array.
 
         Default: ``None``.
     axes: Sequence[int]
-        axes (dimension) over which to compute the Fourier transform. If ``None`` and ``s`` is not specified, all axes must be transformed. If ``s`` is specified, the corresponding ``axes`` to be transformed must be explicitly specified too. Default: ``None``.
+        axes (dimensions) over which to compute the Fourier transform. If ``None``, all axes must be transformed.
+        
+        If ``s`` is specified, the corresponding ``axes`` to be transformed must be explicitly specified too.
+        
+        Default: ``None``.
     norm: Literal['backward', 'ortho', 'forward']
         normalization mode. Should be one of the following modes:
 
@@ -137,9 +140,17 @@ def ifftn(x: array, /, *, s: Sequence[int] = None, axes: Sequence[int] = None, n
         - ``s[i]`` is greater than the size of the input array along a corresponding axis (dimension) ``j``, the corresponding axis of the input array must be zero-padded such that the axis has size ``s[i]``.
         - ``s[i]`` is less than the length of the input array, each axis ``i`` of the input array must be trimmed to the length ``s[i]``.
 
-        If not provided, the length of the transformed axes of the output must equal the length of the input along the axes specified by ``axes``. Default: ``None``.
+        If ``s`` is not ``None``, ``axes`` must not be ``None`` either, and ``s[i]`` corresponds to the size along the transformed axis specified by ``axes[i]``. 
+
+        If not provided, the size of each transformed axis (dimension) in the output array must equal the size of the corresponding axis in the input array.
+
+        Default: ``None``.
     axes: Sequence[int]
-        axes over which to compute the inverse Fourier transform. If not specified, the last ``len(s)`` axes are used, or all axes if ``s`` is not specified either. Default: ``None``.
+        axes (dimensions) over which to compute the Fourier transform. If ``None``, all axes must be transformed.
+        
+        If ``s`` is specified, the corresponding ``axes`` to be transformed must be explicitly specified too.
+        
+        Default: ``None``.
     norm: Literal['backward', 'ortho', 'forward']
         specify the normalization mode. Should be one of the following modes:
 
@@ -251,9 +262,17 @@ def rfftn(x: array, /, *, s: Sequence[int] = None, axes: Sequence[int] = None, n
         - ``s[i]`` is greater than the size of the input array along a corresponding axis (dimension) ``j``, the corresponding axis of the input array must be zero-padded such that the axis has size ``s[i]``.
         - ``s[i]`` is less than the length of the input array, each axis ``i`` of the input array must be trimmed to the length ``s[i]``.
 
-        If not provided, the length of the transformed axes of the output must equal the length of the input along the axes specified by ``axes``. Default: ``None``.
+        If ``s`` is not ``None``, ``axes`` must not be ``None`` either, and ``s[i]`` corresponds to the size along the transformed axis specified by ``axes[i]``. 
+
+        If not provided, the size of each transformed axis (dimension) in the output array must equal the size of the corresponding axis in the input array.
+
+        Default: ``None``.
     axes: Sequence[int]
-        axes over which to compute the Fourier transform. If not specified, the last ``len(s)`` axes are used, or all axes if ``s`` is not specified either. Default: ``None``.
+        axes (dimensions) over which to compute the Fourier transform. If ``None``, all axes must be transformed.
+        
+        If ``s`` is specified, the corresponding ``axes`` to be transformed must be explicitly specified too.
+        
+        Default: ``None``.        
     norm: Literal['backward', 'ortho', 'forward']
         normalization mode. Should be one of the following modes:
 
@@ -289,9 +308,17 @@ def irfftn(x: array, /, *, s: Sequence[int] = None, axes: Sequence[int] = None, 
         - ``s[i]`` is greater than the size of the input array along a corresponding axis (dimension) ``j``, the corresponding axis of the input array must be zero-padded such that the axis has size ``s[i]``.
         - ``s[i]`` is less than the length of the input array, each axis ``i`` of the input array must be trimmed to the length ``s[i]``. Except for the last axis is trimmed to ``2 * (m - 1)``, where `m` is the length of the input along the axis.
 
-        If not provided, the length of the transformed axes of the output must equal the length of the input along the axes specified by ``axes``. Default: ``None``.
+        If ``s`` is not ``None``, ``axes`` must not be ``None`` either, and ``s[i]`` corresponds to the size along the transformed axis specified by ``axes[i]``. 
+
+        If not provided, the size of each transformed axis (dimension) in the output array must equal the size of the corresponding axis in the input array.
+
+        Default: ``None``.
     axes: Sequence[int]
-        axes over which to compute the inverse Fourier transform. If not specified, the last ``len(s)`` axes are used, or all axes if ``s`` is not specified either. Default: ``None``.
+        axes (dimensions) over which to compute the Fourier transform. If ``None``, all axes must be transformed.
+        
+        If ``s`` is specified, the corresponding ``axes`` to be transformed must be explicitly specified too.
+        
+        Default: ``None``.        
     norm: Literal['backward', 'ortho', 'forward']
         normalization mode. Should be one of the following modes:
 
