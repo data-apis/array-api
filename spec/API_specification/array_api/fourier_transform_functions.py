@@ -1,5 +1,6 @@
 from ._types import Tuple, Union, Sequence, array, Optional, Literal
 
+
 def fft(x: array, /, *, n: Optional[int] = None, axis: int = -1, norm: Literal['backward', 'ortho', 'forward'] = 'backward') -> array:
     """
     Computes the one-dimensional discrete Fourier transform.
@@ -42,6 +43,9 @@ def ifft(x: array, /, *, n: Optional[int] = None, axis: int = -1, norm: Literal[
     """
     Computes the one-dimensional inverse discrete Fourier transform.
 
+    .. note::
+       Applying the one-dimensional inverse discrete Fourier transform to the output of this function must return the original (i.e., non-transformed) input array within numerical accuracy (i.e., ``ifft(fft(x)) == x``), provided that the transform and inverse transform are performed with the same normalization mode.
+
     Parameters
     ----------
     x: array
@@ -77,9 +81,8 @@ def fftn(x: array, /, *, s: Sequence[int] = None, axes: Sequence[int] = None, no
     """
     Computes the n-dimensional discrete Fourier transform.
 
-
     .. note::
-       Applying the n-dimensional inverse discrete Fourier transform to the output of this function must return the original (i.e., non-transformed) input array within numerical accuracy (i.e., ``ifftn(fftn(x)) == x``), provided that the transform and inverse transform are performed with the same normalization mode..
+       Applying the n-dimensional inverse discrete Fourier transform to the output of this function must return the original (i.e., non-transformed) input array within numerical accuracy (i.e., ``ifftn(fftn(x)) == x``), provided that the transform and inverse transform are performed with the same normalization mode.
 
     Parameters
     ----------
@@ -121,6 +124,9 @@ def ifftn(x: array, /, *, s: Sequence[int] = None, axes: Sequence[int] = None, n
     """
     Computes the n-dimensional inverse discrete Fourier transform.
 
+    .. note::
+       Applying the n-dimensional inverse discrete Fourier transform to the output of this function must return the original (i.e., non-transformed) input array within numerical accuracy (i.e., ``ifftn(fftn(x)) == x``), provided that the transform and inverse transform are performed with the same normalization mode.
+
     Parameters
     ----------
     x: array
@@ -156,9 +162,8 @@ def rfft(x: array, /, *, n: Optional[int] = None, axis: int = -1, norm: Literal[
     """
     Computes the one-dimensional discrete Fourier transform for real-valued input.
 
-
     .. note::
-       Applying the one-dimensional inverse discrete Fourier transform for real-valued input to the output of this function must return the original (i.e., non-transformed) input array within numerical accuracy (i.e., ``irfft(rfft(x), n=x.shape[axis]) == x``), provided that the transform and inverse transform are performed with the same normalization mode..
+       Applying the one-dimensional inverse discrete Fourier transform for real-valued input to the output of this function must return the original (i.e., non-transformed) input array within numerical accuracy (i.e., ``irfft(rfft(x), n=x.shape[axis]) == x``), provided that the transform and inverse transform are performed with the same normalization mode.
 
     Parameters
     ----------
@@ -195,6 +200,9 @@ def irfft(x: array, /, *, n: Optional[int] = None, axis: int = -1, norm: Literal
     """
     Computes the one-dimensional inverse of ``rfft``.
 
+    .. note::
+       Applying the one-dimensional inverse discrete Fourier transform for real-valued input to the output of this function must return the original (i.e., non-transformed) input array within numerical accuracy (i.e., ``irfft(rfft(x), n=x.shape[axis]) == x``), provided that the transform and inverse transform are performed with the same normalization mode.
+
     Parameters
     ----------
     x: array
@@ -229,7 +237,6 @@ def irfft(x: array, /, *, n: Optional[int] = None, axis: int = -1, norm: Literal
 def rfftn(x: array, /, *, s: Sequence[int] = None, axes: Sequence[int] = None, norm: Literal['backward', 'ortho', 'forward'] = 'backward') -> array:
     """
     Computes the n-dimensional discrete Fourier transform for real-valued input.
-
 
     .. note::
        Applying the n-dimensional inverse discrete Fourier transform for real-valued input to the output of this function must return the original (i.e., non-transformed) input array within numerical accuracy (i.e., ``irfftn(rfftn(x), n=x.shape[axis]) == x``), provided that the transform and inverse transform are performed with the same normalization mode.
@@ -268,6 +275,9 @@ def rfftn(x: array, /, *, s: Sequence[int] = None, axes: Sequence[int] = None, n
 def irfftn(x: array, /, *, s: Sequence[int] = None, axes: Sequence[int] = None, norm: Literal['backward', 'ortho', 'forward'] = 'backward') -> array:
     """
     Computes the n-dimensional inverse of ``rfftn``.
+
+    .. note::
+       Applying the n-dimensional inverse discrete Fourier transform for real-valued input to the output of this function must return the original (i.e., non-transformed) input array within numerical accuracy (i.e., ``irfftn(rfftn(x), n=x.shape[axis]) == x``), provided that the transform and inverse transform are performed with the same normalization mode.
 
     Parameters
     ----------
