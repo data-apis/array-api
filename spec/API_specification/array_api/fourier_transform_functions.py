@@ -210,7 +210,7 @@ def rfft(x: array, /, *, n: Optional[int] = None, axis: int = -1, norm: Literal[
     Returns
     -------
     out: array
-        an array transformed along the axis (dimension) indicated by ``axis``. The returned array must have a complex floating-point data type determined by :ref:`type-promotion`.
+        an array transformed along the axis (dimension) indicated by ``axis``. The returned array must have a complex-valued floating-point data type determined by :ref:`type-promotion`.
     """
 
 
@@ -224,7 +224,7 @@ def irfft(x: array, /, *, n: Optional[int] = None, axis: int = -1, norm: Literal
     Parameters
     ----------
     x: array
-        input array. Should have a complex floating-point data type.
+        input array. Should have a complex-valued floating-point data type.
     n: int
         length of the transformed axis of the **output**. If
 
@@ -251,7 +251,7 @@ def irfft(x: array, /, *, n: Optional[int] = None, axis: int = -1, norm: Literal
     Returns
     -------
     out: array
-        an array transformed along the axis (dimension) indicated by ``axis``. The returned array must have a real floating-point data type determined by :ref:`type-promotion`. The length along the transformed axis is ``n`` (if given) or ``2*(m-1)`` otherwise.
+        an array transformed along the axis (dimension) indicated by ``axis``. The returned array must have a real-valued floating-point data type determined by :ref:`type-promotion`. The length along the transformed axis is ``n`` (if given) or ``2*(m-1)`` otherwise.
     """
 
 
@@ -296,7 +296,7 @@ def rfftn(x: array, /, *, s: Sequence[int] = None, axes: Sequence[int] = None, n
     Returns
     -------
     out: array
-        an array transformed along the axes (dimension) indicated by ``axes``. The returned array must have a complex floating-point data type determined by :ref:`type-promotion`.
+        an array transformed along the axes (dimension) indicated by ``axes``. The returned array must have a complex-valued floating-point data type determined by :ref:`type-promotion`.
     """
 
 
@@ -310,7 +310,7 @@ def irfftn(x: array, /, *, s: Sequence[int] = None, axes: Sequence[int] = None, 
     Parameters
     ----------
     x: array
-        input array. Should have a complex floating-point data type.
+        input array. Should have a complex-valued floating-point data type.
     s: Sequence[int]
         size of each transformed axis of the **output**. ``n=s[i]`` is also the number of input points used along the axis (dimension) ``i``, except for the last axis, where ``n=s[-1]//2+1`` points of the input are used. If
 
@@ -352,7 +352,7 @@ def hfft(x: array, /, *, n: Optional[int] = None, axis: int = -1, norm: Literal[
     Parameters
     ----------
     x: array
-        input array. Should have a real-valued floating-point data type.
+        input array. Should have a floating-point data type.
     n: int
         length of the transformed axis of the **output**. If
 
