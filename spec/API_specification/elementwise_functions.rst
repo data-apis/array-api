@@ -73,6 +73,7 @@ Objects in API
    not_equal
    positive
    pow
+   real
    remainder
    round
    sign
