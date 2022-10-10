@@ -401,6 +401,34 @@ def ceil(x: array, /) -> array:
         an array containing the rounded result for each element in ``x``. The returned array must have the same data type as ``x``.
     """
 
+def conj(x: array, /) -> array:
+    """
+    Returns the complex conjugate for each element ``x_i`` of the input array ``x``.
+
+    For complex numbers of the form
+
+    .. math::
+       a + bj
+
+    the complex conjugate is defined as
+
+    .. math::
+       a - bj
+
+    Hence, the returned complex conjugates must be computed by negating the imaginary component of each element ``x_i``.
+
+    Parameters
+    ----------
+    x: array
+        input array. Should have a complex-floating point data type.
+
+    Returns
+    -------
+    out: array
+        an array containing the element-wise results. The returned array must have the same data type as ``x``.
+    """
+
+
 def cos(x: array, /) -> array:
     r"""
     Calculates an implementation-dependent approximation to the cosine for each element ``x_i`` of the input array ``x``.
@@ -1582,4 +1610,4 @@ def trunc(x: array, /) -> array:
         an array containing the rounded result for each element in ``x``. The returned array must have the same data type as ``x``.
     """
 
-__all__ = ['abs', 'acos', 'acosh', 'add', 'asin', 'asinh', 'atan', 'atan2', 'atanh', 'bitwise_and', 'bitwise_left_shift', 'bitwise_invert', 'bitwise_or', 'bitwise_right_shift', 'bitwise_xor', 'ceil', 'cos', 'cosh', 'divide', 'equal', 'exp', 'expm1', 'floor', 'floor_divide', 'greater', 'greater_equal', 'isfinite', 'isinf', 'isnan', 'less', 'less_equal', 'log', 'log1p', 'log2', 'log10', 'logaddexp', 'logical_and', 'logical_not', 'logical_or', 'logical_xor', 'multiply', 'negative', 'not_equal', 'positive', 'pow', 'real', 'remainder', 'round', 'sign', 'sin', 'sinh', 'square', 'sqrt', 'subtract', 'tan', 'tanh', 'trunc']
+__all__ = ['abs', 'acos', 'acosh', 'add', 'asin', 'asinh', 'atan', 'atan2', 'atanh', 'bitwise_and', 'bitwise_left_shift', 'bitwise_invert', 'bitwise_or', 'bitwise_right_shift', 'bitwise_xor', 'ceil', 'conj', 'cos', 'cosh', 'divide', 'equal', 'exp', 'expm1', 'floor', 'floor_divide', 'greater', 'greater_equal', 'isfinite', 'isinf', 'isnan', 'less', 'less_equal', 'log', 'log1p', 'log2', 'log10', 'logaddexp', 'logical_and', 'logical_not', 'logical_or', 'logical_xor', 'multiply', 'negative', 'not_equal', 'positive', 'pow', 'real', 'remainder', 'round', 'sign', 'sin', 'sinh', 'square', 'sqrt', 'subtract', 'tan', 'tanh', 'trunc']

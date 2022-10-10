@@ -44,6 +44,7 @@ Objects in API
    bitwise_right_shift
    bitwise_xor
    ceil
+   conj
    cos
    cosh
    divide
