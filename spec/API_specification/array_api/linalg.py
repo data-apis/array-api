@@ -41,21 +41,34 @@ def cholesky(x: array, /, *, upper: bool = False) -> array:
 
 def cross(x1: array, x2: array, /, *, axis: int = -1) -> array:
     """
-    Returns the cross product of 3-element vectors. If ``x1`` and ``x2`` are multi-dimensional arrays (i.e., both have a rank greater than ``1``), then the cross-product of each pair of corresponding 3-element vectors is independently computed.
+    Returns the cross product of 3-element vectors.
+
+    If ``x1`` and/or ``x2`` are multi-dimensional arrays (i.e., the broadcasted result has a rank greater than ``1``), then the cross-product of each pair of corresponding 3-element vectors is independently computed.
 
     Parameters
     ----------
     x1: array
         first input array. Should have a real-valued data type.
     x2: array
-        second input array. Must have the same shape as ``x1``.  Should have a real-valued data type.
+        second input array. Must be compatible with ``x1`` for all non-compute axes (see :ref:`broadcasting`). The size of the axis over which to compute the cross product must be the same size as the respective axis in ``x1``. Should have a real-valued data type.
+
+        .. note::
+           The compute axis (dimension) must not be broadcasted.
+
     axis: int
-        the axis (dimension) of ``x1`` and ``x2`` containing the vectors for which to compute the cross product. If set to ``-1``, the function computes the cross product for vectors defined by the last axis (dimension). Default: ``-1``.
+        the axis (dimension) of ``x1`` and ``x2`` containing the vectors for which to compute the cross product. Must be an integer on the interval ``[-N, N)``, where ``N`` is the rank (number of dimensions) of the shape determined according to :ref:`broadcasting`. If specified as a negative integer, the function must determine the axis along which to compute the cross product by counting backward from the last dimension (where ``-1`` refers to the last dimension). By default, the function must compute the cross product over the last axis. Default: ``-1``.
 
     Returns
     -------
     out: array
         an array containing the cross products. The returned array must have a data type determined by :ref:`type-promotion`.
+
+
+    **Raises**
+
+    -   if provided an invalid ``axis``.
+    -   if the size of the axis over which to compute the cross product is not equal to ``3``.
+    -   if the size of the axis over which to compute the cross product is not the same (before broadcasting) for both ``x1`` and ``x2``.
     """
 
 def det(x: array, /) -> array:
