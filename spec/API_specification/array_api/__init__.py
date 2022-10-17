@@ -12,3 +12,9 @@ from .sorting_functions import *
 from .statistical_functions import *
 from .utility_functions import *
 from . import linalg
+
+
+__array_api_version__: str = "YYYY.MM"
+"""
+String representing the version of the array API specification which the conforming implementation adheres to.
+"""
