@@ -413,7 +413,7 @@ def ihfft(x: array, /, *, n: Optional[int] = None, axis: int = -1, norm: Literal
     """
 
 
-def fftfreq(n: int, /, *, d: float = 1.0):
+def fftfreq(n: int, /, *, d: float = 1.0) -> array:
     """
     Returns the discrete Fourier transform sample frequencies.
 
@@ -438,7 +438,7 @@ def fftfreq(n: int, /, *, d: float = 1.0):
     """
 
 
-def rfftfreq(n: int, /, *, d: float = 1.0):
+def rfftfreq(n: int, /, *, d: float = 1.0) -> array:
     """
     Returns the discrete Fourier transform sample frequencies (for ``rfft`` and ``irfft``). 
     
@@ -465,7 +465,7 @@ def rfftfreq(n: int, /, *, d: float = 1.0):
     """
 
 
-def fftshift(x: array, /, *, axes: Union[int, Sequence[int]] = None):
+def fftshift(x: array, /, *, axes: Union[int, Sequence[int]] = None) -> array:
     """
     Shift the zero-frequency component to the center of the spectrum.
 
@@ -488,7 +488,7 @@ def fftshift(x: array, /, *, axes: Union[int, Sequence[int]] = None):
     """
 
 
-def ifftshift(x: array, /, *, axes: Union[int, Sequence[int]] = None):
+def ifftshift(x: array, /, *, axes: Union[int, Sequence[int]] = None) -> array:
     """
     Inverse of ``fftshift``.
 
