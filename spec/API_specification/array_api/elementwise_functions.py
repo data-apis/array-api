@@ -785,6 +785,21 @@ def greater_equal(x1: array, x2: array, /) -> array:
         an array containing the element-wise results. The returned array must have a data type of ``bool``.
     """
 
+def imag(x: array, /) -> array:
+    """
+    Returns the imaginary component of a complex number for each element ``x_i`` of the input array ``x``.
+
+    Parameters
+    ----------
+    x: array
+        input array. Should have a complex floating-point data type.
+
+    Returns
+    -------
+    out: array
+        an array containing the element-wise results. The returned array must have a floating-point data type with the same floating-point precision as ``x`` (e.g., if ``x`` is ``complex64``, the returned array must have the floating-point data type ``float32``). 
+    """
+
 def isfinite(x: array, /) -> array:
     """
     Tests each element ``x_i`` of the input array ``x`` to determine if finite (i.e., not ``NaN`` and not equal to positive or negative infinity).
