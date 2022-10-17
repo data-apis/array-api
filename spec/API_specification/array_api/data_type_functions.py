@@ -80,6 +80,10 @@ def finfo(type: Union[dtype, array], /) -> finfo_object:
         - **smallest_normal**: *float*
 
           smallest positive real-valued floating-point number with full precision.
+
+        - **dtype**: dtype
+
+          real-valued floating-point data type.
     """
 
 def iinfo(type: Union[dtype, array], /) -> iinfo_object:
@@ -107,6 +111,10 @@ def iinfo(type: Union[dtype, array], /) -> iinfo_object:
         - **min**: *int*
 
           smallest representable number.
+
+        - **dtype**: dtype
+
+          integer data type.
     """
 
 def result_type(*arrays_and_dtypes: Union[array, dtype]) -> dtype:
