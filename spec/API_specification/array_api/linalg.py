@@ -2,45 +2,73 @@ from ._types import Literal, Optional, Tuple, Union, Sequence, array
 from .constants import inf
 
 def cholesky(x: array, /, *, upper: bool = False) -> array:
-    """
-    Returns the lower (upper) Cholesky decomposition x = LLᵀ (x = UᵀU) of a symmetric positive-definite matrix (or a stack of matrices) ``x``, where ``L`` is a lower-triangular matrix or a stack of matrices (``U`` is an upper-triangular matrix or a stack of matrices).
+    r"""
+    Returns the lower (upper) Cholesky decomposition of a complex Hermitian or real symmetric positive-definite matrix ``x``.
 
-    ..
-      NOTE: once complex numbers are supported, each square matrix must be Hermitian.
+    If ``x`` is real-valued, let :math:`\mathbb{K}` be the set of real numbers $\mathbb{R}$, and, if ``x`` is complex-valued, let $\mathbb{K}$ be the set of complex numbers $\mathbb{C}$.
+
+    The lower **Cholesky decomposition** of a complex Hermitian or real symmetric positive-definite matrix :math:`x \in\ \mathbb{K}^{n \times n}` is defined as
+
+    .. math::
+       x = LL^{H} \qquad \text{L $\in\ \mathbb{K}^{n \times n}$}
+
+    where :math:`L` is a lower triangular matrix and :math:`L^{H}` is the conjugate transpose when :math:`L` is complex-valued and the transpose when :math:`L` is real-valued.
+
+    The upper Cholesky decomposition is defined similarly
+
+    .. math::
+       x = UU^{H} \qquad \text{U $\in\ \mathbb{K}^{n \times n}$}
+
+    where :math:`U` is an upper triangular matrix.
+
+    When ``x`` is a stack of matrices, the function must compute the Cholesky decomposition for each matrix in the stack.
 
     .. note::
-       Whether an array library explicitly checks whether an input array is a symmetric positive-definite matrix (or a stack of matrices) is implementation-defined.
+       Whether an array library explicitly checks whether an input array is Hermitian or a symmetric positive-definite matrix (or a stack of matrices) is implementation-defined.
 
     Parameters
     ----------
     x: array
-        input array having shape ``(..., M, M)`` and whose innermost two dimensions form square symmetric positive-definite matrices. Should have a real-valued floating-point data type.
+        input array having shape ``(..., M, M)`` and whose innermost two dimensions form square complex Hermitian or real symmetric positive-definite matrices. Should have a floating-point data type.
     upper: bool
-        If ``True``, the result must be the upper-triangular Cholesky factor ``U``. If ``False``, the result must be the lower-triangular Cholesky factor ``L``. Default: ``False``.
+        If ``True``, the result must be the upper-triangular Cholesky factor :math:`U`. If ``False``, the result must be the lower-triangular Cholesky factor :math:`L`. Default: ``False``.
 
     Returns
     -------
     out: array
-        an array containing the Cholesky factors for each square matrix. If ``upper`` is ``False``, the returned array must contain lower-triangular matrices; otherwise, the returned array must contain upper-triangular matrices. The returned array must have a real-valued floating-point data type determined by :ref:`type-promotion` and must have the same shape as ``x``.
+        an array containing the Cholesky factors for each square matrix. If ``upper`` is ``False``, the returned array must contain lower-triangular matrices; otherwise, the returned array must contain upper-triangular matrices. The returned array must have a floating-point data type determined by :ref:`type-promotion` and must have the same shape as ``x``.
     """
 
 def cross(x1: array, x2: array, /, *, axis: int = -1) -> array:
     """
-    Returns the cross product of 3-element vectors. If ``x1`` and ``x2`` are multi-dimensional arrays (i.e., both have a rank greater than ``1``), then the cross-product of each pair of corresponding 3-element vectors is independently computed.
+    Returns the cross product of 3-element vectors.
+
+    If ``x1`` and/or ``x2`` are multi-dimensional arrays (i.e., the broadcasted result has a rank greater than ``1``), then the cross-product of each pair of corresponding 3-element vectors is independently computed.
 
     Parameters
     ----------
     x1: array
         first input array. Should have a real-valued data type.
     x2: array
-        second input array. Must have the same shape as ``x1``.  Should have a real-valued data type.
+        second input array. Must be compatible with ``x1`` for all non-compute axes (see :ref:`broadcasting`). The size of the axis over which to compute the cross product must be the same size as the respective axis in ``x1``. Should have a real-valued data type.
+
+        .. note::
+           The compute axis (dimension) must not be broadcasted.
+
     axis: int
-        the axis (dimension) of ``x1`` and ``x2`` containing the vectors for which to compute the cross product. If set to ``-1``, the function computes the cross product for vectors defined by the last axis (dimension). Default: ``-1``.
+        the axis (dimension) of ``x1`` and ``x2`` containing the vectors for which to compute the cross product. Must be an integer on the interval ``[-N, N)``, where ``N`` is the rank (number of dimensions) of the shape determined according to :ref:`broadcasting`. If specified as a negative integer, the function must determine the axis along which to compute the cross product by counting backward from the last dimension (where ``-1`` refers to the last dimension). By default, the function must compute the cross product over the last axis. Default: ``-1``.
 
     Returns
     -------
     out: array
         an array containing the cross products. The returned array must have a data type determined by :ref:`type-promotion`.
+
+
+    **Raises**
+
+    -   if provided an invalid ``axis``.
+    -   if the size of the axis over which to compute the cross product is not equal to ``3``.
+    -   if the size of the axis over which to compute the cross product is not the same (before broadcasting) for both ``x1`` and ``x2``.
     """
 
 def det(x: array, /) -> array:
@@ -444,7 +472,7 @@ def vecdot(x1: array, x2: array, /, *, axis: int = None) -> array:
     """
 
 def vector_norm(x: array, /, *, axis: Optional[Union[int, Tuple[int, ...]]] = None, keepdims: bool = False, ord: Union[int, float, Literal[inf, -inf]] = 2) -> array:
-    """
+    r"""
     Computes the vector norm of a vector (or batch of vectors) ``x``.
 
     Parameters
