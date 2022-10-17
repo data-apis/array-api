@@ -181,7 +181,7 @@ def rfft(x: array, /, *, n: Optional[int] = None, axis: int = -1, norm: Literal[
     Parameters
     ----------
     x: array
-        input array. Should have a real-valued floating-point data type.
+        input array. Must have a real-valued floating-point data type.
     n: int
         length of the transformed axis of the **input**. If
 
@@ -259,7 +259,7 @@ def rfftn(x: array, /, *, s: Sequence[int] = None, axes: Sequence[int] = None, n
     Parameters
     ----------
     x: array
-        input array. Should have a real-valued floating-point data type.
+        input array. Must have a real-valued floating-point data type.
     s: Sequence[int]
         size of each transformed axis of the **input**. If
 
@@ -384,7 +384,7 @@ def ihfft(x: array, /, *, n: Optional[int] = None, axis: int = -1, norm: Literal
     Parameters
     ----------
     x: array
-        input array. Should have a real-valued floating-point data type.
+        input array. Must have a real-valued floating-point data type.
     n: int
         length of the transformed axis of the **input**. If
 
