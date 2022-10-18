@@ -229,7 +229,7 @@ class _array():
         Parameters
         ----------
         self: array
-            zero-dimensional array instance. Must have a boolean data type.
+            zero-dimensional array instance. Should have a boolean data type.
 
         Returns
         -------
@@ -244,7 +244,7 @@ class _array():
         Parameters
         ----------
         self: array
-            zero-dimensional array instance. Must have a complex data type.
+            zero-dimensional array instance. Should have a complex data type.
 
         Returns
         -------
@@ -361,7 +361,7 @@ class _array():
         Parameters
         ----------
         self: array
-            zero-dimensional array instance. Must have a real-valued floating-point data type.
+            zero-dimensional array instance. Should have a real-valued floating-point data type.
 
         Returns
         -------
@@ -498,7 +498,7 @@ class _array():
         Parameters
         ----------
         self: array
-            zero-dimensional array instance. Must have an integer data type.
+            zero-dimensional array instance. Should have an integer data type.
 
         Returns
         -------
@@ -513,7 +513,7 @@ class _array():
         Parameters
         ----------
         self: array
-            zero-dimensional array instance. Must have an integer data type.
+            zero-dimensional array instance. Should have an integer data type.
 
         Returns
         -------
