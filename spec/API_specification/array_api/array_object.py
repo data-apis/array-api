@@ -237,6 +237,21 @@ class _array():
             a Python ``bool`` object representing the single element of the array.
         """
 
+    def __complex__(self: array, /) -> bool:
+        """
+        Converts a zero-dimensional complex array to a Python ``complex`` object.
+
+        Parameters
+        ----------
+        self: array
+            zero-dimensional array instance. Must have a complex data type.
+
+        Returns
+        -------
+        out: complex
+            a Python ``complex`` object representing the single element of the array.
+        """
+
     def __dlpack__(self: array, /, *, stream: Optional[Union[int, Any]] = None) -> PyCapsule:
         """
         Exports the array for consumption by :func:`~array_api.from_dlpack` as a DLPack capsule.
