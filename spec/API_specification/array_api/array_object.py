@@ -290,6 +290,15 @@ class _array():
         -------
         capsule: PyCapsule
             a DLPack capsule for the array. See :ref:`data-interchange` for details.
+
+        Raises
+        ------
+        BufferError
+            Implementations should raise ``BufferError`` when the data cannot
+            cannot be exported as DLPack (e.g. incompatible dtype or strides).
+            Other errors are raised when export fails for other reasons
+            (e.g. incorrect arguments passed or out of memory).
+
         """
 
     def __dlpack_device__(self: array, /) -> Tuple[Enum, int]:
