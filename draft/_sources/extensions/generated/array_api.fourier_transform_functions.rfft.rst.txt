@@ -1,0 +1,6 @@
+﻿.. currentmodule:: array_api.fourier_transform_functions
+
+rfft
+====
+
+.. autofunction:: rfft

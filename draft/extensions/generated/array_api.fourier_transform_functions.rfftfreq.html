@@ -49,7 +49,7 @@
     <link rel="apple-touch-icon" href="../../_static/images/apple-icon-152x152.png"/>
   
   
-    <title>svd &#8212; Python array API standard 2022.05-DRAFT documentation</title>
+    <title>rfftfreq &#8212; Python array API standard 2022.05-DRAFT documentation</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/material.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
@@ -61,8 +61,8 @@
     <script src="../../_static/copybutton.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="svdvals" href="array_api.linalg.svdvals.html" />
-    <link rel="prev" title="solve" href="array_api.linalg.solve.html" />
+    <link rel="next" title="fftshift" href="array_api.fourier_transform_functions.fftshift.html" />
+    <link rel="prev" title="fftfreq" href="array_api.fourier_transform_functions.fftfreq.html" />
   
     <link rel="apple-touch-icon" href="../../_static/images/apple-icon-152x152.png"/>
   
@@ -83,7 +83,7 @@
   <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer">
   <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search">
   <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
-  <a href="#extensions/generated/array_api.linalg.svd" tabindex="1" class="md-skip"> Skip to content </a>
+  <a href="#extensions/generated/array_api.fourier_transform_functions.rfftfreq" tabindex="1" class="md-skip"> Skip to content </a>
   <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
     <div class="md-flex navheader">
@@ -101,7 +101,7 @@
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           <span class="md-header-nav__topic">Python array API standard 2022.05-DRAFT</span>
-          <span class="md-header-nav__topic"> svd </span>
+          <span class="md-header-nav__topic"> rfftfreq </span>
         </div>
       </div>
       <div class="md-flex__cell md-flex__cell--shrink">
@@ -162,7 +162,7 @@
             
             <li class="md-tabs__item"><a href="https://data-apis.org" class="md-tabs__link">Consortium for Python Data API Standards</a></li>
           <li class="md-tabs__item"><a href="../index.html" class="md-tabs__link">Extensions</a></li>
-          <li class="md-tabs__item"><a href="../linear_algebra_functions.html" class="md-tabs__link">Linear Algebra Extension</a></li>
+          <li class="md-tabs__item"><a href="../fourier_transform_functions.html" class="md-tabs__link">Fourier transform Functions</a></li>
       </ul>
     </div>
   </nav>
@@ -307,31 +307,27 @@
         <div class="md-content">
           <article class="md-content__inner md-typeset" role="main">
             
-  <section id="svd">
-<h1 id="extensions-generated-array-api-linalg-svd--page-root">svd<a class="headerlink" href="#extensions-generated-array-api-linalg-svd--page-root" title="Permalink to this headline">¶</a></h1>
+  <section id="rfftfreq">
+<h1 id="extensions-generated-array-api-fourier-transform-functions-rfftfreq--page-root">rfftfreq<a class="headerlink" href="#extensions-generated-array-api-fourier-transform-functions-rfftfreq--page-root" title="Permalink to this headline">¶</a></h1>
 <dl class="py function">
-<dt class="sig sig-object py" id="array_api.linalg.svd">
-<span class="sig-name descname"><span class="pre">svd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">full_matrices</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">array</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">array</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#array_api.linalg.svd" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a singular value decomposition A = USVh of a matrix (or a stack of matrices) <code class="docutils literal notranslate"><span class="pre">x</span></code>, where <code class="docutils literal notranslate"><span class="pre">U</span></code> is a matrix (or a stack of matrices) with orthonormal columns, <code class="docutils literal notranslate"><span class="pre">S</span></code> is a vector of non-negative numbers (or stack of vectors), and <code class="docutils literal notranslate"><span class="pre">Vh</span></code> is a matrix (or a stack of matrices) with orthonormal rows.</p>
-<dl class="field-list">
+<dt class="sig sig-object py" id="array_api.fourier_transform_functions.rfftfreq">
+<span class="sig-name descname"><span class="pre">rfftfreq</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1.0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">array</span></span></span><a class="headerlink" href="#array_api.fourier_transform_functions.rfftfreq" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the discrete Fourier transform sample frequencies (for <code class="docutils literal notranslate"><span class="pre">rfft</span></code> and <code class="docutils literal notranslate"><span class="pre">irfft</span></code>).</p>
+<p>For a Fourier transform of length <code class="docutils literal notranslate"><span class="pre">n</span></code> and length unit of <code class="docutils literal notranslate"><span class="pre">d</span></code> the frequencies are described as:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span>     <span class="n">n</span><span class="o">/</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span>     <span class="n">n</span><span class="o">/</span><span class="mi">2</span><span class="p">]</span> <span class="o">/</span> <span class="p">(</span><span class="n">d</span><span class="o">*</span><span class="n">n</span><span class="p">)</span>  <span class="c1"># if n is even</span>
+<span class="n">f</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">]</span> <span class="o">/</span> <span class="p">(</span><span class="n">d</span><span class="o">*</span><span class="n">n</span><span class="p">)</span>  <span class="c1"># if n is odd</span>
+</pre></div>
+</div>
+<p>The Nyquist frequency component is considered to be positive.</p>
+<dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>x</strong> (<em>array</em>) – input array having shape <code class="docutils literal notranslate"><span class="pre">(...,</span> <span class="pre">M,</span> <span class="pre">N)</span></code> and whose innermost two dimensions form matrices on which to perform singular value decomposition. Should have a real-valued floating-point data type.</p></li>
-<li><p><strong>full_matrices</strong> (<em>bool</em>) – If <code class="docutils literal notranslate"><span class="pre">True</span></code>, compute full-sized <code class="docutils literal notranslate"><span class="pre">U</span></code> and <code class="docutils literal notranslate"><span class="pre">Vh</span></code>, such that <code class="docutils literal notranslate"><span class="pre">U</span></code> has shape <code class="docutils literal notranslate"><span class="pre">(...,</span> <span class="pre">M,</span> <span class="pre">M)</span></code> and <code class="docutils literal notranslate"><span class="pre">Vh</span></code> has shape <code class="docutils literal notranslate"><span class="pre">(...,</span> <span class="pre">N,</span> <span class="pre">N)</span></code>. If <code class="docutils literal notranslate"><span class="pre">False</span></code>, compute on the leading <code class="docutils literal notranslate"><span class="pre">K</span></code> singular vectors, such that <code class="docutils literal notranslate"><span class="pre">U</span></code> has shape <code class="docutils literal notranslate"><span class="pre">(...,</span> <span class="pre">M,</span> <span class="pre">K)</span></code> and <code class="docutils literal notranslate"><span class="pre">Vh</span></code> has shape <code class="docutils literal notranslate"><span class="pre">(...,</span> <span class="pre">K,</span> <span class="pre">N)</span></code> and where <code class="docutils literal notranslate"><span class="pre">K</span> <span class="pre">=</span> <span class="pre">min(M,</span> <span class="pre">N)</span></code>. Default: <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p></li>
+<li><p><strong>n</strong> (<em>int</em>) – window length.</p></li>
+<li><p><strong>d</strong> (<em>float</em>) – sample spacing between individual samples of the Fourier transform input. Default: <code class="docutils literal notranslate"><span class="pre">1.0</span></code>.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><ul>
-<li><p><strong>..</strong> – NOTE: once complex numbers are supported, each square matrix must be Hermitian.</p></li>
-<li><p><strong>out</strong> (<em>Union[array, Tuple[array, …]]</em>) – a namedtuple <code class="docutils literal notranslate"><span class="pre">(U,</span> <span class="pre">S,</span> <span class="pre">Vh)</span></code> whose</p>
-<ul class="simple">
-<li><p>first element must have the field name <code class="docutils literal notranslate"><span class="pre">U</span></code> and must be an array whose shape depends on the value of <code class="docutils literal notranslate"><span class="pre">full_matrices</span></code> and contain matrices with orthonormal columns (i.e., the columns are left singular vectors). If <code class="docutils literal notranslate"><span class="pre">full_matrices</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code>, the array must have shape <code class="docutils literal notranslate"><span class="pre">(...,</span> <span class="pre">M,</span> <span class="pre">M)</span></code>. If <code class="docutils literal notranslate"><span class="pre">full_matrices</span></code> is <code class="docutils literal notranslate"><span class="pre">False</span></code>, the array must have shape <code class="docutils literal notranslate"><span class="pre">(...,</span> <span class="pre">M,</span> <span class="pre">K)</span></code>, where <code class="docutils literal notranslate"><span class="pre">K</span> <span class="pre">=</span> <span class="pre">min(M,</span> <span class="pre">N)</span></code>. The first <code class="docutils literal notranslate"><span class="pre">x.ndim-2</span></code> dimensions must have the same shape as those of the input <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></li>
-<li><p>second element must have the field name <code class="docutils literal notranslate"><span class="pre">S</span></code> and must be an array with shape <code class="docutils literal notranslate"><span class="pre">(...,</span> <span class="pre">K)</span></code> that contains the vector(s) of singular values of length <code class="docutils literal notranslate"><span class="pre">K</span></code>, where <code class="docutils literal notranslate"><span class="pre">K</span> <span class="pre">=</span> <span class="pre">min(M,</span> <span class="pre">N)</span></code>. For each vector, the singular values must be sorted in descending order by magnitude, such that <code class="docutils literal notranslate"><span class="pre">s[...,</span> <span class="pre">0]</span></code> is the largest value, <code class="docutils literal notranslate"><span class="pre">s[...,</span> <span class="pre">1]</span></code> is the second largest value, et cetera. The first <code class="docutils literal notranslate"><span class="pre">x.ndim-2</span></code> dimensions must have the same shape as those of the input <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></li>
-<li><p>third element must have the field name <code class="docutils literal notranslate"><span class="pre">Vh</span></code> and must be an array whose shape depends on the value of <code class="docutils literal notranslate"><span class="pre">full_matrices</span></code> and contain orthonormal rows (i.e., the rows are the right singular vectors and the array is the adjoint). If <code class="docutils literal notranslate"><span class="pre">full_matrices</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code>, the array must have shape <code class="docutils literal notranslate"><span class="pre">(...,</span> <span class="pre">N,</span> <span class="pre">N)</span></code>. If <code class="docutils literal notranslate"><span class="pre">full_matrices</span></code> is <code class="docutils literal notranslate"><span class="pre">False</span></code>, the array must have shape <code class="docutils literal notranslate"><span class="pre">(...,</span> <span class="pre">K,</span> <span class="pre">N)</span></code> where <code class="docutils literal notranslate"><span class="pre">K</span> <span class="pre">=</span> <span class="pre">min(M,</span> <span class="pre">N)</span></code>. The first <code class="docutils literal notranslate"><span class="pre">x.ndim-2</span></code> dimensions must have the same shape as those of the input <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></li>
-</ul>
-<p>Each returned array must have the same real-valued floating-point data type as <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
-</li>
-</ul>
+<dd class="field-even"><p><strong>out</strong> (<em>array</em>) – an array of length <code class="docutils literal notranslate"><span class="pre">n//2+1</span></code> containing the sample frequencies. The returned array must have a real-valued floating-point data type determined by <a class="reference internal" href="../../API_specification/type_promotion.html#type-promotion"><span class="std std-ref">Type Promotion Rules</span></a>.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -347,7 +343,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
           
-            <a href="array_api.linalg.solve.html" title="solve"
+            <a href="array_api.fourier_transform_functions.fftfreq.html" title="fftfreq"
                class="md-flex md-footer-nav__link md-footer-nav__link--prev"
                rel="prev">
               <div class="md-flex__cell md-flex__cell--shrink">
@@ -356,17 +352,17 @@
               <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
                 <span class="md-flex__ellipsis">
                   <span
-                      class="md-footer-nav__direction"> Previous </span> solve </span>
+                      class="md-footer-nav__direction"> Previous </span> fftfreq </span>
               </div>
             </a>
           
           
-            <a href="array_api.linalg.svdvals.html" title="svdvals"
+            <a href="array_api.fourier_transform_functions.fftshift.html" title="fftshift"
                class="md-flex md-footer-nav__link md-footer-nav__link--next"
                rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
                 class="md-flex__ellipsis"> <span
-                class="md-footer-nav__direction"> Next </span> svdvals </span>
+                class="md-footer-nav__direction"> Next </span> fftshift </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink"><i
                 class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
