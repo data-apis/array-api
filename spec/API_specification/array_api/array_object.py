@@ -224,12 +224,15 @@ class _array():
 
     def __bool__(self: array, /) -> bool:
         """
-        Converts a zero-dimensional boolean array to a Python ``bool`` object.
+        Converts a zero-dimensional array to a Python ``bool`` object.
+
+        .. note::
+           When casting a real-valued input array to ``bool``, a value of ``0`` must cast to ``False``, and a non-zero value must cast to ``True``.
 
         Parameters
         ----------
         self: array
-            zero-dimensional array instance. Should have a boolean data type.
+            zero-dimensional array instance.
 
         Returns
         -------
@@ -237,19 +240,22 @@ class _array():
             a Python ``bool`` object representing the single element of the array.
         """
 
-    def __complex__(self: array, /) -> bool:
+    def __complex__(self: array, /) -> complex:
         """
-        Converts a zero-dimensional complex array to a Python ``complex`` object.
+        Converts a zero-dimensional array to a Python ``complex`` object.
+
+        .. note::
+           When casting a boolean input array, a value of ``True`` must cast to ``1``, and a value of ``False`` must cast to ``0``.
 
         Parameters
         ----------
         self: array
-            zero-dimensional array instance. Should have a complex data type.
+            zero-dimensional array instance.
 
         Returns
         -------
         out: complex
-            a Python ``complex`` object representing the single element of the array.
+            a Python ``complex`` object representing the single element of the array. If ``self`` has a real-valued or boolean data type, ``out`` must represent the element of ``self`` in the real component.
         """
 
     def __dlpack__(self: array, /, *, stream: Optional[Union[int, Any]] = None) -> PyCapsule:
@@ -356,12 +362,18 @@ class _array():
 
     def __float__(self: array, /) -> float:
         """
-        Converts a zero-dimensional floating-point array to a Python ``float`` object.
+        Converts a zero-dimensional array to a Python ``float`` object.
+
+        .. note::
+           Casting integer values outside the representable bounds of Python's float type is not specified and is implementation-dependent.
+
+        .. note::
+           When casting a boolean input array, a value of ``True`` must cast to ``1``, and a value of ``False`` must cast to ``0``.
 
         Parameters
         ----------
         self: array
-            zero-dimensional array instance. Should have a real-valued floating-point data type.
+            zero-dimensional array instance. Should have a real-valued or boolean data type. If ``self`` has a complex data type, the function must raise a ``TypeError``.
 
         Returns
         -------
@@ -488,9 +500,9 @@ class _array():
            Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.greater`.
         """
 
-    def __index__(self: array, /) -> int:
+    def __index__(self: array, /) -> Union[int, bool]:
         """
-        Converts a zero-dimensional integer array to a Python ``int`` object.
+        Converts a zero-dimensional array to a Python object used in indexing.
 
         .. note::
            This method is called to implement `operator.index() <https://docs.python.org/3/reference/datamodel.html#object.__index__>`_. See also `PEP 357 <https://www.python.org/dev/peps/pep-0357/>`_.
@@ -498,27 +510,47 @@ class _array():
         Parameters
         ----------
         self: array
-            zero-dimensional array instance. Should have an integer data type.
+            zero-dimensional array instance. Should have an integer or boolean data type. If ``self`` has a floating-point or complex data type, the function must raise a ``TypeError``.
 
         Returns
         -------
-        out: int
-            a Python ``int`` object representing the single element of the array instance.
+        out: Union[int, bool]
+            a Python object representing the single element of the array instance. If ``self`` has an integer data type, ``out`` must be a Python ``int`` object. If ``self`` has a boolean data type, ``out`` must be a Python ``bool`` object.
         """
 
     def __int__(self: array, /) -> int:
         """
-        Converts a zero-dimensional integer array to a Python ``int`` object.
+        Converts a zero-dimensional array to a Python ``int`` object.
+
+        .. note::
+           Casting floating-point values outside the representable bounds of Python's non-arbitary integer type is not specified and is implementation-dependent.
+
+        .. note::
+           When casting a boolean input array, a value of ``True`` must cast to ``1``, and a value of ``False`` must cast to ``0``.
+
+        **Special cases**
+
+        For floating-point operands,
+
+        - If ``self`` is a finite number, the result is the integer part of ``self``.
 
         Parameters
         ----------
         self: array
-            zero-dimensional array instance. Should have an integer data type.
+            zero-dimensional array instance. Should have a real-valued or boolean data type. If ``self`` has a complex data type, the function must raise a ``TypeError``.
 
         Returns
         -------
         out: int
             a Python ``int`` object representing the single element of the array instance.
+
+
+        **Raises**
+
+        For floating-point operands,
+
+        - If ``self`` is either ``+infinity`` or ``-infinity``, raise ``OverflowError``.
+        - If ``self`` is ``NaN``, raise ``ValueError``.
         """
 
     def __invert__(self: array, /) -> array:
