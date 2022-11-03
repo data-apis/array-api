@@ -1,4 +1,4 @@
-from ._types import Literal, Optional, Tuple, Union, Sequence, array
+from ._types import Literal, Optional, Tuple, Union, Sequence, array, dtype
 from .constants import inf
 
 def cholesky(x: array, /, *, upper: bool = False) -> array:
@@ -440,6 +440,16 @@ def tensordot(x1: array, x2: array, /, *, axes: Union[int, Tuple[Sequence[int], 
 def trace(x: array, /, *, offset: int = 0, dtype: Optional[dtype] = None) -> array:
     """
     Returns the sum along the specified diagonals of a matrix (or a stack of matrices) ``x``.
+
+    **Special Cases**
+
+    Let ``N`` equal the number of elements over which to compute the sum.
+
+    -   If ``N`` is ``0``, the sum is ``0`` (i.e., the empty sum).
+
+    For floating-point operands,
+
+    -   If ``x_i`` is ``NaN``, the sum is ``NaN`` (i.e., ``NaN`` values propagate).
 
     Parameters
     ----------
