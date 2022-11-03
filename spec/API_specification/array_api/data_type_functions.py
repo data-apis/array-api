@@ -10,9 +10,7 @@ def astype(x: array, dtype: dtype, /, *, copy: bool = True) -> array:
     .. note::
        Casting a complex floating-point array to a real-valued data type should not be permitted.
 
-       Historically, libraries such as NumPy have discarded imaginary components such that, for a complex floating-point array ``x``, ``astype(x)`` equals ``astype(real(x))``). This behavior is not considered desirable
-
-       More generally, the result of casting a complex floating-point array ``x`` to a real-valued data type must be equal to the result of casting a real-valued floating-point array containing only the real components of ``x``.
+       Historically, when casting a complex floating-point array to a real-valued data type, libraries such as NumPy have discarded imaginary components such that, for a complex floating-point array ``x``, ``astype(x)`` equals ``astype(real(x))``). This behavior is considered problematic as the choice to discard the imaginary component is arbitrary and introduces more than one way to achieve the same outcome (i.e., for a complex floating-point array ``x``, ``astype(x)`` and ``astype(real(x))`` versus only ``astype(imag(x))``). Instead, in order to avoid ambiguity and to promote clarity, this specification requires that array API consumers explicitly express which component should be cast to a specified real-valued data type.
 
     .. note::
        When casting a boolean input array to a real-valued data type, a value of ``True`` must cast to a real-valued number equal to ``1``, and a value of ``False`` must cast to a real-valued number equal to ``0``.
@@ -31,7 +29,7 @@ def astype(x: array, dtype: dtype, /, *, copy: bool = True) -> array:
     dtype: dtype
         desired data type.
     copy: bool
-        specifies whether to copy an array when the specified ``dtype`` matches the data type of the input array ``x``. If ``True``, a newly allocated array must always be returned. If ``False`` and the specified ``dtype`` matches the data type of the input array, the input array must be returned; otherwise, a newly allocated must be returned. Default: ``True``.
+        specifies whether to copy an array when the specified ``dtype`` matches the data type of the input array ``x``. If ``True``, a newly allocated array must always be returned. If ``False`` and the specified ``dtype`` matches the data type of the input array, the input array must be returned; otherwise, a newly allocated array must be returned. Default: ``True``.
 
     Returns
     -------
