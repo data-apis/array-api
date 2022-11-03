@@ -227,7 +227,7 @@ class _array():
         Converts a zero-dimensional array to a Python ``bool`` object.
 
         .. note::
-           When casting a real-valued input array to ``bool``, a value equal to ``0`` must cast to ``False``, and a value not equal to ``0`` must cast to ``True``.
+           When casting a numeric input array to ``bool``, a value equal to ``0`` must cast to ``False``, and a value not equal to ``0`` must cast to ``True``.
 
         Parameters
         ----------
