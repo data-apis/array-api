@@ -22,4 +22,5 @@ Objects in API
    can_cast
    finfo
    iinfo
+   is_type
    result_type
