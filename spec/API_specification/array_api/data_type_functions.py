@@ -1,4 +1,4 @@
-from ._types import Union, array, dtype, finfo_object, iinfo_object
+from ._types import Union, Tuple, array, dtype, finfo_object, iinfo_object
 
 def astype(x: array, dtype: dtype, /, *, copy: bool = True) -> array:
     """
@@ -117,7 +117,7 @@ def iinfo(type: Union[dtype, array], /) -> iinfo_object:
           integer data type.
     """
 
-def is_type(dtype: dtype, kind: Union[dtype, str, tuple[Union[dtype, str], ...]]) -> bool:
+def is_type(dtype: dtype, kind: Union[dtype, str, Tuple[Union[dtype, str], ...]]) -> bool:
     """
     Returns a boolean indicating whether a provided dtype is of a specified data type "kind".
 
@@ -125,7 +125,7 @@ def is_type(dtype: dtype, kind: Union[dtype, str, tuple[Union[dtype, str], ...]]
     ----------
     dtype: dtype
         the input dtype.
-    kind: Union[str, dtype, tuple[Union[str, dtype], ...]]
+    kind: Union[str, dtype, Tuple[Union[str, dtype], ...]]
         data type kind.
 
         -   If ``kind`` is a dtype, the function must return a boolean indicating whether the input ``dtype`` is equal to the dtype specified by ``kind``.
