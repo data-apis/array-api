@@ -245,7 +245,7 @@ class _array():
         Converts a zero-dimensional array to a Python ``complex`` object.
 
         .. note::
-           When casting a boolean input array, a value of ``True`` must cast to ``1``, and a value of ``False`` must cast to ``0``.
+           When casting a boolean input array, a value of ``True`` must cast to ``1+0j``, and a value of ``False`` must cast to ``0+0j``.
 
         Parameters
         ----------
