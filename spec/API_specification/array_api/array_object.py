@@ -523,9 +523,6 @@ class _array():
         Converts a zero-dimensional array to a Python ``int`` object.
 
         .. note::
-           Casting floating-point values outside the representable bounds of Python's non-arbitary integer type is not specified and is implementation-dependent.
-
-        .. note::
            When casting a boolean input array, a value of ``True`` must cast to ``1``, and a value of ``False`` must cast to ``0``.
 
         **Special cases**
