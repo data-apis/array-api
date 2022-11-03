@@ -8,7 +8,9 @@ def astype(x: array, dtype: dtype, /, *, copy: bool = True) -> array:
        Casting floating-point ``NaN`` and ``infinity`` values to integral data types is not specified and is implementation-dependent.
 
     .. note::
-       When casting a complex floating-point array to a real-valued data type, imaginary components must be discarded (i.e., for a complex floating-point array ``x``, ``astype(x)`` must equal ``astype(real(x))``).
+       Casting a complex floating-point array to a real-valued data type should not be permitted.
+
+       Historically, libraries such as NumPy have discarded imaginary components such that, for a complex floating-point array ``x``, ``astype(x)`` equals ``astype(real(x))``). This behavior is not considered desirable
 
        More generally, the result of casting a complex floating-point array ``x`` to a real-valued data type must be equal to the result of casting a real-valued floating-point array containing only the real components of ``x``.
 
