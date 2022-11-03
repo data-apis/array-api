@@ -117,6 +117,36 @@ def iinfo(type: Union[dtype, array], /) -> iinfo_object:
           integer data type.
     """
 
+def is_type(dtype: dtype, kind: Union[dtype, str, tuple[Union[dtype, str], ...]]) -> bool:
+    """
+    Returns a boolean indicating whether a provided dtype is of a specified data type "kind".
+
+    Parameters
+    ----------
+    dtype: dtype
+        the input dtype.
+    kind: Union[str, dtype, tuple[Union[str, dtype], ...]]
+        data type kind.
+
+        -   If ``kind`` is a dtype, the function must return a boolean indicating whether the input ``dtype`` is equal to the dtype specified by ``kind``.
+        -   If ``kind`` is a string, the function must return a boolean indicating whether the input ``dtype`` is of a specified data type kind. The following dtype kinds must be supported:
+
+            -   **bool**: boolean data types (e.g., ``bool``).
+            -   **signed integer**: signed integer data types (e.g., ``int8``, ``int16``, ``int32``, ``int64``). 
+            -   **unsigned integer**: unsigned integer data types (e.g., ``uint8``, ``uint16``, ``uint32``, ``uint64``).
+            -   **integer**: integer data types. Shorthand for ``('signed integer', 'unsigned integer')``.
+            -   **real**: real-valued floating-point data types (e.g., ``float32``, ``float64``).
+            -   **complex**: complex floating-point data types (e.g., ``complex64``, ``complex128``).
+            -   **numeric**: numeric data types. Shorthand for ``('integer', 'real', 'complex')``.
+
+        -   If ``kind`` is a tuple, the tuple specifies a union of dtypes and/or kinds, and the function must return a boolean indicating whether the input ``dtype`` is either equal to a specified dtype or belongs to at least one specified data type kind.
+
+    Returns
+    -------
+    out: bool
+        boolean indicating whether a provided dtype is of a specified data type kind.
+    """
+
 def result_type(*arrays_and_dtypes: Union[array, dtype]) -> dtype:
     """
     Returns the dtype that results from applying the type promotion rules (see :ref:`type-promotion`) to the arguments.
@@ -135,4 +165,4 @@ def result_type(*arrays_and_dtypes: Union[array, dtype]) -> dtype:
         the dtype resulting from an operation involving the input arrays and dtypes.
     """
 
-__all__ = ['astype', 'can_cast', 'finfo', 'iinfo', 'result_type']
+__all__ = ['astype', 'can_cast', 'finfo', 'iinfo', 'is_type', 'result_type']
