@@ -12,6 +12,7 @@ from .sorting_functions import *
 from .statistical_functions import *
 from .utility_functions import *
 from . import linalg
+from . import fft
 
 
 __array_api_version__: str = "YYYY.MM"
