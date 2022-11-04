@@ -1,6 +1,0 @@
-﻿.. currentmodule:: array_api.fourier_transform_functions
-
-ihfft
-=====
-
-.. autofunction:: ihfft
