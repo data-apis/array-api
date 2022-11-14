@@ -311,8 +311,17 @@
 <h1 id="extensions-generated-array-api-linalg-trace--page-root">trace<a class="headerlink" href="#extensions-generated-array-api-linalg-trace--page-root" title="Permalink to this headline">¶</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="array_api.linalg.trace">
-<span class="sig-name descname"><span class="pre">trace</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">array</span></span></span><a class="headerlink" href="#array_api.linalg.trace" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">trace</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offset</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">dtype</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">array</span></span></span><a class="headerlink" href="#array_api.linalg.trace" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the sum along the specified diagonals of a matrix (or a stack of matrices) <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<p><strong>Special Cases</strong></p>
+<p>Let <code class="docutils literal notranslate"><span class="pre">N</span></code> equal the number of elements over which to compute the sum.</p>
+<ul class="simple">
+<li><p>If <code class="docutils literal notranslate"><span class="pre">N</span></code> is <code class="docutils literal notranslate"><span class="pre">0</span></code>, the sum is <code class="docutils literal notranslate"><span class="pre">0</span></code> (i.e., the empty sum).</p></li>
+</ul>
+<p>For floating-point operands,</p>
+<ul class="simple">
+<li><p>If <code class="docutils literal notranslate"><span class="pre">x_i</span></code> is <code class="docutils literal notranslate"><span class="pre">NaN</span></code>, the sum is <code class="docutils literal notranslate"><span class="pre">NaN</span></code> (i.e., <code class="docutils literal notranslate"><span class="pre">NaN</span></code> values propagate).</p></li>
+</ul>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -325,6 +334,19 @@
 </ul>
 <p>Default: <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p>
 </p></li>
+<li><p><strong>dtype</strong> (<em>Optional</em><em>[</em><em>dtype</em><em>]</em>) – <p>data type of the returned array. If <code class="docutils literal notranslate"><span class="pre">None</span></code>,</p>
+<ul>
+<li><p>if the default data type corresponding to the data type “kind” (integer or floating-point) of <code class="docutils literal notranslate"><span class="pre">x</span></code> has a smaller range of values than the data type of <code class="docutils literal notranslate"><span class="pre">x</span></code> (e.g., <code class="docutils literal notranslate"><span class="pre">x</span></code> has data type <code class="docutils literal notranslate"><span class="pre">int64</span></code> and the default data type is <code class="docutils literal notranslate"><span class="pre">int32</span></code>, or <code class="docutils literal notranslate"><span class="pre">x</span></code> has data type <code class="docutils literal notranslate"><span class="pre">uint64</span></code> and the default data type is <code class="docutils literal notranslate"><span class="pre">int64</span></code>), the returned array must have the same data type as <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></li>
+<li><p>if <code class="docutils literal notranslate"><span class="pre">x</span></code> has a real-valued floating-point data type, the returned array must have the default real-valued floating-point data type.</p></li>
+<li><p>if <code class="docutils literal notranslate"><span class="pre">x</span></code> has a signed integer data type (e.g., <code class="docutils literal notranslate"><span class="pre">int16</span></code>), the returned array must have the default integer data type.</p></li>
+<li><p>if <code class="docutils literal notranslate"><span class="pre">x</span></code> has an unsigned integer data type (e.g., <code class="docutils literal notranslate"><span class="pre">uint16</span></code>), the returned array must have an unsigned integer data type having the same number of bits as the default integer data type (e.g., if the default integer data type is <code class="docutils literal notranslate"><span class="pre">int32</span></code>, the returned array must have a <code class="docutils literal notranslate"><span class="pre">uint32</span></code> data type).</p></li>
+</ul>
+<p>If the data type (either specified or resolved) differs from the data type of <code class="docutils literal notranslate"><span class="pre">x</span></code>, the input array should be cast to the specified data type before computing the sum. Default: <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>keyword argument is intended to help prevent data type overflows.</p>
+</div>
+</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -332,7 +354,7 @@
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">out</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">l</span><span class="p">]</span> <span class="o">=</span> <span class="n">trace</span><span class="p">(</span><span class="n">a</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span> <span class="n">l</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:])</span>
 </pre></div>
 </div>
-<p>The returned array must have the same data type as <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<p>The returned array must have a data type as described by the <code class="docutils literal notranslate"><span class="pre">dtype</span></code> parameter above.</p>
 </dd>
 </dl>
 </dd></dl>
