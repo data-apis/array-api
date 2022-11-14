@@ -431,7 +431,7 @@ def fftfreq(n: int, /, *, d: float = 1.0, dtype: Optional[dtype] = None, device:
     d: float
         sample spacing between individual samples of the Fourier transform input. Default: ``1.0``.
     dtype: Optional[dtype]
-        output array data type. If ``dtype`` is ``None``, the output array data type must be the default real-valued floating-point data type. Default: ``None``.
+        output array data type. Must be a floating-point data type. If ``dtype`` is ``None``, the output array data type must be the default real-valued floating-point data type. Default: ``None``.
     device: Optional[device]
         device on which to place the created array. Default: ``None``.
 
@@ -462,7 +462,7 @@ def rfftfreq(n: int, /, *, d: float = 1.0, dtype: Optional[dtype] = None, device
     d: float
         sample spacing between individual samples of the Fourier transform input. Default: ``1.0``.
     dtype: Optional[dtype]
-        output array data type. If ``dtype`` is ``None``, the output array data type must be the default real-valued floating-point data type. Default: ``None``.
+        output array data type. Must be a floating-point data type. If ``dtype`` is ``None``, the output array data type must be the default real-valued floating-point data type. Default: ``None``.
     device: Optional[device]
         device on which to place the created array. Default: ``None``.
 
