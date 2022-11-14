@@ -471,6 +471,12 @@ cost of more synchronization than necessary.</p>
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p><strong>capsule</strong> (<em>PyCapsule</em>) – a DLPack capsule for the array. See <a class="reference internal" href="../../design_topics/data_interchange.html#data-interchange"><span class="std std-ref">Data interchange mechanisms</span></a> for details.</p>
 </dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>BufferError</strong> – Implementations should raise <code class="docutils literal notranslate"><span class="pre">BufferError</span></code> when the data cannot
+    be exported as DLPack (e.g., incompatible dtype or strides). Other
+    errors are raised when export fails for other reasons (e.g., incorrect
+    arguments passed or out of memory).</p>
+</dd>
 </dl>
 </dd></dl>
 </section>
