@@ -530,6 +530,7 @@ class _array():
         For floating-point operands,
 
         - If ``self`` is a finite number, the result is the integer part of ``self``.
+        - If ``self`` is ``-0``, the result is ``0``.
 
         Parameters
         ----------
