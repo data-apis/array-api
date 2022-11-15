@@ -227,7 +227,7 @@ class _array():
         Converts a zero-dimensional array to a Python ``bool`` object.
 
         .. note::
-           When casting a numeric input array to ``bool``, a value equal to ``0`` must cast to ``False``, and a value not equal to ``0`` must cast to ``True``.
+           If ``self`` has a numeric data type, a value equal to ``0`` must cast to ``False``, and a value not equal to ``0`` must cast to ``True``.
 
         Parameters
         ----------
@@ -245,7 +245,7 @@ class _array():
         Converts a zero-dimensional array to a Python ``complex`` object.
 
         .. note::
-           When casting a boolean input array, a value of ``True`` must cast to ``1+0j``, and a value of ``False`` must cast to ``0+0j``.
+           If ``self`` has a boolean data type, a value of ``True`` must cast to ``1+0j``, and a value of ``False`` must cast to ``0+0j``.
 
         Parameters
         ----------
@@ -255,7 +255,7 @@ class _array():
         Returns
         -------
         out: complex
-            a Python ``complex`` object representing the single element of the array. If ``self`` has a real-valued or boolean data type, ``out`` must represent the element of ``self`` in the real component.
+            a Python ``complex`` object representing the single element of the array instance. If ``self`` has a real-valued or boolean data type, the real component of the return value must equal the element of ``self`` and the imaginary component must be ``0``.
         """
 
     def __dlpack__(self: array, /, *, stream: Optional[Union[int, Any]] = None) -> PyCapsule:
@@ -368,12 +368,12 @@ class _array():
            Casting integer values outside the representable bounds of Python's float type is not specified and is implementation-dependent.
 
         .. note::
-           When casting a boolean input array, a value of ``True`` must cast to ``1``, and a value of ``False`` must cast to ``0``.
+           If ``self`` has a boolean data type, a value of ``True`` must cast to ``1``, and a value of ``False`` must cast to ``0``.
 
         Parameters
         ----------
         self: array
-            zero-dimensional array instance. Should have a real-valued or boolean data type. If ``self`` has a complex data type, the function must raise a ``TypeError``.
+            zero-dimensional array instance. Should have a real-valued or boolean data type. If ``self`` has a complex floating-point data type, the function must raise a ``TypeError``.
 
         Returns
         -------
@@ -510,7 +510,7 @@ class _array():
         Parameters
         ----------
         self: array
-            zero-dimensional array instance. Should have an integer data type. If ``self`` has a floating-point or complex data type, the function must raise a ``TypeError``.
+            zero-dimensional array instance. Should have an integer data type. If ``self`` has a floating-point data type, the function must raise a ``TypeError``.
 
         Returns
         -------
@@ -523,7 +523,7 @@ class _array():
         Converts a zero-dimensional array to a Python ``int`` object.
 
         .. note::
-           When casting a boolean input array, a value of ``True`` must cast to ``1``, and a value of ``False`` must cast to ``0``.
+           If ``self`` has a boolean data type, a value of ``True`` must cast to ``1``, and a value of ``False`` must cast to ``0``.
 
         **Special cases**
 
@@ -534,7 +534,7 @@ class _array():
         Parameters
         ----------
         self: array
-            zero-dimensional array instance. Should have a real-valued or boolean data type. If ``self`` has a complex data type, the function must raise a ``TypeError``.
+            zero-dimensional array instance. Should have a real-valued or boolean data type. If ``self`` has a complex floating-point data type, the function must raise a ``TypeError``.
 
         Returns
         -------
