@@ -16,6 +16,7 @@ API specification
    elementwise_functions
    function_and_method_signatures
    indexing
+   indexing_functions
    linear_algebra_functions
    manipulation_functions
    searching_functions
