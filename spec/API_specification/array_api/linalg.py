@@ -272,7 +272,7 @@ def matrix_rank(x: array, /, *, rtol: Optional[Union[float, array]] = None) -> a
     Returns
     -------
     out: array
-        an array containing the ranks. The returned array must have a real-valued floating-point data type determined by :ref:`type-promotion` and must have shape ``(...)`` (i.e., must have a shape equal to ``shape(x)[:-2]``).
+        an array containing the ranks. The returned array must have the default integer data type and must have shape ``(...)`` (i.e., must have a shape equal to ``shape(x)[:-2]``).
     """
 
 def matrix_transpose(x: array, /) -> array:
