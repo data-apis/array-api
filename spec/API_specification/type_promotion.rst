@@ -89,32 +89,22 @@ Mixed unsigned and signed integer type promotion table
 Floating-point type promotion table
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-+--------+----+----+
-|        | f4 | f8 |
-+========+====+====+
-| **f4** | f4 | f8 |
-+--------+----+----+
-| **f8** | f8 | f8 |
-+--------+----+----+
++---------+-----+-----+-----+-----+
+|         |  f4 |  f8 |  c8 | c16 |
++=========+=====+=====+=====+=====+
+| **f4**  |  f4 |  f8 |  c8 | c16 |
++---------+-----+-----+-----+-----+
+| **f8**  |  f8 |  f8 | c16 | c16 |
++---------+-----+-----+-----+-----+
+| **c8**  |  c8 | c16 |  c8 | c16 |
++---------+-----+-----+-----+-----+
+| **c16** | c16 | c16 | c16 | c16 |
++---------+-----+-----+-----+-----+
 
 where
 
 -   **f4**: single-precision (32-bit) floating-point number (i.e., ``float32``)
 -   **f8**: double-precision (64-bit) floating-point number (i.e., ``float64``)
-
-Complex floating-point type promotion table
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-+---------+-----+-----+
-|         | c8  | c16 |
-+=========+=====+=====+
-| **c8**  | c8  | c16 |
-+---------+-----+-----+
-| **c16** | c16 | c16 |
-+---------+-----+-----+
-
-where
-
 -   **c8**: single-precision complex floating-point number (i.e., ``complex64``)
     composed of two single-precision (32-bit) floating-point numbers
 -   **c16**: double-precision complex floating-point number (i.e., ``complex128``)
