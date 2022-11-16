@@ -49,7 +49,7 @@
     <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
   
   
-    <title>Statistical Functions &#8212; Python array API standard 2022.05-DRAFT documentation</title>
+    <title>Indexing Functions &#8212; Python array API standard 2022.05-DRAFT documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/material.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
@@ -61,8 +61,8 @@
     <script src="../_static/copybutton.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="max" href="generated/array_api.max.html" />
-    <link rel="prev" title="sort" href="generated/array_api.sort.html" />
+    <link rel="next" title="take" href="generated/array_api.take.html" />
+    <link rel="prev" title="Indexing" href="indexing.html" />
   
     <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
   
@@ -83,7 +83,7 @@
   <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer">
   <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search">
   <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
-  <a href="#API_specification/statistical_functions" tabindex="1" class="md-skip"> Skip to content </a>
+  <a href="#API_specification/indexing_functions" tabindex="1" class="md-skip"> Skip to content </a>
   <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
     <div class="md-flex navheader">
@@ -101,7 +101,7 @@
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           <span class="md-header-nav__topic">Python array API standard 2022.05-DRAFT</span>
-          <span class="md-header-nav__topic"> Statistical Functions </span>
+          <span class="md-header-nav__topic"> Indexing Functions </span>
         </div>
       </div>
       <div class="md-flex__cell md-flex__cell--shrink">
@@ -301,7 +301,23 @@
     <li class="md-nav__item">
     
     
-      <a href="indexing_functions.html" class="md-nav__link">Indexing Functions</a>
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    <label class="md-nav__link md-nav__link--active" for="__toc"> Indexing Functions </label>
+    
+      <a href="#" class="md-nav__link md-nav__link--active">Indexing Functions</a>
+      
+        
+<nav class="md-nav md-nav--secondary">
+    <label class="md-nav__title" for="__toc">Contents</label>
+  <ul class="md-nav__list" data-md-scrollfix="">
+        <li class="md-nav__item"><a href="#api-specification-indexing-functions--page-root" class="md-nav__link">Indexing Functions</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#objects-in-api" class="md-nav__link">Objects in API</a>
+        </li></ul>
+            </nav>
+        </li>
+  </ul>
+</nav>
       
     
     </li>
@@ -343,23 +359,7 @@
     <li class="md-nav__item">
     
     
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    <label class="md-nav__link md-nav__link--active" for="__toc"> Statistical Functions </label>
-    
-      <a href="#" class="md-nav__link md-nav__link--active">Statistical Functions</a>
-      
-        
-<nav class="md-nav md-nav--secondary">
-    <label class="md-nav__title" for="__toc">Contents</label>
-  <ul class="md-nav__list" data-md-scrollfix="">
-        <li class="md-nav__item"><a href="#api-specification-statistical-functions--page-root" class="md-nav__link">Statistical Functions</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#objects-in-api" class="md-nav__link">Objects in API</a>
-        </li></ul>
-            </nav>
-        </li>
-  </ul>
-</nav>
+      <a href="statistical_functions.html" class="md-nav__link">Statistical Functions</a>
       
     
     </li>
@@ -433,7 +433,7 @@
 <nav class="md-nav md-nav--secondary">
     <label class="md-nav__title" for="__toc">Contents</label>
   <ul class="md-nav__list" data-md-scrollfix="">
-        <li class="md-nav__item"><a href="#api-specification-statistical-functions--page-root" class="md-nav__link">Statistical Functions</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#api-specification-indexing-functions--page-root" class="md-nav__link">Indexing Functions</a><nav class="md-nav">
               <ul class="md-nav__list">
         <li class="md-nav__item"><a href="#objects-in-api" class="md-nav__link">Objects in API</a>
         </li></ul>
@@ -448,10 +448,10 @@
         <div class="md-content">
           <article class="md-content__inner md-typeset" role="main">
             
-  <section id="statistical-functions">
-<h1 id="api-specification-statistical-functions--page-root">Statistical Functions<a class="headerlink" href="#api-specification-statistical-functions--page-root" title="Permalink to this headline">¶</a></h1>
+  <section id="indexing-functions">
+<span id="id1"></span><h1 id="api-specification-indexing-functions--page-root">Indexing Functions<a class="headerlink" href="#api-specification-indexing-functions--page-root" title="Permalink to this headline">¶</a></h1>
 <blockquote>
-<div><p>Array API specification for statistical functions.</p>
+<div><p>Array API specification for functions for indexing arrays.</p>
 </div></blockquote>
 <p>A conforming implementation of the array API standard must provide and support the following functions adhering to the following conventions.</p>
 <ul class="simple">
@@ -460,7 +460,6 @@
 <li><p>Broadcasting semantics must follow the semantics defined in <a class="reference internal" href="broadcasting.html#broadcasting"><span class="std std-ref">Broadcasting</span></a>.</p></li>
 <li><p>Unless stated otherwise, functions must support the data types defined in <a class="reference internal" href="data_types.html#data-types"><span class="std std-ref">Data Types</span></a>.</p></li>
 <li><p>Unless stated otherwise, functions must adhere to the type promotion rules defined in <a class="reference internal" href="type_promotion.html#type-promotion"><span class="std std-ref">Type Promotion Rules</span></a>.</p></li>
-<li><p>Unless stated otherwise, floating-point operations must adhere to IEEE 754-2019.</p></li>
 </ul>
 <section id="objects-in-api">
 <h2 id="objects-in-api">Objects in API<a class="headerlink" href="#objects-in-api" title="Permalink to this headline">¶</a></h2>
@@ -470,26 +469,8 @@
 <col style="width: 90%"/>
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/array_api.max.html#array_api.max" title="array_api.max"><code class="xref py py-obj docutils literal notranslate"><span class="pre">max</span></code></a>(x, /, *, axis=None, keepdims=False)</p></td>
-<td><p>Calculates the maximum value of the input array <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/array_api.mean.html#array_api.mean" title="array_api.mean"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mean</span></code></a>(x, /, *, axis=None, keepdims=False)</p></td>
-<td><p>Calculates the arithmetic mean of the input array <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/array_api.min.html#array_api.min" title="array_api.min"><code class="xref py py-obj docutils literal notranslate"><span class="pre">min</span></code></a>(x, /, *, axis=None, keepdims=False)</p></td>
-<td><p>Calculates the minimum value of the input array <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/array_api.prod.html#array_api.prod" title="array_api.prod"><code class="xref py py-obj docutils literal notranslate"><span class="pre">prod</span></code></a>(x, /, *, axis=None, dtype=None, keepdims=False)</p></td>
-<td><p>Calculates the product of input array <code class="docutils literal notranslate"><span class="pre">x</span></code> elements.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/array_api.std.html#array_api.std" title="array_api.std"><code class="xref py py-obj docutils literal notranslate"><span class="pre">std</span></code></a>(x, /, *, axis=None, correction=0.0, keepdims=False)</p></td>
-<td><p>Calculates the standard deviation of the input array <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/array_api.sum.html#array_api.sum" title="array_api.sum"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sum</span></code></a>(x, /, *, axis=None, dtype=None, keepdims=False)</p></td>
-<td><p>Calculates the sum of the input array <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/array_api.var.html#array_api.var" title="array_api.var"><code class="xref py py-obj docutils literal notranslate"><span class="pre">var</span></code></a>(x, /, *, axis=None, correction=0.0, keepdims=False)</p></td>
-<td><p>Calculates the variance of the input array <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/array_api.take.html#array_api.take" title="array_api.take"><code class="xref py py-obj docutils literal notranslate"><span class="pre">take</span></code></a>(x, indices, /, *, axis)</p></td>
+<td><p>Returns elements of an array along an axis.</p></td>
 </tr>
 </tbody>
 </table>
@@ -506,7 +487,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
           
-            <a href="generated/array_api.sort.html" title="sort"
+            <a href="indexing.html" title="Indexing"
                class="md-flex md-footer-nav__link md-footer-nav__link--prev"
                rel="prev">
               <div class="md-flex__cell md-flex__cell--shrink">
@@ -515,17 +496,17 @@
               <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
                 <span class="md-flex__ellipsis">
                   <span
-                      class="md-footer-nav__direction"> Previous </span> sort </span>
+                      class="md-footer-nav__direction"> Previous </span> Indexing </span>
               </div>
             </a>
           
           
-            <a href="generated/array_api.max.html" title="max"
+            <a href="generated/array_api.take.html" title="take"
                class="md-flex md-footer-nav__link md-footer-nav__link--next"
                rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
                 class="md-flex__ellipsis"> <span
-                class="md-footer-nav__direction"> Next </span> max </span>
+                class="md-footer-nav__direction"> Next </span> take </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink"><i
                 class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
