@@ -46,12 +46,15 @@ def can_cast(from_: Union[dtype, array], to: dtype, /) -> bool:
 
 def finfo(type: Union[dtype, array], /) -> finfo_object:
     """
-    Machine limits for real-valued floating-point data types.
+    Machine limits for floating-point data types.
 
     Parameters
     ----------
     type: Union[dtype, array]
-        the kind of real-valued floating-point data-type about which to get information.
+        the kind of floating-point data-type about which to get information. If complex, the information is about its component data type.
+
+        .. note::
+           Complex floating-point data types are specified to always use the same precision for both its real and imaginary components, so the information should be true for either component.
 
     Returns
     -------
@@ -60,23 +63,27 @@ def finfo(type: Union[dtype, array], /) -> finfo_object:
 
         - **bits**: *int*
 
-          number of bits occupied by the floating-point data type.
+          number of bits occupied by the real-valued floating-point data type.
 
         - **eps**: *float*
 
-          difference between 1.0 and the next smallest representable floating-point number larger than 1.0 according to the IEEE-754 standard.
+          difference between 1.0 and the next smallest representable real-valued floating-point number larger than 1.0 according to the IEEE-754 standard.
 
         - **max**: *float*
 
-          largest representable number.
+          largest representable real-valued number.
 
         - **min**: *float*
 
-          smallest representable number.
+          smallest representable real-valued number.
 
         - **smallest_normal**: *float*
 
-          smallest positive floating-point number with full precision.
+          smallest positive real-valued floating-point number with full precision.
+
+        - **dtype**: dtype
+
+          real-valued floating-point data type.
     """
 
 def iinfo(type: Union[dtype, array], /) -> iinfo_object:
@@ -104,6 +111,10 @@ def iinfo(type: Union[dtype, array], /) -> iinfo_object:
         - **min**: *int*
 
           smallest representable number.
+
+        - **dtype**: dtype
+
+          integer data type.
     """
 
 def result_type(*arrays_and_dtypes: Union[array, dtype]) -> dtype:

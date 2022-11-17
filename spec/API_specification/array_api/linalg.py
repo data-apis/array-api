@@ -1,4 +1,4 @@
-from ._types import Literal, Optional, Tuple, Union, Sequence, array
+from ._types import Literal, Optional, Tuple, Union, Sequence, array, dtype
 from .constants import inf
 
 def cholesky(x: array, /, *, upper: bool = False) -> array:
@@ -41,21 +41,34 @@ def cholesky(x: array, /, *, upper: bool = False) -> array:
 
 def cross(x1: array, x2: array, /, *, axis: int = -1) -> array:
     """
-    Returns the cross product of 3-element vectors. If ``x1`` and ``x2`` are multi-dimensional arrays (i.e., both have a rank greater than ``1``), then the cross-product of each pair of corresponding 3-element vectors is independently computed.
+    Returns the cross product of 3-element vectors.
+
+    If ``x1`` and/or ``x2`` are multi-dimensional arrays (i.e., the broadcasted result has a rank greater than ``1``), then the cross-product of each pair of corresponding 3-element vectors is independently computed.
 
     Parameters
     ----------
     x1: array
         first input array. Should have a real-valued data type.
     x2: array
-        second input array. Must have the same shape as ``x1``.  Should have a real-valued data type.
+        second input array. Must be compatible with ``x1`` for all non-compute axes (see :ref:`broadcasting`). The size of the axis over which to compute the cross product must be the same size as the respective axis in ``x1``. Should have a real-valued data type.
+
+        .. note::
+           The compute axis (dimension) must not be broadcasted.
+
     axis: int
-        the axis (dimension) of ``x1`` and ``x2`` containing the vectors for which to compute the cross product. If set to ``-1``, the function computes the cross product for vectors defined by the last axis (dimension). Default: ``-1``.
+        the axis (dimension) of ``x1`` and ``x2`` containing the vectors for which to compute the cross product. Must be an integer on the interval ``[-N, N)``, where ``N`` is the rank (number of dimensions) of the shape determined according to :ref:`broadcasting`. If specified as a negative integer, the function must determine the axis along which to compute the cross product by counting backward from the last dimension (where ``-1`` refers to the last dimension). By default, the function must compute the cross product over the last axis. Default: ``-1``.
 
     Returns
     -------
     out: array
         an array containing the cross products. The returned array must have a data type determined by :ref:`type-promotion`.
+
+
+    **Raises**
+
+    -   if provided an invalid ``axis``.
+    -   if the size of the axis over which to compute the cross product is not equal to ``3``.
+    -   if the size of the axis over which to compute the cross product is not the same (before broadcasting) for both ``x1`` and ``x2``.
     """
 
 def det(x: array, /) -> array:
@@ -259,7 +272,7 @@ def matrix_rank(x: array, /, *, rtol: Optional[Union[float, array]] = None) -> a
     Returns
     -------
     out: array
-        an array containing the ranks. The returned array must have a real-valued floating-point data type determined by :ref:`type-promotion` and must have shape ``(...)`` (i.e., must have a shape equal to ``shape(x)[:-2]``).
+        an array containing the ranks. The returned array must have the default integer data type and must have shape ``(...)`` (i.e., must have a shape equal to ``shape(x)[:-2]``).
     """
 
 def matrix_transpose(x: array, /) -> array:
@@ -424,9 +437,19 @@ def tensordot(x1: array, x2: array, /, *, axes: Union[int, Tuple[Sequence[int], 
     Alias for :func:`~array_api.tensordot`.
     """
 
-def trace(x: array, /, *, offset: int = 0) -> array:
+def trace(x: array, /, *, offset: int = 0, dtype: Optional[dtype] = None) -> array:
     """
     Returns the sum along the specified diagonals of a matrix (or a stack of matrices) ``x``.
+
+    **Special Cases**
+
+    Let ``N`` equal the number of elements over which to compute the sum.
+
+    -   If ``N`` is ``0``, the sum is ``0`` (i.e., the empty sum).
+
+    For floating-point operands,
+
+    -   If ``x_i`` is ``NaN``, the sum is ``NaN`` (i.e., ``NaN`` values propagate).
 
     Parameters
     ----------
@@ -440,6 +463,18 @@ def trace(x: array, /, *, offset: int = 0) -> array:
         -   ``offset < 0``: off-diagonal below the main diagonal.
 
         Default: ``0``.
+    dtype: Optional[dtype]
+        data type of the returned array. If ``None``,
+
+        -   if the default data type corresponding to the data type "kind" (integer or floating-point) of ``x`` has a smaller range of values than the data type of ``x`` (e.g., ``x`` has data type ``int64`` and the default data type is ``int32``, or ``x`` has data type ``uint64`` and the default data type is ``int64``), the returned array must have the same data type as ``x``.
+        -   if ``x`` has a real-valued floating-point data type, the returned array must have the default real-valued floating-point data type.
+        -   if ``x`` has a signed integer data type (e.g., ``int16``), the returned array must have the default integer data type.
+        -   if ``x`` has an unsigned integer data type (e.g., ``uint16``), the returned array must have an unsigned integer data type having the same number of bits as the default integer data type (e.g., if the default integer data type is ``int32``, the returned array must have a ``uint32`` data type).
+
+        If the data type (either specified or resolved) differs from the data type of ``x``, the input array should be cast to the specified data type before computing the sum. Default: ``None``.
+
+        .. note::
+           keyword argument is intended to help prevent data type overflows.
 
     Returns
     -------
@@ -450,7 +485,7 @@ def trace(x: array, /, *, offset: int = 0) -> array:
 
           out[i, j, k, ..., l] = trace(a[i, j, k, ..., l, :, :])
 
-        The returned array must have the same data type as ``x``.
+        The returned array must have a data type as described by the ``dtype`` parameter above.
     """
 
 def vecdot(x1: array, x2: array, /, *, axis: int = None) -> array:
@@ -459,7 +494,7 @@ def vecdot(x1: array, x2: array, /, *, axis: int = None) -> array:
     """
 
 def vector_norm(x: array, /, *, axis: Optional[Union[int, Tuple[int, ...]]] = None, keepdims: bool = False, ord: Union[int, float, Literal[inf, -inf]] = 2) -> array:
-    """
+    r"""
     Computes the vector norm of a vector (or batch of vectors) ``x``.
 
     Parameters
