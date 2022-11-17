@@ -226,8 +226,15 @@ class _array():
         """
         Converts a zero-dimensional array to a Python ``bool`` object.
 
-        .. note::
-           If ``self`` has a numeric data type, a value equal to ``0`` must cast to ``False``, and a value not equal to ``0`` must cast to ``True``.
+        **Special cases**
+
+        For real-valued floating-point operands,
+
+        - If ``self`` is ``NaN``, the result is ``True``.
+        - If ``self`` is either ``+infinity`` or ``-infinity``, the result is ``True``.
+        - If ``self`` is either ``+0`` or ``-0``, the result is ``False``.
+
+        For complex floating-point operands, special cases must be handled as if the operation is implemented as ``bool(real(self)) and bool(imag(self))``.
 
         Parameters
         ----------
