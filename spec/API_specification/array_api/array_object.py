@@ -251,8 +251,12 @@ class _array():
         """
         Converts a zero-dimensional array to a Python ``complex`` object.
 
-        .. note::
-           If ``self`` has a boolean data type, a value of ``True`` must cast to ``1+0j``, and a value of ``False`` must cast to ``0+0j``.
+        **Special cases**
+
+        For boolean operands,
+
+        - If ``self`` is ``True``, the result is ``1+0j``.
+        - If ``self`` is ``False``, the result is ``0+0j``.
 
         Parameters
         ----------
@@ -374,8 +378,12 @@ class _array():
         .. note::
            Casting integer values outside the representable bounds of Python's float type is not specified and is implementation-dependent.
 
-        .. note::
-           If ``self`` has a boolean data type, a value of ``True`` must cast to ``1``, and a value of ``False`` must cast to ``0``.
+        **Special cases**
+
+        For boolean operands,
+
+        - If ``self`` is ``True``, the result is ``1``.
+        - If ``self`` is ``False``, the result is ``0``.
 
         Parameters
         ----------
@@ -529,10 +537,12 @@ class _array():
         """
         Converts a zero-dimensional array to a Python ``int`` object.
 
-        .. note::
-           If ``self`` has a boolean data type, a value of ``True`` must cast to ``1``, and a value of ``False`` must cast to ``0``.
-
         **Special cases**
+
+        For boolean operands,
+
+        - If ``self`` is ``True``, the result is ``1``.
+        - If ``self`` is ``False``, the result is ``0``.
 
         For floating-point operands,
 
