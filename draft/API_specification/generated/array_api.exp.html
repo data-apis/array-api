@@ -442,10 +442,6 @@
 <li><p>If <code class="docutils literal notranslate"><span class="pre">x_i</span></code> is <code class="docutils literal notranslate"><span class="pre">-infinity</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">+0</span></code>.</p></li>
 </ul>
 <p>For complex floating-point operands, let <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">real(x_i)</span></code>, <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">=</span> <span class="pre">imag(x_i)</span></code>, and</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>For complex floating-point operands, <code class="docutils literal notranslate"><span class="pre">exp(conj(x))</span></code> must equal <code class="docutils literal notranslate"><span class="pre">conj(exp(x))</span></code>.</p>
-</div>
 <ul class="simple">
 <li><p>If <code class="docutils literal notranslate"><span class="pre">a</span></code> is either <code class="docutils literal notranslate"><span class="pre">+0</span></code> or <code class="docutils literal notranslate"><span class="pre">-0</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> is <code class="docutils literal notranslate"><span class="pre">+0</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">+</span> <span class="pre">0j</span></code>.</p></li>
 <li><p>If <code class="docutils literal notranslate"><span class="pre">a</span></code> is a finite number and <code class="docutils literal notranslate"><span class="pre">b</span></code> is <code class="docutils literal notranslate"><span class="pre">+infinity</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">NaN</span> <span class="pre">+</span> <span class="pre">NaN</span> <span class="pre">j</span></code>.</p></li>
@@ -462,6 +458,10 @@
 <li><p>If <code class="docutils literal notranslate"><span class="pre">a</span></code> is <code class="docutils literal notranslate"><span class="pre">NaN</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> is <code class="docutils literal notranslate"><span class="pre">NaN</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">NaN</span> <span class="pre">+</span> <span class="pre">NaN</span> <span class="pre">j</span></code>.</p></li>
 </ul>
 <p>where <code class="docutils literal notranslate"><span class="pre">cis(v)</span></code> is <code class="docutils literal notranslate"><span class="pre">cos(v)</span> <span class="pre">+</span> <span class="pre">sin(v)*1j</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For complex floating-point operands, <code class="docutils literal notranslate"><span class="pre">exp(conj(x))</span></code> must equal <code class="docutils literal notranslate"><span class="pre">conj(exp(x))</span></code>.</p>
+</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The exponential function is an entire function in the complex plane and has no branch cuts.</p>
