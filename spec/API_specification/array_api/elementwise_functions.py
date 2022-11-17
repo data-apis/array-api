@@ -1459,7 +1459,7 @@ def square(x: array, /) -> array:
 
 def sqrt(x: array, /) -> array:
     r"""
-    Calculates the square root for each element ``x_i`` of the input array ``x``.
+    Calculates the principal square root for each element ``x_i`` of the input array ``x``.
 
     .. note::
        After rounding, each result must be indistinguishable from the infinitely precise result (as required by IEEE 754).
@@ -1476,9 +1476,6 @@ def sqrt(x: array, /) -> array:
 
     For complex floating-point operands, let ``a = real(x_i)``, ``b = imag(x_i)``, and
 
-    .. note::
-       For complex floating-point operands, ``sqrt(conj(x))`` must equal ``conj(sqrt(x))``.
-
     - If ``a`` is either ``+0`` or ``-0`` and ``b`` is ``+0``, the result is ``+0 + 0j``.
     - If ``a`` is any value (including ``NaN``) and ``b`` is ``+infinity``, the result is ``+infinity + infinity j``.
     - If ``a`` is a finite number and ``b`` is ``NaN``, the result is ``NaN + NaN j``.
@@ -1488,6 +1485,9 @@ def sqrt(x: array, /) -> array:
     - If ``a`` is ``+infinity`` and ``b`` is ``NaN``, the result is ``+infinity + NaN j``.
     - If ``a`` is ``NaN`` and ``b`` is any value, the result is ``NaN + NaN j``.
     - If ``a`` is ``NaN`` and ``b`` is ``NaN``, the result is ``NaN + NaN j``.
+
+    .. note::
+       For complex floating-point operands, ``sqrt(conj(x))`` must equal ``conj(sqrt(x))``.
 
     .. note::
        By convention, the branch cut of square root is the real interval :math:`[\infty, 0)`.
