@@ -1497,7 +1497,7 @@ def sqrt(x: array, /) -> array:
        Accordingly, for complex arguments, the function returns the square root in the range of the right half-plane, including the imaginary axis (i.e., the plane defined by :math:`[0, +\infty)` along the real axis and :math:`(-\infty, +\infty)` along the imaginary axis).
 
     .. warning::
-       The choice of the branch cut is considered _provisional_. While conforming implementations of the array API standard should adopt the branch cuts described in this standard, consumers of array API standard implementations should _not_ assume that branch cuts are consistent between implementations. 
+       The choice of the branch cut is considered **provisional**. While conforming implementations of the array API standard should adopt the branch cuts described in this standard, consumers of array API standard implementations should **not** assume that branch cuts are consistent between implementations. 
 
        Provided no issues arise due to the choice of branch cut, the provisional status is likely to be removed in a future revision of this standard.
     
