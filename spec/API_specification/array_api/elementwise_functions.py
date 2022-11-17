@@ -1490,7 +1490,7 @@ def sqrt(x: array, /) -> array:
     - If ``a`` is ``NaN`` and ``b`` is ``NaN``, the result is ``NaN + NaN j``.
 
     .. note::
-       A branch cut is a curve in the complex plane across which a given complex function fails to be continuous. By convention, the branch cut of square root is the real interval :math:`[\infty, 0)`.
+       By convention, the branch cut of square root is the real interval :math:`[\infty, 0)`.
 
        The square root is a continuous function from above the branch cut, taking into account the sign of the imaginary component.
 
