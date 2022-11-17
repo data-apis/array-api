@@ -659,9 +659,6 @@ def expm1(x: array, /) -> array:
 
     For complex floating-point operands, let ``a = real(x_i)``, ``b = imag(x_i)``, and
 
-    .. note::
-       For complex floating-point operands, ``expm1(conj(x))`` must equal ``conj(expm1(x))``.
-
     - If ``a`` is either ``+0`` or ``-0`` and ``b`` is ``+0``, the result is ``0 + 0j``.
     - If ``a`` is a finite number and ``b`` is ``+infinity``, the result is ``NaN + NaN j``.
     - If ``a`` is a finite number and ``b`` is ``NaN``, the result is ``NaN + NaN j``.
@@ -677,6 +674,9 @@ def expm1(x: array, /) -> array:
     - If ``a`` is ``NaN`` and ``b`` is ``NaN``, the result is ``NaN + NaN j``.
 
     where ``cis(v)`` is ``cos(v) + sin(v)*1j``.
+
+    .. note::
+       For complex floating-point operands, ``expm1(conj(x))`` must equal ``conj(expm1(x))``.
 
     .. note::
        The exponential function is an entire function in the complex plane and has no branch cuts.
