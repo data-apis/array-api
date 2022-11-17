@@ -1490,11 +1490,11 @@ def sqrt(x: array, /) -> array:
        For complex floating-point operands, ``sqrt(conj(x))`` must equal ``conj(sqrt(x))``.
 
     .. note::
-       By convention, the branch cut of square root is the real interval :math:`[\infty, 0)`.
+       By convention, the branch cut of square root is the negative real axis :math:`(-\infty, 0)`.
 
        The square root is a continuous function from above the branch cut, taking into account the sign of the imaginary component.
 
-       Accordingly, for complex arguments, the function returns the square root in the range of the right half-plane, including the imaginary axis (i.e., the plane defined by :math:`[0, +\infty]` along the real axis and :math:`[-\infty, +\infty]` along the imaginary axis).
+       Accordingly, for complex arguments, the function returns the square root in the range of the right half-plane, including the imaginary axis (i.e., the plane defined by :math:`[0, +\infty)` along the real axis and :math:`(-\infty, +\infty)` along the imaginary axis).
     
     Parameters
     ----------
