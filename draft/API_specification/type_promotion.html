@@ -643,24 +643,44 @@
 <h3 id="floating-point-type-promotion-table">Floating-point type promotion table<a class="headerlink" href="#floating-point-type-promotion-table" title="Permalink to this headline">¶</a></h3>
 <table>
 <colgroup>
-<col style="width: 50%"/>
-<col style="width: 25%"/>
-<col style="width: 25%"/>
+<col style="width: 31%"/>
+<col style="width: 17%"/>
+<col style="width: 17%"/>
+<col style="width: 17%"/>
+<col style="width: 17%"/>
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"></th>
 <th class="head"><p>f4</p></th>
 <th class="head"><p>f8</p></th>
+<th class="head"><p>c8</p></th>
+<th class="head"><p>c16</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td><p><strong>f4</strong></p></td>
 <td><p>f4</p></td>
 <td><p>f8</p></td>
+<td><p>c8</p></td>
+<td><p>c16</p></td>
 </tr>
 <tr class="row-odd"><td><p><strong>f8</strong></p></td>
 <td><p>f8</p></td>
 <td><p>f8</p></td>
+<td><p>c16</p></td>
+<td><p>c16</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>c8</strong></p></td>
+<td><p>c8</p></td>
+<td><p>c16</p></td>
+<td><p>c8</p></td>
+<td><p>c16</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>c16</strong></p></td>
+<td><p>c16</p></td>
+<td><p>c16</p></td>
+<td><p>c16</p></td>
+<td><p>c16</p></td>
 </tr>
 </tbody>
 </table>
@@ -668,6 +688,10 @@
 <ul class="simple">
 <li><p><strong>f4</strong>: single-precision (32-bit) floating-point number (i.e., <code class="docutils literal notranslate"><span class="pre">float32</span></code>)</p></li>
 <li><p><strong>f8</strong>: double-precision (64-bit) floating-point number (i.e., <code class="docutils literal notranslate"><span class="pre">float64</span></code>)</p></li>
+<li><p><strong>c8</strong>: single-precision complex floating-point number (i.e., <code class="docutils literal notranslate"><span class="pre">complex64</span></code>)
+composed of two single-precision (32-bit) floating-point numbers</p></li>
+<li><p><strong>c16</strong>: double-precision complex floating-point number (i.e., <code class="docutils literal notranslate"><span class="pre">complex128</span></code>)
+composed of two double-precision (64-bit) floating-point numbers</p></li>
 </ul>
 </section>
 <section id="notes">
