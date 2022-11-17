@@ -90,9 +90,9 @@ def vecdot(x1: array, x2: array, /, *, axis: int = -1) -> array:
     Parameters
     ----------
     x1: array
-        first input array. Should have a real-valued data type.
+        first input array. Should have a floating-point data type.
     x2: array
-        second input array. Must be compatible with ``x1`` for all non-contracted axes (see :ref:`broadcasting`). The size of the axis over which to compute the dot product must be the same size as the respective axis in ``x1``. Should have a real-valued data type.
+        second input array. Must be compatible with ``x1`` for all non-contracted axes (see :ref:`broadcasting`). The size of the axis over which to compute the dot product must be the same size as the respective axis in ``x1``. Should have a floating-point data type.
 
         .. note::
            The contracted axis (dimension) must not be broadcasted.
@@ -104,6 +104,8 @@ def vecdot(x1: array, x2: array, /, *, axis: int = -1) -> array:
     -------
     out: array
         if ``x1`` and ``x2`` are both one-dimensional arrays, a zero-dimensional containing the dot product; otherwise, a non-zero-dimensional array containing the dot products and having rank ``N-1``, where ``N`` is the rank (number of dimensions) of the shape determined according to :ref:`broadcasting` along the non-contracted axes. The returned array must have a data type determined by :ref:`type-promotion`.
+
+        For complex-valued input arrays, this function computes :math:`x_1^H \cdot x_2`.
 
 
     **Raises**
