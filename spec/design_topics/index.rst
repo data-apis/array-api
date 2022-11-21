@@ -11,5 +11,6 @@ Design topics & constraints
    device_support
    static_typing
    accuracy
+   branch_cuts
    C_API
    parallelism
