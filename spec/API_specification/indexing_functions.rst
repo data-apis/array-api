@@ -1,7 +1,9 @@
-Fourier transform Functions
-===========================
+.. _indexing-functions:
 
-    Array API specification for Fourier transform functions.
+Indexing Functions
+===================
+
+    Array API specification for functions for indexing arrays.
 
 A conforming implementation of the array API standard must provide and support the following functions adhering to the following conventions.
 
@@ -10,31 +12,17 @@ A conforming implementation of the array API standard must provide and support t
 -   Broadcasting semantics must follow the semantics defined in :ref:`broadcasting`.
 -   Unless stated otherwise, functions must support the data types defined in :ref:`data-types`.
 -   Unless stated otherwise, functions must adhere to the type promotion rules defined in :ref:`type-promotion`.
--   Unless stated otherwise, floating-point operations must adhere to IEEE 754-2019.
 
 Objects in API
 --------------
 
-.. currentmodule:: array_api.fft
+.. currentmodule:: array_api
 
 ..
-  NOTE: please keep the functions and their inverse together
+  NOTE: please keep the functions in alphabetical order
 
 .. autosummary::
    :toctree: generated
    :template: method.rst
 
-   fft
-   ifft
-   fftn
-   ifftn
-   rfft
-   irfft
-   rfftn
-   irfftn
-   hfft
-   ihfft
-   fftfreq
-   rfftfreq
-   fftshift
-   ifftshift
+   take

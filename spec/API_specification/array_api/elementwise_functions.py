@@ -607,9 +607,6 @@ def exp(x: array, /) -> array:
 
     For complex floating-point operands, let ``a = real(x_i)``, ``b = imag(x_i)``, and
 
-    .. note::
-       For complex floating-point operands, ``exp(conj(x))`` must equal ``conj(exp(x))``.
-
     - If ``a`` is either ``+0`` or ``-0`` and ``b`` is ``+0``, the result is ``1 + 0j``.
     - If ``a`` is a finite number and ``b`` is ``+infinity``, the result is ``NaN + NaN j``.
     - If ``a`` is a finite number and ``b`` is ``NaN``, the result is ``NaN + NaN j``.
@@ -627,6 +624,9 @@ def exp(x: array, /) -> array:
     where ``cis(v)`` is ``cos(v) + sin(v)*1j``.
 
     .. note::
+       For complex floating-point operands, ``exp(conj(x))`` must equal ``conj(exp(x))``.
+
+    .. note::
        The exponential function is an entire function in the complex plane and has no branch cuts.
 
     Parameters
@@ -642,14 +642,14 @@ def exp(x: array, /) -> array:
 
 def expm1(x: array, /) -> array:
     """
-    Calculates an implementation-dependent approximation to ``exp(x)-1``, having domain ``[-infinity, +infinity]`` and codomain ``[-1, +infinity]``, for each element ``x_i`` of the input array ``x``.
+    Calculates an implementation-dependent approximation to ``exp(x)-1`` for each element ``x_i`` of the input array ``x``.
 
     .. note::
        The purpose of this function is to calculate ``exp(x)-1.0`` more accurately when `x` is close to zero. Accordingly, conforming implementations should avoid implementing this function as simply ``exp(x)-1.0``. See FDLIBM, or some other IEEE 754-2019 compliant mathematical library, for a potential reference implementation.
 
     **Special cases**
 
-    For floating-point operands,
+    For real-valued floating-point operands,
 
     - If ``x_i`` is ``NaN``, the result is ``NaN``.
     - If ``x_i`` is ``+0``, the result is ``+0``.
@@ -657,15 +657,39 @@ def expm1(x: array, /) -> array:
     - If ``x_i`` is ``+infinity``, the result is ``+infinity``.
     - If ``x_i`` is ``-infinity``, the result is ``-1``.
 
+    For complex floating-point operands, let ``a = real(x_i)``, ``b = imag(x_i)``, and
+
+    - If ``a`` is either ``+0`` or ``-0`` and ``b`` is ``+0``, the result is ``0 + 0j``.
+    - If ``a`` is a finite number and ``b`` is ``+infinity``, the result is ``NaN + NaN j``.
+    - If ``a`` is a finite number and ``b`` is ``NaN``, the result is ``NaN + NaN j``.
+    - If ``a`` is ``+infinity`` and ``b`` is ``+0``, the result is ``+infinity + 0j``.
+    - If ``a`` is ``-infinity`` and ``b`` is a finite number, the result is ``+0 * cis(b) - 1.0``.
+    - If ``a`` is ``+infinity`` and ``b`` is a nonzero finite number, the result is ``+infinity * cis(b) - 1.0``.
+    - If ``a`` is ``-infinity`` and ``b`` is ``+infinity``, the result is ``-1 + 0j`` (sign of imaginary component is unspecified).
+    - If ``a`` is ``+infinity`` and ``b`` is ``+infinity``, the result is ``infinity + NaN j`` (sign of real component is unspecified).
+    - If ``a`` is ``-infinity`` and ``b`` is ``NaN``, the result is ``-1 + 0j`` (sign of imaginary component is unspecified).
+    - If ``a`` is ``+infinity`` and ``b`` is ``NaN``, the result is ``infinity + NaN j`` (sign of real component is unspecified).
+    - If ``a`` is ``NaN`` and ``b`` is ``+0``, the result is ``NaN + 0j``.
+    - If ``a`` is ``NaN`` and ``b`` is not equal to ``0``, the result is ``NaN + NaN j``.
+    - If ``a`` is ``NaN`` and ``b`` is ``NaN``, the result is ``NaN + NaN j``.
+
+    where ``cis(v)`` is ``cos(v) + sin(v)*1j``.
+
+    .. note::
+       For complex floating-point operands, ``expm1(conj(x))`` must equal ``conj(expm1(x))``.
+
+    .. note::
+       The exponential function is an entire function in the complex plane and has no branch cuts.
+
     Parameters
     ----------
     x: array
-        input array. Should have a real-valued floating-point data type.
+        input array. Should have a floating-point data type.
 
     Returns
     -------
     out: array
-        an array containing the evaluated result for each element in ``x``. The returned array must have a real-valued floating-point data type determined by :ref:`type-promotion`.
+        an array containing the evaluated result for each element in ``x``. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
     """
 
 def floor(x: array, /) -> array:
@@ -1600,7 +1624,7 @@ def tanh(x: array, /) -> array:
 
 def trunc(x: array, /) -> array:
     """
-    Rounds each element ``x_i`` of the input array ``x`` to the integer-valued number that is closest to but no greater than ``x_i``.
+    Rounds each element ``x_i`` of the input array ``x`` to the nearest integer-valued number that is closer to zero than ``x_i``.
 
     **Special cases**
 
