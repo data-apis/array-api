@@ -943,7 +943,7 @@ def log(x: array, /) -> array:
 
        The natural logarithm is a continuous function from above the branch cut, taking into account the sign of the imaginary component.
 
-       Accordingly, for complex arguments, the function returns the natural logarithm in the range of a strip in the interval :math:`[-i\pi, +i\pi]` along the imaginary axis and mathematically unbounded along the real axis.
+       Accordingly, for complex arguments, the function returns the natural logarithm in the range of a strip in the interval :math:`[-\pi j, +\pi j]` along the imaginary axis and mathematically unbounded along the real axis.
 
        *Note: branch cuts have provisional status* (see :ref:`branch-cuts`). 
 
