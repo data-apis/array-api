@@ -904,18 +904,48 @@ def less_equal(x1: array, x2: array, /) -> array:
     """
 
 def log(x: array, /) -> array:
-    """
-    Calculates an implementation-dependent approximation to the natural (base ``e``) logarithm, having domain ``[0, +infinity]`` and codomain ``[-infinity, +infinity]``, for each element ``x_i`` of the input array ``x``.
+    r"""
+    Calculates an implementation-dependent approximation to the natural (base ``e``) logarithm for each element ``x_i`` of the input array ``x``.
 
     **Special cases**
 
-    For floating-point operands,
+    For real-valued floating-point operands,
 
     - If ``x_i`` is ``NaN``, the result is ``NaN``.
     - If ``x_i`` is less than ``0``, the result is ``NaN``.
     - If ``x_i`` is either ``+0`` or ``-0``, the result is ``-infinity``.
     - If ``x_i`` is ``1``, the result is ``+0``.
     - If ``x_i`` is ``+infinity``, the result is ``+infinity``.
+
+    For complex floating-point operands, let ``a = real(x_i)``, ``b = imag(x_i)``, and
+
+    - If ``a`` is ``-0`` and ``b`` is ``+0``, the result is ``-infinity + πj``.
+    - If ``a`` is ``+0`` and ``b`` is ``+0``, the result is ``-infinity + 0j``.
+    - If ``a`` is a finite number and ``b`` is ``+infinity``, the result is ``+infinity + πj/2``.
+    - If ``a`` is a finite number and ``b`` is ``NaN``, the result is ``NaN + NaN j``.
+    - If ``a`` is ``-infinity`` and ``b`` is a positive (i.e., greater than ``0``) finite number, the result is ``+infinity + πj``.
+    - If ``a`` is ``+infinity`` and ``b`` is a positive (i.e., greater than ``0``) finite number, the result is ``+infinity + 0j``.
+    - If ``a`` is ``-infinity`` and ``b`` is ``+infinity``, the result is ``+infinity + 3πj/4``.
+    - If ``a`` is ``+infinity`` and ``b`` is ``+infinity``, the result is ``+infinity + πj/4``.
+    - If ``a`` is either ``+infinity`` or ``-infinity`` and ``b`` is ``NaN``, the result is ``+infinity + NaN j``.
+    - If ``a`` is ``NaN`` and ``b`` is a finite number, the result is ``NaN + NaN j``.
+    - If ``a`` is ``NaN`` and ``b`` is ``+infinity``, the result is ``+infinity + NaN j``.
+    - If ``a`` is ``NaN`` and ``b`` is ``NaN``, the result is ``NaN + NaN j``.
+
+    .. note::
+       The natural logarithm of a complex number :math:`z` with polar coordinates :math:`(r,\theta)` equals :math:`\ln r + (θ+ 2n\pi)j` with principal value :math:`\ln r + \theta j`.
+
+    .. note::
+       For complex floating-point operands, ``log(conj(x))`` must equal ``conj(log(x))``.
+
+    .. note::
+       By convention, the branch cut of the natural logarithm is the negative real axis :math:`(-\infty, 0)`.
+
+       The natural logarithm is a continuous function from above the branch cut, taking into account the sign of the imaginary component.
+
+       Accordingly, for complex arguments, the function returns the natural logarithm in the range of a strip in the interval :math:`[-i\pi, +i\pi]` along the imaginary axis and mathematically unbounded along the real axis.
+
+       *Note: branch cuts have provisional status* (see :ref:`branch-cuts`). 
 
     Parameters
     ----------
