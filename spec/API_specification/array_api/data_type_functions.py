@@ -127,7 +127,7 @@ def iinfo(type: Union[dtype, array], /) -> iinfo_object:
           integer data type.
     """
 
-def is_dtype(dtype: dtype, kind: Union[dtype, str, Tuple[Union[dtype, str], ...]]) -> bool:
+def isdtype(dtype: dtype, kind: Union[dtype, str, Tuple[Union[dtype, str], ...]]) -> bool:
     """
     Returns a boolean indicating whether a provided dtype is of a specified data type "kind".
 
@@ -178,4 +178,4 @@ def result_type(*arrays_and_dtypes: Union[array, dtype]) -> dtype:
         the dtype resulting from an operation involving the input arrays and dtypes.
     """
 
-__all__ = ['astype', 'can_cast', 'finfo', 'iinfo', 'is_dtype', 'result_type']
+__all__ = ['astype', 'can_cast', 'finfo', 'iinfo', 'isdtype', 'result_type']
