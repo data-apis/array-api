@@ -123,7 +123,7 @@ Notes
 Mixing arrays with Python scalars
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Using Python scalars (i.e., instances of ``bool``, ``int``, ``float``) together with arrays must be supported for:
+Using Python scalars (i.e., instances of ``bool``, ``int``, ``float``, ``complex``) together with arrays must be supported for:
 
 -   ``array <op> scalar``
 -   ``scalar <op> array``
@@ -132,7 +132,8 @@ where ``<op>`` is a built-in operator (including in-place operators, but excludi
 
 -   a Python ``bool`` for a ``bool`` array data type.
 -   a Python ``int`` within the bounds of the given data type for integer array :ref:`data-types`.
--   a Python ``int`` or ``float`` for floating-point array data types.
+-   a Python ``int`` or ``float`` for real-valued floating-point array data types.
+-   a Python ``int``, ``float``, or ``complex`` for complex floating-point array data types.
 
 Provided the above requirements are met, the expected behavior is equivalent to:
 
@@ -142,4 +143,6 @@ Provided the above requirements are met, the expected behavior is equivalent to:
 .. note::
    Behavior is not specified when mixing a Python ``float`` and an array with an integer data type; this may give ``float32``, ``float64``, or raise an exception. Behavior is implementation-specific.
 
-   The behavior is also not specified for integers outside of the bounds of a given integer data type. Integers outside of bounds may result in overflow or an error.
+   Similarly, behavior is not specified when mixing a Python ``complex`` and an array with a real-valued data type; this may give ``complex64``, ``complex128``, or raise an exception. Behavior is implementation-specific.
+
+   Behavior is also not specified for integers outside of the bounds of a given integer data type. Integers outside of bounds may result in overflow or an error.
