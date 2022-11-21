@@ -707,7 +707,7 @@ composed of two double-precision (64-bit) floating-point numbers</p></li>
 </section>
 <section id="mixing-arrays-with-python-scalars">
 <h3 id="mixing-arrays-with-python-scalars">Mixing arrays with Python scalars<a class="headerlink" href="#mixing-arrays-with-python-scalars" title="Permalink to this headline">¶</a></h3>
-<p>Using Python scalars (i.e., instances of <code class="docutils literal notranslate"><span class="pre">bool</span></code>, <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code>) together with arrays must be supported for:</p>
+<p>Using Python scalars (i.e., instances of <code class="docutils literal notranslate"><span class="pre">bool</span></code>, <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code>, <code class="docutils literal notranslate"><span class="pre">complex</span></code>) together with arrays must be supported for:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">array</span> <span class="pre">&lt;op&gt;</span> <span class="pre">scalar</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">scalar</span> <span class="pre">&lt;op&gt;</span> <span class="pre">array</span></code></p></li>
@@ -716,7 +716,8 @@ composed of two double-precision (64-bit) floating-point numbers</p></li>
 <ul class="simple">
 <li><p>a Python <code class="docutils literal notranslate"><span class="pre">bool</span></code> for a <code class="docutils literal notranslate"><span class="pre">bool</span></code> array data type.</p></li>
 <li><p>a Python <code class="docutils literal notranslate"><span class="pre">int</span></code> within the bounds of the given data type for integer array <a class="reference internal" href="data_types.html#data-types"><span class="std std-ref">Data Types</span></a>.</p></li>
-<li><p>a Python <code class="docutils literal notranslate"><span class="pre">int</span></code> or <code class="docutils literal notranslate"><span class="pre">float</span></code> for floating-point array data types.</p></li>
+<li><p>a Python <code class="docutils literal notranslate"><span class="pre">int</span></code> or <code class="docutils literal notranslate"><span class="pre">float</span></code> for real-valued floating-point array data types.</p></li>
+<li><p>a Python <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code>, or <code class="docutils literal notranslate"><span class="pre">complex</span></code> for complex floating-point array data types.</p></li>
 </ul>
 <p>Provided the above requirements are met, the expected behavior is equivalent to:</p>
 <ol class="arabic simple">
@@ -726,7 +727,8 @@ composed of two double-precision (64-bit) floating-point numbers</p></li>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Behavior is not specified when mixing a Python <code class="docutils literal notranslate"><span class="pre">float</span></code> and an array with an integer data type; this may give <code class="docutils literal notranslate"><span class="pre">float32</span></code>, <code class="docutils literal notranslate"><span class="pre">float64</span></code>, or raise an exception. Behavior is implementation-specific.</p>
-<p>The behavior is also not specified for integers outside of the bounds of a given integer data type. Integers outside of bounds may result in overflow or an error.</p>
+<p>Similarly, behavior is not specified when mixing a Python <code class="docutils literal notranslate"><span class="pre">complex</span></code> and an array with a real-valued data type; this may give <code class="docutils literal notranslate"><span class="pre">complex64</span></code>, <code class="docutils literal notranslate"><span class="pre">complex128</span></code>, or raise an exception. Behavior is implementation-specific.</p>
+<p>Behavior is also not specified for integers outside of the bounds of a given integer data type. Integers outside of bounds may result in overflow or an error.</p>
 </div>
 </section>
 </section>
