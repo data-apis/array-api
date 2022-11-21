@@ -1490,7 +1490,7 @@ def sqrt(x: array, /) -> array:
        For complex floating-point operands, ``sqrt(conj(x))`` must equal ``conj(sqrt(x))``.
 
     .. note::
-       By convention, the branch cut of square root is the negative real axis :math:`(-\infty, 0)`.
+       By convention, the branch cut of the square root is the negative real axis :math:`(-\infty, 0)`.
 
        The square root is a continuous function from above the branch cut, taking into account the sign of the imaginary component.
 
