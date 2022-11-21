@@ -950,12 +950,12 @@ def log(x: array, /) -> array:
     Parameters
     ----------
     x: array
-        input array. Should have a real-valued floating-point data type.
+        input array. Should have a floating-point data type.
 
     Returns
     -------
     out: array
-        an array containing the evaluated natural logarithm for each element in ``x``. The returned array must have a real-valued floating-point data type determined by :ref:`type-promotion`.
+        an array containing the evaluated natural logarithm for each element in ``x``. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
     """
 
 def log1p(x: array, /) -> array:
