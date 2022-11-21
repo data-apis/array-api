@@ -147,7 +147,7 @@ def isdtype(dtype: dtype, kind: Union[dtype, str, Tuple[Union[dtype, str], ...]]
             -   **integral**: integer data types. Shorthand for ``('signed integer', 'unsigned integer')``.
             -   **real floating**: real-valued floating-point data types (e.g., ``float32``, ``float64``).
             -   **complex floating**: complex floating-point data types (e.g., ``complex64``, ``complex128``).
-            -   **numeric**: numeric data types. Shorthand for ``('integral', 'real', 'complex')``.
+            -   **numeric**: numeric data types. Shorthand for ``('integral', 'real floating', 'complex floating')``.
 
         -   If ``kind`` is a tuple, the tuple specifies a union of dtypes and/or kinds, and the function must return a boolean indicating whether the input ``dtype`` is either equal to a specified dtype or belongs to at least one specified data type kind.
 
