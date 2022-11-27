@@ -1535,14 +1535,16 @@ def sqrt(x: array, /) -> array:
 
 def subtract(x1: array, x2: array, /) -> array:
     """
-    Calculates the difference for each element ``x1_i`` of the input array ``x1`` with the respective element ``x2_i`` of the input array ``x2``. The result of ``x1_i - x2_i`` must be the same as ``x1_i + (-x2_i)`` and must be governed by the same floating-point rules as addition (see :meth:`add`).
+    Calculates the difference for each element ``x1_i`` of the input array ``x1`` with the respective element ``x2_i`` of the input array ``x2``.
+
+    The result of ``x1_i - x2_i`` must be the same as ``x1_i + (-x2_i)`` and must be governed by the same floating-point rules as addition (see :meth:`add`).
 
     Parameters
     ----------
     x1: array
-        first input array. Should have a real-valued data type.
+        first input array. Should have a numeric data type.
     x2: array
-        second input array. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have a real-valued data type.
+        second input array. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have a numeric data type.
 
     Returns
     -------

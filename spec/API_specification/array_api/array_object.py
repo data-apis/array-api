@@ -914,14 +914,16 @@ class _array():
 
     def __sub__(self: array, other: Union[int, float, array], /) -> array:
         """
-        Calculates the difference for each element of an array instance with the respective element of the array ``other``. The result of ``self_i - other_i`` must be the same as ``self_i + (-other_i)`` and must be governed by the same floating-point rules as addition (see :meth:`array.__add__`).
+        Calculates the difference for each element of an array instance with the respective element of the array ``other``.
+
+        The result of ``self_i - other_i`` must be the same as ``self_i + (-other_i)`` and must be governed by the same floating-point rules as addition (see :meth:`array.__add__`).
 
         Parameters
         ----------
         self: array
-            array instance (minuend array). Should have a real-valued data type.
+            array instance (minuend array). Should have a numeric data type.
         other: Union[int, float, array]
-            subtrahend array. Must be compatible with ``self`` (see :ref:`broadcasting`). Should have a real-valued data type.
+            subtrahend array. Must be compatible with ``self`` (see :ref:`broadcasting`). Should have a numeric data type.
 
         Returns
         -------
