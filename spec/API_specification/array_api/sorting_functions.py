@@ -4,10 +4,13 @@ def argsort(x: array, /, *, axis: int = -1, descending: bool = False, stable: bo
     """
     Returns the indices that sort an array ``x`` along a specified axis.
 
+    .. note::
+       For backward compatibility, conforming implementations may support complex numbers; however, inequality comparison of complex numbers is unspecified and thus implementation-dependent (see :ref:`complex-number-ordering`).
+
     Parameters
     ----------
     x : array
-        input array.
+        input array. Should have a real-valued data type.
     axis: int
         axis along which to sort. If set to ``-1``, the function must sort along the last axis. Default: ``-1``.
     descending: bool
@@ -25,10 +28,13 @@ def sort(x: array, /, *, axis: int = -1, descending: bool = False, stable: bool 
     """
     Returns a sorted copy of an input array ``x``.
 
+    .. note::
+       For backward compatibility, conforming implementations may support complex numbers; however, inequality comparison of complex numbers is unspecified and thus implementation-dependent (see :ref:`complex-number-ordering`).
+
     Parameters
     ----------
     x: array
-        input array.
+        input array. Should have a real-valued data type.
     axis: int
         axis along which to sort. If set to ``-1``, the function must sort along the last axis. Default: ``-1``.
     descending: bool
