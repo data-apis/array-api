@@ -2,7 +2,12 @@ from ._types import Optional, Tuple, array
 
 def argmax(x: array, /, *, axis: Optional[int] = None, keepdims: bool = False) -> array:
     """
-    Returns the indices of the maximum values along a specified axis. When the maximum value occurs multiple times, only the indices corresponding to the first occurrence are returned.
+    Returns the indices of the maximum values along a specified axis.
+
+    When the maximum value occurs multiple times, only the indices corresponding to the first occurrence are returned.
+
+    .. note::
+       For backward compatibility, conforming implementations may support complex numbers; however, inequality comparison of complex numbers is unspecified and thus implementation-dependent (see :ref:`complex-number-ordering`).
 
     Parameters
     ----------
@@ -21,7 +26,12 @@ def argmax(x: array, /, *, axis: Optional[int] = None, keepdims: bool = False) -
 
 def argmin(x: array, /, *, axis: Optional[int] = None, keepdims: bool = False) -> array:
     """
-    Returns the indices of the minimum values along a specified axis. When the minimum value occurs multiple times, only the indices corresponding to the first occurrence are returned.
+    Returns the indices of the minimum values along a specified axis.
+
+    When the minimum value occurs multiple times, only the indices corresponding to the first occurrence are returned.
+
+    .. note::
+       For backward compatibility, conforming implementations may support complex numbers; however, inequality comparison of complex numbers is unspecified and thus implementation-dependent (see :ref:`complex-number-ordering`).
 
     Parameters
     ----------
