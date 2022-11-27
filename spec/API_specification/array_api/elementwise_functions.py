@@ -245,12 +245,12 @@ def atan2(x1: array, x2: array, /) -> array:
     """
 
 def atanh(x: array, /) -> array:
-    """
-    Calculates an implementation-dependent approximation to the inverse hyperbolic tangent, having domain ``[-1, +1]`` and codomain ``[-infinity, +infinity]``, for each element ``x_i`` of the input array ``x``.
+    r"""
+    Calculates an implementation-dependent approximation to the inverse hyperbolic tangent for each element ``x_i`` of the input array ``x``.
 
     **Special cases**
 
-    For floating-point operands,
+    For real-valued floating-point operands,
 
     - If ``x_i`` is ``NaN``, the result is ``NaN``.
     - If ``x_i`` is less than ``-1``, the result is ``NaN``.
@@ -260,15 +260,50 @@ def atanh(x: array, /) -> array:
     - If ``x_i`` is ``+0``, the result is ``+0``.
     - If ``x_i`` is ``-0``, the result is ``-0``.
 
+    For complex floating-point operands, let ``a = real(x_i)``, ``b = imag(x_i)``, and
+
+    - If ``a`` is ``+0`` and ``b`` is ``+0``, the result is ``+0 + 0j``.
+    - If ``a`` is ``+0`` and ``b`` is ``NaN``, the result is ``+0 + NaN j``.
+    - If ``a`` is ``1`` and ``b`` is ``+0``, the result is ``+infinity + 0j``.
+    - If ``a`` is a positive (i.e., greater than ``0``) finite number and ``b`` is ``+infinity``, the result is ``+0 + πj/2``.
+    - If ``a`` is a nonzero finite number and ``b`` is ``NaN``, the result is ``NaN + NaN j``.
+    - If ``a`` is ``+infinity`` and ``b`` is a positive (i.e., greater than ``0``) finite number, the result is ``+0 + πj/2``.
+    - If ``a`` is ``+infinity`` and ``b`` is ``+infinity``, the result is ``+0 + πj/2``.
+    - If ``a`` is ``+infinity`` and ``b`` is ``NaN``, the result is ``+0 + NaN j``.
+    - If ``a`` is ``NaN`` and ``b`` is a finite number, the result is ``NaN + NaN j``.
+    - If ``a`` is ``NaN`` and ``b`` is ``+infinity``, the result is ``±0 + πj/2`` (sign of the real component is unspecified).
+    - If ``a`` is ``NaN`` and ``b`` is ``NaN``, the result is ``NaN + NaN j``.
+
+    .. note::
+       The principal value of the inverse hyperbolic tangent of a complex number :math:`z` is
+
+       .. math::
+          \operatorname{atanh}(z) = \frac{\ln(1+z)-\ln(z-1)}{2}
+
+       For any :math:`z`,
+
+       .. math::
+          \operatorname{atanh}(z) = \frac{\operatorname{atan}(zj)}{j}
+
+    .. note::
+       For complex floating-point operands, ``atanh(conj(x))`` must equal ``conj(atanh(x))`` and ``atanh(-x)`` must equal ``-atanh(x)``.
+
+    .. note::
+       The inverse hyperbolic tangent is a multi-valued function and requires a branch cut on the complex plane. By convention, a branch cut is placed at the line segments :math:`(-\infty, 1]` and :math:`[1, \infty)` of the real axis.
+
+       Accordingly, for complex arguments, the function returns the inverse hyperbolic tangent in the range of a half-strip unbounded along the real axis and in the interval :math:`[-\pi j/2, +\pi j/2]` along the imaginary axis.
+
+       *Note: branch cuts have provisional status* (see :ref:`branch-cuts`).
+
     Parameters
     ----------
     x: array
-        input array whose elements each represent the area of a hyperbolic sector. Should have a real-valued floating-point data type.
+        input array whose elements each represent the area of a hyperbolic sector. Should have a floating-point data type.
 
     Returns
     -------
     out: array
-        an array containing the inverse hyperbolic tangent of each element in ``x``. The returned array must have a real-valued floating-point data type determined by :ref:`type-promotion`.
+        an array containing the inverse hyperbolic tangent of each element in ``x``. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
     """
 
 def bitwise_and(x1: array, x2: array, /) -> array:
