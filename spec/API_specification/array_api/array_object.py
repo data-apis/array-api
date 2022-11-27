@@ -427,6 +427,9 @@ class _array():
         """
         Computes the truth value of ``self_i >= other_i`` for each element of an array instance with the respective element of the array ``other``.
 
+        .. note::
+           Inequality comparison of complex numbers is unspecified and thus implementation-dependent (see :ref:`complex-number-ordering`).
+
         Parameters
         ----------
         self: array
@@ -464,6 +467,9 @@ class _array():
     def __gt__(self: array, other: Union[int, float, array], /) -> array:
         """
         Computes the truth value of ``self_i > other_i`` for each element of an array instance with the respective element of the array ``other``.
+
+        .. note::
+           Inequality comparison of complex numbers is unspecified and thus implementation-dependent (see :ref:`complex-number-ordering`).
 
         Parameters
         ----------
@@ -538,6 +544,9 @@ class _array():
         """
         Computes the truth value of ``self_i <= other_i`` for each element of an array instance with the respective element of the array ``other``.
 
+        .. note::
+           Inequality comparison of complex numbers is unspecified and thus implementation-dependent (see :ref:`complex-number-ordering`).
+
         Parameters
         ----------
         self: array
@@ -579,6 +588,9 @@ class _array():
     def __lt__(self: array, other: Union[int, float, array], /) -> array:
         """
         Computes the truth value of ``self_i < other_i`` for each element of an array instance with the respective element of the array ``other``.
+
+        .. note::
+           Inequality comparison of complex numbers is unspecified and thus implementation-dependent (see :ref:`complex-number-ordering`).
 
         Parameters
         ----------

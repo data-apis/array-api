@@ -12,5 +12,6 @@ Design topics & constraints
    static_typing
    accuracy
    branch_cuts
+   complex_number_ordering
    C_API
    parallelism
