@@ -49,7 +49,7 @@
     <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
   
   
-    <title>Design topics &amp; constraints &#8212; Python array API standard 2022.05-DRAFT documentation</title>
+    <title>Branch Cuts &#8212; Python array API standard 2022.05-DRAFT documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/material.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
@@ -59,10 +59,12 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]]}}</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Copy-view behaviour and mutability" href="copies_views_and_mutation.html" />
-    <link rel="prev" title="Assumptions" href="../assumptions.html" />
+    <link rel="next" title="C API" href="C_API.html" />
+    <link rel="prev" title="Accuracy" href="accuracy.html" />
   
     <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
   
@@ -83,7 +85,7 @@
   <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer">
   <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search">
   <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
-  <a href="#design_topics/index" tabindex="1" class="md-skip"> Skip to content </a>
+  <a href="#design_topics/branch_cuts" tabindex="1" class="md-skip"> Skip to content </a>
   <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
     <div class="md-flex navheader">
@@ -101,7 +103,7 @@
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           <span class="md-header-nav__topic">Python array API standard 2022.05-DRAFT</span>
-          <span class="md-header-nav__topic"> Design topics &amp; constraints </span>
+          <span class="md-header-nav__topic"> Branch Cuts </span>
         </div>
       </div>
       <div class="md-flex__cell md-flex__cell--shrink">
@@ -161,6 +163,7 @@
             <li class="md-tabs__item"><a href="../index.html" class="md-tabs__link">Array API standard</a></li>
             
             <li class="md-tabs__item"><a href="https://data-apis.org" class="md-tabs__link">Consortium for Python Data API Standards</a></li>
+          <li class="md-tabs__item"><a href="index.html" class="md-tabs__link">Design topics &amp; constraints</a></li>
       </ul>
     </div>
   </nav>
@@ -218,16 +221,7 @@
     <li class="md-nav__item">
     
     
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    <label class="md-nav__link md-nav__link--active" for="__toc"> Design topics & constraints </label>
-    
-      <a href="#" class="md-nav__link md-nav__link--active">Design topics & constraints</a>
-      
-        
-<nav class="md-nav md-nav--secondary">
-  <ul class="md-nav__list" data-md-scrollfix="">
-  </ul>
-</nav>
+      <a href="index.html" class="md-nav__link">Design topics & constraints</a>
       <ul class="md-nav__list"> 
     <li class="md-nav__item">
     
@@ -274,7 +268,16 @@
     <li class="md-nav__item">
     
     
-      <a href="branch_cuts.html" class="md-nav__link">Branch Cuts</a>
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    <label class="md-nav__link md-nav__link--active" for="__toc"> Branch Cuts </label>
+    
+      <a href="#" class="md-nav__link md-nav__link--active">Branch Cuts</a>
+      
+        
+<nav class="md-nav md-nav--secondary">
+  <ul class="md-nav__list" data-md-scrollfix="">
+  </ul>
+</nav>
       
     
     </li>
@@ -363,21 +366,16 @@
         <div class="md-content">
           <article class="md-content__inner md-typeset" role="main">
             
-  <section id="design-topics-constraints">
-<h1 id="design-topics-index--page-root">Design topics &amp; constraints<a class="headerlink" href="#design-topics-index--page-root" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">Design topics &amp; constraints</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="copies_views_and_mutation.html">Copy-view behaviour and mutability</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data_dependent_output_shapes.html">Data-dependent output shapes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data_interchange.html">Data interchange mechanisms</a></li>
-<li class="toctree-l1"><a class="reference internal" href="device_support.html">Device support</a></li>
-<li class="toctree-l1"><a class="reference internal" href="static_typing.html">Static typing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="accuracy.html">Accuracy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="branch_cuts.html">Branch Cuts</a></li>
-<li class="toctree-l1"><a class="reference internal" href="C_API.html">C API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="parallelism.html">Parallelism</a></li>
-</ul>
+  <section id="branch-cuts">
+<span id="id1"></span><h1 id="design-topics-branch-cuts--page-root">Branch Cuts<a class="headerlink" href="#design-topics-branch-cuts--page-root" title="Permalink to this headline">¶</a></h1>
+<p>In the mathematical field of complex analysis, a <strong>branch cut</strong> is a curve in the complex plane across which an analytic multi-valued function is discontinuous. Branch cuts are often taken as lines or line segments, and the choice of any particular branch cut is a matter of convention.</p>
+<p>For example, consider the function <span class="math notranslate nohighlight">\(z^2\)</span> which maps a complex number <span class="math notranslate nohighlight">\(z\)</span> to a well-defined number <span class="math notranslate nohighlight">\(z^2\)</span>. The function’s inverse function <span class="math notranslate nohighlight">\(\sqrt{z}\)</span> does not, however, map to a single value. For example, for <span class="math notranslate nohighlight">\(z = 1\)</span>, <span class="math notranslate nohighlight">\(\sqrt{1} = \pm 1\)</span>. While one can choose a unique principal value for this and similar functions (e.g., in this case, the principal square root is <span class="math notranslate nohighlight">\(+1\)</span>), choices cannot be made continuous over the whole complex plane, as lines of discontinuity must occur. To handle discontinuities, one commonly adopts branch cuts, which are not, in general, unique. Instead, one chooses a branch cut as a matter of convention in order to give simple analytic properties.</p>
+<p>Branch cuts do not arise for single-valued trigonometric, hyperbolic, integer power, or exponential functions; however, branch cuts do arise for their multi-valued inverses.</p>
+<p>In contrast to real-valued floating-point numbers which have well-defined behavior as specified in IEEE 754, complex-valued floating-point numbers have no equivalent specification. Accordingly, this specification chooses to follow C99 conventions for special cases and branch cuts for those functions supporting complex numbers. For those functions which do not have C99 equivalents (e.g., linear algebra APIs), the specification relies on dominant conventions among existing array libraries.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>All branch cuts documented in this specification are considered <strong>provisional</strong>. While conforming implementations of the array API standard should adopt the branch cuts described in this standard, consumers of array API standard implementations should <strong>not</strong> assume that branch cuts are consistent between implementations.</p>
+<p>Provided no issues arise due to the choice of branch cut, the provisional status is likely to be removed in a future revision of this standard.</p>
 </div>
 </section>
 
@@ -391,7 +389,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
           
-            <a href="../assumptions.html" title="Assumptions"
+            <a href="accuracy.html" title="Accuracy"
                class="md-flex md-footer-nav__link md-footer-nav__link--prev"
                rel="prev">
               <div class="md-flex__cell md-flex__cell--shrink">
@@ -400,17 +398,17 @@
               <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
                 <span class="md-flex__ellipsis">
                   <span
-                      class="md-footer-nav__direction"> Previous </span> Assumptions </span>
+                      class="md-footer-nav__direction"> Previous </span> Accuracy </span>
               </div>
             </a>
           
           
-            <a href="copies_views_and_mutation.html" title="Copy-view behaviour and mutability"
+            <a href="C_API.html" title="C API"
                class="md-flex md-footer-nav__link md-footer-nav__link--next"
                rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
                 class="md-flex__ellipsis"> <span
-                class="md-footer-nav__direction"> Next </span> Copy-view behaviour and mutability </span>
+                class="md-footer-nav__direction"> Next </span> C API </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink"><i
                 class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
