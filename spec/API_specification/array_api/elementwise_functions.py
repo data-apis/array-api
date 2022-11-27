@@ -57,9 +57,15 @@ def acos(x: array, /) -> array:
     - If ``a`` is ``NaN`` and ``b`` is ``NaN``, the result is ``NaN + NaN j``.
 
     .. note::
-       The principal value of the arc cosine of a complex number :math:`z` is :math:`\operatorname{acos}(z) = \frac{1}{2}\pi + j\ \ln(zj + \sqrt{1-z^2})`.
+       The principal value of the arc cosine of a complex number :math:`z` is 
 
-       For any :math:`z`, :math:`\operatorname{acos}(z) = \pi - \operatorname{acos}(-z)`. 
+       .. math::
+          \operatorname{acos}(z) = \frac{1}{2}\pi + j\ \ln(zj + \sqrt{1-z^2})
+
+       For any :math:`z`,
+
+       .. math::
+          \operatorname{acos}(z) = \pi - \operatorname{acos}(-z)
 
     .. note::
        For complex floating-point operands, ``acos(conj(x))`` must equal ``conj(acos(x))``.
