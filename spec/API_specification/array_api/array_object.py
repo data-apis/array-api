@@ -428,7 +428,7 @@ class _array():
         Computes the truth value of ``self_i >= other_i`` for each element of an array instance with the respective element of the array ``other``.
 
         .. note::
-           Inequality comparison of complex numbers is unspecified and thus implementation-dependent (see :ref:`complex-number-ordering`).
+           For backward compatibility, conforming implementations may support complex numbers; however, inequality comparison of complex numbers is unspecified and thus implementation-dependent (see :ref:`complex-number-ordering`).
 
         Parameters
         ----------
@@ -469,7 +469,7 @@ class _array():
         Computes the truth value of ``self_i > other_i`` for each element of an array instance with the respective element of the array ``other``.
 
         .. note::
-           Inequality comparison of complex numbers is unspecified and thus implementation-dependent (see :ref:`complex-number-ordering`).
+           For backward compatibility, conforming implementations may support complex numbers; however, inequality comparison of complex numbers is unspecified and thus implementation-dependent (see :ref:`complex-number-ordering`).
 
         Parameters
         ----------
@@ -545,7 +545,7 @@ class _array():
         Computes the truth value of ``self_i <= other_i`` for each element of an array instance with the respective element of the array ``other``.
 
         .. note::
-           Inequality comparison of complex numbers is unspecified and thus implementation-dependent (see :ref:`complex-number-ordering`).
+           For backward compatibility, conforming implementations may support complex numbers; however, inequality comparison of complex numbers is unspecified and thus implementation-dependent (see :ref:`complex-number-ordering`).
 
         Parameters
         ----------
@@ -590,7 +590,7 @@ class _array():
         Computes the truth value of ``self_i < other_i`` for each element of an array instance with the respective element of the array ``other``.
 
         .. note::
-           Inequality comparison of complex numbers is unspecified and thus implementation-dependent (see :ref:`complex-number-ordering`).
+           For backward compatibility, conforming implementations may support complex numbers; however, inequality comparison of complex numbers is unspecified and thus implementation-dependent (see :ref:`complex-number-ordering`).
 
         Parameters
         ----------
