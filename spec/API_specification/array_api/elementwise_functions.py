@@ -115,7 +115,7 @@ def add(x1: array, x2: array, /) -> array:
     | **a + bj** | (a+c) + bj | a + (b+d)j | (a+c) + (b+d)j |
     +------------+------------+------------+----------------+
 
-    For complex floating-point operands, real-valued floating-point special cases must independently apply to the real and imaginary component operations described in the above table. For example, let ``a = real(x1_i)``, ``b = imag(x1_i)``, ``c = real(x2_i)``, ``d = imag(x2_i)``, and
+    For complex floating-point operands, real-valued floating-point special cases must independently apply to the real and imaginary component operations involving real numbers as described in the above table. For example, let ``a = real(x1_i)``, ``b = imag(x1_i)``, ``c = real(x2_i)``, ``d = imag(x2_i)``, and
 
     - If ``a`` is ``-0`` and ``c`` is ``-0``, the real component of the result is ``-0``.
     - Similarly, if ``b`` is ``+0`` and ``d`` is ``-0``, the imaginary component of the result is ``+0``.
