@@ -79,9 +79,22 @@ def acosh(x: array, /) -> array:
     - If ``a`` is ``NaN`` and ``b`` is ``NaN``, the result is ``NaN + NaN j``.
 
     .. note::
-       The principal value of the inverse hyperbolic cosine of a complex number :math:`z` is :math:`\operatorname{acosh}(z) = \ln(z + \sqrt{z+1}\sqrt{z-1})`.
+       The principal value of the inverse hyperbolic cosine of a complex number :math:`z` is
 
-       For any :math:`z`, :math:`\operatorname{acosh}(z) = \frac{\sqrt{z-1}}{\sqrt{1-z}}\operatorname{acos}(z)`, or simply :math:`j\ \operatorname{acos}(z)` in the upper half of the complex plane.
+       .. math::
+          \operatorname{acosh}(z) = \ln(z + \sqrt{z+1}\sqrt{z-1})
+
+       For any :math:`z`,
+
+       .. math::
+          \operatorname{acosh}(z) = \frac{\sqrt{z-1}}{\sqrt{1-z}}\operatorname{acos}(z)
+
+       or simply
+
+       .. math::
+          \operatorname{acosh}(z) = j\ \operatorname{acos}(z)
+
+       in the upper half of the complex plane.
 
     .. note::
        For complex floating-point operands, ``acosh(conj(x))`` must equal ``conj(acosh(x))``.
