@@ -135,9 +135,15 @@ def asin(x: array, /) -> array:
     For complex floating-point operands, special cases must be handled as if the operation is implemented as ``-1j * asinh(x*1j)``.
 
     .. note::
-       The principal value of the arc sine of a complex number :math:`z` is :math:`\operatorname{asin}(z) = -j\ \ln(zj + \sqrt{1-z^2})`.
+       The principal value of the arc sine of a complex number :math:`z` is
 
-       For any :math:`z`, :math:`\operatorname{asin}(z) = \operatorname{acos}(-z) - \frac{\pi}{2}`. 
+       .. math::
+          \operatorname{asin}(z) = -j\ \ln(zj + \sqrt{1-z^2})
+
+       For any :math:`z`,
+
+       .. math::
+          \operatorname{asin}(z) = \operatorname{acos}(-z) - \frac{\pi}{2} 
 
     .. note::
        For complex floating-point operands, ``asin(conj(x))`` must equal ``conj(asin(x))``.
