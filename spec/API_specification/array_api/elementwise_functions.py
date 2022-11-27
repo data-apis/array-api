@@ -65,7 +65,9 @@ def acos(x: array, /) -> array:
        For complex floating-point operands, ``acos(conj(x))`` must equal ``conj(acos(x))``.
 
     .. note::
-       The inverse cosine (or arc cosine) is a multi-valued function and requires a branch cut on the complex plane. By convention, the branch cut is placed at the line segments :math:`(-\infty, 1)` and :math:`(1, \infty)` of the real axis.
+       The inverse cosine (or arc cosine) is a multi-valued function and requires a branch cut on the complex plane. By convention, a branch cut is placed at the line segments :math:`(-\infty, 1)` and :math:`(1, \infty)` of the real axis.
+
+       Accordingly, for complex arguments, the function returns the inverse cosine in the range of a strip unbounded along the imaginary axis and in the interval :math:`[0, \pi]` along the real axis.
 
        *Note: branch cuts have provisional status* (see :ref:`branch-cuts`). 
 
