@@ -168,9 +168,15 @@ def asinh(x: array, /) -> array:
     - If ``a`` is ``NaN`` and ``b`` is ``NaN``, the result is ``NaN + NaN j``.
 
     .. note::
-       The principal value of the inverse hyperbolic sine of a complex number :math:`z` is :math:`\operatorname{asinh}(z) = \ln(z + \sqrt{1+z^2})`.
+       The principal value of the inverse hyperbolic sine of a complex number :math:`z` is
 
-       For any :math:`z`, :math:`\operatorname{asinh}(z) = \frac{\operatorname{asin}(zj)}{j}`. 
+       .. math::
+          \operatorname{asinh}(z) = \ln(z + \sqrt{1+z^2})
+
+       For any :math:`z`,
+
+       .. math::
+          \operatorname{asinh}(z) = \frac{\operatorname{asin}(zj)}{j}
 
     .. note::
        For complex floating-point operands, ``asinh(conj(x))`` must equal ``conj(asinh(x))`` and ``asinh(-z)`` must equal ``-asinh(z)``.
