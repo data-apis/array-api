@@ -3,7 +3,7 @@
 Complex Number Ordering
 =======================
 
-Given a set :math:`{a_1, \ldots, a_n}`, an order relation must satisfy the following properties:
+Given a set :math:`\{a_1, \ldots, a_n\}`, an order relation must satisfy the following properties:
 
 1. For any :math:`a` in the set, :math:`a \leq a` (i.e., *reflexive*).
 2. For any :math:`a`, :math:`b`, and :math:`c` in the set, if :math:`a \leq b` and :math:`b \leq c`, then :math:`a \leq c` (i.e., *transitive*).
