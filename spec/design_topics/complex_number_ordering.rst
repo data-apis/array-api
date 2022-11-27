@@ -15,3 +15,5 @@ Given a set :math:`\{a_1, \ldots, a_n\}`, an order relation must satisfy the fol
 Defining an order relation for complex numbers which satisfies all six properties defined above is not possible. Accordingly, this specification does not require that a conforming implementation of the array API standard adopt any specific complex number order relation.
 
 In order to satisfy backward compatibility guarantees, conforming implementations of the array API standard may choose to define an ordering for complex numbers (e.g., lexicographic); however, consumers of the array API standard should **not** assume that complex number ordering is consistent between implementations or even supported.
+
+If a conforming implementation chooses to define an ordering for complex numbers, the ordering must be clearly documented.
