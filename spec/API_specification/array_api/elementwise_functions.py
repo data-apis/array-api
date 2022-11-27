@@ -142,12 +142,12 @@ def asin(x: array, /) -> array:
     """
 
 def asinh(x: array, /) -> array:
-    """
-    Calculates an implementation-dependent approximation to the inverse hyperbolic sine, having domain ``[-infinity, +infinity]`` and codomain ``[-infinity, +infinity]``, for each element ``x_i`` in the input array ``x``.
+    r"""
+    Calculates an implementation-dependent approximation to the inverse hyperbolic sine for each element ``x_i`` in the input array ``x``.
 
     **Special cases**
 
-    For floating-point operands,
+    For real-valued floating-point operands,
 
     - If ``x_i`` is ``NaN``, the result is ``NaN``.
     - If ``x_i`` is ``+0``, the result is ``+0``.
@@ -155,15 +155,42 @@ def asinh(x: array, /) -> array:
     - If ``x_i`` is ``+infinity``, the result is ``+infinity``.
     - If ``x_i`` is ``-infinity``, the result is ``-infinity``.
 
+    For complex floating-point operands, let ``a = real(x_i)``, ``b = imag(x_i)``, and
+
+    - If ``a`` is ``+0`` and ``b`` is ``+0``, the result is ``+0 + 0j``.
+    - If ``a`` is a positive (i.e., greater than ``0``) finite number and ``b`` is ``+infinity``, the result is ``+infinity + πj/2``.
+    - If ``a`` is a finite number and ``b`` is ``NaN``, the result is ``NaN + NaN j``.
+    - If ``a`` is ``+infinity`` and ``b`` is a positive (i.e., greater than ``0``) finite number, the result is ``+infinity + 0j``.
+    - If ``a`` is ``+infinity`` and ``b`` is ``+infinity``, the result is ``+infinity + πj/4``.
+    - If ``a`` is ``NaN`` and ``b`` is ``+0``, the result is ``NaN + 0j``.
+    - If ``a`` is ``NaN`` and ``b`` is a nonzero finite number, the result is ``NaN + NaN j``.
+    - If ``a`` is ``NaN`` and ``b`` is ``+infinity``, the result is ``±infinity + NaN j`` (sign of the real component is unspecified).
+    - If ``a`` is ``NaN`` and ``b`` is ``NaN``, the result is ``NaN + NaN j``.
+
+    .. note::
+       The principal value of the inverse hyperbolic sine of a complex number :math:`z` is :math:`\operatorname{asinh}(z) = \ln(z + \sqrt{1+z^2})`.
+
+       For any :math:`z`, :math:`\operatorname{asinh}(z) = \frac{\operatorname{asin}(zj)}{j}`. 
+
+    .. note::
+       For complex floating-point operands, ``asinh(conj(x))`` must equal ``conj(asinh(x))`` and ``asinh(-z)`` must equal ``-asinh(z)``.
+
+    .. note::
+       The inverse hyperbolic sine is a multi-valued function and requires a branch cut on the complex plane. By convention, a branch cut is placed at the line segments :math:`(-\infty j, -j)` and :math:`(j, \infty j)` of the imaginary axis.
+
+       Accordingly, for complex arguments, the function returns the inverse hyperbolic sine in the range of a strip unbounded along the real axis and in the interval :math:`[-\pi j/2, +\pi j/2]` along the imaginary axis.
+
+       *Note: branch cuts have provisional status* (see :ref:`branch-cuts`).
+
     Parameters
     ----------
     x: array
-        input array whose elements each represent the area of a hyperbolic sector. Should have a real-valued floating-point data type.
+        input array whose elements each represent the area of a hyperbolic sector. Should have a floating-point data type.
 
     Returns
     -------
     out: array
-        an array containing the inverse hyperbolic sine of each element in ``x``. The returned array must have a real-valued floating-point data type determined by :ref:`type-promotion`.
+        an array containing the inverse hyperbolic sine of each element in ``x``. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
     """
 
 def atan(x: array, /) -> array:
