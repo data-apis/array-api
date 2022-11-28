@@ -843,15 +843,28 @@ def isinf(x: array, /) -> array:
     """
     Tests each element ``x_i`` of the input array ``x`` to determine if equal to positive or negative infinity.
 
+    **Special Cases**
+
+    For real-valued floating-point operands,
+
+    - If ``x_i`` is either ``+infinity`` or ``-infinity``, the result is ``True``.
+    - In the remaining cases, the result is ``False``.
+
+    For complex floating-point operands, let ``a = real(x_i)``, ``b = imag(x_i)``, and
+
+    - If ``a`` is either ``+infinity`` or ``-infinity`` and ``b`` is any value (including ``NaN``), the result is ``True``.
+    - If ``a`` is either a finite number or ``NaN`` and ``b`` is either ``+infinity`` or ``-infinity``, the result is ``True``.
+    - In the remaining cases, the result is ``False``.
+
     Parameters
     ----------
     x: array
-        input array. Should have a real-valued data type.
+        input array. Should have a numeric data type.
 
     Returns
     -------
     out: array
-        an array containing test results. An element ``out_i`` is ``True`` if ``x_i`` is either positive or negative infinity and ``False`` otherwise. The returned array must have a data type of ``bool``.
+        an array containing test results. The returned array must have a data type of ``bool``.
     """
 
 def isnan(x: array, /) -> array:
