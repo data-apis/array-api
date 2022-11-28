@@ -246,21 +246,21 @@
       
         
 <nav class="md-nav md-nav--secondary">
+    <label class="md-nav__title" for="__toc">Contents</label>
   <ul class="md-nav__list" data-md-scrollfix="">
+        <li class="md-nav__item"><a href="#extensions-index--page-root" class="md-nav__link">Extensions</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#id2" class="md-nav__link">Extensions</a>
+        </li></ul>
+            </nav>
+        </li>
   </ul>
 </nav>
       <ul class="md-nav__list"> 
     <li class="md-nav__item">
     
     
-      <a href="fourier_transform_functions.html" class="md-nav__link">Fourier transform Functions</a>
-      
-    
-    </li>
-    <li class="md-nav__item">
-    
-    
-      <a href="linear_algebra_functions.html" class="md-nav__link">Linear Algebra Extension</a>
+      <a href="#id2" class="md-nav__link">Extensions</a>
       
     
     </li></ul>
@@ -304,7 +304,14 @@
               <div class="md-sidebar__inner">
                 
 <nav class="md-nav md-nav--secondary">
+    <label class="md-nav__title" for="__toc">Contents</label>
   <ul class="md-nav__list" data-md-scrollfix="">
+        <li class="md-nav__item"><a href="#extensions-index--page-root" class="md-nav__link">Extensions</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#id2" class="md-nav__link">Extensions</a>
+        </li></ul>
+            </nav>
+        </li>
   </ul>
 </nav>
               </div>
@@ -316,61 +323,30 @@
             
   <section id="extensions">
 <span id="id1"></span><h1 id="extensions-index--page-root">Extensions<a class="headerlink" href="#extensions-index--page-root" title="Permalink to this headline">¶</a></h1>
+<p>Extensions are coherent sets of functionality that are commonly implemented
+across array libraries. Each array library supporting this standard may, but is
+not required to, implement an extension. If an extension is supported, it
+must be accessible inside the main array API supporting namespace as a separate
+namespace.</p>
+<p>Extension module implementors must aim to provide all functions and other
+public objects in an extension. The rationale for this is that downstream usage
+can then check whether or not the extension is present (using <code class="docutils literal notranslate"><span class="pre">hasattr(xp,</span>
+<span class="pre">'extension_name')</span></code> should be enough), and can then assume that functions are
+implemented. This in turn makes it also easy for array-consuming libraries to
+document which array libraries they support - e.g., “all libraries implementing
+the array API standard and its linear algebra extension”.</p>
+<p>The mechanism through which the extension namespace is made available is up to
+the implementer, e.g. via a regular submodule that is imported under the
+<code class="docutils literal notranslate"><span class="pre">linalg</span></code> name, or via a module-level <code class="docutils literal notranslate"><span class="pre">__getattr__</span></code>.</p>
+<section id="id2">
+<h2 id="id2">Extensions<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">Extensions</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="fourier_transform_functions.html">Fourier transform Functions</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="fourier_transform_functions.html#objects-in-api">Objects in API</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="generated/array_api.fft.fft.html">fft</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/array_api.fft.ifft.html">ifft</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/array_api.fft.fftn.html">fftn</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/array_api.fft.ifftn.html">ifftn</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/array_api.fft.rfft.html">rfft</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/array_api.fft.irfft.html">irfft</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/array_api.fft.rfftn.html">rfftn</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/array_api.fft.irfftn.html">irfftn</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/array_api.fft.hfft.html">hfft</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/array_api.fft.ihfft.html">ihfft</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/array_api.fft.fftfreq.html">fftfreq</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/array_api.fft.rfftfreq.html">rfftfreq</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/array_api.fft.fftshift.html">fftshift</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/array_api.fft.ifftshift.html">ifftshift</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="linear_algebra_functions.html">Linear Algebra Extension</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="linear_algebra_functions.html#design-principles">Design Principles</a></li>
-<li class="toctree-l2"><a class="reference internal" href="linear_algebra_functions.html#objects-in-api">Objects in API</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="generated/array_api.linalg.cholesky.html">cholesky</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/array_api.linalg.cross.html">cross</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/array_api.linalg.det.html">det</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/array_api.linalg.diagonal.html">diagonal</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/array_api.linalg.eigh.html">eigh</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/array_api.linalg.eigvalsh.html">eigvalsh</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/array_api.linalg.inv.html">inv</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/array_api.linalg.matmul.html">matmul</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/array_api.linalg.matrix_norm.html">matrix_norm</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/array_api.linalg.matrix_power.html">matrix_power</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/array_api.linalg.matrix_rank.html">matrix_rank</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/array_api.linalg.matrix_transpose.html">matrix_transpose</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/array_api.linalg.outer.html">outer</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/array_api.linalg.pinv.html">pinv</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/array_api.linalg.qr.html">qr</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/array_api.linalg.slogdet.html">slogdet</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/array_api.linalg.solve.html">solve</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/array_api.linalg.svd.html">svd</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/array_api.linalg.svdvals.html">svdvals</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/array_api.linalg.tensordot.html">tensordot</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/array_api.linalg.trace.html">trace</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/array_api.linalg.vecdot.html">vecdot</a></li>
-<li class="toctree-l3"><a class="reference internal" href="generated/array_api.linalg.vector_norm.html">vector_norm</a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="fourier_transform_functions.html">Fourier transform Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linear_algebra_functions.html">Linear Algebra Extension</a></li>
 </ul>
 </div>
+</section>
 </section>
 
 
