@@ -1,4 +1,4 @@
-from ._types import Tuple, Union, Sequence, array, Optional, Literal, device, dtype
+from ._types import Tuple, Union, Sequence, array, Optional, Literal, device
 
 
 def fft(x: array, /, *, n: Optional[int] = None, axis: int = -1, norm: Literal['backward', 'ortho', 'forward'] = 'backward') -> array:
