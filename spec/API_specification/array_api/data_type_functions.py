@@ -1,4 +1,4 @@
-from ._types import Union, array, dtype, finfo_object, iinfo_object
+from ._types import Union, Tuple, array, dtype, finfo_object, iinfo_object
 
 def astype(x: array, dtype: dtype, /, *, copy: bool = True) -> array:
     """
@@ -127,6 +127,41 @@ def iinfo(type: Union[dtype, array], /) -> iinfo_object:
           integer data type.
     """
 
+def isdtype(dtype: dtype, kind: Union[dtype, str, Tuple[Union[dtype, str], ...]]) -> bool:
+    """
+    Returns a boolean indicating whether a provided dtype is of a specified data type "kind".
+
+    Parameters
+    ----------
+    dtype: dtype
+        the input dtype.
+    kind: Union[str, dtype, Tuple[Union[str, dtype], ...]]
+        data type kind.
+
+        -   If ``kind`` is a dtype, the function must return a boolean indicating whether the input ``dtype`` is equal to the dtype specified by ``kind``.
+        -   If ``kind`` is a string, the function must return a boolean indicating whether the input ``dtype`` is of a specified data type kind. The following dtype kinds must be supported:
+
+            -   **bool**: boolean data types (e.g., ``bool``).
+            -   **signed integer**: signed integer data types (e.g., ``int8``, ``int16``, ``int32``, ``int64``). 
+            -   **unsigned integer**: unsigned integer data types (e.g., ``uint8``, ``uint16``, ``uint32``, ``uint64``).
+            -   **integral**: integer data types. Shorthand for ``('signed integer', 'unsigned integer')``.
+            -   **real floating**: real-valued floating-point data types (e.g., ``float32``, ``float64``).
+            -   **complex floating**: complex floating-point data types (e.g., ``complex64``, ``complex128``).
+            -   **numeric**: numeric data types. Shorthand for ``('integral', 'real floating', 'complex floating')``.
+
+        -   If ``kind`` is a tuple, the tuple specifies a union of dtypes and/or kinds, and the function must return a boolean indicating whether the input ``dtype`` is either equal to a specified dtype or belongs to at least one specified data type kind.
+
+        .. note::
+           A conforming implementation of the array API standard is **not** limited to only including the dtypes described in this specification in the required data type kinds. For example, implementations supporting ``float16`` and ``bfloat16`` can include ``float16`` and ``bfloat16`` in the ``real floating`` data type kind. Similarly, implementations supporting ``int128`` can include ``int128`` in the ``signed integer`` data type kind.
+
+           In short, conforming implementations may extend data type kinds; however, data type kinds must remain consistent (e.g., only integer dtypes may belong to integer data type kinds and only floating-point dtypes may belong to floating-point data type kinds), and extensions must be clearly documented as such in library documentation.
+
+    Returns
+    -------
+    out: bool
+        boolean indicating whether a provided dtype is of a specified data type kind.
+    """
+
 def result_type(*arrays_and_dtypes: Union[array, dtype]) -> dtype:
     """
     Returns the dtype that results from applying the type promotion rules (see :ref:`type-promotion`) to the arguments.
@@ -145,4 +180,4 @@ def result_type(*arrays_and_dtypes: Union[array, dtype]) -> dtype:
         the dtype resulting from an operation involving the input arrays and dtypes.
     """
 
-__all__ = ['astype', 'can_cast', 'finfo', 'iinfo', 'result_type']
+__all__ = ['astype', 'can_cast', 'finfo', 'iinfo', 'isdtype', 'result_type']
