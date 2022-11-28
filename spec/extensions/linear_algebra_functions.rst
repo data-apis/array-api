@@ -5,6 +5,23 @@ Linear Algebra Extension
 
     Array API specification for linear algebra functions.
 
+Extension name and usage
+------------------------
+
+The name of the namespace providing the extension must be: ``linalg``.
+
+If implemented, this ``linalg`` extension must be retrievable via::
+
+    >>> xp = x.__array_namespace__()
+    >>> if hasattr(xp, 'linalg'):
+    >>>    # Use `xp.linalg`
+
+
+General syntax and semantics rules
+----------------------------------
+
+.. TODO: get rid of this here, it's duplicated over and over
+
 A conforming implementation of the array API standard must provide and support the following functions adhering to the following conventions.
 
 -   Positional parameters must be `positional-only <https://www.python.org/dev/peps/pep-0570/>`_ parameters. Positional-only parameters have no externally-usable name. When a function accepting positional-only parameters is called, positional arguments are mapped to these parameters based solely on their order.
