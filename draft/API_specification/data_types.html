@@ -655,6 +655,10 @@
 <p>The default complex floating-point point data type should match the default real-valued floating-point data type. For example, if the default real-valued floating-point data type is <code class="docutils literal notranslate"><span class="pre">float32</span></code>, the default complex floating-point data type must be <code class="docutils literal notranslate"><span class="pre">complex64</span></code>. If the default real-valued floating-point data type is <code class="docutils literal notranslate"><span class="pre">float64</span></code>, the default complex floating-point data type must be <code class="docutils literal notranslate"><span class="pre">complex128</span></code>.</p>
 <p>The default integer data type should be the same across platforms, but the default may vary depending on whether Python is 32-bit or 64-bit.</p>
 <p>The default array index data type may be <code class="docutils literal notranslate"><span class="pre">int32</span></code> on 32-bit platforms, but the default should be <code class="docutils literal notranslate"><span class="pre">int64</span></code> otherwise.</p>
+<p>Note that it is possible that a library supports multiple devices, with not all
+those device types supporting the same data types. In this case, the default
+integer or floating-point data types may vary with device. If that is the case,
+the library should clearly warn about this in its documentation.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The default data types should be clearly defined in a conforming library’s documentation.</p>

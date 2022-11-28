@@ -130,6 +130,11 @@ The default integer data type should be the same across platforms, but the defau
 
 The default array index data type may be ``int32`` on 32-bit platforms, but the default should be ``int64`` otherwise.
 
+Note that it is possible that a library supports multiple devices, with not all
+those device types supporting the same data types. In this case, the default
+integer or floating-point data types may vary with device. If that is the case,
+the library should clearly warn about this in its documentation.
+
 .. note::
    The default data types should be clearly defined in a conforming library's documentation.
 
