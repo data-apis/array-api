@@ -858,15 +858,27 @@ def isnan(x: array, /) -> array:
     """
     Tests each element ``x_i`` of the input array ``x`` to determine whether the element is ``NaN``.
 
+    **Special Cases**
+
+    For real-valued floating-point operands,
+
+    - If ``x_i`` is ``NaN``, the result is ``True``.
+    - In the remaining cases, the result is ``False``.
+
+    For complex floating-point operands, let ``a = real(x_i)``, ``b = imag(x_i)``, and
+
+    - If ``a`` or ``b`` is ``NaN``, the result is ``True``.
+    - In the remaining cases, the result is ``False``.
+
     Parameters
     ----------
     x: array
-        input array. Should have a real-valued data type.
+        input array. Should have a numeric data type.
 
     Returns
     -------
     out: array
-        an array containing test results. An element ``out_i`` is ``True`` if ``x_i`` is ``NaN`` and ``False`` otherwise. The returned array should have a data type of ``bool``.
+        an array containing test results. The returned array should have a data type of ``bool``.
     """
 
 def less(x1: array, x2: array, /) -> array:
