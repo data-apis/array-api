@@ -110,59 +110,80 @@ def diagonal(x: array, /, *, offset: int = 0) -> array:
     """
 
 def eigh(x: array, /) -> Tuple[array]:
-    """
-    Returns an eigendecomposition x = QLQᵀ of a symmetric matrix (or a stack of symmetric matrices) ``x``, where ``Q`` is an orthogonal matrix (or a stack of matrices) and ``L`` is a vector (or a stack of vectors).
+    r"""
+    Returns an eigenvalue decomposition of a complex Hermitian or real symmetric matrix (or a stack of matrices) ``x``.
+
+    If ``x`` is real-valued, let :math:`\mathbb{K}` be the set of real numbers :math:`\mathbb{R}`, and, if ``x`` is complex-valued, let :math:`\mathbb{K}` be the set of complex numbers :math:`\mathbb{C}`.
+
+    The **eigenvalue decomposition** of a complex Hermitian or real symmetric matrix :math:`x \in\ \mathbb{K}^{n \times n}` is defined as
+
+    .. math::
+       x = Q \Lambda Q^H
+
+    where :math:`Q^H` is the conjugate transpose when :math:`Q` is complex and the transpose when :math:`Q` is real-valued and :math:`\Lambda` is a diagonal matrix whose diagonal elements are the corresponding eigenvalues. When ``x`` is real-valued, :math:`Q` is orthogonal, and, when ``x`` is complex, :math:`Q` is unitary.
 
     .. note::
-       The function ``eig`` will be added in a future version of the specification, as it requires complex number support.
+       The eigenvalues of a complex Hermitian or real symmetric matrix are always real.
 
-    ..
-      NOTE: once complex numbers are supported, each square matrix must be Hermitian.
+    .. warning:
+       The eigenvectors of a symmetric matrix are not unique and are not continuous with respect to ``x``. Because eigenvectors are not unique, different hardware and software may compute different eigenvectors.
+
+       Non-uniqueness stems from the fact that multiplying an eigenvector by :math:`-1` when ``x`` is real-valued and by :math:`e^{\phi j}` (:math:`\phi \in \mathbb{R}`) when ``x`` is complex produces another set of valid eigenvectors.
 
     .. note::
-       Whether an array library explicitly checks whether an input array is a symmetric matrix (or a stack of symmetric matrices) is implementation-defined.
+       Whether an array library explicitly checks whether an input array is Hermitian or a symmetric matrix (or a stack of matrices) is implementation-defined.
+
+    .. note::
+       The function ``eig`` will be added in a future version of the specification.
 
     Parameters
     ----------
     x: array
-        input array having shape ``(..., M, M)`` and whose innermost two dimensions form square matrices. Must have a real-valued floating-point data type.
+        input array having shape ``(..., M, M)`` and whose innermost two dimensions form square matrices. Must have a floating-point data type.
 
     Returns
     -------
     out: Tuple[array]
         a namedtuple (``eigenvalues``, ``eigenvectors``) whose
 
-        -   first element must have the field name ``eigenvalues`` (corresponding to ``L`` above) and must be an array consisting of computed eigenvalues. The array containing the eigenvalues must have shape ``(..., M)``.
-        -   second element have have the field name ``eigenvectors`` (corresponding to ``Q`` above) and must be an array where the columns of the inner most matrices contain the computed eigenvectors. These matrices must be orthogonal. The array containing the eigenvectors must have shape ``(..., M, M)``.
-
-        Each returned array must have the same real-valued floating-point data type as ``x``.
+        -   first element must have the field name ``eigenvalues`` (corresponding to :math:`\operatorname{diag}\Lambda` above) and must be an array consisting of computed eigenvalues. The array containing the eigenvalues must have shape ``(..., M)`` and must have a real-valued floating-point data type whose precision matches the precision of ``x`` (e.g., if ``x`` is ``complex128``, then ``eigenvalues`` must be ``float64``).
+        -   second element have have the field name ``eigenvectors`` (corresponding to :math:`Q` above) and must be an array where the columns of the inner most matrices contain the computed eigenvectors. These matrices must be orthogonal. The array containing the eigenvectors must have shape ``(..., M, M)`` and must have the same data type as ``x``.
 
     .. note::
        Eigenvalue sort order is left unspecified and is thus implementation-dependent.
     """
 
 def eigvalsh(x: array, /) -> array:
-    """
-    Returns the eigenvalues of a symmetric matrix (or a stack of symmetric matrices) ``x``.
+    r"""
+    Returns the eigenvalues of a complex Hermitian or real symmetric matrix (or a stack of matrices) ``x``.
+
+    If ``x`` is real-valued, let :math:`\mathbb{K}` be the set of real numbers :math:`\mathbb{R}`, and, if ``x`` is complex-valued, let :math:`\mathbb{K}` be the set of complex numbers :math:`\mathbb{C}`.
+
+    The **eigenvalues** of a complex Hermitian or real symmetric matrix :math:`x \in\ \mathbb{K}^{n \times n}` are defined as the roots (counted with multiplicity) of the polynomial :math:`p` of degree :math:`n` given by
+
+    .. math::
+       p(\lambda) = \operatorname{det}(x - \lambda I_n)
+
+    where :math:`\lambda \in \mathbb{R}` and where :math:`I_n` is the *n*-dimensional identity matrix.
+
+    .. note:;
+       The eigenvalues of a complex Hermitian or real symmetric matrix are always real.
 
     .. note::
-       The function ``eigvals`` will be added in a future version of the specification, as it requires complex number support.
-
-    ..
-      NOTE: once complex numbers are supported, each square matrix must be Hermitian.
+       Whether an array library explicitly checks whether an input array is Hermitian or a symmetric matrix (or a stack of matrices) is implementation-defined.
 
     .. note::
-       Whether an array library explicitly checks whether an input array is a symmetric matrix (or a stack of symmetric matrices) is implementation-defined.
+       The function ``eigvals`` will be added in a future version of the specification.
 
     Parameters
     ----------
     x: array
-        input array having shape ``(..., M, M)`` and whose innermost two dimensions form square matrices. Must have a real-valued floating-point data type.
+        input array having shape ``(..., M, M)`` and whose innermost two dimensions form square matrices. Must have a floating-point data type.
 
     Returns
     -------
     out: array
-        an array containing the computed eigenvalues. The returned array must have shape ``(..., M)`` and have the same data type as ``x``.
+        an array containing the computed eigenvalues. The returned array must have shape ``(..., M)`` and have a real-valued floating-point data type whose precision matches the precision of ``x`` (e.g., if ``x`` is ``complex128``, then must have a ``float64`` data type).
 
     .. note::
        Eigenvalue sort order is left unspecified and is thus implementation-dependent.
