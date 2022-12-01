@@ -149,6 +149,7 @@ def eigh(x: array, /) -> Tuple[array]:
         -   first element must have the field name ``eigenvalues`` (corresponding to :math:`\operatorname{diag}\Lambda` above) and must be an array consisting of computed eigenvalues. The array containing the eigenvalues must have shape ``(..., M)`` and must have a real-valued floating-point data type whose precision matches the precision of ``x`` (e.g., if ``x`` is ``complex128``, then ``eigenvalues`` must be ``float64``).
         -   second element have have the field name ``eigenvectors`` (corresponding to :math:`Q` above) and must be an array where the columns of the inner most matrices contain the computed eigenvectors. These matrices must be orthogonal. The array containing the eigenvectors must have shape ``(..., M, M)`` and must have the same data type as ``x``.
 
+
     .. note::
        Eigenvalue sort order is left unspecified and is thus implementation-dependent.
     """
@@ -184,6 +185,7 @@ def eigvalsh(x: array, /) -> array:
     -------
     out: array
         an array containing the computed eigenvalues. The returned array must have shape ``(..., M)`` and have a real-valued floating-point data type whose precision matches the precision of ``x`` (e.g., if ``x`` is ``complex128``, then must have a ``float64`` data type).
+
 
     .. note::
        Eigenvalue sort order is left unspecified and is thus implementation-dependent.
