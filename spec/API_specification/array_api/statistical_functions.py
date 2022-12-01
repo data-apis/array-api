@@ -168,7 +168,7 @@ def sum(x: array, /, *, axis: Optional[Union[int, Tuple[int, ...]]] = None, dtyp
 
     -   If ``N`` is ``0``, the sum is ``0`` (i.e., the empty sum).
 
-    For both real-valued and complex floating-point operands, special cases must be handled as if the operation is implemented by successive evaluation of :func:`~array_api.add`.
+    For both real-valued and complex floating-point operands, special cases must be handled as if the operation is implemented by successive application of :func:`~array_api.add`.
 
     Parameters
     ----------
