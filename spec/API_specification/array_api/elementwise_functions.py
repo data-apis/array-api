@@ -585,6 +585,8 @@ def equal(x1: array, x2: array, /) -> array:
     - If ``x1_i`` is ``NaN`` or ``x2_i`` is ``NaN``, the result is ``False``.
     - If ``x1_i`` is ``+infinity`` and ``x2_i`` is ``+infinity``, the result is ``True``.
     - If ``x1_i`` is ``-infinity`` and ``x2_i`` is ``-infinity``, the result is ``True``.
+    - If ``x1_i`` is ``-0`` and ``x2_i`` is either ``+0`` or ``-0``, the result is ``True``.
+    - If ``x1_i`` is ``+0`` and ``x2_i`` is either ``+0`` or ``-0``, the result is ``True``.
     - If ``x1_i`` is a finite number, ``x2_i`` is a finite number, and ``x1_i`` equals ``x2_i``, the result is ``True``.
     - In the remaining cases, the result is ``False``.
 
