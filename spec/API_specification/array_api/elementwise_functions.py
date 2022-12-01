@@ -933,7 +933,7 @@ def log(x: array, /) -> array:
     - If ``a`` is ``NaN`` and ``b`` is ``NaN``, the result is ``NaN + NaN j``.
 
     .. note::
-       The natural logarithm of a complex number :math:`z` with polar coordinates :math:`(r,\theta)` equals :math:`\ln r + (θ+ 2n\pi)j` with principal value :math:`\ln r + \theta j`.
+       The natural logarithm of a complex number :math:`z` with polar coordinates :math:`(r,\theta)` equals :math:`\ln r + (\theta + 2n\pi)j` with principal value :math:`\ln r + \theta j`.
 
     .. note::
        For complex floating-point operands, ``log(conj(x))`` must equal ``conj(log(x))``.
