@@ -984,7 +984,7 @@ def log2(x: array, /) -> array:
     Parameters
     ----------
     x: array
-        input array. Should have a numeric floating-point data type.
+        input array. Should have a floating-point data type.
 
     Returns
     -------
