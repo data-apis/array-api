@@ -125,7 +125,7 @@ def eigh(x: array, /) -> Tuple[array]:
     .. note::
        The eigenvalues of a complex Hermitian or real symmetric matrix are always real.
 
-    .. warning:
+    .. warning::
        The eigenvectors of a symmetric matrix are not unique and are not continuous with respect to ``x``. Because eigenvectors are not unique, different hardware and software may compute different eigenvectors.
 
        Non-uniqueness stems from the fact that multiplying an eigenvector by :math:`-1` when ``x`` is real-valued and by :math:`e^{\phi j}` (:math:`\phi \in \mathbb{R}`) when ``x`` is complex produces another set of valid eigenvectors.
