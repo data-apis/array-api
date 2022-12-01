@@ -814,17 +814,19 @@ class _array():
         """
 
     def __pow__(self: array, other: Union[int, float, array], /) -> array:
-        """
+        r"""
         Calculates an implementation-dependent approximation of exponentiation by raising each element (the base) of an array instance to the power of ``other_i`` (the exponent), where ``other_i`` is the corresponding element of the array ``other``.
 
         .. note::
            If both ``self`` and ``other`` have integer data types, the result of ``__pow__`` when `other_i` is negative (i.e., less than zero) is unspecified and thus implementation-dependent.
 
-           If ``self`` has an integer data type and ``other`` has a real-valued floating-point data type, behavior is implementation-dependent, as type promotion between data type "kinds" (e.g., integer versus floating-point) is unspecified.
+           If ``self`` has an integer data type and ``other`` has a floating-point data type, behavior is implementation-dependent, as type promotion between data type "kinds" (e.g., integer versus floating-point) is unspecified.
 
         **Special cases**
 
-        For floating-point operands, let ``self`` equal ``x1`` and ``other`` equal ``x2``.
+        Let ``self`` equal ``x1`` and ``other`` equal ``x2``.
+
+        For real-valued floating-point operands,
 
         -   If ``x1_i`` is not equal to ``1`` and ``x2_i`` is ``NaN``, the result is ``NaN``.
         -   If ``x2_i`` is ``+0``, the result is ``1``, even if ``x1_i`` is ``NaN``.
@@ -851,12 +853,24 @@ class _array():
         -   If ``x1_i`` is ``-0``, ``x2_i`` is less than ``0``, and ``x2_i`` is not an odd integer value, the result is ``+infinity``.
         -   If ``x1_i`` is less than ``0``, ``x1_i`` is a finite number, ``x2_i`` is a finite number, and ``x2_i`` is not an integer value, the result is ``NaN``.
 
+        For complex floating-point operands, special cases should be handled as if the operation is implemented as ``exp(x2*log(x1))``.
+
+        .. note::
+           Conforming implementations are allowed to treat special cases involving complex floating-point operands more carefully than as described in this specification.
+
+        .. note::
+           By convention, the branch cut of the natural logarithm is the negative real axis :math:`(-\infty, 0)`.
+
+           The natural logarithm is a continuous function from above the branch cut, taking into account the sign of the imaginary component. As special cases involving complex floating-point operands should be handled according to ``exp(other*log(self))``, exponentiation has the same branch cut for ``self`` as the natural logarithm (see :func:`~array_api.log`).
+
+           *Note: branch cuts have provisional status* (see :ref:`branch-cuts`).
+
         Parameters
         ----------
         self: array
-            array instance whose elements correspond to the exponentiation base. Should have a real-valued data type.
+            array instance whose elements correspond to the exponentiation base. Should have a numeric data type.
         other: Union[int, float, array]
-            other array whose elements correspond to the exponentiation exponent. Must be compatible with ``self`` (see :ref:`broadcasting`). Should have a real-valued data type.
+            other array whose elements correspond to the exponentiation exponent. Must be compatible with ``self`` (see :ref:`broadcasting`). Should have a numeric data type.
 
         Returns
         -------

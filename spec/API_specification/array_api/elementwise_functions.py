@@ -1198,17 +1198,17 @@ def positive(x: array, /) -> array:
     """
 
 def pow(x1: array, x2: array, /) -> array:
-    """
+    r"""
     Calculates an implementation-dependent approximation of exponentiation by raising each element ``x1_i`` (the base) of the input array ``x1`` to the power of ``x2_i`` (the exponent), where ``x2_i`` is the corresponding element of the input array ``x2``.
 
     .. note::
        If both ``x1`` and ``x2`` have integer data types, the result of ``pow`` when ``x2_i`` is negative (i.e., less than zero) is unspecified and thus implementation-dependent.
 
-       If ``x1`` has an integer data type and ``x2`` has a real-valued floating-point data type, behavior is implementation-dependent (type promotion between data type "kinds" (integer versus floating-point) is unspecified).
+       If ``x1`` has an integer data type and ``x2`` has a floating-point data type, behavior is implementation-dependent (type promotion between data type "kinds" (integer versus floating-point) is unspecified).
 
     **Special cases**
 
-    For floating-point operands,
+    For real-valued floating-point operands,
 
     - If ``x1_i`` is not equal to ``1`` and ``x2_i`` is ``NaN``, the result is ``NaN``.
     - If ``x2_i`` is ``+0``, the result is ``1``, even if ``x1_i`` is ``NaN``.
@@ -1235,12 +1235,24 @@ def pow(x1: array, x2: array, /) -> array:
     - If ``x1_i`` is ``-0``, ``x2_i`` is less than ``0``, and ``x2_i`` is not an odd integer value, the result is ``+infinity``.
     - If ``x1_i`` is less than ``0``, ``x1_i`` is a finite number, ``x2_i`` is a finite number, and ``x2_i`` is not an integer value, the result is ``NaN``.
 
+    For complex floating-point operands, special cases should be handled as if the operation is implemented as ``exp(x2*log(x1))``.
+
+    .. note::
+       Conforming implementations are allowed to treat special cases involving complex floating-point operands more carefully than as described in this specification.
+
+    .. note::
+       By convention, the branch cut of the natural logarithm is the negative real axis :math:`(-\infty, 0)`.
+
+       The natural logarithm is a continuous function from above the branch cut, taking into account the sign of the imaginary component. As special cases involving complex floating-point operands should be handled according to ``exp(x2*log(x1))``, exponentiation has the same branch cut for ``x1`` as the natural logarithm (see :func:`~array_api.log`).
+
+       *Note: branch cuts have provisional status* (see :ref:`branch-cuts`).
+
     Parameters
     ----------
     x1: array
-        first input array whose elements correspond to the exponentiation base. Should have a real-valued data type.
+        first input array whose elements correspond to the exponentiation base. Should have a numeric data type.
     x2: array
-        second input array whose elements correspond to the exponentiation exponent. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have a real-valued data type.
+        second input array whose elements correspond to the exponentiation exponent. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have a numeric data type.
 
     Returns
     -------
