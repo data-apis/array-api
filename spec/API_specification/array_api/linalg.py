@@ -120,7 +120,7 @@ def eigh(x: array, /) -> Tuple[array]:
     .. math::
        x = Q \Lambda Q^H
 
-    where :math:`Q^H` is the conjugate transpose when :math:`Q` is complex and the transpose when :math:`Q` is real-valued and :math:`\Lambda` is a diagonal matrix whose diagonal elements are the corresponding eigenvalues. When ``x`` is real-valued, :math:`Q` is orthogonal, and, when ``x`` is complex, :math:`Q` is unitary.
+    with :math:`Q \in \mathbb{K}^{n \times n}` and :math:`\Lambda \in \mathbb{R}^n` and where :math:`Q^H` is the conjugate transpose when :math:`Q` is complex and the transpose when :math:`Q` is real-valued and :math:`\Lambda` is a diagonal matrix whose diagonal elements are the corresponding eigenvalues. When ``x`` is real-valued, :math:`Q` is orthogonal, and, when ``x`` is complex, :math:`Q` is unitary.
 
     .. note::
        The eigenvalues of a complex Hermitian or real symmetric matrix are always real.
