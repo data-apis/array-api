@@ -720,8 +720,8 @@ def cosh(x: array, /) -> array:
     """
 
 def divide(x1: array, x2: array, /) -> array:
-    """
-    Calculates the division for each element ``x1_i`` of the input array ``x1`` with the respective element ``x2_i`` of the input array ``x2``.
+    r"""
+    Calculates the division of each element ``x1_i`` of the input array ``x1`` with the respective element ``x2_i`` of the input array ``x2``.
 
     .. note::
        If one or both of the input arrays have integer data types, the result is implementation-dependent, as type promotion between data type "kinds" (e.g., integer versus floating-point) is unspecified.
@@ -730,7 +730,7 @@ def divide(x1: array, x2: array, /) -> array:
 
     **Special cases**
 
-    For floating-point operands,
+    For real-valued floating-point operands,
 
     - If either ``x1_i`` or ``x2_i`` is ``NaN``, the result is ``NaN``.
     - If ``x1_i`` is either ``+infinity`` or ``-infinity`` and ``x2_i`` is either ``+infinity`` or ``-infinity``, the result is ``NaN``.
@@ -755,17 +755,44 @@ def divide(x1: array, x2: array, /) -> array:
     - If ``x1_i`` and ``x2_i`` have different mathematical signs and are both nonzero finite numbers, the result has a negative mathematical sign.
     - In the remaining cases, where neither ``-infinity``, ``+0``, ``-0``, nor ``NaN`` is involved, the quotient must be computed and rounded to the nearest representable value according to IEEE 754-2019 and a supported rounding mode. If the magnitude is too large to represent, the operation overflows and the result is an ``infinity`` of appropriate mathematical sign. If the magnitude is too small to represent, the operation underflows and the result is a zero of appropriate mathematical sign.
 
+    For complex floating-point operands, division is defined according to the following table. For real components ``a`` and ``c`` and imaginary components ``b`` and ``d``,
+
+    +------------+----------------+-----------------+--------------------------+
+    |            | c              | dj              | c + dj                   |
+    +============+================+=================+==========================+
+    | **a**      | a / c          | -(a/d)j         | implementation-dependent |
+    +------------+----------------+-----------------+--------------------------+
+    | **bj**     | (b/c)j         | b/d             | implementation-dependent |
+    +------------+----------------+-----------------+--------------------------+
+    | **a + bj** | (a/c) + (b/c)j | b/d - (a/d)j    | implementation-dependent |
+    +------------+----------------+-----------------+--------------------------+
+
+    In general, for complex floating-point operands, real-valued floating-point special cases must independently apply to the real and imaginary component operations involving real numbers as described in the above table.
+    
+    When ``a``, ``b``, ``c``, or ``d`` are all finite numbers (i.e., a value other than ``NaN``, ``+infinity``, or ``-infinity``), division of complex floating-point operands should be computed as if calculated according to the textbook formula for complex number division
+   
+    .. math::
+       \frac{a + bj}{c + dj} = \frac{(ac + bd) + (bc - ad)j}{c^2 + d^2}
+    
+    When at least one of ``a``, ``b``, ``c``, or ``d`` is ``NaN``, ``+infinity``, or ``-infinity``,
+    
+    - If ``a``, ``b``, ``c``, and ``d`` are all ``NaN``, the result is ``NaN + NaN j``.
+    - In the remaining cases, the result is implementation dependent.
+    
+    .. note::
+       For complex floating-point operands, the results of special cases may be implementation dependent depending on how an implementation chooses to model complex numbers and complex infinity (e.g., complex plane versus Riemann sphere). For those implementations following C99 and its one-infinity model, when at least one component is infinite, even if the other component is ``NaN``, the complex value is infinite, and the usual arithmetic rules do not apply to complex-complex division. In the interest of performance, other implementations may want to avoid the complex branching logic necessary to implement the one-infinity model and choose to implement all complex-complex division according to the textbook formula. Accordingly, special case behavior is unlikely to be consistent across implementations.
+
     Parameters
     ----------
     x1: array
-        dividend input array. Should have a real-valued data type.
+        dividend input array. Should have a numeric data type.
     x2: array
-        divisor input array. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have a real-valued data type.
+        divisor input array. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have a numeric data type.
 
     Returns
     -------
     out: array
-        an array containing the element-wise results. The returned array must have a real-valued floating-point data type determined by :ref:`type-promotion`.
+        an array containing the element-wise results. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
     """
 
 def equal(x1: array, x2: array, /) -> array:
