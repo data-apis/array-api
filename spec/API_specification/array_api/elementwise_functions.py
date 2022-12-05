@@ -167,12 +167,14 @@ def asinh(x: array, /) -> array:
     """
 
 def atan(x: array, /) -> array:
-    """
-    Calculates an implementation-dependent approximation of the principal value of the inverse tangent, having domain ``[-infinity, +infinity]`` and codomain ``[-π/2, +π/2]``, for each element ``x_i`` of the input array ``x``. Each element-wise result is expressed in radians.
+    r"""
+    Calculates an implementation-dependent approximation of the principal value of the inverse tangent for each element ``x_i`` of the input array ``x``.
+
+    Each element-wise result is expressed in radians.
 
     **Special cases**
 
-    For floating-point operands,
+    For real-valued floating-point operands,
 
     - If ``x_i`` is ``NaN``, the result is ``NaN``.
     - If ``x_i`` is ``+0``, the result is ``+0``.
@@ -180,15 +182,33 @@ def atan(x: array, /) -> array:
     - If ``x_i`` is ``+infinity``, the result is an implementation-dependent approximation to ``+π/2``.
     - If ``x_i`` is ``-infinity``, the result is an implementation-dependent approximation to ``-π/2``.
 
+    For complex floating-point operands, special cases must be handled as if the operation is implemented as ``-1j * atanh(x*1j)``.
+
+    .. note::
+       The principal value of the inverse tangent of a complex number :math:`z` is
+
+       .. math::
+          \operatorname{atan}(z) = -\frac{\ln(1 - zj) - \ln(1 + zj)}{2}j
+
+    .. note::
+       For complex floating-point operands, ``atan(conj(x))`` must equal ``conj(atan(x))``.
+
+    .. note::
+       The inverse tangent (or arc tangent) is a multi-valued function and requires a branch on the complex plane. By convention, a branch cut is placed at the line segments :math:`(-\infty j, -j)` and :math:`(+j, \infty j)` of the imaginary axis.
+
+       Accordingly, for complex arguments, the function returns the inverse tangent in the range of a strip unbounded along the imaginary axis and in the interval :math:`[-\pi/2, +\pi/2]` along the real axis.
+
+       *Note: branch cuts have provisional status* (see :ref:`branch-cuts`).
+
     Parameters
     ----------
     x: array
-        input array. Should have a real-valued floating-point data type.
+        input array. Should have a floating-point data type.
 
     Returns
     -------
     out: array
-        an array containing the inverse tangent of each element in ``x``. The returned array must have a real-valued floating-point data type determined by :ref:`type-promotion`.
+        an array containing the inverse tangent of each element in ``x``. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
     """
 
 def atan2(x1: array, x2: array, /) -> array:
