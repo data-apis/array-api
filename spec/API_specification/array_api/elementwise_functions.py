@@ -973,6 +973,9 @@ def greater(x1: array, x2: array, /) -> array:
     """
     Computes the truth value of ``x1_i > x2_i`` for each element ``x1_i`` of the input array ``x1`` with the respective element ``x2_i`` of the input array ``x2``.
 
+    .. note::
+       For backward compatibility, conforming implementations may support complex numbers; however, inequality comparison of complex numbers is unspecified and thus implementation-dependent (see :ref:`complex-number-ordering`).
+
     Parameters
     ----------
     x1: array
@@ -989,6 +992,9 @@ def greater(x1: array, x2: array, /) -> array:
 def greater_equal(x1: array, x2: array, /) -> array:
     """
     Computes the truth value of ``x1_i >= x2_i`` for each element ``x1_i`` of the input array ``x1`` with the respective element ``x2_i`` of the input array ``x2``.
+
+    .. note::
+       For backward compatibility, conforming implementations may support complex numbers; however, inequality comparison of complex numbers is unspecified and thus implementation-dependent (see :ref:`complex-number-ordering`).
 
     Parameters
     ----------
@@ -1067,6 +1073,9 @@ def less(x1: array, x2: array, /) -> array:
     """
     Computes the truth value of ``x1_i < x2_i`` for each element ``x1_i`` of the input array ``x1`` with the respective element ``x2_i`` of the input array ``x2``.
 
+    .. note::
+       For backward compatibility, conforming implementations may support complex numbers; however, inequality comparison of complex numbers is unspecified and thus implementation-dependent (see :ref:`complex-number-ordering`).
+
     Parameters
     ----------
     x1: array
@@ -1083,6 +1092,9 @@ def less(x1: array, x2: array, /) -> array:
 def less_equal(x1: array, x2: array, /) -> array:
     """
     Computes the truth value of ``x1_i <= x2_i`` for each element ``x1_i`` of the input array ``x1`` with the respective element ``x2_i`` of the input array ``x2``.
+
+    .. note::
+       For backward compatibility, conforming implementations may support complex numbers; however, inequality comparison of complex numbers is unspecified and thus implementation-dependent (see :ref:`complex-number-ordering`).
 
     Parameters
     ----------
