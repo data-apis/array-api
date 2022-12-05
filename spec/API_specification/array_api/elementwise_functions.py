@@ -1026,17 +1026,32 @@ def imag(x: array, /) -> array:
 
 def isfinite(x: array, /) -> array:
     """
-    Tests each element ``x_i`` of the input array ``x`` to determine if finite (i.e., not ``NaN`` and not equal to positive or negative infinity).
+    Tests each element ``x_i`` of the input array ``x`` to determine if finite.
+
+    **Special Cases**
+
+    For real-valued floating-point operands,
+
+    - If ``x_i`` is either ``+infinity`` or ``-infinity``, the result is ``False``.
+    - If ``x_i`` is ``NaN``, the result is ``False``.
+    - If ``x_i`` is a finite number, the result is ``True``.
+
+    For complex floating-point operands, let ``a = real(x_i)``, ``b = imag(x_i)``, and
+
+    - If ``a`` is ``NaN`` or ``b`` is ``NaN``, the result is ``False``.
+    - If ``a`` is either ``+infinity`` or ``-infinity`` and ``b`` is any value, the result is ``False``.
+    - If ``a`` is any value and ``b`` is either ``+infinity`` or ``-infinity``, the result is ``False``.
+    - If ``a`` is a finite number and ``b`` is a finite number, the result is ``True``.
 
     Parameters
     ----------
     x: array
-        input array. Should have a real-valued data type.
+        input array. Should have a numeric data type.
 
     Returns
     -------
     out: array
-        an array containing test results. An element ``out_i`` is ``True`` if ``x_i`` is finite and ``False`` otherwise. The returned array must have a data type of ``bool``.
+        an array containing test results. The returned array must have a data type of ``bool``.
     """
 
 def isinf(x: array, /) -> array:
