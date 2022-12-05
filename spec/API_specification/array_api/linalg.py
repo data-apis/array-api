@@ -336,6 +336,8 @@ def qr(x: array, /, *, mode: Literal['reduced', 'complete'] = 'reduced') -> Tupl
 
     The reduced QR decomposition equals with the complete QR decomposition when :math:`n \qeq m` (wide matrix).
 
+    When ``x`` is a stack of matrices, the function must compute the QR decomposition for each matrix in the stack.
+
     .. note::
        Whether an array library explicitly checks whether an input array is a full column rank matrix (or a stack of full column rank matrices) is implementation-defined.
 
