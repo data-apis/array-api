@@ -27,27 +27,65 @@ def abs(x: array, /) -> array:
     """
 
 def acos(x: array, /) -> array:
-    """
-    Calculates an implementation-dependent approximation of the principal value of the inverse cosine, having domain ``[-1, +1]`` and codomain ``[+0, +π]``, for each element ``x_i`` of the input array ``x``. Each element-wise result is expressed in radians.
+    r"""
+    Calculates an implementation-dependent approximation of the principal value of the inverse cosine for each element ``x_i`` of the input array ``x``.
+
+    Each element-wise result is expressed in radians.
 
     **Special cases**
 
-    For floating-point operands,
+    For real-valued floating-point operands,
 
     - If ``x_i`` is ``NaN``, the result is ``NaN``.
     - If ``x_i`` is greater than ``1``, the result is ``NaN``.
     - If ``x_i`` is less than ``-1``, the result is ``NaN``.
     - If ``x_i`` is ``1``, the result is ``+0``.
 
+    For complex floating-point operands, let ``a = real(x_i)``, ``b = imag(x_i)``, and
+
+    - If ``a`` is either ``+0`` or ``-0`` and ``b`` is ``+0``, the result is ``π/2 - 0j``.
+    - If ``a`` is either ``+0`` or ``-0`` and ``b`` is ``NaN``, the result is ``π/2 + NaN j``.
+    - If ``a`` is a finite number and ``b`` is ``+infinity``, the result is ``π/2 - infinity j``.
+    - If ``a`` is a nonzero finite number and ``b`` is ``NaN``, the result is ``NaN + NaN j``.
+    - If ``a`` is ``-infinity`` and ``b`` is a positive (i.e., greater than ``0``) finite number, the result is ``π - infinity j``.
+    - If ``a`` is ``+infinity`` and ``b`` is a positive (i.e., greater than ``0``) finite number, the result is ``+0 - infinity j``.
+    - If ``a`` is ``-infinity`` and ``b`` is ``+infinity``, the result is ``3π/4 - infinity j``.
+    - If ``a`` is ``+infinity`` and ``b`` is ``+infinity``, the result is ``π/4 - infinity j``.
+    - If ``a`` is either ``+infinity`` or ``-infinity`` and ``b`` is ``NaN``, the result is ``NaN ± infinity j`` (sign of the imaginary component is unspecified).
+    - If ``a`` is ``NaN`` and ``b`` is a finite number, the result is ``NaN + NaN j``.
+    - If ``a`` is ``NaN`` and ``b`` is ``+infinity``, the result is ``NaN - infinity j``.
+    - If ``a`` is ``NaN`` and ``b`` is ``NaN``, the result is ``NaN + NaN j``.
+
+    .. note::
+       The principal value of the arc cosine of a complex number :math:`z` is 
+
+       .. math::
+          \operatorname{acos}(z) = \frac{1}{2}\pi + j\ \ln(zj + \sqrt{1-z^2})
+
+       For any :math:`z`,
+
+       .. math::
+          \operatorname{acos}(z) = \pi - \operatorname{acos}(-z)
+
+    .. note::
+       For complex floating-point operands, ``acos(conj(x))`` must equal ``conj(acos(x))``.
+
+    .. note::
+       The inverse cosine (or arc cosine) is a multi-valued function and requires a branch cut on the complex plane. By convention, a branch cut is placed at the line segments :math:`(-\infty, -1)` and :math:`(1, \infty)` of the real axis.
+
+       Accordingly, for complex arguments, the function returns the inverse cosine in the range of a strip unbounded along the imaginary axis and in the interval :math:`[0, \pi]` along the real axis.
+
+       *Note: branch cuts have provisional status* (see :ref:`branch-cuts`). 
+
     Parameters
     ----------
     x: array
-        input array. Should have a real-valued floating-point data type.
+        input array. Should have a floating-point data type.
 
     Returns
     -------
     out: array
-        an array containing the inverse cosine of each element in ``x``. The returned array must have a real-valued floating-point data type determined by :ref:`type-promotion`.
+        an array containing the inverse cosine of each element in ``x``. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
     """
 
 def acosh(x: array, /) -> array:
