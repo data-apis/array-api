@@ -117,12 +117,14 @@ def add(x1: array, x2: array, /) -> array:
     """
 
 def asin(x: array, /) -> array:
-    """
-    Calculates an implementation-dependent approximation of the principal value of the inverse sine, having domain ``[-1, +1]`` and codomain ``[-π/2, +π/2]`` for each element ``x_i`` of the input array ``x``. Each element-wise result is expressed in radians.
+    r"""
+    Calculates an implementation-dependent approximation of the principal value of the inverse sine for each element ``x_i`` of the input array ``x``.
+
+    Each element-wise result is expressed in radians.
 
     **Special cases**
 
-    For floating-point operands,
+    For real-valued floating-point operands,
 
     - If ``x_i`` is ``NaN``, the result is ``NaN``.
     - If ``x_i`` is greater than ``1``, the result is ``NaN``.
@@ -130,15 +132,38 @@ def asin(x: array, /) -> array:
     - If ``x_i`` is ``+0``, the result is ``+0``.
     - If ``x_i`` is ``-0``, the result is ``-0``.
 
+    For complex floating-point operands, special cases must be handled as if the operation is implemented as ``-1j * asinh(x*1j)``.
+
+    .. note::
+       The principal value of the arc sine of a complex number :math:`z` is
+
+       .. math::
+          \operatorname{asin}(z) = -j\ \ln(zj + \sqrt{1-z^2})
+
+       For any :math:`z`,
+
+       .. math::
+          \operatorname{asin}(z) = \operatorname{acos}(-z) - \frac{\pi}{2} 
+
+    .. note::
+       For complex floating-point operands, ``asin(conj(x))`` must equal ``conj(asin(x))``.
+
+    .. note::
+       The inverse sine (or arc sine) is a multi-valued function and requires a branch cut on the complex plane. By convention, a branch cut is placed at the line segments :math:`(-\infty, -1)` and :math:`(1, \infty)` of the real axis.
+
+       Accordingly, for complex arguments, the function returns the inverse sine in the range of a strip unbounded along the imaginary axis and in the interval :math:`[-\pi/2, +\pi/2]` along the real axis.
+
+       *Note: branch cuts have provisional status* (see :ref:`branch-cuts`). 
+
     Parameters
     ----------
     x: array
-        input array. Should have a real-valued floating-point data type.
+        input array. Should have a floating-point data type.
 
     Returns
     -------
     out: array
-        an array containing the inverse sine of each element in ``x``. The returned array must have a real-valued floating-point data type determined by :ref:`type-promotion`.
+        an array containing the inverse sine of each element in ``x``. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
     """
 
 def asinh(x: array, /) -> array:
