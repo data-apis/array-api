@@ -432,6 +432,10 @@
 <dt class="sig sig-object py" id="array_api.array.__gt__">
 <span class="sig-prename descclassname"><span class="pre">array.</span></span><span class="sig-name descname"><span class="pre">__gt__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">array</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">array</span></span></span><a class="headerlink" href="#array_api.array.__gt__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes the truth value of <code class="docutils literal notranslate"><span class="pre">self_i</span> <span class="pre">&gt;</span> <span class="pre">other_i</span></code> for each element of an array instance with the respective element of the array <code class="docutils literal notranslate"><span class="pre">other</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For backward compatibility, conforming implementations may support complex numbers; however, inequality comparison of complex numbers is unspecified and thus implementation-dependent (see <a class="reference internal" href="../../design_topics/complex_number_ordering.html#complex-number-ordering"><span class="std std-ref">Complex Number Ordering</span></a>).</p>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
