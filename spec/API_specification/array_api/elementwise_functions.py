@@ -1356,14 +1356,20 @@ def sign(x: array, /) -> array:
 
     **Special cases**
 
+    For real-valued operands,
+
     - If ``x_i`` is less than ``0``, the result is ``-1``.
     - If ``x_i`` is either ``-0`` or ``+0``, the result is ``0``.
     - If ``x_i`` is greater than ``0``, the result is ``+1``.
 
+    For complex floating-point operands,
+
+    TODO
+
     Parameters
     ----------
     x: array
-        input array. Should have a real-valued data type.
+        input array. Should have a numeric data type.
 
     Returns
     -------
