@@ -59,6 +59,8 @@
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]]}}</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="asinh" href="array_api.asinh.html" />
@@ -431,9 +433,10 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="array_api.asin">
 <span class="sig-name descname"><span class="pre">asin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">array</span></span></span><a class="headerlink" href="#array_api.asin" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calculates an implementation-dependent approximation of the principal value of the inverse sine, having domain <code class="docutils literal notranslate"><span class="pre">[-1,</span> <span class="pre">+1]</span></code> and codomain <code class="docutils literal notranslate"><span class="pre">[-π/2,</span> <span class="pre">+π/2]</span></code> for each element <code class="docutils literal notranslate"><span class="pre">x_i</span></code> of the input array <code class="docutils literal notranslate"><span class="pre">x</span></code>. Each element-wise result is expressed in radians.</p>
+<dd><p>Calculates an implementation-dependent approximation of the principal value of the inverse sine for each element <code class="docutils literal notranslate"><span class="pre">x_i</span></code> of the input array <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<p>Each element-wise result is expressed in radians.</p>
 <p><strong>Special cases</strong></p>
-<p>For floating-point operands,</p>
+<p>For real-valued floating-point operands,</p>
 <ul class="simple">
 <li><p>If <code class="docutils literal notranslate"><span class="pre">x_i</span></code> is <code class="docutils literal notranslate"><span class="pre">NaN</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">NaN</span></code>.</p></li>
 <li><p>If <code class="docutils literal notranslate"><span class="pre">x_i</span></code> is greater than <code class="docutils literal notranslate"><span class="pre">1</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">NaN</span></code>.</p></li>
@@ -441,12 +444,32 @@
 <li><p>If <code class="docutils literal notranslate"><span class="pre">x_i</span></code> is <code class="docutils literal notranslate"><span class="pre">+0</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">+0</span></code>.</p></li>
 <li><p>If <code class="docutils literal notranslate"><span class="pre">x_i</span></code> is <code class="docutils literal notranslate"><span class="pre">-0</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">-0</span></code>.</p></li>
 </ul>
+<p>For complex floating-point operands, special cases must be handled as if the operation is implemented as <code class="docutils literal notranslate"><span class="pre">-1j</span> <span class="pre">*</span> <span class="pre">asinh(x*1j)</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The principal value of the arc sine of a complex number <span class="math notranslate nohighlight">\(z\)</span> is</p>
+<div class="math notranslate nohighlight">
+\[\operatorname{asin}(z) = -j\ \ln(zj + \sqrt{1-z^2})\]</div>
+<p>For any <span class="math notranslate nohighlight">\(z\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\operatorname{asin}(z) = \operatorname{acos}(-z) - \frac{\pi}{2}\]</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For complex floating-point operands, <code class="docutils literal notranslate"><span class="pre">asin(conj(x))</span></code> must equal <code class="docutils literal notranslate"><span class="pre">conj(asin(x))</span></code>.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The inverse sine (or arc sine) is a multi-valued function and requires a branch cut on the complex plane. By convention, a branch cut is placed at the line segments <span class="math notranslate nohighlight">\((-\infty, -1)\)</span> and <span class="math notranslate nohighlight">\((1, \infty)\)</span> of the real axis.</p>
+<p>Accordingly, for complex arguments, the function returns the inverse sine in the range of a strip unbounded along the imaginary axis and in the interval <span class="math notranslate nohighlight">\([-\pi/2, +\pi/2]\)</span> along the real axis.</p>
+<p><em>Note: branch cuts have provisional status</em> (see <a class="reference internal" href="../../design_topics/branch_cuts.html#branch-cuts"><span class="std std-ref">Branch Cuts</span></a>).</p>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>x</strong> (<em>array</em>) – input array. Should have a real-valued floating-point data type.</p>
+<dd class="field-odd"><p><strong>x</strong> (<em>array</em>) – input array. Should have a floating-point data type.</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>out</strong> (<em>array</em>) – an array containing the inverse sine of each element in <code class="docutils literal notranslate"><span class="pre">x</span></code>. The returned array must have a real-valued floating-point data type determined by <a class="reference internal" href="../type_promotion.html#type-promotion"><span class="std std-ref">Type Promotion Rules</span></a>.</p>
+<dd class="field-even"><p><strong>out</strong> (<em>array</em>) – an array containing the inverse sine of each element in <code class="docutils literal notranslate"><span class="pre">x</span></code>. The returned array must have a floating-point data type determined by <a class="reference internal" href="../type_promotion.html#type-promotion"><span class="std std-ref">Type Promotion Rules</span></a>.</p>
 </dd>
 </dl>
 </dd></dl>
