@@ -56,12 +56,15 @@ def tensordot(x1: array, x2: array, /, *, axes: Union[int, Tuple[Sequence[int], 
     """
     Returns a tensor contraction of ``x1`` and ``x2`` over specific axes.
 
+    .. note::
+       The ``tensordot`` function corresponds to the generalized matrix product.
+
     Parameters
     ----------
     x1: array
-        first input array. Should have a real-valued data type.
+        first input array. Should have a numeric data type.
     x2: array
-        second input array. Should have a real-valued data type. Corresponding contracted axes of ``x1`` and ``x2`` must be equal.
+        second input array. Should have a numeric data type. Corresponding contracted axes of ``x1`` and ``x2`` must be equal.
 
         .. note::
            Contracted axes (dimensions) must not be broadcasted.
@@ -76,6 +79,10 @@ def tensordot(x1: array, x2: array, /, *, axes: Union[int, Tuple[Sequence[int], 
         -   If ``N`` equals ``2``, the result is the tensor double contraction (default).
 
         If ``axes`` is a tuple of two sequences ``(x1_axes, x2_axes)``, the first sequence must apply to ``x`` and the second sequence to ``x2``. Both sequences must have the same length. Each axis (dimension) ``x1_axes[i]`` for ``x1`` must have the same size as the respective axis (dimension) ``x2_axes[i]`` for ``x2``. Each sequence must consist of unique (nonnegative) integers that specify valid axes for each respective array.
+
+
+    .. note::
+       If either ``x1`` or ``x2`` has a complex floating-point data type, neither argument must be complex-conjugated or transposed. If conjugation and/or transposition is desired, these operations should be explicitly performed prior to computing the generalized matrix product.
 
     Returns
     -------
