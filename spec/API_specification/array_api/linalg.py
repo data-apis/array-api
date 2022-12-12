@@ -403,7 +403,7 @@ def svd(x: array, /, *, full_matrices: bool = True) -> Union[array, Tuple[array,
     .. math::
        x = U \Sigma V^H
 
-    where :math:`U \in\ \mathbb{K}^{m \times m}`, :math:`\Sigma \in\ \mathbb{K}^{m \times\ n}`, :math:`\operatorname{diag}(\Sigma) \in\ \mathbb{R}^{k}` with :math:`k = \operatorname{min}(m, n)`, :math:`V^H \in\ \mathbb{K}^{n \times n}`, and where :math:`V^H` is the conjugate transpose when :math:`V` is complex and the transpose with :math:`V` is real-valued. When ``x`` is real-valued, :math:`U`, :math:`V` (and thus :math:`V^H`) are orthogonal, and, when ``x`` is complex, :math:`U`, :math:`V` (and thus :math:`V^H`) are unitary.
+    where :math:`U \in\ \mathbb{K}^{m \times m}`, :math:`\Sigma \in\ \mathbb{K}^{m \times\ n}`, :math:`\operatorname{diag}(\Sigma) \in\ \mathbb{R}^{k}` with :math:`k = \operatorname{min}(m, n)`, :math:`V^H \in\ \mathbb{K}^{n \times n}`, and where :math:`V^H` is the conjugate transpose when :math:`V` is complex and the transpose when :math:`V` is real-valued. When ``x`` is real-valued, :math:`U`, :math:`V` (and thus :math:`V^H`) are orthogonal, and, when ``x`` is complex, :math:`U`, :math:`V` (and thus :math:`V^H`) are unitary.
 
     When :math:`m \gt n` (tall matrix), we can drop the last :math:`m - n` columns of :math:`U` to form the reduced SVD
 
