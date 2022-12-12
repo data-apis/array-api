@@ -287,9 +287,9 @@ def outer(x1: array, x2: array, /) -> array:
     Parameters
     ----------
     x1: array
-        first one-dimensional input array of size ``N``. Should have a real-valued data type.
+        first one-dimensional input array of size ``N``. Must have a numeric data type.
     x2: array
-        second one-dimensional input array of size ``M``. Should have a real-valued data type.
+        second one-dimensional input array of size ``M``. Must have a numeric data type.
 
     Returns
     -------
