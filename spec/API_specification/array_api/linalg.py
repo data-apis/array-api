@@ -388,7 +388,7 @@ def solve(x1: array, x2: array, /) -> array:
     .. note::
        Whether an array library explicitly checks whether ``x1`` is invertible is implementation-defined.
 
-    When ``x`` is a stack of matrices, the function must compute a solution for each matrix in the stack.
+    When ``x1`` and/or ``x2`` is a stack of matrices, the function must compute a solution for each matrix in the stack.
 
     Parameters
     ----------
