@@ -301,7 +301,7 @@ def pinv(x: array, /, *, rtol: Optional[Union[float, array]] = None) -> array:
     r"""
     Returns the (Moore-Penrose) pseudo-inverse of a matrix (or a stack of matrices) ``x``.
 
-    The pseudo-inverse of a matrix :math:`A`, denoted :math:`A^{+}`, is defined as the matrix that "solves" the least-squares problem :math:`Ax = b` (i.e., if :math:`\hbar{x}` is a solution, then :math:`A^{+}` is the matrix such that :math:`\hbar{x} = A^{+}b`).
+    The pseudo-inverse of a matrix :math:`A`, denoted :math:`A^{+}`, is defined as the matrix that "solves" the least-squares problem :math:`Ax = b` (i.e., if :math:`\overline{x}` is a solution, then :math:`A^{+}` is the matrix such that :math:`\overline{x} = A^{+}b`).
 
     While the pseudo-inverse can be defined algebraically, one can understand the pseudo-inverse via singular value decomposition (SVD). Namely, if
 
