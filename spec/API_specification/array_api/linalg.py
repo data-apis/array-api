@@ -393,28 +393,51 @@ def solve(x1: array, x2: array, /) -> array:
     """
 
 def svd(x: array, /, *, full_matrices: bool = True) -> Union[array, Tuple[array, ...]]:
-    """
-    Returns a singular value decomposition A = USVh of a matrix (or a stack of matrices) ``x``, where ``U`` is a matrix (or a stack of matrices) with orthonormal columns, ``S`` is a vector of non-negative numbers (or stack of vectors), and ``Vh`` is a matrix (or a stack of matrices) with orthonormal rows.
+    r"""
+    Returns a singular value decomposition (SVD) of a matrix (or a stack of matrices) ``x``.
+
+    If ``x`` is real-valued, let :math:`\mathbb{K}` be the set of real numbers :math:`\mathbb{R}`, and, if ``x`` is complex-valued, let :math:`\mathbb{K}` be the set of complex numbers :math:`\mathbb{C}`.
+
+    The full **singular value decomposition** of an :math:`m \times n` matrix :math:`x \in\ \mathbb{K}^{m \times n}` is a factorization of the form
+
+    .. math::
+       x = U \Sigma V^H
+
+    where :math:`U \in\ \mathbb{K}^{m \times m}`, :math:`\Sigma \in\ \mathbb{K}^{m \times\ n}`, :math:`\operatorname{diag}(\Sigma) \in\ \mathbb{R}^{k}` with :math:`k = \operatorname{min}(m, n)`, :math:`V^H \in\ \mathbb{K}^{n \times n}`, and where :math:`V^H` is the conjugate transpose when :math:`V` is complex and the transpose with :math:`V` is real-valued. When ``x`` is real-valued, :math:`U`, :math:`V` (and thus :math:`V^H`) are orthogonal, and, when ``x`` is complex, :math:`U`, :math:`V` (and thus :math:`V^H`) are unitary.
+
+    When :math:`m \gt n` (tall matrix), we can drop the last :math:`m - n` columns of :math:`U` to form the reduced SVD
+
+    .. math::
+       x = U \Sigma V^H
+
+    where :math:`U \in\ \mathbb{K}^{m \times k}`, :math:`\Sigma \in\ \mathbb{K}^{k \times\ k}`, :math:`\operatorname{diag}(\Sigma) \in\ \mathbb{R}^{k}`, and :math:`V^H \in\ \mathbb{K}^{k \times n}`. In this case, :math:`U` and :math:`V` have orthonormal columns.
+
+    Similarly, when :math:`n \gt m` (wide matrix), we can drop the last :math:`n - m` columns of :math:`V` to also form a reduced SVD.
+
+    This function returns the decomposition :math:`U`, :math:`S`, and :math:`V^H`, where :math:`S = \operatorname{diag}(\Sigma)`.
+
+    When ``x`` is a stack of matrices, the function must compute the singular value decomposition for each matrix in the stack.
+
+    .. warning::
+       The returned arrays :math:`U` and :math:`V` are neither unique nor continuous with respect to ``x``. Because :math:`U` and :math:`V` are not unique, different hardware and software may compute different singular vectors.
+
+       Non-uniqueness stems from the fact that multiplying any pair of singular vectors :math:`u_k`, :math:`v_k` by :math:`-1` when ``x`` is real-valued and by :math:`e^{\phi j}` (:math:`\phi \in \mathbb{R}`) when ``x`` is complex produces another two valid singular vectors of the matrix.
 
     Parameters
     ----------
     x: array
-        input array having shape ``(..., M, N)`` and whose innermost two dimensions form matrices on which to perform singular value decomposition. Should have a real-valued floating-point data type.
+        input array having shape ``(..., M, N)`` and whose innermost two dimensions form matrices on which to perform singular value decomposition. Should have a floating-point data type.
     full_matrices: bool
         If ``True``, compute full-sized ``U`` and ``Vh``, such that ``U`` has shape ``(..., M, M)`` and ``Vh`` has shape ``(..., N, N)``. If ``False``, compute on the leading ``K`` singular vectors, such that ``U`` has shape ``(..., M, K)`` and ``Vh`` has shape ``(..., K, N)`` and where ``K = min(M, N)``. Default: ``True``.
 
     Returns
     -------
-    ..
-      NOTE: once complex numbers are supported, each square matrix must be Hermitian.
     out: Union[array, Tuple[array, ...]]
         a namedtuple ``(U, S, Vh)`` whose
 
-        -   first element must have the field name ``U`` and must be an array whose shape depends on the value of ``full_matrices`` and contain matrices with orthonormal columns (i.e., the columns are left singular vectors). If ``full_matrices`` is ``True``, the array must have shape ``(..., M, M)``. If ``full_matrices`` is ``False``, the array must have shape ``(..., M, K)``, where ``K = min(M, N)``. The first ``x.ndim-2`` dimensions must have the same shape as those of the input ``x``.
-        -   second element must have the field name ``S`` and must be an array with shape ``(..., K)`` that contains the vector(s) of singular values of length ``K``, where ``K = min(M, N)``. For each vector, the singular values must be sorted in descending order by magnitude, such that ``s[..., 0]`` is the largest value, ``s[..., 1]`` is the second largest value, et cetera. The first ``x.ndim-2`` dimensions must have the same shape as those of the input ``x``.
-        -   third element must have the field name ``Vh`` and must be an array whose shape depends on the value of ``full_matrices`` and contain orthonormal rows (i.e., the rows are the right singular vectors and the array is the adjoint). If ``full_matrices`` is ``True``, the array must have shape ``(..., N, N)``. If ``full_matrices`` is ``False``, the array must have shape ``(..., K, N)`` where ``K = min(M, N)``. The first ``x.ndim-2`` dimensions must have the same shape as those of the input ``x``.
-
-        Each returned array must have the same real-valued floating-point data type as ``x``.
+        -   first element must have the field name ``U`` and must be an array whose shape depends on the value of ``full_matrices`` and contain matrices with orthonormal columns (i.e., the columns are left singular vectors). If ``full_matrices`` is ``True``, the array must have shape ``(..., M, M)``. If ``full_matrices`` is ``False``, the array must have shape ``(..., M, K)``, where ``K = min(M, N)``. The first ``x.ndim-2`` dimensions must have the same shape as those of the input ``x``. Must have the same data type as ``x``.
+        -   second element must have the field name ``S`` and must be an array with shape ``(..., K)`` that contains the vector(s) of singular values of length ``K``, where ``K = min(M, N)``. For each vector, the singular values must be sorted in descending order by magnitude, such that ``s[..., 0]`` is the largest value, ``s[..., 1]`` is the second largest value, et cetera. The first ``x.ndim-2`` dimensions must have the same shape as those of the input ``x``. Must have a real-valued floating-point data type having the same precision as ``x`` (e.g., if ``x`` is ``complex64``, ``S`` must have a ``float32`` data type).
+        -   third element must have the field name ``Vh`` and must be an array whose shape depends on the value of ``full_matrices`` and contain orthonormal rows (i.e., the rows are the right singular vectors and the array is the adjoint). If ``full_matrices`` is ``True``, the array must have shape ``(..., N, N)``. If ``full_matrices`` is ``False``, the array must have shape ``(..., K, N)`` where ``K = min(M, N)``. The first ``x.ndim-2`` dimensions must have the same shape as those of the input ``x``. Must have the same data type as ``x``.
     """
 
 def svdvals(x: array, /) -> array:
