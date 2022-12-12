@@ -195,7 +195,7 @@ def matrix_norm(x: array, /, *, keepdims: bool = False, ord: Optional[Union[int,
     Parameters
     ----------
     x: array
-        input array having shape ``(..., M, N)`` and whose innermost two dimensions form ``MxN`` matrices. Should have a real-valued floating-point data type.
+        input array having shape ``(..., M, N)`` and whose innermost two dimensions form ``MxN`` matrices. Should have a floating-point data type.
     keepdims: bool
         If ``True``, the last two axes (dimensions) must be included in the result as singleton dimensions, and, accordingly, the result must be compatible with the input array (see :ref:`broadcasting`). Otherwise, if ``False``, the last two axes (dimensions) must not be included in the result. Default: ``False``.
     ord: Optional[Union[int, float, Literal[inf, -inf, 'fro', 'nuc']]]
@@ -238,7 +238,7 @@ def matrix_norm(x: array, /, *, keepdims: bool = False, ord: Optional[Union[int,
     Returns
     -------
     out: array
-        an array containing the norms for each ``MxN`` matrix. If ``keepdims`` is ``False``, the returned array must have a rank which is two less than the rank of ``x``. The returned array must have a real-valued floating-point data type determined by :ref:`type-promotion`.
+        an array containing the norms for each ``MxN`` matrix. If ``keepdims`` is ``False``, the returned array must have a rank which is two less than the rank of ``x``. If ``x`` has a real-valued data type, the returned array must have a real-valued floating-point data type determined by :ref:`type-promotion`. If ``x`` has a complex-valued data type, the returned array must have a real-valued floating-point data type whose precision matches the precision of ``x`` (e.g., if ``x`` is ``complex128``, then the returned array must have a ``float64`` data type).
     """
 
 def matrix_power(x: array, n: int, /) -> array:
