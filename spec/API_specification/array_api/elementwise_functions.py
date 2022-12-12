@@ -1351,8 +1351,18 @@ def round(x: array, /) -> array:
     """
 
 def sign(x: array, /) -> array:
-    """
+    r"""
     Returns an indication of the sign of a number for each element ``x_i`` of the input array ``x``.
+
+    The sign function (also known as the **signum function**) of a number :math:`x_i` is defined as
+
+    .. math::
+       \operatorname{sign}(x_i) = \begin{cases}
+       0 & \textrm{if } x_i = 0 \\
+       \frac{x}{|x|} & \textrm{otherwise}
+       \end{cases}
+
+    where :math:`|x_i|` is the absolute value of :math:`x_i`.
 
     **Special cases**
 
@@ -1361,10 +1371,13 @@ def sign(x: array, /) -> array:
     - If ``x_i`` is less than ``0``, the result is ``-1``.
     - If ``x_i`` is either ``-0`` or ``+0``, the result is ``0``.
     - If ``x_i`` is greater than ``0``, the result is ``+1``.
+    - If ``x_i`` is ``NaN``, the result is ``NaN``.
 
-    For complex floating-point operands,
+    For complex floating-point operands, let ``a = real(x_i)``, ``b = imag(x_i)``, and
 
-    TODO
+    - If ``a`` is either ``-0`` or ``+0`` and ``b`` is either ``-0`` or ``+0``, the result is ``0 + 0j``.
+    - If ``a`` is ``NaN`` or ``b`` is ``NaN``, the result is ``NaN + NaN j``.
+    - In the remaining cases, special cases must be handled according to the rules of complex number division (see :func:`~array_api.divide`).
 
     Parameters
     ----------
