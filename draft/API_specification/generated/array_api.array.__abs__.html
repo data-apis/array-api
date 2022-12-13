@@ -431,24 +431,40 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="array_api.array.__abs__">
 <span class="sig-prename descclassname"><span class="pre">array.</span></span><span class="sig-name descname"><span class="pre">__abs__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">array</span></span></span><a class="headerlink" href="#array_api.array.__abs__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calculates the absolute value for each element of an array instance (i.e., the element-wise result has the same magnitude as the respective element but has positive sign).</p>
+<dd><p>Calculates the absolute value for each element of an array instance.</p>
+<p>For real-valued input arrays, the element-wise result has the same magnitude as the respective element in <code class="docutils literal notranslate"><span class="pre">x</span></code> but has positive sign.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>For signed integer data types, the absolute value of the minimum representable integer is implementation-dependent.</p>
 </div>
 <p><strong>Special cases</strong></p>
-<p>For floating-point operands, let <code class="docutils literal notranslate"><span class="pre">self</span></code> equal <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<p>Let <code class="docutils literal notranslate"><span class="pre">self</span></code> equal <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<p>For real-valued floating-point operands,</p>
 <ul class="simple">
 <li><p>If <code class="docutils literal notranslate"><span class="pre">x_i</span></code> is <code class="docutils literal notranslate"><span class="pre">NaN</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">NaN</span></code>.</p></li>
 <li><p>If <code class="docutils literal notranslate"><span class="pre">x_i</span></code> is <code class="docutils literal notranslate"><span class="pre">-0</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">+0</span></code>.</p></li>
 <li><p>If <code class="docutils literal notranslate"><span class="pre">x_i</span></code> is <code class="docutils literal notranslate"><span class="pre">-infinity</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">+infinity</span></code>.</p></li>
 </ul>
+<p>For complex floating-point operands, let <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">real(x_i)</span></code>, <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">=</span> <span class="pre">imag(x_i)</span></code>, and</p>
+<ul class="simple">
+<li><p>If <code class="docutils literal notranslate"><span class="pre">a</span></code> is either <code class="docutils literal notranslate"><span class="pre">+infinity</span></code> or <code class="docutils literal notranslate"><span class="pre">-infinity</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> is any value (including <code class="docutils literal notranslate"><span class="pre">NaN</span></code>), the result is <code class="docutils literal notranslate"><span class="pre">+infinity</span></code>.</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">a</span></code> is any value (including <code class="docutils literal notranslate"><span class="pre">NaN</span></code>) and <code class="docutils literal notranslate"><span class="pre">b</span></code> is either <code class="docutils literal notranslate"><span class="pre">+infinity</span></code> or <code class="docutils literal notranslate"><span class="pre">-infinity</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">+infinity</span></code>.</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">a</span></code> is either <code class="docutils literal notranslate"><span class="pre">+0</span></code> or <code class="docutils literal notranslate"><span class="pre">-0</span></code>, the result is equal to <code class="docutils literal notranslate"><span class="pre">abs(b)</span></code>.</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">b</span></code> is either <code class="docutils literal notranslate"><span class="pre">+0</span></code> or <code class="docutils literal notranslate"><span class="pre">-0</span></code>, the result is equal to <code class="docutils literal notranslate"><span class="pre">abs(a)</span></code>.</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">a</span></code> is <code class="docutils literal notranslate"><span class="pre">NaN</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> is a finite number, the result is <code class="docutils literal notranslate"><span class="pre">NaN</span></code>.</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">a</span></code> is a finite number and <code class="docutils literal notranslate"><span class="pre">b</span></code> is <code class="docutils literal notranslate"><span class="pre">NaN</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">NaN</span></code>.</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">a</span></code> is <code class="docutils literal notranslate"><span class="pre">NaN</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> is <code class="docutils literal notranslate"><span class="pre">NaN</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">NaN</span></code>.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For complex floating-point operands, conforming implementations should take care to avoid undue overflow or underflow during intermediate stages of computation.</p>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>self</strong> (<em>array</em>) – array instance. Should have a real-valued data type.</p>
+<dd class="field-odd"><p><strong>self</strong> (<em>array</em>) – array instance. Should have a numeric data type.</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>out</strong> (<em>array</em>) – an array containing the element-wise absolute value. The returned array must have the same data type as <code class="docutils literal notranslate"><span class="pre">self</span></code>.</p>
+<dd class="field-even"><p><strong>out</strong> (<em>array</em>) – an array containing the element-wise absolute value. If <code class="docutils literal notranslate"><span class="pre">self</span></code> has a real-valued data type, the returned array must have the same data type as <code class="docutils literal notranslate"><span class="pre">self</span></code>. If <code class="docutils literal notranslate"><span class="pre">self</span></code> has a complex floating-point data type, the returned arrayed must have a real-valued floating-point data type whose precision matches the precision of <code class="docutils literal notranslate"><span class="pre">self</span></code> (e.g., if <code class="docutils literal notranslate"><span class="pre">self</span></code> is <code class="docutils literal notranslate"><span class="pre">complex128</span></code>, then the returned array must have a <code class="docutils literal notranslate"><span class="pre">float64</span></code> data type).</p>
 </dd>
 </dl>
 <div class="admonition note">

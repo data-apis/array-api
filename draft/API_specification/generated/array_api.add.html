@@ -433,7 +433,7 @@
 <span class="sig-name descname"><span class="pre">add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">array</span></span></span><a class="headerlink" href="#array_api.add" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the sum for each element <code class="docutils literal notranslate"><span class="pre">x1_i</span></code> of the input array <code class="docutils literal notranslate"><span class="pre">x1</span></code> with the respective element <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> of the input array <code class="docutils literal notranslate"><span class="pre">x2</span></code>.</p>
 <p><strong>Special cases</strong></p>
-<p>For floating-point operands,</p>
+<p>For real-valued floating-point operands,</p>
 <ul class="simple">
 <li><p>If either <code class="docutils literal notranslate"><span class="pre">x1_i</span></code> or <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> is <code class="docutils literal notranslate"><span class="pre">NaN</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">NaN</span></code>.</p></li>
 <li><p>If <code class="docutils literal notranslate"><span class="pre">x1_i</span></code> is <code class="docutils literal notranslate"><span class="pre">+infinity</span></code> and <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> is <code class="docutils literal notranslate"><span class="pre">-infinity</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">NaN</span></code>.</p></li>
@@ -457,11 +457,50 @@
 <p class="admonition-title">Note</p>
 <p>Floating-point addition is a commutative operation, but not always associative.</p>
 </div>
+<p>For complex floating-point operands, addition is defined according to the following table. For real components <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">c</span></code> and imaginary components <code class="docutils literal notranslate"><span class="pre">b</span></code> and <code class="docutils literal notranslate"><span class="pre">d</span></code>,</p>
+<table>
+<colgroup>
+<col style="width: 23%"/>
+<col style="width: 23%"/>
+<col style="width: 23%"/>
+<col style="width: 31%"/>
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"></th>
+<th class="head"><p>c</p></th>
+<th class="head"><p>dj</p></th>
+<th class="head"><p>c + dj</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><strong>a</strong></p></td>
+<td><p>a + c</p></td>
+<td><p>a + dj</p></td>
+<td><p>(a+c) + dj</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>bj</strong></p></td>
+<td><p>c + bj</p></td>
+<td><p>(b+d)j</p></td>
+<td><p>c + (b+d)j</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>a + bj</strong></p></td>
+<td><p>(a+c) + bj</p></td>
+<td><p>a + (b+d)j</p></td>
+<td><p>(a+c) + (b+d)j</p></td>
+</tr>
+</tbody>
+</table>
+<p>For complex floating-point operands, real-valued floating-point special cases must independently apply to the real and imaginary component operations involving real numbers as described in the above table. For example, let <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">real(x1_i)</span></code>, <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">=</span> <span class="pre">imag(x1_i)</span></code>, <code class="docutils literal notranslate"><span class="pre">c</span> <span class="pre">=</span> <span class="pre">real(x2_i)</span></code>, <code class="docutils literal notranslate"><span class="pre">d</span> <span class="pre">=</span> <span class="pre">imag(x2_i)</span></code>, and</p>
+<ul class="simple">
+<li><p>If <code class="docutils literal notranslate"><span class="pre">a</span></code> is <code class="docutils literal notranslate"><span class="pre">-0</span></code> and <code class="docutils literal notranslate"><span class="pre">c</span></code> is <code class="docutils literal notranslate"><span class="pre">-0</span></code>, the real component of the result is <code class="docutils literal notranslate"><span class="pre">-0</span></code>.</p></li>
+<li><p>Similarly, if <code class="docutils literal notranslate"><span class="pre">b</span></code> is <code class="docutils literal notranslate"><span class="pre">+0</span></code> and <code class="docutils literal notranslate"><span class="pre">d</span></code> is <code class="docutils literal notranslate"><span class="pre">-0</span></code>, the imaginary component of the result is <code class="docutils literal notranslate"><span class="pre">+0</span></code>.</p></li>
+</ul>
+<p>Hence, if <code class="docutils literal notranslate"><span class="pre">z1</span> <span class="pre">=</span> <span class="pre">a</span> <span class="pre">+</span> <span class="pre">bj</span> <span class="pre">=</span> <span class="pre">-0</span> <span class="pre">+</span> <span class="pre">0j</span></code> and <code class="docutils literal notranslate"><span class="pre">z2</span> <span class="pre">=</span> <span class="pre">c</span> <span class="pre">+</span> <span class="pre">dj</span> <span class="pre">=</span> <span class="pre">-0</span> <span class="pre">-</span> <span class="pre">0j</span></code>, the result of <code class="docutils literal notranslate"><span class="pre">z1</span> <span class="pre">+</span> <span class="pre">z2</span></code> is <code class="docutils literal notranslate"><span class="pre">-0</span> <span class="pre">+</span> <span class="pre">0j</span></code>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>x1</strong> (<em>array</em>) – first input array. Should have a real-valued data type.</p></li>
-<li><p><strong>x2</strong> (<em>array</em>) – second input array. Must be compatible with <code class="docutils literal notranslate"><span class="pre">x1</span></code> (see <a class="reference internal" href="../broadcasting.html#broadcasting"><span class="std std-ref">Broadcasting</span></a>). Should have a real-valued data type.</p></li>
+<li><p><strong>x1</strong> (<em>array</em>) – first input array. Should have a numeric data type.</p></li>
+<li><p><strong>x2</strong> (<em>array</em>) – second input array. Must be compatible with <code class="docutils literal notranslate"><span class="pre">x1</span></code> (see <a class="reference internal" href="../broadcasting.html#broadcasting"><span class="std std-ref">Broadcasting</span></a>). Should have a numeric data type.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>

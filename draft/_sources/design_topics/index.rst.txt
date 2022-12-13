@@ -11,6 +11,7 @@ Design topics & constraints
    device_support
    static_typing
    accuracy
+   complex_numbers
    branch_cuts
    complex_number_ordering
    C_API
