@@ -213,24 +213,45 @@ def full_like(x: array, /, fill_value: Union[bool, int, float, complex], *, dtyp
         an array having the same shape as ``x`` and where every element is equal to ``fill_value``.
     """
 
-def linspace(start: Union[int, float], stop: Union[int, float], /, num: int, *, dtype: Optional[dtype] = None, device: Optional[device] = None, endpoint: bool = True) -> array:
-    """
+def linspace(start: Union[int, float, complex], stop: Union[int, float, complex], /, num: int, *, dtype: Optional[dtype] = None, device: Optional[device] = None, endpoint: bool = True) -> array:
+    r"""
     Returns evenly spaced numbers over a specified interval.
+
+    Let :math:`N` be the number of generated values (which is either ``num`` or ``num+1`` depending on whether ``endpoint`` is ``False`` or ``True``, respectively). For real-valued output arrays, the spacing between values is given by
+
+    .. math::
+       \delta_{\textrm{real}} = \frac{\textrm{stop} - \textrm{start}}{N - 1}
+
+    For complex output arrays, let ``a = real(start)``, ``b = imag(start)``, ``c = real(stop)``, and ``d = imag(stop)``. The spacing between complex values is given by
+
+    .. math::
+       \delta_{\textrm{complex}} = \frac{c-a}{N-1} + \frac{d-b}{N-1} j
 
     Parameters
     ----------
-    start: Union[int, float]
+    start: Union[int, float, complex]
         the start of the interval.
-    stop: Union[int, float]
+    stop: Union[int, float, complex]
         the end of the interval. If ``endpoint`` is ``False``, the function must generate a sequence of ``num+1`` evenly spaced numbers starting with ``start`` and ending with ``stop`` and exclude the ``stop`` from the returned array such that the returned array consists of evenly spaced numbers over the half-open interval ``[start, stop)``. If ``endpoint`` is ``True``, the output array must consist of evenly spaced numbers over the closed interval ``[start, stop]``. Default: ``True``.
 
         .. note::
            The step size changes when `endpoint` is `False`.
 
     num: int
-        number of samples. Must be a non-negative integer value; otherwise, the function must raise an exception.
+        number of samples. Must be a nonnegative integer value.
     dtype: Optional[dtype]
-        output array data type. Should be a real-valued floating-point data type. If ``dtype`` is ``None``, the output array data type must be the default real-valued floating-point data type. Default: ``None``.
+        output array data type. Should be a floating-point data type. If ``dtype`` is ``None``,
+
+        -   if either ``start`` or ``stop`` is a ``complex`` number, the output data type must be the default complex floating-point data type.
+        -   if both ``start`` and ``stop`` are real-valued, the output data type must be the default real-valued floating-point data type.
+
+        Default: ``None``.
+
+        .. admonition:: Note
+           :class: note
+
+           If ``dtype`` is not ``None``, conversion of ``start`` and ``stop`` should obey :ref:`type-promotion` rules. Conversions not specified according to :ref:`type-promotion` rules may or may not be permitted by a conforming array library.
+
     device: Optional[device]
         device on which to place the created array. Default: ``None``.
     endpoint: bool
@@ -243,10 +264,10 @@ def linspace(start: Union[int, float], stop: Union[int, float], /, num: int, *, 
 
 
     .. note::
-       While this specification recommends that this function only return arrays having a real-valued floating-point data type, specification-compliant array libraries may choose to support output arrays having an integer data type (e.g., due to backward compatibility concerns). However, function behavior when generating integer output arrays is unspecified and, thus, is implementation-defined. Accordingly, using this function to generate integer output arrays is not portable.
+       While this specification recommends that this function only return arrays having a floating-point data type, specification-compliant array libraries may choose to support output arrays having an integer data type (e.g., due to backward compatibility concerns). However, function behavior when generating integer output arrays is unspecified and, thus, is implementation-defined. Accordingly, using this function to generate integer output arrays is not portable.
 
     .. note::
-       As mixed data type promotion is implementation-defined, behavior when ``start`` or ``stop`` exceeds the maximum safe integer of an output real-valued floating-point data type is implementation-defined. An implementation may choose to overflow or raise an exception.
+       As mixed data type promotion is implementation-defined, behavior when ``start`` or ``stop`` exceeds the maximum safe integer of an output floating-point data type is implementation-defined. An implementation may choose to overflow or raise an exception.
     """
 
 def meshgrid(*arrays: array, indexing: str = 'xy') -> List[array]:
