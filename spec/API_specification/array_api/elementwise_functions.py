@@ -1,29 +1,53 @@
 from ._types import array
 
 def abs(x: array, /) -> array:
-    """
-    Calculates the absolute value for each element ``x_i`` of the input array ``x`` (i.e., the element-wise result has the same magnitude as the respective element in ``x`` but has positive sign).
+    r"""
+    Calculates the absolute value for each element ``x_i`` of the input array ``x``.
+
+    For real-valued input arrays, the element-wise result has the same magnitude as the respective element in ``x`` but has positive sign.
 
     .. note::
        For signed integer data types, the absolute value of the minimum representable integer is implementation-dependent.
 
+    .. note::
+       For complex floating-point operands, the complex absolute value is known as the norm, modulus, or magnitude and, for a complex number :math:`z = a + bj` is computed as
+
+       .. math::
+          \operatorname{abs}(z) = \sqrt{a^2 + b^2}
+
     **Special Cases**
 
-    For floating-point operands,
+    For real-valued floating-point operands,
 
     - If ``x_i`` is ``NaN``, the result is ``NaN``.
     - If ``x_i`` is ``-0``, the result is ``+0``.
     - If ``x_i`` is ``-infinity``, the result is ``+infinity``.
 
+    For complex floating-point operands, let ``a = real(x_i)``, ``b = imag(x_i)``, and
+
+    - If ``a`` is either ``+infinity`` or ``-infinity`` and ``b`` is any value (including ``NaN``), the result is ``+infinity``.
+    - If ``a`` is any value (including ``NaN``) and ``b`` is either ``+infinity`` or ``-infinity``, the result is ``+infinity``.
+    - If ``a`` is either ``+0`` or ``-0``, the result is equal to ``abs(b)``.
+    - If ``b`` is either ``+0`` or ``-0``, the result is equal to ``abs(a)``.
+    - If ``a`` is ``NaN`` and ``b`` is a finite number, the result is ``NaN``.
+    - If ``a`` is a finite number and ``b`` is ``NaN``, the result is ``NaN``.
+    - If ``a`` is ``NaN`` and ``b`` is ``NaN``, the result is ``NaN``.
+
+    .. note::
+       For complex floating-point operands, conforming implementations should take care to avoid undue overflow or underflow during intermediate stages of computation.
+
+    ..
+       TODO: once ``hypot`` is added to the specification, remove the special cases for complex floating-point operands and the note concerning guarding against undue overflow/underflow, and state that special cases must be handled as if implemented as ``hypot(real(x), imag(x))``.
+
     Parameters
     ----------
     x: array
-        input array. Should have a real-valued data type.
+        input array. Should have a numeric data type.
 
     Returns
     -------
     out: array
-        an array containing the absolute value of each element in ``x``. The returned array must have the same data type as ``x``.
+        an array containing the absolute value of each element in ``x``. If ``x`` has a real-valued data type, the returned array must have the same data type as ``x``. If ``x`` has a complex floating-point data type, the returned arrayed must have a real-valued floating-point data type whose precision matches the precision of ``x`` (e.g., if ``x`` is ``complex128``, then the returned array must have a ``float64`` data type).
     """
 
 def acos(x: array, /) -> array:
