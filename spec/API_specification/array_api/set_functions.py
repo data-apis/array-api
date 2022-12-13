@@ -10,15 +10,15 @@ def unique_all(x: array, /) -> Tuple[array, array, array, array]:
         The shapes of two of the output arrays for this function depend on the data values in the input array; hence, array libraries which build computation graphs (e.g., JAX, Dask, etc.) may find this function difficult to implement without knowing array values. Accordingly, such libraries may choose to omit this function. See :ref:`data-dependent-output-shapes` section for more details.
 
     .. note::
-       Uniqueness should be determined based on value equality (i.e., ``x_i == x_j``). For input arrays having floating-point data types, value-based equality implies the following behavior.
+       Uniqueness should be determined based on value equality (see :func:`~array_api.equal`). For input arrays having floating-point data types, value-based equality implies the following behavior.
 
        -   As ``nan`` values compare as ``False``, ``nan`` values should be considered distinct.
-
+       -   As complex floating-point values having at least one ``nan`` component compare as ``False``, complex floating-point values having ``nan`` components should be considered distinct.
        -   As ``-0`` and ``+0`` compare as ``True``, signed zeros should not be considered distinct, and the corresponding unique element will be implementation-dependent (e.g., an implementation could choose to return ``-0`` if ``-0`` occurs before ``+0``).
 
        As signed zeros are not distinct, using ``inverse_indices`` to reconstruct the input array is not guaranteed to return an array having the exact same values.
 
-       Each ``nan`` value should have a count of one, while the counts for signed zeros should be aggregated as a single count.
+       Each ``nan`` value and each complex floating-point value having a ``nan`` component should have a count of one, while the counts for signed zeros should be aggregated as a single count.
 
     Parameters
     ----------
@@ -49,12 +49,13 @@ def unique_counts(x: array, /) -> Tuple[array, array]:
         The shapes of two of the output arrays for this function depend on the data values in the input array; hence, array libraries which build computation graphs (e.g., JAX, Dask, etc.) may find this function difficult to implement without knowing array values. Accordingly, such libraries may choose to omit this function. See :ref:`data-dependent-output-shapes` section for more details.
 
     .. note::
-       Uniqueness should be determined based on value equality (i.e., ``x_i == x_j``). For input arrays having floating-point data types, value-based equality implies the following behavior.
+       Uniqueness should be determined based on value equality (see :func:`~array_api.equal`). For input arrays having floating-point data types, value-based equality implies the following behavior.
 
        -   As ``nan`` values compare as ``False``, ``nan`` values should be considered distinct.
+       -   As complex floating-point values having at least one ``nan`` component compare as ``False``, complex floating-point values having ``nan`` components should be considered distinct.
        -   As ``-0`` and ``+0`` compare as ``True``, signed zeros should not be considered distinct, and the corresponding unique element will be implementation-dependent (e.g., an implementation could choose to return ``-0`` if ``-0`` occurs before ``+0``).
 
-       Each ``nan`` value should have a count of one, while the counts for signed zeros should be aggregated as a single count.
+       Each ``nan`` value and each complex floating-point value having a ``nan`` component should have a count of one, while the counts for signed zeros should be aggregated as a single count.
 
     Parameters
     ----------
@@ -83,9 +84,10 @@ def unique_inverse(x: array, /) -> Tuple[array, array]:
         The shapes of two of the output arrays for this function depend on the data values in the input array; hence, array libraries which build computation graphs (e.g., JAX, Dask, etc.) may find this function difficult to implement without knowing array values. Accordingly, such libraries may choose to omit this function. See :ref:`data-dependent-output-shapes` section for more details.
 
     .. note::
-       Uniqueness should be determined based on value equality (i.e., ``x_i == x_j``). For input arrays having floating-point data types, value-based equality implies the following behavior.
+       Uniqueness should be determined based on value equality (see :func:`~array_api.equal`). For input arrays having floating-point data types, value-based equality implies the following behavior.
 
        -   As ``nan`` values compare as ``False``, ``nan`` values should be considered distinct.
+       -   As complex floating-point values having at least one ``nan`` component compare as ``False``, complex floating-point values having ``nan`` components should be considered distinct.
        -   As ``-0`` and ``+0`` compare as ``True``, signed zeros should not be considered distinct, and the corresponding unique element will be implementation-dependent (e.g., an implementation could choose to return ``-0`` if ``-0`` occurs before ``+0``).
 
        As signed zeros are not distinct, using ``inverse_indices`` to reconstruct the input array is not guaranteed to return an array having the exact same values.
@@ -117,9 +119,10 @@ def unique_values(x: array, /) -> array:
         The shapes of two of the output arrays for this function depend on the data values in the input array; hence, array libraries which build computation graphs (e.g., JAX, Dask, etc.) may find this function difficult to implement without knowing array values. Accordingly, such libraries may choose to omit this function. See :ref:`data-dependent-output-shapes` section for more details.
 
     .. note::
-       Uniqueness should be determined based on value equality (i.e., ``x_i == x_j``). For input arrays having floating-point data types, value-based equality implies the following behavior.
+       Uniqueness should be determined based on value equality (see :func:`~array_api.equal`). For input arrays having floating-point data types, value-based equality implies the following behavior.
 
        -   As ``nan`` values compare as ``False``, ``nan`` values should be considered distinct.
+       -   As complex floating-point values having at least one ``nan`` component compare as ``False``, complex floating-point values having ``nan`` components should be considered distinct.
        -   As ``-0`` and ``+0`` compare as ``True``, signed zeros should not be considered distinct, and the corresponding unique element will be implementation-dependent (e.g., an implementation could choose to return ``-0`` if ``-0`` occurs before ``+0``).
 
     Parameters
