@@ -1323,12 +1323,12 @@ def log1p(x: array, /) -> array:
     """
 
 def log2(x: array, /) -> array:
-    """
-    Calculates an implementation-dependent approximation to the base ``2`` logarithm, having domain ``[0, +infinity]`` and codomain ``[-infinity, +infinity]``, for each element ``x_i`` of the input array ``x``.
+    r"""
+    Calculates an implementation-dependent approximation to the base ``2`` logarithm for each element ``x_i`` of the input array ``x``.
 
     **Special cases**
 
-    For floating-point operands,
+    For real-valued floating-point operands,
 
     - If ``x_i`` is ``NaN``, the result is ``NaN``.
     - If ``x_i`` is less than ``0``, the result is ``NaN``.
@@ -1336,15 +1336,25 @@ def log2(x: array, /) -> array:
     - If ``x_i`` is ``1``, the result is ``+0``.
     - If ``x_i`` is ``+infinity``, the result is ``+infinity``.
 
+    For complex floating-point operands, special cases must be handled as if the operation is implemented using the standard change of base formula
+
+    .. math::
+       \log_{2} x = \frac{\log_{e} x}{\log_{e} 2}
+
+    where :math:`\log_{e}` is the natural logarithm, as implemented by :func:`~array_api.log`.
+
+    .. note::
+       For complex floating-point operands, ``log2(conj(x))`` must equal ``conj(log2(x))``.
+
     Parameters
     ----------
     x: array
-        input array. Should have a real-valued floating-point data type.
+        input array. Should have a floating-point data type.
 
     Returns
     -------
     out: array
-        an array containing the evaluated base ``2`` logarithm for each element in ``x``. The returned array must have a real-valued floating-point data type determined by :ref:`type-promotion`.
+        an array containing the evaluated base ``2`` logarithm for each element in ``x``. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
     """
 
 def log10(x: array, /) -> array:
