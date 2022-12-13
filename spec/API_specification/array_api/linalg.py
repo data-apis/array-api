@@ -78,7 +78,7 @@ def det(x: array, /) -> array:
     Parameters
     ----------
     x: array
-        input array having shape ``(..., M, M)`` and whose innermost two dimensions form square matrices. Should have a real-valued floating-point data type.
+        input array having shape ``(..., M, M)`` and whose innermost two dimensions form square matrices. Should have a floating-point data type.
 
     Returns
     -------
