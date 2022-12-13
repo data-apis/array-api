@@ -220,12 +220,12 @@ def linspace(start: Union[int, float, complex], stop: Union[int, float, complex]
     Let :math:`N` be the number of generated values (which is either ``num`` or ``num+1`` depending on whether ``endpoint`` is ``False`` or ``True``, respectively). For real-valued output arrays, the spacing between values is given by
 
     .. math::
-       \delta_{\textrm{real}} = \frac{\textrm{stop} - \textrm{start}}{N - 1}
+       \Delta_{\textrm{real}} = \frac{\textrm{stop} - \textrm{start}}{N - 1}
 
     For complex output arrays, let ``a = real(start)``, ``b = imag(start)``, ``c = real(stop)``, and ``d = imag(stop)``. The spacing between complex values is given by
 
     .. math::
-       \delta_{\textrm{complex}} = \frac{c-a}{N-1} + \frac{d-b}{N-1} j
+       \Delta_{\textrm{complex}} = \frac{c-a}{N-1} + \frac{d-b}{N-1} j
 
     Parameters
     ----------
