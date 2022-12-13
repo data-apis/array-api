@@ -217,7 +217,7 @@ def linspace(start: Union[int, float, complex], stop: Union[int, float, complex]
     r"""
     Returns evenly spaced numbers over a specified interval.
 
-    Let :math:`N` be the number of generated values (which is either ``num`` or ``num+1`` depending on whether ``endpoint`` is ``False`` or ``True``, respectively). For real-valued output arrays, the spacing between values is given by
+    Let :math:`N` be the number of generated values (which is either ``num`` or ``num+1`` depending on whether ``endpoint`` is ``True`` or ``False``, respectively). For real-valued output arrays, the spacing between values is given by
 
     .. math::
        \Delta_{\textrm{real}} = \frac{\textrm{stop} - \textrm{start}}{N - 1}
