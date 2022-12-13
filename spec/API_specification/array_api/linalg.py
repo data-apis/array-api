@@ -355,8 +355,8 @@ def slogdet(x: array, /) -> Tuple[array, array]:
 
     .. math::
        \operatorname{sign}(\det x) = \begin{cases}
-       0 & \textrm{if } \det x = 0 &&
-       \frac{\det x}{|\det x|}
+       0 & \textrm{if } \det x = 0 \\
+       \frac{\det x}{|\det x|} & \textrm{otherwise}
        \end{cases}
 
     where :math:`|\det x|` is the absolute value of :math:`\det x`.
