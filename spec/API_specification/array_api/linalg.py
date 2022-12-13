@@ -367,11 +367,11 @@ def slogdet(x: array, /) -> Tuple[array, array]:
 
     For real-valued floating-point operands,
 
-    - If the determinant is zero, the corresponding ``sign`` should be ``0`` and ``logabsdet`` should be ``-infinity``.
+    - If the determinant is zero, the ``sign`` should be ``0`` and ``logabsdet`` should be ``-infinity``.
 
     For complex floating-point operands,
 
-    - If the determinant is ``0 + 0j``, the corresponding ``sign`` should be ``0 + 0j`` and ``logabsdet`` should be ``-infinity + 0j``.
+    - If the determinant is ``0 + 0j``, the ``sign`` should be ``0 + 0j`` and ``logabsdet`` should be ``-infinity + 0j``.
 
     .. note::
        Depending on the underlying algorithm, when the determinant is zero, the returned result may differ from ``-infinity`` (or ``-infinity + 0j``). In all cases, the determinant should be equal to ``sign * exp(logabsdet)`` (although, again, the result may be subject to numerical precision errors).
