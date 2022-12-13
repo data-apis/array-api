@@ -438,13 +438,14 @@
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Uniqueness should be determined based on value equality (i.e., <code class="docutils literal notranslate"><span class="pre">x_i</span> <span class="pre">==</span> <span class="pre">x_j</span></code>). For input arrays having floating-point data types, value-based equality implies the following behavior.</p>
+<p>Uniqueness should be determined based on value equality (see <a class="reference internal" href="array_api.equal.html#array_api.equal" title="array_api.equal"><code class="xref py py-func docutils literal notranslate"><span class="pre">equal()</span></code></a>). For input arrays having floating-point data types, value-based equality implies the following behavior.</p>
 <ul class="simple">
 <li><p>As <code class="docutils literal notranslate"><span class="pre">nan</span></code> values compare as <code class="docutils literal notranslate"><span class="pre">False</span></code>, <code class="docutils literal notranslate"><span class="pre">nan</span></code> values should be considered distinct.</p></li>
+<li><p>As complex floating-point values having at least one <code class="docutils literal notranslate"><span class="pre">nan</span></code> component compare as <code class="docutils literal notranslate"><span class="pre">False</span></code>, complex floating-point values having <code class="docutils literal notranslate"><span class="pre">nan</span></code> components should be considered distinct.</p></li>
 <li><p>As <code class="docutils literal notranslate"><span class="pre">-0</span></code> and <code class="docutils literal notranslate"><span class="pre">+0</span></code> compare as <code class="docutils literal notranslate"><span class="pre">True</span></code>, signed zeros should not be considered distinct, and the corresponding unique element will be implementation-dependent (e.g., an implementation could choose to return <code class="docutils literal notranslate"><span class="pre">-0</span></code> if <code class="docutils literal notranslate"><span class="pre">-0</span></code> occurs before <code class="docutils literal notranslate"><span class="pre">+0</span></code>).</p></li>
 </ul>
 <p>As signed zeros are not distinct, using <code class="docutils literal notranslate"><span class="pre">inverse_indices</span></code> to reconstruct the input array is not guaranteed to return an array having the exact same values.</p>
-<p>Each <code class="docutils literal notranslate"><span class="pre">nan</span></code> value should have a count of one, while the counts for signed zeros should be aggregated as a single count.</p>
+<p>Each <code class="docutils literal notranslate"><span class="pre">nan</span></code> value and each complex floating-point value having a <code class="docutils literal notranslate"><span class="pre">nan</span></code> component should have a count of one, while the counts for signed zeros should be aggregated as a single count.</p>
 </div>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
