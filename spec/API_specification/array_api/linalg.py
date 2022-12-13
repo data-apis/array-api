@@ -169,18 +169,31 @@ def eigvalsh(x: array, /) -> array:
     """
 
 def inv(x: array, /) -> array:
-    """
+    r"""
     Returns the multiplicative inverse of a square matrix (or a stack of square matrices) ``x``.
+
+    If ``x`` is real-valued, let :math:`\mathbb{K}` be the set of real numbers :math:`\mathbb{R}`, and, if ``x`` is complex-valued, let :math:`\mathbb{K}` be the set of complex numbers :math:`\mathbb{C}`.
+
+    The **inverse matrix** :math:`x^{-1} \in\ \mathbb{K}^{n \times n}` of a square matrix :math:`x \in\ \mathbb{K}^{n \times n}` is defined as
+
+    .. math::
+       x^{-1}x = xx^{-1} = I_n
+
+    where :math:`I_n` is the *n*-dimensional identity matrix.
+
+    The inverse matrix exists if and only if ``x`` is invertible. When ``x`` is invertible, the inverse is unique.
+
+    When ``x`` is a stack of matrices, the function must compute the inverse for each matrix in the stack.
 
     Parameters
     ----------
     x: array
-        input array having shape ``(..., M, M)`` and whose innermost two dimensions form square matrices. Should have a real-valued floating-point data type.
+        input array having shape ``(..., M, M)`` and whose innermost two dimensions form square matrices. Should have a floating-point data type.
 
     Returns
     -------
     out: array
-        an array containing the multiplicative inverses. The returned array must have a real-valued floating-point data type determined by :ref:`type-promotion` and must have the same shape as ``x``.
+        an array containing the multiplicative inverses. The returned array must have a floating-point data type determined by :ref:`type-promotion` and must have the same shape as ``x``.
     """
 
 def matmul(x1: array, x2: array, /) -> array:
