@@ -144,7 +144,9 @@ class _array():
 
         **Special cases**
 
-        For floating-point operands, let ``self`` equal ``x1`` and ``other`` equal ``x2``.
+        Let ``self`` equal ``x1`` and ``other`` equal ``x2``.
+
+        For real-valued floating-point operands,
 
         -   If either ``x1_i`` or ``x2_i`` is ``NaN``, the result is ``NaN``.
         -   If ``x1_i`` is ``+infinity`` and ``x2_i`` is ``-infinity``, the result is ``NaN``.
@@ -167,12 +169,31 @@ class _array():
         .. note::
            Floating-point addition is a commutative operation, but not always associative.
 
+        For complex floating-point operands, addition is defined according to the following table. For real components ``a`` and ``c`` and imaginary components ``b`` and ``d``,
+
+        +------------+------------+------------+----------------+
+        |            | c          | dj         | c + dj         |
+        +============+============+============+================+
+        | **a**      | a + c      | a + dj     | (a+c) + dj     |
+        +------------+------------+------------+----------------+
+        | **bj**     | c + bj     | (b+d)j     | c + (b+d)j     |
+        +------------+------------+------------+----------------+
+        | **a + bj** | (a+c) + bj | a + (b+d)j | (a+c) + (b+d)j |
+        +------------+------------+------------+----------------+
+
+        For complex floating-point operands, real-valued floating-point special cases must independently apply to the real and imaginary component operations involving real numbers as described in the above table. For example, let ``a = real(x1_i)``, ``b = imag(x1_i)``, ``c = real(x2_i)``, ``d = imag(x2_i)``, and
+
+        - If ``a`` is ``-0`` and ``c`` is ``-0``, the real component of the result is ``-0``.
+        - Similarly, if ``b`` is ``+0`` and ``d`` is ``-0``, the imaginary component of the result is ``+0``.
+
+        Hence, if ``z1 = a + bj = -0 + 0j`` and ``z2 = c + dj = -0 - 0j``, the result of ``z1 + z2`` is ``-0 + 0j``.
+
         Parameters
         ----------
         self: array
-            array instance (augend array). Should have a real-valued data type.
+            array instance (augend array). Should have a numeric data type.
         other: Union[int, float, array]
-            addend array. Must be compatible with ``self`` (see :ref:`broadcasting`). Should have a real-valued data type.
+            addend array. Must be compatible with ``self`` (see :ref:`broadcasting`). Should have a numeric data type.
 
         Returns
         -------
