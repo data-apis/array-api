@@ -359,7 +359,7 @@ def slogdet(x: array, /) -> Tuple[array, array]:
        \frac{\det x}{|\det x|} & \textrm{otherwise}
        \end{cases}
 
-    where :math:`|\det x|` is the absolute value of :math:`\det x`.
+    where :math:`|\det x|` is the absolute value of the determinant of ``x``.
 
     When ``x`` is a stack of matrices, the function must compute the sign and natural logarithm of the absolute value of the determinant for each matrix in the stack.
 
