@@ -361,6 +361,8 @@ def slogdet(x: array, /) -> Tuple[array, array]:
 
     where :math:`|\det x|` is the absolute value of :math:`\det x`.
 
+    When ``x`` is a stack of matrices, the function must compute the sign and natural logarithm of the absolute value of the determinant for each matrix in the stack.
+
     **Special Cases**
 
     For real-valued floating-point operands,
