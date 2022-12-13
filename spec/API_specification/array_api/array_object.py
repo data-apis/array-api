@@ -806,6 +806,26 @@ class _array():
         """
         Computes the truth value of ``self_i != other_i`` for each element of an array instance with the respective element of the array ``other``.
 
+        **Special Cases**
+
+        Let ``self`` equal ``x1`` and ``other`` equal ``x2``.
+
+        For real-valued floating-point operands,
+
+        - If ``x1_i`` is ``NaN`` or ``x2_i`` is ``NaN``, the result is ``True``.
+        - If ``x1_i`` is ``+infinity`` and ``x2_i`` is ``-infinity``, the result is ``True``.
+        - If ``x1_i`` is ``-infinity`` and ``x2_i`` is ``+infinity``, the result is ``True``.
+        - If ``x1_i`` is a finite number, ``x2_i`` is a finite number, and ``x1_i`` does not equal ``x2_i``, the result is ``True``.
+        - In the remaining cases, the result is ``False``.
+
+        For complex floating-point operands, let ``a = real(x1_i)``, ``b = imag(x1_i)``, ``c = real(x2_i)``, ``d = imag(x2_i)``, and
+
+        - If ``a``, ``b``, ``c``, or ``d`` is ``NaN``, the result is ``True``.
+        - In the remaining cases, the result is the logical OR of the equality comparison between the real values ``a`` and ``c`` (real components) and between the real values ``b`` and ``d`` (imaginary components), as described above for real-valued floating-point operands (i.e., ``a != c OR b != d``).
+
+        .. note::
+           For discussion of complex number equality, see :ref:`complex-numbers`.
+
         Parameters
         ----------
         self: array
