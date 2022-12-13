@@ -59,6 +59,8 @@
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]]}}</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="logaddexp" href="array_api.logaddexp.html" />
@@ -431,9 +433,9 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="array_api.log10">
 <span class="sig-name descname"><span class="pre">log10</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">array</span></span></span><a class="headerlink" href="#array_api.log10" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calculates an implementation-dependent approximation to the base <code class="docutils literal notranslate"><span class="pre">10</span></code> logarithm, having domain <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">+infinity]</span></code> and codomain <code class="docutils literal notranslate"><span class="pre">[-infinity,</span> <span class="pre">+infinity]</span></code>, for each element <code class="docutils literal notranslate"><span class="pre">x_i</span></code> of the input array <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<dd><p>Calculates an implementation-dependent approximation to the base <code class="docutils literal notranslate"><span class="pre">10</span></code> logarithm for each element <code class="docutils literal notranslate"><span class="pre">x_i</span></code> of the input array <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
 <p><strong>Special cases</strong></p>
-<p>For floating-point operands,</p>
+<p>For real-valued floating-point operands,</p>
 <ul class="simple">
 <li><p>If <code class="docutils literal notranslate"><span class="pre">x_i</span></code> is <code class="docutils literal notranslate"><span class="pre">NaN</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">NaN</span></code>.</p></li>
 <li><p>If <code class="docutils literal notranslate"><span class="pre">x_i</span></code> is less than <code class="docutils literal notranslate"><span class="pre">0</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">NaN</span></code>.</p></li>
@@ -441,12 +443,20 @@
 <li><p>If <code class="docutils literal notranslate"><span class="pre">x_i</span></code> is <code class="docutils literal notranslate"><span class="pre">1</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">+0</span></code>.</p></li>
 <li><p>If <code class="docutils literal notranslate"><span class="pre">x_i</span></code> is <code class="docutils literal notranslate"><span class="pre">+infinity</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">+infinity</span></code>.</p></li>
 </ul>
+<p>For complex floating-point operands, special cases must be handled as if the operation is implemented using the standard change of base formula</p>
+<div class="math notranslate nohighlight">
+\[\log_{10} x = \frac{\log_{e} x}{\log_{e} 10}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\log_{e}\)</span> is the natural logarithm, as implemented by <a class="reference internal" href="array_api.log.html#array_api.log" title="array_api.log"><code class="xref py py-func docutils literal notranslate"><span class="pre">log()</span></code></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For complex floating-point operands, <code class="docutils literal notranslate"><span class="pre">log10(conj(x))</span></code> must equal <code class="docutils literal notranslate"><span class="pre">conj(log10(x))</span></code>.</p>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>x</strong> (<em>array</em>) – input array. Should have a real-valued floating-point data type.</p>
+<dd class="field-odd"><p><strong>x</strong> (<em>array</em>) – input array. Should have a floating-point data type.</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>out</strong> (<em>array</em>) – an array containing the evaluated base <code class="docutils literal notranslate"><span class="pre">10</span></code> logarithm for each element in <code class="docutils literal notranslate"><span class="pre">x</span></code>. The returned array must have a real-valued floating-point data type determined by <a class="reference internal" href="../type_promotion.html#type-promotion"><span class="std std-ref">Type Promotion Rules</span></a>.</p>
+<dd class="field-even"><p><strong>out</strong> (<em>array</em>) – an array containing the evaluated base <code class="docutils literal notranslate"><span class="pre">10</span></code> logarithm for each element in <code class="docutils literal notranslate"><span class="pre">x</span></code>. The returned array must have a floating-point data type determined by <a class="reference internal" href="../type_promotion.html#type-promotion"><span class="std std-ref">Type Promotion Rules</span></a>.</p>
 </dd>
 </dl>
 </dd></dl>
