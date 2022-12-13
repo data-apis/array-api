@@ -59,6 +59,8 @@
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]]}}</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="matmul" href="array_api.linalg.matmul.html" />
@@ -306,12 +308,19 @@
 <dt class="sig sig-object py" id="array_api.linalg.inv">
 <span class="sig-name descname"><span class="pre">inv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">array</span></span></span><a class="headerlink" href="#array_api.linalg.inv" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the multiplicative inverse of a square matrix (or a stack of square matrices) <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">x</span></code> is real-valued, let <span class="math notranslate nohighlight">\(\mathbb{K}\)</span> be the set of real numbers <span class="math notranslate nohighlight">\(\mathbb{R}\)</span>, and, if <code class="docutils literal notranslate"><span class="pre">x</span></code> is complex-valued, let <span class="math notranslate nohighlight">\(\mathbb{K}\)</span> be the set of complex numbers <span class="math notranslate nohighlight">\(\mathbb{C}\)</span>.</p>
+<p>The <strong>inverse matrix</strong> <span class="math notranslate nohighlight">\(x^{-1} \in\ \mathbb{K}^{n \times n}\)</span> of a square matrix <span class="math notranslate nohighlight">\(x \in\ \mathbb{K}^{n \times n}\)</span> is defined as</p>
+<div class="math notranslate nohighlight">
+\[x^{-1}x = xx^{-1} = I_n\]</div>
+<p>where <span class="math notranslate nohighlight">\(I_n\)</span> is the <em>n</em>-dimensional identity matrix.</p>
+<p>The inverse matrix exists if and only if <code class="docutils literal notranslate"><span class="pre">x</span></code> is invertible. When <code class="docutils literal notranslate"><span class="pre">x</span></code> is invertible, the inverse is unique.</p>
+<p>When <code class="docutils literal notranslate"><span class="pre">x</span></code> is a stack of matrices, the function must compute the inverse for each matrix in the stack.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>x</strong> (<em>array</em>) – input array having shape <code class="docutils literal notranslate"><span class="pre">(...,</span> <span class="pre">M,</span> <span class="pre">M)</span></code> and whose innermost two dimensions form square matrices. Should have a real-valued floating-point data type.</p>
+<dd class="field-odd"><p><strong>x</strong> (<em>array</em>) – input array having shape <code class="docutils literal notranslate"><span class="pre">(...,</span> <span class="pre">M,</span> <span class="pre">M)</span></code> and whose innermost two dimensions form square matrices. Should have a floating-point data type.</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>out</strong> (<em>array</em>) – an array containing the multiplicative inverses. The returned array must have a real-valued floating-point data type determined by <a class="reference internal" href="../../API_specification/type_promotion.html#type-promotion"><span class="std std-ref">Type Promotion Rules</span></a> and must have the same shape as <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<dd class="field-even"><p><strong>out</strong> (<em>array</em>) – an array containing the multiplicative inverses. The returned array must have a floating-point data type determined by <a class="reference internal" href="../../API_specification/type_promotion.html#type-promotion"><span class="std std-ref">Type Promotion Rules</span></a> and must have the same shape as <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
 </dd>
 </dl>
 </dd></dl>
