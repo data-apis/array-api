@@ -87,12 +87,12 @@ def vecdot(x1: array, x2: array, /, *, axis: int = -1) -> array:
     """
     Computes the (vector) dot product of two arrays.
     
-    The dot product is defined as
+    Let ``x1`` equal :math:`a` and ``x2`` equal :math:`b`. The dot product is defined as
     
     .. math::
-       \textbf{x1} \cdot \textbf{x2} = \sum_{i=0}^{n-1} = x1_i\overline{x2_i}
+       \mathbf{a} \cdot \mathbf{b} = \sum_{i=0}^{n-1} = a_i\overline{b_i}
        
-    over the dimension specified by ``axis`` and where :math:`n` is the dimension size and :math:`\overline{x2_i}` denotes the complex conjugate if ``x2`` is complex and the identity if ``x2`` is real-valued.
+    over the dimension specified by ``axis`` and where :math:`n` is the dimension size and :math:`\overline{b_i}` denotes the complex conjugate if :math:`b_i` is complex and the identity if :math:`b_i` is real-valued.
 
     Parameters
     ----------
