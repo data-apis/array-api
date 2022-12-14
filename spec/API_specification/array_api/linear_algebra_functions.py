@@ -86,6 +86,13 @@ def tensordot(x1: array, x2: array, /, *, axes: Union[int, Tuple[Sequence[int], 
 def vecdot(x1: array, x2: array, /, *, axis: int = -1) -> array:
     """
     Computes the (vector) dot product of two arrays.
+    
+    The dot product is defined as
+    
+    .. math::
+       \sum_{i=1}^{n} = \overline{x1_i}x2_i
+       
+    over the dimension specified by ``axis`` and where :math:`\overline{x1_i}` denotes the complex conjugate if ``x1`` is complex and the identity if ``x1`` is real-valued.
 
     Parameters
     ----------
