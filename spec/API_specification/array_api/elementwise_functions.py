@@ -1955,13 +1955,22 @@ def sinh(x: array, /) -> array:
     """
 
 def square(x: array, /) -> array:
-    """
-    Squares (``x_i * x_i``) each element ``x_i`` of the input array ``x``.
+    r"""
+    Squares each element ``x_i`` of the input array ``x``.
+
+    The square of a number ``x_i`` is defined as
+
+    .. math::
+       x_i^2 = x_i \cdot x_i
+
+    **Special cases**
+
+    For floating-point operands, special cases must be handled as if the operation is implemented as ``x * x`` (see :func:`~array_api.multiply`).
 
     Parameters
     ----------
     x: array
-        input array. Should have a real-valued data type.
+        input array. Should have a numeric data type.
 
     Returns
     -------
