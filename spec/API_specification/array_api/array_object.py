@@ -988,11 +988,11 @@ class _array():
         +------------+----------------+-----------------+--------------------------+
         |            | c              | dj              | c + dj                   |
         +============+================+=================+==========================+
-        | **a**      | a / c          | -(a/d)j         | implementation-dependent |
+        | **a**      | a / c          | -(a/d)j         | special rules            |
         +------------+----------------+-----------------+--------------------------+
-        | **bj**     | (b/c)j         | b/d             | implementation-dependent |
+        | **bj**     | (b/c)j         | b/d             | special rules            |
         +------------+----------------+-----------------+--------------------------+
-        | **a + bj** | (a/c) + (b/c)j | b/d - (a/d)j    | implementation-dependent |
+        | **a + bj** | (a/c) + (b/c)j | b/d - (a/d)j    | special rules            |
         +------------+----------------+-----------------+--------------------------+
 
         In general, for complex floating-point operands, real-valued floating-point special cases must independently apply to the real and imaginary component operations involving real numbers as described in the above table.
