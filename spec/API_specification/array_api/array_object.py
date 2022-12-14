@@ -257,6 +257,13 @@ class _array():
 
         - If ``self`` is ``True``, the result is ``1+0j``.
         - If ``self`` is ``False``, the result is ``0+0j``.
+        
+        For real-valued floating-point operands,
+        
+        - If ``self`` is ``NaN``, the result is ``NaN + NaN j``.
+        - If ``self`` is ``+infinity``, the result is ``+infinity + 0j``.
+        - If ``self`` is ``-infinity``, the result is ``-infinity + 0j``.
+        - If ``self`` is a finite number, the result is ``self + 0j``.
 
         Parameters
         ----------
@@ -266,7 +273,7 @@ class _array():
         Returns
         -------
         out: complex
-            a Python ``complex`` object representing the single element of the array instance. If ``self`` has a real-valued or boolean data type, the real component of the return value must equal the element of ``self`` and the imaginary component must be ``0``.
+            a Python ``complex`` object representing the single element of the array instance.
         """
 
     def __dlpack__(self: array, /, *, stream: Optional[Union[int, Any]] = None) -> PyCapsule:
