@@ -112,6 +112,7 @@ def vecdot(x1: array, x2: array, /, *, axis: int = -1) -> array:
     out: array
         if ``x1`` and ``x2`` are both one-dimensional arrays, a zero-dimensional containing the dot product; otherwise, a non-zero-dimensional array containing the dot products and having rank ``N-1``, where ``N`` is the rank (number of dimensions) of the shape determined according to :ref:`broadcasting` along the non-contracted axes. The returned array must have a data type determined by :ref:`type-promotion`.
 
+
     **Raises**
 
     -   if provided an invalid ``axis``.
