@@ -717,7 +717,7 @@ class _array():
         +------------+----------------+-----------------+--------------------------+
         | **bj**     | (b*c)j         | -(b*d)          | -(b*d) + (b*c)j          |
         +------------+----------------+-----------------+--------------------------+
-        | **a + bj** | (a*c) + (b*c)j | -(b*d) + (a*d)j | implementation-dependent |
+        | **a + bj** | (a*c) + (b*c)j | -(b*d) + (a*d)j | special rules            |
         +------------+----------------+-----------------+--------------------------+
 
         In general, for complex floating-point operands, real-valued floating-point special cases must independently apply to the real and imaginary component operations involving real numbers as described in the above table.
