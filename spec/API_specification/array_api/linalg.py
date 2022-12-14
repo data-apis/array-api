@@ -139,7 +139,7 @@ def eigh(x: array, /) -> Tuple[array]:
     Parameters
     ----------
     x: array
-        input array having shape ``(..., M, M)`` and whose innermost two dimensions form square matrices. Must have a floating-point data type.
+        input array having shape ``(..., M, M)`` and whose innermost two dimensions form square matrices. Should have a floating-point data type.
 
     Returns
     -------
@@ -179,7 +179,7 @@ def eigvalsh(x: array, /) -> array:
     Parameters
     ----------
     x: array
-        input array having shape ``(..., M, M)`` and whose innermost two dimensions form square matrices. Must have a floating-point data type.
+        input array having shape ``(..., M, M)`` and whose innermost two dimensions form square matrices. Should have a floating-point data type.
 
     Returns
     -------
