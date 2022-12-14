@@ -48,9 +48,9 @@ def cross(x1: array, x2: array, /, *, axis: int = -1) -> array:
     Parameters
     ----------
     x1: array
-        first input array. Should have a real-valued data type.
+        first input array. Must have a numeric data type.
     x2: array
-        second input array. Must be compatible with ``x1`` for all non-compute axes (see :ref:`broadcasting`). The size of the axis over which to compute the cross product must be the same size as the respective axis in ``x1``. Should have a real-valued data type.
+        second input array. Must be compatible with ``x1`` for all non-compute axes (see :ref:`broadcasting`). The size of the axis over which to compute the cross product must be the same size as the respective axis in ``x1``. Must have a numeric data type.
 
         .. note::
            The compute axis (dimension) must not be broadcasted.
