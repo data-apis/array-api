@@ -275,10 +275,12 @@ def matrix_rank(x: array, /, *, rtol: Optional[Union[float, array]] = None) -> a
     """
     Returns the rank (i.e., number of non-zero singular values) of a matrix (or a stack of matrices).
 
+    When ``x`` is a stack of matrices, the function must compute the number of non-zero singular values for each matrix in the stack.
+
     Parameters
     ----------
     x: array
-        input array having shape ``(..., M, N)`` and whose innermost two dimensions form ``MxN`` matrices. Should have a real-valued floating-point data type.
+        input array having shape ``(..., M, N)`` and whose innermost two dimensions form ``MxN`` matrices. Should have a floating-point data type.
     rtol: Optional[Union[float, array]]
         relative tolerance for small singular values. Singular values approximately less than or equal to ``rtol * largest_singular_value`` are set to zero. If a ``float``, the value is equivalent to a zero-dimensional array having a real-valued floating-point data type determined by :ref:`type-promotion` (as applied to ``x``) and must be broadcast against each matrix. If an ``array``, must have a real-valued floating-point data type and must be compatible with ``shape(x)[:-2]`` (see :ref:`broadcasting`). If ``None``, the default value is ``max(M, N) * eps``, where ``eps`` must be the machine epsilon associated with the real-valued floating-point data type determined by :ref:`type-promotion` (as applied to ``x``). Default: ``None``.
 
