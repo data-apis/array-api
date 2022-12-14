@@ -90,7 +90,7 @@ def vecdot(x1: array, x2: array, /, *, axis: int = -1) -> array:
     The dot product is defined as
     
     .. math::
-       \sum_{i=1}^{n} = x1_i\overline{x2_i}
+       \textbf{x1} \cdot \textbf{x2} = \sum_{i=1}^{n} = x1_i\overline{x2_i}
        
     over the dimension specified by ``axis`` and where :math:`\overline{x2_i}` denotes the complex conjugate if ``x2`` is complex and the identity if ``x2`` is real-valued.
 
