@@ -59,6 +59,8 @@
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]]}}</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="sqrt" href="array_api.sqrt.html" />
@@ -431,10 +433,15 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="array_api.square">
 <span class="sig-name descname"><span class="pre">square</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">array</span></span></span><a class="headerlink" href="#array_api.square" title="Permalink to this definition">¶</a></dt>
-<dd><p>Squares (<code class="docutils literal notranslate"><span class="pre">x_i</span> <span class="pre">*</span> <span class="pre">x_i</span></code>) each element <code class="docutils literal notranslate"><span class="pre">x_i</span></code> of the input array <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<dd><p>Squares each element <code class="docutils literal notranslate"><span class="pre">x_i</span></code> of the input array <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<p>The square of a number <code class="docutils literal notranslate"><span class="pre">x_i</span></code> is defined as</p>
+<div class="math notranslate nohighlight">
+\[x_i^2 = x_i \cdot x_i\]</div>
+<p><strong>Special cases</strong></p>
+<p>For floating-point operands, special cases must be handled as if the operation is implemented as <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">*</span> <span class="pre">x</span></code> (see <a class="reference internal" href="array_api.multiply.html#array_api.multiply" title="array_api.multiply"><code class="xref py py-func docutils literal notranslate"><span class="pre">multiply()</span></code></a>).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>x</strong> (<em>array</em>) – input array. Should have a real-valued data type.</p>
+<dd class="field-odd"><p><strong>x</strong> (<em>array</em>) – input array. Should have a numeric data type.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p><strong>out</strong> (<em>array</em>) – an array containing the evaluated result for each element in <code class="docutils literal notranslate"><span class="pre">x</span></code>. The returned array must have a data type determined by <a class="reference internal" href="../type_promotion.html#type-promotion"><span class="std std-ref">Type Promotion Rules</span></a>.</p>
