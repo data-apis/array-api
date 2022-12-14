@@ -97,13 +97,20 @@ def tensordot(x1: array, x2: array, /, *, axes: Union[int, Tuple[Sequence[int], 
 def vecdot(x1: array, x2: array, /, *, axis: int = -1) -> array:
     """
     Computes the (vector) dot product of two arrays.
+    
+    Let :math:`\mathbf{a}` be a vector in ``x1`` and :math:`\mathbf{b}` be a corresponding vector in ``x2``. The dot product is defined as
+    
+    .. math::
+       \mathbf{a} \cdot \mathbf{b} = \sum_{i=0}^{n-1} a_i\overline{b_i}
+       
+    over the dimension specified by ``axis`` and where :math:`n` is the dimension size and :math:`\overline{b_i}` denotes the complex conjugate if :math:`b_i` is complex and the identity if :math:`b_i` is real-valued.
 
     Parameters
     ----------
     x1: array
-        first input array. Should have a real-valued data type.
+        first input array. Should have a floating-point data type.
     x2: array
-        second input array. Must be compatible with ``x1`` for all non-contracted axes (see :ref:`broadcasting`). The size of the axis over which to compute the dot product must be the same size as the respective axis in ``x1``. Should have a real-valued data type.
+        second input array. Must be compatible with ``x1`` for all non-contracted axes (see :ref:`broadcasting`). The size of the axis over which to compute the dot product must be the same size as the respective axis in ``x1``. Should have a floating-point data type.
 
         .. note::
            The contracted axis (dimension) must not be broadcasted.
