@@ -283,6 +283,7 @@ Methods
    array.__and__
    array.__array_namespace__
    array.__bool__
+   array.__complex__
    array.__dlpack__
    array.__dlpack_device__
    array.__eq__

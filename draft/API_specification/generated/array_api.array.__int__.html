@@ -431,15 +431,32 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="array_api.array.__int__">
 <span class="sig-prename descclassname"><span class="pre">array.</span></span><span class="sig-name descname"><span class="pre">__int__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#array_api.array.__int__" title="Permalink to this definition">¶</a></dt>
-<dd><p>Converts a zero-dimensional integer array to a Python <code class="docutils literal notranslate"><span class="pre">int</span></code> object.</p>
+<dd><p>Converts a zero-dimensional array to a Python <code class="docutils literal notranslate"><span class="pre">int</span></code> object.</p>
+<p><strong>Special cases</strong></p>
+<p>For boolean operands,</p>
+<ul class="simple">
+<li><p>If <code class="docutils literal notranslate"><span class="pre">self</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">self</span></code> is <code class="docutils literal notranslate"><span class="pre">False</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p></li>
+</ul>
+<p>For floating-point operands,</p>
+<ul class="simple">
+<li><p>If <code class="docutils literal notranslate"><span class="pre">self</span></code> is a finite number, the result is the integer part of <code class="docutils literal notranslate"><span class="pre">self</span></code>.</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">self</span></code> is <code class="docutils literal notranslate"><span class="pre">-0</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p></li>
+</ul>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>self</strong> (<em>array</em>) – zero-dimensional array instance. Must have an integer data type.</p>
+<dd class="field-odd"><p><strong>self</strong> (<em>array</em>) – zero-dimensional array instance. Should have a real-valued or boolean data type. If <code class="docutils literal notranslate"><span class="pre">self</span></code> has a complex floating-point data type, the function must raise a <code class="docutils literal notranslate"><span class="pre">TypeError</span></code>.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p><strong>out</strong> (<em>int</em>) – a Python <code class="docutils literal notranslate"><span class="pre">int</span></code> object representing the single element of the array instance.</p>
 </dd>
 </dl>
+<p><strong>Raises</strong></p>
+<p>For floating-point operands,</p>
+<ul class="simple">
+<li><p>If <code class="docutils literal notranslate"><span class="pre">self</span></code> is either <code class="docutils literal notranslate"><span class="pre">+infinity</span></code> or <code class="docutils literal notranslate"><span class="pre">-infinity</span></code>, raise <code class="docutils literal notranslate"><span class="pre">OverflowError</span></code>.</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">self</span></code> is <code class="docutils literal notranslate"><span class="pre">NaN</span></code>, raise <code class="docutils literal notranslate"><span class="pre">ValueError</span></code>.</p></li>
+</ul>
 </dd></dl>
 </section>
 
