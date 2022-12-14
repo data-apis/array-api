@@ -386,31 +386,51 @@ def qr(x: array, /, *, mode: Literal['reduced', 'complete'] = 'reduced') -> Tupl
     """
 
 def slogdet(x: array, /) -> Tuple[array, array]:
-    """
+    r"""
     Returns the sign and the natural logarithm of the absolute value of the determinant of a square matrix (or a stack of square matrices) ``x``.
 
     .. note::
        The purpose of this function is to calculate the determinant more accurately when the determinant is either very small or very large, as calling ``det`` may overflow or underflow.
 
+    The sign of the determinant is given by
+
+    .. math::
+       \operatorname{sign}(\det x) = \begin{cases}
+       0 & \textrm{if } \det x = 0 \\
+       \frac{\det x}{|\det x|} & \textrm{otherwise}
+       \end{cases}
+
+    where :math:`|\det x|` is the absolute value of the determinant of ``x``.
+
+    When ``x`` is a stack of matrices, the function must compute the sign and natural logarithm of the absolute value of the determinant for each matrix in the stack.
+
+    **Special Cases**
+
+    For real-valued floating-point operands,
+
+    - If the determinant is zero, the ``sign`` should be ``0`` and ``logabsdet`` should be ``-infinity``.
+
+    For complex floating-point operands,
+
+    - If the determinant is ``0 + 0j``, the ``sign`` should be ``0 + 0j`` and ``logabsdet`` should be ``-infinity + 0j``.
+
+    .. note::
+       Depending on the underlying algorithm, when the determinant is zero, the returned result may differ from ``-infinity`` (or ``-infinity + 0j``). In all cases, the determinant should be equal to ``sign * exp(logabsdet)`` (although, again, the result may be subject to numerical precision errors).
+
     Parameters
     ----------
     x: array
-        input array having shape ``(..., M, M)`` and whose innermost two dimensions form square matrices. Should have a real-valued floating-point data type.
+        input array having shape ``(..., M, M)`` and whose innermost two dimensions form square matrices. Should have a floating-point data type.
 
     Returns
     -------
     out: Tuple[array, array]
         a namedtuple (``sign``, ``logabsdet``) whose
 
-        -   first element must have the field name ``sign`` and must be an array containing a number representing the sign of the determinant for each square matrix.
-        -   second element must have the field name ``logabsdet`` and must be an array containing the determinant for each square matrix.
+        -   first element must have the field name ``sign`` and must be an array containing a number representing the sign of the determinant for each square matrix. Must have the same data type as ``x``.
+        -   second element must have the field name ``logabsdet`` and must be an array containing the natural logarithm of the absolute value of the determinant for each square matrix. If ``x`` is real-valued, the returned array must have a real-valued floating-point data type determined by :ref:`type-promotion`. If ``x`` is complex, the returned array must have a real-valued floating-point data type having the same precision as ``x`` (e.g., if ``x`` is ``complex64``, ``logabsdet`` must have a ``float32`` data type).
 
-        For a real matrix, the sign of the determinant must be either ``1``, ``0``, or ``-1``.
-
-        Each returned array must have shape ``shape(x)[:-2]`` and a real-valued floating-point data type determined by :ref:`type-promotion`.
-
-        .. note::
-           If a determinant is zero, then the corresponding ``sign`` should be ``0`` and ``logabsdet`` should be ``-infinity``; however, depending on the underlying algorithm, the returned result may differ. In all cases, the determinant should be equal to ``sign * exp(logsabsdet)`` (although, again, the result may be subject to numerical precision errors).
+        Each returned array must have shape ``shape(x)[:-2]``.
     """
 
 def solve(x1: array, x2: array, /) -> array:
