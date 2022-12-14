@@ -59,6 +59,8 @@
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]]}}</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="inv" href="array_api.linalg.inv.html" />
@@ -305,26 +307,32 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="array_api.linalg.eigvalsh">
 <span class="sig-name descname"><span class="pre">eigvalsh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">array</span></span></span><a class="headerlink" href="#array_api.linalg.eigvalsh" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the eigenvalues of a symmetric matrix (or a stack of symmetric matrices) <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<dd><p>Returns the eigenvalues of a complex Hermitian or real symmetric matrix (or a stack of matrices) <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">x</span></code> is real-valued, let <span class="math notranslate nohighlight">\(\mathbb{K}\)</span> be the set of real numbers <span class="math notranslate nohighlight">\(\mathbb{R}\)</span>, and, if <code class="docutils literal notranslate"><span class="pre">x</span></code> is complex-valued, let <span class="math notranslate nohighlight">\(\mathbb{K}\)</span> be the set of complex numbers <span class="math notranslate nohighlight">\(\mathbb{C}\)</span>.</p>
+<p>The <strong>eigenvalues</strong> of a complex Hermitian or real symmetric matrix <span class="math notranslate nohighlight">\(x \in\ \mathbb{K}^{n \times n}\)</span> are defined as the roots (counted with multiplicity) of the polynomial <span class="math notranslate nohighlight">\(p\)</span> of degree <span class="math notranslate nohighlight">\(n\)</span> given by</p>
+<div class="math notranslate nohighlight">
+\[p(\lambda) = \operatorname{det}(x - \lambda I_n)\]</div>
+<p>where <span class="math notranslate nohighlight">\(\lambda \in \mathbb{R}\)</span> and where <span class="math notranslate nohighlight">\(I_n\)</span> is the <em>n</em>-dimensional identity matrix.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The function <code class="docutils literal notranslate"><span class="pre">eigvals</span></code> will be added in a future version of the specification, as it requires complex number support.</p>
+<p>Whether an array library explicitly checks whether an input array is Hermitian or a symmetric matrix (or a stack of matrices) is implementation-defined.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Whether an array library explicitly checks whether an input array is a symmetric matrix (or a stack of symmetric matrices) is implementation-defined.</p>
+<p>The function <code class="docutils literal notranslate"><span class="pre">eigvals</span></code> will be added in a future version of the specification.</p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>x</strong> (<em>array</em>) – input array having shape <code class="docutils literal notranslate"><span class="pre">(...,</span> <span class="pre">M,</span> <span class="pre">M)</span></code> and whose innermost two dimensions form square matrices. Must have a real-valued floating-point data type.</p>
+<dd class="field-odd"><p><strong>x</strong> (<em>array</em>) – input array having shape <code class="docutils literal notranslate"><span class="pre">(...,</span> <span class="pre">M,</span> <span class="pre">M)</span></code> and whose innermost two dimensions form square matrices. Must have a floating-point data type.</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><ul class="simple">
-<li><p><strong>out</strong> (<em>array</em>) – an array containing the computed eigenvalues. The returned array must have shape <code class="docutils literal notranslate"><span class="pre">(...,</span> <span class="pre">M)</span></code> and have the same data type as <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></li>
-<li><p><strong>.. note::</strong> – Eigenvalue sort order is left unspecified and is thus implementation-dependent.</p></li>
-</ul>
+<dd class="field-even"><p><strong>out</strong> (<em>array</em>) – an array containing the computed eigenvalues. The returned array must have shape <code class="docutils literal notranslate"><span class="pre">(...,</span> <span class="pre">M)</span></code> and have a real-valued floating-point data type whose precision matches the precision of <code class="docutils literal notranslate"><span class="pre">x</span></code> (e.g., if <code class="docutils literal notranslate"><span class="pre">x</span></code> is <code class="docutils literal notranslate"><span class="pre">complex128</span></code>, then must have a <code class="docutils literal notranslate"><span class="pre">float64</span></code> data type).</p>
 </dd>
 </dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Eigenvalue sort order is left unspecified and is thus implementation-dependent.</p>
+</div>
 </dd></dl>
 </section>
 

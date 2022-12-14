@@ -59,6 +59,8 @@
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]]}}</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="eigvalsh" href="array_api.linalg.eigvalsh.html" />
@@ -305,32 +307,45 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="array_api.linalg.eigh">
 <span class="sig-name descname"><span class="pre">eigh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">array</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#array_api.linalg.eigh" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns an eigendecomposition x = QLQᵀ of a symmetric matrix (or a stack of symmetric matrices) <code class="docutils literal notranslate"><span class="pre">x</span></code>, where <code class="docutils literal notranslate"><span class="pre">Q</span></code> is an orthogonal matrix (or a stack of matrices) and <code class="docutils literal notranslate"><span class="pre">L</span></code> is a vector (or a stack of vectors).</p>
+<dd><p>Returns an eigenvalue decomposition of a complex Hermitian or real symmetric matrix (or a stack of matrices) <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">x</span></code> is real-valued, let <span class="math notranslate nohighlight">\(\mathbb{K}\)</span> be the set of real numbers <span class="math notranslate nohighlight">\(\mathbb{R}\)</span>, and, if <code class="docutils literal notranslate"><span class="pre">x</span></code> is complex-valued, let <span class="math notranslate nohighlight">\(\mathbb{K}\)</span> be the set of complex numbers <span class="math notranslate nohighlight">\(\mathbb{C}\)</span>.</p>
+<p>The <strong>eigenvalue decomposition</strong> of a complex Hermitian or real symmetric matrix <span class="math notranslate nohighlight">\(x \in\ \mathbb{K}^{n \times n}\)</span> is defined as</p>
+<div class="math notranslate nohighlight">
+\[x = Q \Lambda Q^H\]</div>
+<p>with <span class="math notranslate nohighlight">\(Q \in \mathbb{K}^{n \times n}\)</span> and <span class="math notranslate nohighlight">\(\Lambda \in \mathbb{R}^n\)</span> and where <span class="math notranslate nohighlight">\(Q^H\)</span> is the conjugate transpose when <span class="math notranslate nohighlight">\(Q\)</span> is complex and the transpose when <span class="math notranslate nohighlight">\(Q\)</span> is real-valued and <span class="math notranslate nohighlight">\(\Lambda\)</span> is a diagonal matrix whose diagonal elements are the corresponding eigenvalues. When <code class="docutils literal notranslate"><span class="pre">x</span></code> is real-valued, <span class="math notranslate nohighlight">\(Q\)</span> is orthogonal, and, when <code class="docutils literal notranslate"><span class="pre">x</span></code> is complex, <span class="math notranslate nohighlight">\(Q\)</span> is unitary.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The function <code class="docutils literal notranslate"><span class="pre">eig</span></code> will be added in a future version of the specification, as it requires complex number support.</p>
+<p>The eigenvalues of a complex Hermitian or real symmetric matrix are always real.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The eigenvectors of a symmetric matrix are not unique and are not continuous with respect to <code class="docutils literal notranslate"><span class="pre">x</span></code>. Because eigenvectors are not unique, different hardware and software may compute different eigenvectors.</p>
+<p>Non-uniqueness stems from the fact that multiplying an eigenvector by <span class="math notranslate nohighlight">\(-1\)</span> when <code class="docutils literal notranslate"><span class="pre">x</span></code> is real-valued and by <span class="math notranslate nohighlight">\(e^{\phi j}\)</span> (<span class="math notranslate nohighlight">\(\phi \in \mathbb{R}\)</span>) when <code class="docutils literal notranslate"><span class="pre">x</span></code> is complex produces another set of valid eigenvectors.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Whether an array library explicitly checks whether an input array is a symmetric matrix (or a stack of symmetric matrices) is implementation-defined.</p>
+<p>Whether an array library explicitly checks whether an input array is Hermitian or a symmetric matrix (or a stack of matrices) is implementation-defined.</p>
 </div>
-<dl class="field-list">
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The function <code class="docutils literal notranslate"><span class="pre">eig</span></code> will be added in a future version of the specification.</p>
+</div>
+<dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>x</strong> (<em>array</em>) – input array having shape <code class="docutils literal notranslate"><span class="pre">(...,</span> <span class="pre">M,</span> <span class="pre">M)</span></code> and whose innermost two dimensions form square matrices. Must have a real-valued floating-point data type.</p>
+<dd class="field-odd"><p><strong>x</strong> (<em>array</em>) – input array having shape <code class="docutils literal notranslate"><span class="pre">(...,</span> <span class="pre">M,</span> <span class="pre">M)</span></code> and whose innermost two dimensions form square matrices. Must have a floating-point data type.</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><ul>
-<li><p><strong>out</strong> (<em>Tuple[array]</em>) – a namedtuple (<code class="docutils literal notranslate"><span class="pre">eigenvalues</span></code>, <code class="docutils literal notranslate"><span class="pre">eigenvectors</span></code>) whose</p>
+<dd class="field-even"><p><strong>out</strong> (<em>Tuple[array]</em>) – a namedtuple (<code class="docutils literal notranslate"><span class="pre">eigenvalues</span></code>, <code class="docutils literal notranslate"><span class="pre">eigenvectors</span></code>) whose</p>
 <ul class="simple">
-<li><p>first element must have the field name <code class="docutils literal notranslate"><span class="pre">eigenvalues</span></code> (corresponding to <code class="docutils literal notranslate"><span class="pre">L</span></code> above) and must be an array consisting of computed eigenvalues. The array containing the eigenvalues must have shape <code class="docutils literal notranslate"><span class="pre">(...,</span> <span class="pre">M)</span></code>.</p></li>
-<li><p>second element have have the field name <code class="docutils literal notranslate"><span class="pre">eigenvectors</span></code> (corresponding to <code class="docutils literal notranslate"><span class="pre">Q</span></code> above) and must be an array where the columns of the inner most matrices contain the computed eigenvectors. These matrices must be orthogonal. The array containing the eigenvectors must have shape <code class="docutils literal notranslate"><span class="pre">(...,</span> <span class="pre">M,</span> <span class="pre">M)</span></code>.</p></li>
-</ul>
-<p>Each returned array must have the same real-valued floating-point data type as <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
-</li>
-<li><p><strong>.. note::</strong> – Eigenvalue sort order is left unspecified and is thus implementation-dependent.</p></li>
+<li><p>first element must have the field name <code class="docutils literal notranslate"><span class="pre">eigenvalues</span></code> (corresponding to <span class="math notranslate nohighlight">\(\operatorname{diag}\Lambda\)</span> above) and must be an array consisting of computed eigenvalues. The array containing the eigenvalues must have shape <code class="docutils literal notranslate"><span class="pre">(...,</span> <span class="pre">M)</span></code> and must have a real-valued floating-point data type whose precision matches the precision of <code class="docutils literal notranslate"><span class="pre">x</span></code> (e.g., if <code class="docutils literal notranslate"><span class="pre">x</span></code> is <code class="docutils literal notranslate"><span class="pre">complex128</span></code>, then <code class="docutils literal notranslate"><span class="pre">eigenvalues</span></code> must be <code class="docutils literal notranslate"><span class="pre">float64</span></code>).</p></li>
+<li><p>second element have have the field name <code class="docutils literal notranslate"><span class="pre">eigenvectors</span></code> (corresponding to <span class="math notranslate nohighlight">\(Q\)</span> above) and must be an array where the columns of the inner most matrices contain the computed eigenvectors. These matrices must be orthogonal. The array containing the eigenvectors must have shape <code class="docutils literal notranslate"><span class="pre">(...,</span> <span class="pre">M,</span> <span class="pre">M)</span></code> and must have the same data type as <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></li>
 </ul>
 </dd>
 </dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Eigenvalue sort order is left unspecified and is thus implementation-dependent.</p>
+</div>
 </dd></dl>
 </section>
 
