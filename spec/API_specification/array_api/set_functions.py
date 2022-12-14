@@ -1,5 +1,6 @@
 from ._types import Tuple, array
 
+
 def unique_all(x: array, /) -> Tuple[array, array, array, array]:
     """
     Returns the unique elements of an input array ``x``, the first occurring indices for each unique element in ``x``, the indices from the set of unique elements that reconstruct ``x``, and the corresponding counts for each unique element in ``x``.
@@ -39,6 +40,7 @@ def unique_all(x: array, /) -> Tuple[array, array, array, array]:
            The order of unique elements is not specified and may vary between implementations.
     """
 
+
 def unique_counts(x: array, /) -> Tuple[array, array]:
     """
     Returns the unique elements of an input array ``x`` and the corresponding counts for each unique element in ``x``.
@@ -73,6 +75,7 @@ def unique_counts(x: array, /) -> Tuple[array, array]:
         .. note::
            The order of unique elements is not specified and may vary between implementations.
     """
+
 
 def unique_inverse(x: array, /) -> Tuple[array, array]:
     """
@@ -109,6 +112,7 @@ def unique_inverse(x: array, /) -> Tuple[array, array]:
            The order of unique elements is not specified and may vary between implementations.
     """
 
+
 def unique_values(x: array, /) -> array:
     """
     Returns the unique elements of an input array ``x``.
@@ -139,4 +143,5 @@ def unique_values(x: array, /) -> array:
            The order of unique elements is not specified and may vary between implementations.
     """
 
-__all__ = ['unique_all', 'unique_counts', 'unique_inverse', 'unique_values']
+
+__all__ = ["unique_all", "unique_counts", "unique_inverse", "unique_values"]

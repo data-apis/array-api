@@ -1,6 +1,13 @@
 from ._types import Optional, Tuple, Union, array, dtype
 
-def max(x: array, /, *, axis: Optional[Union[int, Tuple[int, ...]]] = None, keepdims: bool = False) -> array:
+
+def max(
+    x: array,
+    /,
+    *,
+    axis: Optional[Union[int, Tuple[int, ...]]] = None,
+    keepdims: bool = False,
+) -> array:
     """
     Calculates the maximum value of the input array ``x``.
 
@@ -31,7 +38,14 @@ def max(x: array, /, *, axis: Optional[Union[int, Tuple[int, ...]]] = None, keep
         if the maximum value was computed over the entire array, a zero-dimensional array containing the maximum value; otherwise, a non-zero-dimensional array containing the maximum values. The returned array must have the same data type as ``x``.
     """
 
-def mean(x: array, /, *, axis: Optional[Union[int, Tuple[int, ...]]] = None, keepdims: bool = False) -> array:
+
+def mean(
+    x: array,
+    /,
+    *,
+    axis: Optional[Union[int, Tuple[int, ...]]] = None,
+    keepdims: bool = False,
+) -> array:
     """
     Calculates the arithmetic mean of the input array ``x``.
 
@@ -60,7 +74,14 @@ def mean(x: array, /, *, axis: Optional[Union[int, Tuple[int, ...]]] = None, kee
            While this specification recommends that this function only accept input arrays having a real-valued floating-point data type, specification-compliant array libraries may choose to accept input arrays having an integer data type. While mixed data type promotion is implementation-defined, if the input array ``x`` has an integer data type, the returned array must have the default real-valued floating-point data type.
     """
 
-def min(x: array, /, *, axis: Optional[Union[int, Tuple[int, ...]]] = None, keepdims: bool = False) -> array:
+
+def min(
+    x: array,
+    /,
+    *,
+    axis: Optional[Union[int, Tuple[int, ...]]] = None,
+    keepdims: bool = False,
+) -> array:
     """
     Calculates the minimum value of the input array ``x``.
 
@@ -91,7 +112,15 @@ def min(x: array, /, *, axis: Optional[Union[int, Tuple[int, ...]]] = None, keep
         if the minimum value was computed over the entire array, a zero-dimensional array containing the minimum value; otherwise, a non-zero-dimensional array containing the minimum values. The returned array must have the same data type as ``x``.
     """
 
-def prod(x: array, /, *, axis: Optional[Union[int, Tuple[int, ...]]] = None, dtype: Optional[dtype] = None, keepdims: bool = False) -> array:
+
+def prod(
+    x: array,
+    /,
+    *,
+    axis: Optional[Union[int, Tuple[int, ...]]] = None,
+    dtype: Optional[dtype] = None,
+    keepdims: bool = False,
+) -> array:
     """
     Calculates the product of input array ``x`` elements.
 
@@ -132,7 +161,15 @@ def prod(x: array, /, *, axis: Optional[Union[int, Tuple[int, ...]]] = None, dty
         if the product was computed over the entire array, a zero-dimensional array containing the product; otherwise, a non-zero-dimensional array containing the products. The returned array must have a data type as described by the ``dtype`` parameter above.
     """
 
-def std(x: array, /, *, axis: Optional[Union[int, Tuple[int, ...]]] = None, correction: Union[int, float] = 0.0, keepdims: bool = False) -> array:
+
+def std(
+    x: array,
+    /,
+    *,
+    axis: Optional[Union[int, Tuple[int, ...]]] = None,
+    correction: Union[int, float] = 0.0,
+    keepdims: bool = False,
+) -> array:
     """
     Calculates the standard deviation of the input array ``x``.
 
@@ -163,7 +200,15 @@ def std(x: array, /, *, axis: Optional[Union[int, Tuple[int, ...]]] = None, corr
            While this specification recommends that this function only accept input arrays having a real-valued floating-point data type, specification-compliant array libraries may choose to accept input arrays having an integer data type. While mixed data type promotion is implementation-defined, if the input array ``x`` has an integer data type, the returned array must have the default real-valued floating-point data type.
     """
 
-def sum(x: array, /, *, axis: Optional[Union[int, Tuple[int, ...]]] = None, dtype: Optional[dtype] = None, keepdims: bool = False) -> array:
+
+def sum(
+    x: array,
+    /,
+    *,
+    axis: Optional[Union[int, Tuple[int, ...]]] = None,
+    dtype: Optional[dtype] = None,
+    keepdims: bool = False,
+) -> array:
     """
     Calculates the sum of the input array ``x``.
 
@@ -204,7 +249,15 @@ def sum(x: array, /, *, axis: Optional[Union[int, Tuple[int, ...]]] = None, dtyp
         if the sum was computed over the entire array, a zero-dimensional array containing the sum; otherwise, an array containing the sums. The returned array must have a data type as described by the ``dtype`` parameter above.
     """
 
-def var(x: array, /, *, axis: Optional[Union[int, Tuple[int, ...]]] = None, correction: Union[int, float] = 0.0, keepdims: bool = False) -> array:
+
+def var(
+    x: array,
+    /,
+    *,
+    axis: Optional[Union[int, Tuple[int, ...]]] = None,
+    correction: Union[int, float] = 0.0,
+    keepdims: bool = False,
+) -> array:
     """
     Calculates the variance of the input array ``x``.
 
@@ -236,4 +289,5 @@ def var(x: array, /, *, axis: Optional[Union[int, Tuple[int, ...]]] = None, corr
        While this specification recommends that this function only accept input arrays having a real-valued floating-point data type, specification-compliant array libraries may choose to accept input arrays having an integer data type. While mixed data type promotion is implementation-defined, if the input array ``x`` has an integer data type, the returned array must have the default real-valued floating-point data type.
     """
 
-__all__ = ['max', 'mean', 'min', 'prod', 'std', 'sum', 'var']
+
+__all__ = ["max", "mean", "min", "prod", "std", "sum", "var"]

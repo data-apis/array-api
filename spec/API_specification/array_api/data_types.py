@@ -1,5 +1,6 @@
 from ._types import dtype
 
+
 def __eq__(self: dtype, other: dtype, /) -> bool:
     """
     Computes the truth value of ``self == other`` in order to test for data type object equality.
@@ -17,4 +18,5 @@ def __eq__(self: dtype, other: dtype, /) -> bool:
         a boolean indicating whether the data type objects are equal.
     """
 
-__all__ = ['__eq__']
+
+__all__ = ["__eq__"]
