@@ -87,7 +87,7 @@ def vecdot(x1: array, x2: array, /, *, axis: int = -1) -> array:
     """
     Computes the (vector) dot product of two arrays.
     
-    Let ``x1`` equal :math:`a` and ``x2`` equal :math:`b`. The dot product is defined as
+    Let :math:`\mathbf{a}` be a vector in ``x1`` and :math:`\mathbf{b}` be a corresponding vector in ``x2``. The dot product is defined as
     
     .. math::
        \mathbf{a} \cdot \mathbf{b} = \sum_{i=0}^{n-1} a_i\overline{b_i}
