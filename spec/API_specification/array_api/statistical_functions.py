@@ -101,21 +101,20 @@ def prod(x: array, /, *, axis: Optional[Union[int, Tuple[int, ...]]] = None, dty
 
     -   If ``N`` is ``0``, the product is `1` (i.e., the empty product).
 
-    For floating-point operands,
-
-    -   If ``x_i`` is ``NaN``, the product is ``NaN`` (i.e., ``NaN`` values propagate).
+    For both real-valued and complex floating-point operands, special cases must be handled as if the operation is implemented by successive application of :func:`~array_api.multiply`.
 
     Parameters
     ----------
     x: array
-        input array. Should have a real-valued data type.
+        input array. Should have a numeric data type.
     axis: Optional[Union[int, Tuple[int, ...]]]
         axis or axes along which products must be computed. By default, the product must be computed over the entire array. If a tuple of integers, products must be computed over multiple axes. Default: ``None``.
     dtype: Optional[dtype]
         data type of the returned array. If ``None``,
 
-        -   if the default data type corresponding to the data type "kind" (integer or floating-point) of ``x`` has a smaller range of values than the data type of ``x`` (e.g., ``x`` has data type ``int64`` and the default data type is ``int32``, or ``x`` has data type ``uint64`` and the default data type is ``int64``), the returned array must have the same data type as ``x``.
+        -   if the default data type corresponding to the data type "kind" (integer, real-valued floating-point, or complex floating-point) of ``x`` has a smaller range of values than the data type of ``x`` (e.g., ``x`` has data type ``int64`` and the default data type is ``int32``, or ``x`` has data type ``uint64`` and the default data type is ``int64``), the returned array must have the same data type as ``x``.
         -   if ``x`` has a real-valued floating-point data type, the returned array must have the default real-valued floating-point data type.
+        -   if ``x`` has a complex floating-point data type, the returned array must have the default complex floating-point data type.
         -   if ``x`` has a signed integer data type (e.g., ``int16``), the returned array must have the default integer data type.
         -   if ``x`` has an unsigned integer data type (e.g., ``uint16``), the returned array must have an unsigned integer data type having the same number of bits as the default integer data type (e.g., if the default integer data type is ``int32``, the returned array must have a ``uint32`` data type).
 
