@@ -21,6 +21,9 @@ The mechanism through which the extension namespace is made available is up to
 the implementer, e.g. via a regular submodule that is imported under the
 ``linalg`` name, or via a module-level ``__getattr__``.
 
+The functions in an extension must adhere to the same conventions as those in
+the array API standard. See :ref:`api-specification`.
+
 
 Extensions
 ----------
