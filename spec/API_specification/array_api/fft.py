@@ -1,7 +1,14 @@
 from ._types import Tuple, Union, Sequence, array, Optional, Literal, device
 
 
-def fft(x: array, /, *, n: Optional[int] = None, axis: int = -1, norm: Literal['backward', 'ortho', 'forward'] = 'backward') -> array:
+def fft(
+    x: array,
+    /,
+    *,
+    n: Optional[int] = None,
+    axis: int = -1,
+    norm: Literal["backward", "ortho", "forward"] = "backward",
+) -> array:
     """
     Computes the one-dimensional discrete Fourier transform.
 
@@ -40,7 +47,14 @@ def fft(x: array, /, *, n: Optional[int] = None, axis: int = -1, norm: Literal['
     """
 
 
-def ifft(x: array, /, *, n: Optional[int] = None, axis: int = -1, norm: Literal['backward', 'ortho', 'forward'] = 'backward') -> array:
+def ifft(
+    x: array,
+    /,
+    *,
+    n: Optional[int] = None,
+    axis: int = -1,
+    norm: Literal["backward", "ortho", "forward"] = "backward",
+) -> array:
     """
     Computes the one-dimensional inverse discrete Fourier transform.
 
@@ -79,7 +93,14 @@ def ifft(x: array, /, *, n: Optional[int] = None, axis: int = -1, norm: Literal[
     """
 
 
-def fftn(x: array, /, *, s: Sequence[int] = None, axes: Sequence[int] = None, norm: Literal['backward', 'ortho', 'forward'] = 'backward') -> array:
+def fftn(
+    x: array,
+    /,
+    *,
+    s: Sequence[int] = None,
+    axes: Sequence[int] = None,
+    norm: Literal["backward", "ortho", "forward"] = "backward",
+) -> array:
     """
     Computes the n-dimensional discrete Fourier transform.
 
@@ -125,7 +146,14 @@ def fftn(x: array, /, *, s: Sequence[int] = None, axes: Sequence[int] = None, no
     """
 
 
-def ifftn(x: array, /, *, s: Sequence[int] = None, axes: Sequence[int] = None, norm: Literal['backward', 'ortho', 'forward'] = 'backward') -> array:
+def ifftn(
+    x: array,
+    /,
+    *,
+    s: Sequence[int] = None,
+    axes: Sequence[int] = None,
+    norm: Literal["backward", "ortho", "forward"] = "backward",
+) -> array:
     """
     Computes the n-dimensional inverse discrete Fourier transform.
 
@@ -171,7 +199,14 @@ def ifftn(x: array, /, *, s: Sequence[int] = None, axes: Sequence[int] = None, n
     """
 
 
-def rfft(x: array, /, *, n: Optional[int] = None, axis: int = -1, norm: Literal['backward', 'ortho', 'forward'] = 'backward') -> array:
+def rfft(
+    x: array,
+    /,
+    *,
+    n: Optional[int] = None,
+    axis: int = -1,
+    norm: Literal["backward", "ortho", "forward"] = "backward",
+) -> array:
     """
     Computes the one-dimensional discrete Fourier transform for real-valued input.
 
@@ -210,7 +245,14 @@ def rfft(x: array, /, *, n: Optional[int] = None, axis: int = -1, norm: Literal[
     """
 
 
-def irfft(x: array, /, *, n: Optional[int] = None, axis: int = -1, norm: Literal['backward', 'ortho', 'forward'] = 'backward') -> array:
+def irfft(
+    x: array,
+    /,
+    *,
+    n: Optional[int] = None,
+    axis: int = -1,
+    norm: Literal["backward", "ortho", "forward"] = "backward",
+) -> array:
     """
     Computes the one-dimensional inverse of ``rfft`` for complex-valued input.
 
@@ -249,7 +291,14 @@ def irfft(x: array, /, *, n: Optional[int] = None, axis: int = -1, norm: Literal
     """
 
 
-def rfftn(x: array, /, *, s: Sequence[int] = None, axes: Sequence[int] = None, norm: Literal['backward', 'ortho', 'forward'] = 'backward') -> array:
+def rfftn(
+    x: array,
+    /,
+    *,
+    s: Sequence[int] = None,
+    axes: Sequence[int] = None,
+    norm: Literal["backward", "ortho", "forward"] = "backward",
+) -> array:
     """
     Computes the n-dimensional discrete Fourier transform for real-valued input.
 
@@ -295,7 +344,14 @@ def rfftn(x: array, /, *, s: Sequence[int] = None, axes: Sequence[int] = None, n
     """
 
 
-def irfftn(x: array, /, *, s: Sequence[int] = None, axes: Sequence[int] = None, norm: Literal['backward', 'ortho', 'forward'] = 'backward') -> array:
+def irfftn(
+    x: array,
+    /,
+    *,
+    s: Sequence[int] = None,
+    axes: Sequence[int] = None,
+    norm: Literal["backward", "ortho", "forward"] = "backward",
+) -> array:
     """
     Computes the n-dimensional inverse of ``rfftn`` for complex-valued input.
 
@@ -341,7 +397,14 @@ def irfftn(x: array, /, *, s: Sequence[int] = None, axes: Sequence[int] = None, 
     """
 
 
-def hfft(x: array, /, *, n: Optional[int] = None, axis: int = -1, norm: Literal['backward', 'ortho', 'forward'] = 'backward') -> array:
+def hfft(
+    x: array,
+    /,
+    *,
+    n: Optional[int] = None,
+    axis: int = -1,
+    norm: Literal["backward", "ortho", "forward"] = "backward",
+) -> array:
     """
     Computes the one-dimensional discrete Fourier transform of a signal with Hermitian symmetry.
 
@@ -377,7 +440,14 @@ def hfft(x: array, /, *, n: Optional[int] = None, axis: int = -1, norm: Literal[
     """
 
 
-def ihfft(x: array, /, *, n: Optional[int] = None, axis: int = -1, norm: Literal['backward', 'ortho', 'forward'] = 'backward') -> array:
+def ihfft(
+    x: array,
+    /,
+    *,
+    n: Optional[int] = None,
+    axis: int = -1,
+    norm: Literal["backward", "ortho", "forward"] = "backward",
+) -> array:
     """
     Computes the one-dimensional inverse discrete Fourier transform of a signal with Hermitian symmetry.
 
@@ -513,4 +583,19 @@ def ifftshift(x: array, /, *, axes: Union[int, Sequence[int]] = None) -> array:
     """
 
 
-__all__ = ['fft','ifft','fftn','ifftn','rfft','irfft','rfftn','irfftn','hfft','ihfft','fftfreq','rfftfreq','fftshift','ifftshift']
+__all__ = [
+    "fft",
+    "ifft",
+    "fftn",
+    "ifftn",
+    "rfft",
+    "irfft",
+    "rfftn",
+    "irfftn",
+    "hfft",
+    "ihfft",
+    "fftfreq",
+    "rfftfreq",
+    "fftshift",
+    "ifftshift",
+]

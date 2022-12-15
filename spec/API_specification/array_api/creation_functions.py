@@ -1,7 +1,25 @@
-from ._types import (List, NestedSequence, Optional, SupportsBufferProtocol, Tuple, Union, array,
-                     device, dtype)
+from ._types import (
+    List,
+    NestedSequence,
+    Optional,
+    SupportsBufferProtocol,
+    Tuple,
+    Union,
+    array,
+    device,
+    dtype,
+)
 
-def arange(start: Union[int, float], /, stop: Optional[Union[int, float]] = None, step: Union[int, float] = 1, *, dtype: Optional[dtype] = None, device: Optional[device] = None) -> array:
+
+def arange(
+    start: Union[int, float],
+    /,
+    stop: Optional[Union[int, float]] = None,
+    step: Union[int, float] = 1,
+    *,
+    dtype: Optional[dtype] = None,
+    device: Optional[device] = None,
+) -> array:
     """
     Returns evenly spaced values within the half-open interval ``[start, stop)`` as a one-dimensional array.
 
@@ -28,7 +46,17 @@ def arange(start: Union[int, float], /, stop: Optional[Union[int, float]] = None
         a one-dimensional array containing evenly spaced values. The length of the output array must be ``ceil((stop-start)/step)`` if ``stop - start`` and ``step`` have the same sign, and length ``0`` otherwise.
     """
 
-def asarray(obj: Union[array, bool, int, float, complex, NestedSequence, SupportsBufferProtocol], /, *, dtype: Optional[dtype] = None, device: Optional[device] = None, copy: Optional[bool] = None) -> array:
+
+def asarray(
+    obj: Union[
+        array, bool, int, float, complex, NestedSequence, SupportsBufferProtocol
+    ],
+    /,
+    *,
+    dtype: Optional[dtype] = None,
+    device: Optional[device] = None,
+    copy: Optional[bool] = None,
+) -> array:
     r"""
     Convert the input to an array.
 
@@ -71,7 +99,13 @@ def asarray(obj: Union[array, bool, int, float, complex, NestedSequence, Support
         an array containing the data from ``obj``.
     """
 
-def empty(shape: Union[int, Tuple[int, ...]], *, dtype: Optional[dtype] = None, device: Optional[device] = None) -> array:
+
+def empty(
+    shape: Union[int, Tuple[int, ...]],
+    *,
+    dtype: Optional[dtype] = None,
+    device: Optional[device] = None,
+) -> array:
     """
     Returns an uninitialized array having a specified `shape`.
 
@@ -90,7 +124,10 @@ def empty(shape: Union[int, Tuple[int, ...]], *, dtype: Optional[dtype] = None, 
         an array containing uninitialized data.
     """
 
-def empty_like(x: array, /, *, dtype: Optional[dtype] = None, device: Optional[device] = None) -> array:
+
+def empty_like(
+    x: array, /, *, dtype: Optional[dtype] = None, device: Optional[device] = None
+) -> array:
     """
     Returns an uninitialized array with the same ``shape`` as an input array ``x``.
 
@@ -109,12 +146,21 @@ def empty_like(x: array, /, *, dtype: Optional[dtype] = None, device: Optional[d
         an array having the same shape as ``x`` and containing uninitialized data.
     """
 
-def eye(n_rows: int, n_cols: Optional[int] = None, /, *, k: int = 0, dtype: Optional[dtype] = None, device: Optional[device] = None) -> array:
-    """
+
+def eye(
+    n_rows: int,
+    n_cols: Optional[int] = None,
+    /,
+    *,
+    k: int = 0,
+    dtype: Optional[dtype] = None,
+    device: Optional[device] = None,
+) -> array:
+    r"""
     Returns a two-dimensional array with ones on the ``k``\th diagonal and zeros elsewhere.
 
     .. note::
-       An output array having a complex floating-point data type must have the value ``1 + 0j`` along the ``k``\th diagonal and ``0 + 0j`` elsewhere. 
+       An output array having a complex floating-point data type must have the value ``1 + 0j`` along the ``k``\th diagonal and ``0 + 0j`` elsewhere.
 
     Parameters
     ----------
@@ -134,6 +180,7 @@ def eye(n_rows: int, n_cols: Optional[int] = None, /, *, k: int = 0, dtype: Opti
     out: array
         an array where all elements are equal to zero, except for the ``k``\th diagonal, whose values are equal to one.
     """
+
 
 def from_dlpack(x: object, /) -> array:
     """
@@ -155,7 +202,14 @@ def from_dlpack(x: object, /) -> array:
            The returned array may be either a copy or a view. See :ref:`data-interchange` for details.
     """
 
-def full(shape: Union[int, Tuple[int, ...]], fill_value: Union[bool, int, float, complex], *, dtype: Optional[dtype] = None, device: Optional[device] = None) -> array:
+
+def full(
+    shape: Union[int, Tuple[int, ...]],
+    fill_value: Union[bool, int, float, complex],
+    *,
+    dtype: Optional[dtype] = None,
+    device: Optional[device] = None,
+) -> array:
     """
     Returns a new array having a specified ``shape`` and filled with ``fill_value``.
 
@@ -185,7 +239,15 @@ def full(shape: Union[int, Tuple[int, ...]], fill_value: Union[bool, int, float,
         an array where every element is equal to ``fill_value``.
     """
 
-def full_like(x: array, /, fill_value: Union[bool, int, float, complex], *, dtype: Optional[dtype] = None, device: Optional[device] = None) -> array:
+
+def full_like(
+    x: array,
+    /,
+    fill_value: Union[bool, int, float, complex],
+    *,
+    dtype: Optional[dtype] = None,
+    device: Optional[device] = None,
+) -> array:
     """
     Returns a new array filled with ``fill_value`` and having the same ``shape`` as an input array ``x``.
 
@@ -213,7 +275,17 @@ def full_like(x: array, /, fill_value: Union[bool, int, float, complex], *, dtyp
         an array having the same shape as ``x`` and where every element is equal to ``fill_value``.
     """
 
-def linspace(start: Union[int, float, complex], stop: Union[int, float, complex], /, num: int, *, dtype: Optional[dtype] = None, device: Optional[device] = None, endpoint: bool = True) -> array:
+
+def linspace(
+    start: Union[int, float, complex],
+    stop: Union[int, float, complex],
+    /,
+    num: int,
+    *,
+    dtype: Optional[dtype] = None,
+    device: Optional[device] = None,
+    endpoint: bool = True,
+) -> array:
     r"""
     Returns evenly spaced numbers over a specified interval.
 
@@ -270,7 +342,8 @@ def linspace(start: Union[int, float, complex], stop: Union[int, float, complex]
        As mixed data type promotion is implementation-defined, behavior when ``start`` or ``stop`` exceeds the maximum safe integer of an output floating-point data type is implementation-defined. An implementation may choose to overflow or raise an exception.
     """
 
-def meshgrid(*arrays: array, indexing: str = 'xy') -> List[array]:
+
+def meshgrid(*arrays: array, indexing: str = "xy") -> List[array]:
     """
     Returns coordinate matrices from coordinate vectors.
 
@@ -296,12 +369,18 @@ def meshgrid(*arrays: array, indexing: str = 'xy') -> List[array]:
         Each returned array should have the same data type as the input arrays.
     """
 
-def ones(shape: Union[int, Tuple[int, ...]], *, dtype: Optional[dtype] = None, device: Optional[device] = None) -> array:
+
+def ones(
+    shape: Union[int, Tuple[int, ...]],
+    *,
+    dtype: Optional[dtype] = None,
+    device: Optional[device] = None,
+) -> array:
     """
     Returns a new array having a specified ``shape`` and filled with ones.
 
     .. note::
-       An output array having a complex floating-point data type must contain complex numbers having a real component equal to one and an imaginary component equal to zero (i.e., ``1 + 0j``).  
+       An output array having a complex floating-point data type must contain complex numbers having a real component equal to one and an imaginary component equal to zero (i.e., ``1 + 0j``).
 
     Parameters
     ----------
@@ -318,12 +397,15 @@ def ones(shape: Union[int, Tuple[int, ...]], *, dtype: Optional[dtype] = None, d
         an array containing ones.
     """
 
-def ones_like(x: array, /, *, dtype: Optional[dtype] = None, device: Optional[device] = None) -> array:
+
+def ones_like(
+    x: array, /, *, dtype: Optional[dtype] = None, device: Optional[device] = None
+) -> array:
     """
     Returns a new array filled with ones and having the same ``shape`` as an input array ``x``.
 
     .. note::
-       An output array having a complex floating-point data type must contain complex numbers having a real component equal to one and an imaginary component equal to zero (i.e., ``1 + 0j``).  
+       An output array having a complex floating-point data type must contain complex numbers having a real component equal to one and an imaginary component equal to zero (i.e., ``1 + 0j``).
 
     Parameters
     ----------
@@ -339,6 +421,7 @@ def ones_like(x: array, /, *, dtype: Optional[dtype] = None, device: Optional[de
     out: array
         an array having the same shape as ``x`` and filled with ones.
     """
+
 
 def tril(x: array, /, *, k: int = 0) -> array:
     """
@@ -363,6 +446,7 @@ def tril(x: array, /, *, k: int = 0) -> array:
         an array containing the lower triangular part(s). The returned array must have the same shape and data type as ``x``. All elements above the specified diagonal ``k`` must be zeroed. The returned array should be allocated on the same device as ``x``.
     """
 
+
 def triu(x: array, /, *, k: int = 0) -> array:
     """
     Returns the upper triangular part of a matrix (or a stack of matrices) ``x``.
@@ -386,7 +470,13 @@ def triu(x: array, /, *, k: int = 0) -> array:
         an array containing the upper triangular part(s). The returned array must have the same shape and data type as ``x``. All elements below the specified diagonal ``k`` must be zeroed. The returned array should be allocated on the same device as ``x``.
     """
 
-def zeros(shape: Union[int, Tuple[int, ...]], *, dtype: Optional[dtype] = None, device: Optional[device] = None) -> array:
+
+def zeros(
+    shape: Union[int, Tuple[int, ...]],
+    *,
+    dtype: Optional[dtype] = None,
+    device: Optional[device] = None,
+) -> array:
     """
     Returns a new array having a specified ``shape`` and filled with zeros.
 
@@ -405,7 +495,10 @@ def zeros(shape: Union[int, Tuple[int, ...]], *, dtype: Optional[dtype] = None, 
         an array containing zeros.
     """
 
-def zeros_like(x: array, /, *, dtype: Optional[dtype] = None, device: Optional[device] = None) -> array:
+
+def zeros_like(
+    x: array, /, *, dtype: Optional[dtype] = None, device: Optional[device] = None
+) -> array:
     """
     Returns a new array filled with zeros and having the same ``shape`` as an input array ``x``.
 
@@ -424,4 +517,22 @@ def zeros_like(x: array, /, *, dtype: Optional[dtype] = None, device: Optional[d
         an array having the same shape as ``x`` and filled with zeros.
     """
 
-__all__ = ['arange', 'asarray', 'empty', 'empty_like', 'eye', 'from_dlpack', 'full', 'full_like', 'linspace', 'meshgrid', 'ones', 'ones_like', 'tril', 'triu', 'zeros', 'zeros_like']
+
+__all__ = [
+    "arange",
+    "asarray",
+    "empty",
+    "empty_like",
+    "eye",
+    "from_dlpack",
+    "full",
+    "full_like",
+    "linspace",
+    "meshgrid",
+    "ones",
+    "ones_like",
+    "tril",
+    "triu",
+    "zeros",
+    "zeros_like",
+]

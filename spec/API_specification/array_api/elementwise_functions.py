@@ -1,5 +1,6 @@
 from ._types import array
 
+
 def abs(x: array, /) -> array:
     r"""
     Calculates the absolute value for each element ``x_i`` of the input array ``x``.
@@ -50,6 +51,7 @@ def abs(x: array, /) -> array:
         an array containing the absolute value of each element in ``x``. If ``x`` has a real-valued data type, the returned array must have the same data type as ``x``. If ``x`` has a complex floating-point data type, the returned arrayed must have a real-valued floating-point data type whose precision matches the precision of ``x`` (e.g., if ``x`` is ``complex128``, then the returned array must have a ``float64`` data type).
     """
 
+
 def acos(x: array, /) -> array:
     r"""
     Calculates an implementation-dependent approximation of the principal value of the inverse cosine for each element ``x_i`` of the input array ``x``.
@@ -81,7 +83,7 @@ def acos(x: array, /) -> array:
     - If ``a`` is ``NaN`` and ``b`` is ``NaN``, the result is ``NaN + NaN j``.
 
     .. note::
-       The principal value of the arc cosine of a complex number :math:`z` is 
+       The principal value of the arc cosine of a complex number :math:`z` is
 
        .. math::
           \operatorname{acos}(z) = \frac{1}{2}\pi + j\ \ln(zj + \sqrt{1-z^2})
@@ -99,7 +101,7 @@ def acos(x: array, /) -> array:
 
        Accordingly, for complex arguments, the function returns the inverse cosine in the range of a strip unbounded along the imaginary axis and in the interval :math:`[0, \pi]` along the real axis.
 
-       *Note: branch cuts have provisional status* (see :ref:`branch-cuts`). 
+       *Note: branch cuts have provisional status* (see :ref:`branch-cuts`).
 
     Parameters
     ----------
@@ -111,6 +113,7 @@ def acos(x: array, /) -> array:
     out: array
         an array containing the inverse cosine of each element in ``x``. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
     """
+
 
 def acosh(x: array, /) -> array:
     r"""
@@ -179,6 +182,7 @@ def acosh(x: array, /) -> array:
         an array containing the inverse hyperbolic cosine of each element in ``x``. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
     """
 
+
 def add(x1: array, x2: array, /) -> array:
     """
     Calculates the sum for each element ``x1_i`` of the input array ``x1`` with the respective element ``x2_i`` of the input array ``x2``.
@@ -240,6 +244,7 @@ def add(x1: array, x2: array, /) -> array:
         an array containing the element-wise sums. The returned array must have a data type determined by :ref:`type-promotion`.
     """
 
+
 def asin(x: array, /) -> array:
     r"""
     Calculates an implementation-dependent approximation of the principal value of the inverse sine for each element ``x_i`` of the input array ``x``.
@@ -267,7 +272,7 @@ def asin(x: array, /) -> array:
        For any :math:`z`,
 
        .. math::
-          \operatorname{asin}(z) = \operatorname{acos}(-z) - \frac{\pi}{2} 
+          \operatorname{asin}(z) = \operatorname{acos}(-z) - \frac{\pi}{2}
 
     .. note::
        For complex floating-point operands, ``asin(conj(x))`` must equal ``conj(asin(x))``.
@@ -277,7 +282,7 @@ def asin(x: array, /) -> array:
 
        Accordingly, for complex arguments, the function returns the inverse sine in the range of a strip unbounded along the imaginary axis and in the interval :math:`[-\pi/2, +\pi/2]` along the real axis.
 
-       *Note: branch cuts have provisional status* (see :ref:`branch-cuts`). 
+       *Note: branch cuts have provisional status* (see :ref:`branch-cuts`).
 
     Parameters
     ----------
@@ -289,6 +294,7 @@ def asin(x: array, /) -> array:
     out: array
         an array containing the inverse sine of each element in ``x``. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
     """
+
 
 def asinh(x: array, /) -> array:
     r"""
@@ -348,6 +354,7 @@ def asinh(x: array, /) -> array:
         an array containing the inverse hyperbolic sine of each element in ``x``. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
     """
 
+
 def atan(x: array, /) -> array:
     r"""
     Calculates an implementation-dependent approximation of the principal value of the inverse tangent for each element ``x_i`` of the input array ``x``.
@@ -392,6 +399,7 @@ def atan(x: array, /) -> array:
     out: array
         an array containing the inverse tangent of each element in ``x``. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
     """
+
 
 def atan2(x1: array, x2: array, /) -> array:
     """
@@ -445,6 +453,7 @@ def atan2(x1: array, x2: array, /) -> array:
         an array containing the inverse tangent of the quotient ``x1/x2``. The returned array must have a real-valued floating-point data type determined by :ref:`type-promotion`.
 
     """
+
 
 def atanh(x: array, /) -> array:
     r"""
@@ -508,6 +517,7 @@ def atanh(x: array, /) -> array:
         an array containing the inverse hyperbolic tangent of each element in ``x``. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
     """
 
+
 def bitwise_and(x1: array, x2: array, /) -> array:
     """
     Computes the bitwise AND of the underlying binary representation of each element ``x1_i`` of the input array ``x1`` with the respective element ``x2_i`` of the input array ``x2``.
@@ -524,6 +534,7 @@ def bitwise_and(x1: array, x2: array, /) -> array:
     out: array
         an array containing the element-wise results. The returned array must have a data type determined by :ref:`type-promotion`.
     """
+
 
 def bitwise_left_shift(x1: array, x2: array, /) -> array:
     """
@@ -542,6 +553,7 @@ def bitwise_left_shift(x1: array, x2: array, /) -> array:
         an array containing the element-wise results. The returned array must have a data type determined by :ref:`type-promotion`.
     """
 
+
 def bitwise_invert(x: array, /) -> array:
     """
     Inverts (flips) each bit for each element ``x_i`` of the input array ``x``.
@@ -556,6 +568,7 @@ def bitwise_invert(x: array, /) -> array:
     out: array
         an array containing the element-wise results. The returned array must have the same data type as ``x``.
     """
+
 
 def bitwise_or(x1: array, x2: array, /) -> array:
     """
@@ -573,6 +586,7 @@ def bitwise_or(x1: array, x2: array, /) -> array:
     out: array
         an array containing the element-wise results. The returned array must have a data type determined by :ref:`type-promotion`.
     """
+
 
 def bitwise_right_shift(x1: array, x2: array, /) -> array:
     """
@@ -594,6 +608,7 @@ def bitwise_right_shift(x1: array, x2: array, /) -> array:
         an array containing the element-wise results. The returned array must have a data type determined by :ref:`type-promotion`.
     """
 
+
 def bitwise_xor(x1: array, x2: array, /) -> array:
     """
     Computes the bitwise XOR of the underlying binary representation of each element ``x1_i`` of the input array ``x1`` with the respective element ``x2_i`` of the input array ``x2``.
@@ -610,6 +625,7 @@ def bitwise_xor(x1: array, x2: array, /) -> array:
     out: array
         an array containing the element-wise results. The returned array must have a data type determined by :ref:`type-promotion`.
     """
+
 
 def ceil(x: array, /) -> array:
     """
@@ -637,6 +653,7 @@ def ceil(x: array, /) -> array:
     out: array
         an array containing the rounded result for each element in ``x``. The returned array must have the same data type as ``x``.
     """
+
 
 def conj(x: array, /) -> array:
     """
@@ -706,6 +723,7 @@ def cos(x: array, /) -> array:
         an array containing the cosine of each element in ``x``. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
     """
 
+
 def cosh(x: array, /) -> array:
     r"""
     Calculates an implementation-dependent approximation to the hyperbolic cosine for each element ``x_i`` in the input array ``x``.
@@ -762,6 +780,7 @@ def cosh(x: array, /) -> array:
         an array containing the hyperbolic cosine of each element in ``x``. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
     """
 
+
 def divide(x1: array, x2: array, /) -> array:
     r"""
     Calculates the division of each element ``x1_i`` of the input array ``x1`` with the respective element ``x2_i`` of the input array ``x2``.
@@ -811,17 +830,17 @@ def divide(x1: array, x2: array, /) -> array:
     +------------+----------------+-----------------+--------------------------+
 
     In general, for complex floating-point operands, real-valued floating-point special cases must independently apply to the real and imaginary component operations involving real numbers as described in the above table.
-    
+
     When ``a``, ``b``, ``c``, or ``d`` are all finite numbers (i.e., a value other than ``NaN``, ``+infinity``, or ``-infinity``), division of complex floating-point operands should be computed as if calculated according to the textbook formula for complex number division
-   
+
     .. math::
        \frac{a + bj}{c + dj} = \frac{(ac + bd) + (bc - ad)j}{c^2 + d^2}
-    
+
     When at least one of ``a``, ``b``, ``c``, or ``d`` is ``NaN``, ``+infinity``, or ``-infinity``,
-    
+
     - If ``a``, ``b``, ``c``, and ``d`` are all ``NaN``, the result is ``NaN + NaN j``.
     - In the remaining cases, the result is implementation dependent.
-    
+
     .. note::
        For complex floating-point operands, the results of special cases may be implementation dependent depending on how an implementation chooses to model complex numbers and complex infinity (e.g., complex plane versus Riemann sphere). For those implementations following C99 and its one-infinity model, when at least one component is infinite, even if the other component is ``NaN``, the complex value is infinite, and the usual arithmetic rules do not apply to complex-complex division. In the interest of performance, other implementations may want to avoid the complex branching logic necessary to implement the one-infinity model and choose to implement all complex-complex division according to the textbook formula. Accordingly, special case behavior is unlikely to be consistent across implementations.
 
@@ -837,6 +856,7 @@ def divide(x1: array, x2: array, /) -> array:
     out: array
         an array containing the element-wise results. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
     """
+
 
 def equal(x1: array, x2: array, /) -> array:
     r"""
@@ -874,6 +894,7 @@ def equal(x1: array, x2: array, /) -> array:
     out: array
         an array containing the element-wise results. The returned array must have a data type of ``bool``.
     """
+
 
 def exp(x: array, /) -> array:
     """
@@ -923,6 +944,7 @@ def exp(x: array, /) -> array:
     out: array
         an array containing the evaluated exponential function result for each element in ``x``. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
     """
+
 
 def expm1(x: array, /) -> array:
     """
@@ -976,6 +998,7 @@ def expm1(x: array, /) -> array:
         an array containing the evaluated result for each element in ``x``. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
     """
 
+
 def floor(x: array, /) -> array:
     """
     Rounds each element ``x_i`` of the input array ``x`` to the greatest (i.e., closest to ``+infinity``) integer-valued number that is not greater than ``x_i``.
@@ -1002,6 +1025,7 @@ def floor(x: array, /) -> array:
     out: array
         an array containing the rounded result for each element in ``x``. The returned array must have the same data type as ``x``.
     """
+
 
 def floor_divide(x1: array, x2: array, /) -> array:
     r"""
@@ -1059,6 +1083,7 @@ def floor_divide(x1: array, x2: array, /) -> array:
         an array containing the element-wise results. The returned array must have a data type determined by :ref:`type-promotion`.
     """
 
+
 def greater(x1: array, x2: array, /) -> array:
     """
     Computes the truth value of ``x1_i > x2_i`` for each element ``x1_i`` of the input array ``x1`` with the respective element ``x2_i`` of the input array ``x2``.
@@ -1078,6 +1103,7 @@ def greater(x1: array, x2: array, /) -> array:
     out: array
         an array containing the element-wise results. The returned array must have a data type of ``bool``.
     """
+
 
 def greater_equal(x1: array, x2: array, /) -> array:
     """
@@ -1099,6 +1125,7 @@ def greater_equal(x1: array, x2: array, /) -> array:
         an array containing the element-wise results. The returned array must have a data type of ``bool``.
     """
 
+
 def imag(x: array, /) -> array:
     """
     Returns the imaginary component of a complex number for each element ``x_i`` of the input array ``x``.
@@ -1111,8 +1138,9 @@ def imag(x: array, /) -> array:
     Returns
     -------
     out: array
-        an array containing the element-wise results. The returned array must have a floating-point data type with the same floating-point precision as ``x`` (e.g., if ``x`` is ``complex64``, the returned array must have the floating-point data type ``float32``). 
+        an array containing the element-wise results. The returned array must have a floating-point data type with the same floating-point precision as ``x`` (e.g., if ``x`` is ``complex64``, the returned array must have the floating-point data type ``float32``).
     """
+
 
 def isfinite(x: array, /) -> array:
     """
@@ -1144,6 +1172,7 @@ def isfinite(x: array, /) -> array:
         an array containing test results. The returned array must have a data type of ``bool``.
     """
 
+
 def isinf(x: array, /) -> array:
     """
     Tests each element ``x_i`` of the input array ``x`` to determine if equal to positive or negative infinity.
@@ -1172,6 +1201,7 @@ def isinf(x: array, /) -> array:
         an array containing test results. The returned array must have a data type of ``bool``.
     """
 
+
 def isnan(x: array, /) -> array:
     """
     Tests each element ``x_i`` of the input array ``x`` to determine whether the element is ``NaN``.
@@ -1199,6 +1229,7 @@ def isnan(x: array, /) -> array:
         an array containing test results. The returned array should have a data type of ``bool``.
     """
 
+
 def less(x1: array, x2: array, /) -> array:
     """
     Computes the truth value of ``x1_i < x2_i`` for each element ``x1_i`` of the input array ``x1`` with the respective element ``x2_i`` of the input array ``x2``.
@@ -1219,6 +1250,7 @@ def less(x1: array, x2: array, /) -> array:
         an array containing the element-wise results. The returned array must have a data type of ``bool``.
     """
 
+
 def less_equal(x1: array, x2: array, /) -> array:
     """
     Computes the truth value of ``x1_i <= x2_i`` for each element ``x1_i`` of the input array ``x1`` with the respective element ``x2_i`` of the input array ``x2``.
@@ -1238,6 +1270,7 @@ def less_equal(x1: array, x2: array, /) -> array:
     out: array
         an array containing the element-wise results. The returned array must have a data type of ``bool``.
     """
+
 
 def log(x: array, /) -> array:
     r"""
@@ -1281,7 +1314,7 @@ def log(x: array, /) -> array:
 
        Accordingly, for complex arguments, the function returns the natural logarithm in the range of a strip in the interval :math:`[-\pi j, +\pi j]` along the imaginary axis and mathematically unbounded along the real axis.
 
-       *Note: branch cuts have provisional status* (see :ref:`branch-cuts`). 
+       *Note: branch cuts have provisional status* (see :ref:`branch-cuts`).
 
     Parameters
     ----------
@@ -1293,6 +1326,7 @@ def log(x: array, /) -> array:
     out: array
         an array containing the evaluated natural logarithm for each element in ``x``. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
     """
+
 
 def log1p(x: array, /) -> array:
     r"""
@@ -1328,7 +1362,7 @@ def log1p(x: array, /) -> array:
 
     .. note::
        For complex floating-point operands, ``log1p(conj(x))`` must equal ``conj(log1p(x))``.
-    
+
     .. note::
        By convention, the branch cut of the natural logarithm is the negative real axis :math:`(-\infty, 0)`.
 
@@ -1348,6 +1382,7 @@ def log1p(x: array, /) -> array:
     out: array
         an array containing the evaluated result for each element in ``x``. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
     """
+
 
 def log2(x: array, /) -> array:
     r"""
@@ -1384,6 +1419,7 @@ def log2(x: array, /) -> array:
         an array containing the evaluated base ``2`` logarithm for each element in ``x``. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
     """
 
+
 def log10(x: array, /) -> array:
     r"""
     Calculates an implementation-dependent approximation to the base ``10`` logarithm for each element ``x_i`` of the input array ``x``.
@@ -1419,6 +1455,7 @@ def log10(x: array, /) -> array:
         an array containing the evaluated base ``10`` logarithm for each element in ``x``. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
     """
 
+
 def logaddexp(x1: array, x2: array, /) -> array:
     """
     Calculates the logarithm of the sum of exponentiations ``log(exp(x1) + exp(x2))`` for each element ``x1_i`` of the input array ``x1`` with the respective element ``x2_i`` of the input array ``x2``.
@@ -1444,6 +1481,7 @@ def logaddexp(x1: array, x2: array, /) -> array:
         an array containing the element-wise results. The returned array must have a real-valued floating-point data type determined by :ref:`type-promotion`.
     """
 
+
 def logical_and(x1: array, x2: array, /) -> array:
     """
     Computes the logical AND for each element ``x1_i`` of the input array ``x1`` with the respective element ``x2_i`` of the input array ``x2``.
@@ -1464,6 +1502,7 @@ def logical_and(x1: array, x2: array, /) -> array:
         an array containing the element-wise results. The returned array must have a data type of `bool`.
     """
 
+
 def logical_not(x: array, /) -> array:
     """
     Computes the logical NOT for each element ``x_i`` of the input array ``x``.
@@ -1481,6 +1520,7 @@ def logical_not(x: array, /) -> array:
     out: array
         an array containing the element-wise results. The returned array must have a data type of ``bool``.
     """
+
 
 def logical_or(x1: array, x2: array, /) -> array:
     """
@@ -1502,6 +1542,7 @@ def logical_or(x1: array, x2: array, /) -> array:
         an array containing the element-wise results. The returned array must have a data type of ``bool``.
     """
 
+
 def logical_xor(x1: array, x2: array, /) -> array:
     """
     Computes the logical XOR for each element ``x1_i`` of the input array ``x1`` with the respective element ``x2_i`` of the input array ``x2``.
@@ -1521,6 +1562,7 @@ def logical_xor(x1: array, x2: array, /) -> array:
     out: array
         an array containing the element-wise results. The returned array must have a data type of ``bool``.
     """
+
 
 def multiply(x1: array, x2: array, /) -> array:
     r"""
@@ -1583,6 +1625,7 @@ def multiply(x1: array, x2: array, /) -> array:
         an array containing the element-wise products. The returned array must have a data type determined by :ref:`type-promotion`.
     """
 
+
 def negative(x: array, /) -> array:
     """
     Computes the numerical negative of each element ``x_i`` (i.e., ``y_i = -x_i``) of the input array ``x``.
@@ -1603,6 +1646,7 @@ def negative(x: array, /) -> array:
     out: array
         an array containing the evaluated result for each element in ``x``. The returned array must have a data type determined by :ref:`type-promotion`.
     """
+
 
 def not_equal(x1: array, x2: array, /) -> array:
     """
@@ -1639,6 +1683,7 @@ def not_equal(x1: array, x2: array, /) -> array:
         an array containing the element-wise results. The returned array must have a data type of ``bool``.
     """
 
+
 def positive(x: array, /) -> array:
     """
     Computes the numerical positive of each element ``x_i`` (i.e., ``y_i = +x_i``) of the input array ``x``.
@@ -1653,6 +1698,7 @@ def positive(x: array, /) -> array:
     out: array
         an array containing the evaluated result for each element in ``x``. The returned array must have the same data type as ``x``.
     """
+
 
 def pow(x1: array, x2: array, /) -> array:
     r"""
@@ -1717,6 +1763,7 @@ def pow(x1: array, x2: array, /) -> array:
         an array containing the element-wise results. The returned array must have a data type determined by :ref:`type-promotion`.
     """
 
+
 def real(x: array, /) -> array:
     """
     Returns the real component of a complex number for each element ``x_i`` of the input array ``x``.
@@ -1729,8 +1776,9 @@ def real(x: array, /) -> array:
     Returns
     -------
     out: array
-        an array containing the element-wise results. The returned array must have a floating-point data type with the same floating-point precision as ``x`` (e.g., if ``x`` is ``complex64``, the returned array must have the floating-point data type ``float32``). 
+        an array containing the element-wise results. The returned array must have a floating-point data type with the same floating-point precision as ``x`` (e.g., if ``x`` is ``complex64``, the returned array must have the floating-point data type ``float32``).
     """
+
 
 def remainder(x1: array, x2: array, /) -> array:
     """
@@ -1783,13 +1831,14 @@ def remainder(x1: array, x2: array, /) -> array:
         an array containing the element-wise results. Each element-wise result must have the same sign as the respective element ``x2_i``. The returned array must have a data type determined by :ref:`type-promotion`.
     """
 
+
 def round(x: array, /) -> array:
     """
     Rounds each element ``x_i`` of the input array ``x`` to the nearest integer-valued number.
 
     .. note::
        For complex floating-point operands, real and imaginary components must be independently rounded to the nearest integer-valued number.
-    
+
        Rounded real and imaginary components must be equal to their equivalent rounded real-valued floating-point counterparts (i.e., for complex-valued ``x``, ``real(round(x))`` must equal ``round(real(x)))`` and ``imag(round(x))`` must equal ``round(imag(x))``).
 
     **Special cases**
@@ -1818,6 +1867,7 @@ def round(x: array, /) -> array:
     out: array
         an array containing the rounded result for each element in ``x``. The returned array must have the same data type as ``x``.
     """
+
 
 def sign(x: array, /) -> array:
     r"""
@@ -1859,6 +1909,7 @@ def sign(x: array, /) -> array:
         an array containing the evaluated result for each element in ``x``. The returned array must have the same data type as ``x``.
     """
 
+
 def sin(x: array, /) -> array:
     r"""
     Calculates an implementation-dependent approximation to the sine for each element ``x_i`` of the input array ``x``.
@@ -1897,6 +1948,7 @@ def sin(x: array, /) -> array:
     out: array
         an array containing the sine of each element in ``x``. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
     """
+
 
 def sinh(x: array, /) -> array:
     r"""
@@ -1954,6 +2006,7 @@ def sinh(x: array, /) -> array:
         an array containing the hyperbolic sine of each element in ``x``. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
     """
 
+
 def square(x: array, /) -> array:
     r"""
     Squares each element ``x_i`` of the input array ``x``.
@@ -1977,6 +2030,7 @@ def square(x: array, /) -> array:
     out: array
         an array containing the evaluated result for each element in ``x``. The returned array must have a data type determined by :ref:`type-promotion`.
     """
+
 
 def sqrt(x: array, /) -> array:
     r"""
@@ -2018,7 +2072,7 @@ def sqrt(x: array, /) -> array:
        Accordingly, for complex arguments, the function returns the square root in the range of the right half-plane, including the imaginary axis (i.e., the plane defined by :math:`[0, +\infty)` along the real axis and :math:`(-\infty, +\infty)` along the imaginary axis).
 
        *Note: branch cuts have provisional status* (see :ref:`branch-cuts`).
-    
+
     Parameters
     ----------
     x: array
@@ -2029,6 +2083,7 @@ def sqrt(x: array, /) -> array:
     out: array
         an array containing the square root of each element in ``x``. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
     """
+
 
 def subtract(x1: array, x2: array, /) -> array:
     """
@@ -2048,6 +2103,7 @@ def subtract(x1: array, x2: array, /) -> array:
     out: array
         an array containing the element-wise differences. The returned array must have a data type determined by :ref:`type-promotion`.
     """
+
 
 def tan(x: array, /) -> array:
     r"""
@@ -2087,6 +2143,7 @@ def tan(x: array, /) -> array:
     out: array
         an array containing the tangent of each element in ``x``. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
     """
+
 
 def tanh(x: array, /) -> array:
     r"""
@@ -2148,6 +2205,7 @@ def tanh(x: array, /) -> array:
         an array containing the hyperbolic tangent of each element in ``x``. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
     """
 
+
 def trunc(x: array, /) -> array:
     """
     Rounds each element ``x_i`` of the input array ``x`` to the nearest integer-valued number that is closer to zero than ``x_i``.
@@ -2175,4 +2233,65 @@ def trunc(x: array, /) -> array:
         an array containing the rounded result for each element in ``x``. The returned array must have the same data type as ``x``.
     """
 
-__all__ = ['abs', 'acos', 'acosh', 'add', 'asin', 'asinh', 'atan', 'atan2', 'atanh', 'bitwise_and', 'bitwise_left_shift', 'bitwise_invert', 'bitwise_or', 'bitwise_right_shift', 'bitwise_xor', 'ceil', 'conj', 'cos', 'cosh', 'divide', 'equal', 'exp', 'expm1', 'floor', 'floor_divide', 'greater', 'greater_equal', 'imag', 'isfinite', 'isinf', 'isnan', 'less', 'less_equal', 'log', 'log1p', 'log2', 'log10', 'logaddexp', 'logical_and', 'logical_not', 'logical_or', 'logical_xor', 'multiply', 'negative', 'not_equal', 'positive', 'pow', 'real', 'remainder', 'round', 'sign', 'sin', 'sinh', 'square', 'sqrt', 'subtract', 'tan', 'tanh', 'trunc']
+
+__all__ = [
+    "abs",
+    "acos",
+    "acosh",
+    "add",
+    "asin",
+    "asinh",
+    "atan",
+    "atan2",
+    "atanh",
+    "bitwise_and",
+    "bitwise_left_shift",
+    "bitwise_invert",
+    "bitwise_or",
+    "bitwise_right_shift",
+    "bitwise_xor",
+    "ceil",
+    "conj",
+    "cos",
+    "cosh",
+    "divide",
+    "equal",
+    "exp",
+    "expm1",
+    "floor",
+    "floor_divide",
+    "greater",
+    "greater_equal",
+    "imag",
+    "isfinite",
+    "isinf",
+    "isnan",
+    "less",
+    "less_equal",
+    "log",
+    "log1p",
+    "log2",
+    "log10",
+    "logaddexp",
+    "logical_and",
+    "logical_not",
+    "logical_or",
+    "logical_xor",
+    "multiply",
+    "negative",
+    "not_equal",
+    "positive",
+    "pow",
+    "real",
+    "remainder",
+    "round",
+    "sign",
+    "sin",
+    "sinh",
+    "square",
+    "sqrt",
+    "subtract",
+    "tan",
+    "tanh",
+    "trunc",
+]

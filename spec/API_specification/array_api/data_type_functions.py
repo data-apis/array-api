@@ -1,5 +1,6 @@
 from ._types import Union, Tuple, array, dtype, finfo_object, iinfo_object
 
+
 def astype(x: array, dtype: dtype, /, *, copy: bool = True) -> array:
     """
     Copies an array to a specified data type irrespective of :ref:`type-promotion` rules.
@@ -37,6 +38,7 @@ def astype(x: array, dtype: dtype, /, *, copy: bool = True) -> array:
         an array having the specified data type. The returned array must have the same shape as ``x``.
     """
 
+
 def can_cast(from_: Union[dtype, array], to: dtype, /) -> bool:
     """
     Determines if one data type can be cast to another data type according :ref:`type-promotion` rules.
@@ -53,6 +55,7 @@ def can_cast(from_: Union[dtype, array], to: dtype, /) -> bool:
     out: bool
         ``True`` if the cast can occur according to :ref:`type-promotion` rules; otherwise, ``False``.
     """
+
 
 def finfo(type: Union[dtype, array], /) -> finfo_object:
     """
@@ -96,6 +99,7 @@ def finfo(type: Union[dtype, array], /) -> finfo_object:
           real-valued floating-point data type.
     """
 
+
 def iinfo(type: Union[dtype, array], /) -> iinfo_object:
     """
     Machine limits for integer data types.
@@ -127,7 +131,10 @@ def iinfo(type: Union[dtype, array], /) -> iinfo_object:
           integer data type.
     """
 
-def isdtype(dtype: dtype, kind: Union[dtype, str, Tuple[Union[dtype, str], ...]]) -> bool:
+
+def isdtype(
+    dtype: dtype, kind: Union[dtype, str, Tuple[Union[dtype, str], ...]]
+) -> bool:
     """
     Returns a boolean indicating whether a provided dtype is of a specified data type "kind".
 
@@ -142,7 +149,7 @@ def isdtype(dtype: dtype, kind: Union[dtype, str, Tuple[Union[dtype, str], ...]]
         -   If ``kind`` is a string, the function must return a boolean indicating whether the input ``dtype`` is of a specified data type kind. The following dtype kinds must be supported:
 
             -   **bool**: boolean data types (e.g., ``bool``).
-            -   **signed integer**: signed integer data types (e.g., ``int8``, ``int16``, ``int32``, ``int64``). 
+            -   **signed integer**: signed integer data types (e.g., ``int8``, ``int16``, ``int32``, ``int64``).
             -   **unsigned integer**: unsigned integer data types (e.g., ``uint8``, ``uint16``, ``uint32``, ``uint64``).
             -   **integral**: integer data types. Shorthand for ``('signed integer', 'unsigned integer')``.
             -   **real floating**: real-valued floating-point data types (e.g., ``float32``, ``float64``).
@@ -162,6 +169,7 @@ def isdtype(dtype: dtype, kind: Union[dtype, str, Tuple[Union[dtype, str], ...]]
         boolean indicating whether a provided dtype is of a specified data type kind.
     """
 
+
 def result_type(*arrays_and_dtypes: Union[array, dtype]) -> dtype:
     """
     Returns the dtype that results from applying the type promotion rules (see :ref:`type-promotion`) to the arguments.
@@ -180,4 +188,5 @@ def result_type(*arrays_and_dtypes: Union[array, dtype]) -> dtype:
         the dtype resulting from an operation involving the input arrays and dtypes.
     """
 
-__all__ = ['astype', 'can_cast', 'finfo', 'iinfo', 'isdtype', 'result_type']
+
+__all__ = ["astype", "can_cast", "finfo", "iinfo", "isdtype", "result_type"]

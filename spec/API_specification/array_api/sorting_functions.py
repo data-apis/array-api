@@ -1,6 +1,9 @@
 from ._types import array
 
-def argsort(x: array, /, *, axis: int = -1, descending: bool = False, stable: bool = True) -> array:
+
+def argsort(
+    x: array, /, *, axis: int = -1, descending: bool = False, stable: bool = True
+) -> array:
     """
     Returns the indices that sort an array ``x`` along a specified axis.
 
@@ -24,7 +27,10 @@ def argsort(x: array, /, *, axis: int = -1, descending: bool = False, stable: bo
         an array of indices. The returned array must have the same shape as ``x``. The returned array must have the default array index data type.
     """
 
-def sort(x: array, /, *, axis: int = -1, descending: bool = False, stable: bool = True) -> array:
+
+def sort(
+    x: array, /, *, axis: int = -1, descending: bool = False, stable: bool = True
+) -> array:
     """
     Returns a sorted copy of an input array ``x``.
 
@@ -48,4 +54,5 @@ def sort(x: array, /, *, axis: int = -1, descending: bool = False, stable: bool 
         a sorted array. The returned array must have the same data type and shape as ``x``.
     """
 
-__all__ = ['argsort', 'sort']
+
+__all__ = ["argsort", "sort"]

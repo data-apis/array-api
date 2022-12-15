@@ -1,13 +1,22 @@
 from __future__ import annotations
 
-from ._types import (array, dtype as Dtype, device as Device, Optional, Tuple,
-                     Union, Any, PyCapsule, Enum, ellipsis)
+from ._types import (
+    array,
+    dtype as Dtype,
+    device as Device,
+    Optional,
+    Tuple,
+    Union,
+    Any,
+    PyCapsule,
+    Enum,
+    ellipsis,
+)
 
-class _array():
+
+class _array:
     def __init__(self: array) -> None:
-        """
-        Initialize the attributes for the array object class.
-        """
+        """Initialize the attributes for the array object class."""
 
     @property
     def dtype(self: array) -> Dtype:
@@ -246,7 +255,9 @@ class _array():
            Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.bitwise_and`.
         """
 
-    def __array_namespace__(self: array, /, *, api_version: Optional[str] = None) -> Any:
+    def __array_namespace__(
+        self: array, /, *, api_version: Optional[str] = None
+    ) -> Any:
         """
         Returns an object that has all the array API functions on it.
 
@@ -298,9 +309,9 @@ class _array():
 
         - If ``self`` is ``True``, the result is ``1+0j``.
         - If ``self`` is ``False``, the result is ``0+0j``.
-        
+
         For real-valued floating-point operands,
-        
+
         - If ``self`` is ``NaN``, the result is ``NaN + NaN j``.
         - If ``self`` is ``+infinity``, the result is ``+infinity + 0j``.
         - If ``self`` is ``-infinity``, the result is ``-infinity + 0j``.
@@ -317,7 +328,9 @@ class _array():
             a Python ``complex`` object representing the single element of the array instance.
         """
 
-    def __dlpack__(self: array, /, *, stream: Optional[Union[int, Any]] = None) -> PyCapsule:
+    def __dlpack__(
+        self: array, /, *, stream: Optional[Union[int, Any]] = None
+    ) -> PyCapsule:
         """
         Exports the array for consumption by :func:`~array_api.from_dlpack` as a DLPack capsule.
 
@@ -559,7 +572,13 @@ class _array():
            Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.greater_equal`.
         """
 
-    def __getitem__(self: array, key: Union[int, slice, ellipsis, Tuple[Union[int, slice, ellipsis], ...], array], /) -> array:
+    def __getitem__(
+        self: array,
+        key: Union[
+            int, slice, ellipsis, Tuple[Union[int, slice, ellipsis], ...], array
+        ],
+        /,
+    ) -> array:
         """
         Returns ``self[key]``.
 
@@ -1099,7 +1118,14 @@ class _array():
            Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.bitwise_right_shift`.
         """
 
-    def __setitem__(self: array, key: Union[int, slice, ellipsis, Tuple[Union[int, slice, ellipsis], ...], array], value: Union[int, float, bool, array], /) -> None:
+    def __setitem__(
+        self: array,
+        key: Union[
+            int, slice, ellipsis, Tuple[Union[int, slice, ellipsis], ...], array
+        ],
+        value: Union[int, float, bool, array],
+        /,
+    ) -> None:
         """
         Sets ``self[key]`` to ``value``.
 
@@ -1196,17 +1222,17 @@ class _array():
         +------------+----------------+-----------------+--------------------------+
 
         In general, for complex floating-point operands, real-valued floating-point special cases must independently apply to the real and imaginary component operations involving real numbers as described in the above table.
-        
+
         When ``a``, ``b``, ``c``, or ``d`` are all finite numbers (i.e., a value other than ``NaN``, ``+infinity``, or ``-infinity``), division of complex floating-point operands should be computed as if calculated according to the textbook formula for complex number division
-       
+
         .. math::
            \frac{a + bj}{c + dj} = \frac{(ac + bd) + (bc - ad)j}{c^2 + d^2}
-        
+
         When at least one of ``a``, ``b``, ``c``, or ``d`` is ``NaN``, ``+infinity``, or ``-infinity``,
-        
+
         - If ``a``, ``b``, ``c``, and ``d`` are all ``NaN``, the result is ``NaN + NaN j``.
         - In the remaining cases, the result is implementation dependent.
-        
+
         .. note::
            For complex floating-point operands, the results of special cases may be implementation dependent depending on how an implementation chooses to model complex numbers and complex infinity (e.g., complex plane versus Riemann sphere). For those implementations following C99 and its one-infinity model, when at least one component is infinite, even if the other component is ``NaN``, the complex value is infinite, and the usual arithmetic rules do not apply to complex-complex division. In the interest of performance, other implementations may want to avoid the complex branching logic necessary to implement the one-infinity model and choose to implement all complex-complex division according to the textbook formula. Accordingly, special case behavior is unlikely to be consistent across implementations.
 
@@ -1248,7 +1274,9 @@ class _array():
            Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.bitwise_xor`.
         """
 
-    def to_device(self: array, device: Device, /, *, stream: Optional[Union[int, Any]] = None) -> array:
+    def to_device(
+        self: array, device: Device, /, *, stream: Optional[Union[int, Any]] = None
+    ) -> array:
         """
         Copy the array from the device on which it currently resides to the specified ``device``.
 
@@ -1271,6 +1299,7 @@ class _array():
            If ``stream`` is given, the copy operation should be enqueued on the provided ``stream``; otherwise, the copy operation should be enqueued on the default stream/queue. Whether the copy is performed synchronously or asynchronously is implementation-dependent. Accordingly, if synchronization is required to guarantee data safety, this must be clearly explained in a conforming library's documentation.
         """
 
+
 array = _array
 
-__all__ = ['array']
+__all__ = ["array"]

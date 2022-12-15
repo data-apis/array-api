@@ -1,3 +1,5 @@
+"""Function stubs and API documentation for the array API standard."""
+
 from .array_object import *
 from .constants import *
 from .creation_functions import *
