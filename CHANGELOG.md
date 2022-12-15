@@ -161,8 +161,6 @@ The following APIs were added to the specification:
 
 #### Extensions
 
-> New specification extensions.
-
 The following optional extensions were added to the specification:
 
 - `fft`: Fast Fourier Transforms (FFT) ([gh-189](https://github.com/data-apis/array-api/pull/189))
@@ -184,7 +182,7 @@ The following optional extensions were added to the specification:
 
 ### Errata
 
-> Fixes and points of clarification with regard to the previous version of the specification.
+The following is a list of fixes and points of clarification with regard to the previous version of the specification:
 
 - Missing `self` parameter for array object properties ([gh-464](https://github.com/data-apis/array-api/pull/464))
 - `__setitem__`: clarify that in-place element-wise operations must not change the shape of the in-place array as a result of broadcasting ([gh-429](https://github.com/data-apis/array-api/pull/429))
