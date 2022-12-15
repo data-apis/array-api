@@ -1,5 +1,5 @@
 """
-This file defines the types for type annotations.
+Types for type annotations used in the array API standard.
 
 The type variables should be replaced with the actual types for a given
 library, e.g., for NumPy TypeVar('array') would be replaced with ndarray.
@@ -33,6 +33,7 @@ ellipsis = TypeVar("ellipsis")
 
 @dataclass
 class finfo_object:
+    """Dataclass returned by `finfo`."""
     bits: int
     eps: float
     max: float
@@ -42,6 +43,7 @@ class finfo_object:
 
 @dataclass
 class iinfo_object:
+    """Dataclass returned by `iinfo`."""
     bits: int
     max: int
     min: int

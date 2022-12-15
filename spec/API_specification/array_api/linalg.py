@@ -228,9 +228,7 @@ def inv(x: array, /) -> array:
 
 
 def matmul(x1: array, x2: array, /) -> array:
-    """
-    Alias for :func:`~array_api.matmul`.
-    """
+    """Alias for :func:`~array_api.matmul`."""
 
 
 def matrix_norm(
@@ -332,9 +330,7 @@ def matrix_rank(x: array, /, *, rtol: Optional[Union[float, array]] = None) -> a
 
 
 def matrix_transpose(x: array, /) -> array:
-    """
-    Alias for :func:`~array_api.matrix_transpose`.
-    """
+    """Alias for :func:`~array_api.matrix_transpose`."""
 
 
 def outer(x1: array, x2: array, /) -> array:
@@ -603,9 +599,7 @@ def tensordot(
     *,
     axes: Union[int, Tuple[Sequence[int], Sequence[int]]] = 2,
 ) -> array:
-    """
-    Alias for :func:`~array_api.tensordot`.
-    """
+    """Alias for :func:`~array_api.tensordot`."""
 
 
 def trace(x: array, /, *, offset: int = 0, dtype: Optional[dtype] = None) -> array:
@@ -660,9 +654,7 @@ def trace(x: array, /, *, offset: int = 0, dtype: Optional[dtype] = None) -> arr
 
 
 def vecdot(x1: array, x2: array, /, *, axis: int = None) -> array:
-    """
-    Alias for :func:`~array_api.vecdot`.
-    """
+    """Alias for :func:`~array_api.vecdot`."""
 
 
 def vector_norm(

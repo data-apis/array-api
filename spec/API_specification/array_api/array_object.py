@@ -16,9 +16,7 @@ from ._types import (
 
 class _array:
     def __init__(self: array) -> None:
-        """
-        Initialize the attributes for the array object class.
-        """
+        """Initialize the attributes for the array object class."""
 
     @property
     def dtype(self: array) -> Dtype:

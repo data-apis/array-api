@@ -105,7 +105,7 @@ def tensordot(
 
 
 def vecdot(x1: array, x2: array, /, *, axis: int = -1) -> array:
-    """
+    r"""
     Computes the (vector) dot product of two arrays.
 
     Let :math:`\mathbf{a}` be a vector in ``x1`` and :math:`\mathbf{b}` be a corresponding vector in ``x2``. The dot product is defined as

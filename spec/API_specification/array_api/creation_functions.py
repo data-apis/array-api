@@ -156,7 +156,7 @@ def eye(
     dtype: Optional[dtype] = None,
     device: Optional[device] = None,
 ) -> array:
-    """
+    r"""
     Returns a two-dimensional array with ones on the ``k``\th diagonal and zeros elsewhere.
 
     .. note::
