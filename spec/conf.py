@@ -18,11 +18,11 @@ sys.path.insert(0, os.path.abspath('./API_specification'))
 # -- Project information -----------------------------------------------------
 
 project = 'Python array API standard'
-copyright = '2020, Consortium for Python Data API Standards'
+copyright = '2020-2022, Consortium for Python Data API Standards'
 author = 'Consortium for Python Data API Standards'
 
 # The full version, including alpha/beta/rc tags
-release = '2022.05-DRAFT'
+release = '2022.12-DRAFT'
 
 
 # -- General configuration ---------------------------------------------------
