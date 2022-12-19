@@ -126,32 +126,6 @@ class _array:
         .. note::
            For signed integer data types, the absolute value of the minimum representable integer is implementation-dependent.
 
-        **Special cases**
-
-        Let ``self`` equal ``x``.
-
-        For real-valued floating-point operands,
-
-        -   If ``x_i`` is ``NaN``, the result is ``NaN``.
-        -   If ``x_i`` is ``-0``, the result is ``+0``.
-        -   If ``x_i`` is ``-infinity``, the result is ``+infinity``.
-
-        For complex floating-point operands, let ``a = real(x_i)``, ``b = imag(x_i)``, and
-
-        - If ``a`` is either ``+infinity`` or ``-infinity`` and ``b`` is any value (including ``NaN``), the result is ``+infinity``.
-        - If ``a`` is any value (including ``NaN``) and ``b`` is either ``+infinity`` or ``-infinity``, the result is ``+infinity``.
-        - If ``a`` is either ``+0`` or ``-0``, the result is equal to ``abs(b)``.
-        - If ``b`` is either ``+0`` or ``-0``, the result is equal to ``abs(a)``.
-        - If ``a`` is ``NaN`` and ``b`` is a finite number, the result is ``NaN``.
-        - If ``a`` is a finite number and ``b`` is ``NaN``, the result is ``NaN``.
-        - If ``a`` is ``NaN`` and ``b`` is ``NaN``, the result is ``NaN``.
-
-        .. note::
-           For complex floating-point operands, conforming implementations should take care to avoid undue overflow or underflow during intermediate stages of computation.
-
-        ..
-           TODO: once ``hypot`` is added to the specification, remove the special cases for complex floating-point operands and the note concerning guarding against undue overflow/underflow, and state that special cases must be handled as if implemented as ``hypot(real(x), imag(x))``.
-
         Parameters
         ----------
         self: array
@@ -164,58 +138,12 @@ class _array:
 
 
         .. note::
-           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.abs`.
+           Element-wise results, including special cases, must equal the results returned by the equivalent element-wise function :func:`~array_api.abs`.
         """
 
     def __add__(self: array, other: Union[int, float, array], /) -> array:
         """
         Calculates the sum for each element of an array instance with the respective element of the array ``other``.
-
-        **Special cases**
-
-        Let ``self`` equal ``x1`` and ``other`` equal ``x2``.
-
-        For real-valued floating-point operands,
-
-        -   If either ``x1_i`` or ``x2_i`` is ``NaN``, the result is ``NaN``.
-        -   If ``x1_i`` is ``+infinity`` and ``x2_i`` is ``-infinity``, the result is ``NaN``.
-        -   If ``x1_i`` is ``-infinity`` and ``x2_i`` is ``+infinity``, the result is ``NaN``.
-        -   If ``x1_i`` is ``+infinity`` and ``x2_i`` is ``+infinity``, the result is ``+infinity``.
-        -   If ``x1_i`` is ``-infinity`` and ``x2_i`` is ``-infinity``, the result is ``-infinity``.
-        -   If ``x1_i`` is ``+infinity`` and ``x2_i`` is a finite number, the result is ``+infinity``.
-        -   If ``x1_i`` is ``-infinity`` and ``x2_i`` is a finite number, the result is ``-infinity``.
-        -   If ``x1_i`` is a finite number and ``x2_i`` is ``+infinity``, the result is ``+infinity``.
-        -   If ``x1_i`` is a finite number and ``x2_i`` is ``-infinity``, the result is ``-infinity``.
-        -   If ``x1_i`` is ``-0`` and ``x2_i`` is ``-0``, the result is ``-0``.
-        -   If ``x1_i`` is ``-0`` and ``x2_i`` is ``+0``, the result is ``+0``.
-        -   If ``x1_i`` is ``+0`` and ``x2_i`` is ``-0``, the result is ``+0``.
-        -   If ``x1_i`` is ``+0`` and ``x2_i`` is ``+0``, the result is ``+0``.
-        -   If ``x1_i`` is either ``+0`` or ``-0`` and ``x2_i`` is a nonzero finite number, the result is ``x2_i``.
-        -   If ``x1_i`` is a nonzero finite number and ``x2_i`` is either ``+0`` or ``-0``, the result is ``x1_i``.
-        -   If ``x1_i`` is a nonzero finite number and ``x2_i`` is ``-x1_i``, the result is ``+0``.
-        -   In the remaining cases, when neither ``infinity``, ``+0``, ``-0``, nor a ``NaN`` is involved, and the operands have the same mathematical sign or have different magnitudes, the sum must be computed and rounded to the nearest representable value according to IEEE 754-2019 and a supported round mode. If the magnitude is too large to represent, the operation overflows and the result is an ``infinity`` of appropriate mathematical sign.
-
-        .. note::
-           Floating-point addition is a commutative operation, but not always associative.
-
-        For complex floating-point operands, addition is defined according to the following table. For real components ``a`` and ``c`` and imaginary components ``b`` and ``d``,
-
-        +------------+------------+------------+----------------+
-        |            | c          | dj         | c + dj         |
-        +============+============+============+================+
-        | **a**      | a + c      | a + dj     | (a+c) + dj     |
-        +------------+------------+------------+----------------+
-        | **bj**     | c + bj     | (b+d)j     | c + (b+d)j     |
-        +------------+------------+------------+----------------+
-        | **a + bj** | (a+c) + bj | a + (b+d)j | (a+c) + (b+d)j |
-        +------------+------------+------------+----------------+
-
-        For complex floating-point operands, real-valued floating-point special cases must independently apply to the real and imaginary component operations involving real numbers as described in the above table. For example, let ``a = real(x1_i)``, ``b = imag(x1_i)``, ``c = real(x2_i)``, ``d = imag(x2_i)``, and
-
-        - If ``a`` is ``-0`` and ``c`` is ``-0``, the real component of the result is ``-0``.
-        - Similarly, if ``b`` is ``+0`` and ``d`` is ``-0``, the imaginary component of the result is ``+0``.
-
-        Hence, if ``z1 = a + bj = -0 + 0j`` and ``z2 = c + dj = -0 - 0j``, the result of ``z1 + z2`` is ``-0 + 0j``.
 
         Parameters
         ----------
@@ -231,7 +159,7 @@ class _array:
 
 
         .. note::
-           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.add`.
+           Element-wise results, including special cases, must equal the results returned by the equivalent element-wise function :func:`~array_api.add`.
         """
 
     def __and__(self: array, other: Union[int, bool, array], /) -> array:
@@ -424,28 +352,6 @@ class _array:
         r"""
         Computes the truth value of ``self_i == other_i`` for each element of an array instance with the respective element of the array ``other``.
 
-        **Special Cases**
-
-        Let ``self`` equal ``x1`` and ``other`` equal ``x2``.
-
-        For real-valued floating-point operands,
-
-        - If ``x1_i`` is ``NaN`` or ``x2_i`` is ``NaN``, the result is ``False``.
-        - If ``x1_i`` is ``+infinity`` and ``x2_i`` is ``+infinity``, the result is ``True``.
-        - If ``x1_i`` is ``-infinity`` and ``x2_i`` is ``-infinity``, the result is ``True``.
-        - If ``x1_i`` is ``-0`` and ``x2_i`` is either ``+0`` or ``-0``, the result is ``True``.
-        - If ``x1_i`` is ``+0`` and ``x2_i`` is either ``+0`` or ``-0``, the result is ``True``.
-        - If ``x1_i`` is a finite number, ``x2_i`` is a finite number, and ``x1_i`` equals ``x2_i``, the result is ``True``.
-        - In the remaining cases, the result is ``False``.
-
-        For complex floating-point operands, let ``a = real(x1_i)``, ``b = imag(x1_i)``, ``c = real(x2_i)``, ``d = imag(x2_i)``, and
-
-        - If ``a``, ``b``, ``c``, or ``d`` is ``NaN``, the result is ``False``.
-        - In the remaining cases, the result is the logical AND of the equality comparison between the real values ``a`` and ``c`` (real components) and between the real values ``b`` and ``d`` (imaginary components), as described above for real-valued floating-point operands (i.e., ``a == c AND b == d``).
-
-        .. note::
-           For discussion of complex number equality, see :ref:`complex-numbers`.
-
         Parameters
         ----------
         self: array
@@ -460,7 +366,7 @@ class _array:
 
 
         .. note::
-           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.equal`.
+           Element-wise results, including special cases, must equal the results returned by the equivalent element-wise function :func:`~array_api.equal`.
         """
 
     def __float__(self: array, /) -> float:
@@ -495,42 +401,6 @@ class _array:
         .. note::
            For input arrays which promote to an integer data type, the result of division by zero is unspecified and thus implementation-defined.
 
-        **Special cases**
-
-        .. note::
-            Floor division was introduced in Python via `PEP 238 <https://www.python.org/dev/peps/pep-0238/>`_ with the goal to disambiguate "true division" (i.e., computing an approximation to the mathematical operation of division) from "floor division" (i.e., rounding the result of division toward negative infinity). The former was computed when one of the operands was a ``float``, while the latter was computed when both operands were ``int``s. Overloading the ``/`` operator to support both behaviors led to subtle numerical bugs when integers are possible, but not expected.
-
-            To resolve this ambiguity, ``/`` was designated for true division, and ``//`` was designated for floor division. Semantically, floor division was `defined <https://www.python.org/dev/peps/pep-0238/#semantics-of-floor-division>`_ as equivalent to ``a // b == floor(a/b)``; however, special floating-point cases were left ill-defined.
-
-            Accordingly, floor division is not implemented consistently across array libraries for some of the special cases documented below. Namely, when one of the operands is ``infinity``, libraries may diverge with some choosing to strictly follow ``floor(a/b)`` and others choosing to pair ``//`` with ``%`` according to the relation ``b = a % b + b * (a // b)``. The special cases leading to divergent behavior are documented below.
-
-            This specification prefers floor division to match ``floor(divide(x1, x2))`` in order to avoid surprising and unexpected results; however, array libraries may choose to more strictly follow Python behavior.
-
-        For floating-point operands, let ``self`` equal ``x1`` and ``other`` equal ``x2``.
-
-        -   If either ``x1_i`` or ``x2_i`` is ``NaN``, the result is ``NaN``.
-        -   If ``x1_i`` is either ``+infinity`` or ``-infinity`` and ``x2_i`` is either ``+infinity`` or ``-infinity``, the result is ``NaN``.
-        -   If ``x1_i`` is either ``+0`` or ``-0`` and ``x2_i`` is either ``+0`` or ``-0``, the result is ``NaN``.
-        -   If ``x1_i`` is ``+0`` and ``x2_i`` is greater than ``0``, the result is ``+0``.
-        -   If ``x1_i`` is ``-0`` and ``x2_i`` is greater than ``0``, the result is ``-0``.
-        -   If ``x1_i`` is ``+0`` and ``x2_i`` is less than ``0``, the result is ``-0``.
-        -   If ``x1_i`` is ``-0`` and ``x2_i`` is less than ``0``, the result is ``+0``.
-        -   If ``x1_i`` is greater than ``0`` and ``x2_i`` is ``+0``, the result is ``+infinity``.
-        -   If ``x1_i`` is greater than ``0`` and ``x2_i`` is ``-0``, the result is ``-infinity``.
-        -   If ``x1_i`` is less than ``0`` and ``x2_i`` is ``+0``, the result is ``-infinity``.
-        -   If ``x1_i`` is less than ``0`` and ``x2_i`` is ``-0``, the result is ``+infinity``.
-        -   If ``x1_i`` is ``+infinity`` and ``x2_i`` is a positive (i.e., greater than ``0``) finite number, the result is ``+infinity``. (**note**: libraries may return ``NaN`` to match Python behavior.)
-        -   If ``x1_i`` is ``+infinity`` and ``x2_i`` is a negative (i.e., less than ``0``) finite number, the result is ``-infinity``. (**note**: libraries may return ``NaN`` to match Python behavior.)
-        -   If ``x1_i`` is ``-infinity`` and ``x2_i`` is a positive (i.e., greater than ``0``) finite number, the result is ``-infinity``. (**note**: libraries may return ``NaN`` to match Python behavior.)
-        -   If ``x1_i`` is ``-infinity`` and ``x2_i`` is a negative (i.e., less than ``0``) finite number, the result is ``+infinity``. (**note**: libraries may return ``NaN`` to match Python behavior.)
-        -   If ``x1_i`` is a positive (i.e., greater than ``0``) finite number and ``x2_i`` is ``+infinity``, the result is ``+0``.
-        -   If ``x1_i`` is a positive (i.e., greater than ``0``) finite number and ``x2_i`` is ``-infinity``, the result is ``-0``. (**note**: libraries may return ``-1.0`` to match Python behavior.)
-        -   If ``x1_i`` is a negative (i.e., less than ``0``) finite number and ``x2_i`` is ``+infinity``, the result is ``-0``. (**note**: libraries may return ``-1.0`` to match Python behavior.)
-        -   If ``x1_i`` is a negative (i.e., less than ``0``) finite number and ``x2_i`` is ``-infinity``, the result is ``+0``.
-        -   If ``x1_i`` and ``x2_i`` have the same mathematical sign and are both nonzero finite numbers, the result has a positive mathematical sign.
-        -   If ``x1_i`` and ``x2_i`` have different mathematical signs and are both nonzero finite numbers, the result has a negative mathematical sign.
-        -   In the remaining cases, where neither ``-infinity``, ``+0``, ``-0``, nor ``NaN`` is involved, the quotient must be computed and rounded to the greatest (i.e., closest to ``+infinity``) representable integer-value number that is not greater than the division result. If the magnitude is too large to represent, the operation overflows and the result is an ``infinity`` of appropriate mathematical sign. If the magnitude is too small to represent, the operation underflows and the result is a zero of appropriate mathematical sign.
-
         Parameters
         ----------
         self: array
@@ -545,7 +415,7 @@ class _array:
 
 
         .. note::
-           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.floor_divide`.
+           Element-wise results, including special cases, must equal the results returned by the equivalent element-wise function :func:`~array_api.floor_divide`.
         """
 
     def __ge__(self: array, other: Union[int, float, array], /) -> array:
@@ -810,34 +680,6 @@ class _array:
         .. note::
            For input arrays which promote to an integer data type, the result of division by zero is unspecified and thus implementation-defined.
 
-        **Special Cases**
-
-        .. note::
-           In general, this method is **not** recommended for floating-point operands as semantics do not follow IEEE 754. That this method is specified to accept floating-point operands is primarily for reasons of backward compatibility.
-
-        For floating-point operands, let ``self`` equal ``x1`` and ``other`` equal ``x2``.
-
-        - If either ``x1_i`` or ``x2_i`` is ``NaN``, the result is ``NaN``.
-        - If ``x1_i`` is either ``+infinity`` or ``-infinity`` and ``x2_i`` is either ``+infinity`` or ``-infinity``, the result is ``NaN``.
-        - If ``x1_i`` is either ``+0`` or ``-0`` and ``x2_i`` is either ``+0`` or ``-0``, the result is ``NaN``.
-        - If ``x1_i`` is ``+0`` and ``x2_i`` is greater than ``0``, the result is ``+0``.
-        - If ``x1_i`` is ``-0`` and ``x2_i`` is greater than ``0``, the result is ``+0``.
-        - If ``x1_i`` is ``+0`` and ``x2_i`` is less than ``0``, the result is ``-0``.
-        - If ``x1_i`` is ``-0`` and ``x2_i`` is less than ``0``, the result is ``-0``.
-        - If ``x1_i`` is greater than ``0`` and ``x2_i`` is ``+0``, the result is ``NaN``.
-        - If ``x1_i`` is greater than ``0`` and ``x2_i`` is ``-0``, the result is ``NaN``.
-        - If ``x1_i`` is less than ``0`` and ``x2_i`` is ``+0``, the result is ``NaN``.
-        - If ``x1_i`` is less than ``0`` and ``x2_i`` is ``-0``, the result is ``NaN``.
-        - If ``x1_i`` is ``+infinity`` and ``x2_i`` is a positive (i.e., greater than ``0``) finite number, the result is ``NaN``.
-        - If ``x1_i`` is ``+infinity`` and ``x2_i`` is a negative (i.e., less than ``0``) finite number, the result is ``NaN``.
-        - If ``x1_i`` is ``-infinity`` and ``x2_i`` is a positive (i.e., greater than ``0``) finite number, the result is ``NaN``.
-        - If ``x1_i`` is ``-infinity`` and ``x2_i`` is a negative (i.e., less than ``0``) finite number, the result is ``NaN``.
-        - If ``x1_i`` is a positive (i.e., greater than ``0``) finite number and ``x2_i`` is ``+infinity``, the result is ``x1_i``. (**note**: this result matches Python behavior.)
-        - If ``x1_i`` is a positive (i.e., greater than ``0``) finite number and ``x2_i`` is ``-infinity``, the result is ``x2_i``. (**note**: this result matches Python behavior.)
-        - If ``x1_i`` is a negative (i.e., less than ``0``) finite number and ``x2_i`` is ``+infinity``, the result is ``x2_i``. (**note**: this results matches Python behavior.)
-        - If ``x1_i`` is a negative (i.e., less than ``0``) finite number and ``x2_i`` is ``-infinity``, the result is ``x1_i``. (**note**: this result matches Python behavior.)
-        - In the remaining cases, the result must match that of the Python ``%`` operator.
-
         Parameters
         ----------
         self: array
@@ -852,55 +694,12 @@ class _array:
 
 
         .. note::
-           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.remainder`.
+           Element-wise results, including special cases, must equal the results returned by the equivalent element-wise function :func:`~array_api.remainder`.
         """
 
     def __mul__(self: array, other: Union[int, float, array], /) -> array:
         r"""
         Calculates the product for each element of an array instance with the respective element of the array ``other``.
-
-        **Special cases**
-
-        Let ``self`` equal ``x1`` and ``other`` equal ``x2``.
-
-        For real-valued floating-point operands,
-
-        -   If either ``x1_i`` or ``x2_i`` is ``NaN``, the result is ``NaN``.
-        -   If ``x1_i`` is either ``+infinity`` or ``-infinity`` and ``x2_i`` is either ``+0`` or ``-0``, the result is ``NaN``.
-        -   If ``x1_i`` is either ``+0`` or ``-0`` and ``x2_i`` is either ``+infinity`` or ``-infinity``, the result is ``NaN``.
-        -   If ``x1_i`` and ``x2_i`` have the same mathematical sign, the result has a positive mathematical sign, unless the result is ``NaN``. If the result is ``NaN``, the "sign" of ``NaN`` is implementation-defined.
-        -   If ``x1_i`` and ``x2_i`` have different mathematical signs, the result has a negative mathematical sign, unless the result is ``NaN``. If the result is ``NaN``, the "sign" of ``NaN`` is implementation-defined.
-        -   If ``x1_i`` is either ``+infinity`` or ``-infinity`` and ``x2_i`` is either ``+infinity`` or ``-infinity``, the result is a signed infinity with the mathematical sign determined by the rule already stated above.
-        -   If ``x1_i`` is either ``+infinity`` or ``-infinity`` and ``x2_i`` is a nonzero finite number, the result is a signed infinity with the mathematical sign determined by the rule already stated above.
-        -   If ``x1_i`` is a nonzero finite number and ``x2_i`` is either ``+infinity`` or ``-infinity``, the result is a signed infinity with the mathematical sign determined by the rule already stated above.
-        -   In the remaining cases, where neither ``infinity`` nor `NaN` is involved, the product must be computed and rounded to the nearest representable value according to IEEE 754-2019 and a supported rounding mode. If the magnitude is too large to represent, the result is an ``infinity`` of appropriate mathematical sign. If the magnitude is too small to represent, the result is a zero of appropriate mathematical sign.
-
-        For complex floating-point operands, multiplication is defined according to the following table. For real components ``a`` and ``c`` and imaginary components ``b`` and ``d``,
-
-        +------------+----------------+-----------------+--------------------------+
-        |            | c              | dj              | c + dj                   |
-        +============+================+=================+==========================+
-        | **a**      | a * c          | (a*d)j          | (a*c) + (a*d)j           |
-        +------------+----------------+-----------------+--------------------------+
-        | **bj**     | (b*c)j         | -(b*d)          | -(b*d) + (b*c)j          |
-        +------------+----------------+-----------------+--------------------------+
-        | **a + bj** | (a*c) + (b*c)j | -(b*d) + (a*d)j | special rules            |
-        +------------+----------------+-----------------+--------------------------+
-
-        In general, for complex floating-point operands, real-valued floating-point special cases must independently apply to the real and imaginary component operations involving real numbers as described in the above table.
-
-        When ``a``, ``b``, ``c``, or ``d`` are all finite numbers (i.e., a value other than ``NaN``, ``+infinity``, or ``-infinity``), multiplication of complex floating-point operands should be computed as if calculated according to the textbook formula for complex number multiplication
-
-        .. math::
-           (a + bj) \cdot (c + dj) = (ac - bd) + (bc + ad)j
-
-        When at least one of ``a``, ``b``, ``c``, or ``d`` is ``NaN``, ``+infinity``, or ``-infinity``,
-
-        - If ``a``, ``b``, ``c``, and ``d`` are all ``NaN``, the result is ``NaN + NaN j``.
-        - In the remaining cases, the result is implementation dependent.
-
-        .. note::
-           For complex floating-point operands, the results of special cases may be implementation dependent depending on how an implementation chooses to model complex numbers and complex infinity (e.g., complex plane versus Riemann sphere). For those implementations following C99 and its one-infinity model, when at least one component is infinite, even if the other component is ``NaN``, the complex value is infinite, and the usual arithmetic rules do not apply to complex-complex multiplication. In the interest of performance, other implementations may want to avoid the complex branching logic necessary to implement the one-infinity model and choose to implement all complex-complex multiplication according to the textbook formula. Accordingly, special case behavior is unlikely to be consistent across implementations.
 
         .. note::
            Floating-point multiplication is not always associative due to finite precision.
@@ -919,32 +718,12 @@ class _array:
 
 
         .. note::
-           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.multiply`.
+           Element-wise results, including special cases, must equal the results returned by the equivalent element-wise function :func:`~array_api.multiply`.
         """
 
     def __ne__(self: array, other: Union[int, float, bool, array], /) -> array:
         """
         Computes the truth value of ``self_i != other_i`` for each element of an array instance with the respective element of the array ``other``.
-
-        **Special Cases**
-
-        Let ``self`` equal ``x1`` and ``other`` equal ``x2``.
-
-        For real-valued floating-point operands,
-
-        - If ``x1_i`` is ``NaN`` or ``x2_i`` is ``NaN``, the result is ``True``.
-        - If ``x1_i`` is ``+infinity`` and ``x2_i`` is ``-infinity``, the result is ``True``.
-        - If ``x1_i`` is ``-infinity`` and ``x2_i`` is ``+infinity``, the result is ``True``.
-        - If ``x1_i`` is a finite number, ``x2_i`` is a finite number, and ``x1_i`` does not equal ``x2_i``, the result is ``True``.
-        - In the remaining cases, the result is ``False``.
-
-        For complex floating-point operands, let ``a = real(x1_i)``, ``b = imag(x1_i)``, ``c = real(x2_i)``, ``d = imag(x2_i)``, and
-
-        - If ``a``, ``b``, ``c``, or ``d`` is ``NaN``, the result is ``True``.
-        - In the remaining cases, the result is the logical OR of the equality comparison between the real values ``a`` and ``c`` (real components) and between the real values ``b`` and ``d`` (imaginary components), as described above for real-valued floating-point operands (i.e., ``a != c OR b != d``).
-
-        .. note::
-           For discussion of complex number equality, see :ref:`complex-numbers`.
 
         Parameters
         ----------
@@ -960,7 +739,7 @@ class _array:
 
 
         .. note::
-           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.not_equal`.
+           Element-wise results, including special cases, must equal the results returned by the equivalent element-wise function :func:`~array_api.not_equal`.
         """
 
     def __neg__(self: array, /) -> array:
@@ -1037,49 +816,6 @@ class _array:
 
            If ``self`` has an integer data type and ``other`` has a floating-point data type, behavior is implementation-dependent, as type promotion between data type "kinds" (e.g., integer versus floating-point) is unspecified.
 
-        **Special cases**
-
-        Let ``self`` equal ``x1`` and ``other`` equal ``x2``.
-
-        For real-valued floating-point operands,
-
-        -   If ``x1_i`` is not equal to ``1`` and ``x2_i`` is ``NaN``, the result is ``NaN``.
-        -   If ``x2_i`` is ``+0``, the result is ``1``, even if ``x1_i`` is ``NaN``.
-        -   If ``x2_i`` is ``-0``, the result is `1`, even if ``x1_i`` is ``NaN``.
-        -   If ``x1_i`` is ``NaN`` and ``x2_i`` is not equal to ``0``, the result is ``NaN``.
-        -   If ``abs(x1_i)`` is greater than ``1`` and ``x2_i`` is ``+infinity``, the result is ``+infinity``.
-        -   If ``abs(x1_i)`` is greater than ``1`` and ``x2_i`` is ``-infinity``, the result is ``+0``.
-        -   If ``abs(x1_i)`` is ``1`` and ``x2_i`` is ``+infinity``, the result is ``1``.
-        -   If ``abs(x1_i)`` is ``1`` and ``x2_i`` is ``-infinity``, the result is ``1``.
-        -   If ``x1_i`` is ``1`` and ``x2_i`` is not ``NaN``, the result is ``1``.
-        -   If ``abs(x1_i)`` is less than ``1`` and ``x2_i`` is ``+infinity``, the result is ``+0``.
-        -   If ``abs(x1_i)`` is less than ``1`` and ``x2_i`` is ``-infinity``, the result is ``+infinity``.
-        -   If ``x1_i`` is ``+infinity`` and ``x2_i`` is greater than ``0``, the result is ``+infinity``.
-        -   If ``x1_i`` is ``+infinity`` and ``x2_i`` is less than ``0``, the result is ``+0``.
-        -   If ``x1_i`` is ``-infinity``, ``x2_i`` is greater than ``0``, and ``x2_i`` is an odd integer value, the result is ``-infinity``.
-        -   If ``x1_i`` is ``-infinity``, ``x2_i`` is greater than ``0``, and ``x2_i`` is not an odd integer value, the result is ``+infinity``.
-        -   If ``x1_i`` is ``-infinity``, ``x2_i`` is less than ``0``, and ``x2_i`` is an odd integer value, the result is ``-0``.
-        -   If ``x1_i`` is ``-infinity``, ``x2_i`` is less than ``0``, and ``x2_i`` is not an odd integer value, the result is ``+0``.
-        -   If ``x1_i`` is ``+0`` and ``x2_i`` is greater than ``0``, the result is ``+0``.
-        -   If ``x1_i`` is ``+0`` and ``x2_i`` is less than ``0``, the result is ``+infinity``.
-        -   If ``x1_i`` is ``-0``, ``x2_i`` is greater than ``0``, and ``x2_i`` is an odd integer value, the result is ``-0``.
-        -   If ``x1_i`` is ``-0``, ``x2_i`` is greater than ``0``, and ``x2_i`` is not an odd integer value, the result is ``+0``.
-        -   If ``x1_i`` is ``-0``, ``x2_i`` is less than ``0``, and ``x2_i`` is an odd integer value, the result is ``-infinity``.
-        -   If ``x1_i`` is ``-0``, ``x2_i`` is less than ``0``, and ``x2_i`` is not an odd integer value, the result is ``+infinity``.
-        -   If ``x1_i`` is less than ``0``, ``x1_i`` is a finite number, ``x2_i`` is a finite number, and ``x2_i`` is not an integer value, the result is ``NaN``.
-
-        For complex floating-point operands, special cases should be handled as if the operation is implemented as ``exp(x2*log(x1))``.
-
-        .. note::
-           Conforming implementations are allowed to treat special cases involving complex floating-point operands more carefully than as described in this specification.
-
-        .. note::
-           By convention, the branch cut of the natural logarithm is the negative real axis :math:`(-\infty, 0)`.
-
-           The natural logarithm is a continuous function from above the branch cut, taking into account the sign of the imaginary component. As special cases involving complex floating-point operands should be handled according to ``exp(other*log(self))``, exponentiation has the same branch cut for ``self`` as the natural logarithm (see :func:`~array_api.log`).
-
-           *Note: branch cuts have provisional status* (see :ref:`branch-cuts`).
-
         Parameters
         ----------
         self: array
@@ -1094,7 +830,7 @@ class _array:
 
 
         .. note::
-           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.pow`.
+           Element-wise results, including special cases, must equal the results returned by the equivalent element-wise function :func:`~array_api.pow`.
         """
 
     def __rshift__(self: array, other: Union[int, array], /) -> array:
@@ -1180,62 +916,6 @@ class _array:
 
            Specification-compliant libraries may choose to raise an error or return an array containing the element-wise results. If an array is returned, the array must have a real-valued floating-point data type.
 
-        **Special cases**
-
-        Let ``self`` equal ``x1`` and ``other`` equal ``x2``.
-
-        For floating-point operands,
-
-        -   If either ``x1_i`` or ``x2_i`` is ``NaN``, the result is ``NaN``.
-        -   If ``x1_i`` is either ``+infinity`` or ``-infinity`` and ``x2_i`` is either ``+infinity`` or ``-infinity``, the result is `NaN`.
-        -   If ``x1_i`` is either ``+0`` or ``-0`` and ``x2_i`` is either ``+0`` or ``-0``, the result is ``NaN``.
-        -   If ``x1_i`` is ``+0`` and ``x2_i`` is greater than ``0``, the result is ``+0``.
-        -   If ``x1_i`` is ``-0`` and ``x2_i`` is greater than ``0``, the result is ``-0``.
-        -   If ``x1_i`` is ``+0`` and ``x2_i`` is less than ``0``, the result is ``-0``.
-        -   If ``x1_i`` is ``-0`` and ``x2_i`` is less than ``0``, the result is ``+0``.
-        -   If ``x1_i`` is greater than ``0`` and ``x2_i`` is ``+0``, the result is ``+infinity``.
-        -   If ``x1_i`` is greater than ``0`` and ``x2_i`` is ``-0``, the result is ``-infinity``.
-        -   If ``x1_i`` is less than ``0`` and ``x2_i`` is ``+0``, the result is ``-infinity``.
-        -   If ``x1_i`` is less than ``0`` and ``x2_i`` is ``-0``, the result is ``+infinity``.
-        -   If ``x1_i`` is ``+infinity`` and ``x2_i`` is a positive (i.e., greater than ``0``) finite number, the result is ``+infinity``.
-        -   If ``x1_i`` is ``+infinity`` and ``x2_i`` is a negative (i.e., less than ``0``) finite number, the result is ``-infinity``.
-        -   If ``x1_i`` is ``-infinity`` and ``x2_i`` is a positive (i.e., greater than ``0``) finite number, the result is ``-infinity``.
-        -   If ``x1_i`` is ``-infinity`` and ``x2_i`` is a negative (i.e., less than ``0``) finite number, the result is ``+infinity``.
-        -   If ``x1_i`` is a positive (i.e., greater than ``0``) finite number and ``x2_i`` is ``+infinity``, the result is ``+0``.
-        -   If ``x1_i`` is a positive (i.e., greater than ``0``) finite number and ``x2_i`` is ``-infinity``, the result is ``-0``.
-        -   If ``x1_i`` is a negative (i.e., less than ``0``) finite number and ``x2_i`` is ``+infinity``, the result is ``-0``.
-        -   If ``x1_i`` is a negative (i.e., less than ``0``) finite number and ``x2_i`` is ``-infinity``, the result is ``+0``.
-        -   If ``x1_i`` and ``x2_i`` have the same mathematical sign and are both nonzero finite numbers, the result has a positive mathematical sign.
-        -   If ``x1_i`` and ``x2_i`` have different mathematical signs and are both nonzero finite numbers, the result has a negative mathematical sign.
-        -   In the remaining cases, where neither ``-infinity``, ``+0``, ``-0``, nor ``NaN`` is involved, the quotient must be computed and rounded to the nearest representable value according to IEEE 754-2019 and a supported rounding mode. If the magnitude is too large to represent, the operation overflows and the result is an ``infinity`` of appropriate mathematical sign. If the magnitude is too small to represent, the operation underflows and the result is a zero of appropriate mathematical sign.
-
-        For complex floating-point operands, division is defined according to the following table. For real components ``a`` and ``c`` and imaginary components ``b`` and ``d``,
-
-        +------------+----------------+-----------------+--------------------------+
-        |            | c              | dj              | c + dj                   |
-        +============+================+=================+==========================+
-        | **a**      | a / c          | -(a/d)j         | special rules            |
-        +------------+----------------+-----------------+--------------------------+
-        | **bj**     | (b/c)j         | b/d             | special rules            |
-        +------------+----------------+-----------------+--------------------------+
-        | **a + bj** | (a/c) + (b/c)j | b/d - (a/d)j    | special rules            |
-        +------------+----------------+-----------------+--------------------------+
-
-        In general, for complex floating-point operands, real-valued floating-point special cases must independently apply to the real and imaginary component operations involving real numbers as described in the above table.
-
-        When ``a``, ``b``, ``c``, or ``d`` are all finite numbers (i.e., a value other than ``NaN``, ``+infinity``, or ``-infinity``), division of complex floating-point operands should be computed as if calculated according to the textbook formula for complex number division
-
-        .. math::
-           \frac{a + bj}{c + dj} = \frac{(ac + bd) + (bc - ad)j}{c^2 + d^2}
-
-        When at least one of ``a``, ``b``, ``c``, or ``d`` is ``NaN``, ``+infinity``, or ``-infinity``,
-
-        - If ``a``, ``b``, ``c``, and ``d`` are all ``NaN``, the result is ``NaN + NaN j``.
-        - In the remaining cases, the result is implementation dependent.
-
-        .. note::
-           For complex floating-point operands, the results of special cases may be implementation dependent depending on how an implementation chooses to model complex numbers and complex infinity (e.g., complex plane versus Riemann sphere). For those implementations following C99 and its one-infinity model, when at least one component is infinite, even if the other component is ``NaN``, the complex value is infinite, and the usual arithmetic rules do not apply to complex-complex division. In the interest of performance, other implementations may want to avoid the complex branching logic necessary to implement the one-infinity model and choose to implement all complex-complex division according to the textbook formula. Accordingly, special case behavior is unlikely to be consistent across implementations.
-
         Parameters
         ----------
         self: array
@@ -1250,7 +930,7 @@ class _array:
 
 
         .. note::
-           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.divide`.
+           Element-wise results, including special cases, must equal the results returned by the equivalent element-wise function :func:`~array_api.divide`.
         """
 
     def __xor__(self: array, other: Union[int, bool, array], /) -> array:
