@@ -206,16 +206,6 @@ class _array:
         """
         Converts a zero-dimensional array to a Python ``bool`` object.
 
-        **Special cases**
-
-        For real-valued floating-point operands,
-
-        - If ``self`` is ``NaN``, the result is ``True``.
-        - If ``self`` is either ``+infinity`` or ``-infinity``, the result is ``True``.
-        - If ``self`` is either ``+0`` or ``-0``, the result is ``False``.
-
-        For complex floating-point operands, special cases must be handled as if the operation is implemented as the logical AND of ``bool(real(self))`` and ``bool(imag(self))``.
-
         Parameters
         ----------
         self: array
@@ -225,11 +215,37 @@ class _array:
         -------
         out: bool
             a Python ``bool`` object representing the single element of the array.
+
+        Notes
+        -----
+
+        **Special cases**
+
+        For real-valued floating-point operands,
+
+        - If ``self`` is ``NaN``, the result is ``True``.
+        - If ``self`` is either ``+infinity`` or ``-infinity``, the result is ``True``.
+        - If ``self`` is either ``+0`` or ``-0``, the result is ``False``.
+
+        For complex floating-point operands, special cases must be handled as if the operation is implemented as the logical AND of ``bool(real(self))`` and ``bool(imag(self))``.
         """
 
     def __complex__(self: array, /) -> complex:
         """
         Converts a zero-dimensional array to a Python ``complex`` object.
+
+        Parameters
+        ----------
+        self: array
+            zero-dimensional array instance.
+
+        Returns
+        -------
+        out: complex
+            a Python ``complex`` object representing the single element of the array instance.
+
+        Notes
+        -----
 
         **Special cases**
 
@@ -244,16 +260,6 @@ class _array:
         - If ``self`` is ``+infinity``, the result is ``+infinity + 0j``.
         - If ``self`` is ``-infinity``, the result is ``-infinity + 0j``.
         - If ``self`` is a finite number, the result is ``self + 0j``.
-
-        Parameters
-        ----------
-        self: array
-            zero-dimensional array instance.
-
-        Returns
-        -------
-        out: complex
-            a Python ``complex`` object representing the single element of the array instance.
         """
 
     def __dlpack__(
@@ -376,13 +382,6 @@ class _array:
         .. note::
            Casting integer values outside the representable bounds of Python's float type is not specified and is implementation-dependent.
 
-        **Special cases**
-
-        For boolean operands,
-
-        - If ``self`` is ``True``, the result is ``1``.
-        - If ``self`` is ``False``, the result is ``0``.
-
         Parameters
         ----------
         self: array
@@ -392,6 +391,16 @@ class _array:
         -------
         out: float
             a Python ``float`` object representing the single element of the array instance.
+
+        Notes
+        -----
+
+        **Special cases**
+
+        For boolean operands,
+
+        - If ``self`` is ``True``, the result is ``1``.
+        - If ``self`` is ``False``, the result is ``0``.
         """
 
     def __floordiv__(self: array, other: Union[int, float, array], /) -> array:
@@ -511,6 +520,19 @@ class _array:
         """
         Converts a zero-dimensional array to a Python ``int`` object.
 
+        Parameters
+        ----------
+        self: array
+            zero-dimensional array instance. Should have a real-valued or boolean data type. If ``self`` has a complex floating-point data type, the function must raise a ``TypeError``.
+
+        Returns
+        -------
+        out: int
+            a Python ``int`` object representing the single element of the array instance.
+
+        Notes
+        -----
+
         **Special cases**
 
         For boolean operands,
@@ -522,17 +544,6 @@ class _array:
 
         - If ``self`` is a finite number, the result is the integer part of ``self``.
         - If ``self`` is ``-0``, the result is ``0``.
-
-        Parameters
-        ----------
-        self: array
-            zero-dimensional array instance. Should have a real-valued or boolean data type. If ``self`` has a complex floating-point data type, the function must raise a ``TypeError``.
-
-        Returns
-        -------
-        out: int
-            a Python ``int`` object representing the single element of the array instance.
-
 
         **Raises**
 
