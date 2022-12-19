@@ -17,12 +17,6 @@ def max(
     .. note::
        For backward compatibility, conforming implementations may support complex numbers; however, inequality comparison of complex numbers is unspecified and thus implementation-dependent (see :ref:`complex-number-ordering`).
 
-    **Special Cases**
-
-    For floating-point operands,
-
-    -   If ``x_i`` is ``NaN``, the maximum value is ``NaN`` (i.e., ``NaN`` values propagate).
-
     Parameters
     ----------
     x: array
@@ -36,6 +30,15 @@ def max(
     -------
     out: array
         if the maximum value was computed over the entire array, a zero-dimensional array containing the maximum value; otherwise, a non-zero-dimensional array containing the maximum values. The returned array must have the same data type as ``x``.
+
+    Notes
+    -----
+
+    **Special Cases**
+
+    For floating-point operands,
+
+    -   If ``x_i`` is ``NaN``, the maximum value is ``NaN`` (i.e., ``NaN`` values propagate).
     """
 
 
@@ -48,13 +51,6 @@ def mean(
 ) -> array:
     """
     Calculates the arithmetic mean of the input array ``x``.
-
-    **Special Cases**
-
-    Let ``N`` equal the number of elements over which to compute the arithmetic mean.
-
-    -   If ``N`` is ``0``, the arithmetic mean is ``NaN``.
-    -   If ``x_i`` is ``NaN``, the arithmetic mean is ``NaN`` (i.e., ``NaN`` values propagate).
 
     Parameters
     ----------
@@ -72,6 +68,16 @@ def mean(
 
         .. note::
            While this specification recommends that this function only accept input arrays having a real-valued floating-point data type, specification-compliant array libraries may choose to accept input arrays having an integer data type. While mixed data type promotion is implementation-defined, if the input array ``x`` has an integer data type, the returned array must have the default real-valued floating-point data type.
+
+    Notes
+    -----
+
+    **Special Cases**
+
+    Let ``N`` equal the number of elements over which to compute the arithmetic mean.
+
+    -   If ``N`` is ``0``, the arithmetic mean is ``NaN``.
+    -   If ``x_i`` is ``NaN``, the arithmetic mean is ``NaN`` (i.e., ``NaN`` values propagate).
     """
 
 
@@ -91,12 +97,6 @@ def min(
     .. note::
        For backward compatibility, conforming implementations may support complex numbers; however, inequality comparison of complex numbers is unspecified and thus implementation-dependent (see :ref:`complex-number-ordering`).
 
-    **Special Cases**
-
-    For floating-point operands,
-
-    -   If ``x_i`` is ``NaN``, the minimum value is ``NaN`` (i.e., ``NaN`` values propagate).
-
     Parameters
     ----------
     x: array
@@ -110,6 +110,15 @@ def min(
     -------
     out: array
         if the minimum value was computed over the entire array, a zero-dimensional array containing the minimum value; otherwise, a non-zero-dimensional array containing the minimum values. The returned array must have the same data type as ``x``.
+
+    Notes
+    -----
+
+    **Special Cases**
+
+    For floating-point operands,
+
+    -   If ``x_i`` is ``NaN``, the minimum value is ``NaN`` (i.e., ``NaN`` values propagate).
     """
 
 
@@ -123,14 +132,6 @@ def prod(
 ) -> array:
     """
     Calculates the product of input array ``x`` elements.
-
-    **Special Cases**
-
-    Let ``N`` equal the number of elements over which to compute the product.
-
-    -   If ``N`` is ``0``, the product is `1` (i.e., the empty product).
-
-    For both real-valued and complex floating-point operands, special cases must be handled as if the operation is implemented by successive application of :func:`~array_api.multiply`.
 
     Parameters
     ----------
@@ -159,6 +160,17 @@ def prod(
     -------
     out: array
         if the product was computed over the entire array, a zero-dimensional array containing the product; otherwise, a non-zero-dimensional array containing the products. The returned array must have a data type as described by the ``dtype`` parameter above.
+
+    Notes
+    -----
+
+    **Special Cases**
+
+    Let ``N`` equal the number of elements over which to compute the product.
+
+    -   If ``N`` is ``0``, the product is `1` (i.e., the empty product).
+
+    For both real-valued and complex floating-point operands, special cases must be handled as if the operation is implemented by successive application of :func:`~array_api.multiply`.
     """
 
 
@@ -172,13 +184,6 @@ def std(
 ) -> array:
     """
     Calculates the standard deviation of the input array ``x``.
-
-    **Special Cases**
-
-    Let ``N`` equal the number of elements over which to compute the standard deviation.
-
-    -   If ``N - correction`` is less than or equal to ``0``, the standard deviation is ``NaN``.
-    -   If ``x_i`` is ``NaN``, the standard deviation is ``NaN`` (i.e., ``NaN`` values propagate).
 
     Parameters
     ----------
@@ -198,6 +203,16 @@ def std(
 
         .. note::
            While this specification recommends that this function only accept input arrays having a real-valued floating-point data type, specification-compliant array libraries may choose to accept input arrays having an integer data type. While mixed data type promotion is implementation-defined, if the input array ``x`` has an integer data type, the returned array must have the default real-valued floating-point data type.
+
+    Notes
+    -----
+
+    **Special Cases**
+
+    Let ``N`` equal the number of elements over which to compute the standard deviation.
+
+    -   If ``N - correction`` is less than or equal to ``0``, the standard deviation is ``NaN``.
+    -   If ``x_i`` is ``NaN``, the standard deviation is ``NaN`` (i.e., ``NaN`` values propagate).
     """
 
 
@@ -211,14 +226,6 @@ def sum(
 ) -> array:
     """
     Calculates the sum of the input array ``x``.
-
-    **Special Cases**
-
-    Let ``N`` equal the number of elements over which to compute the sum.
-
-    -   If ``N`` is ``0``, the sum is ``0`` (i.e., the empty sum).
-
-    For both real-valued and complex floating-point operands, special cases must be handled as if the operation is implemented by successive application of :func:`~array_api.add`.
 
     Parameters
     ----------
@@ -247,6 +254,17 @@ def sum(
     -------
     out: array
         if the sum was computed over the entire array, a zero-dimensional array containing the sum; otherwise, an array containing the sums. The returned array must have a data type as described by the ``dtype`` parameter above.
+
+    Notes
+    -----
+
+    **Special Cases**
+
+    Let ``N`` equal the number of elements over which to compute the sum.
+
+    -   If ``N`` is ``0``, the sum is ``0`` (i.e., the empty sum).
+
+    For both real-valued and complex floating-point operands, special cases must be handled as if the operation is implemented by successive application of :func:`~array_api.add`.
     """
 
 
@@ -260,13 +278,6 @@ def var(
 ) -> array:
     """
     Calculates the variance of the input array ``x``.
-
-    **Special Cases**
-
-    Let ``N`` equal the number of elements over which to compute the variance.
-
-    -   If ``N - correction`` is less than or equal to ``0``, the variance is ``NaN``.
-    -   If ``x_i`` is ``NaN``, the variance is ``NaN`` (i.e., ``NaN`` values propagate).
 
     Parameters
     ----------
@@ -287,6 +298,16 @@ def var(
 
     .. note::
        While this specification recommends that this function only accept input arrays having a real-valued floating-point data type, specification-compliant array libraries may choose to accept input arrays having an integer data type. While mixed data type promotion is implementation-defined, if the input array ``x`` has an integer data type, the returned array must have the default real-valued floating-point data type.
+
+    Notes
+    -----
+
+    **Special Cases**
+
+    Let ``N`` equal the number of elements over which to compute the variance.
+
+    -   If ``N - correction`` is less than or equal to ``0``, the variance is ``NaN``.
+    -   If ``x_i`` is ``NaN``, the variance is ``NaN`` (i.e., ``NaN`` values propagate).
     """
 
 

@@ -1,2 +1,7 @@
 # Migrate code style to Black
 162034b12711dad54589c5dc9e75942695a7957f
+
+# Move special cases to notes sections
+816fba3b75c38cbb1bb6fe5b1342adc5eab694f3
+0a2fa71a32b924cc92718db29910a6cbbc5e9341
+931144e7d7d5c8b23393aa730ef28962a35b113b
