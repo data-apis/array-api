@@ -28,3 +28,10 @@ Contents
    usage_data
    verification_test_suite
    benchmark_suite
+
+.. toctree::
+   :caption: Other
+   :maxdepth: 1
+
+   changelog
+   license
