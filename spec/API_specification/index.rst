@@ -3,7 +3,7 @@
 API specification
 =================
 
-A conforming implementation of the array API standard must provide and support the following functions adhering to the following conventions.
+A conforming implementation of the array API standard must provide and support the APIs and behavior detailed in this specification while adhering to the following conventions.
 
 -   Positional parameters must be `positional-only <https://www.python.org/dev/peps/pep-0570/>`_ parameters when the function signature indicates this (as denoted by `/`). See :ref:`function-and-method-signatures`.
 -   Optional parameters must be `keyword-only <https://www.python.org/dev/peps/pep-3102/>`_ argumentswhen the function signature indicates this (as denoted by `*`). See :ref:`function-and-method-signatures`.
