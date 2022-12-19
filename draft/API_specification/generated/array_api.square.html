@@ -437,8 +437,6 @@
 <p>The square of a number <code class="docutils literal notranslate"><span class="pre">x_i</span></code> is defined as</p>
 <div class="math notranslate nohighlight">
 \[x_i^2 = x_i \cdot x_i\]</div>
-<p><strong>Special cases</strong></p>
-<p>For floating-point operands, special cases must be handled as if the operation is implemented as <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">*</span> <span class="pre">x</span></code> (see <a class="reference internal" href="array_api.multiply.html#array_api.multiply" title="array_api.multiply"><code class="xref py py-func docutils literal notranslate"><span class="pre">multiply()</span></code></a>).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>x</strong> (<em>array</em>) – input array. Should have a numeric data type.</p>
@@ -447,6 +445,9 @@
 <dd class="field-even"><p><strong>out</strong> (<em>array</em>) – an array containing the evaluated result for each element in <code class="docutils literal notranslate"><span class="pre">x</span></code>. The returned array must have a data type determined by <a class="reference internal" href="../type_promotion.html#type-promotion"><span class="std std-ref">Type Promotion Rules</span></a>.</p>
 </dd>
 </dl>
+<p class="rubric">Notes</p>
+<p><strong>Special cases</strong></p>
+<p>For floating-point operands, special cases must be handled as if the operation is implemented as <code class="docutils literal notranslate"><span class="pre">x</span> <span class="pre">*</span> <span class="pre">x</span></code> (see <a class="reference internal" href="array_api.multiply.html#array_api.multiply" title="array_api.multiply"><code class="xref py py-func docutils literal notranslate"><span class="pre">multiply()</span></code></a>).</p>
 </dd></dl>
 </section>
 

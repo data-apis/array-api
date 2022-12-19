@@ -439,6 +439,24 @@
 <p>If both <code class="docutils literal notranslate"><span class="pre">x1</span></code> and <code class="docutils literal notranslate"><span class="pre">x2</span></code> have integer data types, the result of <code class="docutils literal notranslate"><span class="pre">pow</span></code> when <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> is negative (i.e., less than zero) is unspecified and thus implementation-dependent.</p>
 <p>If <code class="docutils literal notranslate"><span class="pre">x1</span></code> has an integer data type and <code class="docutils literal notranslate"><span class="pre">x2</span></code> has a floating-point data type, behavior is implementation-dependent (type promotion between data type “kinds” (integer versus floating-point) is unspecified).</p>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>By convention, the branch cut of the natural logarithm is the negative real axis <span class="math notranslate nohighlight">\((-\infty, 0)\)</span>.</p>
+<p>The natural logarithm is a continuous function from above the branch cut, taking into account the sign of the imaginary component. As special cases involving complex floating-point operands should be handled according to <code class="docutils literal notranslate"><span class="pre">exp(x2*log(x1))</span></code>, exponentiation has the same branch cut for <code class="docutils literal notranslate"><span class="pre">x1</span></code> as the natural logarithm (see <a class="reference internal" href="array_api.log.html#array_api.log" title="array_api.log"><code class="xref py py-func docutils literal notranslate"><span class="pre">log()</span></code></a>).</p>
+<p><em>Note: branch cuts have provisional status</em> (see <a class="reference internal" href="../../design_topics/complex_numbers.html#branch-cuts"><span class="std std-ref">Branch Cuts</span></a>).</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x1</strong> (<em>array</em>) – first input array whose elements correspond to the exponentiation base. Should have a numeric data type.</p></li>
+<li><p><strong>x2</strong> (<em>array</em>) – second input array whose elements correspond to the exponentiation exponent. Must be compatible with <code class="docutils literal notranslate"><span class="pre">x1</span></code> (see <a class="reference internal" href="../broadcasting.html#broadcasting"><span class="std std-ref">Broadcasting</span></a>). Should have a numeric data type.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>out</strong> (<em>array</em>) – an array containing the element-wise results. The returned array must have a data type determined by <a class="reference internal" href="../type_promotion.html#type-promotion"><span class="std std-ref">Type Promotion Rules</span></a>.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
 <p><strong>Special cases</strong></p>
 <p>For real-valued floating-point operands,</p>
 <ul class="simple">
@@ -472,23 +490,6 @@
 <p class="admonition-title">Note</p>
 <p>Conforming implementations are allowed to treat special cases involving complex floating-point operands more carefully than as described in this specification.</p>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>By convention, the branch cut of the natural logarithm is the negative real axis <span class="math notranslate nohighlight">\((-\infty, 0)\)</span>.</p>
-<p>The natural logarithm is a continuous function from above the branch cut, taking into account the sign of the imaginary component. As special cases involving complex floating-point operands should be handled according to <code class="docutils literal notranslate"><span class="pre">exp(x2*log(x1))</span></code>, exponentiation has the same branch cut for <code class="docutils literal notranslate"><span class="pre">x1</span></code> as the natural logarithm (see <a class="reference internal" href="array_api.log.html#array_api.log" title="array_api.log"><code class="xref py py-func docutils literal notranslate"><span class="pre">log()</span></code></a>).</p>
-<p><em>Note: branch cuts have provisional status</em> (see <a class="reference internal" href="../../design_topics/complex_numbers.html#branch-cuts"><span class="std std-ref">Branch Cuts</span></a>).</p>
-</div>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>x1</strong> (<em>array</em>) – first input array whose elements correspond to the exponentiation base. Should have a numeric data type.</p></li>
-<li><p><strong>x2</strong> (<em>array</em>) – second input array whose elements correspond to the exponentiation exponent. Must be compatible with <code class="docutils literal notranslate"><span class="pre">x1</span></code> (see <a class="reference internal" href="../broadcasting.html#broadcasting"><span class="std std-ref">Broadcasting</span></a>). Should have a numeric data type.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>out</strong> (<em>array</em>) – an array containing the element-wise results. The returned array must have a data type determined by <a class="reference internal" href="../type_promotion.html#type-promotion"><span class="std std-ref">Type Promotion Rules</span></a>.</p>
-</dd>
-</dl>
 </dd></dl>
 </section>
 

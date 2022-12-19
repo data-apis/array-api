@@ -432,12 +432,6 @@
 <dt class="sig sig-object py" id="array_api.sum">
 <span class="sig-name descname"><span class="pre">sum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">Union</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">dtype</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keepdims</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">array</span></span></span><a class="headerlink" href="#array_api.sum" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculates the sum of the input array <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
-<p><strong>Special Cases</strong></p>
-<p>Let <code class="docutils literal notranslate"><span class="pre">N</span></code> equal the number of elements over which to compute the sum.</p>
-<ul class="simple">
-<li><p>If <code class="docutils literal notranslate"><span class="pre">N</span></code> is <code class="docutils literal notranslate"><span class="pre">0</span></code>, the sum is <code class="docutils literal notranslate"><span class="pre">0</span></code> (i.e., the empty sum).</p></li>
-</ul>
-<p>For both real-valued and complex floating-point operands, special cases must be handled as if the operation is implemented by successive application of <a class="reference internal" href="array_api.add.html#array_api.add" title="array_api.add"><code class="xref py py-func docutils literal notranslate"><span class="pre">add()</span></code></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -464,6 +458,13 @@
 <dd class="field-even"><p><strong>out</strong> (<em>array</em>) – if the sum was computed over the entire array, a zero-dimensional array containing the sum; otherwise, an array containing the sums. The returned array must have a data type as described by the <code class="docutils literal notranslate"><span class="pre">dtype</span></code> parameter above.</p>
 </dd>
 </dl>
+<p class="rubric">Notes</p>
+<p><strong>Special Cases</strong></p>
+<p>Let <code class="docutils literal notranslate"><span class="pre">N</span></code> equal the number of elements over which to compute the sum.</p>
+<ul class="simple">
+<li><p>If <code class="docutils literal notranslate"><span class="pre">N</span></code> is <code class="docutils literal notranslate"><span class="pre">0</span></code>, the sum is <code class="docutils literal notranslate"><span class="pre">0</span></code> (i.e., the empty sum).</p></li>
+</ul>
+<p>For both real-valued and complex floating-point operands, special cases must be handled as if the operation is implemented by successive application of <a class="reference internal" href="array_api.add.html#array_api.add" title="array_api.add"><code class="xref py py-func docutils literal notranslate"><span class="pre">add()</span></code></a>.</p>
 </dd></dl>
 </section>
 

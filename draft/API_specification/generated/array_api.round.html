@@ -437,6 +437,15 @@
 <p>For complex floating-point operands, real and imaginary components must be independently rounded to the nearest integer-valued number.</p>
 <p>Rounded real and imaginary components must be equal to their equivalent rounded real-valued floating-point counterparts (i.e., for complex-valued <code class="docutils literal notranslate"><span class="pre">x</span></code>, <code class="docutils literal notranslate"><span class="pre">real(round(x))</span></code> must equal <code class="docutils literal notranslate"><span class="pre">round(real(x)))</span></code> and <code class="docutils literal notranslate"><span class="pre">imag(round(x))</span></code> must equal <code class="docutils literal notranslate"><span class="pre">round(imag(x))</span></code>).</p>
 </div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>x</strong> (<em>array</em>) – input array. Should have a numeric data type.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>out</strong> (<em>array</em>) – an array containing the rounded result for each element in <code class="docutils literal notranslate"><span class="pre">x</span></code>. The returned array must have the same data type as <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
 <p><strong>Special cases</strong></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -454,14 +463,6 @@
 <li><p>If <code class="docutils literal notranslate"><span class="pre">x_i</span></code> is <code class="docutils literal notranslate"><span class="pre">NaN</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">NaN</span></code>.</p></li>
 <li><p>If two integers are equally close to <code class="docutils literal notranslate"><span class="pre">x_i</span></code>, the result is the even integer closest to <code class="docutils literal notranslate"><span class="pre">x_i</span></code>.</p></li>
 </ul>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>x</strong> (<em>array</em>) – input array. Should have a numeric data type.</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>out</strong> (<em>array</em>) – an array containing the rounded result for each element in <code class="docutils literal notranslate"><span class="pre">x</span></code>. The returned array must have the same data type as <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
-</dd>
-</dl>
 </dd></dl>
 </section>
 

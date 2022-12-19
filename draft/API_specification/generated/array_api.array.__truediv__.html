@@ -59,8 +59,6 @@
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>window.MathJax = {"tex": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]]}}</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="__xor__" href="array_api.array.__xor__.html" />
@@ -439,79 +437,6 @@
 <p>If one or both of <code class="docutils literal notranslate"><span class="pre">self</span></code> and <code class="docutils literal notranslate"><span class="pre">other</span></code> have integer data types, the result is implementation-dependent, as type promotion between data type “kinds” (e.g., integer versus floating-point) is unspecified.</p>
 <p>Specification-compliant libraries may choose to raise an error or return an array containing the element-wise results. If an array is returned, the array must have a real-valued floating-point data type.</p>
 </div>
-<p><strong>Special cases</strong></p>
-<p>Let <code class="docutils literal notranslate"><span class="pre">self</span></code> equal <code class="docutils literal notranslate"><span class="pre">x1</span></code> and <code class="docutils literal notranslate"><span class="pre">other</span></code> equal <code class="docutils literal notranslate"><span class="pre">x2</span></code>.</p>
-<p>For floating-point operands,</p>
-<ul class="simple">
-<li><p>If either <code class="docutils literal notranslate"><span class="pre">x1_i</span></code> or <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> is <code class="docutils literal notranslate"><span class="pre">NaN</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">NaN</span></code>.</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">x1_i</span></code> is either <code class="docutils literal notranslate"><span class="pre">+infinity</span></code> or <code class="docutils literal notranslate"><span class="pre">-infinity</span></code> and <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> is either <code class="docutils literal notranslate"><span class="pre">+infinity</span></code> or <code class="docutils literal notranslate"><span class="pre">-infinity</span></code>, the result is <code class="code docutils literal notranslate"><span class="pre">NaN</span></code>.</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">x1_i</span></code> is either <code class="docutils literal notranslate"><span class="pre">+0</span></code> or <code class="docutils literal notranslate"><span class="pre">-0</span></code> and <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> is either <code class="docutils literal notranslate"><span class="pre">+0</span></code> or <code class="docutils literal notranslate"><span class="pre">-0</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">NaN</span></code>.</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">x1_i</span></code> is <code class="docutils literal notranslate"><span class="pre">+0</span></code> and <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> is greater than <code class="docutils literal notranslate"><span class="pre">0</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">+0</span></code>.</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">x1_i</span></code> is <code class="docutils literal notranslate"><span class="pre">-0</span></code> and <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> is greater than <code class="docutils literal notranslate"><span class="pre">0</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">-0</span></code>.</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">x1_i</span></code> is <code class="docutils literal notranslate"><span class="pre">+0</span></code> and <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> is less than <code class="docutils literal notranslate"><span class="pre">0</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">-0</span></code>.</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">x1_i</span></code> is <code class="docutils literal notranslate"><span class="pre">-0</span></code> and <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> is less than <code class="docutils literal notranslate"><span class="pre">0</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">+0</span></code>.</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">x1_i</span></code> is greater than <code class="docutils literal notranslate"><span class="pre">0</span></code> and <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> is <code class="docutils literal notranslate"><span class="pre">+0</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">+infinity</span></code>.</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">x1_i</span></code> is greater than <code class="docutils literal notranslate"><span class="pre">0</span></code> and <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> is <code class="docutils literal notranslate"><span class="pre">-0</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">-infinity</span></code>.</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">x1_i</span></code> is less than <code class="docutils literal notranslate"><span class="pre">0</span></code> and <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> is <code class="docutils literal notranslate"><span class="pre">+0</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">-infinity</span></code>.</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">x1_i</span></code> is less than <code class="docutils literal notranslate"><span class="pre">0</span></code> and <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> is <code class="docutils literal notranslate"><span class="pre">-0</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">+infinity</span></code>.</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">x1_i</span></code> is <code class="docutils literal notranslate"><span class="pre">+infinity</span></code> and <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> is a positive (i.e., greater than <code class="docutils literal notranslate"><span class="pre">0</span></code>) finite number, the result is <code class="docutils literal notranslate"><span class="pre">+infinity</span></code>.</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">x1_i</span></code> is <code class="docutils literal notranslate"><span class="pre">+infinity</span></code> and <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> is a negative (i.e., less than <code class="docutils literal notranslate"><span class="pre">0</span></code>) finite number, the result is <code class="docutils literal notranslate"><span class="pre">-infinity</span></code>.</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">x1_i</span></code> is <code class="docutils literal notranslate"><span class="pre">-infinity</span></code> and <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> is a positive (i.e., greater than <code class="docutils literal notranslate"><span class="pre">0</span></code>) finite number, the result is <code class="docutils literal notranslate"><span class="pre">-infinity</span></code>.</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">x1_i</span></code> is <code class="docutils literal notranslate"><span class="pre">-infinity</span></code> and <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> is a negative (i.e., less than <code class="docutils literal notranslate"><span class="pre">0</span></code>) finite number, the result is <code class="docutils literal notranslate"><span class="pre">+infinity</span></code>.</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">x1_i</span></code> is a positive (i.e., greater than <code class="docutils literal notranslate"><span class="pre">0</span></code>) finite number and <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> is <code class="docutils literal notranslate"><span class="pre">+infinity</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">+0</span></code>.</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">x1_i</span></code> is a positive (i.e., greater than <code class="docutils literal notranslate"><span class="pre">0</span></code>) finite number and <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> is <code class="docutils literal notranslate"><span class="pre">-infinity</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">-0</span></code>.</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">x1_i</span></code> is a negative (i.e., less than <code class="docutils literal notranslate"><span class="pre">0</span></code>) finite number and <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> is <code class="docutils literal notranslate"><span class="pre">+infinity</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">-0</span></code>.</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">x1_i</span></code> is a negative (i.e., less than <code class="docutils literal notranslate"><span class="pre">0</span></code>) finite number and <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> is <code class="docutils literal notranslate"><span class="pre">-infinity</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">+0</span></code>.</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">x1_i</span></code> and <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> have the same mathematical sign and are both nonzero finite numbers, the result has a positive mathematical sign.</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">x1_i</span></code> and <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> have different mathematical signs and are both nonzero finite numbers, the result has a negative mathematical sign.</p></li>
-<li><p>In the remaining cases, where neither <code class="docutils literal notranslate"><span class="pre">-infinity</span></code>, <code class="docutils literal notranslate"><span class="pre">+0</span></code>, <code class="docutils literal notranslate"><span class="pre">-0</span></code>, nor <code class="docutils literal notranslate"><span class="pre">NaN</span></code> is involved, the quotient must be computed and rounded to the nearest representable value according to IEEE 754-2019 and a supported rounding mode. If the magnitude is too large to represent, the operation overflows and the result is an <code class="docutils literal notranslate"><span class="pre">infinity</span></code> of appropriate mathematical sign. If the magnitude is too small to represent, the operation underflows and the result is a zero of appropriate mathematical sign.</p></li>
-</ul>
-<p>For complex floating-point operands, division is defined according to the following table. For real components <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">c</span></code> and imaginary components <code class="docutils literal notranslate"><span class="pre">b</span></code> and <code class="docutils literal notranslate"><span class="pre">d</span></code>,</p>
-<table>
-<colgroup>
-<col style="width: 17%"/>
-<col style="width: 23%"/>
-<col style="width: 24%"/>
-<col style="width: 37%"/>
-</colgroup>
-<thead>
-<tr class="row-odd"><th class="head"></th>
-<th class="head"><p>c</p></th>
-<th class="head"><p>dj</p></th>
-<th class="head"><p>c + dj</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p><strong>a</strong></p></td>
-<td><p>a / c</p></td>
-<td><p>-(a/d)j</p></td>
-<td><p>special rules</p></td>
-</tr>
-<tr class="row-odd"><td><p><strong>bj</strong></p></td>
-<td><p>(b/c)j</p></td>
-<td><p>b/d</p></td>
-<td><p>special rules</p></td>
-</tr>
-<tr class="row-even"><td><p><strong>a + bj</strong></p></td>
-<td><p>(a/c) + (b/c)j</p></td>
-<td><p>b/d - (a/d)j</p></td>
-<td><p>special rules</p></td>
-</tr>
-</tbody>
-</table>
-<p>In general, for complex floating-point operands, real-valued floating-point special cases must independently apply to the real and imaginary component operations involving real numbers as described in the above table.</p>
-<p>When <code class="docutils literal notranslate"><span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">b</span></code>, <code class="docutils literal notranslate"><span class="pre">c</span></code>, or <code class="docutils literal notranslate"><span class="pre">d</span></code> are all finite numbers (i.e., a value other than <code class="docutils literal notranslate"><span class="pre">NaN</span></code>, <code class="docutils literal notranslate"><span class="pre">+infinity</span></code>, or <code class="docutils literal notranslate"><span class="pre">-infinity</span></code>), division of complex floating-point operands should be computed as if calculated according to the textbook formula for complex number division</p>
-<div class="math notranslate nohighlight">
-\[\frac{a + bj}{c + dj} = \frac{(ac + bd) + (bc - ad)j}{c^2 + d^2}\]</div>
-<p>When at least one of <code class="docutils literal notranslate"><span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">b</span></code>, <code class="docutils literal notranslate"><span class="pre">c</span></code>, or <code class="docutils literal notranslate"><span class="pre">d</span></code> is <code class="docutils literal notranslate"><span class="pre">NaN</span></code>, <code class="docutils literal notranslate"><span class="pre">+infinity</span></code>, or <code class="docutils literal notranslate"><span class="pre">-infinity</span></code>,</p>
-<ul class="simple">
-<li><p>If <code class="docutils literal notranslate"><span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">b</span></code>, <code class="docutils literal notranslate"><span class="pre">c</span></code>, and <code class="docutils literal notranslate"><span class="pre">d</span></code> are all <code class="docutils literal notranslate"><span class="pre">NaN</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">NaN</span> <span class="pre">+</span> <span class="pre">NaN</span> <span class="pre">j</span></code>.</p></li>
-<li><p>In the remaining cases, the result is implementation dependent.</p></li>
-</ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>For complex floating-point operands, the results of special cases may be implementation dependent depending on how an implementation chooses to model complex numbers and complex infinity (e.g., complex plane versus Riemann sphere). For those implementations following C99 and its one-infinity model, when at least one component is infinite, even if the other component is <code class="docutils literal notranslate"><span class="pre">NaN</span></code>, the complex value is infinite, and the usual arithmetic rules do not apply to complex-complex division. In the interest of performance, other implementations may want to avoid the complex branching logic necessary to implement the one-infinity model and choose to implement all complex-complex division according to the textbook formula. Accordingly, special case behavior is unlikely to be consistent across implementations.</p>
-</div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -525,7 +450,7 @@
 </dl>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Element-wise results must equal the results returned by the equivalent element-wise function <a class="reference internal" href="array_api.divide.html#array_api.divide" title="array_api.divide"><code class="xref py py-func docutils literal notranslate"><span class="pre">divide()</span></code></a>.</p>
+<p>Element-wise results, including special cases, must equal the results returned by the equivalent element-wise function <a class="reference internal" href="array_api.divide.html#array_api.divide" title="array_api.divide"><code class="xref py py-func docutils literal notranslate"><span class="pre">divide()</span></code></a>.</p>
 </div>
 </dd></dl>
 </section>

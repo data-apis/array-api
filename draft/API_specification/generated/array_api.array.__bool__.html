@@ -432,14 +432,6 @@
 <dt class="sig sig-object py" id="array_api.array.__bool__">
 <span class="sig-prename descclassname"><span class="pre">array.</span></span><span class="sig-name descname"><span class="pre">__bool__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#array_api.array.__bool__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Converts a zero-dimensional array to a Python <code class="docutils literal notranslate"><span class="pre">bool</span></code> object.</p>
-<p><strong>Special cases</strong></p>
-<p>For real-valued floating-point operands,</p>
-<ul class="simple">
-<li><p>If <code class="docutils literal notranslate"><span class="pre">self</span></code> is <code class="docutils literal notranslate"><span class="pre">NaN</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">self</span></code> is either <code class="docutils literal notranslate"><span class="pre">+infinity</span></code> or <code class="docutils literal notranslate"><span class="pre">-infinity</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">self</span></code> is either <code class="docutils literal notranslate"><span class="pre">+0</span></code> or <code class="docutils literal notranslate"><span class="pre">-0</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
-</ul>
-<p>For complex floating-point operands, special cases must be handled as if the operation is implemented as the logical AND of <code class="docutils literal notranslate"><span class="pre">bool(real(self))</span></code> and <code class="docutils literal notranslate"><span class="pre">bool(imag(self))</span></code>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>self</strong> (<em>array</em>) – zero-dimensional array instance.</p>
@@ -448,6 +440,15 @@
 <dd class="field-even"><p><strong>out</strong> (<em>bool</em>) – a Python <code class="docutils literal notranslate"><span class="pre">bool</span></code> object representing the single element of the array.</p>
 </dd>
 </dl>
+<p class="rubric">Notes</p>
+<p><strong>Special cases</strong></p>
+<p>For real-valued floating-point operands,</p>
+<ul class="simple">
+<li><p>If <code class="docutils literal notranslate"><span class="pre">self</span></code> is <code class="docutils literal notranslate"><span class="pre">NaN</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">self</span></code> is either <code class="docutils literal notranslate"><span class="pre">+infinity</span></code> or <code class="docutils literal notranslate"><span class="pre">-infinity</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">self</span></code> is either <code class="docutils literal notranslate"><span class="pre">+0</span></code> or <code class="docutils literal notranslate"><span class="pre">-0</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
+</ul>
+<p>For complex floating-point operands, special cases must be handled as if the operation is implemented as the logical AND of <code class="docutils literal notranslate"><span class="pre">bool(real(self))</span></code> and <code class="docutils literal notranslate"><span class="pre">bool(imag(self))</span></code>.</p>
 </dd></dl>
 </section>
 

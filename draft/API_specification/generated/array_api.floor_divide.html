@@ -436,6 +436,18 @@
 <p class="admonition-title">Note</p>
 <p>For input arrays which promote to an integer data type, the result of division by zero is unspecified and thus implementation-defined.</p>
 </div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x1</strong> (<em>array</em>) – dividend input array. Should have a real-valued data type.</p></li>
+<li><p><strong>x2</strong> (<em>array</em>) – divisor input array. Must be compatible with <code class="docutils literal notranslate"><span class="pre">x1</span></code> (see <a class="reference internal" href="../broadcasting.html#broadcasting"><span class="std std-ref">Broadcasting</span></a>). Should have a real-valued data type.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>out</strong> (<em>array</em>) – an array containing the element-wise results. The returned array must have a data type determined by <a class="reference internal" href="../type_promotion.html#type-promotion"><span class="std std-ref">Type Promotion Rules</span></a>.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
 <p><strong>Special cases</strong></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -469,17 +481,6 @@
 <li><p>If <code class="docutils literal notranslate"><span class="pre">x1_i</span></code> and <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> have different mathematical signs and are both nonzero finite numbers, the result has a negative mathematical sign.</p></li>
 <li><p>In the remaining cases, where neither <code class="docutils literal notranslate"><span class="pre">-infinity</span></code>, <code class="docutils literal notranslate"><span class="pre">+0</span></code>, <code class="docutils literal notranslate"><span class="pre">-0</span></code>, nor <code class="docutils literal notranslate"><span class="pre">NaN</span></code> is involved, the quotient must be computed and rounded to the greatest (i.e., closest to <code class="code docutils literal notranslate"><span class="pre">+infinity</span></code>) representable integer-value number that is not greater than the division result. If the magnitude is too large to represent, the operation overflows and the result is an <code class="docutils literal notranslate"><span class="pre">infinity</span></code> of appropriate mathematical sign. If the magnitude is too small to represent, the operation underflows and the result is a zero of appropriate mathematical sign.</p></li>
 </ul>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>x1</strong> (<em>array</em>) – dividend input array. Should have a real-valued data type.</p></li>
-<li><p><strong>x2</strong> (<em>array</em>) – divisor input array. Must be compatible with <code class="docutils literal notranslate"><span class="pre">x1</span></code> (see <a class="reference internal" href="../broadcasting.html#broadcasting"><span class="std std-ref">Broadcasting</span></a>). Should have a real-valued data type.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>out</strong> (<em>array</em>) – an array containing the element-wise results. The returned array must have a data type determined by <a class="reference internal" href="../type_promotion.html#type-promotion"><span class="std std-ref">Type Promotion Rules</span></a>.</p>
-</dd>
-</dl>
 </dd></dl>
 </section>
 

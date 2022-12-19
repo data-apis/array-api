@@ -437,28 +437,6 @@
 <p class="admonition-title">Note</p>
 <p>For signed integer data types, the absolute value of the minimum representable integer is implementation-dependent.</p>
 </div>
-<p><strong>Special cases</strong></p>
-<p>Let <code class="docutils literal notranslate"><span class="pre">self</span></code> equal <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
-<p>For real-valued floating-point operands,</p>
-<ul class="simple">
-<li><p>If <code class="docutils literal notranslate"><span class="pre">x_i</span></code> is <code class="docutils literal notranslate"><span class="pre">NaN</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">NaN</span></code>.</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">x_i</span></code> is <code class="docutils literal notranslate"><span class="pre">-0</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">+0</span></code>.</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">x_i</span></code> is <code class="docutils literal notranslate"><span class="pre">-infinity</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">+infinity</span></code>.</p></li>
-</ul>
-<p>For complex floating-point operands, let <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">real(x_i)</span></code>, <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">=</span> <span class="pre">imag(x_i)</span></code>, and</p>
-<ul class="simple">
-<li><p>If <code class="docutils literal notranslate"><span class="pre">a</span></code> is either <code class="docutils literal notranslate"><span class="pre">+infinity</span></code> or <code class="docutils literal notranslate"><span class="pre">-infinity</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> is any value (including <code class="docutils literal notranslate"><span class="pre">NaN</span></code>), the result is <code class="docutils literal notranslate"><span class="pre">+infinity</span></code>.</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">a</span></code> is any value (including <code class="docutils literal notranslate"><span class="pre">NaN</span></code>) and <code class="docutils literal notranslate"><span class="pre">b</span></code> is either <code class="docutils literal notranslate"><span class="pre">+infinity</span></code> or <code class="docutils literal notranslate"><span class="pre">-infinity</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">+infinity</span></code>.</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">a</span></code> is either <code class="docutils literal notranslate"><span class="pre">+0</span></code> or <code class="docutils literal notranslate"><span class="pre">-0</span></code>, the result is equal to <code class="docutils literal notranslate"><span class="pre">abs(b)</span></code>.</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">b</span></code> is either <code class="docutils literal notranslate"><span class="pre">+0</span></code> or <code class="docutils literal notranslate"><span class="pre">-0</span></code>, the result is equal to <code class="docutils literal notranslate"><span class="pre">abs(a)</span></code>.</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">a</span></code> is <code class="docutils literal notranslate"><span class="pre">NaN</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> is a finite number, the result is <code class="docutils literal notranslate"><span class="pre">NaN</span></code>.</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">a</span></code> is a finite number and <code class="docutils literal notranslate"><span class="pre">b</span></code> is <code class="docutils literal notranslate"><span class="pre">NaN</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">NaN</span></code>.</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">a</span></code> is <code class="docutils literal notranslate"><span class="pre">NaN</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> is <code class="docutils literal notranslate"><span class="pre">NaN</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">NaN</span></code>.</p></li>
-</ul>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>For complex floating-point operands, conforming implementations should take care to avoid undue overflow or underflow during intermediate stages of computation.</p>
-</div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>self</strong> (<em>array</em>) – array instance. Should have a numeric data type.</p>
@@ -469,7 +447,7 @@
 </dl>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Element-wise results must equal the results returned by the equivalent element-wise function <a class="reference internal" href="array_api.abs.html#array_api.abs" title="array_api.abs"><code class="xref py py-func docutils literal notranslate"><span class="pre">abs()</span></code></a>.</p>
+<p>Element-wise results, including special cases, must equal the results returned by the equivalent element-wise function <a class="reference internal" href="array_api.abs.html#array_api.abs" title="array_api.abs"><code class="xref py py-func docutils literal notranslate"><span class="pre">abs()</span></code></a>.</p>
 </div>
 </dd></dl>
 </section>

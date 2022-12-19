@@ -441,6 +441,15 @@
 \frac{x}{|x|} &amp; \textrm{otherwise}
 \end{cases}\end{split}\]</div>
 <p>where <span class="math notranslate nohighlight">\(|x_i|\)</span> is the absolute value of <span class="math notranslate nohighlight">\(x_i\)</span>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>x</strong> (<em>array</em>) – input array. Should have a numeric data type.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>out</strong> (<em>array</em>) – an array containing the evaluated result for each element in <code class="docutils literal notranslate"><span class="pre">x</span></code>. The returned array must have the same data type as <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
 <p><strong>Special cases</strong></p>
 <p>For real-valued operands,</p>
 <ul class="simple">
@@ -455,14 +464,6 @@
 <li><p>If <code class="docutils literal notranslate"><span class="pre">a</span></code> is <code class="docutils literal notranslate"><span class="pre">NaN</span></code> or <code class="docutils literal notranslate"><span class="pre">b</span></code> is <code class="docutils literal notranslate"><span class="pre">NaN</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">NaN</span> <span class="pre">+</span> <span class="pre">NaN</span> <span class="pre">j</span></code>.</p></li>
 <li><p>In the remaining cases, special cases must be handled according to the rules of complex number division (see <a class="reference internal" href="array_api.divide.html#array_api.divide" title="array_api.divide"><code class="xref py py-func docutils literal notranslate"><span class="pre">divide()</span></code></a>).</p></li>
 </ul>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>x</strong> (<em>array</em>) – input array. Should have a numeric data type.</p>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>out</strong> (<em>array</em>) – an array containing the evaluated result for each element in <code class="docutils literal notranslate"><span class="pre">x</span></code>. The returned array must have the same data type as <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
-</dd>
-</dl>
 </dd></dl>
 </section>
 
