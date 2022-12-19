@@ -472,17 +472,6 @@
 <blockquote>
 <div><p>Array API specification for element-wise functions.</p>
 </div></blockquote>
-<p>A conforming implementation of the array API standard must provide and support the following functions adhering to the following conventions.</p>
-<ul class="simple">
-<li><p>Positional parameters must be <a class="reference external" href="https://www.python.org/dev/peps/pep-0570/">positional-only</a> parameters. Positional-only parameters have no externally-usable name. When a function accepting positional-only parameters is called, positional arguments are mapped to these parameters based solely on their order.</p></li>
-<li><p>Optional parameters must be <a class="reference external" href="https://www.python.org/dev/peps/pep-3102/">keyword-only</a> arguments.</p></li>
-<li><p>Broadcasting semantics must follow the semantics defined in <a class="reference internal" href="broadcasting.html#broadcasting"><span class="std std-ref">Broadcasting</span></a>.</p></li>
-<li><p>Unless stated otherwise, functions must support the data types defined in <a class="reference internal" href="data_types.html#data-types"><span class="std std-ref">Data Types</span></a>.</p></li>
-<li><p>Functions may only be required for a subset of input data type. Libraries may choose to implement functions for additional data types, but that behavior is not required by the specification. See <a class="reference internal" href="data_types.html#data-type-categories"><span class="std std-ref">Data Type Categories</span></a>.</p></li>
-<li><p>Unless stated otherwise, functions must adhere to the type promotion rules defined in <a class="reference internal" href="type_promotion.html#type-promotion"><span class="std std-ref">Type Promotion Rules</span></a>.</p></li>
-<li><p>Unless stated otherwise, floating-point operations must adhere to IEEE 754-2019.</p></li>
-<li><p>Unless stated otherwise, element-wise mathematical functions must satisfy the minimum accuracy requirements defined in <a class="reference internal" href="../design_topics/accuracy.html#accuracy"><span class="std std-ref">Accuracy</span></a>.</p></li>
-</ul>
 <section id="objects-in-api">
 <h2 id="objects-in-api">Objects in API<a class="headerlink" href="#objects-in-api" title="Permalink to this headline">¶</a></h2>
 <table class="longtable docutils align-default">

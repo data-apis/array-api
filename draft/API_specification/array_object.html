@@ -540,15 +540,7 @@
 <blockquote>
 <div><p>Array API specification for array object attributes and methods.</p>
 </div></blockquote>
-<p>A conforming implementation of the array API standard must provide and support an array object having the following attributes and methods adhering to the following conventions.</p>
-<ul class="simple">
-<li><p>Positional parameters must be <a class="reference external" href="https://www.python.org/dev/peps/pep-0570/">positional-only</a> parameters. Positional-only parameters have no externally-usable name. When a method accepting positional-only parameters is called, positional arguments are mapped to these parameters based solely on their order.</p></li>
-<li><p>Optional parameters must be <a class="reference external" href="https://www.python.org/dev/peps/pep-3102/">keyword-only</a> arguments.</p></li>
-<li><p>Broadcasting semantics must follow the semantics defined in <a class="reference internal" href="broadcasting.html#broadcasting"><span class="std std-ref">Broadcasting</span></a>.</p></li>
-<li><p>Unless stated otherwise, methods must support the data types defined in <a class="reference internal" href="data_types.html#data-types"><span class="std std-ref">Data Types</span></a>.</p></li>
-<li><p>Unless stated otherwise, methods must adhere to the type promotion rules defined in <a class="reference internal" href="type_promotion.html#type-promotion"><span class="std std-ref">Type Promotion Rules</span></a>.</p></li>
-<li><p>Unless stated otherwise, floating-point operations must adhere to IEEE 754-2019.</p></li>
-</ul>
+<p>A conforming implementation of the array API standard must provide and support an array object having the following attributes and methods.</p>
 <p>Furthermore, a conforming implementation of the array API standard must support array objects of arbitrary rank <code class="docutils literal notranslate"><span class="pre">N</span></code> (i.e., number of dimensions), where <code class="docutils literal notranslate"><span class="pre">N</span></code> is greater than or equal to zero.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>

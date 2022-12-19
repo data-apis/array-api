@@ -5,14 +5,7 @@ Array object
 
     Array API specification for array object attributes and methods.
 
-A conforming implementation of the array API standard must provide and support an array object having the following attributes and methods adhering to the following conventions.
-
-*   Positional parameters must be `positional-only <https://www.python.org/dev/peps/pep-0570/>`_ parameters. Positional-only parameters have no externally-usable name. When a method accepting positional-only parameters is called, positional arguments are mapped to these parameters based solely on their order.
-*   Optional parameters must be `keyword-only <https://www.python.org/dev/peps/pep-3102/>`_ arguments.
-*   Broadcasting semantics must follow the semantics defined in :ref:`broadcasting`.
-*   Unless stated otherwise, methods must support the data types defined in :ref:`data-types`.
-*   Unless stated otherwise, methods must adhere to the type promotion rules defined in :ref:`type-promotion`.
-*   Unless stated otherwise, floating-point operations must adhere to IEEE 754-2019.
+A conforming implementation of the array API standard must provide and support an array object having the following attributes and methods.
 
 Furthermore, a conforming implementation of the array API standard must support array objects of arbitrary rank ``N`` (i.e., number of dimensions), where ``N`` is greater than or equal to zero.
 

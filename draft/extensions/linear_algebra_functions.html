@@ -314,8 +314,6 @@
               <ul class="md-nav__list">
         <li class="md-nav__item"><a href="#extension-name-and-usage" class="md-nav__link">Extension name and usage</a>
         </li>
-        <li class="md-nav__item"><a href="#general-syntax-and-semantics-rules" class="md-nav__link">General syntax and semantics rules</a>
-        </li>
         <li class="md-nav__item"><a href="#design-principles" class="md-nav__link">Design Principles</a>
         </li>
         <li class="md-nav__item"><a href="#objects-in-api" class="md-nav__link">Objects in API</a>
@@ -345,18 +343,6 @@
 <span class="gp">&gt;&gt;&gt; </span>   <span class="c1"># Use `xp.linalg`</span>
 </pre></div>
 </div>
-</section>
-<section id="general-syntax-and-semantics-rules">
-<h2 id="general-syntax-and-semantics-rules">General syntax and semantics rules<a class="headerlink" href="#general-syntax-and-semantics-rules" title="Permalink to this headline">¶</a></h2>
-<p>A conforming implementation of the array API standard must provide and support the following functions adhering to the following conventions.</p>
-<ul class="simple">
-<li><p>Positional parameters must be <a class="reference external" href="https://www.python.org/dev/peps/pep-0570/">positional-only</a> parameters. Positional-only parameters have no externally-usable name. When a function accepting positional-only parameters is called, positional arguments are mapped to these parameters based solely on their order.</p></li>
-<li><p>Optional parameters must be <a class="reference external" href="https://www.python.org/dev/peps/pep-3102/">keyword-only</a> arguments.</p></li>
-<li><p>Broadcasting semantics must follow the semantics defined in <a class="reference internal" href="../API_specification/broadcasting.html#broadcasting"><span class="std std-ref">Broadcasting</span></a>.</p></li>
-<li><p>Unless stated otherwise, functions must support the data types defined in <a class="reference internal" href="../API_specification/data_types.html#data-types"><span class="std std-ref">Data Types</span></a>.</p></li>
-<li><p>Unless stated otherwise, functions must adhere to the type promotion rules defined in <a class="reference internal" href="../API_specification/type_promotion.html#type-promotion"><span class="std std-ref">Type Promotion Rules</span></a>.</p></li>
-<li><p>Unless stated otherwise, floating-point operations must adhere to IEEE 754-2019.</p></li>
-</ul>
 </section>
 <section id="design-principles">
 <h2 id="design-principles">Design Principles<a class="headerlink" href="#design-principles" title="Permalink to this headline">¶</a></h2>
@@ -421,6 +407,7 @@
 </section>
 <section id="objects-in-api">
 <h2 id="objects-in-api">Objects in API<a class="headerlink" href="#objects-in-api" title="Permalink to this headline">¶</a></h2>
+<p>A conforming implementation of this <code class="docutils literal notranslate"><span class="pre">linalg</span></code> extension must provide and support the following functions.</p>
 <table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%"/>

@@ -454,6 +454,17 @@
             
   <section id="api-specification">
 <span id="id1"></span><h1 id="api-specification-index--page-root">API specification<a class="headerlink" href="#api-specification-index--page-root" title="Permalink to this headline">¶</a></h1>
+<p>A conforming implementation of the array API standard must provide and support the APIs and behavior detailed in this specification while adhering to the following conventions.</p>
+<ul class="simple">
+<li><p>When a function signature includes a <code class="code docutils literal notranslate"><span class="pre">/</span></code>, positional parameters must be <a class="reference external" href="https://www.python.org/dev/peps/pep-0570/">positional-only</a> parameters. See <a class="reference internal" href="function_and_method_signatures.html#function-and-method-signatures"><span class="std std-ref">Function and method signatures</span></a>.</p></li>
+<li><p>When a function signature includes a <code class="code docutils literal notranslate"><span class="pre">*</span></code>, optional parameters must be <a class="reference external" href="https://www.python.org/dev/peps/pep-3102/">keyword-only</a> arguments. See <a class="reference internal" href="function_and_method_signatures.html#function-and-method-signatures"><span class="std std-ref">Function and method signatures</span></a>.</p></li>
+<li><p>Broadcasting semantics must follow the semantics defined in <a class="reference internal" href="broadcasting.html#broadcasting"><span class="std std-ref">Broadcasting</span></a>.</p></li>
+<li><p>Unless stated otherwise, functions must support the data types defined in <a class="reference internal" href="data_types.html#data-types"><span class="std std-ref">Data Types</span></a>.</p></li>
+<li><p>Functions may only be required for a subset of input data types. Libraries may choose to implement functions for additional data types, but that behavior is not required by the specification. See <a class="reference internal" href="data_types.html#data-type-categories"><span class="std std-ref">Data Type Categories</span></a>.</p></li>
+<li><p>Unless stated otherwise, functions must adhere to the type promotion rules defined in <a class="reference internal" href="type_promotion.html#type-promotion"><span class="std std-ref">Type Promotion Rules</span></a>.</p></li>
+<li><p>Unless stated otherwise, floating-point operations must adhere to IEEE 754-2019.</p></li>
+<li><p>Unless stated otherwise, element-wise mathematical functions must satisfy the minimum accuracy requirements defined in <a class="reference internal" href="../design_topics/accuracy.html#accuracy"><span class="std std-ref">Accuracy</span></a>.</p></li>
+</ul>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">API specification</span></p>
 <ul>
