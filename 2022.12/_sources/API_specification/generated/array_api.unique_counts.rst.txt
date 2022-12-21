@@ -1,0 +1,6 @@
+﻿.. currentmodule:: array_api
+
+unique_counts
+=============
+
+.. autofunction:: unique_counts

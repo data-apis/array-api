@@ -1,0 +1,6 @@
+﻿.. currentmodule:: array_api
+
+full_like
+=========
+
+.. autofunction:: full_like

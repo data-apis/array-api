@@ -1,6 +1,0 @@
-﻿.. currentmodule:: signatures.array_object
-
-__lshift__
-==========
-
-.. automethod:: array.__lshift__

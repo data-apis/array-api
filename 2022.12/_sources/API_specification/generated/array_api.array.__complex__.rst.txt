@@ -1,0 +1,6 @@
+﻿.. currentmodule:: array_api
+
+__complex__
+===========
+
+.. automethod:: array.__complex__

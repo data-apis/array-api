@@ -1,0 +1,6 @@
+﻿.. currentmodule:: array_api
+
+__lshift__
+==========
+
+.. automethod:: array.__lshift__

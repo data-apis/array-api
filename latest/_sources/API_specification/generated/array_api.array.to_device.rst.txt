@@ -1,0 +1,6 @@
+﻿.. currentmodule:: array_api
+
+to_device
+=========
+
+.. automethod:: array.to_device

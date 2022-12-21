@@ -1,0 +1,6 @@
+﻿.. currentmodule:: array_api
+
+__lt__
+======
+
+.. automethod:: array.__lt__

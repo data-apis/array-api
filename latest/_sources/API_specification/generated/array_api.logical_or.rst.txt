@@ -1,0 +1,6 @@
+﻿.. currentmodule:: array_api
+
+logical_or
+==========
+
+.. autofunction:: logical_or

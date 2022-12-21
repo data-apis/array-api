@@ -1,0 +1,689 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="lang:clipboard.copy" content="Copy to clipboard">
+  <meta name="lang:clipboard.copied" content="Copied to clipboard">
+  <meta name="lang:search.language" content="en">
+  <meta name="lang:search.pipeline.stopwords" content="True">
+  <meta name="lang:search.pipeline.trimmer" content="True">
+  <meta name="lang:search.result.none" content="No matching documents">
+  <meta name="lang:search.result.one" content="1 matching document">
+  <meta name="lang:search.result.other" content="# matching documents">
+  <meta name="lang:search.tokenizer" content="[\s\-]+">
+
+  
+    <link href="https://fonts.gstatic.com/" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700|Roboto:300,400,400i,700&display=fallback" rel="stylesheet">
+
+    <style>
+      body,
+      input {
+        font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif
+      }
+
+      code,
+      kbd,
+      pre {
+        font-family: "Roboto Mono", "Courier New", Courier, monospace
+      }
+    </style>
+  
+
+  <link rel="stylesheet" href="_static/stylesheets/application.css"/>
+  <link rel="stylesheet" href="_static/stylesheets/application-palette.css"/>
+  <link rel="stylesheet" href="_static/stylesheets/application-fixes.css"/>
+  
+  <link rel="stylesheet" href="_static/fonts/material-icons.css"/>
+  
+  <meta name="theme-color" content="#2196f3">
+  <script src="_static/javascripts/modernizr.js"></script>
+  
+  
+    <link rel="apple-touch-icon" href="_static/images/apple-icon-152x152.png"/>
+  
+  
+    <title>Changelog per API standard version &#8212; Python array API standard 2022.12 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/material.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="License" href="license.html" />
+    <link rel="prev" title="Benchmark suite" href="benchmark_suite.html" />
+  
+    <link rel="apple-touch-icon" href="_static/images/apple-icon-152x152.png"/>
+  
+   
+
+  </head>
+  <body dir=ltr
+        data-md-color-primary=indigo data-md-color-accent=green>
+  
+  <svg class="md-svg">
+    <defs data-children-count="0">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+      
+    </defs>
+  </svg>
+  
+  <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer">
+  <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search">
+  <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+  <a href="#changelog" tabindex="1" class="md-skip"> Skip to content </a>
+  <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex navheader">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="index.html" title="Python array API standard 2022.12 documentation"
+           class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">&#xe869</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          <span class="md-header-nav__topic">Python array API standard 2022.12</span>
+          <span class="md-header-nav__topic"> Changelog per API standard version </span>
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+        
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" action="search.html" method="GET" name="search">
+      <input type="text" class="md-search__input" name="q" placeholder="Search"
+             autocapitalize="off" autocomplete="off" spellcheck="false"
+             data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      </div>
+      
+      
+  
+  <script src="_static/javascripts/version_dropdown.js"></script>
+  <script>
+    var json_loc = "../versions.json",
+        target_loc = "../",
+        text = "Versions";
+    $( document ).ready( add_version_dropdown(json_loc, target_loc, text));
+  </script>
+  
+
+    </div>
+  </nav>
+</header>
+
+  
+  <div class="md-container">
+    
+    
+    
+  <nav class="md-tabs" data-md-component="tabs">
+    <div class="md-tabs__inner md-grid">
+      <ul class="md-tabs__list">
+            
+            <li class="md-tabs__item"><a href="index.html" class="md-tabs__link">Array API standard</a></li>
+            
+            <li class="md-tabs__item"><a href="https://data-apis.org" class="md-tabs__link">Consortium for Python Data API Standards</a></li>
+      </ul>
+    </div>
+  </nav>
+    <main class="md-main">
+      <div class="md-main__inner md-grid" data-md-component="container">
+        
+          <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="index.html" title="Python array API standard 2022.12 documentation" class="md-nav__button md-logo">
+      
+        <i class="md-icon">&#xe869</i>
+      
+    </a>
+    <a href="index.html"
+       title="Python array API standard 2022.12 documentation">Python array API standard 2022.12</a>
+  </label>
+  
+
+  
+  <ul class="md-nav__list">
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">Context</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="purpose_and_scope.html" class="md-nav__link">Purpose and scope</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="use_cases.html" class="md-nav__link">Use cases</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="assumptions.html" class="md-nav__link">Assumptions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">API</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="design_topics/index.html" class="md-nav__link">Design topics & constraints</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="future_API_evolution.html" class="md-nav__link">Future API standard evolution</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="API_specification/index.html" class="md-nav__link">API specification</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="extensions/index.html" class="md-nav__link">Extensions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">Methodology and Usage</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="usage_data.html" class="md-nav__link">Usage Data</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="verification_test_suite.html" class="md-nav__link">Verification - test suite</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="benchmark_suite.html" class="md-nav__link">Benchmark suite</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">Other</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    <label class="md-nav__link md-nav__link--active" for="__toc"> Changelog per API standard version </label>
+    
+      <a href="#" class="md-nav__link md-nav__link--active">Changelog per API standard version</a>
+      
+        
+<nav class="md-nav md-nav--secondary">
+    <label class="md-nav__title" for="__toc">Contents</label>
+  <ul class="md-nav__list" data-md-scrollfix="">
+        <li class="md-nav__item"><a href="#changelog--page-root" class="md-nav__link">Changelog per API standard version</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#changelog" class="md-nav__link">Changelog</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#v2022-12" class="md-nav__link">v2022.12</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#updates" class="md-nav__link">Updates</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#apis" class="md-nav__link">APIs</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#complex-number-support" class="md-nav__link">Complex Number Support</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#extensions" class="md-nav__link">Extensions</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#id1" class="md-nav__link">Complex Number Support</a>
+        </li></ul>
+            </nav>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#additions" class="md-nav__link">Additions</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#data-types" class="md-nav__link">Data Types</a>
+        </li>
+        <li class="md-nav__item"><a href="#id2" class="md-nav__link">APIs</a>
+        </li>
+        <li class="md-nav__item"><a href="#id3" class="md-nav__link">Extensions</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#errata" class="md-nav__link">Errata</a>
+        </li></ul>
+            </nav>
+        </li></ul>
+            </nav>
+        </li></ul>
+            </nav>
+        </li>
+  </ul>
+</nav>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="#changelog" class="md-nav__link">Changelog</a>
+      
+    
+    </li></ul>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="license.html" class="md-nav__link">License</a>
+      
+    
+    </li>
+  </ul>
+  
+
+</nav>
+              </div>
+            </div>
+          </div>
+          <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                
+<nav class="md-nav md-nav--secondary">
+    <label class="md-nav__title" for="__toc">Contents</label>
+  <ul class="md-nav__list" data-md-scrollfix="">
+        <li class="md-nav__item"><a href="#changelog--page-root" class="md-nav__link">Changelog per API standard version</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#changelog" class="md-nav__link">Changelog</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#v2022-12" class="md-nav__link">v2022.12</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#updates" class="md-nav__link">Updates</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#apis" class="md-nav__link">APIs</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#complex-number-support" class="md-nav__link">Complex Number Support</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#extensions" class="md-nav__link">Extensions</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#id1" class="md-nav__link">Complex Number Support</a>
+        </li></ul>
+            </nav>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#additions" class="md-nav__link">Additions</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#data-types" class="md-nav__link">Data Types</a>
+        </li>
+        <li class="md-nav__item"><a href="#id2" class="md-nav__link">APIs</a>
+        </li>
+        <li class="md-nav__item"><a href="#id3" class="md-nav__link">Extensions</a>
+        </li></ul>
+            </nav>
+        </li>
+        <li class="md-nav__item"><a href="#errata" class="md-nav__link">Errata</a>
+        </li></ul>
+            </nav>
+        </li></ul>
+            </nav>
+        </li></ul>
+            </nav>
+        </li>
+  </ul>
+</nav>
+              </div>
+            </div>
+          </div>
+        
+        <div class="md-content">
+          <article class="md-content__inner md-typeset" role="main">
+            
+  <section id="changelog-per-api-standard-version">
+<h1 id="changelog--page-root">Changelog per API standard version<a class="headerlink" href="#changelog--page-root" title="Permalink to this headline">¶</a></h1>
+<section id="changelog">
+<h2 id="changelog">Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><p>Specification changelog.</p>
+</div></blockquote>
+<p>This changelog is organized by specification version and notes all changes with respect to the previous version. Within the section for a specific version (e.g., v2022.12), separate sections are used for (a) changes to existing APIs and requirements, (b) new APIs and new requirements, and (c) errata.</p>
+<section id="v2022-12">
+<h3 id="v2022-12">v2022.12<a class="headerlink" href="#v2022-12" title="Permalink to this headline">¶</a></h3>
+<section id="updates">
+<h4 id="updates">Updates<a class="headerlink" href="#updates" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><p>Updates to existing APIs and requirements.</p>
+</div></blockquote>
+<section id="apis">
+<h5 id="apis">APIs<a class="headerlink" href="#apis" title="Permalink to this headline">¶</a></h5>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">__bool__</span></code>: add support for non-boolean data types (<a class="reference external" href="https://github.com/data-apis/array-api/pull/497">gh-497</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__dlpack__</span></code>: raise <code class="docutils literal notranslate"><span class="pre">BufferError</span></code> when data cannot be exported as DLPack (<a class="reference external" href="https://github.com/data-apis/array-api/pull/498">gh-498</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__float__</span></code>: add support for non-floating-point data types (<a class="reference external" href="https://github.com/data-apis/array-api/pull/497">gh-497</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__int__</span></code>: add support for non-integer data types (<a class="reference external" href="https://github.com/data-apis/array-api/pull/497">gh-497</a>)</p></li>
+</ul>
+<section id="complex-number-support">
+<h6 id="complex-number-support">Complex Number Support<a class="headerlink" href="#complex-number-support" title="Permalink to this headline">¶</a></h6>
+<p>The following APIs were updated to support arrays having complex floating-point data types:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">__abs__</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/546">gh-546</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__add__</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/525">gh-525</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__eq__</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/528">gh-528</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__matmul__</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/557">gh-557</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__mul__</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/551">gh-551</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__ne__</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/529">gh-529</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__neg__</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/448">gh-448</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__pos__</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/447">gh-447</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__pow__</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/537">gh-537</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__sub__</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/526">gh-526</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__truediv__</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/554">gh-554</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">abs</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/546">gh-546</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">acos</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/517">gh-517</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">acosh</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/520">gh-520</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">add</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/525">gh-525</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">asin</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/521">gh-521</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">asinh</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/522">gh-522</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">atan</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/523">gh-523</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">atanh</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/524">gh-524</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">all</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/442">gh-442</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">any</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/442">gh-442</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">asarray</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/434">gh-434</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">astype</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/445">gh-445</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cos</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/454">gh-454</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">cosh</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/453">gh-453</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">divide</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/554">gh-554</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">equal</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/528">gh-528</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">eye</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/436">gh-436</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">exp</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/451">gh-451</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">expm1</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/452">gh-452</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">finfo</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/484">gh-484</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">full</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/435">gh-435</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">full_like</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/435">gh-435</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">isfinite</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/531">gh-531</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">isinf</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/530">gh-530</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">isnan</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/532">gh-532</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">linspace</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/568">gh-568</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">log</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/514">gh-514</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">log1p</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/534">gh-534</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">log10</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/536">gh-536</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">log2</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/535">gh-535</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">matmul</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/557">gh-557</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">meshgrid</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/437">gh-437</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">multiply</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/551">gh-551</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">negative</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/448">gh-448</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nonzero</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/441">gh-441</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">not_equal</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/529">gh-529</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ones</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/438">gh-438</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ones_like</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/438">gh-438</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">positive</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/447">gh-447</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pow</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/537">gh-537</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">prod</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/553">gh-553</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">round</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/440">gh-440</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sign</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/556">gh-556</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sin</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/457">gh-457</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sinh</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/456">gh-456</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">square</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/552">gh-552</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sqrt</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/461">gh-461</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">subtract</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/526">gh-526</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sum</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/538">gh-538</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tan</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/459">gh-459</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tanh</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/458">gh-458</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">tensordot</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/558">gh-558</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">unique_all</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/540">gh-540</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">unique_counts</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/540">gh-540</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">unique_inverse</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/540">gh-540</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">unique_values</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/540">gh-540</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vecdot</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/512">gh-512</a>)</p></li>
+</ul>
+</section>
+</section>
+<section id="extensions">
+<h5 id="extensions">Extensions<a class="headerlink" href="#extensions" title="Permalink to this headline">¶</a></h5>
+<blockquote>
+<div><p>Updates to APIs and requirements included as part of specification extensions.</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>Mechanism by which to access extension APIs (<a class="reference external" href="https://github.com/data-apis/array-api/pull/470">gh-470</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">linalg.cross</span></code>: add support for broadcasting (<a class="reference external" href="https://github.com/data-apis/array-api/pull/417">gh-417</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">linalg.trace</span></code>: add support for specifying output array data type (<a class="reference external" href="https://github.com/data-apis/array-api/pull/502">gh-502</a>)</p></li>
+</ul>
+<section id="id1">
+<h6 id="id1">Complex Number Support<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h6>
+<p>The following APIs were updated to support arrays having complex floating-point data types:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">linalg.cholesky</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/443">gh-443</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">linalg.cross</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/559">gh-559</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">linalg.det</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/542">gh-542</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">linalg.eigh</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/543">gh-543</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">linalg.eigvalsh</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/543">gh-543</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">linalg.inv</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/547">gh-547</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">linalg.matrix_norm</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/565">gh-565</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">linalg.matrix_power</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/549">gh-549</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">linalg.matrix_rank</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/563">gh-563</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">linalg.outer</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/560">gh-560</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">linalg.pinv</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/564">gh-564</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">linalg.qr</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/548">gh-548</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">linalg.slogdet</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/567">gh-567</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">linalg.solve</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/566">gh-566</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">linalg.svd</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/561">gh-561</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">linalg.svdvals</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/562">gh-562</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">linalg.trace</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/541">gh-541</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">linalg.vector_norm</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/550">gh-550</a>)</p></li>
+</ul>
+</section>
+</section>
+</section>
+<hr class="docutils"/>
+<section id="additions">
+<h4 id="additions">Additions<a class="headerlink" href="#additions" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><p>New APIs and requirements added to the specification.</p>
+</div></blockquote>
+<section id="data-types">
+<h5 id="data-types">Data Types<a class="headerlink" href="#data-types" title="Permalink to this headline">¶</a></h5>
+<p>The following data types were added to the specification:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">complex64</span></code>: single-precision complex floating-point numbers (<a class="reference external" href="https://github.com/data-apis/array-api/pull/418">gh-418</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">complex128</span></code>: double-precision complex floating-point numbers (<a class="reference external" href="https://github.com/data-apis/array-api/pull/418">gh-418</a>)</p></li>
+</ul>
+<p>To support complex floating-point numbers, the following requirements were added to the specification:</p>
+<ul class="simple">
+<li><p>Type promotion rules: real-complex and complex-complex data type promotion guidance (<a class="reference external" href="https://github.com/data-apis/array-api/pull/491">gh-491</a>)</p></li>
+<li><p>Guidance for mixing arrays and Python <code class="docutils literal notranslate"><span class="pre">complex</span></code> scalars (<a class="reference external" href="https://github.com/data-apis/array-api/pull/513">gh-513</a>)</p></li>
+<li><p>Guidance for data type variability across devices (<a class="reference external" href="https://github.com/data-apis/array-api/pull/515">gh-515</a>)</p></li>
+<li><p>Guidance for complex number ordering (<a class="reference external" href="https://github.com/data-apis/array-api/pull/527">gh-527</a>)</p></li>
+<li><p>Guidance for complex number equality (<a class="reference external" href="https://github.com/data-apis/array-api/pull/528">gh-528</a>)</p></li>
+<li><p>Guidance for value-based promotion when results are outside of their real domain (<a class="reference external" href="https://github.com/data-apis/array-api/pull/573">gh-573</a>)</p></li>
+</ul>
+<p><strong>note</strong>: conforming implementations must define a default complex floating-point data type.</p>
+</section>
+<section id="id2">
+<h5 id="id2">APIs<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h5>
+<p>The following APIs were added to the specification:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">__array_api_version__</span></code>: string representing the version of the array API specification (<a class="reference external" href="https://github.com/data-apis/array-api/pull/480">gh-480</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__complex__</span></code>: convert a zero-dimensional array to a Python <code class="docutils literal notranslate"><span class="pre">complex</span></code> object (<a class="reference external" href="https://github.com/data-apis/array-api/pull/497">gh-497</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">conj</span></code>: return the complex conjugate of a complex number (<a class="reference external" href="https://github.com/data-apis/array-api/pull/446">gh-446</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">finfo.dtype</span></code>: floating-point data type (<a class="reference external" href="https://github.com/data-apis/array-api/pull/485">gh-485</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">iinfo.dtype</span></code>: integer data type (<a class="reference external" href="https://github.com/data-apis/array-api/pull/485">gh-485</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">imag</span></code>: return the imaginary component of a complex number (<a class="reference external" href="https://github.com/data-apis/array-api/pull/496">gh-496</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">isdtype</span></code>: test whether a provided <code class="docutils literal notranslate"><span class="pre">dtype</span></code> is of a specified data type kind (<a class="reference external" href="https://github.com/data-apis/array-api/pull/503">gh-503</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">real</span></code>: return the real component of a complex number (<a class="reference external" href="https://github.com/data-apis/array-api/pull/427">gh-427</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">take</span></code>: return elements of an array along a specified axis (<a class="reference external" href="https://github.com/data-apis/array-api/pull/416">gh-416</a>)</p></li>
+</ul>
+</section>
+<section id="id3">
+<h5 id="id3">Extensions<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h5>
+<p>The following optional extensions were added to the specification:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">fft</span></code>: Fast Fourier Transforms (FFT) (<a class="reference external" href="https://github.com/data-apis/array-api/pull/189">gh-189</a>)</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>  - `fft`
+  - `ifft`
+  - `fftn`
+  - `ifftn`
+  - `rfft`
+  - `rfftn`
+  - `irfft`
+  - `irfttn`
+  - `fftfreq`
+  - `rfftfreq`
+  - `fftshift`
+  - `ifftshift`
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+</section>
+<hr class="docutils"/>
+<section id="errata">
+<h4 id="errata">Errata<a class="headerlink" href="#errata" title="Permalink to this headline">¶</a></h4>
+<p>The following is a list of fixes and points of clarification with regard to the previous version of the specification:</p>
+<ul class="simple">
+<li><p>Missing <code class="docutils literal notranslate"><span class="pre">self</span></code> parameter for array object properties (<a class="reference external" href="https://github.com/data-apis/array-api/pull/464">gh-464</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">__setitem__</span></code>: clarify that in-place element-wise operations must not change the shape of the in-place array as a result of broadcasting (<a class="reference external" href="https://github.com/data-apis/array-api/pull/429">gh-429</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">full</span></code>: missing type annotation for <code class="docutils literal notranslate"><span class="pre">bool</span></code> fill values (<a class="reference external" href="https://github.com/data-apis/array-api/pull/435">gh-435</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">full_like</span></code>: missing type annotation for <code class="docutils literal notranslate"><span class="pre">bool</span></code> fill values (<a class="reference external" href="https://github.com/data-apis/array-api/pull/435">gh-435</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">iinfo</span></code>: fix typo in description (<a class="reference external" href="https://github.com/data-apis/array-api/pull/439">gh-439</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">linalg.eigh</span></code>: fix input data type to allow non-floating-point data types for backward compat in alignment with other <code class="docutils literal notranslate"><span class="pre">linalg</span></code> APIs (<a class="reference external" href="https://github.com/data-apis/array-api/pull/572">gh-572</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">linalg.eigvalsh</span></code>: fix input data type to allow non-floating-point data types for backward compat in alignment with other <code class="docutils literal notranslate"><span class="pre">linalg</span></code> APIs (<a class="reference external" href="https://github.com/data-apis/array-api/pull/572">gh-572</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">linalg.matrix_rank</span></code>: fix return data type (<a class="reference external" href="https://github.com/data-apis/array-api/pull/510">gh-510</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">linalg.trace</span></code>: clarify special cases for floating-point operands and the empty sum (<a class="reference external" href="https://github.com/data-apis/array-api/pull/502">gh-502</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">linspace</span></code>: conversion of <code class="docutils literal notranslate"><span class="pre">start</span></code> and <code class="docutils literal notranslate"><span class="pre">stop</span></code> should follow type promotion rules (<a class="reference external" href="https://github.com/data-apis/array-api/pull/568">gh-568</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">nonzero</span></code>: clarify that, for arrays having a boolean data type, non-zero elements are those elements which equal <code class="docutils literal notranslate"><span class="pre">True</span></code> (<a class="reference external" href="https://github.com/data-apis/array-api/pull/441">gh-441</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">trunc</span></code>: fix description (<a class="reference external" href="https://github.com/data-apis/array-api/pull/511">gh-511</a>)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">vecdot</span></code>: clarify broadcasting behavior (<a class="reference external" href="https://github.com/data-apis/array-api/pull/417">gh-417</a> and <a class="reference external" href="https://github.com/data-apis/array-api/pull/473">gh-473</a>)</p></li>
+</ul>
+</section>
+</section>
+</section>
+</section>
+
+
+          </article>
+        </div>
+      </div>
+    </main>
+  </div>
+  <footer class="md-footer">
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+          
+            <a href="benchmark_suite.html" title="Benchmark suite"
+               class="md-flex md-footer-nav__link md-footer-nav__link--prev"
+               rel="prev">
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+              </div>
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span
+                      class="md-footer-nav__direction"> Previous </span> Benchmark suite </span>
+              </div>
+            </a>
+          
+          
+            <a href="license.html" title="License"
+               class="md-flex md-footer-nav__link md-footer-nav__link--next"
+               rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
+                class="md-flex__ellipsis"> <span
+                class="md-footer-nav__direction"> Next </span> License </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink"><i
+                class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          
+        </a>
+        
+      </nav>
+    </div>
+    <div class="md-footer-meta md-typeset">
+      <div class="md-footer-meta__inner md-grid">
+        <div class="md-footer-copyright">
+          <div class="md-footer-copyright__highlight">
+              &#169; Copyright 2020-2022, Consortium for Python Data API Standards.
+              
+          </div>
+            Created using
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.3.0.
+             and
+            <a href="https://github.com/bashtage/sphinx-material/">Material for
+              Sphinx</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="_static/javascripts/application.js"></script>
+  <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
+  </body>
+</html>

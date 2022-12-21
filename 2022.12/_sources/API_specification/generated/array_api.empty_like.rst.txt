@@ -1,0 +1,6 @@
+﻿.. currentmodule:: array_api
+
+empty_like
+==========
+
+.. autofunction:: empty_like

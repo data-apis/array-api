@@ -1,0 +1,514 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="lang:clipboard.copy" content="Copy to clipboard">
+  <meta name="lang:clipboard.copied" content="Copied to clipboard">
+  <meta name="lang:search.language" content="en">
+  <meta name="lang:search.pipeline.stopwords" content="True">
+  <meta name="lang:search.pipeline.trimmer" content="True">
+  <meta name="lang:search.result.none" content="No matching documents">
+  <meta name="lang:search.result.one" content="1 matching document">
+  <meta name="lang:search.result.other" content="# matching documents">
+  <meta name="lang:search.tokenizer" content="[\s\-]+">
+
+  
+    <link href="https://fonts.gstatic.com/" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700|Roboto:300,400,400i,700&display=fallback" rel="stylesheet">
+
+    <style>
+      body,
+      input {
+        font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif
+      }
+
+      code,
+      kbd,
+      pre {
+        font-family: "Roboto Mono", "Courier New", Courier, monospace
+      }
+    </style>
+  
+
+  <link rel="stylesheet" href="../_static/stylesheets/application.css"/>
+  <link rel="stylesheet" href="../_static/stylesheets/application-palette.css"/>
+  <link rel="stylesheet" href="../_static/stylesheets/application-fixes.css"/>
+  
+  <link rel="stylesheet" href="../_static/fonts/material-icons.css"/>
+  
+  <meta name="theme-color" content="#2196f3">
+  <script src="../_static/javascripts/modernizr.js"></script>
+  
+  
+    <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
+  
+  
+    <title>Complex Numbers &#8212; Python array API standard 2022.12 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/material.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]]}}</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="C API" href="C_API.html" />
+    <link rel="prev" title="Accuracy" href="accuracy.html" />
+  
+    <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
+  
+   
+
+  </head>
+  <body dir=ltr
+        data-md-color-primary=indigo data-md-color-accent=green>
+  
+  <svg class="md-svg">
+    <defs data-children-count="0">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+      
+    </defs>
+  </svg>
+  
+  <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer">
+  <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search">
+  <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+  <a href="#design_topics/complex_numbers" tabindex="1" class="md-skip"> Skip to content </a>
+  <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex navheader">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../index.html" title="Python array API standard 2022.12 documentation"
+           class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">&#xe869</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          <span class="md-header-nav__topic">Python array API standard 2022.12</span>
+          <span class="md-header-nav__topic"> Complex Numbers </span>
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+        
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" action="../search.html" method="GET" name="search">
+      <input type="text" class="md-search__input" name="q" placeholder="Search"
+             autocapitalize="off" autocomplete="off" spellcheck="false"
+             data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      </div>
+      
+      
+  
+  <script src="../_static/javascripts/version_dropdown.js"></script>
+  <script>
+    var json_loc = "../../versions.json",
+        target_loc = "../../",
+        text = "Versions";
+    $( document ).ready( add_version_dropdown(json_loc, target_loc, text));
+  </script>
+  
+
+    </div>
+  </nav>
+</header>
+
+  
+  <div class="md-container">
+    
+    
+    
+  <nav class="md-tabs" data-md-component="tabs">
+    <div class="md-tabs__inner md-grid">
+      <ul class="md-tabs__list">
+            
+            <li class="md-tabs__item"><a href="../index.html" class="md-tabs__link">Array API standard</a></li>
+            
+            <li class="md-tabs__item"><a href="https://data-apis.org" class="md-tabs__link">Consortium for Python Data API Standards</a></li>
+          <li class="md-tabs__item"><a href="index.html" class="md-tabs__link">Design topics &amp; constraints</a></li>
+      </ul>
+    </div>
+  </nav>
+    <main class="md-main">
+      <div class="md-main__inner md-grid" data-md-component="container">
+        
+          <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../index.html" title="Python array API standard 2022.12 documentation" class="md-nav__button md-logo">
+      
+        <i class="md-icon">&#xe869</i>
+      
+    </a>
+    <a href="../index.html"
+       title="Python array API standard 2022.12 documentation">Python array API standard 2022.12</a>
+  </label>
+  
+
+  
+  <ul class="md-nav__list">
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">Context</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../purpose_and_scope.html" class="md-nav__link">Purpose and scope</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../use_cases.html" class="md-nav__link">Use cases</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../assumptions.html" class="md-nav__link">Assumptions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">API</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="index.html" class="md-nav__link">Design topics & constraints</a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="copies_views_and_mutation.html" class="md-nav__link">Copy-view behaviour and mutability</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="data_dependent_output_shapes.html" class="md-nav__link">Data-dependent output shapes</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="data_interchange.html" class="md-nav__link">Data interchange mechanisms</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="device_support.html" class="md-nav__link">Device support</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="static_typing.html" class="md-nav__link">Static typing</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="accuracy.html" class="md-nav__link">Accuracy</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    <label class="md-nav__link md-nav__link--active" for="__toc"> Complex Numbers </label>
+    
+      <a href="#" class="md-nav__link md-nav__link--active">Complex Numbers</a>
+      
+        
+<nav class="md-nav md-nav--secondary">
+    <label class="md-nav__title" for="__toc">Contents</label>
+  <ul class="md-nav__list" data-md-scrollfix="">
+        <li class="md-nav__item"><a href="#design-topics-complex-numbers--page-root" class="md-nav__link">Complex Numbers</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#the-complex-plane" class="md-nav__link">The Complex Plane</a>
+        </li>
+        <li class="md-nav__item"><a href="#branch-cuts" class="md-nav__link">Branch Cuts</a>
+        </li>
+        <li class="md-nav__item"><a href="#complex-number-ordering" class="md-nav__link">Complex Number Ordering</a>
+        </li>
+        <li class="md-nav__item"><a href="#valued-based-promotion" class="md-nav__link">Valued-based Promotion</a>
+        </li></ul>
+            </nav>
+        </li>
+  </ul>
+</nav>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="C_API.html" class="md-nav__link">C API</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="parallelism.html" class="md-nav__link">Parallelism</a>
+      
+    
+    </li></ul>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../future_API_evolution.html" class="md-nav__link">Future API standard evolution</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../API_specification/index.html" class="md-nav__link">API specification</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../extensions/index.html" class="md-nav__link">Extensions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">Methodology and Usage</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../usage_data.html" class="md-nav__link">Usage Data</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../verification_test_suite.html" class="md-nav__link">Verification - test suite</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../benchmark_suite.html" class="md-nav__link">Benchmark suite</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">Other</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../changelog.html" class="md-nav__link">Changelog per API standard version</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../license.html" class="md-nav__link">License</a>
+      
+    
+    </li>
+  </ul>
+  
+
+</nav>
+              </div>
+            </div>
+          </div>
+          <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                
+<nav class="md-nav md-nav--secondary">
+    <label class="md-nav__title" for="__toc">Contents</label>
+  <ul class="md-nav__list" data-md-scrollfix="">
+        <li class="md-nav__item"><a href="#design-topics-complex-numbers--page-root" class="md-nav__link">Complex Numbers</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#the-complex-plane" class="md-nav__link">The Complex Plane</a>
+        </li>
+        <li class="md-nav__item"><a href="#branch-cuts" class="md-nav__link">Branch Cuts</a>
+        </li>
+        <li class="md-nav__item"><a href="#complex-number-ordering" class="md-nav__link">Complex Number Ordering</a>
+        </li>
+        <li class="md-nav__item"><a href="#valued-based-promotion" class="md-nav__link">Valued-based Promotion</a>
+        </li></ul>
+            </nav>
+        </li>
+  </ul>
+</nav>
+              </div>
+            </div>
+          </div>
+        
+        <div class="md-content">
+          <article class="md-content__inner md-typeset" role="main">
+            
+  <section id="complex-numbers">
+<span id="id1"></span><h1 id="design-topics-complex-numbers--page-root">Complex Numbers<a class="headerlink" href="#design-topics-complex-numbers--page-root" title="Permalink to this headline">¶</a></h1>
+<section id="the-complex-plane">
+<h2 id="the-complex-plane">The Complex Plane<a class="headerlink" href="#the-complex-plane" title="Permalink to this headline">¶</a></h2>
+<p>Mathematically, equality comparison between complex numbers depends on the choice of topology. For example, the complex plane has a continuum of infinities; however, when the complex plane is projected onto the surface of a sphere (a stereographic projection commonly referred to as the <em>Riemann sphere</em>), infinities coalesce into a single <em>point at infinity</em>, thus modeling the extended complex plane. For the former, the value <span class="math notranslate nohighlight">\(\infty + 3j\)</span> is distinct from (i.e., does not equal) <span class="math notranslate nohighlight">\(\infty + 4j\)</span>, while, for the latter, <span class="math notranslate nohighlight">\(\infty + 3j\)</span> does equal <span class="math notranslate nohighlight">\(\infty + 4j\)</span>.</p>
+<p>Modeling complex numbers as a Riemann sphere conveys certain mathematical niceties (e.g., well-behaved division by zero and preservation of the identity <span class="math notranslate nohighlight">\(\frac{1}{\frac{1}{z}} = z\)</span>); however, translating the model to IEEE 754 floating-point operations can lead to some unexpected results. For example, according to IEEE 754, <span class="math notranslate nohighlight">\(+\infty\)</span> and <span class="math notranslate nohighlight">\(-\infty\)</span> are distinct values; hence, for equality comparison, if <span class="math notranslate nohighlight">\(x = +\infty\)</span> and <span class="math notranslate nohighlight">\(y = -\infty\)</span>, then <span class="math notranslate nohighlight">\(x \neq y\)</span>. In contrast, if we convert <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> to their complex number equivalents <span class="math notranslate nohighlight">\(x = +\infty + 0j\)</span> and <span class="math notranslate nohighlight">\(y = -\infty + 0j\)</span> and then interpret within the context of the extended complex plane, we arrive at the opposite result; namely, <span class="math notranslate nohighlight">\(x = y\)</span>.</p>
+<p>In short, given the constraints of floating-point arithmetic and the subtleties of signed zeros, infinities, NaNs, and their interaction, crafting a specification which always yields intuitive results and satisfies all use cases involving complex numbers is not possible. Instead, this specification attempts to follow precedent (e.g., C99, Python, Julia, NumPy, and elsewhere), while also minimizing surprise. The result is an imperfect balance in which certain APIs may appear to embrace the one-infinity model found in C/C++ for algebraic operations involving complex numbers (e.g., considering <span class="math notranslate nohighlight">\(\infty + \operatorname{NaN}\ j\)</span> to be infinite, irrespective of the imaginary component’s value, including NaN), while other APIs may rely on the complex plane with its multiplicity of infinities (e.g., in transcendental functions). Accordingly, consumers of this specification should expect that certain results involving complex numbers for one operation may not be wholly consistent with results involving complex numbers for another operation.</p>
+</section>
+<section id="branch-cuts">
+<span id="id2"></span><h2 id="branch-cuts">Branch Cuts<a class="headerlink" href="#branch-cuts" title="Permalink to this headline">¶</a></h2>
+<p>In the mathematical field of complex analysis, a <strong>branch cut</strong> is a curve in the complex plane across which an analytic multi-valued function is discontinuous. Branch cuts are often taken as lines or line segments, and the choice of any particular branch cut is a matter of convention.</p>
+<p>For example, consider the function <span class="math notranslate nohighlight">\(z^2\)</span> which maps a complex number <span class="math notranslate nohighlight">\(z\)</span> to a well-defined number <span class="math notranslate nohighlight">\(z^2\)</span>. The function’s inverse function <span class="math notranslate nohighlight">\(\sqrt{z}\)</span> does not, however, map to a single value. For example, for <span class="math notranslate nohighlight">\(z = 1\)</span>, <span class="math notranslate nohighlight">\(\sqrt{1} = \pm 1\)</span>. While one can choose a unique principal value for this and similar functions (e.g., in this case, the principal square root is <span class="math notranslate nohighlight">\(+1\)</span>), choices cannot be made continuous over the whole complex plane, as lines of discontinuity must occur. To handle discontinuities, one commonly adopts branch cuts, which are not, in general, unique. Instead, one chooses a branch cut as a matter of convention in order to give simple analytic properties.</p>
+<p>Branch cuts do not arise for single-valued trigonometric, hyperbolic, integer power, or exponential functions; however, branch cuts do arise for their multi-valued inverses.</p>
+<p>In contrast to real-valued floating-point numbers which have well-defined behavior as specified in IEEE 754, complex-valued floating-point numbers have no equivalent specification. Accordingly, this specification chooses to follow C99 conventions for special cases and branch cuts for those functions supporting complex numbers. For those functions which do not have C99 equivalents (e.g., linear algebra APIs), the specification relies on dominant conventions among existing array libraries.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>All branch cuts documented in this specification are considered <strong>provisional</strong>. While conforming implementations of the array API standard should adopt the branch cuts described in this standard, consumers of array API standard implementations should <strong>not</strong> assume that branch cuts are consistent between implementations.</p>
+<p>Provided no issues arise due to the choice of branch cut, the provisional status is likely to be removed in a future revision of this standard.</p>
+</div>
+</section>
+<section id="complex-number-ordering">
+<span id="id3"></span><h2 id="complex-number-ordering">Complex Number Ordering<a class="headerlink" href="#complex-number-ordering" title="Permalink to this headline">¶</a></h2>
+<p>Given a set <span class="math notranslate nohighlight">\(\{a_1, \ldots, a_n\}\)</span>, an order relation must satisfy the following properties:</p>
+<ol class="arabic simple">
+<li><p><strong>Reflexive</strong>: for any <span class="math notranslate nohighlight">\(a\)</span> in the set, <span class="math notranslate nohighlight">\(a \leq a\)</span>.</p></li>
+<li><p><strong>Transitive</strong>: for any <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(b\)</span>, and <span class="math notranslate nohighlight">\(c\)</span> in the set, if <span class="math notranslate nohighlight">\(a \leq b\)</span> and <span class="math notranslate nohighlight">\(b \leq c\)</span>, then <span class="math notranslate nohighlight">\(a \leq c\)</span>.</p></li>
+<li><p><strong>Antisymmetric</strong>: for any <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> in the set, if <span class="math notranslate nohighlight">\(a \leq b\)</span> and <span class="math notranslate nohighlight">\(b \leq a\)</span>, then <span class="math notranslate nohighlight">\(a = b\)</span>.</p></li>
+<li><p><strong>Total Order</strong>: in addition to the <em>partial order</em> established by 1-3, for any <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> in the set, either <span class="math notranslate nohighlight">\(a \leq b\)</span> or <span class="math notranslate nohighlight">\(b \leq a\)</span> (or both).</p></li>
+<li><p><strong>Compatible with Addition</strong>: for all <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(b\)</span>, and <span class="math notranslate nohighlight">\(c\)</span> in the set, if <span class="math notranslate nohighlight">\(a \leq b\)</span>, then <span class="math notranslate nohighlight">\(a + c \leq b + c\)</span>.</p></li>
+<li><p><strong>Compatible with Multiplication</strong>: for all <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(b\)</span>, and <span class="math notranslate nohighlight">\(c\)</span> in the set, if <span class="math notranslate nohighlight">\(a \leq b\)</span> and <span class="math notranslate nohighlight">\(0 \leq c\)</span>, then <span class="math notranslate nohighlight">\(ac \leq bc\)</span>.</p></li>
+</ol>
+<p>Defining an order relation for complex numbers which satisfies all six properties defined above is not possible. Accordingly, this specification does not require that a conforming implementation of the array API standard adopt any specific complex number order relation.</p>
+<p>In order to satisfy backward compatibility guarantees, conforming implementations of the array API standard may choose to define an ordering for complex numbers (e.g., lexicographic); however, consumers of the array API standard should <strong>not</strong> assume that complex number ordering is consistent between implementations or even supported.</p>
+<p>If a conforming implementation chooses to define an ordering for complex numbers, the ordering must be clearly documented.</p>
+</section>
+<section id="valued-based-promotion">
+<h2 id="valued-based-promotion">Valued-based Promotion<a class="headerlink" href="#valued-based-promotion" title="Permalink to this headline">¶</a></h2>
+<p>According to the type promotion rules described in this specification (see <a class="reference internal" href="../API_specification/type_promotion.html#type-promotion"><span class="std std-ref">Type Promotion Rules</span></a>), only the data types of the input arrays participating in an operation matter, not their values. The same principle applies to situations in which one or more results of operations on real-valued arrays are mathematically defined in the complex domain, but not in their real domain.</p>
+<p>By convention, the principal square root of <span class="math notranslate nohighlight">\(-1\)</span> is <span class="math notranslate nohighlight">\(j\)</span>, where <span class="math notranslate nohighlight">\(j\)</span> is the imaginary unit. Despite this convention, for those operations supporting type promotion, conforming implementations must only consider input array data types when determining the data type of the output array. For example, if a real-valued input array is provided to <a class="reference internal" href="../API_specification/generated/array_api.sqrt.html#array_api.sqrt" title="array_api.sqrt"><code class="xref py py-func docutils literal notranslate"><span class="pre">sqrt()</span></code></a>, the output array must also be real-valued, even if the input array contains negative values. Accordingly, if a consumer of a conforming implementation of this specification desires for an operation’s results to include the complex domain, the consumer should first cast the input array(s) to an appropriate complex floating-point data type before performing the operation.</p>
+</section>
+</section>
+
+
+          </article>
+        </div>
+      </div>
+    </main>
+  </div>
+  <footer class="md-footer">
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+          
+            <a href="accuracy.html" title="Accuracy"
+               class="md-flex md-footer-nav__link md-footer-nav__link--prev"
+               rel="prev">
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+              </div>
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span
+                      class="md-footer-nav__direction"> Previous </span> Accuracy </span>
+              </div>
+            </a>
+          
+          
+            <a href="C_API.html" title="C API"
+               class="md-flex md-footer-nav__link md-footer-nav__link--next"
+               rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
+                class="md-flex__ellipsis"> <span
+                class="md-footer-nav__direction"> Next </span> C API </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink"><i
+                class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          
+        </a>
+        
+      </nav>
+    </div>
+    <div class="md-footer-meta md-typeset">
+      <div class="md-footer-meta__inner md-grid">
+        <div class="md-footer-copyright">
+          <div class="md-footer-copyright__highlight">
+              &#169; Copyright 2020-2022, Consortium for Python Data API Standards.
+              
+          </div>
+            Created using
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.3.0.
+             and
+            <a href="https://github.com/bashtage/sphinx-material/">Material for
+              Sphinx</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="../_static/javascripts/application.js"></script>
+  <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
+  </body>
+</html>

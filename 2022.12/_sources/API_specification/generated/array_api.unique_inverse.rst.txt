@@ -1,0 +1,6 @@
+﻿.. currentmodule:: array_api
+
+unique_inverse
+==============
+
+.. autofunction:: unique_inverse

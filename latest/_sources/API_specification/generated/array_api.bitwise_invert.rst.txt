@@ -1,0 +1,6 @@
+﻿.. currentmodule:: array_api
+
+bitwise_invert
+==============
+
+.. autofunction:: bitwise_invert

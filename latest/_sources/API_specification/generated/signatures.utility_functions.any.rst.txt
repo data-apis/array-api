@@ -1,6 +1,0 @@
-﻿.. currentmodule:: signatures.utility_functions
-
-any
-===
-
-.. autofunction:: any
