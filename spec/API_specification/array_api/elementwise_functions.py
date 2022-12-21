@@ -80,7 +80,7 @@ def acos(x: array, /) -> array:
 
        Accordingly, for complex arguments, the function returns the inverse cosine in the range of a strip unbounded along the imaginary axis and in the interval :math:`[0, \pi]` along the real axis.
 
-       *Note: branch cuts have provisional status* (see :ref:`branch-cuts`).
+       *Note: branch cuts follow C99 and have provisional status* (see :ref:`branch-cuts`).
 
     Parameters
     ----------
@@ -151,7 +151,7 @@ def acosh(x: array, /) -> array:
 
        Accordingly, for complex arguments, the function returns the inverse hyperbolic cosine in the interval :math:`[0, \infty)` along the real axis and in the interval :math:`[-\pi j, +\pi j]` along the imaginary axis.
 
-       *Note: branch cuts have provisional status* (see :ref:`branch-cuts`).
+       *Note: branch cuts follow C99 and have provisional status* (see :ref:`branch-cuts`).
 
     Parameters
     ----------
@@ -282,7 +282,7 @@ def asin(x: array, /) -> array:
 
        Accordingly, for complex arguments, the function returns the inverse sine in the range of a strip unbounded along the imaginary axis and in the interval :math:`[-\pi/2, +\pi/2]` along the real axis.
 
-       *Note: branch cuts have provisional status* (see :ref:`branch-cuts`).
+       *Note: branch cuts follow C99 and have provisional status* (see :ref:`branch-cuts`).
 
     Parameters
     ----------
@@ -334,7 +334,7 @@ def asinh(x: array, /) -> array:
 
        Accordingly, for complex arguments, the function returns the inverse hyperbolic sine in the range of a strip unbounded along the real axis and in the interval :math:`[-\pi j/2, +\pi j/2]` along the imaginary axis.
 
-       *Note: branch cuts have provisional status* (see :ref:`branch-cuts`).
+       *Note: branch cuts follow C99 and have provisional status* (see :ref:`branch-cuts`).
 
     Parameters
     ----------
@@ -393,7 +393,7 @@ def atan(x: array, /) -> array:
 
        Accordingly, for complex arguments, the function returns the inverse tangent in the range of a strip unbounded along the imaginary axis and in the interval :math:`[-\pi/2, +\pi/2]` along the real axis.
 
-       *Note: branch cuts have provisional status* (see :ref:`branch-cuts`).
+       *Note: branch cuts follow C99 and have provisional status* (see :ref:`branch-cuts`).
 
     Parameters
     ----------
@@ -501,7 +501,7 @@ def atanh(x: array, /) -> array:
 
        Accordingly, for complex arguments, the function returns the inverse hyperbolic tangent in the range of a half-strip unbounded along the real axis and in the interval :math:`[-\pi j/2, +\pi j/2]` along the imaginary axis.
 
-       *Note: branch cuts have provisional status* (see :ref:`branch-cuts`).
+       *Note: branch cuts follow C99 and have provisional status* (see :ref:`branch-cuts`).
 
     Parameters
     ----------
@@ -1351,7 +1351,7 @@ def log(x: array, /) -> array:
 
        Accordingly, for complex arguments, the function returns the natural logarithm in the range of a strip in the interval :math:`[-\pi j, +\pi j]` along the imaginary axis and mathematically unbounded along the real axis.
 
-       *Note: branch cuts have provisional status* (see :ref:`branch-cuts`).
+       *Note: branch cuts follow C99 and have provisional status* (see :ref:`branch-cuts`).
 
     Parameters
     ----------
@@ -1410,7 +1410,7 @@ def log1p(x: array, /) -> array:
 
        Accordingly, for complex arguments, the function returns the natural logarithm in the range of a strip in the interval :math:`[-\pi j, +\pi j]` along the imaginary axis and mathematically unbounded along the real axis.
 
-       *Note: branch cuts have provisional status* (see :ref:`branch-cuts`).
+       *Note: branch cuts follow C99 and have provisional status* (see :ref:`branch-cuts`).
 
     Parameters
     ----------
@@ -1797,7 +1797,7 @@ def pow(x1: array, x2: array, /) -> array:
 
        The natural logarithm is a continuous function from above the branch cut, taking into account the sign of the imaginary component. As special cases involving complex floating-point operands should be handled according to ``exp(x2*log(x1))``, exponentiation has the same branch cut for ``x1`` as the natural logarithm (see :func:`~array_api.log`).
 
-       *Note: branch cuts have provisional status* (see :ref:`branch-cuts`).
+       *Note: branch cuts follow C99 and have provisional status* (see :ref:`branch-cuts`).
 
     Parameters
     ----------
@@ -2153,7 +2153,7 @@ def sqrt(x: array, /) -> array:
 
        Accordingly, for complex arguments, the function returns the square root in the range of the right half-plane, including the imaginary axis (i.e., the plane defined by :math:`[0, +\infty)` along the real axis and :math:`(-\infty, +\infty)` along the imaginary axis).
 
-       *Note: branch cuts have provisional status* (see :ref:`branch-cuts`).
+       *Note: branch cuts follow C99 and have provisional status* (see :ref:`branch-cuts`).
 
     Parameters
     ----------
