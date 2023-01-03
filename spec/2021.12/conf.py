@@ -18,11 +18,11 @@ sys.path.insert(0, os.path.abspath('./API_specification'))
 # -- Project information -----------------------------------------------------
 
 project = 'Python array API standard'
-copyright = '2020-2022, Consortium for Python Data API Standards'
+copyright = '2020, Consortium for Python Data API Standards'
 author = 'Consortium for Python Data API Standards'
 
 # The full version, including alpha/beta/rc tags
-release = '2022.12'
+release = '2021.12'
 
 
 # -- General configuration ---------------------------------------------------
@@ -40,8 +40,6 @@ extensions = [
     'sphinx.ext.autosummary',
     'sphinx.ext.napoleon',
     'sphinx.ext.autodoc',
-    'sphinx_math_dollar',
-    'sphinx.ext.mathjax'
 ]
 
 autosummary_generate = True
@@ -49,14 +47,6 @@ autodoc_typehints = 'signature'
 add_module_names = False
 napoleon_custom_sections = [('Returns', 'params_style')]
 default_role = 'code'
-
-# Mathjax configuration:
-mathjax3_config = {
-  "tex": {
-    "inlineMath": [['\\(', '\\)']],
-    "displayMath": [["\\[", "\\]"]],
-  }
-}
 
 # nitpicky = True makes Sphinx warn whenever a cross-reference target can't be
 # found.
@@ -207,9 +197,9 @@ extlinks = {
 
 def process_signature(app, what, name, obj, options, signature, return_annotation):
     if signature:
-        signature = signature.replace("array_api._types.", "")
+        signature = signature.replace("signatures._types.", "")
     if return_annotation:
-        return_annotation = return_annotation.replace("array_api._types.", "")
+        return_annotation = return_annotation.replace("signatures._types.", "")
     return signature, return_annotation
 
 def setup(app):
