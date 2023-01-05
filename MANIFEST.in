@@ -1,0 +1,3 @@
+exclude README.md
+exclude src/_array_api_conf.py
+include PACKAGE.md

@@ -76,22 +76,14 @@ jobs:
       # Install dependencies:
       - name: 'Install dependencies'
         run: |
-          pip install -r ./requirements.txt
+          pip install .[doc]
 
       # Generate the documentation:
       - name: 'Build documentation'
         run: |
           # Turn warnings into errors and ensure .doctrees is not deployed:
-          sphinx-build -b html -WT --keep-going spec build/draft -d doctrees
-
-      # Upload the build artifact:
-      - name: 'Upload build artifact'
-        uses: actions/upload-artifact@v2
-        if: ${{ github.event_name == 'pull_request'}}
-        with:
-          name: html
-          path: build/
-          if-no-files-found: error
+          export SPHINXOPTS="-b html -WT --keep-going -d doctrees"
+          make
 
       # Configure Git:
       - name: 'Configure Git'
@@ -107,10 +99,10 @@ jobs:
           git checkout gh-pages
         timeout-minutes: 5
 
-      # Copy build artifact:
-      - name: 'Copy build artifact'
+      - name: 'Copy build to root'
         run: |
-          rm -rf ./draft && cp -R ./build/draft ./draft
+          cp -R ./_site/* .
+          cp ./_site/.gitignore .
         timeout-minutes: 10
 
       # Commit changes to:

@@ -15,6 +15,122 @@ These are relevant documents related to the content in this repository:
 See [CONTRIBUTING.md](CONTRIBUTING.md) for how to go about contributing to
 this array API standard.
 
+
+## Building docs locally
+
+The spec website comprises of multiple Sphinx docs (one for each spec version),
+all of which exist in `spec/` and rely on the modules found in `src/` (most
+notably `array_api_stubs`). To install these modules and the additional
+dependencies of the Sphinx docs, you can use
+
+```sh
+$ pip install -e .[doc]  # ensure you install the dependencies extra "doc"
+```
+
+To build specific versions of the spec, run `sphinx-build` on the respective
+folder in `spec/`, e.g.
+
+```sh
+$ sphinx-build spec/draft/ _site/draft/
+```
+
+To build the whole website, which includes every version of
+the spec, you can utilize the `make` commands defined in `spec/Makefile`, e.g.
+
+```sh
+$ make
+$ ls _site/
+2021.12/  draft/  index.html  latest/  versions.json
+```
+
+
+## Making a spec release
+
+The Sphinx doc at `spec/draft/` should be where the in-development spec resides,
+with `src/array_api_stubs/_draft/` containing its respective stubs. A spec
+release should involve:
+
+* Renaming `src/array_api_stubs/_draft/` to `src/array_api_stubs/_YYYY_MM`
+* Renaming `spec/draft/` to `spec/YYYY.MM`
+* Updating `spec/YYYY.MM/conf.py`
+
+  ```diff
+  ...
+  - from array_api_stubs import _draft as stubs_mod
+  + from array_api_stubs import _YYYY_MM as stubs_mod
+  ...
+  - release = "DRAFT"
+  + release = "YYYY.MM"
+  ...
+  ```
+
+* Updating `spec/_ghpages/versions.json`
+
+  ```diff
+  {
+  +     "YYYY.MM": "YYYY.MM",
+  ...
+  ```
+
+* Updating `Makefile`
+
+  ```diff
+  ...
+  	-sphinx-build "$(SOURCEDIR)/PREVIOUS.VER" "$(BUILDDIR)/PREVIOUS.VER" $(SPHINXOPTS)
+  + 	-sphinx-build "$(SOURCEDIR)/YYYY.MM" "$(BUILDDIR)/YYYY.MM" $(SPHINXOPTS)
+  - 	-cp -r "$(BUILDDIR)/PREVIOUS.VER" "$(BUILDDIR)/latest"
+  + 	-cp -r "$(BUILDDIR)/YYYY.MM" "$(BUILDDIR)/latest"
+  ...
+  ```
+
+These changes should be committed and tagged. The next draft should then be
+created. To preserve git history for both the new release and the next draft:
+
+1. Create and checkout to a new temporary branch.
+
+  ```sh
+  $ git checkout -b tmp
+  ```
+
+2. Make an empty commit. <sup>This is required so merging the temporary branch
+   (4.) is not automatic.</sup>
+
+  ```sh
+  $ git commit --allow-empty -m "Empty commit for draft at YYYY.MM "
+  ```
+
+3. Checkout back to the branch you are making a spec release in.
+
+  ```sh
+  $ git checkout YYYY.MM-release
+  ```
+
+4. Merge the temporary branch, specifying no commit and no fast-forwarding.
+
+  ```sh
+  $ git merge --no-commit --no-ff tmp
+  Automatic merge went well; stopped before committing as requested
+  ```
+
+5. Checkout the `spec/draft/` files from the temporary branch.
+
+  ```sh
+  $ git checkout tmp -- spec/draft/
+  ```
+
+6. Commit your changes.
+
+  ```sh
+  $ git commit -m "Copy YYYY.MM as draft with preserved git history"
+  ```
+
+You can run `git blame` on both `spec/YYYY.MM` and `spec/draft` files to verify
+we've preserved history. See this [StackOverflow question](https://stackoverflow.com/q/74365771/5193926)
+for more background on the approach we use.
+
+<!-- TODO: write a script to automate/standardise spec releases -->
+
+
 ## Contributors ✨
 
 Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/docs/en/emoji-key)):

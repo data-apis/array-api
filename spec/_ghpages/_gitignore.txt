@@ -21,16 +21,16 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 #/
+#
+# Note this file is not intended to be a .gitignore for the main branch, but to
+# be copied into gh-pages branch.
 
-_site/
-doctrees/
+_site
 build/
+doctrees/
 .vscode/
 node_modules/
 __pycache__/
 *.pyc
-spec/**/generated
-tmp/
-*.egg-info/
-*.egg
-dist/
+spec/**/generated/
+src/*.egg-info/
