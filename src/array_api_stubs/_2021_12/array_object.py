@@ -135,7 +135,7 @@ class _array():
 
 
         .. note::
-           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~signatures.elementwise_functions.abs`.
+           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.abs`.
         """
 
     def __add__(self: array, other: Union[int, float, array], /) -> array:
@@ -181,7 +181,7 @@ class _array():
 
 
         .. note::
-           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~signatures.elementwise_functions.add`.
+           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.add`.
         """
 
     def __and__(self: array, other: Union[int, bool, array], /) -> array:
@@ -202,7 +202,7 @@ class _array():
 
 
         .. note::
-           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~signatures.elementwise_functions.bitwise_and`.
+           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.bitwise_and`.
         """
 
     def __array_namespace__(self: array, /, *, api_version: Optional[str] = None) -> Any:
@@ -239,7 +239,7 @@ class _array():
 
     def __dlpack__(self: array, /, *, stream: Optional[Union[int, Any]] = None) -> PyCapsule:
         """
-        Exports the array for consumption by :func:`~signatures.creation_functions.from_dlpack` as a DLPack capsule.
+        Exports the array for consumption by :func:`~array_api.from_dlpack` as a DLPack capsule.
 
         Parameters
         ----------
@@ -294,7 +294,7 @@ class _array():
 
     def __dlpack_device__(self: array, /) -> Tuple[Enum, int]:
         """
-        Returns device type and device ID in DLPack format. Meant for use within :func:`~signatures.creation_functions.from_dlpack`.
+        Returns device type and device ID in DLPack format. Meant for use within :func:`~array_api.from_dlpack`.
 
         Parameters
         ----------
@@ -336,7 +336,7 @@ class _array():
 
 
         .. note::
-           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~signatures.elementwise_functions.equal`.
+           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.equal`.
         """
 
     def __float__(self: array, /) -> float:
@@ -411,7 +411,7 @@ class _array():
 
 
         .. note::
-           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~signatures.elementwise_functions.floor_divide`.
+           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.floor_divide`.
         """
 
     def __ge__(self: array, other: Union[int, float, array], /) -> array:
@@ -432,7 +432,7 @@ class _array():
 
 
         .. note::
-           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~signatures.elementwise_functions.greater_equal`.
+           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.greater_equal`.
         """
 
     def __getitem__(self: array, key: Union[int, slice, ellipsis, Tuple[Union[int, slice, ellipsis], ...], array], /) -> array:
@@ -470,7 +470,7 @@ class _array():
 
 
         .. note::
-           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~signatures.elementwise_functions.greater`.
+           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.greater`.
         """
 
     def __index__(self: array, /) -> int:
@@ -522,7 +522,7 @@ class _array():
 
 
         .. note::
-           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~signatures.elementwise_functions.bitwise_invert`.
+           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.bitwise_invert`.
         """
 
     def __le__(self: array, other: Union[int, float, array], /) -> array:
@@ -543,7 +543,7 @@ class _array():
 
 
         .. note::
-           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~signatures.elementwise_functions.less_equal`.
+           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.less_equal`.
         """
 
     def __lshift__(self: array, other: Union[int, array], /) -> array:
@@ -564,7 +564,7 @@ class _array():
 
 
         .. note::
-           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~signatures.elementwise_functions.bitwise_left_shift`.
+           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.bitwise_left_shift`.
         """
 
     def __lt__(self: array, other: Union[int, float, array], /) -> array:
@@ -585,7 +585,7 @@ class _array():
 
 
         .. note::
-           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~signatures.elementwise_functions.less`.
+           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.less`.
         """
 
     def __matmul__(self: array, other: array, /) -> array:
@@ -616,7 +616,7 @@ class _array():
 
 
         .. note::
-           Results must equal the results returned by the equivalent function :func:`~signatures.linear_algebra_functions.matmul`.
+           Results must equal the results returned by the equivalent function :func:`~array_api.matmul`.
 
         **Raises**
 
@@ -676,7 +676,7 @@ class _array():
 
 
         .. note::
-           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~signatures.elementwise_functions.remainder`.
+           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.remainder`.
         """
 
     def __mul__(self: array, other: Union[int, float, array], /) -> array:
@@ -715,7 +715,7 @@ class _array():
 
 
         .. note::
-           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~signatures.elementwise_functions.multiply`.
+           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.multiply`.
         """
 
     def __ne__(self: array, other: Union[int, float, bool, array], /) -> array:
@@ -736,7 +736,7 @@ class _array():
 
 
         .. note::
-           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~signatures.elementwise_functions.not_equal`.
+           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.not_equal`.
         """
 
     def __neg__(self: array, /) -> array:
@@ -758,7 +758,7 @@ class _array():
 
 
         .. note::
-           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~signatures.elementwise_functions.negative`.
+           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.negative`.
         """
 
     def __or__(self: array, other: Union[int, bool, array], /) -> array:
@@ -779,7 +779,7 @@ class _array():
 
 
         .. note::
-           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~signatures.elementwise_functions.bitwise_or`.
+           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.bitwise_or`.
         """
 
     def __pos__(self: array, /) -> array:
@@ -798,7 +798,7 @@ class _array():
 
 
         .. note::
-           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~signatures.elementwise_functions.positive`.
+           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.positive`.
         """
 
     def __pow__(self: array, other: Union[int, float, array], /) -> array:
@@ -853,7 +853,7 @@ class _array():
 
 
         .. note::
-           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~signatures.elementwise_functions.pow`.
+           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.pow`.
         """
 
     def __rshift__(self: array, other: Union[int, array], /) -> array:
@@ -874,7 +874,7 @@ class _array():
 
 
         .. note::
-           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~signatures.elementwise_functions.bitwise_right_shift`.
+           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.bitwise_right_shift`.
         """
 
     def __setitem__(self: array, key: Union[int, slice, ellipsis, Tuple[Union[int, slice, ellipsis], ...], array], value: Union[int, float, bool, array], /) -> None:
@@ -918,7 +918,7 @@ class _array():
 
 
         .. note::
-           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~signatures.elementwise_functions.subtract`.
+           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.subtract`.
         """
 
     def __truediv__(self: array, other: Union[int, float, array], /) -> array:
@@ -971,7 +971,7 @@ class _array():
 
 
         .. note::
-           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~signatures.elementwise_functions.divide`.
+           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.divide`.
         """
 
     def __xor__(self: array, other: Union[int, bool, array], /) -> array:
@@ -992,7 +992,7 @@ class _array():
 
 
         .. note::
-           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~signatures.elementwise_functions.bitwise_xor`.
+           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.bitwise_xor`.
         """
 
     def to_device(self: array, device: Device, /, *, stream: Optional[Union[int, Any]] = None) -> array:

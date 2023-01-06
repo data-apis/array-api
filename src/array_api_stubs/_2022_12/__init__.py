@@ -4,7 +4,7 @@ from .array_object import *
 from .constants import *
 from .creation_functions import *
 from .data_type_functions import *
-import array_api.data_types as dtype
+from . import data_types as dtype
 from .elementwise_functions import *
 from .indexing_functions import *
 from .linear_algebra_functions import *
