@@ -196,15 +196,9 @@ r_type_prefix = re.compile(r"array_api(?:_stubs\._[a-z0-9_]+)?\._types\.")
 
 def process_signature(app, what, name, obj, options, signature, return_annotation):
     if signature:
-<<<<<<<< HEAD:spec/2021.12/conf.py
-        signature = signature.replace("signatures._types.", "")
-    if return_annotation:
-        return_annotation = return_annotation.replace("signatures._types.", "")
-========
         signature = re.sub(r_type_prefix, "", signature)
     if return_annotation:
         return_annotation = re.sub(r_type_prefix, "", return_annotation)
->>>>>>>> bbd0384 (Squashed old all-versions work):src/_array_api_conf.py
     return signature, return_annotation
 
 def setup(app):
