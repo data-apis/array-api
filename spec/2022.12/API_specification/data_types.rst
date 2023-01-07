@@ -101,13 +101,13 @@ Methods
 ..
   NOTE: please keep the functions in alphabetical order
 
-.. currentmodule:: array_api
+.. currentmodule:: array_api.data_types
 
 .. autosummary::
    :toctree: generated
    :template: method.rst
 
-   dtype.__eq__
+   __eq__
 
 
 .. _data-type-defaults:
