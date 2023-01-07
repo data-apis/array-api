@@ -72,7 +72,7 @@ IEEE 754 double-precision (64-bit) binary floating-point number (see IEEE 754-20
 
    ``complex64`` and ``complex128`` data types are expected to be included in the next version of this standard and to have the following casting rules (will be added to :ref:`type-promotion`):
 
-   .. image:: /_static/images/dtype_promotion_complex.png
+   .. image:: ../../_static/images/dtype_promotion_complex.png
 
    See `array-api/issues/102 <https://github.com/data-apis/array-api/issues/102>`_ for more details
 

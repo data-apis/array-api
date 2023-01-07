@@ -7,7 +7,7 @@ Type Promotion Rules
 
 Type promotion rules can be understood at a high level from the following diagram:
 
-.. image:: /_static/images/dtype_promotion_lattice.png
+.. image:: ../../_static/images/dtype_promotion_lattice.png
     :target: Type promotion diagram
 
 *Type promotion diagram. Promotion between any two types is given by their join on this lattice. Only the types of participating arrays matter, not their values. Dashed lines indicate that behavior for Python scalars is undefined on overflow. Boolean, integer and floating-point dtypes are not connected, indicating mixed-kind promotion is undefined.*
