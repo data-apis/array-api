@@ -18,7 +18,7 @@ this array API standard.
 
 ## Building docs locally
 
-The spec website comprises of multiple Sphinx docs (one for each spec version),
+The spec website is comprised of multiple Sphinx docs (one for each spec version),
 all of which exist in `spec/` and rely on the modules found in `src/` (most
 notably `array_api_stubs`). To install these modules and the additional
 dependencies of the Sphinx docs, you can use
@@ -35,7 +35,7 @@ $ sphinx-build spec/draft/ _site/draft/
 ```
 
 To build the whole website, which includes every version of
-the spec, you can utilize the `make` commands defined in `spec/Makefile`, e.g.
+the spec, you can utilize the `make` commands defined in `spec/Makefile`; e.g.,
 
 ```sh
 $ make

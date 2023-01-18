@@ -1,7 +1,7 @@
 # Stubs for the array API standard
 
-Documentation specific to singular Python objects in the spec (i.e. functions,
-methods and attributes) are infact represented by stub objects in the package
+Documentation specific to singular Python objects in the spec (i.e., functions,
+methods and attributes) are in fact represented by stub objects in the package
 `array-api-stubs`. These stubs ultimately get rendered via the autodoc
 capabilities in Sphinx.
 
