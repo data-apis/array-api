@@ -17,7 +17,7 @@ import sphinx_material
 # -- Project information -----------------------------------------------------
 
 project = 'Python array API standard'
-copyright = '2020, Consortium for Python Data API Standards'
+copyright = '2020-2022, Consortium for Python Data API Standards'
 author = 'Consortium for Python Data API Standards'
 
 # -- General configuration ---------------------------------------------------
