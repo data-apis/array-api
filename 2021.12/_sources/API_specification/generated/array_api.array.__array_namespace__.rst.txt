@@ -1,0 +1,6 @@
+﻿.. currentmodule:: array_api
+
+__array_namespace__
+===================
+
+.. automethod:: array.__array_namespace__

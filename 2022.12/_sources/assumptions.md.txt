@@ -35,7 +35,7 @@ such a coupling. Facilitation support of multiple array types in downstream
 libraries is an important use case however, the assumed dependency structure
 for that is:
 
-![dependency assumptions diagram](_static/images/dependency_assumption_diagram.png)
+![dependency assumptions diagram](../_static/images/dependency_assumption_diagram.png)
 
 Array libraries may know how to interoperate with each other, for example by
 constructing their own array type from that of another library or by shared

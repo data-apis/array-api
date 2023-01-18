@@ -1,0 +1,6 @@
+﻿.. currentmodule:: array_api.linalg
+
+outer
+=====
+
+.. autofunction:: outer

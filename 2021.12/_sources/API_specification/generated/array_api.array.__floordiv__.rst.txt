@@ -1,0 +1,6 @@
+﻿.. currentmodule:: array_api
+
+__floordiv__
+============
+
+.. automethod:: array.__floordiv__

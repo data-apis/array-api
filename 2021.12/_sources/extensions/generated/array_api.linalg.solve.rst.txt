@@ -1,0 +1,6 @@
+﻿.. currentmodule:: array_api.linalg
+
+solve
+=====
+
+.. autofunction:: solve

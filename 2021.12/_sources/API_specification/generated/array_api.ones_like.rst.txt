@@ -1,0 +1,6 @@
+﻿.. currentmodule:: array_api
+
+ones_like
+=========
+
+.. autofunction:: ones_like

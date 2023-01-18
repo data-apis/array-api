@@ -60,7 +60,6 @@
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>window.MathJax = {"tex": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]]}}</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="cross" href="array_api.linalg.cross.html" />
@@ -102,7 +101,7 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">Python array API standard 2022.12</span>
+          <span class="md-header-nav__topic">Python array API standard</span>
           <span class="md-header-nav__topic"> cholesky </span>
         </div>
       </div>
@@ -182,7 +181,7 @@
       
     </a>
     <a href="../../index.html"
-       title="Python array API standard 2022.12 documentation">Python array API standard 2022.12</a>
+       title="Python array API standard 2022.12 documentation">Python array API standard</a>
   </label>
   
 
@@ -327,7 +326,7 @@
 <dt class="sig sig-object py" id="array_api.linalg.cholesky">
 <span class="sig-name descname"><span class="pre">cholesky</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upper</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">array</span></span></span><a class="headerlink" href="#array_api.linalg.cholesky" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the lower (upper) Cholesky decomposition of a complex Hermitian or real symmetric positive-definite matrix <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
-<p>If <code class="docutils literal notranslate"><span class="pre">x</span></code> is real-valued, let <span class="math notranslate nohighlight">\(\mathbb{K}\)</span> be the set of real numbers <span class="math notranslate nohighlight">\(\mathbb{R}\)</span>, and, if <code class="docutils literal notranslate"><span class="pre">x</span></code> is complex-valued, let <span class="math notranslate nohighlight">\(\mathbb{K}\)</span> be the set of complex numbers <span class="math notranslate nohighlight">\(\mathbb{C}\)</span>.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">x</span></code> is real-valued, let <span class="math notranslate nohighlight">\(\mathbb{K}\)</span> be the set of real numbers $mathbb{R}$, and, if <code class="docutils literal notranslate"><span class="pre">x</span></code> is complex-valued, let $mathbb{K}$ be the set of complex numbers $mathbb{C}$.</p>
 <p>The lower <strong>Cholesky decomposition</strong> of a complex Hermitian or real symmetric positive-definite matrix <span class="math notranslate nohighlight">\(x \in\ \mathbb{K}^{n \times n}\)</span> is defined as</p>
 <div class="math notranslate nohighlight">
 \[x = LL^{H} \qquad \text{L $\in\ \mathbb{K}^{n \times n}$}\]</div>

@@ -111,7 +111,7 @@ Furthermore, meta-topics included in this standard include:
 The concrete set of functionality that is in scope for this version of the
 standard is shown in this diagram:
 
-![Scope of array API](_static/images/scope_of_array_API.png)
+![Scope of array API](../_static/images/scope_of_array_API.png)
 
 
 **Goals** for the API standard include:

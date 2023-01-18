@@ -1,0 +1,6 @@
+﻿.. currentmodule:: array_api
+
+astype
+======
+
+.. autofunction:: astype
