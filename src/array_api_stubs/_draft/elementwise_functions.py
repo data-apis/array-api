@@ -733,6 +733,8 @@ def conj(x: array, /) -> array:
     -------
     out: array
         an array containing the element-wise results. The returned array must have the same data type as ``x``.
+
+    .. versionadded:: 2022.12
     """
 
 
@@ -1234,6 +1236,8 @@ def imag(x: array, /) -> array:
     -------
     out: array
         an array containing the element-wise results. The returned array must have a floating-point data type with the same floating-point precision as ``x`` (e.g., if ``x`` is ``complex64``, the returned array must have the floating-point data type ``float32``).
+
+    .. versionadded:: 2022.12
     """
 
 
@@ -1941,6 +1945,8 @@ def real(x: array, /) -> array:
     -------
     out: array
         an array containing the element-wise results. The returned array must have a floating-point data type with the same floating-point precision as ``x`` (e.g., if ``x`` is ``complex64``, the returned array must have the floating-point data type ``float32``).
+
+    .. versionadded:: 2022.12
     """
 
 

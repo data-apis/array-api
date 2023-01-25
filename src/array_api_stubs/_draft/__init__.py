@@ -21,4 +21,6 @@ from . import fft
 __array_api_version__: str = "YYYY.MM"
 """
 String representing the version of the array API specification which the conforming implementation adheres to.
+
+.. versionadded:: 2022.12
 """

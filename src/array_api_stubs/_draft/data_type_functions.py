@@ -101,6 +101,8 @@ def finfo(type: Union[dtype, array], /) -> finfo_object:
 
           real-valued floating-point data type.
 
+          .. versionadded:: 2022.12
+
     .. versionchanged:: 2022.12
        Added complex data type support.
     """
@@ -135,6 +137,8 @@ def iinfo(type: Union[dtype, array], /) -> iinfo_object:
         - **dtype**: dtype
 
           integer data type.
+
+          .. versionadded:: 2022.12
     """
 
 
@@ -173,6 +177,8 @@ def isdtype(
     -------
     out: bool
         boolean indicating whether a provided dtype is of a specified data type kind.
+
+    .. versionadded:: 2022.12
     """
 
 

@@ -269,6 +269,8 @@ class _array:
         - If ``self`` is ``+infinity``, the result is ``+infinity + 0j``.
         - If ``self`` is ``-infinity``, the result is ``-infinity + 0j``.
         - If ``self`` is a finite number, the result is ``self + 0j``.
+
+        .. versionadded:: 2022.12
         """
 
     def __dlpack__(

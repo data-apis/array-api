@@ -44,6 +44,8 @@ def fft(
     -------
     out: array
         an array transformed along the axis (dimension) indicated by ``axis``. The returned array must have a complex floating-point data type determined by :ref:`type-promotion`.
+
+    .. versionadded:: 2022.12
     """
 
 
@@ -90,6 +92,8 @@ def ifft(
     -------
     out: array
         an array transformed along the axis (dimension) indicated by ``axis``. The returned array must have a complex floating-point data type determined by :ref:`type-promotion`.
+
+    .. versionadded:: 2022.12
     """
 
 
@@ -143,6 +147,8 @@ def fftn(
     -------
     out: array
         an array transformed along the axes (dimension) indicated by ``axes``. The returned array must have a complex floating-point data type determined by :ref:`type-promotion`.
+
+    .. versionadded:: 2022.12
     """
 
 
@@ -196,6 +202,8 @@ def ifftn(
     -------
     out: array
         an array transformed along the axes (dimension) indicated by ``axes``. The returned array must have a complex floating-point data type determined by :ref:`type-promotion`.
+
+    .. versionadded:: 2022.12
     """
 
 
@@ -242,6 +250,8 @@ def rfft(
     -------
     out: array
         an array transformed along the axis (dimension) indicated by ``axis``. The returned array must have a complex-valued floating-point data type determined by :ref:`type-promotion`.
+
+    .. versionadded:: 2022.12
     """
 
 
@@ -288,6 +298,8 @@ def irfft(
     -------
     out: array
         an array transformed along the axis (dimension) indicated by ``axis``. The returned array must have a real-valued floating-point data type determined by :ref:`type-promotion`. The length along the transformed axis is ``n`` (if given) or ``2*(m-1)`` (otherwise).
+
+    .. versionadded:: 2022.12
     """
 
 
@@ -341,6 +353,8 @@ def rfftn(
     -------
     out: array
         an array transformed along the axes (dimension) indicated by ``axes``. The returned array must have a complex-valued floating-point data type determined by :ref:`type-promotion`.
+
+    .. versionadded:: 2022.12
     """
 
 
@@ -394,6 +408,8 @@ def irfftn(
     -------
     out: array
         an array transformed along the axes (dimension) indicated by ``axes``. The returned array must have a real-valued floating-point data type determined by :ref:`type-promotion`. The length along the last transformed axis is ``s[-1]`` (if given) or ``2*(m - 1)`` (otherwise), and all other axes ``s[i]``.
+
+    .. versionadded:: 2022.12
     """
 
 
@@ -437,6 +453,8 @@ def hfft(
     -------
     out: array
         an array transformed along the axis (dimension) indicated by ``axis``. The returned array must have a real-valued floating-point data type determined by :ref:`type-promotion`.
+
+    .. versionadded:: 2022.12
     """
 
 
@@ -480,6 +498,8 @@ def ihfft(
     -------
     out: array
         an array transformed along the axis (dimension) indicated by ``axis``. The returned array must have a complex-valued floating-point data type determined by :ref:`type-promotion`.
+
+    .. versionadded:: 2022.12
     """
 
 
@@ -507,6 +527,8 @@ def fftfreq(n: int, /, *, d: float = 1.0, device: Optional[device] = None) -> ar
     -------
     out: array
         an array of length ``n`` containing the sample frequencies. The returned array must have a real-valued floating-point data type determined by :ref:`type-promotion`.
+
+    .. versionadded:: 2022.12
     """
 
 
@@ -536,6 +558,8 @@ def rfftfreq(n: int, /, *, d: float = 1.0, device: Optional[device] = None) -> a
     -------
     out: array
         an array of length ``n//2+1`` containing the sample frequencies. The returned array must have a real-valued floating-point data type determined by :ref:`type-promotion`.
+
+    .. versionadded:: 2022.12
     """
 
 
@@ -559,6 +583,8 @@ def fftshift(x: array, /, *, axes: Union[int, Sequence[int]] = None) -> array:
     -------
     out: array
         the shifted array. The returned array must have the same data type as ``x``.
+
+    .. versionadded:: 2022.12
     """
 
 
@@ -580,6 +606,8 @@ def ifftshift(x: array, /, *, axes: Union[int, Sequence[int]] = None) -> array:
     -------
     out: array
         the shifted array. The returned array must have the same data type as ``x``.
+
+    .. versionadded:: 2022.12
     """
 
 
