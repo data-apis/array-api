@@ -75,6 +75,9 @@ def nonzero(x: array, /) -> Tuple[array, ...]:
     -------
     out: Typle[array, ...]
         a tuple of ``k`` arrays, one for each dimension of ``x`` and each of size ``n`` (where ``n`` is the total number of non-zero elements), containing the indices of the non-zero elements in that dimension. The indices must be returned in row-major, C-style order. The returned array must have the default array index data type.
+
+    .. versionchanged:: 2022.12
+       Added complex data type support.
     """
 
 

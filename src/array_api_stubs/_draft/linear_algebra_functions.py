@@ -40,6 +40,9 @@ def matmul(x1: array, x2: array, /) -> array:
     -   if ``x1`` is a one-dimensional array having shape ``(K,)``, ``x2`` is an array having shape ``(..., L, N)``, and ``K != L``.
     -   if ``x1`` is an array having shape ``(..., M, K)``, ``x2`` is a one-dimensional array having shape ``(L,)``, and ``K != L``.
     -   if ``x1`` is an array having shape ``(..., M, K)``, ``x2`` is an array having shape ``(..., L, N)``, and ``K != L``.
+
+    .. versionchanged:: 2022.12
+       Added complex data type support.
     """
 
 
@@ -101,6 +104,9 @@ def tensordot(
     -------
     out: array
         an array containing the tensor contraction whose shape consists of the non-contracted axes (dimensions) of the first array ``x1``, followed by the non-contracted axes (dimensions) of the second array ``x2``. The returned array must have a data type determined by :ref:`type-promotion`.
+
+    .. versionchanged:: 2022.12
+       Added complex data type support.
     """
 
 
@@ -138,6 +144,9 @@ def vecdot(x1: array, x2: array, /, *, axis: int = -1) -> array:
 
     -   if provided an invalid ``axis``.
     -   if the size of the axis over which to compute the dot product is not the same (before broadcasting) for both ``x1`` and ``x2``.
+
+    .. versionchanged:: 2022.12
+       Added complex data type support.
     """
 
 

@@ -136,9 +136,12 @@ class _array:
         out: array
             an array containing the element-wise absolute value. If ``self`` has a real-valued data type, the returned array must have the same data type as ``self``. If ``self`` has a complex floating-point data type, the returned arrayed must have a real-valued floating-point data type whose precision matches the precision of ``self`` (e.g., if ``self`` is ``complex128``, then the returned array must have a ``float64`` data type).
 
-
         .. note::
            Element-wise results, including special cases, must equal the results returned by the equivalent element-wise function :func:`~array_api.abs`.
+
+
+        .. versionchanged:: 2022.12
+            Added complex data type support.
         """
 
     def __add__(self: array, other: Union[int, float, array], /) -> array:
@@ -160,6 +163,9 @@ class _array:
 
         .. note::
            Element-wise results, including special cases, must equal the results returned by the equivalent element-wise function :func:`~array_api.add`.
+
+        .. versionchanged:: 2022.12
+            Added complex data type support.
         """
 
     def __and__(self: array, other: Union[int, bool, array], /) -> array:
@@ -228,6 +234,9 @@ class _array:
         - If ``self`` is either ``+0`` or ``-0``, the result is ``False``.
 
         For complex floating-point operands, special cases must be handled as if the operation is implemented as the logical AND of ``bool(real(self))`` and ``bool(imag(self))``.
+
+        .. versionchanged:: 2022.12
+            Added boolean and complex data type support.
         """
 
     def __complex__(self: array, /) -> complex:
@@ -326,6 +335,8 @@ class _array:
             errors are raised when export fails for other reasons (e.g., incorrect
             arguments passed or out of memory).
 
+        .. versionchanged:: 2022.12
+            Added BufferError.
         """
 
     def __dlpack_device__(self: array, /) -> Tuple[Enum, int]:
@@ -401,6 +412,9 @@ class _array:
 
         - If ``self`` is ``True``, the result is ``1``.
         - If ``self`` is ``False``, the result is ``0``.
+
+        .. versionchanged:: 2022.12
+            Added boolean and complex data type support.
         """
 
     def __floordiv__(self: array, other: Union[int, float, array], /) -> array:
@@ -551,6 +565,9 @@ class _array:
 
         - If ``self`` is either ``+infinity`` or ``-infinity``, raise ``OverflowError``.
         - If ``self`` is ``NaN``, raise ``ValueError``.
+
+        .. versionchanged:: 2022.12
+            Added boolean and complex data type support.
         """
 
     def __invert__(self: array, /) -> array:
@@ -682,6 +699,9 @@ class _array:
         - if ``self`` is a one-dimensional array having shape ``(K,)``, ``other`` is an array having shape ``(..., L, N)``, and ``K != L``.
         - if ``self`` is an array having shape ``(..., M, K)``, ``other`` is a one-dimensional array having shape ``(L,)``, and ``K != L``.
         - if ``self`` is an array having shape ``(..., M, K)``, ``other`` is an array having shape ``(..., L, N)``, and ``K != L``.
+
+        .. versionchanged:: 2022.12
+            Added complex data type support.
         """
 
     def __mod__(self: array, other: Union[int, float, array], /) -> array:
@@ -730,6 +750,9 @@ class _array:
 
         .. note::
            Element-wise results, including special cases, must equal the results returned by the equivalent element-wise function :func:`~array_api.multiply`.
+
+        .. versionchanged:: 2022.12
+            Added complex data type support.
         """
 
     def __ne__(self: array, other: Union[int, float, bool, array], /) -> array:
@@ -751,6 +774,9 @@ class _array:
 
         .. note::
            Element-wise results, including special cases, must equal the results returned by the equivalent element-wise function :func:`~array_api.not_equal`.
+
+        .. versionchanged:: 2022.12
+            Added complex data type support.
         """
 
     def __neg__(self: array, /) -> array:
@@ -776,6 +802,9 @@ class _array:
 
         .. note::
            Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.negative`.
+
+        .. versionchanged:: 2022.12
+            Added complex data type support.
         """
 
     def __or__(self: array, other: Union[int, bool, array], /) -> array:
@@ -816,6 +845,9 @@ class _array:
 
         .. note::
            Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.positive`.
+
+        .. versionchanged:: 2022.12
+            Added complex data type support.
         """
 
     def __pow__(self: array, other: Union[int, float, array], /) -> array:
@@ -842,6 +874,9 @@ class _array:
 
         .. note::
            Element-wise results, including special cases, must equal the results returned by the equivalent element-wise function :func:`~array_api.pow`.
+
+        .. versionchanged:: 2022.12
+            Added complex data type support.
         """
 
     def __rshift__(self: array, other: Union[int, array], /) -> array:
@@ -916,6 +951,9 @@ class _array:
 
         .. note::
            Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.subtract`.
+
+        .. versionchanged:: 2022.12
+            Added complex data type support.
         """
 
     def __truediv__(self: array, other: Union[int, float, array], /) -> array:
@@ -942,6 +980,9 @@ class _array:
 
         .. note::
            Element-wise results, including special cases, must equal the results returned by the equivalent element-wise function :func:`~array_api.divide`.
+
+        .. versionchanged:: 2022.12
+            Added complex data type support.
         """
 
     def __xor__(self: array, other: Union[int, bool, array], /) -> array:
