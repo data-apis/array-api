@@ -139,6 +139,8 @@ class _array:
         .. note::
            Element-wise results, including special cases, must equal the results returned by the equivalent element-wise function :func:`~array_api.abs`.
 
+        Notes
+        -----
 
         .. versionchanged:: 2022.12
             Added complex data type support.
@@ -160,6 +162,8 @@ class _array:
         out: array
             an array containing the element-wise sums. The returned array must have a data type determined by :ref:`type-promotion`.
 
+        Notes
+        -----
 
         .. note::
            Element-wise results, including special cases, must equal the results returned by the equivalent element-wise function :func:`~array_api.add`.
@@ -336,6 +340,9 @@ class _array:
             be exported as DLPack (e.g., incompatible dtype or strides). Other
             errors are raised when export fails for other reasons (e.g., incorrect
             arguments passed or out of memory).
+
+        Notes
+        -----
 
         .. versionchanged:: 2022.12
             Added BufferError.
@@ -690,6 +697,8 @@ class _array:
             -   if either ``self`` or ``other`` has more than two dimensions, an array having a shape determined by :ref:`broadcasting` ``shape(self)[:-2]`` against ``shape(other)[:-2]`` and containing the `conventional matrix product <https://en.wikipedia.org/wiki/Matrix_multiplication>`_ for each stacked matrix.
             -   The returned array must have a data type determined by :ref:`type-promotion`.
 
+        Notes
+        -----
 
         .. note::
            Results must equal the results returned by the equivalent function :func:`~array_api.matmul`.
@@ -749,6 +758,8 @@ class _array:
         out: array
             an array containing the element-wise products. The returned array must have a data type determined by :ref:`type-promotion`.
 
+        Notes
+        -----
 
         .. note::
            Element-wise results, including special cases, must equal the results returned by the equivalent element-wise function :func:`~array_api.multiply`.
@@ -773,6 +784,9 @@ class _array:
         out: array
             an array containing the element-wise results. The returned array must have a data type of ``bool`` (i.e., must be a boolean array).
 
+
+        Notes
+        -----
 
         .. note::
            Element-wise results, including special cases, must equal the results returned by the equivalent element-wise function :func:`~array_api.not_equal`.
@@ -801,6 +815,8 @@ class _array:
         out: array
             an array containing the evaluated result for each element in ``self``. The returned array must have a data type determined by :ref:`type-promotion`.
 
+        Notes
+        -----
 
         .. note::
            Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.negative`.
@@ -844,6 +860,8 @@ class _array:
         out: array
             an array containing the evaluated result for each element. The returned array must have the same data type as ``self``.
 
+        Notes
+        -----
 
         .. note::
            Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.positive`.
@@ -873,6 +891,8 @@ class _array:
         out: array
             an array containing the element-wise results. The returned array must have a data type determined by :ref:`type-promotion`.
 
+        Notes
+        -----
 
         .. note::
            Element-wise results, including special cases, must equal the results returned by the equivalent element-wise function :func:`~array_api.pow`.
@@ -950,6 +970,8 @@ class _array:
         out: array
             an array containing the element-wise differences. The returned array must have a data type determined by :ref:`type-promotion`.
 
+        Notes
+        -----
 
         .. note::
            Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.subtract`.
@@ -979,6 +1001,8 @@ class _array:
         out: array
             an array containing the element-wise results. The returned array should have a floating-point data type determined by :ref:`type-promotion`.
 
+        Notes
+        -----
 
         .. note::
            Element-wise results, including special cases, must equal the results returned by the equivalent element-wise function :func:`~array_api.divide`.

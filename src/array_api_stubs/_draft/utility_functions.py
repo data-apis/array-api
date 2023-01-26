@@ -34,6 +34,9 @@ def all(
     out: array
         if a logical AND reduction was performed over the entire array, the returned array must be a zero-dimensional array containing the test result; otherwise, the returned array must be a non-zero-dimensional array containing the test results. The returned array must have a data type of ``bool``.
 
+    Notes
+    -----
+
     .. versionchanged:: 2022.12
        Added complex data type support.
     """
@@ -71,6 +74,9 @@ def any(
     -------
     out: array
         if a logical OR reduction was performed over the entire array, the returned array must be a zero-dimensional array containing the test result; otherwise, the returned array must be a non-zero-dimensional array containing the test results. The returned array must have a data type of ``bool``.
+
+    Notes
+    -----
 
     .. versionchanged:: 2022.12
        Added complex data type support.

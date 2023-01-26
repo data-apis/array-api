@@ -734,6 +734,9 @@ def conj(x: array, /) -> array:
     out: array
         an array containing the element-wise results. The returned array must have the same data type as ``x``.
 
+    Notes
+    -----
+
     .. versionadded:: 2022.12
     """
 
@@ -1236,6 +1239,9 @@ def imag(x: array, /) -> array:
     -------
     out: array
         an array containing the element-wise results. The returned array must have a floating-point data type with the same floating-point precision as ``x`` (e.g., if ``x`` is ``complex64``, the returned array must have the floating-point data type ``float32``).
+
+    Notes
+    -----
 
     .. versionadded:: 2022.12
     """
@@ -1796,6 +1802,9 @@ def negative(x: array, /) -> array:
     out: array
         an array containing the evaluated result for each element in ``x``. The returned array must have a data type determined by :ref:`type-promotion`.
 
+    Notes
+    -----
+
     .. versionchanged:: 2022.12
        Added complex data type support.
     """
@@ -1856,6 +1865,9 @@ def positive(x: array, /) -> array:
     -------
     out: array
         an array containing the evaluated result for each element in ``x``. The returned array must have the same data type as ``x``.
+
+    Notes
+    -----
 
     .. versionchanged:: 2022.12
        Added complex data type support.
@@ -1945,6 +1957,9 @@ def real(x: array, /) -> array:
     -------
     out: array
         an array containing the element-wise results. The returned array must have a floating-point data type with the same floating-point precision as ``x`` (e.g., if ``x`` is ``complex64``, the returned array must have the floating-point data type ``float32``).
+
+    Notes
+    -----
 
     .. versionadded:: 2022.12
     """
@@ -2311,6 +2326,9 @@ def subtract(x1: array, x2: array, /) -> array:
     -------
     out: array
         an array containing the element-wise differences. The returned array must have a data type determined by :ref:`type-promotion`.
+
+    Notes
+    -----
 
     .. versionchanged:: 2022.12
        Added complex data type support.

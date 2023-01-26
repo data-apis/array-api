@@ -37,6 +37,9 @@ def astype(x: array, dtype: dtype, /, *, copy: bool = True) -> array:
     out: array
         an array having the specified data type. The returned array must have the same shape as ``x``.
 
+    Notes
+    -----
+
     .. versionchanged:: 2022.12
        Added complex data type support.
     """
@@ -102,6 +105,9 @@ def finfo(type: Union[dtype, array], /) -> finfo_object:
           real-valued floating-point data type.
 
           .. versionadded:: 2022.12
+
+    Notes
+    -----
 
     .. versionchanged:: 2022.12
        Added complex data type support.
@@ -177,6 +183,9 @@ def isdtype(
     -------
     out: bool
         boolean indicating whether a provided dtype is of a specified data type kind.
+
+    Notes
+    -----
 
     .. versionadded:: 2022.12
     """
