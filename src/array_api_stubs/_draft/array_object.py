@@ -136,11 +136,11 @@ class _array:
         out: array
             an array containing the element-wise absolute value. If ``self`` has a real-valued data type, the returned array must have the same data type as ``self``. If ``self`` has a complex floating-point data type, the returned arrayed must have a real-valued floating-point data type whose precision matches the precision of ``self`` (e.g., if ``self`` is ``complex128``, then the returned array must have a ``float64`` data type).
 
-        .. note::
-           Element-wise results, including special cases, must equal the results returned by the equivalent element-wise function :func:`~array_api.abs`.
-
         Notes
         -----
+
+        .. note::
+           Element-wise results, including special cases, must equal the results returned by the equivalent element-wise function :func:`~array_api.abs`.
 
         .. versionchanged:: 2022.12
             Added complex data type support.
