@@ -3,15 +3,22 @@ SPHINXOPTS    ?= -W --keep-going
 SOURCEDIR     = spec
 BUILDDIR      = _site
 
-.PHONY: default clean build
+.PHONY: default install clean draft spec
 
-default: clean build
+default: install clean spec
+
+install:
+	pip install -e .[doc]
 
 clean:
-	-rm -rf $(BUILDDIR)
-	-find . -type d -name generated -exec rm -rf {} +
+	rm -rf $(BUILDDIR)
+	find . -type d -name generated -exec rm -rf {} +
 
-build:
+draft:
+	mkdir -p $(BUILDDIR)
+	sphinx-build "$(SOURCEDIR)/draft" "$(BUILDDIR)/draft" $(SPHINXOPTS)
+
+spec:
 	mkdir -p $(BUILDDIR)
 	cp "$(SOURCEDIR)/_ghpages/_gitignore.txt" "$(BUILDDIR)/.gitignore"
 	cp "$(SOURCEDIR)/_ghpages/versions.json" "$(BUILDDIR)/versions.json"

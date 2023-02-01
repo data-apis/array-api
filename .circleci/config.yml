@@ -20,7 +20,7 @@ jobs:
           no_output_timeout: 25m
           command: |
             pip install .[doc]
-            make
+            make spec
       - store_artifacts:
           path: _site/
 
