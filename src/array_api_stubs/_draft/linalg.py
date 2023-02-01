@@ -72,13 +72,6 @@ def cross(x1: array, x2: array, /, *, axis: int = -1) -> array:
         an array containing the cross products. The returned array must have a data type determined by :ref:`type-promotion`.
 
 
-    Raises
-    ------
-
-    -   if provided an invalid ``axis``.
-    -   if the size of the axis over which to compute the cross product is not equal to ``3``.
-    -   if the size of the axis over which to compute the cross product is not the same (before broadcasting) for both ``x1`` and ``x2``.
-
     Notes
     -----
 
@@ -87,6 +80,11 @@ def cross(x1: array, x2: array, /, *, axis: int = -1) -> array:
 
     .. versionchanged:: 2022.12
        Added complex data type support.
+
+    **Raises**
+
+    -   if the size of the axis over which to compute the cross product is not equal to ``3``.
+    -   if the size of the axis over which to compute the cross product is not the same (before broadcasting) for both ``x1`` and ``x2``.
     """
 
 
