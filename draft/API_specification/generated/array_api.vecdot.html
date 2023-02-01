@@ -473,9 +473,12 @@
 <dd class="field-even"><p><strong>out</strong> (<em>array</em>) – if <code class="docutils literal notranslate"><span class="pre">x1</span></code> and <code class="docutils literal notranslate"><span class="pre">x2</span></code> are both one-dimensional arrays, a zero-dimensional containing the dot product; otherwise, a non-zero-dimensional array containing the dot products and having rank <code class="docutils literal notranslate"><span class="pre">N-1</span></code>, where <code class="docutils literal notranslate"><span class="pre">N</span></code> is the rank (number of dimensions) of the shape determined according to <a class="reference internal" href="../broadcasting.html#broadcasting"><span class="std std-ref">Broadcasting</span></a> along the non-contracted axes. The returned array must have a data type determined by <a class="reference internal" href="../type_promotion.html#type-promotion"><span class="std std-ref">Type Promotion Rules</span></a>.</p>
 </dd>
 </dl>
+<p class="rubric">Notes</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 2022.12: </span>Added complex data type support.</p>
+</div>
 <p><strong>Raises</strong></p>
 <ul class="simple">
-<li><p>if provided an invalid <code class="docutils literal notranslate"><span class="pre">axis</span></code>.</p></li>
 <li><p>if the size of the axis over which to compute the dot product is not the same (before broadcasting) for both <code class="docutils literal notranslate"><span class="pre">x1</span></code> and <code class="docutils literal notranslate"><span class="pre">x2</span></code>.</p></li>
 </ul>
 </dd></dl>

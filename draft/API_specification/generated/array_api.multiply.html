@@ -527,6 +527,9 @@
 <p class="admonition-title">Note</p>
 <p>For complex floating-point operands, the results of special cases may be implementation dependent depending on how an implementation chooses to model complex numbers and complex infinity (e.g., complex plane versus Riemann sphere). For those implementations following C99 and its one-infinity model, when at least one component is infinite, even if the other component is <code class="docutils literal notranslate"><span class="pre">NaN</span></code>, the complex value is infinite, and the usual arithmetic rules do not apply to complex-complex multiplication. In the interest of performance, other implementations may want to avoid the complex branching logic necessary to implement the one-infinity model and choose to implement all complex-complex multiplication according to the textbook formula. Accordingly, special case behavior is unlikely to be consistent across implementations.</p>
 </div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 2022.12: </span>Added complex data type support.</p>
+</div>
 </dd></dl>
 </section>
 
