@@ -52,6 +52,9 @@ def abs(x: array, /) -> array:
     - If ``a`` is ``NaN`` and ``b`` is a finite number, the result is ``NaN``.
     - If ``a`` is a finite number and ``b`` is ``NaN``, the result is ``NaN``.
     - If ``a`` is ``NaN`` and ``b`` is ``NaN``, the result is ``NaN``.
+
+    .. versionchanged:: 2022.12
+       Added complex data type support.
     """
 
 
@@ -118,6 +121,9 @@ def acos(x: array, /) -> array:
     - If ``a`` is ``NaN`` and ``b`` is a finite number, the result is ``NaN + NaN j``.
     - If ``a`` is ``NaN`` and ``b`` is ``+infinity``, the result is ``NaN - infinity j``.
     - If ``a`` is ``NaN`` and ``b`` is ``NaN``, the result is ``NaN + NaN j``.
+
+    .. versionchanged:: 2022.12
+       Added complex data type support.
     """
 
 
@@ -189,6 +195,9 @@ def acosh(x: array, /) -> array:
     - If ``a`` is ``NaN`` and ``b`` is a finite number, the result is ``NaN + NaN j``.
     - If ``a`` is ``NaN`` and ``b`` is ``+infinity``, the result is ``+infinity + NaN j``.
     - If ``a`` is ``NaN`` and ``b`` is ``NaN``, the result is ``NaN + NaN j``.
+
+    .. versionchanged:: 2022.12
+       Added complex data type support.
     """
 
 
@@ -254,6 +263,9 @@ def add(x1: array, x2: array, /) -> array:
     - Similarly, if ``b`` is ``+0`` and ``d`` is ``-0``, the imaginary component of the result is ``+0``.
 
     Hence, if ``z1 = a + bj = -0 + 0j`` and ``z2 = c + dj = -0 - 0j``, the result of ``z1 + z2`` is ``-0 + 0j``.
+
+    .. versionchanged:: 2022.12
+       Added complex data type support.
     """
 
 
@@ -308,6 +320,9 @@ def asin(x: array, /) -> array:
     - If ``x_i`` is ``-0``, the result is ``-0``.
 
     For complex floating-point operands, special cases must be handled as if the operation is implemented as ``-1j * asinh(x*1j)``.
+
+    .. versionchanged:: 2022.12
+       Added complex data type support.
     """
 
 
@@ -370,6 +385,9 @@ def asinh(x: array, /) -> array:
     - If ``a`` is ``NaN`` and ``b`` is a nonzero finite number, the result is ``NaN + NaN j``.
     - If ``a`` is ``NaN`` and ``b`` is ``+infinity``, the result is ``±infinity + NaN j`` (sign of the real component is unspecified).
     - If ``a`` is ``NaN`` and ``b`` is ``NaN``, the result is ``NaN + NaN j``.
+
+    .. versionchanged:: 2022.12
+       Added complex data type support.
     """
 
 
@@ -419,6 +437,9 @@ def atan(x: array, /) -> array:
     - If ``x_i`` is ``-infinity``, the result is an implementation-dependent approximation to ``-π/2``.
 
     For complex floating-point operands, special cases must be handled as if the operation is implemented as ``-1j * atanh(x*1j)``.
+
+    .. versionchanged:: 2022.12
+       Added complex data type support.
     """
 
 
@@ -541,6 +562,9 @@ def atanh(x: array, /) -> array:
     - If ``a`` is ``NaN`` and ``b`` is a finite number, the result is ``NaN + NaN j``.
     - If ``a`` is ``NaN`` and ``b`` is ``+infinity``, the result is ``±0 + πj/2`` (sign of the real component is unspecified).
     - If ``a`` is ``NaN`` and ``b`` is ``NaN``, the result is ``NaN + NaN j``.
+
+    .. versionchanged:: 2022.12
+       Added complex data type support.
     """
 
 
@@ -709,6 +733,11 @@ def conj(x: array, /) -> array:
     -------
     out: array
         an array containing the element-wise results. The returned array must have the same data type as ``x``.
+
+    Notes
+    -----
+
+    .. versionadded:: 2022.12
     """
 
 
@@ -753,6 +782,9 @@ def cos(x: array, /) -> array:
     - If ``x_i`` is ``-infinity``, the result is ``NaN``.
 
     For complex floating-point operands, special cases must be handled as if the operation is implemented as ``cosh(x*1j)``.
+
+    .. versionchanged:: 2022.12
+       Added complex data type support.
     """
 
 
@@ -813,6 +845,9 @@ def cosh(x: array, /) -> array:
     - If ``a`` is ``NaN`` and ``b`` is ``NaN``, the result is ``NaN + NaN j``.
 
     where ``cis(v)`` is ``cos(v) + sin(v)*1j``.
+
+    .. versionchanged:: 2022.12
+       Added complex data type support.
     """
 
 
@@ -893,6 +928,9 @@ def divide(x1: array, x2: array, /) -> array:
 
     .. note::
        For complex floating-point operands, the results of special cases may be implementation dependent depending on how an implementation chooses to model complex numbers and complex infinity (e.g., complex plane versus Riemann sphere). For those implementations following C99 and its one-infinity model, when at least one component is infinite, even if the other component is ``NaN``, the complex value is infinite, and the usual arithmetic rules do not apply to complex-complex division. In the interest of performance, other implementations may want to avoid the complex branching logic necessary to implement the one-infinity model and choose to implement all complex-complex division according to the textbook formula. Accordingly, special case behavior is unlikely to be consistent across implementations.
+
+    .. versionchanged:: 2022.12
+       Added complex data type support.
     """
 
 
@@ -934,6 +972,9 @@ def equal(x1: array, x2: array, /) -> array:
 
     .. note::
        For discussion of complex number equality, see :ref:`complex-numbers`.
+
+    .. versionchanged:: 2022.12
+       Added complex data type support.
     """
 
 
@@ -987,6 +1028,9 @@ def exp(x: array, /) -> array:
     - If ``a`` is ``NaN`` and ``b`` is ``NaN``, the result is ``NaN + NaN j``.
 
     where ``cis(v)`` is ``cos(v) + sin(v)*1j``.
+
+    .. versionchanged:: 2022.12
+       Added complex data type support.
     """
 
 
@@ -1043,6 +1087,9 @@ def expm1(x: array, /) -> array:
     - If ``a`` is ``NaN`` and ``b`` is ``NaN``, the result is ``NaN + NaN j``.
 
     where ``cis(v)`` is ``cos(v) + sin(v)*1j``.
+
+    .. versionchanged:: 2022.12
+       Added complex data type support.
     """
 
 
@@ -1192,6 +1239,11 @@ def imag(x: array, /) -> array:
     -------
     out: array
         an array containing the element-wise results. The returned array must have a floating-point data type with the same floating-point precision as ``x`` (e.g., if ``x`` is ``complex64``, the returned array must have the floating-point data type ``float32``).
+
+    Notes
+    -----
+
+    .. versionadded:: 2022.12
     """
 
 
@@ -1226,6 +1278,9 @@ def isfinite(x: array, /) -> array:
     - If ``a`` is either ``+infinity`` or ``-infinity`` and ``b`` is any value, the result is ``False``.
     - If ``a`` is any value and ``b`` is either ``+infinity`` or ``-infinity``, the result is ``False``.
     - If ``a`` is a finite number and ``b`` is a finite number, the result is ``True``.
+
+    .. versionchanged:: 2022.12
+       Added complex data type support.
     """
 
 
@@ -1258,6 +1313,9 @@ def isinf(x: array, /) -> array:
     - If ``a`` is either ``+infinity`` or ``-infinity`` and ``b`` is any value (including ``NaN``), the result is ``True``.
     - If ``a`` is either a finite number or ``NaN`` and ``b`` is either ``+infinity`` or ``-infinity``, the result is ``True``.
     - In the remaining cases, the result is ``False``.
+
+    .. versionchanged:: 2022.12
+       Added complex data type support.
     """
 
 
@@ -1289,6 +1347,9 @@ def isnan(x: array, /) -> array:
 
     - If ``a`` or ``b`` is ``NaN``, the result is ``True``.
     - In the remaining cases, the result is ``False``.
+
+    .. versionchanged:: 2022.12
+       Added complex data type support.
     """
 
 
@@ -1390,6 +1451,9 @@ def log(x: array, /) -> array:
     - If ``a`` is ``NaN`` and ``b`` is a finite number, the result is ``NaN + NaN j``.
     - If ``a`` is ``NaN`` and ``b`` is ``+infinity``, the result is ``+infinity + NaN j``.
     - If ``a`` is ``NaN`` and ``b`` is ``NaN``, the result is ``NaN + NaN j``.
+
+    .. versionchanged:: 2022.12
+       Added complex data type support.
     """
 
 
@@ -1449,6 +1513,9 @@ def log1p(x: array, /) -> array:
     - If ``a`` is ``NaN`` and ``b`` is a finite number, the result is ``NaN + NaN j``.
     - If ``a`` is ``NaN`` and ``b`` is ``+infinity``, the result is ``+infinity + NaN j``.
     - If ``a`` is ``NaN`` and ``b`` is ``NaN``, the result is ``NaN + NaN j``.
+
+    .. versionchanged:: 2022.12
+       Added complex data type support.
     """
 
 
@@ -1488,6 +1555,9 @@ def log2(x: array, /) -> array:
        \log_{2} x = \frac{\log_{e} x}{\log_{e} 2}
 
     where :math:`\log_{e}` is the natural logarithm, as implemented by :func:`~array_api.log`.
+
+    .. versionchanged:: 2022.12
+       Added complex data type support.
     """
 
 
@@ -1527,6 +1597,9 @@ def log10(x: array, /) -> array:
        \log_{10} x = \frac{\log_{e} x}{\log_{e} 10}
 
     where :math:`\log_{e}` is the natural logarithm, as implemented by :func:`~array_api.log`.
+
+    .. versionchanged:: 2022.12
+       Added complex data type support.
     """
 
 
@@ -1703,6 +1776,9 @@ def multiply(x1: array, x2: array, /) -> array:
 
     .. note::
        For complex floating-point operands, the results of special cases may be implementation dependent depending on how an implementation chooses to model complex numbers and complex infinity (e.g., complex plane versus Riemann sphere). For those implementations following C99 and its one-infinity model, when at least one component is infinite, even if the other component is ``NaN``, the complex value is infinite, and the usual arithmetic rules do not apply to complex-complex multiplication. In the interest of performance, other implementations may want to avoid the complex branching logic necessary to implement the one-infinity model and choose to implement all complex-complex multiplication according to the textbook formula. Accordingly, special case behavior is unlikely to be consistent across implementations.
+
+    .. versionchanged:: 2022.12
+       Added complex data type support.
     """
 
 
@@ -1725,6 +1801,12 @@ def negative(x: array, /) -> array:
     -------
     out: array
         an array containing the evaluated result for each element in ``x``. The returned array must have a data type determined by :ref:`type-promotion`.
+
+    Notes
+    -----
+
+    .. versionchanged:: 2022.12
+       Added complex data type support.
     """
 
 
@@ -1764,6 +1846,9 @@ def not_equal(x1: array, x2: array, /) -> array:
 
     .. note::
        For discussion of complex number equality, see :ref:`complex-numbers`.
+
+    .. versionchanged:: 2022.12
+       Added complex data type support.
     """
 
 
@@ -1780,6 +1865,12 @@ def positive(x: array, /) -> array:
     -------
     out: array
         an array containing the evaluated result for each element in ``x``. The returned array must have the same data type as ``x``.
+
+    Notes
+    -----
+
+    .. versionchanged:: 2022.12
+       Added complex data type support.
     """
 
 
@@ -1847,6 +1938,9 @@ def pow(x1: array, x2: array, /) -> array:
 
     .. note::
        Conforming implementations are allowed to treat special cases involving complex floating-point operands more carefully than as described in this specification.
+
+    .. versionchanged:: 2022.12
+       Added complex data type support.
     """
 
 
@@ -1863,6 +1957,11 @@ def real(x: array, /) -> array:
     -------
     out: array
         an array containing the element-wise results. The returned array must have a floating-point data type with the same floating-point precision as ``x`` (e.g., if ``x`` is ``complex64``, the returned array must have the floating-point data type ``float32``).
+
+    Notes
+    -----
+
+    .. versionadded:: 2022.12
     """
 
 
@@ -1958,6 +2057,9 @@ def round(x: array, /) -> array:
     - If ``x_i`` is ``-0``, the result is ``-0``.
     - If ``x_i`` is ``NaN``, the result is ``NaN``.
     - If two integers are equally close to ``x_i``, the result is the even integer closest to ``x_i``.
+
+    .. versionchanged:: 2022.12
+       Added complex data type support.
     """
 
 
@@ -2002,6 +2104,9 @@ def sign(x: array, /) -> array:
     - If ``a`` is either ``-0`` or ``+0`` and ``b`` is either ``-0`` or ``+0``, the result is ``0 + 0j``.
     - If ``a`` is ``NaN`` or ``b`` is ``NaN``, the result is ``NaN + NaN j``.
     - In the remaining cases, special cases must be handled according to the rules of complex number division (see :func:`~array_api.divide`).
+
+    .. versionchanged:: 2022.12
+       Added complex data type support.
     """
 
 
@@ -2045,6 +2150,9 @@ def sin(x: array, /) -> array:
     - If ``x_i`` is either ``+infinity`` or ``-infinity``, the result is ``NaN``.
 
     For complex floating-point operands, special cases must be handled as if the operation is implemented as ``-1j * sinh(x*1j)``.
+
+    .. versionchanged:: 2022.12
+       Added complex data type support.
     """
 
 
@@ -2105,6 +2213,9 @@ def sinh(x: array, /) -> array:
     - If ``a`` is ``NaN`` and ``b`` is ``NaN``, the result is ``NaN + NaN j``.
 
     where ``cis(v)`` is ``cos(v) + sin(v)*1j``.
+
+    .. versionchanged:: 2022.12
+       Added complex data type support.
     """
 
 
@@ -2133,6 +2244,9 @@ def square(x: array, /) -> array:
     **Special cases**
 
     For floating-point operands, special cases must be handled as if the operation is implemented as ``x * x`` (see :func:`~array_api.multiply`).
+
+    .. versionchanged:: 2022.12
+       Added complex data type support.
     """
 
 
@@ -2189,6 +2303,9 @@ def sqrt(x: array, /) -> array:
     - If ``a`` is ``+infinity`` and ``b`` is ``NaN``, the result is ``+infinity + NaN j``.
     - If ``a`` is ``NaN`` and ``b`` is any value, the result is ``NaN + NaN j``.
     - If ``a`` is ``NaN`` and ``b`` is ``NaN``, the result is ``NaN + NaN j``.
+
+    .. versionchanged:: 2022.12
+       Added complex data type support.
     """
 
 
@@ -2209,6 +2326,12 @@ def subtract(x1: array, x2: array, /) -> array:
     -------
     out: array
         an array containing the element-wise differences. The returned array must have a data type determined by :ref:`type-promotion`.
+
+    Notes
+    -----
+
+    .. versionchanged:: 2022.12
+       Added complex data type support.
     """
 
 
@@ -2252,6 +2375,9 @@ def tan(x: array, /) -> array:
     - If ``x_i`` is either ``+infinity`` or ``-infinity``, the result is ``NaN``.
 
     For complex floating-point operands, special cases must be handled as if the operation is implemented as ``-1j * tanh(x*1j)``.
+
+    .. versionchanged:: 2022.12
+       Added complex data type support.
     """
 
 
@@ -2316,6 +2442,9 @@ def tanh(x: array, /) -> array:
        For historical reasons stemming from the C standard, array libraries may not return the expected result when ``a`` is ``+0`` and ``b`` is either ``+infinity`` or ``NaN``. The result should be ``+0 + NaN j`` in both cases; however, for libraries compiled against older C versions, the result may be ``NaN + NaN j``.
 
        Array libraries are not required to patch these older C versions, and, thus, users are advised that results may vary across array library implementations for these special cases.
+
+    .. versionchanged:: 2022.12
+       Added complex data type support.
     """
 
 

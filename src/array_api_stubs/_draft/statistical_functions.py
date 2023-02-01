@@ -171,6 +171,9 @@ def prod(
     -   If ``N`` is ``0``, the product is `1` (i.e., the empty product).
 
     For both real-valued and complex floating-point operands, special cases must be handled as if the operation is implemented by successive application of :func:`~array_api.multiply`.
+
+    .. versionchanged:: 2022.12
+       Added complex data type support.
     """
 
 
@@ -265,6 +268,9 @@ def sum(
     -   If ``N`` is ``0``, the sum is ``0`` (i.e., the empty sum).
 
     For both real-valued and complex floating-point operands, special cases must be handled as if the operation is implemented by successive application of :func:`~array_api.add`.
+
+    .. versionchanged:: 2022.12
+       Added complex data type support.
     """
 
 

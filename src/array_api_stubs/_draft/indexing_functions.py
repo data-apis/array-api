@@ -23,6 +23,11 @@ def take(x: array, indices: array, /, *, axis: int) -> array:
     -------
     out: array
         an array having the same data type as ``x``. The output array must have the same rank (i.e., number of dimensions) as ``x`` and must have the same shape as ``x``, except for the axis specified by ``axis`` whose size must equal the number of elements in ``indices``.
+
+    Notes
+    -----
+
+    .. versionadded:: 2022.12
     """
 
 
