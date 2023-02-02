@@ -20,10 +20,12 @@ this array API standard.
 
 ### Quickstart
 
-Just running `make` at the root of the repository should install the necessary
-dependencies and build the whole spec website.
+To install the local stubs and additional dependencies of the Sphinx docs, you
+can use `make install`. Then just running `make` at the root of the repository
+should build the whole spec website.
 
 ```sh
+$ make install
 $ make
 $ ls _site/
 2021.12/  draft/  index.html  latest/  versions.json
@@ -33,8 +35,7 @@ $ ls _site/
 
 The spec website is comprised of multiple Sphinx docs (one for each spec version),
 all of which exist in `spec/` and rely on the modules found in `src/` (most
-notably `array_api_stubs`). To install these modules and the additional
-dependencies of the Sphinx docs, you can use `make install`, which aliases
+notably `array_api_stubs`). `make install` aliases
 
 ```sh
 $ pip install -e .[doc]  # ensure you install the dependencies extra "doc"

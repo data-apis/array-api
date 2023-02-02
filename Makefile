@@ -5,7 +5,7 @@ BUILDDIR      = _site
 
 .PHONY: default install clean draft spec
 
-default: install clean spec
+default: clean spec
 
 install:
 	pip install -e .[doc]
