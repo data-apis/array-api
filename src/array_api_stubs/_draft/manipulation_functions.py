@@ -199,6 +199,24 @@ def stack(arrays: Union[Tuple[array, ...], List[array]], /, *, axis: int = 0) ->
     """
 
 
+def unstack(array: array, /, *, axis: int = 0) -> List[array]:
+    """
+    Splits an array in a sequence of arrays along the given axis.
+
+    Parameters
+    ----------
+    array: array
+        input array.
+    axis: int
+        axis along which the array will be split. A valid ``axis`` must be on the interval ``[-N, N)``, where ``N`` is the rank (number of dimensions) of ``x``. If provided an ``axis`` outside of the required interval, the function must raise an exception. Default: ``0``.
+
+    Returns
+    -------
+    out: List[array]
+        list of slices along the given dimension. All the arrays have the same shape.
+    """
+
+
 __all__ = [
     "broadcast_arrays",
     "broadcast_to",
@@ -210,4 +228,5 @@ __all__ = [
     "roll",
     "squeeze",
     "stack",
+    "unstack",
 ]
