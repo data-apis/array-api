@@ -212,6 +212,12 @@ def from_dlpack(x: object, /) -> array:
            :class: note
 
            The returned array may be either a copy or a view. See :ref:`data-interchange` for details.
+
+    Notes
+    -----
+    See :meth:`array.__dlpack__` for implementation suggestions for `from_dlpack` in
+    order to handle DLPack versioning correctly.
+
     """
 
 
