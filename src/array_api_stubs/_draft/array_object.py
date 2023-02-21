@@ -510,7 +510,10 @@ class Array(Protocol):
         """
         ...
 
-    def __eq__(self: Self, other: int | float | bool | Self, /) -> Self:
+    # Note that __eq__ returns an array while `object.__eq__` returns a bool.
+    # Hence Mypy will complain that this violates the Liskov substitution
+    # principle - ignore that.
+    def __eq__(self: Self, other: int | float | bool | Self, /) -> Self:  # xtype: ignore
         r"""
         Computes the truth value of ``self_i == other_i`` for each element of an array instance with the respective element of the array ``other``.
 
@@ -965,7 +968,8 @@ class Array(Protocol):
         """
         ...
 
-    def __ne__(self: Self, other: int | float | bool | Self, /) -> Self:
+    # See note above __eq__ method for explanation of the `type: ignore`
+    def __ne__(self: Self, other: int | float | bool | Self, /) -> Self:  # type: ignore
         """
         Computes the truth value of ``self_i != other_i`` for each element of an array instance with the respective element of the array ``other``.
 
