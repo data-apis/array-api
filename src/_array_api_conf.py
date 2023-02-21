@@ -68,6 +68,7 @@ nitpick_ignore_regex = [
     ("py:class", ".*array"),
     ("py:class", ".*device"),
     ("py:class", ".*dtype"),
+    ("py:class", ".*Self"),
     ("py:class", ".*NestedSequence"),
     ("py:class", ".*SupportsBufferProtocol"),
     ("py:class", ".*PyCapsule"),

@@ -4,15 +4,14 @@ __all__ = ["array"]
 
 from typing import TYPE_CHECKING, Protocol, TypeVar
 
-if TYPE_CHECKING:
-    from ._types import (
-        dtype as Dtype,
-        device as Device,
-        Any,
-        PyCapsule,
-        Enum,
-        ellipsis,
-    )
+from ._types import (
+    dtype as Dtype,
+    device as Device,
+    Any,
+    PyCapsule,
+    Enum,
+    ellipsis,
+)
 
 Self = TypeVar("Self", bound="Array")
 # NOTE: when working with py3.11+ this can be ``typing.Self``.
