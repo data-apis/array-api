@@ -44,6 +44,7 @@ Objects in API
    floor_divide
    greater
    greater_equal
+   imag
    isfinite
    isinf
    isnan
