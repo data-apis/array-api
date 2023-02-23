@@ -76,7 +76,7 @@ jobs:
       # Install dependencies:
       - name: 'Install dependencies'
         run: |
-          pip install .[doc]
+          pip install -r doc-requirements.txt
 
       # Generate the documentation:
       - name: 'Build documentation'

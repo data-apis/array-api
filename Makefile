@@ -3,12 +3,9 @@ SPHINXOPTS    ?= -W --keep-going
 SOURCEDIR     = spec
 BUILDDIR      = _site
 
-.PHONY: default install clean draft spec
+.PHONY: default clean draft spec
 
 default: clean spec
-
-install:
-	pip install -e .[doc]
 
 clean:
 	rm -rf $(BUILDDIR)
