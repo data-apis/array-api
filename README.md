@@ -18,30 +18,42 @@ this array API standard.
 
 ## Building docs locally
 
-The spec website is comprised of multiple Sphinx docs (one for each spec version),
-all of which exist in `spec/` and rely on the modules found in `src/` (most
-notably `array_api_stubs`). To install these modules and the additional
-dependencies of the Sphinx docs, you can use
+### Quickstart
+
+To install the local stubs and additional dependencies of the Sphinx docs, you
+can use `pip install -r doc-requirements.txt`. Then just running `make` at the
+root of the repository should build the whole spec website.
 
 ```sh
-$ pip install -e .[doc]  # ensure you install the dependencies extra "doc"
+$ pip install -r doc-requirements.txt
+$ make
+$ ls _site/
+2021.12/  draft/  index.html  latest/  versions.json
 ```
+
+### The nitty-gritty
+
+The spec website is comprised of multiple Sphinx docs (one for each spec version),
+all of which exist in `spec/` and rely on the modules found in `src/` (most
+notably `array_api_stubs`). For purposes of building the docs, these `src/`
+modules do not need to be installed as they are added to the `sys.path` at
+runtime.
 
 To build specific versions of the spec, run `sphinx-build` on the respective
 folder in `spec/`, e.g.
 
 ```sh
+$ sphinx-build spec/2012.12/ _site/2012.12/
+```
+
+Additionally, `make draft` aliases
+
+```sh
 $ sphinx-build spec/draft/ _site/draft/
 ```
 
-To build the whole website, which includes every version of
-the spec, you can utilize the `make` commands defined in `spec/Makefile`; e.g.,
-
-```sh
-$ make
-$ ls _site/
-2021.12/  draft/  index.html  latest/  versions.json
-```
+To build the whole website, which includes every version of the spec, you can
+utilize `make spec`.
 
 
 ## Making a spec release
