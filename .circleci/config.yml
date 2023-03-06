@@ -21,6 +21,7 @@ jobs:
           command: |
             pip install -r doc-requirements.txt
             make spec
+            make compat
       - store_artifacts:
           path: _site/
 
