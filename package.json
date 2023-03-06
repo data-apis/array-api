@@ -1,0 +1,22 @@
+{
+  "private": true,
+  "name": "",
+  "version": "0.0.0",
+  "license": "MIT",
+  "description": "Array API specification.",
+  "author": {},
+  "contributors": [],
+  "main": "",
+  "directories": {},
+  "scripts": {},
+  "homepage": "https://github.com/data-apis/array-api",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/data-apis/array-api.git"
+  },
+  "bugs": {
+    "url": "https://github.com/data-apis/array-api/issues"
+  },
+  "devDependencies": {},
+  "keywords": []
+}
