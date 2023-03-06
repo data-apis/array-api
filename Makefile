@@ -25,3 +25,6 @@ spec:
 	sphinx-build "$(SOURCEDIR)/2022.12" "$(BUILDDIR)/2022.12" $(SPHINXOPTS)
 	cp -r "$(BUILDDIR)/2022.12" "$(BUILDDIR)/latest"
 	sphinx-build "$(SOURCEDIR)/draft" "$(BUILDDIR)/draft" $(SPHINXOPTS)
+
+compat:
+	npm install && npm run build
