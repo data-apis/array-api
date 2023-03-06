@@ -78,12 +78,20 @@ jobs:
         run: |
           pip install -r doc-requirements.txt
 
+      # Install Node.js:
+      - name: 'Install Node.js'
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16' # 'lts/*'
+        timeout-minutes: 5
+
       # Generate the documentation:
       - name: 'Build documentation'
         run: |
           # Turn warnings into errors and ensure .doctrees is not deployed:
           export SPHINXOPTS="-b html -WT --keep-going -d doctrees"
           make spec
+          make compat
 
       # Configure Git:
       - name: 'Configure Git'
