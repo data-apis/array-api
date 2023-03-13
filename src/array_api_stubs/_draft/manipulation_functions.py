@@ -199,7 +199,7 @@ def stack(arrays: Union[Tuple[array, ...], List[array]], /, *, axis: int = 0) ->
     """
 
 
-def unstack(x: Tuple[array, ...], /, *, axis: int = 0) -> Tuple[array]:
+def unstack(x: array, /, *, axis: int = 0) -> Tuple[array, ...]:
     """
     Splits an array in a sequence of arrays along the given axis.
 
@@ -212,7 +212,7 @@ def unstack(x: Tuple[array, ...], /, *, axis: int = 0) -> Tuple[array]:
 
     Returns
     -------
-    out: Tuple[array]
+    out: Tuple[array, ...]
         tuple of slices along the given dimension. All the arrays have the same shape.
     """
 
