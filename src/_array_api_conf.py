@@ -35,6 +35,7 @@ extensions = [
     'sphinx.ext.autosummary',
     'sphinx.ext.napoleon',
     'sphinx.ext.autodoc',
+    'sphinx_favicon',
 ]
 
 autosummary_generate = True
@@ -176,7 +177,14 @@ html_theme_options = {
 
 
 todo_include_todos = True
-#html_favicon = "images/favicon.ico"
+
+favicons = [
+   {
+      "rel": "icon",
+      "sizes": "196x195",
+      "href": "images/favicon.png",
+   },
+]
 
 html_use_index = True
 html_domain_indices = True
