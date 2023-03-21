@@ -30,12 +30,12 @@ extensions = [
     'sphinx.ext.extlinks',
     'sphinx.ext.intersphinx',
     'sphinx.ext.todo',
-    'sphinx_markdown_tables',
-    'sphinx_copybutton',
     'sphinx.ext.autosummary',
     'sphinx.ext.napoleon',
     'sphinx.ext.autodoc',
+    'sphinx_copybutton',
     'sphinx_favicon',
+    'sphinx_markdown_tables',
 ]
 
 autosummary_generate = True
