@@ -355,7 +355,7 @@ class _array:
 
             if max_version is None:
                 # Keep and use the DLPack 0.X implementation
-                # Note: in >= 2 years from now (but ideally as late as
+                # Note: from March 2025 onwards (but ideally as late as
                 # possible), it's okay to raise BufferError here
             else:
                 # We get to produce `DLManagedTensorVersioned` now
