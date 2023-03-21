@@ -67,12 +67,17 @@ def expand_dims(x: array, /, *, axis: int = 0) -> array:
     x: array
         input array.
     axis: int
-        axis position (zero-based). If ``x`` has rank (i.e, number of dimensions) ``N``, a valid ``axis`` must reside on the closed-interval ``[-N-1, N]``. If provided a negative ``axis``, the axis position at which to insert a singleton dimension must be computed as ``N + axis + 1``. Hence, if provided ``-1``, the resolved axis position must be ``N`` (i.e., a singleton dimension must be appended to the input array ``x``). If provided ``-N-1``, the resolved axis position must be ``0`` (i.e., a singleton dimension must be prepended to the input array ``x``). An ``IndexError`` exception must be raised if provided an invalid ``axis`` position.
+        axis position (zero-based). If ``x`` has rank (i.e, number of dimensions) ``N``, a valid ``axis`` must reside on the closed-interval ``[-N-1, N]``. If provided a negative ``axis``, the axis position at which to insert a singleton dimension must be computed as ``N + axis + 1``. Hence, if provided ``-1``, the resolved axis position must be ``N`` (i.e., a singleton dimension must be appended to the input array ``x``). If provided ``-N-1``, the resolved axis position must be ``0`` (i.e., a singleton dimension must be prepended to the input array ``x``).
 
     Returns
     -------
     out: array
         an expanded output array having the same data type as ``x``.
+
+    Raises
+    ------
+    IndexError
+        If provided an invalid ``axis`` position, an ``IndexError`` should be raised.
     """
 
 
@@ -125,12 +130,18 @@ def reshape(
     shape: Tuple[int, ...]
         a new shape compatible with the original shape. One shape dimension is allowed to be ``-1``. When a shape dimension is ``-1``, the corresponding output array shape dimension must be inferred from the length of the array and the remaining dimensions.
     copy: Optional[bool]
-        boolean indicating whether or not to copy the input array. If ``True``, the function must always copy. If ``False``, the function must never copy and must raise a ``ValueError`` in case a copy would be necessary. If ``None``, the function must reuse existing memory buffer if possible and copy otherwise. Default: ``None``.
+        whether or not to copy the input array. If ``True``, the function must always copy. If ``False``, the function must never copy. If ``None``, the function must avoid copying if possible, and may copy otherwise. Default: ``None``.
 
     Returns
     -------
     out: array
         an output array having the same data type and elements as ``x``.
+
+    Raises
+    ------
+    ValueError
+        If ``copy=False`` and a copy would be necessary, a ``ValueError``
+        should be raised.
     """
 
 
@@ -169,12 +180,18 @@ def squeeze(x: array, /, axis: Union[int, Tuple[int, ...]]) -> array:
     x: array
         input array.
     axis: Union[int, Tuple[int, ...]]
-        axis (or axes) to squeeze. If a specified axis has a size greater than one, a ``ValueError`` must be raised.
+        axis (or axes) to squeeze.
 
     Returns
     -------
     out: array
         an output array having the same data type and elements as ``x``.
+
+    Raises
+    ------
+    ValueError
+        If a specified axis has a size greater than one, i.e. it is not a
+        singleton dimension, a ``ValueError`` should be raised.
     """
 
 
