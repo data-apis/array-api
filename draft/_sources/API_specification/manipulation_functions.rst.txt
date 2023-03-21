@@ -28,3 +28,4 @@ Objects in API
    roll
    squeeze
    stack
+   unstack
