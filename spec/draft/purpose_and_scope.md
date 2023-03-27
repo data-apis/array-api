@@ -417,7 +417,7 @@ in this specification.
 Libraries which aim to provide a conforming implementation but haven't yet
 completed such an implementation may, and are encouraged to, provide details on
 the level of (non-)conformance. For details on how to do this, see
-[Verification - measuring conformance](verification_test_suite.md).
+[Verification and Compliance](verification_and_compliance.md).
 
 
 * * *

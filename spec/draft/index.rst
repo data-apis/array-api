@@ -26,7 +26,7 @@ Contents
    :maxdepth: 1
 
    usage_data
-   verification_test_suite
+   verification_and_compliance
    benchmark_suite
 
 .. toctree::
