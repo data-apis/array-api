@@ -32,6 +32,11 @@ def matmul(x1: array, x2: array, /) -> array:
 
         The returned array must have a data type determined by :ref:`type-promotion`.
 
+    Notes
+    -----
+
+    .. versionchanged:: 2022.12
+       Added complex data type support.
 
     **Raises**
 
@@ -101,6 +106,12 @@ def tensordot(
     -------
     out: array
         an array containing the tensor contraction whose shape consists of the non-contracted axes (dimensions) of the first array ``x1``, followed by the non-contracted axes (dimensions) of the second array ``x2``. The returned array must have a data type determined by :ref:`type-promotion`.
+
+    Notes
+    -----
+
+    .. versionchanged:: 2022.12
+       Added complex data type support.
     """
 
 
@@ -133,6 +144,11 @@ def vecdot(x1: array, x2: array, /, *, axis: int = -1) -> array:
     out: array
         if ``x1`` and ``x2`` are both one-dimensional arrays, a zero-dimensional containing the dot product; otherwise, a non-zero-dimensional array containing the dot products and having rank ``N-1``, where ``N`` is the rank (number of dimensions) of the shape determined according to :ref:`broadcasting` along the non-contracted axes. The returned array must have a data type determined by :ref:`type-promotion`.
 
+    Notes
+    -----
+
+    .. versionchanged:: 2022.12
+       Added complex data type support.
 
     **Raises**
 

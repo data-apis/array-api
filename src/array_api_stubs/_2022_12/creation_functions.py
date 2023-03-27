@@ -97,6 +97,12 @@ def asarray(
     -------
     out: array
         an array containing the data from ``obj``.
+
+    Notes
+    -----
+
+    .. versionchanged:: 2022.12
+       Added complex data type support.
     """
 
 
@@ -179,6 +185,12 @@ def eye(
     -------
     out: array
         an array where all elements are equal to zero, except for the ``k``\th diagonal, whose values are equal to one.
+
+    Notes
+    -----
+
+    .. versionchanged:: 2022.12
+       Added complex data type support.
     """
 
 
@@ -237,6 +249,12 @@ def full(
     -------
     out: array
         an array where every element is equal to ``fill_value``.
+
+    Notes
+    -----
+
+    .. versionchanged:: 2022.12
+       Added complex data type support.
     """
 
 
@@ -273,6 +291,12 @@ def full_like(
     -------
     out: array
         an array having the same shape as ``x`` and where every element is equal to ``fill_value``.
+
+    Notes
+    -----
+
+    .. versionchanged:: 2022.12
+       Added complex data type support.
     """
 
 
@@ -334,12 +358,17 @@ def linspace(
     out: array
         a one-dimensional array containing evenly spaced values.
 
+    Notes
+    -----
 
     .. note::
        While this specification recommends that this function only return arrays having a floating-point data type, specification-compliant array libraries may choose to support output arrays having an integer data type (e.g., due to backward compatibility concerns). However, function behavior when generating integer output arrays is unspecified and, thus, is implementation-defined. Accordingly, using this function to generate integer output arrays is not portable.
 
     .. note::
        As mixed data type promotion is implementation-defined, behavior when ``start`` or ``stop`` exceeds the maximum safe integer of an output floating-point data type is implementation-defined. An implementation may choose to overflow or raise an exception.
+
+    .. versionchanged:: 2022.12
+       Added complex data type support.
     """
 
 
@@ -367,6 +396,12 @@ def meshgrid(*arrays: array, indexing: str = "xy") -> List[array]:
         Similarly, for the three-dimensional case with input one-dimensional arrays of length ``M``, ``N``, and ``P``, if matrix indexing ``ij``, then each returned array must have shape ``(M, N, P)``, and, if Cartesian indexing ``xy``, then each returned array must have shape ``(N, M, P)``.
 
         Each returned array should have the same data type as the input arrays.
+
+    Notes
+    -----
+
+    .. versionchanged:: 2022.12
+       Added complex data type support.
     """
 
 
@@ -395,6 +430,12 @@ def ones(
     -------
     out: array
         an array containing ones.
+
+    Notes
+    -----
+
+    .. versionchanged:: 2022.12
+       Added complex data type support.
     """
 
 
@@ -420,6 +461,12 @@ def ones_like(
     -------
     out: array
         an array having the same shape as ``x`` and filled with ones.
+
+    Notes
+    -----
+
+    .. versionchanged:: 2022.12
+       Added complex data type support.
     """
 
 

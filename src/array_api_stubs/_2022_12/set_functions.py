@@ -38,6 +38,12 @@ def unique_all(x: array, /) -> Tuple[array, array, array, array]:
 
         .. note::
            The order of unique elements is not specified and may vary between implementations.
+
+    Notes
+    -----
+
+    .. versionchanged:: 2022.12
+       Added complex data type support.
     """
 
 
@@ -74,6 +80,12 @@ def unique_counts(x: array, /) -> Tuple[array, array]:
 
         .. note::
            The order of unique elements is not specified and may vary between implementations.
+
+    Notes
+    -----
+
+    .. versionchanged:: 2022.12
+       Added complex data type support.
     """
 
 
@@ -110,6 +122,12 @@ def unique_inverse(x: array, /) -> Tuple[array, array]:
 
         .. note::
            The order of unique elements is not specified and may vary between implementations.
+
+    Notes
+    -----
+
+    .. versionchanged:: 2022.12
+       Added complex data type support.
     """
 
 
@@ -141,6 +159,12 @@ def unique_values(x: array, /) -> array:
 
         .. note::
            The order of unique elements is not specified and may vary between implementations.
+
+    Notes
+    -----
+
+    .. versionchanged:: 2022.12
+       Added complex data type support.
     """
 
 
