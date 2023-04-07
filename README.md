@@ -189,6 +189,19 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
   </tr>
   <tr>
     <td align="center"><a href="https://explosion.ai/"><img src="https://avatars.githubusercontent.com/u/8059750?v=4?s=100" width="100px;" alt=""/><br /><sub><b>Matthew Honnibal</b></sub></a><br /><a href="#ideas-honnibal" title="Ideas, Planning, & Feedback">🤔</a></td>
+    <td align="center"><a href="https://explosion.ai/"><img src="https://avatars.githubusercontent.com/u/3291265?v=4" width="100px;" alt=""/><br /><sub><b>Mario Lezcano Casado</b></sub></a><br /><a href="#ideas-lezcano" title="Ideas, Planning, & Feedback">🤔</a></td>
+    <td align="center"><a href="https://explosion.ai/"><img src="https://avatars.githubusercontent.com/u/43369155?v=4" width="100px;" alt=""/><br /><sub><b>Bas van Beek</b></sub></a><br /><a href="#ideas-BvB93" title="Ideas, Planning, & Feedback">🤔</a></td>
+    <td align="center"><a href="https://explosion.ai/"><img src="https://avatars.githubusercontent.com/u/61977?v=4" width="100px;" alt=""/><br /><sub><b>Sebastian Berg</b></sub></a><br /><a href="#ideas-seberg" title="Ideas, Planning, & Feedback">🤔</a></td>
+    <td align="center"><a href="https://explosion.ai/"><img src="https://avatars.githubusercontent.com/u/57783927?v=4" width="100px;" alt=""/><br /><sub><b>Isaac Breen</b></sub></a><br /><a href="#ideas-isaacbreen" title="Ideas, Planning, & Feedback">🤔</a></td>
+    <td align="center"><a href="https://explosion.ai/"><img src="https://avatars.githubusercontent.com/u/939877?v=4" width="100px;" alt=""/><br /><sub><b>Kenichi Maehashi</b></sub></a><br /><a href="#ideas-kmaehashi" title="Ideas, Planning, & Feedback">🤔</a></td>
+    <td align="center"><a href="https://explosion.ai/"><img src="https://avatars.githubusercontent.com/u/14341145?v=4" width="100px;" alt=""/><br /><sub><b>Chris Pryer</b></sub></a><br /><a href="#ideas-cnpryer" title="Ideas, Planning, & Feedback">🤔</a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://explosion.ai/"><img src="https://avatars.githubusercontent.com/u/43181252?v=4" width="100px;" alt=""/><br /><sub><b>Tirth Patel</b></sub></a><br /><a href="#ideas-tirthasheshpatel" title="Ideas, Planning, & Feedback">🤔</a></td>
+    <td align="center"><a href="https://explosion.ai/"><img src="https://avatars.githubusercontent.com/u/19503980?v=4" width="100px;" alt=""/><br /><sub><b>Kshiteej K</b></sub></a><br /><a href="#ideas-kshitij12345" title="Ideas, Planning, & Feedback">🤔</a></td>
+    <td align="center"><a href="https://explosion.ai/"><img src="https://avatars.githubusercontent.com/u/23621655?v=4" width="100px;" alt=""/><br /><sub><b>Anirudh Dagar</b></sub></a><br /><a href="#ideas-anirudhdagar" title="Ideas, Planning, & Feedback">🤔</a></td>
+    <td align="center"><a href="https://explosion.ai/"><img src="https://avatars.githubusercontent.com/u/85085?v=4" width="100px;" alt=""/><br /><sub><b>Tom White</b></sub></a><br /><a href="#ideas-tomwhite" title="Ideas, Planning, & Feedback">🤔</a></td>
+    <td align="center"><a href="https://explosion.ai/"><img src="https://avatars.githubusercontent.com/u/8246949?v=4" width="100px;" alt=""/><br /><sub><b>Matthew Barber</b></sub></a><br /><a href="#ideas-honno" title="Ideas, Planning, & Feedback">🤔</a></td>
   </tr>
 </table>
 
