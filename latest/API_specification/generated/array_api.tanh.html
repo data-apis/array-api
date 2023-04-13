@@ -505,6 +505,9 @@
 <p>For historical reasons stemming from the C standard, array libraries may not return the expected result when <code class="docutils literal notranslate"><span class="pre">a</span></code> is <code class="docutils literal notranslate"><span class="pre">+0</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> is either <code class="docutils literal notranslate"><span class="pre">+infinity</span></code> or <code class="docutils literal notranslate"><span class="pre">NaN</span></code>. The result should be <code class="docutils literal notranslate"><span class="pre">+0</span> <span class="pre">+</span> <span class="pre">NaN</span> <span class="pre">j</span></code> in both cases; however, for libraries compiled against older C versions, the result may be <code class="docutils literal notranslate"><span class="pre">NaN</span> <span class="pre">+</span> <span class="pre">NaN</span> <span class="pre">j</span></code>.</p>
 <p>Array libraries are not required to patch these older C versions, and, thus, users are advised that results may vary across array library implementations for these special cases.</p>
 </div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 2022.12: </span>Added complex data type support.</p>
+</div>
 </dd></dl>
 </section>
 

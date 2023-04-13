@@ -347,9 +347,13 @@
 <dd class="field-even"><p><strong>out</strong> (<em>array</em>) – an array containing the computed eigenvalues. The returned array must have shape <code class="docutils literal notranslate"><span class="pre">(...,</span> <span class="pre">M)</span></code> and have a real-valued floating-point data type whose precision matches the precision of <code class="docutils literal notranslate"><span class="pre">x</span></code> (e.g., if <code class="docutils literal notranslate"><span class="pre">x</span></code> is <code class="docutils literal notranslate"><span class="pre">complex128</span></code>, then must have a <code class="docutils literal notranslate"><span class="pre">float64</span></code> data type).</p>
 </dd>
 </dl>
+<p class="rubric">Notes</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Eigenvalue sort order is left unspecified and is thus implementation-dependent.</p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 2022.12: </span>Added complex data type support.</p>
 </div>
 </dd></dl>
 </section>

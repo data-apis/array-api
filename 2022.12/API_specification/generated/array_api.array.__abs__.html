@@ -464,9 +464,13 @@
 <dd class="field-even"><p><strong>out</strong> (<em>array</em>) – an array containing the element-wise absolute value. If <code class="docutils literal notranslate"><span class="pre">self</span></code> has a real-valued data type, the returned array must have the same data type as <code class="docutils literal notranslate"><span class="pre">self</span></code>. If <code class="docutils literal notranslate"><span class="pre">self</span></code> has a complex floating-point data type, the returned arrayed must have a real-valued floating-point data type whose precision matches the precision of <code class="docutils literal notranslate"><span class="pre">self</span></code> (e.g., if <code class="docutils literal notranslate"><span class="pre">self</span></code> is <code class="docutils literal notranslate"><span class="pre">complex128</span></code>, then the returned array must have a <code class="docutils literal notranslate"><span class="pre">float64</span></code> data type).</p>
 </dd>
 </dl>
+<p class="rubric">Notes</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Element-wise results, including special cases, must equal the results returned by the equivalent element-wise function <a class="reference internal" href="array_api.abs.html#array_api.abs" title="array_api.abs"><code class="xref py py-func docutils literal notranslate"><span class="pre">abs()</span></code></a>.</p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 2022.12: </span>Added complex data type support.</p>
 </div>
 </dd></dl>
 </section>
