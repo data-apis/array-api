@@ -525,7 +525,7 @@ def solve(x1: array, x2: array, /) -> array:
     """
 
 
-def svd(x: array, /, *, full_matrices: bool = True) -> Tuple[array, ...]:
+def svd(x: array, /, *, full_matrices: bool = True) -> Tuple[array, array, array]:
     r"""
     Returns a singular value decomposition (SVD) of a matrix (or a stack of matrices) ``x``.
 
