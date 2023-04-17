@@ -11,6 +11,7 @@ Design topics & constraints
    device_support
    static_typing
    accuracy
+   exceptions
    complex_numbers
    C_API
    parallelism
