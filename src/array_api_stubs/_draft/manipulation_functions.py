@@ -130,7 +130,7 @@ def reshape(
     shape: Tuple[int, ...]
         a new shape compatible with the original shape. One shape dimension is allowed to be ``-1``. When a shape dimension is ``-1``, the corresponding output array shape dimension must be inferred from the length of the array and the remaining dimensions.
     copy: Optional[bool]
-        whether or not to copy the input array. If ``True``, the function must always copy. If ``False``, the function must never copy. If ``None``, the function must avoid copying if possible, and may copy otherwise. Default: ``None``.
+        whether or not to copy the input array. If ``True``, the function must always copy. If ``False``, the function must never copy. If ``None``, the function must avoid copying, if possible, and may copy otherwise. Default: ``None``.
 
     Returns
     -------
@@ -190,8 +190,8 @@ def squeeze(x: array, /, axis: Union[int, Tuple[int, ...]]) -> array:
     Raises
     ------
     ValueError
-        If a specified axis has a size greater than one, i.e. it is not a
-        singleton dimension, a ``ValueError`` should be raised.
+        If a specified axis has a size greater than one (i.e., it is not a
+        singleton dimension), a ``ValueError`` should be raised.
     """
 
 
