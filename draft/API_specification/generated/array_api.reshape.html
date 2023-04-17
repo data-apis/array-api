@@ -456,11 +456,15 @@
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>x</strong> (<em>array</em>) – input array to reshape.</p></li>
 <li><p><strong>shape</strong> (<em>Tuple</em><em>[</em><em>int</em><em>, </em><em>...</em><em>]</em>) – a new shape compatible with the original shape. One shape dimension is allowed to be <code class="docutils literal notranslate"><span class="pre">-1</span></code>. When a shape dimension is <code class="docutils literal notranslate"><span class="pre">-1</span></code>, the corresponding output array shape dimension must be inferred from the length of the array and the remaining dimensions.</p></li>
-<li><p><strong>copy</strong> (<em>Optional</em><em>[</em><em>bool</em><em>]</em>) – boolean indicating whether or not to copy the input array. If <code class="docutils literal notranslate"><span class="pre">True</span></code>, the function must always copy. If <code class="docutils literal notranslate"><span class="pre">False</span></code>, the function must never copy and must raise a <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> in case a copy would be necessary. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, the function must reuse existing memory buffer if possible and copy otherwise. Default: <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+<li><p><strong>copy</strong> (<em>Optional</em><em>[</em><em>bool</em><em>]</em>) – whether or not to copy the input array. If <code class="docutils literal notranslate"><span class="pre">True</span></code>, the function must always copy. If <code class="docutils literal notranslate"><span class="pre">False</span></code>, the function must never copy. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, the function must avoid copying, if possible, and may copy otherwise. Default: <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p><strong>out</strong> (<em>array</em>) – an output array having the same data type and elements as <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – If <code class="docutils literal notranslate"><span class="pre">copy=False</span></code> and a copy would be necessary, a <code class="docutils literal notranslate"><span class="pre">ValueError</span></code>
+    should be raised.</p>
 </dd>
 </dl>
 </dd></dl>

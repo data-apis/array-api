@@ -49,7 +49,7 @@
     <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
   
   
-    <title>Data interchange mechanisms &#8212; Python array API standard DRAFT documentation</title>
+    <title>Exceptions &#8212; Python array API standard DRAFT documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/material.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
@@ -61,8 +61,8 @@
     <script src="../_static/copybutton.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Device support" href="device_support.html" />
-    <link rel="prev" title="Data-dependent output shapes" href="data_dependent_output_shapes.html" />
+    <link rel="next" title="Complex Numbers" href="complex_numbers.html" />
+    <link rel="prev" title="Accuracy" href="accuracy.html" />
   
     <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
   
@@ -83,7 +83,7 @@
   <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer">
   <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search">
   <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
-  <a href="#design_topics/data_interchange" tabindex="1" class="md-skip"> Skip to content </a>
+  <a href="#design_topics/exceptions" tabindex="1" class="md-skip"> Skip to content </a>
   <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
     <div class="md-flex navheader">
@@ -101,7 +101,7 @@
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           <span class="md-header-nav__topic">Python array API standard</span>
-          <span class="md-header-nav__topic"> Data interchange mechanisms </span>
+          <span class="md-header-nav__topic"> Exceptions </span>
         </div>
       </div>
       <div class="md-flex__cell md-flex__cell--shrink">
@@ -238,23 +238,7 @@
     <li class="md-nav__item">
     
     
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    <label class="md-nav__link md-nav__link--active" for="__toc"> Data interchange mechanisms </label>
-    
-      <a href="#" class="md-nav__link md-nav__link--active">Data interchange mechanisms</a>
-      
-        
-<nav class="md-nav md-nav--secondary">
-    <label class="md-nav__title" for="__toc">Contents</label>
-  <ul class="md-nav__list" data-md-scrollfix="">
-        <li class="md-nav__item"><a href="#design-topics-data-interchange--page-root" class="md-nav__link">Data interchange mechanisms</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#dlpack-an-in-memory-tensor-structure" class="md-nav__link">DLPack: An in-memory tensor structure</a>
-        </li></ul>
-            </nav>
-        </li>
-  </ul>
-</nav>
+      <a href="data_interchange.html" class="md-nav__link">Data interchange mechanisms</a>
       
     
     </li>
@@ -282,7 +266,16 @@
     <li class="md-nav__item">
     
     
-      <a href="exceptions.html" class="md-nav__link">Exceptions</a>
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    <label class="md-nav__link md-nav__link--active" for="__toc"> Exceptions </label>
+    
+      <a href="#" class="md-nav__link md-nav__link--active">Exceptions</a>
+      
+        
+<nav class="md-nav md-nav--secondary">
+  <ul class="md-nav__list" data-md-scrollfix="">
+  </ul>
+</nav>
       
     
     </li>
@@ -387,14 +380,7 @@
               <div class="md-sidebar__inner">
                 
 <nav class="md-nav md-nav--secondary">
-    <label class="md-nav__title" for="__toc">Contents</label>
   <ul class="md-nav__list" data-md-scrollfix="">
-        <li class="md-nav__item"><a href="#design-topics-data-interchange--page-root" class="md-nav__link">Data interchange mechanisms</a><nav class="md-nav">
-              <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#dlpack-an-in-memory-tensor-structure" class="md-nav__link">DLPack: An in-memory tensor structure</a>
-        </li></ul>
-            </nav>
-        </li>
   </ul>
 </nav>
               </div>
@@ -404,82 +390,29 @@
         <div class="md-content">
           <article class="md-content__inner md-typeset" role="main">
             
-  <section id="data-interchange-mechanisms">
-<span id="data-interchange"></span><h1 id="design-topics-data-interchange--page-root">Data interchange mechanisms<a class="headerlink" href="#design-topics-data-interchange--page-root" title="Permalink to this headline">¶</a></h1>
-<p>This section discusses the mechanism to convert one type of array into another.
-As discussed in the <a class="reference internal" href="../assumptions.html#assumptions"><span class="std std-ref">assumptions-dependencies</span></a> section,
-<em>functions</em> provided by an array library are not expected to operate on
-<em>array types</em> implemented by another library. Instead, the array can be
-converted to a “native” array type.</p>
-<p>The interchange mechanism must offer the following:</p>
-<ol class="arabic">
-<li><p>Data access via a protocol that describes the memory layout of the array
-in an implementation-independent manner.</p>
-<p><em>Rationale: any number of libraries must be able to exchange data, and no
-particular package must be needed to do so.</em></p>
-</li>
-<li><p>Support for all dtypes in this API standard (see <a class="reference internal" href="../API_specification/data_types.html#data-types"><span class="std std-ref">Data Types</span></a>).</p></li>
-<li><p>Device support. It must be possible to determine on what device the array
-that is to be converted lives.</p>
-<p><em>Rationale: there are CPU-only, GPU-only, and multi-device array types;
-it’s best to support these with a single protocol (with separate
-per-device protocols it’s hard to figure out unambiguous rules for which
-protocol gets used, and the situation will get more complex over time
-as TPU’s and other accelerators become more widely available).</em></p>
-</li>
-<li><p>Zero-copy semantics where possible, making a copy only if needed (e.g.
-when data is not contiguous in memory).</p>
-<p><em>Rationale: performance.</em></p>
-</li>
-<li><p>A Python-side and a C-side interface, the latter with a stable C ABI.</p>
-<p><em>Rationale: all prominent existing array libraries are implemented in
-C/C++, and are released independently from each other. Hence a stable C
-ABI is required for packages to work well together.</em></p>
-</li>
-</ol>
-<section id="dlpack-an-in-memory-tensor-structure">
-<h2 id="dlpack-an-in-memory-tensor-structure">DLPack: An in-memory tensor structure<a class="headerlink" href="#dlpack-an-in-memory-tensor-structure" title="Permalink to this headline">¶</a></h2>
-<p>The best candidate for this protocol is
-<a class="reference external" href="https://dmlc.github.io/dlpack/latest/">DLPack</a>, and hence that is what this
-standard has chosen as the primary/recommended protocol. Note that the
-<code class="docutils literal notranslate"><span class="pre">asarray</span></code> function also supports the Python buffer protocol (CPU-only) to
-support libraries that already implement buffer protocol support.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The main alternatives to DLPack are device-specific methods:</p>
-<ul class="simple">
-<li><p>The <a class="reference external" href="https://docs.python.org/dev/c-api/buffer.html">buffer protocol</a> on CPU</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">__cuda_array_interface__</span></code> for CUDA, specified in the Numba documentation
-<a class="reference external" href="https://numba.pydata.org/numba-doc/0.43.0/cuda/cuda_array_interface.html">here</a>
-(Python-side only at the moment)</p></li>
-</ul>
-<p>An issue with device-specific protocols are: if two libraries both
-support multiple device types, in which order should the protocols be
-tried? A growth in the number of protocols to support each time a new
-device gets supported by array libraries (e.g. TPUs, AMD GPUs, emerging
-hardware accelerators) also seems undesirable.</p>
-<p>In addition to the above argument, it is also clear from adoption
-patterns that DLPack has the widest support. The buffer protocol, despite
-being a lot older and standardized as part of Python itself via PEP 3118,
-hardly has any support from array libraries. CPU interoperability is
-mostly dealt with via the NumPy-specific <code class="docutils literal notranslate"><span class="pre">__array__</span></code> (which, when called,
-means the object it is attached to must return a <code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code>
-containing the data the object holds).</p>
-<p>See the <a class="reference external" href="https://github.com/data-apis/consortium-feedback/issues/1">RFC to adopt DLPack</a>
-for discussion that preceded the adoption of DLPack.</p>
-</div>
-<p>DLPack’s documentation can be found at: <a class="reference external" href="https://dmlc.github.io/dlpack/latest/">https://dmlc.github.io/dlpack/latest/</a>.</p>
-<p>The <a class="reference external" href="https://dmlc.github.io/dlpack/latest/python_spec.html">Python specification of DLPack</a>
-page gives a high-level specification for data exchange in Python using DLPack.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>DLPack is a standalone protocol/project and can therefore be used outside of
-this standard. Python libraries that want to implement only DLPack support
-are recommended to do so using the same syntax and semantics as outlined
-below. They are not required to return an array object from <code class="docutils literal notranslate"><span class="pre">from_dlpack</span></code>
-which conforms to this standard.</p>
-</div>
-</section>
+  <section id="exceptions">
+<span id="id1"></span><h1 id="design-topics-exceptions--page-root">Exceptions<a class="headerlink" href="#design-topics-exceptions--page-root" title="Permalink to this headline">¶</a></h1>
+<p>This standard specifies expected syntax and semantics for a set of APIs. When
+inputs to an API do not match what is expected, libraries may emit warnings,
+raise exceptions, or misbehave in unexpected ways. In general, it is not
+possible to foresee or specify all the ways in which unexpected or invalid
+inputs are provided. Therefore, this standard does not attempt to specify
+exception or warning types to the extent needed in order to do exception
+handling in a portable manner. In general, it is expected that array library
+implementers follow <a class="reference external" href="https://docs.python.org/3/library/exceptions.html">the guidance given by the documentation of the Python
+language</a>, and either use
+builtin exception or warning types that are appropriate for the
+situation or use custom exceptions or warnings that derive from those builtin
+ones.</p>
+<p>In specific cases, it may be useful to provide guidance to array library
+authors regarding what an appropriate exception is. That guidance will be
+phrased as <em>should</em> rather than <em>must</em> (typically in a <em>Raises</em> section),
+because (a) there may be reasons for an implementer to deviate, and (b) more
+often than not, existing array library implementation already differ in their
+choices, and it may not be worth them breaking backward compatibility in order
+to comply with a “must” in this standard.</p>
+<p>In other cases, this standard will only specify that an exception should or
+must be raised, but not mention what type of exception that is.</p>
 </section>
 
 
@@ -492,7 +425,7 @@ which conforms to this standard.</p>
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
           
-            <a href="data_dependent_output_shapes.html" title="Data-dependent output shapes"
+            <a href="accuracy.html" title="Accuracy"
                class="md-flex md-footer-nav__link md-footer-nav__link--prev"
                rel="prev">
               <div class="md-flex__cell md-flex__cell--shrink">
@@ -501,17 +434,17 @@ which conforms to this standard.</p>
               <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
                 <span class="md-flex__ellipsis">
                   <span
-                      class="md-footer-nav__direction"> Previous </span> Data-dependent output shapes </span>
+                      class="md-footer-nav__direction"> Previous </span> Accuracy </span>
               </div>
             </a>
           
           
-            <a href="device_support.html" title="Device support"
+            <a href="complex_numbers.html" title="Complex Numbers"
                class="md-flex md-footer-nav__link md-footer-nav__link--next"
                rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
                 class="md-flex__ellipsis"> <span
-                class="md-footer-nav__direction"> Next </span> Device support </span>
+                class="md-footer-nav__direction"> Next </span> Complex Numbers </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink"><i
                 class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
