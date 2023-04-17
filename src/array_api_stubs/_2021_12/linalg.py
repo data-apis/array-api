@@ -364,7 +364,7 @@ def solve(x1: array, x2: array, /) -> array:
         an array containing the solution to the system ``AX = B`` for each square matrix. The returned array must have the same shape as ``x2`` (i.e., the array corresponding to ``B``) and must have a floating-point data type determined by :ref:`type-promotion`.
     """
 
-def svd(x: array, /, *, full_matrices: bool = True) -> Union[array, Tuple[array, ...]]:
+def svd(x: array, /, *, full_matrices: bool = True) -> Tuple[array, array, array]:
     """
     Returns a singular value decomposition A = USVh of a matrix (or a stack of matrices) ``x``, where ``U`` is a matrix (or a stack of matrices) with orthonormal columns, ``S`` is a vector of non-negative numbers (or stack of vectors), and ``Vh`` is a matrix (or a stack of matrices) with orthonormal rows.
 
@@ -379,7 +379,7 @@ def svd(x: array, /, *, full_matrices: bool = True) -> Union[array, Tuple[array,
     -------
     ..
       NOTE: once complex numbers are supported, each square matrix must be Hermitian.
-    out: Union[array, Tuple[array, ...]]
+    out: Tuple[array, array, array]
         a namedtuple ``(U, S, Vh)`` whose
 
         -   first element must have the field name ``U`` and must be an array whose shape depends on the value of ``full_matrices`` and contain matrices with orthonormal columns (i.e., the columns are left singular vectors). If ``full_matrices`` is ``True``, the array must have shape ``(..., M, M)``. If ``full_matrices`` is ``False``, the array must have shape ``(..., M, K)``, where ``K = min(M, N)``. The first ``x.ndim-2`` dimensions must have the same shape as those of the input ``x``.

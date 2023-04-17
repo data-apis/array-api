@@ -565,7 +565,7 @@ def svd(x: array, /, *, full_matrices: bool = True) -> Tuple[array, array, array
 
     Returns
     -------
-    out: Tuple[array, ...]
+    out: Tuple[array, array, array]
         a namedtuple ``(U, S, Vh)`` whose
 
         -   first element must have the field name ``U`` and must be an array whose shape depends on the value of ``full_matrices`` and contain matrices with orthonormal columns (i.e., the columns are left singular vectors). If ``full_matrices`` is ``True``, the array must have shape ``(..., M, M)``. If ``full_matrices`` is ``False``, the array must have shape ``(..., M, K)``, where ``K = min(M, N)``. The first ``x.ndim-2`` dimensions must have the same shape as those of the input ``x``. Must have the same data type as ``x``.
