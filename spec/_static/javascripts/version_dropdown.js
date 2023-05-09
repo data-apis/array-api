@@ -10,15 +10,18 @@ function add_version_dropdown(json_loc, target_loc, text) {
     dropdown.appendChild(content);
     console.log('*********');
     $.getJSON(json_loc, function(versions) {
+        var currentURL = window.location.href;
+        var path = currentURL.split( "_site" )[ 1 ];
+        path = path.split('/');
+        path = path.slice(1, path.length);
+        path = path.join('/');
         for (var key in versions) {
             if (versions.hasOwnProperty(key)) {
                 console.log(key, versions[key]);
-                var currentURL = window.location.href;
-                var path = currentURL.split( versions[key] )[ 1 ];
                 var a = document.createElement("a");
                 a.innerHTML = key;
                 a.title = key;
-                a.href = target_loc + versions[key] + path;
+                a.href = target_loc + versions[key] + "/" + path;
                 console.log('----', a.href);
                 content.appendChild(a);
             }
