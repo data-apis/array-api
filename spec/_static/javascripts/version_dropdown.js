@@ -1,4 +1,4 @@
-function add_custom_version_dropdown(json_loc, target_loc, text) {
+function add_version_dropdown(json_loc, target_loc, text) {
 
     var dropdown = document.createElement("div");
     dropdown.className = "md-flex__cell md-flex__cell--shrink dropdown";
