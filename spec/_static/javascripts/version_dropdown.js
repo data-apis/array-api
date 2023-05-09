@@ -13,10 +13,12 @@ function add_version_dropdown(json_loc, target_loc, text) {
         for (var key in versions) {
             if (versions.hasOwnProperty(key)) {
                 console.log(key, versions[key]);
+                var currentURL = window.location.href;
+                var path = currentURL.split( versions[key] )[ 1 ];
                 var a = document.createElement("a");
                 a.innerHTML = key;
                 a.title = key;
-                a.href = target_loc + versions[key] + "/{{ pagename }}.html";
+                a.href = target_loc + versions[key] + path;
                 console.log('----', a.href);
                 content.appendChild(a);
             }
