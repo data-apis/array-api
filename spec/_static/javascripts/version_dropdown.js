@@ -13,7 +13,7 @@ function add_version_dropdown(json_loc, target_loc, text) {
         var currentURL = window.location.href;
         var path = currentURL.split( "_site" )[ 1 ];
         path = path.split('/');
-        path = path.slice(1, path.length);
+        path = path.slice(2, path.length);
         path = path.join('/');
         for (var key in versions) {
             if (versions.hasOwnProperty(key)) {
