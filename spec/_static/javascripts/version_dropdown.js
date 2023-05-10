@@ -32,10 +32,10 @@ function add_version_dropdown(json_loc, target_loc, text) {
                         else {
                             a.href = url;
                         }
-                        content.appendChild(a);
                     }
                 };
                 http.send();
+                content.appendChild(a);
             }
         }
     }).done(function() {
