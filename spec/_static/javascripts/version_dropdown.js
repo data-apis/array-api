@@ -23,7 +23,7 @@ function add_version_dropdown(json_loc, target_loc, text) {
                 a.title = key;
                 var url = target_loc + versions[key];
                 var http = new XMLHttpRequest();
-                http.open('HEAD', url + "/" + path );
+                http.open('GET', url + "/" + path );
                 http.onreadystatechange = function() {
                     if (this.readyState == this.DONE) {
                         if(this.status != 404 ){
