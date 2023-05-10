@@ -1,4 +1,4 @@
-function assign_href( a ) {
+function assign_href( a, url, path ) {
     var http = new XMLHttpRequest();
     http.open('GET', url + "/" + path );
     http.onreadystatechange = function() {
@@ -37,7 +37,7 @@ function add_version_dropdown(json_loc, target_loc, text) {
                 var a = document.createElement("a");
                 a.innerHTML = key;
                 a.title = key;
-                assign_href( a );
+                assign_href( a, target_loc + versions[key], path );
                 content.appendChild(a);
             }
         }
