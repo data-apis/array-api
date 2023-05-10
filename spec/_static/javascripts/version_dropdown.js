@@ -1,5 +1,21 @@
-function add_version_dropdown(json_loc, target_loc, text) {
+function assign_href( a ) {
+    var http = new XMLHttpRequest();
+    http.open('GET', url + "/" + path );
+    http.onreadystatechange = function() {
+        console.log('%%%%', this);
+        if (this.readyState == this.DONE) {
+            if(this.status != 404 ){
+                a.href = url + "/" + path;
+            }
+            else {
+                a.href = url;
+            }
+        }
+    };
+    http.send();
+}
 
+function add_version_dropdown(json_loc, target_loc, text) {
     var dropdown = document.createElement("div");
     dropdown.className = "md-flex__cell md-flex__cell--shrink dropdown";
     var button = document.createElement("button");
@@ -21,21 +37,7 @@ function add_version_dropdown(json_loc, target_loc, text) {
                 var a = document.createElement("a");
                 a.innerHTML = key;
                 a.title = key;
-                var url = target_loc + versions[key];
-                var http = new XMLHttpRequest();
-                http.open('GET', url + "/" + path );
-                http.onreadystatechange = function() {
-                    console.log('%%%%', this);
-                    if (this.readyState == this.DONE) {
-                        if(this.status != 404 ){
-                            a.href = url + "/" + path;
-                        }
-                        else {
-                            a.href = url;
-                        }
-                    }
-                };
-                http.send();
+                assign_href( a );
                 content.appendChild(a);
             }
         }
