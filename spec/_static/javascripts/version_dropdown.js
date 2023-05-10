@@ -2,9 +2,9 @@ function assign_href( a, url, path ) {
     var http = new XMLHttpRequest();
     http.open('GET', url + "/" + path );
     http.onreadystatechange = function() {
-        console.log('%%%%', this);
         if (this.readyState == this.DONE) {
             if(this.status != 404 ){
+                console.log('%%%%', this);
                 a.href = url + "/" + path;
             }
             else {
