@@ -26,7 +26,6 @@ function add_version_dropdown(json_loc, target_loc, text) {
                 http.open('HEAD', url + "/" + path );
                 http.onreadystatechange = function() {
                     if (this.readyState == this.DONE) {
-                        callback(this.status != 404);
                         if(this.status != 404 ){
                             a.href = url + "/" + path;
                         }
