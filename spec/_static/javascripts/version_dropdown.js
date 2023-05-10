@@ -21,9 +21,22 @@ function add_version_dropdown(json_loc, target_loc, text) {
                 var a = document.createElement("a");
                 a.innerHTML = key;
                 a.title = key;
-                a.href = target_loc + versions[key] + "/" + path;
-                console.log('----', a.href);
-                content.appendChild(a);
+                var url = target_loc + versions[key];
+                var http = new XMLHttpRequest();
+                http.open('HEAD', url + "/" + path );
+                http.onreadystatechange = function() {
+                    if (this.readyState == this.DONE) {
+                        callback(this.status != 404);
+                        if(this.status != 404 ){
+                            a.href = url + "/" + path;
+                        }
+                        else {
+                            a.href = url;
+                        }
+                        content.appendChild(a);
+                    }
+                };
+                http.send();
             }
         }
     }).done(function() {
