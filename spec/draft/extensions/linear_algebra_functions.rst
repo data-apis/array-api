@@ -98,6 +98,7 @@ A conforming implementation of this ``linalg`` extension must provide and suppor
    eigh
    eigvalsh
    inv
+   lu
    matmul
    matrix_norm
    matrix_power
