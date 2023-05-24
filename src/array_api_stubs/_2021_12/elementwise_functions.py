@@ -598,7 +598,7 @@ def floor(x: array, /) -> array:
     """
 
 def floor_divide(x1: array, x2: array, /) -> array:
-    """
+    r"""
     Rounds the result of dividing each element ``x1_i`` of the input array ``x1`` by the respective element ``x2_i`` of the input array ``x2`` to the greatest (i.e., closest to `+infinity`) integer-value number that is not greater than the division result.
 
     .. note::
