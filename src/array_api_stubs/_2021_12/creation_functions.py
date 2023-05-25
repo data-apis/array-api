@@ -29,7 +29,7 @@ def arange(start: Union[int, float], /, stop: Optional[Union[int, float]] = None
     """
 
 def asarray(obj: Union[array, bool, int, float, NestedSequence, SupportsBufferProtocol], /, *, dtype: Optional[dtype] = None, device: Optional[device] = None, copy: Optional[bool] = None) -> array:
-    """
+    r"""
     Convert the input to an array.
 
     Parameters
