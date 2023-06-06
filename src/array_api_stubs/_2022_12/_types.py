@@ -39,7 +39,7 @@ class finfo_object:
     max: float
     min: float
     smallest_normal: float
-
+    dtype: dtype
 
 @dataclass
 class iinfo_object:
@@ -47,7 +47,7 @@ class iinfo_object:
     bits: int
     max: int
     min: int
-
+    dtype: dtype
 
 _T_co = TypeVar("_T_co", covariant=True)
 
