@@ -1,6 +1,5 @@
 function assign_href( a, url, path ) {
-    const r = fetch( url + "/" + path );
-    r.then( response => {
+    fetch( url + "/" + path ).then( response => {
         if( response.ok ){
             a.href = url + "/" + path;
         }
