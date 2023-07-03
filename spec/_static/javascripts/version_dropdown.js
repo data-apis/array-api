@@ -1,18 +1,14 @@
 function assign_href( a, url, path ) {
-    var http = new XMLHttpRequest();
-    http.open('GET', url + "/" + path );
-    http.onreadystatechange = function() {
-        if (this.readyState == this.DONE) {
-            if(this.status != 404 ){
-                console.log('%%%%', this);
-                a.href = url + "/" + path;
-            }
-            else {
-                a.href = url;
-            }
+    const r = fetch( url + "/" + path );
+    r.then( response => {
+        console.log('...', response);
+        if( response.ok ){
+            a.href = url + "/" + path;
         }
-    };
-    http.send();
+        else {
+            a.href = url;
+        }
+    });
 }
 
 function add_version_dropdown(json_loc, target_loc, text) {
