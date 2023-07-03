@@ -1,15 +1,14 @@
 function assign_href( a, url, path ) {
     const r = fetch( url + "/" + path );
     r.then( response => {
-        console.log('...', response);
         if( response.ok ){
             a.href = url + "/" + path;
         }
         else {
-            a.href = url;
+            a.href = url + "/index.html";
         }
     }).catch( error => {
-        a.href = url;
+        a.href = url + "/index.html";
     });
 }
 
@@ -22,7 +21,6 @@ function add_version_dropdown(json_loc, target_loc, text) {
     content.className = "dropdown-content md-hero";
     dropdown.appendChild(button);
     dropdown.appendChild(content);
-    console.log('*********');
     $.getJSON(json_loc, function(versions) {
         var currentURL = window.location.href;
         var path = currentURL.split( "_site" )[ 1 ];
