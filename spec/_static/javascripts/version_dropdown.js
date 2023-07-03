@@ -5,6 +5,9 @@ function assign_href( a, url, path ) {
         if( response.ok ){
             a.href = url + "/" + path;
         }
+        else {
+            a.href = url;
+        }
     }).catch( error => {
         a.href = url;
     });
