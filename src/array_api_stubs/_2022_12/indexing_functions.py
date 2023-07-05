@@ -1,7 +1,7 @@
 from ._types import Union, array
 
 
-def take(x: array, indices: array, /, *, axis: int) -> array:
+def take(x: array, indices: array, /, *, axis: Optional[int] = None) -> array:
     """
     Returns elements of an array along an axis.
 
