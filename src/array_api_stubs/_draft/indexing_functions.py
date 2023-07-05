@@ -1,4 +1,4 @@
-from ._types import Union, array
+from ._types import Union, Optional, array
 
 
 def take(x: array, indices: array, /, *, axis: Optional[int] = None) -> array:
