@@ -21,17 +21,19 @@ function add_version_dropdown(json_loc, target_loc, text) {
     dropdown.appendChild(content);
     $.getJSON(json_loc, function(versions) {
         var currentURL = window.location.href;
-        var path = currentURL.split("_site")[1];
-        path = path.split("/");
-        path = path.slice(2, path.length);
-        path = path.join("/");
-        for (var key in versions) {
-            if (versions.hasOwnProperty(key)) {
-                var a = document.createElement("a");
-                a.innerHTML = key;
-                a.title = key;
-                assign_href(a, target_loc + versions[key], path);
-                content.appendChild(a);
+        var path = currentURL.split(/_site|array_api/)[1];
+        if (path) {
+            path = path.split("/");
+            path = path.slice(2, path.length);
+            path = path.join("/");
+            for (var key in versions) {
+                if (versions.hasOwnProperty(key)) {
+                    var a = document.createElement("a");
+                    a.innerHTML = key;
+                    a.title = key;
+                    assign_href(a, target_loc + versions[key], path);
+                    content.appendChild(a);
+                }
             }
         }
     }).done(function() {
