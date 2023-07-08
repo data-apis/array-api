@@ -56,15 +56,15 @@ async function add_version_dropdown(json_loc, target_loc, text) {
     dropdown.appendChild(button);
     dropdown.appendChild(content);
 
-    await $.getJSON(json_loc, onVersions).done(onDone).fail(onFail).always(onAlways);
+    await $.getJSON(json_loc).done(onDone).fail(onFail).always(onAlways);
 
     /**
-    * Callback invoked upon successfully resolving a list of versions.
+    * Callback invoked upon resolving a JSON resource.
     *
     * @private
     * @param {Object} versions - versions object
     */
-    async function onVersions(versions) {
+    async function onDone(versions) {
         const currentURL = window.location.href;
         let path = currentURL.split(/_site|array_api/)[1];
         if (path) {
@@ -83,14 +83,6 @@ async function add_version_dropdown(json_loc, target_loc, text) {
                 content.appendChild(a);
             }
         }
-    }
-
-    /**
-    * Callback invoked upon resolving a JSON resource.
-    *
-    * @private
-    */
-    function onDone() {
         button.innerHTML = text;
     }
 
