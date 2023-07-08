@@ -9,6 +9,8 @@
 async function href(url, path) {
     const defaultURL = url + "/index.html";
     url += "/" + path;
+
+    // If a versioned resource exists, return the resource's URL; otherwise, return a default URL:
     await fetch(url).then(onResponse).catch(onError);
 
     /**
