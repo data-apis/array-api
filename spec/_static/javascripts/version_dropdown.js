@@ -21,7 +21,7 @@ function add_version_dropdown(json_loc, target_loc, text) {
     dropdown.appendChild(content);
     $.getJSON(json_loc, function(versions) {
         var currentURL = window.location.href;
-        var path = currentURL.split("_site")[1];
+        var path = currentURL.split(/_site|array_api/)[1];
         if (path) {
             path = path.split("/");
             path = path.slice(2, path.length);
