@@ -1,5 +1,5 @@
 /**
-* Returns a URL corresponding to a versioned resource (if one exists).
+* Returns a promise for resolving a URL corresponding to a versioned resource (if one exists).
 *
 * @private
 * @param {string} url - base URL
