@@ -14,7 +14,7 @@ async function href(url, path) {
     await fetch(url).then(onResponse).catch(onError);
 
     /**
-    * Success handler.
+    * Callback invoked upon successfully resolving a resource.
     *
     * @private
     * @param {Object} response - response object
@@ -27,7 +27,7 @@ async function href(url, path) {
     }
 
     /**
-    * Error handler.
+    * Callback invoked upon failing to resolve a resource.
     *
     * @private
     * @param {Error} error - error object
