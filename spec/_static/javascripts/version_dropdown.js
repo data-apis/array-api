@@ -68,6 +68,7 @@ async function add_version_dropdown(json_loc, target_loc, text) {
     * @returns {Promise} promise which resolves upon processing version data
     */
     async function onDone(versions) {
+        console.log(versions)
         const currentURL = window.location.href;
         let path = currentURL.split(/_site|array_api/)[1];
         if (path) {
