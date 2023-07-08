@@ -1,6 +1,6 @@
 function assign_href(a, url, path) {
     fetch(url + "/" + path).then(response => {
-        if (response.ok){
+        if (response.ok) {
             a.href = url + "/" + path;
         } else {
             a.href = url + "/index.html";
