@@ -130,7 +130,7 @@ async function add_version_dropdown(json_loc, target_loc, text) {
     *
     * @private
     */
-    function onFail() {
+    function onError() {
         button.innerHTML = "Other Versions Not Found";
 
         // Append dropdown:
