@@ -58,13 +58,20 @@ async function add_version_dropdown(json_loc, target_loc, text) {
     dropdown.appendChild(button);
     dropdown.appendChild(content);
 
-    const p = $.getJSON(json_loc);
-    console.log(p);
+    const opts = {
+        'method': 'GET'
+    };
+    await fetch(json_loc, opts).then(onResponse).then(onVersions).catch(onError);
 
-    p.then(onVersions);
-    p.fail(onFail).always(onAlways);
-
-    await p.promise();
+    /**
+    * Callback invoked upon resolving a resource.
+    *
+    * @private
+    * @param {Object} response - response object
+    */
+    function onResponse(response) {
+        return response.json();
+    }
 
     /**
     * Callback invoked upon resolving a JSON resource.
@@ -113,24 +120,20 @@ async function add_version_dropdown(json_loc, target_loc, text) {
         }
         // Set the button text:
         button.innerHTML = text;
+
+        // Append dropdown:
+        $(".navheader").append(dropdown);
     }
 
     /**
-    * Callback invoked upon failing to resolve a JSON resource.
+    * Callback invoked upon failing to resolve a resource.
     *
     * @private
     */
     function onFail() {
         button.innerHTML = "Other Versions Not Found";
-    }
 
-    /**
-    * Callback which is always invoked upon attempting to resolve a JSON resource.
-    *
-    * @private
-    */
-    function onAlways() {
-        console.log("Always");
+        // Append dropdown:
         $(".navheader").append(dropdown);
     }
 };
