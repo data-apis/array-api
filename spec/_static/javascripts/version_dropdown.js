@@ -87,7 +87,7 @@ async function add_version_dropdown(json_loc, target_loc, text) {
         const currentURL = window.location.href;
 
         // Check whether the user is currently on a resource page (e.g., is viewing the specification for a particular function):
-        let path = currentURL.split(/_site|array_api/)[1];
+        let path = currentURL.split(/_site|array\-api/)[1];
 
         // Extract the resource subpath:
         if (path) {
