@@ -9,7 +9,7 @@
 function href(url, path) {
     const defaultURL = url + "/index.html";
     url += "/" + path;
-
+console.log(url);
     // If a versioned resource exists, return the resource's URL; otherwise, return a default URL:
     return fetch(url).then(onResponse).catch(onError);
 
@@ -81,14 +81,12 @@ async function add_version_dropdown(json_loc, target_loc, text) {
     * @returns {Promise} promise which resolves upon processing version data
     */
     async function onVersions(versions) {
-        console.log(versions);
-        
         // Resolve the current browser URL:
         const currentURL = window.location.href;
 
         // Check whether the user is currently on a resource page (e.g., is viewing the specification for a particular function):
         let path = currentURL.split(/_site|array\-api/)[1];
-
+console.log(path);
         // Extract the resource subpath:
         if (path) {
             path = path.split("/");
