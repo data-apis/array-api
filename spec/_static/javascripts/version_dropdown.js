@@ -61,9 +61,10 @@ async function add_version_dropdown(json_loc, target_loc, text) {
     const p = $.getJSON(json_loc);
     console.log(p);
 
+    p.then(onVersions);
     p.fail(onFail).always(onAlways);
 
-    await p.then(onVersions);
+    await p.promise();
 
     /**
     * Callback invoked upon resolving a JSON resource.
