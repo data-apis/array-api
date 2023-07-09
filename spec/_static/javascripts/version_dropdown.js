@@ -11,7 +11,10 @@ function href(url, path) {
     url += "/" + path;
 
     // If a versioned resource exists, return the resource's URL; otherwise, return a default URL:
-    return fetch(url).then(onResponse).catch(onError);
+    const opts = {
+        'method': 'HEAD'
+    };
+    return fetch(url, opts).then(onResponse).catch(onError);
 
     /**
     * Callback invoked upon successfully resolving a resource.
