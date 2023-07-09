@@ -58,7 +58,11 @@ async function add_version_dropdown(json_loc, target_loc, text) {
     dropdown.appendChild(button);
     dropdown.appendChild(content);
 
-    await $.getJSON(json_loc).done(onDone).fail(onFail).always(onAlways);
+    const p = $.getJSON(json_loc);
+    console.log(p);
+    
+    p.done(onDone).fail(onFail).always(onAlways);
+    await p;
 
     /**
     * Callback invoked upon resolving a JSON resource.
@@ -115,6 +119,7 @@ async function add_version_dropdown(json_loc, target_loc, text) {
     * @private
     */
     function onFail() {
+        console.log("Failure");
         button.innerHTML = "Other Versions Not Found";
     }
 
@@ -124,6 +129,7 @@ async function add_version_dropdown(json_loc, target_loc, text) {
     * @private
     */
     function onAlways() {
+        console.log("Always");
         $(".navheader").append(dropdown);
     }
 };
