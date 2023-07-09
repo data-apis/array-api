@@ -60,8 +60,8 @@ async function add_version_dropdown(json_loc, target_loc, text) {
 
     const p = $.getJSON(json_loc);
     console.log(p);
-    
-    p.done(onDone).fail(onFail).always(onAlways);
+
+    p.then(onVersions).fail(onFail).always(onAlways);
     await p;
 
     /**
@@ -71,7 +71,7 @@ async function add_version_dropdown(json_loc, target_loc, text) {
     * @param {Object} versions - versions object
     * @returns {Promise} promise which resolves upon processing version data
     */
-    async function onDone(versions) {
+    async function onVersions(versions) {
         console.log(versions);
         
         // Resolve the current browser URL:
