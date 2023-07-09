@@ -61,8 +61,9 @@ async function add_version_dropdown(json_loc, target_loc, text) {
     const p = $.getJSON(json_loc);
     console.log(p);
 
-    p.then(onVersions).fail(onFail).always(onAlways);
-    await p;
+    p.fail(onFail).always(onAlways);
+
+    await p.then(onVersions);
 
     /**
     * Callback invoked upon resolving a JSON resource.
@@ -119,7 +120,6 @@ async function add_version_dropdown(json_loc, target_loc, text) {
     * @private
     */
     function onFail() {
-        console.log("Failure");
         button.innerHTML = "Other Versions Not Found";
     }
 
