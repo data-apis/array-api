@@ -99,6 +99,26 @@ def flip(x: array, /, *, axis: Optional[Union[int, Tuple[int, ...]]] = None) -> 
     """
 
 
+def moveaxis(x: array, source: Union[int, Tuple[int, ...]], destination: Union[int, Tuple[int, ...]], /) -> array:
+    """
+    Moves array axes (dimensions) to new positions, while leaving other axes in their original positions.
+
+    Parameters
+    ----------
+    x: array
+        input array.
+    source: Union[int, Tuple[int, ...]]
+        Axes to move. Provided axes must be unique. If ``x`` has rank (i.e, number of dimensions) ``N``, a valid axis must reside on the open-interval ``(-N, N)``.
+    destination: Union[int, Tuple[int, ...]]
+        indices defining the desired positions for each respective ``source`` axis index. Provided indices must be unique. If ``x`` has rank (i.e, number of dimensions) ``N``, a valid axis must reside on the open-interval ``(-N, N)``.
+
+    Returns
+    -------
+    out: array
+        an array containing reordered axes. The returned array must have the same data type as ``x``.
+    """
+
+
 def permute_dims(x: array, /, axes: Tuple[int, ...]) -> array:
     """
     Permutes the axes (dimensions) of an array ``x``.
@@ -240,6 +260,7 @@ __all__ = [
     "concat",
     "expand_dims",
     "flip",
+    "moveaxis",
     "permute_dims",
     "reshape",
     "roll",

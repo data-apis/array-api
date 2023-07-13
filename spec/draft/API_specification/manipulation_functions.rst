@@ -23,6 +23,7 @@ Objects in API
    concat
    expand_dims
    flip
+   moveaxis
    permute_dims
    reshape
    roll
