@@ -239,9 +239,9 @@ class _array:
 
         For complex floating-point operands, special cases must be handled as if the operation is implemented as the logical AND of ``bool(real(self))`` and ``bool(imag(self))``.
 
-        **Lazy implemenations**
+        **Lazy implementations**
 
-        Lazy implementations of the API standard must raise a ``ValueError`` if they are unable eagerly compute the requested value.
+        The Python language requires the return value to be of type ``bool``. Lazy implementations are therefore not able to return any kind of lazy/delayed object here and should raise a ``ValueError`` instead.
 
         .. versionchanged:: 2022.12
             Added boolean and complex data type support.
@@ -277,6 +277,10 @@ class _array:
         - If ``self`` is ``+infinity``, the result is ``+infinity + 0j``.
         - If ``self`` is ``-infinity``, the result is ``-infinity + 0j``.
         - If ``self`` is a finite number, the result is ``self + 0j``.
+
+        **Lazy implementations**
+
+        The Python language requires the return value to be of type ``complex``. Lazy implementations are therefore not able to return any kind of lazy/delayed object here and should raise a ``ValueError`` instead.        
 
         .. versionadded:: 2022.12
         """
@@ -428,7 +432,7 @@ class _array:
 
         **Lazy implementations**
 
-        Lazy implementations of the API standard must raise a ``ValueError`` if they are unable eagerly compute the requested value.
+        The Python language requires the return value to be of type ``float``. Lazy implementations are therefore not able to return any kind of lazy/delayed object here and should raise a ``ValueError`` instead.
 
         .. versionchanged:: 2022.12
             Added boolean and complex data type support.
@@ -551,7 +555,7 @@ class _array:
 
         **Lazy implementations**
 
-        Lazy implementations of the API standard must raise a ``ValueError`` if they are unable eagerly compute the requested value.
+        The Python language requires the return value to be of type ``int``. Lazy implementations are therefore not able to return any kind of lazy/delayed object here and should raise a ``ValueError`` instead.
         """
 
     def __int__(self: array, /) -> int:
@@ -595,7 +599,7 @@ class _array:
 
         **Lazy implementations**
 
-        Lazy implementations of the API standard must raise a ``ValueError`` if they are unable eagerly compute the requested value.
+        The Python language requires the return value to be of type ``int``. Lazy implementations are therefore not able to return any kind of lazy/delayed object here and should raise a ``ValueError`` instead.
 
         .. versionchanged:: 2022.12
             Added boolean and complex data type support.
