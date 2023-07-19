@@ -473,7 +473,7 @@ def qr(
 
     where :math:`Q \in\ \mathbb{K}^{m \times n}` and :math:`R \in\ \mathbb{K}^{n \times n}`.
 
-    The reduced QR decomposition equals with the complete QR decomposition when :math:`n \qeq m` (wide matrix).
+    The reduced QR decomposition equals with the complete QR decomposition when :math:`n \geq m` (wide matrix).
 
     When ``x`` is a stack of matrices, the function must compute the QR decomposition for each matrix in the stack.
 
