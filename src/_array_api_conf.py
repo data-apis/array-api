@@ -211,3 +211,4 @@ def process_signature(app, what, name, obj, options, signature, return_annotatio
 
 def setup(app):
     app.connect("autodoc-process-signature", process_signature)
+    app.add_css_file('css/custom.css')
