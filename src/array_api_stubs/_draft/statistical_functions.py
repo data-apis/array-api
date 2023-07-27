@@ -7,8 +7,7 @@ def cumulative_sum(
     *,
     axis: Optional[int] = None,
     dtype: Optional[dtype] = None,
-    startpoint: bool = False,
-    endpoint: bool = True,
+    include_initial: bool = False,
 ) -> array:
     """
     Calculates the cumulative sum of elements in the input array ``x``.
@@ -36,10 +35,8 @@ def cumulative_sum(
         .. note::
            keyword argument is intended to help prevent data type overflows.
 
-    startpoint: bool
-        boolean indicating whether to include the initial value as the first value in the output. Default: ``False``.
-    endpoint: bool
-        boolean indicating whether to include the total sum as the last value in the output. Default: ``True``.
+    include_initial: bool
+        boolean indicating whether to include the initial value as the first value in the output. By convention, the initial value must be the additive identity (i.e., zero). Default: ``False``.
 
     Returns
     -------
@@ -48,9 +45,8 @@ def cumulative_sum(
 
         Let ``N`` be the size of the axis along which to compute the cumulative sum. The returned array must have a shape determined according to the following rules:
 
-        -   if ``startpoint`` and ``endpoint`` are ``True``, the returned array must have the same shape as ``x``, except the size of the axis along which to compute the cumulative sum must be ``N+1``.
-        -   if only one of ``startpoint`` and ``endpoint`` is ``True``, the returned array must have the same shape as ``x``.
-        -   if ``startpoint`` and ``endpoint`` are ``False``, the returned array must have the same shape as ``x``, except the size of the axis along which to compute the cumulative sum must be ``N-1``.
+        -   if ``include_initial`` is ``True``, the returned array must have the same shape as ``x``, except the size of the axis along which to compute the cumulative sum must be ``N+1``.
+        -   if ``include_initial`` is ``False``, the returned array must have the same shape as ``x``.
 
     Notes
     -----
