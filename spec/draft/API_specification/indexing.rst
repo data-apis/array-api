@@ -121,6 +121,7 @@ The behavior outside of these bounds is unspecified.
 .. note::
    *Rationale: this is consistent with bounds checking for integer indexing; the behavior of out-of-bounds indices is left unspecified. Implementations may choose to clip (consistent with Python* ``list`` *slicing semantics), raise an exception, return junk values, or some other behavior depending on device requirements and performance considerations.*
 
+
 Multi-axis Indexing
 -------------------
 
@@ -131,7 +132,9 @@ Multi-dimensional arrays must extend the concept of single-axis indexing to mult
   .. note::
     In Python, ``A[(exp1, exp2, ..., expN)]`` is equivalent to ``A[exp1, exp2, ..., expN]``; the latter is syntactic sugar for the former.
 
-    Accordingly, if ``A`` has rank ``1``, then ``A[(2:10,)]`` must be equivalent to ``A[2:10]``. If ``A`` has rank ``2``, then ``A[(2:10, :)]`` must be equivalent to ``A[2:10, :]``. And so on and so forth.
+    Accordingly, if ``A`` has rank ``1``, then ``A[(2:10,)]`` must be equivalent to ``A[2:10]``. If ``A`` has rank ``2``, then ``A[(2:10, :)]`` must be equivalent to ``A[2:10, :]``. And so on and so forth. 
+
+    Any single-axis index (e.g. ``A[x]``) is equivalent to multi-indexing with the same term as the only axis (e.g. ``A[x,]``).
 
 - Providing a single nonnegative integer ``i`` as a single-axis index must index the same elements as the slice ``i:i+1``.
 
