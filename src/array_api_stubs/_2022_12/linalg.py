@@ -18,7 +18,7 @@ def cholesky(x: array, /, *, upper: bool = False) -> array:
     The upper Cholesky decomposition is defined similarly
 
     .. math::
-       x = UU^{H} \qquad \text{U $\in\ \mathbb{K}^{n \times n}$}
+       x = U^{H}U \qquad \text{U $\in\ \mathbb{K}^{n \times n}$}
 
     where :math:`U` is an upper triangular matrix.
 
