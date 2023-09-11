@@ -1,6 +1,6 @@
 # Array API standard
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
-[![All Contributors](https://img.shields.io/badge/all_contributors-63-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-64-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
 This repository contains documents, tooling and other content related to the
@@ -232,6 +232,9 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
       <td align="center" valign="top" width="14.28%"><a href="http://e-pot.xyz/"><img src="https://avatars.githubusercontent.com/u/9047355?v=4?s=100" width="100px;" alt="Conchylicultor"/><br /><sub><b>Conchylicultor</b></sub></a><br /><a href="#ideas-Conchylicultor" title="Ideas, Planning, & Feedback">🤔</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/fcharras"><img src="https://avatars.githubusercontent.com/u/29153872?v=4?s=100" width="100px;" alt="Franck Charras"/><br /><sub><b>Franck Charras</b></sub></a><br /><a href="#ideas-fcharras" title="Ideas, Planning, & Feedback">🤔</a></td>
       <td align="center" valign="top" width="14.28%"><a href="https://github.com/kkraus14"><img src="https://avatars.githubusercontent.com/u/3665167?v=4?s=100" width="100px;" alt="Keith Kraus"/><br /><sub><b>Keith Kraus</b></sub></a><br /><a href="#ideas-kkraus14" title="Ideas, Planning, & Feedback">🤔</a></td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/lucascolley"><img src="https://avatars.githubusercontent.com/u/51488791?v=4?s=100" width="100px;" alt="Lucas Colley"/><br /><sub><b>Lucas Colley</b></sub></a><br /><a href="#maintenance-lucascolley" title="Maintenance">🚧</a> <a href="https://github.com/data-apis/array-api/issues?q=author%3Alucascolley" title="Bug reports">🐛</a></td>
     </tr>
   </tbody>
 </table>
