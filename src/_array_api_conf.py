@@ -57,6 +57,7 @@ nitpick_ignore = [
     ('py:obj', "typing.Union[int, float, typing.Literal[inf, - inf]]"),
     ('py:class', 'enum.Enum'),
     ('py:class', 'ellipsis'),
+    ("py:class", "ArrayAPINamespace"),
 ]
 nitpick_ignore_regex = [
     ('py:class', '.*array'),
