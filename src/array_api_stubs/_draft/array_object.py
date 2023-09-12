@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+from typing import TYPE_CHECKING
+
 from ._types import (
     array,
     dtype as Dtype,
@@ -12,6 +14,9 @@ from ._types import (
     Enum,
     ellipsis,
 )
+
+if TYPE_CHECKING:
+    from ._namespace import ArrayAPINamespace
 
 
 class _array:
@@ -195,7 +200,7 @@ class _array:
 
     def __array_namespace__(
         self: array, /, *, api_version: Optional[str] = None
-    ) -> Any:
+    ) -> ArrayAPINamespace:
         """
         Returns an object that has all the array API functions on it.
 
