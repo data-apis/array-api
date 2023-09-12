@@ -1,3 +1,6 @@
+__all__ = ["astype", "can_cast", "finfo", "iinfo", "isdtype", "result_type"]
+
+
 from ._types import Union, Tuple, array, dtype, finfo_object, iinfo_object
 
 
@@ -208,6 +211,3 @@ def result_type(*arrays_and_dtypes: Union[array, dtype]) -> dtype:
     out: dtype
         the dtype resulting from an operation involving the input arrays and dtypes.
     """
-
-
-__all__ = ["astype", "can_cast", "finfo", "iinfo", "isdtype", "result_type"]

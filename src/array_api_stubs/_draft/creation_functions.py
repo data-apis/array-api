@@ -1,3 +1,23 @@
+__all__ = [
+    "arange",
+    "asarray",
+    "empty",
+    "empty_like",
+    "eye",
+    "from_dlpack",
+    "full",
+    "full_like",
+    "linspace",
+    "meshgrid",
+    "ones",
+    "ones_like",
+    "tril",
+    "triu",
+    "zeros",
+    "zeros_like",
+]
+
+
 from ._types import (
     List,
     NestedSequence,
@@ -563,23 +583,3 @@ def zeros_like(
     out: array
         an array having the same shape as ``x`` and filled with zeros.
     """
-
-
-__all__ = [
-    "arange",
-    "asarray",
-    "empty",
-    "empty_like",
-    "eye",
-    "from_dlpack",
-    "full",
-    "full_like",
-    "linspace",
-    "meshgrid",
-    "ones",
-    "ones_like",
-    "tril",
-    "triu",
-    "zeros",
-    "zeros_like",
-]

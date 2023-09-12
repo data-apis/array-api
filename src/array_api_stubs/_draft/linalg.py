@@ -1,3 +1,30 @@
+__all__ = [
+    "cholesky",
+    "cross",
+    "det",
+    "diagonal",
+    "eigh",
+    "eigvalsh",
+    "inv",
+    "matmul",
+    "matrix_norm",
+    "matrix_power",
+    "matrix_rank",
+    "matrix_transpose",
+    "outer",
+    "pinv",
+    "qr",
+    "slogdet",
+    "solve",
+    "svd",
+    "svdvals",
+    "tensordot",
+    "trace",
+    "vecdot",
+    "vector_norm",
+]
+
+
 from ._types import Literal, Optional, Tuple, Union, Sequence, array, dtype
 from .constants import inf
 
@@ -822,30 +849,3 @@ def vector_norm(
     .. versionchanged:: 2022.12
        Added complex data type support.
     """
-
-
-__all__ = [
-    "cholesky",
-    "cross",
-    "det",
-    "diagonal",
-    "eigh",
-    "eigvalsh",
-    "inv",
-    "matmul",
-    "matrix_norm",
-    "matrix_power",
-    "matrix_rank",
-    "matrix_transpose",
-    "outer",
-    "pinv",
-    "qr",
-    "slogdet",
-    "solve",
-    "svd",
-    "svdvals",
-    "tensordot",
-    "trace",
-    "vecdot",
-    "vector_norm",
-]

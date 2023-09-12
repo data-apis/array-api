@@ -1,3 +1,6 @@
+__all__ = ["argsort", "sort"]
+
+
 from ._types import array
 
 
@@ -53,6 +56,3 @@ def sort(
     out : array
         a sorted array. The returned array must have the same data type and shape as ``x``.
     """
-
-
-__all__ = ["argsort", "sort"]
