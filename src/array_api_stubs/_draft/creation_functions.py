@@ -1,3 +1,4 @@
+from typing import Protocol
 from ._types import (
     List,
     NestedSequence,
@@ -11,15 +12,7 @@ from ._types import (
 )
 
 
-def arange(
-    start: Union[int, float],
-    /,
-    stop: Optional[Union[int, float]] = None,
-    step: Union[int, float] = 1,
-    *,
-    dtype: Optional[dtype] = None,
-    device: Optional[device] = None,
-) -> array:
+class arange(Protocol):
     """
     Returns evenly spaced values within the half-open interval ``[start, stop)`` as a one-dimensional array.
 
@@ -45,6 +38,18 @@ def arange(
     out: array
         a one-dimensional array containing evenly spaced values. The length of the output array must be ``ceil((stop-start)/step)`` if ``stop - start`` and ``step`` have the same sign, and length ``0`` otherwise.
     """
+
+    def __call__(
+        self,
+        start: Union[int, float],
+        /,
+        stop: Optional[Union[int, float]] = None,
+        step: Union[int, float] = 1,
+        *,
+        dtype: Optional[dtype] = None,
+        device: Optional[device] = None,
+    ) -> array:
+        ...
 
 
 def asarray(
