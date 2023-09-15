@@ -16,9 +16,9 @@ import sphinx_material
 
 # -- Project information -----------------------------------------------------
 
-project = 'Python array API standard'
-copyright = '2020-2022, Consortium for Python Data API Standards'
-author = 'Consortium for Python Data API Standards'
+project = "Python array API standard"
+copyright = "2020-2022, Consortium for Python Data API Standards"
+author = "Consortium for Python Data API Standards"
 
 # -- General configuration ---------------------------------------------------
 
@@ -26,23 +26,23 @@ author = 'Consortium for Python Data API Standards'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    'myst_parser',
-    'sphinx.ext.extlinks',
-    'sphinx.ext.intersphinx',
-    'sphinx.ext.todo',
-    'sphinx.ext.autosummary',
-    'sphinx.ext.napoleon',
-    'sphinx.ext.autodoc',
-    'sphinx_copybutton',
-    'sphinx_favicon',
-    'sphinx_markdown_tables',
+    "myst_parser",
+    "sphinx.ext.extlinks",
+    "sphinx.ext.intersphinx",
+    "sphinx.ext.todo",
+    "sphinx.ext.autosummary",
+    "sphinx.ext.napoleon",
+    "sphinx.ext.autodoc",
+    "sphinx_copybutton",
+    "sphinx_favicon",
+    "sphinx_markdown_tables",
 ]
 
 autosummary_generate = True
-autodoc_typehints = 'signature'
+autodoc_typehints = "signature"
 add_module_names = False
-napoleon_custom_sections = [('Returns', 'params_style')]
-default_role = 'code'
+napoleon_custom_sections = [("Returns", "params_style")]
+default_role = "code"
 
 # nitpicky = True makes Sphinx warn whenever a cross-reference target can't be
 # found.
@@ -50,30 +50,33 @@ nitpicky = True
 # autodoc wants to make cross-references for every type hint. But a lot of
 # them don't actually refer to anything that we have a document for.
 nitpick_ignore = [
-    ('py:class', 'collections.abc.Sequence'),
-    ('py:class', "Optional[Union[int, float, Literal[inf, - inf, 'fro', 'nuc']]]"),
-    ('py:class', "Union[int, float, Literal[inf, - inf]]"),
-    ('py:obj', "typing.Optional[typing.Union[int, float, typing.Literal[inf, - inf, 'fro', 'nuc']]]"),
-    ('py:obj', "typing.Union[int, float, typing.Literal[inf, - inf]]"),
-    ('py:class', 'enum.Enum'),
-    ('py:class', 'ellipsis'),
+    ("py:class", "collections.abc.Sequence"),
+    ("py:class", "Optional[Union[int, float, Literal[inf, - inf, 'fro', 'nuc']]]"),
+    ("py:class", "Union[int, float, Literal[inf, - inf]]"),
+    (
+        "py:obj",
+        "typing.Optional[typing.Union[int, float, typing.Literal[inf, - inf, 'fro', 'nuc']]]",
+    ),
+    ("py:obj", "typing.Union[int, float, typing.Literal[inf, - inf]]"),
+    ("py:class", "enum.Enum"),
+    ("py:class", "ellipsis"),
 ]
 nitpick_ignore_regex = [
-    ('py:class', '.*array'),
-    ('py:class', '.*device'),
-    ('py:class', '.*dtype'),
-    ('py:class', '.*NestedSequence'),
-    ('py:class', '.*SupportsBufferProtocol'),
-    ('py:class', '.*PyCapsule'),
-    ('py:class', '.*finfo_object'),
-    ('py:class', '.*iinfo_object'),
+    ("py:class", ".*array"),
+    ("py:class", ".*device"),
+    ("py:class", ".*dtype"),
+    ("py:class", ".*NestedSequence"),
+    ("py:class", ".*SupportsBufferProtocol"),
+    ("py:class", ".*PyCapsule"),
+    ("py:class", ".*finfo_object"),
+    ("py:class", ".*iinfo_object"),
 ]
 # In array_object.py we have to use aliased names for some types because they
 # would otherwise refer back to method objects of array
 autodoc_type_aliases = {
-    'array': 'array',
-    'Device': 'device',
-    'Dtype': 'dtype',
+    "array": "array",
+    "Device": "device",
+    "Dtype": "dtype",
 }
 
 # Make autosummary show the signatures of functions in the tables using actual
@@ -81,18 +84,19 @@ autodoc_type_aliases = {
 # just patch out the function that processes the signatures. See
 # https://github.com/sphinx-doc/sphinx/issues/10053.
 import sphinx.ext.autosummary as autosummary_mod
-if hasattr(autosummary_mod, '_module'):
+
+if hasattr(autosummary_mod, "_module"):
     # It's a sphinx deprecated module wrapper object
     autosummary_mod = autosummary_mod._module
 autosummary_mod.mangle_signature = lambda sig, max_chars=30: sig
 
 # Add any paths that contain templates here, relative to this directory.
-templates_path = ['../_templates']
+templates_path = ["../_templates"]
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
+exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 
 # MyST options
 myst_heading_anchors = 3
@@ -106,12 +110,12 @@ myst_enable_extensions = ["colon_fence"]
 extensions.append("sphinx_material")
 html_theme_path = sphinx_material.html_theme_path()
 html_context = sphinx_material.get_html_context()
-html_theme = 'sphinx_material'
+html_theme = "sphinx_material"
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['../_static']
+html_static_path = ["../_static"]
 
 
 # -- Material theme options (see theme.conf for more information) ------------
@@ -121,26 +125,20 @@ html_sidebars = {
 }
 
 html_theme_options = {
-
     # Set the name of the project to appear in the navigation.
-    'nav_title': f'Python array API standard',
-
+    "nav_title": f"Python array API standard",
     # Set you GA account ID to enable tracking
     #'google_analytics_account': 'UA-XXXXX',
-
     # Specify a base_url used to generate sitemap.xml. If not
     # specified, then no sitemap will be built.
     #'base_url': 'https://project.github.io/project',
-
     # Set the color and the accent color (see
     # https://material.io/design/color/the-color-system.html)
-    'color_primary': 'indigo',
-    'color_accent': 'green',
-
+    "color_primary": "indigo",
+    "color_accent": "green",
     # Set the repo location to get a badge with stats
     #'repo_url': 'https://github.com/project/project/',
     #'repo_name': 'Project',
-
     "html_minify": False,
     "html_prettify": False,
     "css_minify": True,
@@ -149,14 +147,12 @@ html_theme_options = {
     "touch_icon": "images/apple-icon-152x152.png",
     "theme_color": "#2196f3",
     "master_doc": False,
-
     # Visible levels of the global TOC; -1 means unlimited
-    'globaltoc_depth': 2,
+    "globaltoc_depth": 2,
     # If False, expand all TOC entries
-    'globaltoc_collapse': True,
+    "globaltoc_collapse": True,
     # If True, show hidden TOC entries
-    'globaltoc_includehidden': True,
-
+    "globaltoc_includehidden": True,
     "nav_links": [
         {"href": "index", "internal": True, "title": "Array API standard"},
         {
@@ -167,9 +163,8 @@ html_theme_options = {
     ],
     "heroes": {
         "index": "A common API for array and tensor Python libraries",
-        #"customization": "Configuration options to personalize your site.",
+        # "customization": "Configuration options to personalize your site.",
     },
-
     "version_dropdown": True,
     "version_json": "../versions.json",
     "table_classes": ["plain"],
@@ -179,11 +174,11 @@ html_theme_options = {
 todo_include_todos = True
 
 favicons = [
-   {
-      "rel": "icon",
-      "sizes": "196x195",
-      "href": "images/favicon.png",
-   },
+    {
+        "rel": "icon",
+        "sizes": "196x195",
+        "href": "images/favicon.png",
+    },
 ]
 
 html_use_index = True
@@ -202,6 +197,7 @@ extlinks = {
 # -- Prettify type hints -----------------------------------------------------
 r_type_prefix = re.compile(r"array_api(?:_stubs\._[a-z0-9_]+)?\._types\.")
 
+
 def process_signature(app, what, name, obj, options, signature, return_annotation):
     if signature:
         signature = re.sub(r_type_prefix, "", signature)
@@ -209,6 +205,7 @@ def process_signature(app, what, name, obj, options, signature, return_annotatio
         return_annotation = re.sub(r_type_prefix, "", return_annotation)
     return signature, return_annotation
 
+
 def setup(app):
     app.connect("autodoc-process-signature", process_signature)
-    app.add_css_file('css/custom.css')
+    app.add_css_file("css/custom.css")

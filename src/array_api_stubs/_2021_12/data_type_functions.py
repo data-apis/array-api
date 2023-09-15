@@ -1,5 +1,6 @@
 from ._types import List, Tuple, Union, array, dtype, finfo_object, iinfo_object
 
+
 def astype(x: array, dtype: dtype, /, *, copy: bool = True) -> array:
     """
     Copies an array to a specified data type irrespective of :ref:`type-promotion` rules.
@@ -27,6 +28,7 @@ def astype(x: array, dtype: dtype, /, *, copy: bool = True) -> array:
         an array having the specified data type. The returned array must have the same shape as ``x``.
     """
 
+
 def broadcast_arrays(*arrays: array) -> List[array]:
     """
     Broadcasts one or more arrays against one another.
@@ -41,6 +43,7 @@ def broadcast_arrays(*arrays: array) -> List[array]:
     out: List[array]
         a list of broadcasted arrays. Each array must have the same shape. Each array must have the same dtype as its corresponding input array.
     """
+
 
 def broadcast_to(x: array, /, shape: Tuple[int, ...]) -> array:
     """
@@ -59,6 +62,7 @@ def broadcast_to(x: array, /, shape: Tuple[int, ...]) -> array:
         an array having a specified shape. Must have the same data type as ``x``.
     """
 
+
 def can_cast(from_: Union[dtype, array], to: dtype, /) -> bool:
     """
     Determines if one data type can be cast to another data type according :ref:`type-promotion` rules.
@@ -75,6 +79,7 @@ def can_cast(from_: Union[dtype, array], to: dtype, /) -> bool:
     out: bool
         ``True`` if the cast can occur according to :ref:`type-promotion` rules; otherwise, ``False``.
     """
+
 
 def finfo(type: Union[dtype, array], /) -> finfo_object:
     """
@@ -111,6 +116,7 @@ def finfo(type: Union[dtype, array], /) -> finfo_object:
           smallest positive floating-point number with full precision.
     """
 
+
 def iinfo(type: Union[dtype, array], /) -> iinfo_object:
     """
     Machine limits for integer data types.
@@ -138,6 +144,7 @@ def iinfo(type: Union[dtype, array], /) -> iinfo_object:
           smallest representable number.
     """
 
+
 def result_type(*arrays_and_dtypes: Union[array, dtype]) -> dtype:
     """
     Returns the dtype that results from applying the type promotion rules (see :ref:`type-promotion`) to the arguments.
@@ -156,4 +163,13 @@ def result_type(*arrays_and_dtypes: Union[array, dtype]) -> dtype:
         the dtype resulting from an operation involving the input arrays and dtypes.
     """
 
-__all__ = ['astype', 'broadcast_arrays', 'broadcast_to', 'can_cast', 'finfo', 'iinfo', 'result_type']
+
+__all__ = [
+    "astype",
+    "broadcast_arrays",
+    "broadcast_to",
+    "can_cast",
+    "finfo",
+    "iinfo",
+    "result_type",
+]
