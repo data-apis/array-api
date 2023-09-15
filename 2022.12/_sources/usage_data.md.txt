@@ -82,5 +82,5 @@ See the [`python-record-api`](https://github.com/data-apis/python-record-api) re
 Design and usage data support specification decision-making in the following ways.
 
 - Validate user stories to ensure that proposals satisfy existing needs.
-- Define scope to ensure that proposals address general array library design requirements (i.e., proposals must have broad applicability and be possible to implement with a reasonable amount of effort). 
+- Define scope to ensure that proposals address general array library design requirements (i.e., proposals must have broad applicability and be possible to implement with a reasonable amount of effort).
 - Inform technical design discussions to ensure that proposals are grounded in empirical data.
