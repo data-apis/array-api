@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+__all__ = ["array"]
+
 from ._types import (
     array,
     dtype as Dtype,
@@ -1059,5 +1061,3 @@ class _array:
 
 
 array = _array
-
-__all__ = ["array"]

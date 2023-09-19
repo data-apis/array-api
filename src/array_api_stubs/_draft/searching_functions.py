@@ -1,3 +1,6 @@
+__all__ = ["argmax", "argmin", "nonzero", "where"]
+
+
 from ._types import Optional, Tuple, array
 
 
@@ -102,6 +105,3 @@ def where(condition: array, x1: array, x2: array, /) -> array:
     out: array
         an array with elements from ``x1`` where ``condition`` is ``True``, and elements from ``x2`` elsewhere. The returned array must have a data type determined by :ref:`type-promotion` rules with the arrays ``x1`` and ``x2``.
     """
-
-
-__all__ = ["argmax", "argmin", "nonzero", "where"]

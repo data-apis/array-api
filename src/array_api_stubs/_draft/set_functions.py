@@ -1,3 +1,6 @@
+__all__ = ["unique_all", "unique_counts", "unique_inverse", "unique_values"]
+
+
 from ._types import Tuple, array
 
 
@@ -166,6 +169,3 @@ def unique_values(x: array, /) -> array:
     .. versionchanged:: 2022.12
        Added complex data type support.
     """
-
-
-__all__ = ["unique_all", "unique_counts", "unique_inverse", "unique_values"]

@@ -7,18 +7,29 @@ library, e.g., for NumPy TypeVar('array') would be replaced with ndarray.
 from __future__ import annotations
 
 from dataclasses import dataclass
-from typing import Any, List, Literal, Optional, Sequence, Tuple, TypeVar, Union, Protocol
+from typing import (
+    Any,
+    List,
+    Literal,
+    Optional,
+    Sequence,
+    Tuple,
+    TypeVar,
+    Union,
+    Protocol,
+)
 from enum import Enum
 
-array = TypeVar('array')
-device = TypeVar('device')
-dtype = TypeVar('dtype')
-SupportsDLPack = TypeVar('SupportsDLPack')
-SupportsBufferProtocol = TypeVar('SupportsBufferProtocol')
-PyCapsule = TypeVar('PyCapsule')
+array = TypeVar("array")
+device = TypeVar("device")
+dtype = TypeVar("dtype")
+SupportsDLPack = TypeVar("SupportsDLPack")
+SupportsBufferProtocol = TypeVar("SupportsBufferProtocol")
+PyCapsule = TypeVar("PyCapsule")
 # ellipsis cannot actually be imported from anywhere, so include a dummy here
 # to keep pyflakes happy. https://github.com/python/typeshed/issues/3556
-ellipsis = TypeVar('ellipsis')
+ellipsis = TypeVar("ellipsis")
+
 
 @dataclass
 class finfo_object:
@@ -27,6 +38,7 @@ class finfo_object:
     max: float
     min: float
     smallest_normal: float
+
 
 @dataclass
 class iinfo_object:
@@ -37,11 +49,32 @@ class iinfo_object:
 
 _T_co = TypeVar("_T_co", covariant=True)
 
+
 class NestedSequence(Protocol[_T_co]):
-    def __getitem__(self, key: int, /) -> Union[_T_co, NestedSequence[_T_co]]: ...
-    def __len__(self, /) -> int: ...
+    def __getitem__(self, key: int, /) -> Union[_T_co, NestedSequence[_T_co]]:
+        ...
+
+    def __len__(self, /) -> int:
+        ...
 
 
-__all__ = ['Any', 'List', 'Literal', 'NestedSequence', 'Optional',
-'PyCapsule', 'SupportsBufferProtocol', 'SupportsDLPack', 'Tuple', 'Union', 'Sequence',
-'array', 'device', 'dtype', 'ellipsis', 'finfo_object', 'iinfo_object', 'Enum']
+__all__ = [
+    "Any",
+    "List",
+    "Literal",
+    "NestedSequence",
+    "Optional",
+    "PyCapsule",
+    "SupportsBufferProtocol",
+    "SupportsDLPack",
+    "Tuple",
+    "Union",
+    "Sequence",
+    "array",
+    "device",
+    "dtype",
+    "ellipsis",
+    "finfo_object",
+    "iinfo_object",
+    "Enum",
+]

@@ -45,10 +45,10 @@ jobs:
 
     # Avoid running this workflow for forks and allow skipping CI:
     if: "github.repository == 'data-apis/array-api' && !contains(github.event.head_commit.message, '[ci skip]') && !contains(github.event.head_commit.message, '[skip ci]') && !contains(github.event.head_commit.message, '[skip github]')"
-    
+
     # Define a sequence of job steps...
     steps:
-      
+
       # Checkout the repository:
       - name: 'Checkout repository'
         uses: actions/checkout@v2

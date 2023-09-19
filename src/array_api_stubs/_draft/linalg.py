@@ -1,3 +1,30 @@
+__all__ = [
+    "cholesky",
+    "cross",
+    "det",
+    "diagonal",
+    "eigh",
+    "eigvalsh",
+    "inv",
+    "matmul",
+    "matrix_norm",
+    "matrix_power",
+    "matrix_rank",
+    "matrix_transpose",
+    "outer",
+    "pinv",
+    "qr",
+    "slogdet",
+    "solve",
+    "svd",
+    "svdvals",
+    "tensordot",
+    "trace",
+    "vecdot",
+    "vector_norm",
+]
+
+
 from ._types import Literal, Optional, Tuple, Union, Sequence, array, dtype
 from .constants import inf
 
@@ -18,7 +45,7 @@ def cholesky(x: array, /, *, upper: bool = False) -> array:
     The upper Cholesky decomposition is defined similarly
 
     .. math::
-       x = UU^{H} \qquad \text{U $\in\ \mathbb{K}^{n \times n}$}
+       x = U^{H}U \qquad \text{U $\in\ \mathbb{K}^{n \times n}$}
 
     where :math:`U` is an upper triangular matrix.
 
@@ -473,7 +500,7 @@ def qr(
 
     where :math:`Q \in\ \mathbb{K}^{m \times n}` and :math:`R \in\ \mathbb{K}^{n \times n}`.
 
-    The reduced QR decomposition equals with the complete QR decomposition when :math:`n \qeq m` (wide matrix).
+    The reduced QR decomposition equals with the complete QR decomposition when :math:`n \geq m` (wide matrix).
 
     When ``x`` is a stack of matrices, the function must compute the QR decomposition for each matrix in the stack.
 
@@ -822,30 +849,3 @@ def vector_norm(
     .. versionchanged:: 2022.12
        Added complex data type support.
     """
-
-
-__all__ = [
-    "cholesky",
-    "cross",
-    "det",
-    "diagonal",
-    "eigh",
-    "eigvalsh",
-    "inv",
-    "matmul",
-    "matrix_norm",
-    "matrix_power",
-    "matrix_rank",
-    "matrix_transpose",
-    "outer",
-    "pinv",
-    "qr",
-    "slogdet",
-    "solve",
-    "svd",
-    "svdvals",
-    "tensordot",
-    "trace",
-    "vecdot",
-    "vector_norm",
-]

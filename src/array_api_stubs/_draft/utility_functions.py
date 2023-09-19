@@ -1,3 +1,6 @@
+__all__ = ["all", "any"]
+
+
 from ._types import Optional, Tuple, Union, array
 
 
@@ -81,6 +84,3 @@ def any(
     .. versionchanged:: 2022.12
        Added complex data type support.
     """
-
-
-__all__ = ["all", "any"]

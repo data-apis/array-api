@@ -1,9 +1,20 @@
 from __future__ import annotations
 
-from ._types import (array, dtype as Dtype, device as Device, Optional, Tuple,
-                     Union, Any, PyCapsule, Enum, ellipsis)
+from ._types import (
+    array,
+    dtype as Dtype,
+    device as Device,
+    Optional,
+    Tuple,
+    Union,
+    Any,
+    PyCapsule,
+    Enum,
+    ellipsis,
+)
 
-class _array():
+
+class _array:
     def __init__(self) -> None:
         """
         Initialize the attributes for the array object class.
@@ -205,7 +216,9 @@ class _array():
            Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.bitwise_and`.
         """
 
-    def __array_namespace__(self: array, /, *, api_version: Optional[str] = None) -> Any:
+    def __array_namespace__(
+        self: array, /, *, api_version: Optional[str] = None
+    ) -> Any:
         """
         Returns an object that has all the array API functions on it.
 
@@ -237,7 +250,9 @@ class _array():
             a Python ``bool`` object representing the single element of the array.
         """
 
-    def __dlpack__(self: array, /, *, stream: Optional[Union[int, Any]] = None) -> PyCapsule:
+    def __dlpack__(
+        self: array, /, *, stream: Optional[Union[int, Any]] = None
+    ) -> PyCapsule:
         """
         Exports the array for consumption by :func:`~array_api.from_dlpack` as a DLPack capsule.
 
@@ -435,7 +450,13 @@ class _array():
            Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.greater_equal`.
         """
 
-    def __getitem__(self: array, key: Union[int, slice, ellipsis, Tuple[Union[int, slice, ellipsis], ...], array], /) -> array:
+    def __getitem__(
+        self: array,
+        key: Union[
+            int, slice, ellipsis, Tuple[Union[int, slice, ellipsis], ...], array
+        ],
+        /,
+    ) -> array:
         """
         Returns ``self[key]``.
 
@@ -877,7 +898,14 @@ class _array():
            Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.bitwise_right_shift`.
         """
 
-    def __setitem__(self: array, key: Union[int, slice, ellipsis, Tuple[Union[int, slice, ellipsis], ...], array], value: Union[int, float, bool, array], /) -> None:
+    def __setitem__(
+        self: array,
+        key: Union[
+            int, slice, ellipsis, Tuple[Union[int, slice, ellipsis], ...], array
+        ],
+        value: Union[int, float, bool, array],
+        /,
+    ) -> None:
         """
         Sets ``self[key]`` to ``value``.
 
@@ -995,7 +1023,9 @@ class _array():
            Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.bitwise_xor`.
         """
 
-    def to_device(self: array, device: Device, /, *, stream: Optional[Union[int, Any]] = None) -> array:
+    def to_device(
+        self: array, device: Device, /, *, stream: Optional[Union[int, Any]] = None
+    ) -> array:
         """
         Copy the array from the device on which it currently resides to the specified ``device``.
 
@@ -1017,5 +1047,6 @@ class _array():
         .. note::
            If ``stream`` is given, the copy operation should be enqueued on the provided ``stream``; otherwise, the copy operation should be enqueued on the default stream/queue. Whether the copy is performed synchronously or asynchronously is implementation-dependent. Accordingly, if synchronization is required to guarantee data safety, this must be clearly explained in a conforming library's documentation.
         """
+
 
 array = _array
