@@ -115,7 +115,12 @@ def flip(x: array, /, *, axis: Optional[Union[int, Tuple[int, ...]]] = None) -> 
     """
 
 
-def moveaxis(x: array, source: Union[int, Tuple[int, ...]], destination: Union[int, Tuple[int, ...]], /) -> array:
+def moveaxis(
+    x: array,
+    source: Union[int, Tuple[int, ...]],
+    destination: Union[int, Tuple[int, ...]],
+    /
+) -> array:
     """
     Moves array axes (dimensions) to new positions, while leaving other axes in their original positions.
 
