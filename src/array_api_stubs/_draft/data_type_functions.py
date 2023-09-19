@@ -46,7 +46,7 @@ def astype(
     copy: bool
         specifies whether to copy an array when the specified ``dtype`` matches the data type of the input array ``x``. If ``True``, a newly allocated array must always be returned. If ``False`` and the specified ``dtype`` matches the data type of the input array, the input array must be returned; otherwise, a newly allocated array must be returned. Default: ``True``.
     device: Optional[device]
-        device on which to place the created array. If ``device`` is ``None``, the output array device must be inferred from ``x``. Default: ``None``.
+        device on which to place the returned array. If ``device`` is ``None``, the output array device must be inferred from ``x``. Default: ``None``.
 
     Returns
     -------
