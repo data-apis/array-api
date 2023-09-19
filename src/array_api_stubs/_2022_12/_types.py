@@ -34,6 +34,7 @@ ellipsis = TypeVar("ellipsis")
 @dataclass
 class finfo_object:
     """Dataclass returned by `finfo`."""
+
     bits: int
     eps: float
     max: float
@@ -41,13 +42,16 @@ class finfo_object:
     smallest_normal: float
     dtype: dtype
 
+
 @dataclass
 class iinfo_object:
     """Dataclass returned by `iinfo`."""
+
     bits: int
     max: int
     min: int
     dtype: dtype
+
 
 _T_co = TypeVar("_T_co", covariant=True)
 

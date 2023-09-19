@@ -10,7 +10,7 @@ A conforming implementation of the array API standard must provide and support t
 Objects in API
 --------------
 
-.. currentmodule:: array_api
+.. currentmodule:: array_api.constants
 
 ..
   NOTE: please keep the functions in alphabetical order

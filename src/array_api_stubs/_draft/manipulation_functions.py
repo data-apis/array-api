@@ -1,3 +1,19 @@
+__all__ = [
+    "broadcast_arrays",
+    "broadcast_to",
+    "concat",
+    "expand_dims",
+    "flip",
+    "moveaxis",
+    "permute_dims",
+    "reshape",
+    "roll",
+    "squeeze",
+    "stack",
+    "unstack",
+]
+
+
 from ._types import List, Optional, Tuple, Union, array
 
 
@@ -252,19 +268,3 @@ def unstack(x: array, /, *, axis: int = 0) -> Tuple[array, ...]:
     out: Tuple[array, ...]
         tuple of slices along the given dimension. All the arrays have the same shape.
     """
-
-
-__all__ = [
-    "broadcast_arrays",
-    "broadcast_to",
-    "concat",
-    "expand_dims",
-    "flip",
-    "moveaxis",
-    "permute_dims",
-    "reshape",
-    "roll",
-    "squeeze",
-    "stack",
-    "unstack",
-]

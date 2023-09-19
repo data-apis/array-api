@@ -1,3 +1,23 @@
+__all__ = [
+    "arange",
+    "asarray",
+    "empty",
+    "empty_like",
+    "eye",
+    "from_dlpack",
+    "full",
+    "full_like",
+    "linspace",
+    "meshgrid",
+    "ones",
+    "ones_like",
+    "tril",
+    "triu",
+    "zeros",
+    "zeros_like",
+]
+
+
 from ._types import (
     List,
     NestedSequence,
@@ -89,7 +109,7 @@ def asarray(
            If an input value exceeds the precision of the resolved output array data type, behavior is left unspecified and, thus, implementation-defined.
 
     device: Optional[device]
-        device on which to place the created array. If ``device`` is ``None`` and ``x`` is an array, the output array device must be inferred from ``x``. Default: ``None``.
+        device on which to place the created array. If ``device`` is ``None`` and ``obj`` is an array, the output array device must be inferred from ``obj``. Default: ``None``.
     copy: Optional[bool]
         boolean indicating whether or not to copy the input. If ``True``, the function must always copy. If ``False``, the function must never copy for input which supports the buffer protocol and must raise a ``ValueError`` in case a copy would be necessary. If ``None``, the function must reuse existing memory buffer if possible and copy otherwise. Default: ``None``.
 
@@ -563,23 +583,3 @@ def zeros_like(
     out: array
         an array having the same shape as ``x`` and filled with zeros.
     """
-
-
-__all__ = [
-    "arange",
-    "asarray",
-    "empty",
-    "empty_like",
-    "eye",
-    "from_dlpack",
-    "full",
-    "full_like",
-    "linspace",
-    "meshgrid",
-    "ones",
-    "ones_like",
-    "tril",
-    "triu",
-    "zeros",
-    "zeros_like",
-]

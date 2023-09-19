@@ -1,3 +1,6 @@
+__all__ = ["max", "mean", "min", "prod", "std", "sum", "var"]
+
+
 from ._types import Optional, Tuple, Union, array, dtype
 
 
@@ -315,6 +318,3 @@ def var(
     -   If ``N - correction`` is less than or equal to ``0``, the variance is ``NaN``.
     -   If ``x_i`` is ``NaN``, the variance is ``NaN`` (i.e., ``NaN`` values propagate).
     """
-
-
-__all__ = ["max", "mean", "min", "prod", "std", "sum", "var"]
