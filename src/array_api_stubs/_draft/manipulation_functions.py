@@ -129,9 +129,9 @@ def moveaxis(
     x: array
         input array.
     source: Union[int, Tuple[int, ...]]
-        Axes to move. Provided axes must be unique. If ``x`` has rank (i.e, number of dimensions) ``N``, a valid axis must reside on the open-interval ``(-N, N)``.
+        Axes to move. Provided axes must be unique. If ``x`` has rank (i.e, number of dimensions) ``N``, a valid axis must reside on the half-open interval ``[-N, N)``.
     destination: Union[int, Tuple[int, ...]]
-        indices defining the desired positions for each respective ``source`` axis index. Provided indices must be unique. If ``x`` has rank (i.e, number of dimensions) ``N``, a valid axis must reside on the open-interval ``(-N, N)``.
+        indices defining the desired positions for each respective ``source`` axis index. Provided indices must be unique. If ``x`` has rank (i.e, number of dimensions) ``N``, a valid axis must reside on the half-open interval ``[-N, N)``.
 
     Returns
     -------
