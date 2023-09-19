@@ -48,7 +48,9 @@ def cumulative_sum(
 
         Let ``N`` be the size of the axis along which to compute the cumulative sum. The returned array must have a shape determined according to the following rules:
 
-        -   if ``include_initial`` is ``True``, the returned array must have the same shape as ``x``, except the size of the axis along which to compute the cumulative sum must be ``N+1``.
+        -   if ``include_initial`` is ``True``,
+            -   if ``N`` is greater than zero, the returned array must have the same shape as ``x``, except the size of the axis along which to compute the cumulative sum must be ``N+1``.
+            -   if ``N`` is zero (i.e., ``x`` is an empty array), the returned array must have the same shape as ``x``.
         -   if ``include_initial`` is ``False``, the returned array must have the same shape as ``x``.
 
     Notes
