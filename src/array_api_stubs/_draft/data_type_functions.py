@@ -8,7 +8,7 @@ from ._types import (
     finfo_object,
     iinfo_object,
     device,
-    Optional
+    Optional,
 )
 
 
