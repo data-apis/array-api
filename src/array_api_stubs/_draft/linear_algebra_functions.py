@@ -1,3 +1,6 @@
+__all__ = ["matmul", "matrix_transpose", "tensordot", "vecdot"]
+
+
 from ._types import Tuple, Union, Sequence, array
 
 
@@ -155,6 +158,3 @@ def vecdot(x1: array, x2: array, /, *, axis: int = -1) -> array:
 
     -   if the size of the axis over which to compute the dot product is not the same (before broadcasting) for both ``x1`` and ``x2``.
     """
-
-
-__all__ = ["matmul", "matrix_transpose", "tensordot", "vecdot"]

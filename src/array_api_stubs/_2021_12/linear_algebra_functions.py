@@ -1,5 +1,6 @@
 from ._types import Tuple, Union, Sequence, array
 
+
 def matmul(x1: array, x2: array, /) -> array:
     """
     Computes the matrix product.
@@ -37,6 +38,7 @@ def matmul(x1: array, x2: array, /) -> array:
     -   if ``x1`` is an array having shape ``(..., M, K)``, ``x2`` is an array having shape ``(..., L, N)``, and ``K != L``.
     """
 
+
 def matrix_transpose(x: array, /) -> array:
     """
     Transposes a matrix (or a stack of matrices) ``x``.
@@ -52,7 +54,14 @@ def matrix_transpose(x: array, /) -> array:
         an array containing the transpose for each matrix and having shape ``(..., N, M)``. The returned array must have the same data type as ``x``.
     """
 
-def tensordot(x1: array, x2: array, /, *, axes: Union[int, Tuple[Sequence[int], Sequence[int]]] = 2) -> array:
+
+def tensordot(
+    x1: array,
+    x2: array,
+    /,
+    *,
+    axes: Union[int, Tuple[Sequence[int], Sequence[int]]] = 2,
+) -> array:
     """
     Returns a tensor contraction of ``x1`` and ``x2`` over specific axes.
 
@@ -83,6 +92,7 @@ def tensordot(x1: array, x2: array, /, *, axes: Union[int, Tuple[Sequence[int], 
         an array containing the tensor contraction whose shape consists of the non-contracted axes (dimensions) of the first array ``x1``, followed by the non-contracted axes (dimensions) of the second array ``x2``. The returned array must have a data type determined by :ref:`type-promotion`.
     """
 
+
 def vecdot(x1: array, x2: array, /, *, axis: int = -1) -> array:
     """
     Computes the (vector) dot product of two arrays.
@@ -108,4 +118,5 @@ def vecdot(x1: array, x2: array, /, *, axis: int = -1) -> array:
     -   if the size of the axis over which to compute the dot product is not the same for both ``x1`` and ``x2``.
     """
 
-__all__ = ['matmul', 'matrix_transpose', 'tensordot', 'vecdot']
+
+__all__ = ["matmul", "matrix_transpose", "tensordot", "vecdot"]

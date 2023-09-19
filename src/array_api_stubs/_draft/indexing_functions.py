@@ -1,3 +1,5 @@
+__all__ = ["take"]
+
 from ._types import Union, Optional, array
 
 
@@ -29,6 +31,3 @@ def take(x: array, indices: array, /, *, axis: Optional[int] = None) -> array:
 
     .. versionadded:: 2022.12
     """
-
-
-__all__ = ["take"]

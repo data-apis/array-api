@@ -1,3 +1,30 @@
+__all__ = [
+    "cholesky",
+    "cross",
+    "det",
+    "diagonal",
+    "eigh",
+    "eigvalsh",
+    "inv",
+    "matmul",
+    "matrix_norm",
+    "matrix_power",
+    "matrix_rank",
+    "matrix_transpose",
+    "outer",
+    "pinv",
+    "qr",
+    "slogdet",
+    "solve",
+    "svd",
+    "svdvals",
+    "tensordot",
+    "trace",
+    "vecdot",
+    "vector_norm",
+]
+
+
 from ._types import Literal, Optional, Tuple, Union, Sequence, array, dtype
 from .constants import inf
 
@@ -18,7 +45,7 @@ def cholesky(x: array, /, *, upper: bool = False) -> array:
     The upper Cholesky decomposition is defined similarly
 
     .. math::
-       x = UU^{H} \qquad \text{U $\in\ \mathbb{K}^{n \times n}$}
+       x = U^{H}U \qquad \text{U $\in\ \mathbb{K}^{n \times n}$}
 
     where :math:`U` is an upper triangular matrix.
 
@@ -718,10 +745,11 @@ def trace(x: array, /, *, offset: int = 0, dtype: Optional[dtype] = None) -> arr
         data type of the returned array. If ``None``,
 
         -   if the default data type corresponding to the data type "kind" (integer, real-valued floating-point, or complex floating-point) of ``x`` has a smaller range of values than the data type of ``x`` (e.g., ``x`` has data type ``int64`` and the default data type is ``int32``, or ``x`` has data type ``uint64`` and the default data type is ``int64``), the returned array must have the same data type as ``x``.
-        -   if ``x`` has a real-valued floating-point data type, the returned array must have the default real-valued floating-point data type.
-        -   if ``x`` has a complex floating-point data type, the returned array must have the default complex floating-point data type.
-        -   if ``x`` has a signed integer data type (e.g., ``int16``), the returned array must have the default integer data type.
-        -   if ``x`` has an unsigned integer data type (e.g., ``uint16``), the returned array must have an unsigned integer data type having the same number of bits as the default integer data type (e.g., if the default integer data type is ``int32``, the returned array must have a ``uint32`` data type).
+        -   if the default data type corresponding to the data type "kind" of ``x`` has the same or a larger range of values than the data type of ``x``,
+            -   if ``x`` has a real-valued floating-point data type, the returned array must have the default real-valued floating-point data type.
+            -   if ``x`` has a complex floating-point data type, the returned array must have the default complex floating-point data type.
+            -   if ``x`` has a signed integer data type (e.g., ``int16``), the returned array must have the default integer data type.
+            -   if ``x`` has an unsigned integer data type (e.g., ``uint16``), the returned array must have an unsigned integer data type having the same number of bits as the default integer data type (e.g., if the default integer data type is ``int32``, the returned array must have a ``uint32`` data type).
 
         If the data type (either specified or resolved) differs from the data type of ``x``, the input array should be cast to the specified data type before computing the sum. Default: ``None``.
 
@@ -822,30 +850,3 @@ def vector_norm(
     .. versionchanged:: 2022.12
        Added complex data type support.
     """
-
-
-__all__ = [
-    "cholesky",
-    "cross",
-    "det",
-    "diagonal",
-    "eigh",
-    "eigvalsh",
-    "inv",
-    "matmul",
-    "matrix_norm",
-    "matrix_power",
-    "matrix_rank",
-    "matrix_transpose",
-    "outer",
-    "pinv",
-    "qr",
-    "slogdet",
-    "solve",
-    "svd",
-    "svdvals",
-    "tensordot",
-    "trace",
-    "vecdot",
-    "vector_norm",
-]

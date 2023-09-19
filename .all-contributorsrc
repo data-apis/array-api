@@ -616,6 +616,16 @@
       "contributions": [
         "ideas"
       ]
+    },
+    {
+      "login": "lucascolley",
+      "name": "Lucas Colley",
+      "avatar_url": "https://avatars.githubusercontent.com/u/51488791?v=4",
+      "profile": "https://github.com/lucascolley",
+      "contributions": [
+        "maintenance",
+        "bug"
+      ]
     }
   ],
   "contributorsPerLine": 7
