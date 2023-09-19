@@ -1,10 +1,20 @@
 __all__ = ["astype", "can_cast", "finfo", "iinfo", "isdtype", "result_type"]
 
+from ._types import (
+    Union,
+    Tuple,
+    array,
+    dtype,
+    finfo_object,
+    iinfo_object,
+    device,
+    Optional,
+)
 
-from ._types import Union, Tuple, array, dtype, finfo_object, iinfo_object
 
-
-def astype(x: array, dtype: dtype, /, *, copy: bool = True) -> array:
+def astype(
+    x: array, dtype: dtype, /, *, copy: bool = True, device: Optional[device] = None
+) -> array:
     """
     Copies an array to a specified data type irrespective of :ref:`type-promotion` rules.
 
@@ -34,6 +44,8 @@ def astype(x: array, dtype: dtype, /, *, copy: bool = True) -> array:
         desired data type.
     copy: bool
         specifies whether to copy an array when the specified ``dtype`` matches the data type of the input array ``x``. If ``True``, a newly allocated array must always be returned. If ``False`` and the specified ``dtype`` matches the data type of the input array, the input array must be returned; otherwise, a newly allocated array must be returned. Default: ``True``.
+    device: Optional[device]
+        device on which to place the returned array. If ``device`` is ``None``, the output array device must be inferred from ``x``. Default: ``None``.
 
     Returns
     -------
