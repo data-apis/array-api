@@ -1,8 +1,8 @@
+from __future__ import annotations
+
 __all__ = [
     "__array_namespace_info__",
 ]
-
-from __future__ import annotations
 
 from ._types import (
     Optional,
