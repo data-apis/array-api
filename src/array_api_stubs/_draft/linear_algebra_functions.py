@@ -89,7 +89,7 @@ def tensordot(
            Contracted axes (dimensions) must not be broadcasted.
 
     axes: Union[int, Tuple[Sequence[int], Sequence[int]]]
-        number of axes (dimensions) to contract or explicit sequences of axes (dimensions) for ``x1`` and ``x2``, respectively.
+        number of axes (dimensions) to contract or explicit sequences of axis (dimension) indices for ``x1`` and ``x2``, respectively.
 
         If ``axes`` is an ``int`` equal to ``N``, then contraction must be performed over the last ``N`` axes of ``x1`` and the first ``N`` axes of ``x2`` in order. The size of each corresponding axis (dimension) must match. Must be nonnegative.
 
@@ -97,7 +97,7 @@ def tensordot(
         -   If ``N`` equals ``1``, the result is the tensor dot product.
         -   If ``N`` equals ``2``, the result is the tensor double contraction (default).
 
-        If ``axes`` is a tuple of two sequences ``(x1_axes, x2_axes)``, the first sequence must apply to ``x1`` and the second sequence to ``x2``. Both sequences must have the same length. Each axis (dimension) ``x1_axes[i]`` for ``x1`` must have the same size as the respective axis (dimension) ``x2_axes[i]`` for ``x2``. Each sequence must consist of integers that uniquely specify valid axes for each respective array.
+        If ``axes`` is a tuple of two sequences ``(x1_axes, x2_axes)``, the first sequence must apply to ``x1`` and the second sequence to ``x2``. Both sequences must have the same length. Each axis (dimension) ``x1_axes[i]`` for ``x1`` must have the same size as the respective axis (dimension) ``x2_axes[i]`` for ``x2``. Each index referred to in a sequence must be unique. If ``x1`` has rank (i.e, number of dimensions) ``N``, a valid ``x1`` axis must reside on the half-open interval ``[-N, N)``. If ``x2`` has rank ``M``, a valid ``x2`` axis must reside on the half-open interval ``[-M, M)``.
 
 
     .. note::
