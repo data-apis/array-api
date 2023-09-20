@@ -93,18 +93,23 @@ Capabilities = TypedDict(
 class Info:
     """Namespace returned by `__array_namespace_info__`."""
 
+    @staticmethod
     def capabilities() -> Capabilities:
         ...
 
+    @staticmethod
     def default_device() -> device:
         ...
 
+    @staticmethod
     def default_dtypes(*, device: Optional[device]) -> DefaultDataTypes:
         ...
 
+    @staticmethod
     def devices() -> List[device]:
         ...
 
+    @staticmethod
     def dtypes(
         *, device: Optional[device], kind: Optional[Union[str, Tuple[str, ...]]]
     ) -> DataTypes:
