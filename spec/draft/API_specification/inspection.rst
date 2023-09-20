@@ -20,4 +20,4 @@ Objects in API
    :nosignatures:
 
    __array_namespace_info__
-   info
+   Info
