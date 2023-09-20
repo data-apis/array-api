@@ -50,7 +50,7 @@ def capabilities() -> Capabilities:
 
 def default_device() -> device:
     """
-    Returns an object for the default device.
+    Returns the default device.
 
     Returns
     -------
