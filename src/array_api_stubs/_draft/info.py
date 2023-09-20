@@ -76,7 +76,7 @@ def default_dtypes(
     Parameters
     ----------
     device: Optional[device]
-        device for which to return default data types. If ``device`` is ``None``, the returned data types must be the default data types for the current device. If ``device`` is not ``None``, the returned data types must be default data types specific to the specified device. Default: ``None``.
+        device for which to return default data types. If ``device`` is ``None``, the returned data types must be the default data types for the current device; otherwise, the returned data types must be default data types specific to the specified device. Default: ``None``.
 
         .. note::
            Some array libraries have the concept of a device context manager, allowing library consumers to manage the current device context. When ``device`` is ``None``, libraries supporting a device context should return the default data types for the current device. For libraries without a context manager or supporting only a single device, those libraries should return the default data types for the default device.
