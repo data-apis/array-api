@@ -1,8 +1,6 @@
 from __future__ import annotations
 
-__all__ = [
-    "__array_namespace_info__",
-]
+__all__ = ["__array_namespace_info__", "Inspection"]
 
 from ._types import (
     Optional,
@@ -14,23 +12,23 @@ from ._types import (
 )
 
 
-def __array_namespace_info__() -> Info:
+def __array_namespace_info__() -> Inspection:
     """
     Returns a namespace with Array API namespace inspection utilities.
 
     Returns
     -------
-    out: Info
+    out: Inspection
         Namespace with Array API namespace inspection utilities.
     """
 
 
-class Info:
-    def __init__(self: Info) -> None:
+class Inspection:
+    def __init__(self: Inspection) -> None:
         """Initialize the attributes for the inspection API class."""
 
     @property
-    def capabilities(self: Info) -> Capabilities:
+    def capabilities(self: Inspection) -> Capabilities:
         """
         Dictionary of array library capabilities.
 
@@ -45,7 +43,7 @@ class Info:
             a dictionary of array library capabilities.
         """
 
-    def default_device(self: Info) -> device:
+    def default_device(self: Inspection) -> device:
         """
         Returns an object for the default device.
 
@@ -56,7 +54,7 @@ class Info:
         """
 
     def default_dtypes(
-        self: Info,
+        self: Inspection,
         /,
         *,
         device: Optional[device] = None,
@@ -86,7 +84,7 @@ class Info:
         """
 
     def dtypes(
-        self: Info,
+        self: Inspection,
         /,
         *,
         device: Optional[device] = None,
@@ -130,7 +128,7 @@ class Info:
             a dictionary containing supported data types.
         """
 
-    def device(self: Info) -> List[device]:
+    def device(self: Inspection) -> List[device]:
         """
         Returns a list of supported devices.
 
