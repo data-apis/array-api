@@ -7,7 +7,6 @@ from .data_type_functions import *
 from . import data_types as dtype
 from .elementwise_functions import *
 from .indexing_functions import *
-from .inspection import *
 from .linear_algebra_functions import *
 from .manipulation_functions import *
 from .searching_functions import *
@@ -17,6 +16,7 @@ from .statistical_functions import *
 from .utility_functions import *
 from . import linalg
 from . import fft
+from . import info
 
 
 __array_api_version__: str = "YYYY.MM"

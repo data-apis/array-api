@@ -25,6 +25,10 @@ __all__ = [
     "finfo_object",
     "iinfo_object",
     "Enum",
+    "DefaultDataTypes",
+    "DataTypes",
+    "Capabilities",
+    "Info",
 ]
 
 from dataclasses import dataclass
@@ -83,6 +87,28 @@ DataTypes = TypedDict(
 Capabilities = TypedDict(
     "Capabilities", {"boolean_indexing": bool, "data_dependent_shapes": bool}
 )
+
+
+@dataclass
+class Info:
+    """Namespace returned by `__array_namespace_info__`."""
+
+    def capabilities() -> Capabilities:
+        ...
+
+    def default_device() -> device:
+        ...
+
+    def default_dtypes(*, device: Optional[device]) -> DefaultDataTypes:
+        ...
+
+    def devices() -> List[device]:
+        ...
+
+    def dtypes(
+        *, device: Optional[device], kind: Optional[Union[str, Tuple[str, ...]]]
+    ) -> DataTypes:
+        ...
 
 
 @dataclass
