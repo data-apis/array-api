@@ -35,6 +35,7 @@ from typing import (
     Optional,
     Sequence,
     Tuple,
+    TypedDict,
     TypeVar,
     Union,
     Protocol,
@@ -50,6 +51,38 @@ PyCapsule = TypeVar("PyCapsule")
 # ellipsis cannot actually be imported from anywhere, so include a dummy here
 # to keep pyflakes happy. https://github.com/python/typeshed/issues/3556
 ellipsis = TypeVar("ellipsis")
+
+DefaultDataTypes = TypedDict(
+    "DefaultDataTypes",
+    {
+        "real floating": dtype,
+        "complex floating": dtype,
+        "integral": dtype,
+        "indexing": dtype,
+    },
+)
+DataTypes = TypedDict(
+    "DataTypes",
+    {
+        "bool": dtype,
+        "float32": dtype,
+        "float64": dtype,
+        "complex64": dtype,
+        "complex128": dtype,
+        "int8": dtype,
+        "int16": dtype,
+        "int32": dtype,
+        "int64": dtype,
+        "uint8": dtype,
+        "uint16": dtype,
+        "uint32": dtype,
+        "uint64": dtype,
+    },
+    total=False,
+)
+Capabilities = TypedDict(
+    "Capabilities", {"boolean_indexing": bool, "data_dependent_shapes": bool}
+)
 
 
 @dataclass
