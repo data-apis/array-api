@@ -33,6 +33,7 @@ __all__ = [
 
 from dataclasses import dataclass
 from typing import (
+    TYPE_CHECKING,
     Any,
     List,
     Literal,
@@ -46,9 +47,14 @@ from typing import (
 )
 from enum import Enum
 
-array = TypeVar("array")
+
+if TYPE_CHECKING:
+    from .array_object import Array
+    from .data_types import DType
+
+array = TypeVar("array", bound="Array")
 device = TypeVar("device")
-dtype = TypeVar("dtype")
+dtype = TypeVar("dtype", bound="DType")
 SupportsDLPack = TypeVar("SupportsDLPack")
 SupportsBufferProtocol = TypeVar("SupportsBufferProtocol")
 PyCapsule = TypeVar("PyCapsule")

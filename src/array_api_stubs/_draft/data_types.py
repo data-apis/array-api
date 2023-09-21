@@ -1,22 +1,23 @@
-__all__ = ["__eq__"]
+__all__ = ["DType"]
+
+from typing import Protocol
 
 
-from ._types import dtype
+class DType(Protocol):
+    def __eq__(self, other: "DType", /) -> bool:
+        """
+        Computes the truth value of ``self == other`` in order to test for data type object equality.
 
+        Parameters
+        ----------
+        self: dtype
+            data type instance. May be any supported data type.
+        other: dtype
+            other data type instance. May be any supported data type.
 
-def __eq__(self: dtype, other: dtype, /) -> bool:
-    """
-    Computes the truth value of ``self == other`` in order to test for data type object equality.
-
-    Parameters
-    ----------
-    self: dtype
-        data type instance. May be any supported data type.
-    other: dtype
-        other data type instance. May be any supported data type.
-
-    Returns
-    -------
-    out: bool
-        a boolean indicating whether the data type objects are equal.
-    """
+        Returns
+        -------
+        out: bool
+            a boolean indicating whether the data type objects are equal.
+        """
+        ...

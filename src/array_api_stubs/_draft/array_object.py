@@ -2,26 +2,29 @@ from __future__ import annotations
 
 __all__ = ["array"]
 
-from ._types import (
-    array,
-    dtype as Dtype,
-    device as Device,
-    Optional,
-    Tuple,
-    Union,
-    Any,
-    PyCapsule,
-    Enum,
-    ellipsis,
-)
+from typing import TYPE_CHECKING, Protocol, TypeVar
+
+if TYPE_CHECKING:
+    from ._types import (
+        dtype as Dtype,
+        device as Device,
+        Any,
+        PyCapsule,
+        Enum,
+        ellipsis,
+    )
+
+Self = TypeVar("Self", bound="Array")
+# NOTE: when working with py3.11+ this can be ``typing.Self``.
 
 
-class _array:
-    def __init__(self: array) -> None:
+class Array(Protocol):
+    def __init__(self) -> None:
         """Initialize the attributes for the array object class."""
+        ...
 
     @property
-    def dtype(self: array) -> Dtype:
+    def dtype(self) -> Dtype:
         """
         Data type of the array elements.
 
@@ -30,9 +33,10 @@ class _array:
         out: dtype
             array data type.
         """
+        ...
 
     @property
-    def device(self: array) -> Device:
+    def device(self) -> Device:
         """
         Hardware device the array data resides on.
 
@@ -41,9 +45,10 @@ class _array:
         out: device
             a ``device`` object (see :ref:`device-support`).
         """
+        ...
 
     @property
-    def mT(self: array) -> array:
+    def mT(self: Self) -> Self:
         """
         Transpose of a matrix (or a stack of matrices).
 
@@ -54,9 +59,10 @@ class _array:
         out: array
             array whose last two dimensions (axes) are permuted in reverse order relative to original array (i.e., for an array instance having shape ``(..., M, N)``, the returned array must have shape ``(..., N, M)``). The returned array must have the same data type as the original array.
         """
+        ...
 
     @property
-    def ndim(self: array) -> int:
+    def ndim(self) -> int:
         """
         Number of array dimensions (axes).
 
@@ -65,9 +71,10 @@ class _array:
         out: int
             number of array dimensions (axes).
         """
+        ...
 
     @property
-    def shape(self: array) -> Tuple[Optional[int], ...]:
+    def shape(self) -> tuple[int | None, ...]:
         """
         Array dimensions.
 
@@ -83,9 +90,10 @@ class _array:
         .. note::
            The returned value should be a tuple; however, where warranted, an array library may choose to return a custom shape object. If an array library returns a custom shape object, the object must be immutable, must support indexing for dimension retrieval, and must behave similarly to a tuple.
         """
+        ...
 
     @property
-    def size(self: array) -> Optional[int]:
+    def size(self) -> int | None:
         """
         Number of elements in an array.
 
@@ -101,9 +109,10 @@ class _array:
         .. note::
            For array libraries having graph-based computational models, an array may have unknown dimensions due to data-dependent operations.
         """
+        ...
 
     @property
-    def T(self: array) -> array:
+    def T(self: Self) -> Self:
         """
         Transpose of the array.
 
@@ -118,8 +127,9 @@ class _array:
         .. note::
            Limiting the transpose to two-dimensional arrays (matrices) deviates from the NumPy et al practice of reversing all axes for arrays having more than two-dimensions. This is intentional, as reversing all axes was found to be problematic (e.g., conflicting with the mathematical definition of a transpose which is limited to matrices; not operating on batches of matrices; et cetera). In order to reverse all axes, one is recommended to use the functional ``permute_dims`` interface found in this specification.
         """
+        ...
 
-    def __abs__(self: array, /) -> array:
+    def __abs__(self: Self, /) -> Self:
         """
         Calculates the absolute value for each element of an array instance.
 
@@ -147,8 +157,9 @@ class _array:
         .. versionchanged:: 2022.12
             Added complex data type support.
         """
+        ...
 
-    def __add__(self: array, other: Union[int, float, array], /) -> array:
+    def __add__(self: Self, other: int | float | Self, /) -> Self:
         """
         Calculates the sum for each element of an array instance with the respective element of the array ``other``.
 
@@ -173,8 +184,9 @@ class _array:
         .. versionchanged:: 2022.12
             Added complex data type support.
         """
+        ...
 
-    def __and__(self: array, other: Union[int, bool, array], /) -> array:
+    def __and__(self: Self, other: int | bool | Self, /) -> Self:
         """
         Evaluates ``self_i & other_i`` for each element of an array instance with the respective element of the array ``other``.
 
@@ -194,10 +206,9 @@ class _array:
         .. note::
            Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.bitwise_and`.
         """
+        ...
 
-    def __array_namespace__(
-        self: array, /, *, api_version: Optional[str] = None
-    ) -> Any:
+    def __array_namespace__(self, /, *, api_version: str | None = None) -> Any:
         """
         Returns an object that has all the array API functions on it.
 
@@ -213,8 +224,9 @@ class _array:
         out: Any
             an object representing the array API namespace. It should have every top-level function defined in the specification as an attribute. It may contain other public names as well, but it is recommended to only include those names that are part of the specification.
         """
+        ...
 
-    def __bool__(self: array, /) -> bool:
+    def __bool__(self, /) -> bool:
         """
         Converts a zero-dimensional array to a Python ``bool`` object.
 
@@ -251,8 +263,9 @@ class _array:
         .. versionchanged:: 2023.12
             Allowed lazy implementations to error.
         """
+        ...
 
-    def __complex__(self: array, /) -> complex:
+    def __complex__(self, /) -> complex:
         """
         Converts a zero-dimensional array to a Python ``complex`` object.
 
@@ -292,15 +305,16 @@ class _array:
         .. versionchanged:: 2023.12
             Allowed lazy implementations to error.
         """
+        ...
 
     def __dlpack__(
-        self: array,
+        self,
         /,
         *,
-        stream: Optional[Union[int, Any]] = None,
-        max_version: Optional[tuple[int, int]] = None,
-        dl_device: Optional[tuple[Enum, int]] = None,
-        copy: Optional[bool] = None,
+        stream:  int | Any | None = None,
+        max_version: tuple[int, int] | None = None,
+        dl_device: tuple[Enum, int] | None = None,
+        copy: bool | None = None,
     ) -> PyCapsule:
         """
         Exports the array for consumption by :func:`~array_api.from_dlpack` as a DLPack capsule.
@@ -465,8 +479,9 @@ class _array:
         .. versionchanged:: 2023.12
            Added recommendation for handling read-only arrays.
         """
+        ...
 
-    def __dlpack_device__(self: array, /) -> Tuple[Enum, int]:
+    def __dlpack_device__(self, /) -> tuple[Enum, int]:
         """
         Returns device type and device ID in DLPack format. Meant for use within :func:`~array_api.from_dlpack`.
 
@@ -493,8 +508,9 @@ class _array:
               CUDA_MANAGED = 13
               ONE_API = 14
         """
+        ...
 
-    def __eq__(self: array, other: Union[int, float, bool, array], /) -> array:
+    def __eq__(self: Self, other: int | float | bool | Self, /) -> Self:
         r"""
         Computes the truth value of ``self_i == other_i`` for each element of an array instance with the respective element of the array ``other``.
 
@@ -517,8 +533,9 @@ class _array:
         .. note::
            Comparison of arrays without a corresponding promotable data type (see :ref:`type-promotion`) is undefined and thus implementation-dependent.
         """
+        ...
 
-    def __float__(self: array, /) -> float:
+    def __float__(self, /) -> float:
         """
         Converts a zero-dimensional array to a Python ``float`` object.
 
@@ -555,8 +572,9 @@ class _array:
         .. versionchanged:: 2023.12
             Allowed lazy implementations to error.
         """
+        ...
 
-    def __floordiv__(self: array, other: Union[int, float, array], /) -> array:
+    def __floordiv__(self: Self, other: int | float | Self, /) -> Self:
         """
         Evaluates ``self_i // other_i`` for each element of an array instance with the respective element of the array ``other``.
 
@@ -579,8 +597,9 @@ class _array:
         .. note::
            Element-wise results, including special cases, must equal the results returned by the equivalent element-wise function :func:`~array_api.floor_divide`.
         """
+        ...
 
-    def __ge__(self: array, other: Union[int, float, array], /) -> array:
+    def __ge__(self: Self, other: int | float | Self, /) -> Self:
         """
         Computes the truth value of ``self_i >= other_i`` for each element of an array instance with the respective element of the array ``other``.
 
@@ -606,19 +625,13 @@ class _array:
         .. note::
            Comparison of arrays without a corresponding promotable data type (see :ref:`type-promotion`) is undefined and thus implementation-dependent.
         """
+        ...
 
     def __getitem__(
-        self: array,
-        key: Union[
-            int,
-            slice,
-            ellipsis,
-            None,
-            Tuple[Union[int, slice, ellipsis, None], ...],
-            array,
-        ],
+        self: Self,
+        key: int | slice | ellipsis | tuple[int | slice | ellipsis | None, ...] | Self,
         /,
-    ) -> array:
+    ) -> Self:
         """
         Returns ``self[key]``.
 
@@ -640,8 +653,9 @@ class _array:
            When ``__getitem__`` is defined on an object, Python will automatically define iteration (i.e., the behavior from ``iter(x)``) as  ``x[0]``, ``x[1]``, ..., ``x[N-1]``. This can also be implemented directly by defining ``__iter__``. Therefore, for a one-dimensional array ``x``, iteration should produce a sequence of zero-dimensional arrays ``x[0]``, ``x[1]``, ..., ``x[N-1]``, where ``N`` is the number of elements in the array. Iteration behavior for arrays having zero dimensions or more than one dimension is unspecified and thus implementation-defined.
 
         """
+        ...
 
-    def __gt__(self: array, other: Union[int, float, array], /) -> array:
+    def __gt__(self: Self, other: int | float | Self, /) -> Self:
         """
         Computes the truth value of ``self_i > other_i`` for each element of an array instance with the respective element of the array ``other``.
 
@@ -667,8 +681,9 @@ class _array:
         .. note::
            Comparison of arrays without a corresponding promotable data type (see :ref:`type-promotion`) is undefined and thus implementation-dependent.
         """
+        ...
 
-    def __index__(self: array, /) -> int:
+    def __index__(self, /) -> int:
         """
         Converts a zero-dimensional integer array to a Python ``int`` object.
 
@@ -695,8 +710,9 @@ class _array:
         .. versionchanged:: 2023.12
             Allowed lazy implementations to error.
         """
+        ...
 
-    def __int__(self: array, /) -> int:
+    def __int__(self, /) -> int:
         """
         Converts a zero-dimensional array to a Python ``int`` object.
 
@@ -745,8 +761,9 @@ class _array:
         .. versionchanged:: 2023.12
             Allowed lazy implementations to error.
         """
+        ...
 
-    def __invert__(self: array, /) -> array:
+    def __invert__(self: Self, /) -> Self:
         """
         Evaluates ``~self_i`` for each element of an array instance.
 
@@ -764,8 +781,9 @@ class _array:
         .. note::
            Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.bitwise_invert`.
         """
+        ...
 
-    def __le__(self: array, other: Union[int, float, array], /) -> array:
+    def __le__(self: Self, other: int | float | Self, /) -> Self:
         """
         Computes the truth value of ``self_i <= other_i`` for each element of an array instance with the respective element of the array ``other``.
 
@@ -791,8 +809,9 @@ class _array:
         .. note::
            Comparison of arrays without a corresponding promotable data type (see :ref:`type-promotion`) is undefined and thus implementation-dependent.
         """
+        ...
 
-    def __lshift__(self: array, other: Union[int, array], /) -> array:
+    def __lshift__(self: Self, other: int | Self, /) -> Self:
         """
         Evaluates ``self_i << other_i`` for each element of an array instance with the respective element  of the array ``other``.
 
@@ -812,8 +831,9 @@ class _array:
         .. note::
            Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.bitwise_left_shift`.
         """
+        ...
 
-    def __lt__(self: array, other: Union[int, float, array], /) -> array:
+    def __lt__(self: Self, other: int | float | Self, /) -> Self:
         """
         Computes the truth value of ``self_i < other_i`` for each element of an array instance with the respective element of the array ``other``.
 
@@ -839,8 +859,9 @@ class _array:
         .. note::
            Comparison of arrays without a corresponding promotable data type (see :ref:`type-promotion`) is undefined and thus implementation-dependent.
         """
+        ...
 
-    def __matmul__(self: array, other: array, /) -> array:
+    def __matmul__(self: Self, other: Self, /) -> Self:
         """
         Computes the matrix product.
 
@@ -887,8 +908,9 @@ class _array:
         .. versionchanged:: 2022.12
             Added complex data type support.
         """
+        ...
 
-    def __mod__(self: array, other: Union[int, float, array], /) -> array:
+    def __mod__(self: Self, other: int | float | Self, /) -> Self:
         """
         Evaluates ``self_i % other_i`` for each element of an array instance with the respective element of the array ``other``.
 
@@ -911,8 +933,9 @@ class _array:
         .. note::
            Element-wise results, including special cases, must equal the results returned by the equivalent element-wise function :func:`~array_api.remainder`.
         """
+        ...
 
-    def __mul__(self: array, other: Union[int, float, array], /) -> array:
+    def __mul__(self: Self, other: int | float | Self, /) -> Self:
         r"""
         Calculates the product for each element of an array instance with the respective element of the array ``other``.
 
@@ -940,8 +963,9 @@ class _array:
         .. versionchanged:: 2022.12
             Added complex data type support.
         """
+        ...
 
-    def __ne__(self: array, other: Union[int, float, bool, array], /) -> array:
+    def __ne__(self: Self, other: int | float | bool | Self, /) -> Self:
         """
         Computes the truth value of ``self_i != other_i`` for each element of an array instance with the respective element of the array ``other``.
 
@@ -970,8 +994,9 @@ class _array:
         .. versionchanged:: 2022.12
             Added complex data type support.
         """
+        ...
 
-    def __neg__(self: array, /) -> array:
+    def __neg__(self: Self, /) -> Self:
         """
         Evaluates ``-self_i`` for each element of an array instance.
 
@@ -1000,8 +1025,9 @@ class _array:
         .. versionchanged:: 2022.12
             Added complex data type support.
         """
+        ...
 
-    def __or__(self: array, other: Union[int, bool, array], /) -> array:
+    def __or__(self: Self, other: int | bool | Self, /) -> Self:
         """
         Evaluates ``self_i | other_i`` for each element of an array instance with the respective element of the array ``other``.
 
@@ -1021,8 +1047,9 @@ class _array:
         .. note::
            Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.bitwise_or`.
         """
+        ...
 
-    def __pos__(self: array, /) -> array:
+    def __pos__(self: Self, /) -> Self:
         """
         Evaluates ``+self_i`` for each element of an array instance.
 
@@ -1045,8 +1072,9 @@ class _array:
         .. versionchanged:: 2022.12
             Added complex data type support.
         """
+        ...
 
-    def __pow__(self: array, other: Union[int, float, array], /) -> array:
+    def __pow__(self: Self, other: int | float | Self, /) -> Self:
         r"""
         Calculates an implementation-dependent approximation of exponentiation by raising each element (the base) of an array instance to the power of ``other_i`` (the exponent), where ``other_i`` is the corresponding element of the array ``other``.
 
@@ -1076,8 +1104,9 @@ class _array:
         .. versionchanged:: 2022.12
             Added complex data type support.
         """
+        ...
 
-    def __rshift__(self: array, other: Union[int, array], /) -> array:
+    def __rshift__(self: Self, other: int | Self, /) -> Self:
         """
         Evaluates ``self_i >> other_i`` for each element of an array instance with the respective element of the array ``other``.
 
@@ -1097,13 +1126,12 @@ class _array:
         .. note::
            Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.bitwise_right_shift`.
         """
+        ...
 
     def __setitem__(
-        self: array,
-        key: Union[
-            int, slice, ellipsis, Tuple[Union[int, slice, ellipsis], ...], array
-        ],
-        value: Union[int, float, bool, array],
+        self: Self,
+        key: int | slice | ellipsis | tuple[int | slice | ellipsis, ...] | Self,
+        value: int | float | bool | Self,
         /,
     ) -> None:
         """
@@ -1129,8 +1157,9 @@ class _array:
 
            When ``value`` is an ``array`` of a different data type than ``self``, how values are cast to the data type of ``self`` is implementation defined.
         """
+        ...
 
-    def __sub__(self: array, other: Union[int, float, array], /) -> array:
+    def __sub__(self: Self, other: int | float | Self, /) -> Self:
         """
         Calculates the difference for each element of an array instance with the respective element of the array ``other``.
 
@@ -1157,8 +1186,9 @@ class _array:
         .. versionchanged:: 2022.12
             Added complex data type support.
         """
+        ...
 
-    def __truediv__(self: array, other: Union[int, float, array], /) -> array:
+    def __truediv__(self: Self, other: int | float | Self, /) -> Self:
         r"""
         Evaluates ``self_i / other_i`` for each element of an array instance with the respective element of the array ``other``.
 
@@ -1188,8 +1218,9 @@ class _array:
         .. versionchanged:: 2022.12
             Added complex data type support.
         """
+        ...
 
-    def __xor__(self: array, other: Union[int, bool, array], /) -> array:
+    def __xor__(self: Self, other: int | bool | Self, /) -> Self:
         """
         Evaluates ``self_i ^ other_i`` for each element of an array instance with the respective element of the array ``other``.
 
@@ -1209,10 +1240,11 @@ class _array:
         .. note::
            Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.bitwise_xor`.
         """
+        ...
 
     def to_device(
-        self: array, device: Device, /, *, stream: Optional[Union[int, Any]] = None
-    ) -> array:
+        self: Self, device: Device, /, *, stream: int | Any | None = None
+    ) -> Self:
         """
         Copy the array from the device on which it currently resides to the specified ``device``.
 
@@ -1240,6 +1272,7 @@ class _array:
         .. versionchanged:: 2023.12
            Clarified behavior when a provided ``device`` object corresponds to the device on which an array instance resides.
         """
+        ...
 
 
-array = _array
+array = Array
