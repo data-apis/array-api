@@ -311,7 +311,7 @@ class Array(Protocol):
         self,
         /,
         *,
-        stream:  int | Any | None = None,
+        stream:  Any | None = None,
         max_version: tuple[int, int] | None = None,
         dl_device: tuple[Enum, int] | None = None,
         copy: bool | None = None,
@@ -1247,7 +1247,7 @@ class Array(Protocol):
         ...
 
     def to_device(
-        self: array, device: "Device", /, *, stream: int | Any | None = None  # type: ignore[type-var]
+        self: array, device: "Device", /, *, stream: Any | None = None  # type: ignore[type-var]
     ) -> array:
         """
         Copy the array from the device on which it currently resides to the specified ``device``.
@@ -1258,7 +1258,7 @@ class Array(Protocol):
             array instance.
         device: device
             a ``device`` object (see :ref:`device-support`).
-        stream: Optional[Union[int, Any]]
+        stream: Optional[Any]
             stream object to use during copy. In addition to the types supported in :meth:`Array.__dlpack__`, implementations may choose to support any library-specific stream object with the caveat that any code using such an object would not be portable.
 
         Returns
