@@ -184,7 +184,7 @@ def repeat(
 
         If ``axis`` is not ``None``, let ``M = x.shape[axis]`` and
 
-        -   if ``repeats`` is an array, ``repeats`` must be broadcast compatible with the shape ``(M)`` (i.e., be a one-dimensional array having shape ``(1)`` or ``(M)``.
+        -   if ``repeats`` is an array, ``repeats`` must be broadcast compatible with the shape ``(M)`` (i.e., be a one-dimensional array having shape ``(1)`` or ``(M)``).
         -   if ``repeats`` is a sequence of integers, ``len(repeats)`` must be broadcast compatible with the shape ``(M)`` (i.e., the number of sequence elements must be either ``1`` or ``M``).
         -   if ``repeats`` is an integer, ``repeats`` must be broadcasted to the shape ``(M)``.
 
