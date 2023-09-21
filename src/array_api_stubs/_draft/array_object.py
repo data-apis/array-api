@@ -1,19 +1,20 @@
 from __future__ import annotations
 
-__all__ = ["array"]
+__all__ = ["Array"]
 
 from typing import TYPE_CHECKING, Protocol, TypeVar
+from enum import Enum
+from .data_types import DType
+from ._types import device as Device
 
-from ._types import (
-    dtype as Dtype,
-    device as Device,
-    Any,
-    PyCapsule,
-    Enum,
-    ellipsis,
-)
+if TYPE_CHECKING:
+    from ._types import (
+        Any,
+        PyCapsule,
+        ellipsis,
+    )
 
-Self = TypeVar("Self", bound="Array")
+array = TypeVar("array", bound="Array")
 # NOTE: when working with py3.11+ this can be ``typing.Self``.
 
 
@@ -23,7 +24,7 @@ class Array(Protocol):
         ...
 
     @property
-    def dtype(self) -> Dtype:
+    def dtype(self) -> DType:
         """
         Data type of the array elements.
 
@@ -35,7 +36,7 @@ class Array(Protocol):
         ...
 
     @property
-    def device(self) -> Device:
+    def device(self) -> "Device":  # type: ignore[type-var]
         """
         Hardware device the array data resides on.
 
@@ -47,7 +48,7 @@ class Array(Protocol):
         ...
 
     @property
-    def mT(self: Self) -> Self:
+    def mT(self: array) -> array:
         """
         Transpose of a matrix (or a stack of matrices).
 
@@ -111,7 +112,7 @@ class Array(Protocol):
         ...
 
     @property
-    def T(self: Self) -> Self:
+    def T(self: array) -> array:
         """
         Transpose of the array.
 
@@ -128,7 +129,7 @@ class Array(Protocol):
         """
         ...
 
-    def __abs__(self: Self, /) -> Self:
+    def __abs__(self: array, /) -> array:
         """
         Calculates the absolute value for each element of an array instance.
 
@@ -158,7 +159,7 @@ class Array(Protocol):
         """
         ...
 
-    def __add__(self: Self, other: int | float | Self, /) -> Self:
+    def __add__(self: array, other: int | float | array, /) -> array:
         """
         Calculates the sum for each element of an array instance with the respective element of the array ``other``.
 
@@ -185,7 +186,7 @@ class Array(Protocol):
         """
         ...
 
-    def __and__(self: Self, other: int | bool | Self, /) -> Self:
+    def __and__(self: array, other: int | bool | array, /) -> array:
         """
         Evaluates ``self_i & other_i`` for each element of an array instance with the respective element of the array ``other``.
 
@@ -292,7 +293,9 @@ class Array(Protocol):
         """
         ...
 
-    def __dlpack__(self, /, *, stream: int | Any | None = None) -> PyCapsule:
+    def __dlpack__(
+        self, /, *, stream: int | Any | None = None
+    ) -> PyCapsule:  # type: ignore[type-var]
         """
         Exports the array for consumption by :func:`~array_api.from_dlpack` as a DLPack capsule.
 
@@ -392,7 +395,7 @@ class Array(Protocol):
     # Note that __eq__ returns an array while `object.__eq__` returns a bool.
     # Hence Mypy will complain that this violates the Liskov substitution
     # principle - ignore that.
-    def __eq__(self: Self, other: int | float | bool | Self, /) -> Self:  # xtype: ignore
+    def __eq__(self: array, other: int | float | bool | array, /) -> array:  # type: ignore[override]
         r"""
         Computes the truth value of ``self_i == other_i`` for each element of an array instance with the respective element of the array ``other``.
 
@@ -446,7 +449,7 @@ class Array(Protocol):
         """
         ...
 
-    def __floordiv__(self: Self, other: int | float | Self, /) -> Self:
+    def __floordiv__(self: array, other: int | float | array, /) -> array:
         """
         Evaluates ``self_i // other_i`` for each element of an array instance with the respective element of the array ``other``.
 
@@ -471,7 +474,7 @@ class Array(Protocol):
         """
         ...
 
-    def __ge__(self: Self, other: int | float | Self, /) -> Self:
+    def __ge__(self: array, other: int | float | array, /) -> array:
         """
         Computes the truth value of ``self_i >= other_i`` for each element of an array instance with the respective element of the array ``other``.
 
@@ -497,10 +500,10 @@ class Array(Protocol):
         ...
 
     def __getitem__(
-        self: Self,
-        key: int | slice | ellipsis | tuple[int | slice | ellipsis | None, ...] | Self,
+        self: array,
+        key: int | slice | ellipsis | tuple[int | slice | ellipsis | None, ...] | array,
         /,
-    ) -> Self:
+    ) -> array:
         """
         Returns ``self[key]``.
 
@@ -518,7 +521,7 @@ class Array(Protocol):
         """
         ...
 
-    def __gt__(self: Self, other: int | float | Self, /) -> Self:
+    def __gt__(self: array, other: int | float | array, /) -> array:
         """
         Computes the truth value of ``self_i > other_i`` for each element of an array instance with the respective element of the array ``other``.
 
@@ -603,7 +606,7 @@ class Array(Protocol):
         """
         ...
 
-    def __invert__(self: Self, /) -> Self:
+    def __invert__(self: array, /) -> array:
         """
         Evaluates ``~self_i`` for each element of an array instance.
 
@@ -623,7 +626,7 @@ class Array(Protocol):
         """
         ...
 
-    def __le__(self: Self, other: int | float | Self, /) -> Self:
+    def __le__(self: array, other: int | float | array, /) -> array:
         """
         Computes the truth value of ``self_i <= other_i`` for each element of an array instance with the respective element of the array ``other``.
 
@@ -648,7 +651,7 @@ class Array(Protocol):
         """
         ...
 
-    def __lshift__(self: Self, other: int | Self, /) -> Self:
+    def __lshift__(self: array, other: int | array, /) -> array:
         """
         Evaluates ``self_i << other_i`` for each element of an array instance with the respective element  of the array ``other``.
 
@@ -670,7 +673,7 @@ class Array(Protocol):
         """
         ...
 
-    def __lt__(self: Self, other: int | float | Self, /) -> Self:
+    def __lt__(self: array, other: int | float | array, /) -> array:
         """
         Computes the truth value of ``self_i < other_i`` for each element of an array instance with the respective element of the array ``other``.
 
@@ -695,7 +698,7 @@ class Array(Protocol):
         """
         ...
 
-    def __matmul__(self: Self, other: Self, /) -> Self:
+    def __matmul__(self: array, other: array, /) -> array:
         """
         Computes the matrix product.
 
@@ -744,7 +747,7 @@ class Array(Protocol):
         """
         ...
 
-    def __mod__(self: Self, other: int | float | Self, /) -> Self:
+    def __mod__(self: array, other: int | float | array, /) -> array:
         """
         Evaluates ``self_i % other_i`` for each element of an array instance with the respective element of the array ``other``.
 
@@ -769,7 +772,7 @@ class Array(Protocol):
         """
         ...
 
-    def __mul__(self: Self, other: int | float | Self, /) -> Self:
+    def __mul__(self: array, other: int | float | array, /) -> array:
         r"""
         Calculates the product for each element of an array instance with the respective element of the array ``other``.
 
@@ -800,7 +803,7 @@ class Array(Protocol):
         ...
 
     # See note above __eq__ method for explanation of the `type: ignore`
-    def __ne__(self: Self, other: int | float | bool | Self, /) -> Self:  # type: ignore
+    def __ne__(self: array, other: int | float | bool | array, /) -> array:  # type: ignore[override]
         """
         Computes the truth value of ``self_i != other_i`` for each element of an array instance with the respective element of the array ``other``.
 
@@ -828,7 +831,7 @@ class Array(Protocol):
         """
         ...
 
-    def __neg__(self: Self, /) -> Self:
+    def __neg__(self: array, /) -> array:
         """
         Evaluates ``-self_i`` for each element of an array instance.
 
@@ -859,7 +862,7 @@ class Array(Protocol):
         """
         ...
 
-    def __or__(self: Self, other: int | bool | Self, /) -> Self:
+    def __or__(self: array, other: int | bool | array, /) -> array:
         """
         Evaluates ``self_i | other_i`` for each element of an array instance with the respective element of the array ``other``.
 
@@ -881,7 +884,7 @@ class Array(Protocol):
         """
         ...
 
-    def __pos__(self: Self, /) -> Self:
+    def __pos__(self: array, /) -> array:
         """
         Evaluates ``+self_i`` for each element of an array instance.
 
@@ -906,7 +909,7 @@ class Array(Protocol):
         """
         ...
 
-    def __pow__(self: Self, other: int | float | Self, /) -> Self:
+    def __pow__(self: array, other: int | float | array, /) -> array:
         r"""
         Calculates an implementation-dependent approximation of exponentiation by raising each element (the base) of an array instance to the power of ``other_i`` (the exponent), where ``other_i`` is the corresponding element of the array ``other``.
 
@@ -938,7 +941,7 @@ class Array(Protocol):
         """
         ...
 
-    def __rshift__(self: Self, other: int | Self, /) -> Self:
+    def __rshift__(self: array, other: int | array, /) -> array:
         """
         Evaluates ``self_i >> other_i`` for each element of an array instance with the respective element of the array ``other``.
 
@@ -961,9 +964,9 @@ class Array(Protocol):
         ...
 
     def __setitem__(
-        self: Self,
-        key: int | slice | ellipsis | tuple[int | slice | ellipsis, ...] | Self,
-        value: int | float | bool | Self,
+        self: array,
+        key: int | slice | ellipsis | tuple[int | slice | ellipsis, ...] | array,
+        value: int | float | bool | array,
         /,
     ) -> None:
         """
@@ -989,11 +992,11 @@ class Array(Protocol):
         """
         ...
 
-    def __sub__(self: Self, other: int | float | Self, /) -> Self:
+    def __sub__(self: array, other: int | float | array, /) -> array:
         """
         Calculates the difference for each element of an array instance with the respective element of the array ``other``.
 
-        The result of ``self_i - other_i`` must be the same as ``self_i + (-other_i)`` and must be governed by the same floating-point rules as addition (see :meth:`array.__add__`).
+        The result of ``self_i - other_i`` must be the same as ``self_i + (-other_i)`` and must be governed by the same floating-point rules as addition (see :meth:`Array.__add__`).
 
         Parameters
         ----------
@@ -1018,7 +1021,7 @@ class Array(Protocol):
         """
         ...
 
-    def __truediv__(self: Self, other: int | float | Self, /) -> Self:
+    def __truediv__(self: array, other: int | float | array, /) -> array:
         r"""
         Evaluates ``self_i / other_i`` for each element of an array instance with the respective element of the array ``other``.
 
@@ -1050,7 +1053,7 @@ class Array(Protocol):
         """
         ...
 
-    def __xor__(self: Self, other: int | bool | Self, /) -> Self:
+    def __xor__(self: array, other: int | bool | array, /) -> array:
         """
         Evaluates ``self_i ^ other_i`` for each element of an array instance with the respective element of the array ``other``.
 
@@ -1073,8 +1076,8 @@ class Array(Protocol):
         ...
 
     def to_device(
-        self: Self, device: Device, /, *, stream: int | Any | None = None
-    ) -> Self:
+        self: array, device: "Device", /, *, stream: int | Any | None = None  # type: ignore[type-var]
+    ) -> array:
         """
         Copy the array from the device on which it currently resides to the specified ``device``.
 
@@ -1085,7 +1088,7 @@ class Array(Protocol):
         device: device
             a ``device`` object (see :ref:`device-support`).
         stream: Optional[Union[int, Any]]
-            stream object to use during copy. In addition to the types supported in :meth:`array.__dlpack__`, implementations may choose to support any library-specific stream object with the caveat that any code using such an object would not be portable.
+            stream object to use during copy. In addition to the types supported in :meth:`Array.__dlpack__`, implementations may choose to support any library-specific stream object with the caveat that any code using such an object would not be portable.
 
         Returns
         -------
@@ -1097,6 +1100,3 @@ class Array(Protocol):
            If ``stream`` is given, the copy operation should be enqueued on the provided ``stream``; otherwise, the copy operation should be enqueued on the default stream/queue. Whether the copy is performed synchronously or asynchronously is implementation-dependent. Accordingly, if synchronization is required to guarantee data safety, this must be clearly explained in a conforming library's documentation.
         """
         ...
-
-
-array = Array

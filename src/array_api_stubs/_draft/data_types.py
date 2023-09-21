@@ -1,10 +1,13 @@
+from __future__ import annotations
+
 __all__ = ["DType"]
+
 
 from typing import Protocol
 
 
 class DType(Protocol):
-    def __eq__(self, other: "DType", /) -> bool:
+    def __eq__(self, other: DType, /) -> bool:
         """
         Computes the truth value of ``self == other`` in order to test for data type object equality.
 
