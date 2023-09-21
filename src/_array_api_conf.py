@@ -63,6 +63,7 @@ nitpick_ignore = [
 ]
 nitpick_ignore_regex = [
     ("py:class", ".*array"),
+    ("py:class", ".*Array"),
     ("py:class", ".*device"),
     ("py:class", ".*Device"),
     ("py:class", ".*dtype"),

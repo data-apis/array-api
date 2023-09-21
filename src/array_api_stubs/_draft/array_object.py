@@ -159,7 +159,7 @@ class Array(Protocol):
         """
         ...
 
-    def __add__(self: array, other: int | float | array, /) -> array:
+    def __add__(self: array, other: int | float | Array, /) -> array:
         """
         Calculates the sum for each element of an array instance with the respective element of the array ``other``.
 
@@ -395,7 +395,7 @@ class Array(Protocol):
     # Note that __eq__ returns an array while `object.__eq__` returns a bool.
     # Hence Mypy will complain that this violates the Liskov substitution
     # principle - ignore that.
-    def __eq__(self: array, other: int | float | bool | array, /) -> array:  # type: ignore[override]
+    def __eq__(self: array, other: int | float | bool | Array, /) -> array:  # type: ignore[override]
         r"""
         Computes the truth value of ``self_i == other_i`` for each element of an array instance with the respective element of the array ``other``.
 
@@ -449,7 +449,7 @@ class Array(Protocol):
         """
         ...
 
-    def __floordiv__(self: array, other: int | float | array, /) -> array:
+    def __floordiv__(self: array, other: int | float | Array, /) -> array:
         """
         Evaluates ``self_i // other_i`` for each element of an array instance with the respective element of the array ``other``.
 
@@ -474,7 +474,7 @@ class Array(Protocol):
         """
         ...
 
-    def __ge__(self: array, other: int | float | array, /) -> array:
+    def __ge__(self: array, other: int | float | Array, /) -> array:
         """
         Computes the truth value of ``self_i >= other_i`` for each element of an array instance with the respective element of the array ``other``.
 
@@ -521,7 +521,7 @@ class Array(Protocol):
         """
         ...
 
-    def __gt__(self: array, other: int | float | array, /) -> array:
+    def __gt__(self: array, other: int | float | Array, /) -> array:
         """
         Computes the truth value of ``self_i > other_i`` for each element of an array instance with the respective element of the array ``other``.
 
@@ -626,7 +626,7 @@ class Array(Protocol):
         """
         ...
 
-    def __le__(self: array, other: int | float | array, /) -> array:
+    def __le__(self: array, other: int | float | Array, /) -> array:
         """
         Computes the truth value of ``self_i <= other_i`` for each element of an array instance with the respective element of the array ``other``.
 
@@ -673,7 +673,7 @@ class Array(Protocol):
         """
         ...
 
-    def __lt__(self: array, other: int | float | array, /) -> array:
+    def __lt__(self: array, other: int | float | Array, /) -> array:
         """
         Computes the truth value of ``self_i < other_i`` for each element of an array instance with the respective element of the array ``other``.
 
@@ -747,7 +747,7 @@ class Array(Protocol):
         """
         ...
 
-    def __mod__(self: array, other: int | float | array, /) -> array:
+    def __mod__(self: array, other: int | float | Array, /) -> array:
         """
         Evaluates ``self_i % other_i`` for each element of an array instance with the respective element of the array ``other``.
 
@@ -772,7 +772,7 @@ class Array(Protocol):
         """
         ...
 
-    def __mul__(self: array, other: int | float | array, /) -> array:
+    def __mul__(self: array, other: int | float | Array, /) -> array:
         r"""
         Calculates the product for each element of an array instance with the respective element of the array ``other``.
 
@@ -803,7 +803,7 @@ class Array(Protocol):
         ...
 
     # See note above __eq__ method for explanation of the `type: ignore`
-    def __ne__(self: array, other: int | float | bool | array, /) -> array:  # type: ignore[override]
+    def __ne__(self: array, other: int | float | bool | Array, /) -> array:  # type: ignore[override]
         """
         Computes the truth value of ``self_i != other_i`` for each element of an array instance with the respective element of the array ``other``.
 
@@ -909,7 +909,7 @@ class Array(Protocol):
         """
         ...
 
-    def __pow__(self: array, other: int | float | array, /) -> array:
+    def __pow__(self: array, other: int | float | Array, /) -> array:
         r"""
         Calculates an implementation-dependent approximation of exponentiation by raising each element (the base) of an array instance to the power of ``other_i`` (the exponent), where ``other_i`` is the corresponding element of the array ``other``.
 
@@ -992,7 +992,7 @@ class Array(Protocol):
         """
         ...
 
-    def __sub__(self: array, other: int | float | array, /) -> array:
+    def __sub__(self: array, other: int | float | Array, /) -> array:
         """
         Calculates the difference for each element of an array instance with the respective element of the array ``other``.
 
@@ -1021,7 +1021,7 @@ class Array(Protocol):
         """
         ...
 
-    def __truediv__(self: array, other: int | float | array, /) -> array:
+    def __truediv__(self: array, other: int | float | Array, /) -> array:
         r"""
         Evaluates ``self_i / other_i`` for each element of an array instance with the respective element of the array ``other``.
 
