@@ -99,6 +99,9 @@ def dtypes(
     .. note::
        While specification-conforming array libraries may support additional data types which are not present in this specification, data types which are not present in this specification should not be included in the returned dictionary.
 
+    .. note::
+       Specification-conforming array libraries must only return supported data types having expected properties as described in :ref:`data-types`. For example, if a library decides to alias ``float32`` as ``float64``, that library must not include ``float64`` in the dictionary of supported data types.
+
     Parameters
     ----------
     kind: Optional[Union[str, Tuple[str, ...]]]
