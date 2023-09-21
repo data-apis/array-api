@@ -27,7 +27,9 @@ def cumulative_sum(
         data type of the returned array. If ``None``,
 
         -   if the default data type corresponding to the data type "kind" (integer, real-valued floating-point, or complex floating-point) of ``x`` has a smaller range of values than the data type of ``x`` (e.g., ``x`` has data type ``int64`` and the default data type is ``int32``, or ``x`` has data type ``uint64`` and the default data type is ``int64``), the returned array must have the same data type as ``x``.
+
         -   if the default data type corresponding to the data type "kind" of ``x`` has the same or a larger range of values than the data type of ``x``,
+
             -   if ``x`` has a real-valued floating-point data type, the returned array must have the default real-valued floating-point data type.
             -   if ``x`` has a complex floating-point data type, the returned array must have the default complex floating-point data type.
             -   if ``x`` has a signed integer data type (e.g., ``int16``), the returned array must have the default integer data type.
@@ -49,8 +51,10 @@ def cumulative_sum(
         Let ``N`` be the size of the axis along which to compute the cumulative sum. The returned array must have a shape determined according to the following rules:
 
         -   if ``include_initial`` is ``True``,
+
             -   if ``N`` is greater than zero, the returned array must have the same shape as ``x``, except the size of the axis along which to compute the cumulative sum must be ``N+1``.
             -   if ``N`` is zero (i.e., ``x`` is an empty array), the returned array must have the same shape as ``x``.
+
         -   if ``include_initial`` is ``False``, the returned array must have the same shape as ``x``.
 
     Notes
