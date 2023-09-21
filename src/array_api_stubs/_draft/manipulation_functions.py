@@ -190,7 +190,7 @@ def repeat(
 
         If ``repeats`` is an array, the array must have an integer data type.
     axis: Optional[int]
-        the axis (dimension) along which to repeat elements. If ``axis`` is `None`, the function must repeat elements of a flattened input array ``x`` and return the result as a one-dimensional output array. Default: ``None``.
+        the axis (dimension) along which to repeat elements. If ``axis`` is `None`, the function must repeat elements of the flattened input array ``x`` and return the result as a one-dimensional output array. A flattened input array must be flattened in row-major, C-style order. Default: ``None``.
 
     Returns
     -------
