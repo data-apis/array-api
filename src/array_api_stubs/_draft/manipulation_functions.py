@@ -6,6 +6,7 @@ __all__ = [
     "flip",
     "moveaxis",
     "permute_dims",
+    "repeat",
     "reshape",
     "roll",
     "squeeze",
@@ -14,7 +15,7 @@ __all__ = [
 ]
 
 
-from ._types import List, Optional, Tuple, Union, array
+from ._types import List, Optional, Tuple, Union, Sequence, array
 
 
 def broadcast_arrays(*arrays: array) -> List[array]:
@@ -155,6 +156,46 @@ def permute_dims(x: array, /, axes: Tuple[int, ...]) -> array:
     -------
     out: array
         an array containing the axes permutation. The returned array must have the same data type as ``x``.
+    """
+
+
+def repeat(
+    x: array,
+    repeats: Union[int, Sequence[int], array],
+    /,
+    *,
+    axis: Optional[int] = None,
+) -> array:
+    """
+    Repeats elements of an array.
+
+    Parameters
+    ----------
+    x: array
+        input array containing elements to repeat.
+    repeats: Union[int, Sequence[int], array]
+        the number of repetitions for each element.
+
+        If ``axis`` is ``None``, let ``N = prod(x.shape)`` and
+
+        -   if ``repeats`` is an array, ``repeats`` must be broadcast compatible with the shape ``(N)`` (i.e., be a one-dimensional array having shape ``(1)`` or ``(N)``).
+        -   if ``repeats`` is a sequence of integers, ``len(repeats)`` must be broadcast compatible with the shape ``(N)`` (i.e., the number of sequence elements be either ``1`` or ``N``).
+        -   if ``repeats`` is an integer, ``repeats`` must be broadcasted to the shape `(N)`.
+
+        If ``axis`` is not ``None``, let ``M = x.shape[axis]`` and
+
+        -   if ``repeats`` is an array, ``repeats`` must be broadcast compatible with the shape ``(M)`` (i.e., be a one-dimensional array having shape ``(1)`` or ``(M)``.
+        -   if ``repeats`` is a sequence of integers, ``len(repeats)`` must be broadcast compatible with the shape ``(M)`` (i.e., the number of sequence elements must be either ``1`` or ``M``).
+        -   if ``repeats`` is an integer, ``repeats`` must be broadcasted to the shape ``(M)``.
+
+        If ``repeats`` is an array, the array must have an integer data type.
+    axis: Optional[int]
+        the axis (dimension) along which to repeat elements. If ``axis`` is `None`, the function must repeat elements of a flattened input array ``x`` and return the result as a one-dimensional output array. Default: ``None``.
+
+    Returns
+    -------
+    out: array
+        an output array containing repeated elements. The returned array must have the same data type as ``x``. If ``axis`` is ``None``, the returned array must be a one-dimensional array; otherwise, the returned array have the same shape as ``x``, except for the axis (dimension) along which elements were repeated.
     """
 
 
