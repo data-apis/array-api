@@ -132,6 +132,9 @@ def dtypes(
     -------
     out: DataTypes
         a dictionary containing supported data types.
+
+        .. note::
+           Dictionary keys must only consist of canonical names as defined in :ref:`data-types`.
     """
 
 
