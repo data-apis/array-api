@@ -60,7 +60,13 @@ def astype(
     """
 
 
-def can_cast(from_: Union[dtype, array], to: dtype, /) -> bool:
+def can_cast(
+    from_: Union[dtype, array],
+    to: dtype,
+    /,
+    *,
+    device: Optional[device] = None,
+) -> bool:
     """
     Determines if one data type can be cast to another data type according :ref:`type-promotion` rules.
 
@@ -70,11 +76,16 @@ def can_cast(from_: Union[dtype, array], to: dtype, /) -> bool:
         input data type or array from which to cast.
     to: dtype
         desired data type.
+    device: Optional[device]
+        device on which to perform a cast. If ``device`` is ``None``, the function must apply :ref:`type-promotion` rules irrespective of device capabilities. If ``device`` is a device object, the function must determine whether a cast can be performed on the specified device. Default: ``None``.
+
+        .. note::
+           While specification-conforming array libraries are expected to support all data types included in this specification, array libraries may support devices which do not have full data type support. Accordingly, the inclusion of a ``device`` keyword argument allows downstream array API consumers to test casting support for particular devices.
 
     Returns
     -------
     out: bool
-        ``True`` if the cast can occur according to :ref:`type-promotion` rules; otherwise, ``False``.
+        ``True`` if the cast is possible; otherwise, ``False``.
     """
 
 
@@ -206,7 +217,10 @@ def isdtype(
     """
 
 
-def result_type(*arrays_and_dtypes: Union[array, dtype]) -> dtype:
+def result_type(
+    *arrays_and_dtypes: Union[array, dtype],
+    device: Optional[device] = None,
+) -> dtype:
     """
     Returns the dtype that results from applying the type promotion rules (see :ref:`type-promotion`) to the arguments.
 
@@ -217,6 +231,11 @@ def result_type(*arrays_and_dtypes: Union[array, dtype]) -> dtype:
     ----------
     arrays_and_dtypes: Union[array, dtype]
         an arbitrary number of input arrays and/or dtypes.
+    device: Optional[device]
+        device on which to apply type promotion rules. If ``device`` is ``None``, the function must apply :ref:`type-promotion` rules irrespective of device capabilities. If ``device`` is a device object, the function must apply type promotion rules with respect to the specified device. Default: ``None``.
+
+        .. note::
+           While specification-conforming array libraries are expected to support all data types included in this specification, array libraries may support devices which do not have full data type support. Accordingly, the inclusion of a ``device`` keyword argument allows downstream array API consumers to apply type promotions with respect to particular devices.
 
     Returns
     -------
