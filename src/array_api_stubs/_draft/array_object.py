@@ -5,7 +5,7 @@ __all__ = ["Array"]
 from typing import TYPE_CHECKING, Protocol, TypeVar
 from enum import Enum
 from .data_types import DType
-from ._types import device as Device
+from ._types import Device
 
 if TYPE_CHECKING:
     from ._types import (
@@ -36,7 +36,7 @@ class Array(Protocol):
         ...
 
     @property
-    def device(self) -> "Device":  # type: ignore[type-var]
+    def device(self) -> Device:
         """
         Hardware device the array data resides on.
 
