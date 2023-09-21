@@ -85,7 +85,7 @@ def can_cast(
     Returns
     -------
     out: bool
-        ``True`` if the cast is possible; otherwise, ``False``.
+        ``True`` if the cast can occur; otherwise, ``False``.
     """
 
 
