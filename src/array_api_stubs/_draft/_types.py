@@ -52,8 +52,16 @@ if TYPE_CHECKING:
     from .array_object import Array
     from .data_types import DType
 
+
+class Device(Protocol):
+    """Protocol for device objects."""
+
+    def __eq__(self, value: Any) -> bool:
+        ...
+
+
 array = TypeVar("array", bound="Array")
-device = TypeVar("device")
+device = TypeVar("device", bound=Device)
 dtype = TypeVar("dtype", bound="DType")
 SupportsDLPack = TypeVar("SupportsDLPack")
 SupportsBufferProtocol = TypeVar("SupportsBufferProtocol")
