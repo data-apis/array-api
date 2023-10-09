@@ -296,7 +296,7 @@ def irfft(
     norm: Literal["backward", "ortho", "forward"] = "backward",
 ) -> array:
     """
-    Computes the one-dimensional inverse of ``rfft`` for complex-valued input.
+    Computes the one-dimensional inverse of ``rfft`` for real-valued input.
 
     .. note::
        Applying the one-dimensional inverse discrete Fourier transform for real-valued input to the output of this function must return the original (i.e., non-transformed) input array within numerical accuracy (i.e., ``irfft(rfft(x)) == x``), provided that the transform and inverse transform are performed with the same arguments (axis and normalization mode) and consistent length.
@@ -304,7 +304,7 @@ def irfft(
     Parameters
     ----------
     x: array
-        input array. Should have a complex-valued floating-point data type.
+        input array. Must have a real-valued floating-point data type.
     n: int
         length of the transformed axis of the **output**. If
 
@@ -405,7 +405,7 @@ def irfftn(
     norm: Literal["backward", "ortho", "forward"] = "backward",
 ) -> array:
     """
-    Computes the n-dimensional inverse of ``rfftn`` for complex-valued input.
+    Computes the n-dimensional inverse of ``rfftn`` for real-valued input.
 
     .. note::
        Applying the n-dimensional inverse discrete Fourier transform for real-valued input to the output of this function must return the original (i.e., non-transformed) input array within numerical accuracy (i.e., ``irfftn(rfftn(x)) == x``), provided that the transform and inverse transform are performed with the same arguments (axes and normalization mode) and consistent sizes.
@@ -413,7 +413,7 @@ def irfftn(
     Parameters
     ----------
     x: array
-        input array. Should have a complex-valued floating-point data type.
+        input array. Must have a real-valued floating-point data type.
     s: Sequence[int]
         size of each transformed axis of the **output**. ``n=s[i]`` is also the number of input points used along the axis (dimension) ``i``, except for the last axis, where ``n=s[-1]//2+1`` points of the input are used. If
 
