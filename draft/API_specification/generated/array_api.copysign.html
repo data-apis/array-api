@@ -49,7 +49,7 @@
     <link rel="apple-touch-icon" href="../../_static/images/apple-icon-152x152.png"/>
   
   
-    <title>cos &#8212; Python array API standard DRAFT documentation</title>
+    <title>copysign &#8212; Python array API standard DRAFT documentation</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/material.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
@@ -60,11 +60,10 @@
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="cosh" href="array_api.cosh.html" />
-    <link rel="prev" title="copysign" href="array_api.copysign.html" />
+    <link rel="next" title="cos" href="array_api.cos.html" />
+    <link rel="prev" title="conj" href="array_api.conj.html" />
   
     <link rel="apple-touch-icon" href="../../_static/images/apple-icon-152x152.png"/>
   
@@ -85,7 +84,7 @@
   <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer">
   <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search">
   <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
-  <a href="#API_specification/generated/array_api.cos" tabindex="1" class="md-skip"> Skip to content </a>
+  <a href="#API_specification/generated/array_api.copysign" tabindex="1" class="md-skip"> Skip to content </a>
   <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
     <div class="md-flex navheader">
@@ -103,7 +102,7 @@
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           <span class="md-header-nav__topic">Python array API standard DRAFT</span>
-          <span class="md-header-nav__topic"> cos </span>
+          <span class="md-header-nav__topic"> copysign </span>
         </div>
       </div>
       <div class="md-flex__cell md-flex__cell--shrink">
@@ -447,46 +446,43 @@
         <div class="md-content">
           <article class="md-content__inner md-typeset" role="main">
             
-  <section id="cos">
-<h1 id="api-specification-generated-array-api-cos--page-root">cos<a class="headerlink" href="#api-specification-generated-array-api-cos--page-root" title="Permalink to this headline">¶</a></h1>
+  <section id="copysign">
+<h1 id="api-specification-generated-array-api-copysign--page-root">copysign<a class="headerlink" href="#api-specification-generated-array-api-copysign--page-root" title="Permalink to this headline">¶</a></h1>
 <dl class="py function">
-<dt class="sig sig-object py" id="array_api.cos">
-<span class="sig-name descname"><span class="pre">cos</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">array</span></span></span><a class="headerlink" href="#array_api.cos" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calculates an implementation-dependent approximation to the cosine for each element <code class="docutils literal notranslate"><span class="pre">x_i</span></code> of the input array <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
-<p>Each element <code class="docutils literal notranslate"><span class="pre">x_i</span></code> is assumed to be expressed in radians.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The cosine is an entire function on the complex plane and has no branch cuts.</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>For complex arguments, the mathematical definition of cosine is</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{align} \operatorname{cos}(x) &amp;= \sum_{n=0}^\infty \frac{(-1)^n}{(2n)!} x^{2n} \\ &amp;= \frac{e^{jx} + e^{-jx}}{2} \\ &amp;= \operatorname{cosh}(jx) \end{align}\end{split}\]</div>
-<p>where <span class="math notranslate nohighlight">\(\operatorname{cosh}\)</span> is the hyperbolic cosine.</p>
-</div>
+<dt class="sig sig-object py" id="array_api.copysign">
+<span class="sig-name descname"><span class="pre">copysign</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">array</span></span></span><a class="headerlink" href="#array_api.copysign" title="Permalink to this definition">¶</a></dt>
+<dd><p>Composes a floating-point value with the magnitude of <code class="docutils literal notranslate"><span class="pre">x1_i</span></code> and the sign of <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> for each element of the input array <code class="docutils literal notranslate"><span class="pre">x1</span></code>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>x</strong> (<em>array</em>) – input array whose elements are each expressed in radians. Should have a floating-point data type.</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x1</strong> (<em>array</em>) – input array containing magnitudes. Should have a real-valued floating-point data type.</p></li>
+<li><p><strong>x2</strong> (<em>array</em>) – input array whose sign bits are applied to the magnitudes of <code class="docutils literal notranslate"><span class="pre">x1</span></code>. Must be compatible with <code class="docutils literal notranslate"><span class="pre">x1</span></code> (see <a class="reference internal" href="../broadcasting.html#broadcasting"><span class="std std-ref">Broadcasting</span></a>). Should have a real-valued floating-point data type.</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p><strong>out</strong> (<em>array</em>) – an array containing the cosine of each element in <code class="docutils literal notranslate"><span class="pre">x</span></code>. The returned array must have a floating-point data type determined by <a class="reference internal" href="../type_promotion.html#type-promotion"><span class="std std-ref">Type Promotion Rules</span></a>.</p>
+<dd class="field-even"><p><strong>out</strong> (<em>array</em>) – an array containing the element-wise results. The returned array must have a floating-point data type determined by <a class="reference internal" href="../type_promotion.html#type-promotion"><span class="std std-ref">Type Promotion Rules</span></a>.</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
 <p><strong>Special cases</strong></p>
-<p>For real-valued floating-point operands,</p>
+<p>For real-valued floating-point operands, let <code class="docutils literal notranslate"><span class="pre">|x|</span></code> be the absolute value, and if <code class="docutils literal notranslate"><span class="pre">x1_i</span></code> is not <code class="docutils literal notranslate"><span class="pre">NaN</span></code>,</p>
 <ul class="simple">
-<li><p>If <code class="docutils literal notranslate"><span class="pre">x_i</span></code> is <code class="docutils literal notranslate"><span class="pre">NaN</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">NaN</span></code>.</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">x_i</span></code> is <code class="docutils literal notranslate"><span class="pre">+0</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">x_i</span></code> is <code class="docutils literal notranslate"><span class="pre">-0</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">x_i</span></code> is <code class="docutils literal notranslate"><span class="pre">+infinity</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">NaN</span></code>.</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">x_i</span></code> is <code class="docutils literal notranslate"><span class="pre">-infinity</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">NaN</span></code>.</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> is less than <code class="docutils literal notranslate"><span class="pre">0</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">-|x1_i|</span></code>.</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> is <code class="docutils literal notranslate"><span class="pre">-0</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">-|x1_i|</span></code>.</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> is <code class="docutils literal notranslate"><span class="pre">+0</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">|x1_i|</span></code>.</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> is greater than <code class="docutils literal notranslate"><span class="pre">0</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">|x1_i|</span></code>.</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> is <code class="docutils literal notranslate"><span class="pre">NaN</span></code> and the sign bit of <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> is <code class="docutils literal notranslate"><span class="pre">1</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">-|x1_i|</span></code>.</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> is <code class="docutils literal notranslate"><span class="pre">NaN</span></code> and the sign bit of <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> is <code class="docutils literal notranslate"><span class="pre">0</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">|x1_i|</span></code>.</p></li>
 </ul>
-<p>For complex floating-point operands, special cases must be handled as if the operation is implemented as <code class="docutils literal notranslate"><span class="pre">cosh(x*1j)</span></code>.</p>
-<div class="versionchanged">
-<p><span class="versionmodified changed">Changed in version 2022.12: </span>Added complex data type support.</p>
-</div>
+<p>If <code class="docutils literal notranslate"><span class="pre">x1_i</span></code> is <code class="docutils literal notranslate"><span class="pre">NaN</span></code>,</p>
+<ul class="simple">
+<li><p>If <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> is less than <code class="docutils literal notranslate"><span class="pre">0</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">NaN</span></code> with a sign bit of <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> is <code class="docutils literal notranslate"><span class="pre">-0</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">NaN</span></code> with a sign bit of <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> is <code class="docutils literal notranslate"><span class="pre">+0</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">NaN</span></code> with a sign bit of <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> is greater than <code class="docutils literal notranslate"><span class="pre">0</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">NaN</span></code> with a sign bit of <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> is <code class="docutils literal notranslate"><span class="pre">NaN</span></code> and the sign bit of <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> is <code class="docutils literal notranslate"><span class="pre">1</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">NaN</span></code> with a sign bit of <code class="docutils literal notranslate"><span class="pre">1</span></code>.</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> is <code class="docutils literal notranslate"><span class="pre">NaN</span></code> and the sign bit of <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> is <code class="docutils literal notranslate"><span class="pre">0</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">NaN</span></code> with a sign bit of <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p></li>
+</ul>
 </dd></dl>
 </section>
 
@@ -500,7 +496,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
           
-            <a href="array_api.copysign.html" title="copysign"
+            <a href="array_api.conj.html" title="conj"
                class="md-flex md-footer-nav__link md-footer-nav__link--prev"
                rel="prev">
               <div class="md-flex__cell md-flex__cell--shrink">
@@ -509,17 +505,17 @@
               <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
                 <span class="md-flex__ellipsis">
                   <span
-                      class="md-footer-nav__direction"> Previous </span> copysign </span>
+                      class="md-footer-nav__direction"> Previous </span> conj </span>
               </div>
             </a>
           
           
-            <a href="array_api.cosh.html" title="cosh"
+            <a href="array_api.cos.html" title="cos"
                class="md-flex md-footer-nav__link md-footer-nav__link--next"
                rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
                 class="md-flex__ellipsis"> <span
-                class="md-footer-nav__direction"> Next </span> cosh </span>
+                class="md-footer-nav__direction"> Next </span> cos </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink"><i
                 class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
