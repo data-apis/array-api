@@ -16,6 +16,7 @@ __all__ = [
     "bitwise_xor",
     "ceil",
     "conj",
+    "copysign",
     "cos",
     "cosh",
     "divide",
@@ -801,6 +802,47 @@ def conj(x: array, /) -> array:
     -----
 
     .. versionadded:: 2022.12
+    """
+
+
+def copysign(x1: array, x2: array, /) -> array:
+    r"""
+    Composes a floating-point value with the magnitude of ``x1_i`` and the sign of ``x2_i`` for each element of the input array ``x1``.
+
+    Parameters
+    ----------
+    x1: array
+       input array containing magnitudes. Should have a real-valued floating-point data type.
+    x2: array
+       input array whose sign bits are applied to the magnitudes of ``x1``. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have a real-valued floating-point data type.
+
+    Returns
+    -------
+    out: array
+       an array containing the element-wise results. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
+
+    Notes
+    -----
+
+    **Special cases**
+
+    For real-valued floating-point operands, let ``|x|`` be the absolute value, and if ``x1_i`` is not ``NaN``,
+
+    - If ``x2_i`` is less than ``0``, the result is ``-|x1_i|``.
+    - If ``x2_i`` is ``-0``, the result is ``-|x1_i|``.
+    - If ``x2_i`` is ``+0``, the result is ``|x1_i|``.
+    - If ``x2_i`` is greater than ``0``, the result is ``|x1_i|``.
+    - If ``x2_i`` is ``NaN`` and the sign bit of ``x2_i`` is ``1``, the result is ``-|x1_i|``.
+    - If ``x2_i`` is ``NaN`` and the sign bit of ``x2_i`` is ``0``, the result is ``|x1_i|``.
+
+    If ``x1_i`` is ``NaN``,
+
+    - If ``x2_i`` is less than ``0``, the result is ``NaN`` with a sign bit of ``1``.
+    - If ``x2_i`` is ``-0``, the result is ``NaN`` with a sign bit of ``1``.
+    - If ``x2_i`` is ``+0``, the result is ``NaN`` with a sign bit of ``0``.
+    - If ``x2_i`` is greater than ``0``, the result is ``NaN`` with a sign bit of ``0``.
+    - If ``x2_i`` is ``NaN`` and the sign bit of ``x2_i`` is ``1``, the result is ``NaN`` with a sign bit of ``1``.
+    - If ``x2_i`` is ``NaN`` and the sign bit of ``x2_i`` is ``0``, the result is ``NaN`` with a sign bit of ``0``.
     """
 
 

@@ -34,6 +34,7 @@ Objects in API
    bitwise_xor
    ceil
    conj
+   copysign
    cos
    cosh
    divide
