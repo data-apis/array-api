@@ -178,15 +178,15 @@ def repeat(
 
         If ``axis`` is ``None``, let ``N = prod(x.shape)`` and
 
-        -   if ``repeats`` is an array, ``repeats`` must be broadcast compatible with the shape ``(N)`` (i.e., be a one-dimensional array having shape ``(1)`` or ``(N)``).
-        -   if ``repeats`` is a sequence of integers, ``len(repeats)`` must be broadcast compatible with the shape ``(N)`` (i.e., the number of sequence elements be either ``1`` or ``N``).
-        -   if ``repeats`` is an integer, ``repeats`` must be broadcasted to the shape `(N)`.
+        -   if ``repeats`` is an array, ``repeats`` must be broadcast compatible with the shape ``(N,)`` (i.e., be a one-dimensional array having shape ``(1,)`` or ``(N,)``).
+        -   if ``repeats`` is a sequence of integers, ``len(repeats)`` must be broadcast compatible with the shape ``(N,)`` (i.e., the number of sequence elements be either ``1`` or ``N``).
+        -   if ``repeats`` is an integer, ``repeats`` must be broadcasted to the shape `(N,)`.
 
         If ``axis`` is not ``None``, let ``M = x.shape[axis]`` and
 
-        -   if ``repeats`` is an array, ``repeats`` must be broadcast compatible with the shape ``(M)`` (i.e., be a one-dimensional array having shape ``(1)`` or ``(M)``).
-        -   if ``repeats`` is a sequence of integers, ``len(repeats)`` must be broadcast compatible with the shape ``(M)`` (i.e., the number of sequence elements must be either ``1`` or ``M``).
-        -   if ``repeats`` is an integer, ``repeats`` must be broadcasted to the shape ``(M)``.
+        -   if ``repeats`` is an array, ``repeats`` must be broadcast compatible with the shape ``(M,)`` (i.e., be a one-dimensional array having shape ``(1,)`` or ``(M,)``).
+        -   if ``repeats`` is a sequence of integers, ``len(repeats)`` must be broadcast compatible with the shape ``(M,)`` (i.e., the number of sequence elements must be either ``1`` or ``M``).
+        -   if ``repeats`` is an integer, ``repeats`` must be broadcasted to the shape ``(M,)``.
 
         If ``repeats`` is an array, the array must have an integer data type.
     axis: Optional[int]
