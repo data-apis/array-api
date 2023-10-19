@@ -189,6 +189,11 @@ def repeat(
         -   if ``repeats`` is an integer, ``repeats`` must be broadcasted to the shape ``(M,)``.
 
         If ``repeats`` is an array, the array must have an integer data type.
+
+
+        .. note::
+           For specification-conforming array libraries supporting hardware acceleration, providing an array of ``repeats`` may cause device synchronization due to an unknown output shape. Conforming array libraries are advised to include a warning in their documentation regarding potential performance degradation when ``repeats`` is an array.
+
     axis: Optional[int]
         the axis (dimension) along which to repeat elements. If ``axis`` is `None`, the function must repeat elements of the flattened input array ``x`` and return the result as a one-dimensional output array. A flattened input array must be flattened in row-major, C-style order. Default: ``None``.
 
