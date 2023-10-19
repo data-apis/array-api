@@ -29,6 +29,7 @@ __all__ = [
 
 from dataclasses import dataclass
 from typing import (
+    TYPE_CHECKING,
     Any,
     List,
     Literal,
@@ -41,9 +42,22 @@ from typing import (
 )
 from enum import Enum
 
-array = TypeVar("array")
-device = TypeVar("device")
-dtype = TypeVar("dtype")
+
+if TYPE_CHECKING:
+    from .array_object import Array
+    from .data_types import DType
+
+
+class Device(Protocol):
+    """Protocol for device objects."""
+
+    def __eq__(self, value: Any) -> bool:
+        ...
+
+
+array = TypeVar("array", bound="Array")
+device = TypeVar("device", bound=Device)
+dtype = TypeVar("dtype", bound="DType")
 SupportsDLPack = TypeVar("SupportsDLPack")
 SupportsBufferProtocol = TypeVar("SupportsBufferProtocol")
 PyCapsule = TypeVar("PyCapsule")
@@ -61,7 +75,7 @@ class finfo_object:
     max: float
     min: float
     smallest_normal: float
-    dtype: dtype
+    dtype: DType
 
 
 @dataclass
@@ -71,7 +85,7 @@ class iinfo_object:
     bits: int
     max: int
     min: int
-    dtype: dtype
+    dtype: DType
 
 
 _T_co = TypeVar("_T_co", covariant=True)

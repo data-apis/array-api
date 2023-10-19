@@ -63,8 +63,11 @@ nitpick_ignore = [
 ]
 nitpick_ignore_regex = [
     ("py:class", ".*array"),
+    ("py:class", ".*Array"),
     ("py:class", ".*device"),
+    ("py:class", ".*Device"),
     ("py:class", ".*dtype"),
+    ("py:class", ".*Self"),
     ("py:class", ".*NestedSequence"),
     ("py:class", ".*SupportsBufferProtocol"),
     ("py:class", ".*PyCapsule"),
@@ -77,6 +80,7 @@ autodoc_type_aliases = {
     "array": "array",
     "Device": "device",
     "Dtype": "dtype",
+    "DType": "dtype",
 }
 
 # Make autosummary show the signatures of functions in the tables using actual

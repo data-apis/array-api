@@ -30,5 +30,15 @@ doc = [
 requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
 
+
 [tool.black]
 line-length = 88
+
+
+[tool.mypy]
+python_version = "3.9"
+mypy_path = "$MYPY_CONFIG_FILE_DIR/src/array_api_stubs/_draft/"
+files = [
+    "src/array_api_stubs/_draft/**/*.py"
+]
+follow_imports = "silent"
