@@ -27,7 +27,7 @@ def unique_all(x: array, /) -> Tuple[array, array, array, array]:
     Parameters
     ----------
     x: array
-        input array. If ``x`` has more than one dimension, the function must flatten ``x`` and return the unique elements of the flattened array.
+        input array. If ``x`` has more than one dimension, the function must flatten ``x`` in row-major, C-style order and return the unique elements of the flattened array.
 
     Returns
     -------
@@ -35,9 +35,9 @@ def unique_all(x: array, /) -> Tuple[array, array, array, array]:
         a namedtuple ``(values, indices, inverse_indices, counts)`` whose
 
         - first element must have the field name ``values`` and must be an array containing the unique elements of ``x``. The array must have the same data type as ``x``.
-        - second element must have the field name ``indices`` and must be an array containing the indices (first occurrences) of ``x`` that result in ``values``. The array must have the same shape as ``values`` and must have the default array index data type.
-        - third element must have the field name ``inverse_indices`` and must be an array containing the indices of ``values`` that reconstruct ``x``. The array must have the same shape as ``x`` and must have the default array index data type.
-        - fourth element must have the field name ``counts`` and must be an array containing the number of times each unique element occurs in ``x``. The returned array must have same shape as ``values`` and must have the default array index data type.
+        - second element must have the field name ``indices`` and must be an array containing the indices (first occurrences) of a flattened ``x`` that result in ``values``. The array must have the same shape as ``values`` and must have the default array index data type.
+        - third element must have the field name ``inverse_indices`` and must be an array containing the indices of ``values`` that reconstruct a flattened ``x``. The array must have the same shape as a flattened ``x`` and must have the default array index data type.
+        - fourth element must have the field name ``counts`` and must be an array containing the number of times each unique element occurs in ``x``. The order of the returned counts must match the order of ``values``, such that a specific element in ``counts`` corresponds to the respective unique element in ``values``. The returned array must have same shape as ``values`` and must have the default array index data type.
 
         .. note::
            The order of unique elements is not specified and may vary between implementations.
@@ -71,7 +71,7 @@ def unique_counts(x: array, /) -> Tuple[array, array]:
     Parameters
     ----------
     x: array
-        input array. If ``x`` has more than one dimension, the function must flatten ``x`` and return the unique elements of the flattened array.
+        input array. If ``x`` has more than one dimension, the function must flatten ``x`` in row-major, C-style order and return the unique elements of the flattened array.
 
     Returns
     -------
@@ -79,7 +79,7 @@ def unique_counts(x: array, /) -> Tuple[array, array]:
         a namedtuple `(values, counts)` whose
 
         -   first element must have the field name ``values`` and must be an array containing the unique elements of ``x``. The array must have the same data type as ``x``.
-        -   second element must have the field name `counts` and must be an array containing the number of times each unique element occurs in ``x``. The returned array must have same shape as ``values`` and must have the default array index data type.
+        -   second element must have the field name `counts` and must be an array containing the number of times each unique element occurs in ``x``. The order of the returned counts must match the order of ``values``, such that a specific element in ``counts`` corresponds to the respective unique element in ``values``. The returned array must have same shape as ``values`` and must have the default array index data type.
 
         .. note::
            The order of unique elements is not specified and may vary between implementations.
@@ -113,7 +113,7 @@ def unique_inverse(x: array, /) -> Tuple[array, array]:
     Parameters
     ----------
     x: array
-        input array. If ``x`` has more than one dimension, the function must flatten ``x`` and return the unique elements of the flattened array.
+        input array. If ``x`` has more than one dimension, the function must flatten ``x`` in row-major, C-style order and return the unique elements of the flattened array.
 
     Returns
     -------
@@ -121,7 +121,7 @@ def unique_inverse(x: array, /) -> Tuple[array, array]:
         a namedtuple ``(values, inverse_indices)`` whose
 
         -   first element must have the field name ``values`` and must be an array containing the unique elements of ``x``. The array must have the same data type as ``x``.
-        -   second element must have the field name ``inverse_indices`` and must be an array containing the indices of ``values`` that reconstruct ``x``. The array must have the same shape as ``x`` and have the default array index data type.
+        -   second element must have the field name ``inverse_indices`` and must be an array containing the indices of ``values`` that reconstruct a flattened ``x``. The array must have the same shape as a flattened ``x`` and have the default array index data type.
 
         .. note::
            The order of unique elements is not specified and may vary between implementations.
@@ -153,7 +153,7 @@ def unique_values(x: array, /) -> array:
     Parameters
     ----------
     x: array
-        input array. If ``x`` has more than one dimension, the function must flatten ``x`` and return the unique elements of the flattened array.
+        input array. If ``x`` has more than one dimension, the function must flatten ``x`` in row-major, C-style order and return the unique elements of the flattened array.
 
     Returns
     -------
