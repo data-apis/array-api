@@ -87,6 +87,35 @@ def nonzero(x: array, /) -> Tuple[array, ...]:
     """
 
 
+def searchsorted(
+    x1: array,
+    x2: array,
+    /,
+    *,
+    side: Literal["left", "right"] = "left",
+    sorter: Optional[array] = None,
+) -> array:
+    """
+    Finds the indices into ``x1`` such that, if the corresponding elements in ``x2`` were inserted before the indices, the order of ``x1``, when sorted in ascending order, would be preserved.
+
+    Parameters
+    ----------
+    x1: array
+        input array. Must be a one-dimensional array. If ``sorter`` is ``None``, must be sorted in ascending order; otherwise, ``sorter`` must be an array of indices that sort ``x1`` in ascending order.
+    x2: array
+        array containing search values.
+    side: Literal['left', 'right']
+        if ``'left'``, then each returned index ``i`` must satisfy ``x1[i-1] < v[j] <= x1[i]``; otherwise, if ``'right'``, the each returned index ``i`` must satisfy ``x1[i-1] <= v[j] < x1[i]``. Default: ``'left'``.
+    sorter: Optional[array]
+        array of indices that sort ``x1`` in ascending order. The array must be one-dimensional and have an integer data type. Default: ``None``.
+
+    Returns
+    -------
+    out: array
+        an array of indices with the same shape as ``x2``. The returned array must have the default array index data type.
+    """
+
+
 def where(condition: array, x1: array, x2: array, /) -> array:
     """
     Returns elements chosen from ``x1`` or ``x2`` depending on ``condition``.
