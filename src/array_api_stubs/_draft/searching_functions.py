@@ -105,7 +105,7 @@ def searchsorted(
     x2: array
         array containing search values.
     side: Literal['left', 'right']
-        if ``'left'``, then each returned index ``i`` must satisfy ``x1[i-1] < x2[j] <= x1[i]``, and, if, for an element ``x2[j]``, no index satisfies the index condition, then the returned index for that element must be ``0``. Otherwise, if ``'right'``, then each returned index ``i`` must satisfy ``x1[i-1] <= x2[j] < x1[i]``, and, if, for an element ``x2[j]``, no index satisfies the index condition, then the returned index for that element must be ``N``, where ``N`` is the number of elements in ``x1``. Default: ``'left'``.
+        if ``'left'``, then each returned index ``i`` must satisfy ``x1[i-1] < x2[m][n]...[j] <= x1[i]``, and, if, for an element ``x2[m][n]...[j]``, no index satisfies the index condition, then the returned index for that element must be ``0``. Otherwise, if ``'right'``, then each returned index ``i`` must satisfy ``x1[i-1] <= x2[m][n]...[j] < x1[i]``, and, if, for an element ``x2[m][n]...[j]``, no index satisfies the index condition, then the returned index for that element must be ``N``, where ``N`` is the number of elements in ``x1``. Default: ``'left'``.
     sorter: Optional[array]
         array of indices that sort ``x1`` in ascending order. The array must have the same shape as ``x1`` and have an integer data type. Default: ``None``.
 
