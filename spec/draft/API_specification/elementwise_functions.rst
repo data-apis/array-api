@@ -45,6 +45,7 @@ Objects in API
    floor_divide
    greater
    greater_equal
+   hypot
    imag
    isfinite
    isinf
