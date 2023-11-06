@@ -636,6 +636,10 @@
 <p class="admonition-title">Note</p>
 <p>Expanding dimensions can be equivalently achieved via repeated invocation of <a class="reference internal" href="generated/array_api.expand_dims.html#array_api.expand_dims" title="array_api.expand_dims"><code class="xref py py-func docutils literal notranslate"><span class="pre">expand_dims()</span></code></a>.</p>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The constant <code class="docutils literal notranslate"><span class="pre">newaxis</span></code> is an alias of <code class="docutils literal notranslate"><span class="pre">None</span></code> and can thus be used in a similar manner as <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</div>
 </li>
 <li><p>Except in the case of providing a single ellipsis (e.g., <code class="docutils literal notranslate"><span class="pre">A[2:10,</span> <span class="pre">...]</span></code> or <code class="docutils literal notranslate"><span class="pre">A[1:,</span> <span class="pre">...,</span> <span class="pre">2:5]</span></code>), the number of provided single-axis indexing expressions (excluding <code class="docutils literal notranslate"><span class="pre">None</span></code>) should equal <code class="docutils literal notranslate"><span class="pre">N</span></code>. For example, if <code class="docutils literal notranslate"><span class="pre">A</span></code> has rank <code class="docutils literal notranslate"><span class="pre">2</span></code>, a single-axis indexing expression should be explicitly provided for both axes (e.g., <code class="docutils literal notranslate"><span class="pre">A[2:10,</span> <span class="pre">:]</span></code>). An <code class="docutils literal notranslate"><span class="pre">IndexError</span></code> exception should be raised if the number of provided single-axis indexing expressions (excluding <code class="docutils literal notranslate"><span class="pre">None</span></code>) is less than <code class="docutils literal notranslate"><span class="pre">N</span></code>.</p>
 <div class="admonition note">
