@@ -478,6 +478,9 @@
 <li><p>If <code class="docutils literal notranslate"><span class="pre">self</span></code> is either <code class="docutils literal notranslate"><span class="pre">+infinity</span></code> or <code class="docutils literal notranslate"><span class="pre">-infinity</span></code>, raise <code class="docutils literal notranslate"><span class="pre">OverflowError</span></code>.</p></li>
 <li><p>If <code class="docutils literal notranslate"><span class="pre">self</span></code> is <code class="docutils literal notranslate"><span class="pre">NaN</span></code>, raise <code class="docutils literal notranslate"><span class="pre">ValueError</span></code>.</p></li>
 </ul>
+<p class="rubric">Notes</p>
+<p><strong>Lazy implementations</strong></p>
+<p>The Python language requires the return value to be of type <code class="docutils literal notranslate"><span class="pre">int</span></code>. Lazy implementations are therefore not able to return any kind of lazy/delayed object here and should raise a <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> instead.</p>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Changed in version 2022.12: </span>Added boolean and complex data type support.</p>
 </div>

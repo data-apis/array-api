@@ -464,6 +464,9 @@
 <dd class="field-even"><p><strong>out</strong> (<em>int</em>) – a Python <code class="docutils literal notranslate"><span class="pre">int</span></code> object representing the single element of the array instance.</p>
 </dd>
 </dl>
+<p class="rubric">Notes</p>
+<p><strong>Lazy implementations</strong></p>
+<p>The Python language requires the return value to be of type <code class="docutils literal notranslate"><span class="pre">int</span></code>. Lazy implementations are therefore not able to return any kind of lazy/delayed object here and should raise a <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> instead.</p>
 </dd></dl>
 </section>
 
