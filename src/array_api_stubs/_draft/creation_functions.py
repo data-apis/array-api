@@ -232,6 +232,15 @@ def from_dlpack(x: object, /) -> array:
            :class: note
 
            The returned array may be either a copy or a view. See :ref:`data-interchange` for details.
+
+    Raises
+    ------
+    BufferError
+        The ``__dlpack__`` method on the input array may raise ``BufferError``
+        when the data cannot be exported as DLPack (e.g., incompatible dtype or
+        strides). It may also raise other errors when export fails for other
+        reasons (e.g., not enough memory available to materialize the data).
+        ``from_dlpack`` must propagate such exceptions.
     """
 
 
