@@ -21,3 +21,5 @@ A common code construct where this happens is conditional logic, e.g.::
         # The if-statement will make Python call the __bool__ method
         # on the result of `all(vals)`.
         do_something_else()
+
+Note that the API does not contain control flow constructs that would allow avoiding the implicit `__bool__` call in the example above. The only control flow-like function is `where`, but there's no function like `cond` to replace an `if`-statement.
