@@ -282,7 +282,7 @@ class _array:
 
         **Lazy implementations**
 
-        The Python language requires the return value to be of type ``complex``. Lazy implementations are therefore not able to return any kind of lazy/delayed object here and should raise a ``ValueError`` instead.        
+        The Python language requires the return value to be of type ``complex``. Lazy implementations are therefore not able to return any kind of lazy/delayed object here and should raise a ``ValueError`` instead.
 
         .. versionadded:: 2022.12
         """
