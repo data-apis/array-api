@@ -788,14 +788,14 @@ def clamp(
     x: array
       input array. Should have a real-valued data type.
     min: Optional[Union[int, float, array]]
-      lower-bound of the range to which to clamp. If ``None``, no lower bound must be applied. Must broadcast to the same shape as ``x`` (see :ref:`broadcasting`). Should have a real-valued data type. Default: ``None``.
+      lower-bound of the range to which to clamp. If ``None``, no lower bound must be applied. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have a real-valued data type. Default: ``None``.
     max: Optional[Union[int, float, array]]
-      upper-bound of the range to which to clamp. If ``None``, no upper bound must be applied. Must broadcast to the same shape as ``x`` (see :ref:`broadcasting`). Should have a real-valued data type. Default: ``None``.
+      upper-bound of the range to which to clamp. If ``None``, no upper bound must be applied. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have a real-valued data type. Default: ``None``.
 
     Returns
     -------
     out: array
-      an array containing element-wise results. The returned array must have the same shape as ``x`` and have a data type determined by :ref:`type-promotion`.
+      an array containing element-wise results. The returned array must have a data type determined by :ref:`type-promotion`.
 
     Notes
     -----
