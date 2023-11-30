@@ -15,6 +15,7 @@ __all__ = [
     "bitwise_right_shift",
     "bitwise_xor",
     "ceil",
+    "clamp",
     "conj",
     "copysign",
     "cos",
@@ -62,7 +63,7 @@ __all__ = [
 ]
 
 
-from ._types import array
+from ._types import Optional, Union, array
 
 
 def abs(x: array, /) -> array:
@@ -769,6 +770,38 @@ def ceil(x: array, /) -> array:
     - If ``x_i`` is ``+0``, the result is ``+0``.
     - If ``x_i`` is ``-0``, the result is ``-0``.
     - If ``x_i`` is ``NaN``, the result is ``NaN``.
+    """
+
+
+def clamp(
+    x: array,
+    /,
+    *,
+    min: Optional[Union[int, float, array]] = None,
+    max: Optional[Union[int, float, array]] = None,
+) -> array:
+    r"""
+    Clamps each element ``x_i`` of the input array ``x`` to the range ``[min, max]``.
+
+    Parameters
+    ----------
+    x: array
+      input array. Should have a real-valued data type.
+    min: Optional[Union[int, float, array]]
+      lower-bound of the range to which to clamp. If ``None``, no lower bound must be applied. Must broadcast to the same shape as ``x`` (see :ref:`broadcasting`). Should have a real-valued data type. Default: ``None``.
+    max: Optional[Union[int, float, array]]
+      upper-bound of the range to which to clamp. If ``None``, no upper bound must be applied. Must broadcast to the same shape as ``x`` (see :ref:`broadcasting`). Should have a real-valued data type. Default: ``None``.
+
+    Returns
+    -------
+    out: array
+      an array containing element-wise results. The returned array must have the same shape as ``x`` and have a data type determined by :ref:`type-promotion`.
+
+    Notes
+    -----
+
+    - If both ``min`` and ``max`` are ``None``, the elements of the returned array must equal the respective elements in ``x``.
+    - If a broadcasted element in ``min`` is greater than a corresponding broadcasted element in ``max``, behavior is unspecified and thus implementation-dependent.
     """
 
 
