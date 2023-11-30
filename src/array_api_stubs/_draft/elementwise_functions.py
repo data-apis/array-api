@@ -42,6 +42,8 @@ __all__ = [
     "logical_not",
     "logical_or",
     "logical_xor",
+    "maximum",
+    "minimum",
     "multiply",
     "negative",
     "not_equal",
@@ -1816,6 +1818,66 @@ def logical_xor(x1: array, x2: array, /) -> array:
     -------
     out: array
         an array containing the element-wise results. The returned array must have a data type of ``bool``.
+    """
+
+
+def maximum(x1: array, x2: array, /) -> array:
+    r"""
+    Computes the maximum value for each element ``x1_i`` of the input array ``x1`` relative to the respective element ``x2_i`` of the input array ``x2``.
+
+    .. note::
+       For backward compatibility, conforming implementations may support complex numbers; however, inequality comparison of complex numbers is unspecified and thus implementation-dependent (see :ref:`complex-number-ordering`).
+
+    Parameters
+    ----------
+    x1: array
+       first input array. Should have a real-valued data type.
+    x2: array
+       second input array. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have a real-valued data type.
+
+    Returns
+    -------
+    out: array
+       an array containing the element-wise maximum values. The returned array must have a data type determined by :ref:`type-promotion`.
+
+    Notes
+    -----
+
+    **Special Cases**
+
+    For floating-point operands,
+
+    -   If either ``x1_i`` or ``x2_i`` is ``NaN``, the result is ``NaN``.
+    """
+
+
+def minimum(x1: array, x2: array, /) -> array:
+    r"""
+    Computes the minimum value for each element ``x1_i`` of the input array ``x1`` relative to the respective element ``x2_i`` of the input array ``x2``.
+
+    .. note::
+       For backward compatibility, conforming implementations may support complex numbers; however, inequality comparison of complex numbers is unspecified and thus implementation-dependent (see :ref:`complex-number-ordering`).
+
+    Parameters
+    ----------
+    x1: array
+       first input array. Should have a real-valued data type.
+    x2: array
+       second input array. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have a real-valued data type.
+
+    Returns
+    -------
+    out: array
+       an array containing the element-wise minimum values. The returned array must have a data type determined by :ref:`type-promotion`.
+
+    Notes
+    -----
+
+    **Special Cases**
+
+    For floating-point operands,
+
+    -   If either ``x1_i`` or ``x2_i`` is ``NaN``, the result is ``NaN``.
     """
 
 
