@@ -144,7 +144,7 @@ standard is shown in this diagram:
    _Rationale: execution is the domain of implementations. Attempting to specify
    execution behavior in a standard is likely to require much more fine-grained
    coordination between developers of implementations, and hence is likely to
-   become an obstable to adoption._
+   become an obstacle to adoption._
 
 3. Non-Python API standardization (e.g., Cython or NumPy C APIs)
 
