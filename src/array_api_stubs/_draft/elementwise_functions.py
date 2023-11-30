@@ -2220,7 +2220,7 @@ def signbit(x: array, /) -> array:
     r"""
     Determines whether the sign bit is set for each element ``x_i`` of the input array ``x``.
 
-    The sign bit of a real-valued floating-point number ``x_i`` is set whenever ``x_i`` is either ``-0``, less than zero, or a signed ``NaN`` (i.e., a ``NaN`` value whose sign bit is set).
+    The sign bit of a real-valued floating-point number ``x_i`` is set whenever ``x_i`` is either ``-0``, less than zero, or a signed ``NaN`` (i.e., a ``NaN`` value whose sign bit is ``1``).
 
     Parameters
     ----------
