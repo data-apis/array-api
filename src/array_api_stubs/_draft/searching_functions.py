@@ -105,7 +105,21 @@ def searchsorted(
     x2: array
         array containing search values.
     side: Literal['left', 'right']
-        if ``'left'``, then each returned index ``i`` must satisfy ``x1[i-1] < x2[m][n]...[j] <= x1[i]``, and, if, for an element ``x2[m][n]...[j]``, no index satisfies the index condition, then the returned index for that element must be ``0``. Otherwise, if ``'right'``, then each returned index ``i`` must satisfy ``x1[i-1] <= x2[m][n]...[j] < x1[i]``, and, if, for an element ``x2[m][n]...[j]``, no index satisfies the index condition, then the returned index for that element must be ``N``, where ``N`` is the number of elements in ``x1``. Default: ``'left'``.
+        argument controlling which index is returned if a value lands exactly on an edge.
+
+        Let ``x`` be an array of rank ``N`` where ``v`` is an individual element given by ``v = x2[n,m,...,j]``.
+
+        If ``side == 'left'``, then
+
+        - each returned index ``i`` must satisfy the index condition ``x1[i-1] < v <= x1[i]``.
+        - if no index satisfies the index condition, then the returned index for that element must be ``0``.
+
+        Otherwise, if ``side == 'right'``, then
+
+        - each returned index ``i`` must satisfy the index condition ``x1[i-1] <= v < x1[i]``.
+        - if no index satisfies the index condition, then the returned index for that element must be ``N``, where ``N`` is the number of elements in ``x1``.
+
+        Default: ``'left'``.
     sorter: Optional[array]
         array of indices that sort ``x1`` in ascending order. The array must have the same shape as ``x1`` and have an integer data type. Default: ``None``.
 
