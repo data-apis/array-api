@@ -69,6 +69,7 @@ Objects in API
    remainder
    round
    sign
+   signbit
    sin
    sinh
    square

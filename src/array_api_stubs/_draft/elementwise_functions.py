@@ -51,6 +51,7 @@ __all__ = [
     "remainder",
     "round",
     "sign",
+    "signbit",
     "sin",
     "sinh",
     "square",
@@ -2212,6 +2213,40 @@ def sign(x: array, /) -> array:
 
     .. versionchanged:: 2022.12
        Added complex data type support.
+    """
+
+
+def signbit(x: array, /) -> array:
+    r"""
+    Determines whether the sign bit is set for each element ``x_i`` of the input array ``x``.
+
+    The sign bit of a real-valued floating-point number ``x_i`` is set whenever ``x_i`` is either ``-0``, less than zero, or a signed ``NaN`` (i.e., a ``NaN`` value whose sign bit is ``1``).
+
+    Parameters
+    ----------
+    x: array
+        input array. Should have a real-valued floating-point data type.
+
+    Returns
+    -------
+    out: array
+        an array containing the evaluated result for each element in ``x``. The returned array must have a data type of ``bool``.
+
+    Notes
+    -----
+
+    **Special cases**
+
+    For real-valued floating-point operands,
+
+    - If ``x_i`` is ``+0``, the result is ``False``.
+    - If ``x_i`` is ``-0``, the result is ``True``.
+    - If ``x_i`` is ``+infinity``, the result is ``False``.
+    - If ``x_i`` is ``-infinity``, the result is ``True``.
+    - If ``x_i`` is a positive (i.e., greater than ``0``) finite number, the result is ``False``.
+    - If ``x_i`` is a negative (i.e., less than ``0``) finite number, the result is ``True``.
+    - If ``x_i`` is ``NaN`` and the sign bit of ``x_i`` is ``0``, the result is ``False``.
+    - If ``x_i`` is ``NaN`` and the sign bit of ``x_i`` is ``1``, the result is ``True``.
     """
 
 
