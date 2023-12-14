@@ -60,6 +60,8 @@ Objects in API
    logical_not
    logical_or
    logical_xor
+   maximum
+   minimum
    multiply
    negative
    not_equal
