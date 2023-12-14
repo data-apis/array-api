@@ -460,7 +460,12 @@
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>x</strong> (<em>array</em>) – input array.</p></li>
-<li><p><strong>indices</strong> (<em>array</em>) – array indices. The array must be one-dimensional and have an integer data type.</p></li>
+<li><p><strong>indices</strong> (<em>array</em>) – <p>array indices. The array must be one-dimensional and have an integer data type.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This specification does not require bounds checking. The behavior for out-of-bounds indices is left unspecified.</p>
+</div>
+</p></li>
 <li><p><strong>axis</strong> (<em>int</em>) – <p>axis over which to select values. If <code class="docutils literal notranslate"><span class="pre">axis</span></code> is negative, the function must determine the axis along which to select values by counting from the last dimension.</p>
 <p>If <code class="docutils literal notranslate"><span class="pre">x</span></code> is a one-dimensional array, providing an <code class="docutils literal notranslate"><span class="pre">axis</span></code> is optional; however, if <code class="docutils literal notranslate"><span class="pre">x</span></code> has more than one dimension, providing an <code class="docutils literal notranslate"><span class="pre">axis</span></code> is required.</p>
 </p></li>
