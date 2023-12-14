@@ -16,6 +16,10 @@ def take(x: array, indices: array, /, *, axis: Optional[int] = None) -> array:
         input array.
     indices: array
         array indices. The array must be one-dimensional and have an integer data type.
+
+        .. note::
+           This specification does not require bounds checking. The behavior for out-of-bounds indices is left unspecified.
+
     axis: int
         axis over which to select values. If ``axis`` is negative, the function must determine the axis along which to select values by counting from the last dimension.
 
