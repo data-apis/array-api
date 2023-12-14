@@ -120,6 +120,8 @@ def top_k(
         -  ``'largest'``: return the ``k`` largest elements.
         -  ``'smallest'``: return the ``k`` smallest elements.
 
+        Default: ``'largest'``.
+
     Returns
     -------
     out: Tuple[array, array]
@@ -162,6 +164,8 @@ def top_k_indices(
         -  ``'largest'``: return the indices of the ``k`` largest elements.
         -  ``'smallest'``: return the indices of the ``k`` smallest elements.
 
+        Default: ``'largest'``.
+
     Returns
     -------
     out: array
@@ -200,6 +204,8 @@ def top_k_values(
 
         -  ``'largest'``: return the indices of the ``k`` largest elements.
         -  ``'smallest'``: return the indices of the ``k`` smallest elements.
+
+        Default: ``'largest'``.
 
     Returns
     -------
