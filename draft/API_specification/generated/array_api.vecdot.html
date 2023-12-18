@@ -455,8 +455,8 @@
 <dd><p>Computes the (vector) dot product of two arrays.</p>
 <p>Let <span class="math notranslate nohighlight">\(\mathbf{a}\)</span> be a vector in <code class="docutils literal notranslate"><span class="pre">x1</span></code> and <span class="math notranslate nohighlight">\(\mathbf{b}\)</span> be a corresponding vector in <code class="docutils literal notranslate"><span class="pre">x2</span></code>. The dot product is defined as</p>
 <div class="math notranslate nohighlight">
-\[\mathbf{a} \cdot \mathbf{b} = \sum_{i=0}^{n-1} a_i\overline{b_i}\]</div>
-<p>over the dimension specified by <code class="docutils literal notranslate"><span class="pre">axis</span></code> and where <span class="math notranslate nohighlight">\(n\)</span> is the dimension size and <span class="math notranslate nohighlight">\(\overline{b_i}\)</span> denotes the complex conjugate if <span class="math notranslate nohighlight">\(b_i\)</span> is complex and the identity if <span class="math notranslate nohighlight">\(b_i\)</span> is real-valued.</p>
+\[\mathbf{a} \cdot \mathbf{b} = \sum_{i=0}^{n-1} \overline{a_i}b_i\]</div>
+<p>over the dimension specified by <code class="docutils literal notranslate"><span class="pre">axis</span></code> and where <span class="math notranslate nohighlight">\(n\)</span> is the dimension size and <span class="math notranslate nohighlight">\(\overline{a_i}\)</span> denotes the complex conjugate if <span class="math notranslate nohighlight">\(a_i\)</span> is complex and the identity if <span class="math notranslate nohighlight">\(a_i\)</span> is real-valued.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
