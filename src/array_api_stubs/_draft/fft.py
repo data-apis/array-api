@@ -35,7 +35,7 @@ def fft(
     Parameters
     ----------
     x: array
-        input array. Should have a floating-point data type.
+        input array. Should have a complex-valued floating-point data type.
     n: int
         length of the transformed axis of the output. If
 
@@ -60,7 +60,7 @@ def fft(
     Returns
     -------
     out: array
-        an array transformed along the axis (dimension) indicated by ``axis``. If ``x`` has a complex floating-point data type, the returned array must have the same data type as ``x``. If ``x`` has a real-valued floating-point data type, the returned array must have a complex floating-point data type whose precision matches the precision of ``x`` (e.g., if ``x`` is ``float64``, then the returned array must have a ``complex128`` data type). The length along the transformed axis is ``n``, if given, or the length of the input along the axis specified by ``axis`` otherwise.
+        an array transformed along the axis (dimension) indicated by ``axis``. The returned array must have the same data type as ``x``. The length along the transformed axis is ``n``, if given, or the length of the input along the axis specified by ``axis`` otherwise.
 
     Notes
     -----
@@ -86,7 +86,7 @@ def ifft(
     Parameters
     ----------
     x: array
-        input array. Should have a floating-point data type.
+        input array. Should have a complex-valued floating-point data type.
     n: int
         length of the transformed axis of the output. If
 
@@ -111,7 +111,7 @@ def ifft(
     Returns
     -------
     out: array
-        an array transformed along the axis (dimension) indicated by ``axis``. If ``x`` has a complex floating-point data type, the returned array must have the same data type as ``x``. If ``x`` has a real-valued floating-point data type, the returned array must have a complex floating-point data type whose precision matches the precision of ``x`` (e.g., if ``x`` is ``float64``, then the returned array must have a ``complex128`` data type). The length along the transformed axis is ``n``, if given, or the length of the input along the axis specified by ``axis`` otherwise.
+        an array transformed along the axis (dimension) indicated by ``axis``. The returned array must have the same data type as ``x``. The length along the transformed axis is ``n``, if given, or the length of the input along the axis specified by ``axis`` otherwise.
 
     Notes
     -----
@@ -137,7 +137,7 @@ def fftn(
     Parameters
     ----------
     x: array
-        input array. Should have a floating-point data type.
+        input array. Should have a complex-valued floating-point data type.
     s: Sequence[int]
         length of each transformed axis of the output. If
 
@@ -169,7 +169,7 @@ def fftn(
     Returns
     -------
     out: array
-        an array transformed along the axes (dimension) indicated by ``axes``. If ``x`` has a complex floating-point data type, the returned array must have the same data type as ``x``. If ``x`` has a real-valued floating-point data type, the returned array must have a complex floating-point data type whose precision matches the precision of ``x`` (e.g., if ``x`` is ``float64``, then the returned array must have a ``complex128`` data type). The length along each transformed axis ``i`` is ``s[i]``, if ``s`` is given and ``s[i]`` is not ``-1``, or the length of the corresponding axis of the input array otherwise.
+        an array transformed along the axes (dimension) indicated by ``axes``. The returned array must have the same data type as ``x``. The length along each transformed axis ``i`` is ``s[i]``, if ``s`` is given and ``s[i]`` is not ``-1``, or the length of the corresponding axis of the input array otherwise.
 
     Notes
     -----
@@ -195,7 +195,7 @@ def ifftn(
     Parameters
     ----------
     x: array
-        input array. Should have a floating-point data type.
+        input array. Should have a complex-valued floating-point data type.
     s: Sequence[int]
         length of each transformed axis of the output. If
 
@@ -227,7 +227,7 @@ def ifftn(
     Returns
     -------
     out: array
-        an array transformed along the axes (dimension) indicated by ``axes``. If ``x`` has a complex floating-point data type, the returned array must have the same data type as ``x``. If ``x`` has a real-valued floating-point data type, the returned array must have a complex floating-point data type whose precision matches the precision of ``x`` (e.g., if ``x`` is ``float64``, then the returned array must have a ``complex128`` data type). The length along each transformed axis ``i`` is ``s[i]``, if ``s`` is given and ``s[i]`` is not ``-1``, or the length of the corresponding axis of the input array otherwise.
+        an array transformed along the axes (dimension) indicated by ``axes``. The returned array must have the same data type as ``x``. The length along each transformed axis ``i`` is ``s[i]``, if ``s`` is given and ``s[i]`` is not ``-1``, or the length of the corresponding axis of the input array otherwise.
 
     Notes
     -----
@@ -468,7 +468,7 @@ def hfft(
     Parameters
     ----------
     x: array
-        input array. Should have a floating-point data type.
+        input array. Should have a complex-valued floating-point data type.
     n: int
         length of the transformed axis of the **output**. If
 
@@ -493,7 +493,7 @@ def hfft(
     Returns
     -------
     out: array
-        an array transformed along the axis (dimension) indicated by ``axis``. If ``x`` has a complex floating-point data type, the returned array must have the same data type as ``x``. If ``x`` has a real-valued floating-point data type, the returned array must have a complex floating-point data type whose precision matches the precision of ``x`` (e.g., if ``x`` is ``float64``, then the returned array must have a ``complex128`` data type). The length along the transformed axis is ``n``, if given or ``2*(m-1)`` otherwise.
+        an array transformed along the axis (dimension) indicated by ``axis``. The returned array must have the same data type as ``x``. The length along the transformed axis is ``n``, if given or ``2*(m-1)`` otherwise.
 
     Notes
     -----
