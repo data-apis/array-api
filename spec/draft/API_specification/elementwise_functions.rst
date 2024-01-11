@@ -33,7 +33,7 @@ Objects in API
    bitwise_right_shift
    bitwise_xor
    ceil
-   clamp
+   clip
    conj
    copysign
    cos

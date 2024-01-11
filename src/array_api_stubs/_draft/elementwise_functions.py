@@ -773,7 +773,7 @@ def ceil(x: array, /) -> array:
     """
 
 
-def clamp(
+def clip(
     x: array,
     /,
     *,
@@ -795,7 +795,7 @@ def clamp(
     Returns
     -------
     out: array
-      an array containing element-wise results. The returned array must have a data type determined by :ref:`type-promotion`.
+      an array containing element-wise results. The returned array must have the same data type as ``x``.
 
     Notes
     -----
