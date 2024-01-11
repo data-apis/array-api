@@ -101,9 +101,9 @@ def searchsorted(
     Parameters
     ----------
     x1: array
-        input array. Must be a one-dimensional array. If ``sorter`` is ``None``, must be sorted in ascending order; otherwise, ``sorter`` must be an array of indices that sort ``x1`` in ascending order.
+        input array. Must be a one-dimensional array. Should have a real-valued data type. If ``sorter`` is ``None``, must be sorted in ascending order; otherwise, ``sorter`` must be an array of indices that sort ``x1`` in ascending order.
     x2: array
-        array containing search values.
+        array containing search values. Should have a real-valued data type.
     side: Literal['left', 'right']
         argument controlling which index is returned if a value lands exactly on an edge.
 
@@ -127,6 +127,13 @@ def searchsorted(
     -------
     out: array
         an array of indices with the same shape as ``x2``. The returned array must have the default array index data type.
+
+    Notes
+    -----
+
+    For real-valued floating-point arrays, the sort order of NaNs and signed zeros is unspecified and thus implementation-dependent. Accordingly, when a real-valued floating-point array contains NaNs and signed zeros, what constitutes ascending order may vary among specification-conforming array libraries.
+
+    Specification-conforming libraries should, however, ensure consistency with ``sort`` and ``argsort`` (i.e., if a value in ``x2`` is inserted into ``x1`` according to the corresponding index in the output array and ``sort`` is invoked on the resultant array, the sorted result should be an array in the same order).
     """
 
 
