@@ -56,65 +56,6 @@ PyCapsule = TypeVar("PyCapsule")
 # to keep pyflakes happy. https://github.com/python/typeshed/issues/3556
 ellipsis = TypeVar("ellipsis")
 
-DefaultDataTypes = TypedDict(
-    "DefaultDataTypes",
-    {
-        "real floating": dtype,
-        "complex floating": dtype,
-        "integral": dtype,
-        "indexing": dtype,
-    },
-)
-DataTypes = TypedDict(
-    "DataTypes",
-    {
-        "bool": dtype,
-        "float32": dtype,
-        "float64": dtype,
-        "complex64": dtype,
-        "complex128": dtype,
-        "int8": dtype,
-        "int16": dtype,
-        "int32": dtype,
-        "int64": dtype,
-        "uint8": dtype,
-        "uint16": dtype,
-        "uint32": dtype,
-        "uint64": dtype,
-    },
-    total=False,
-)
-Capabilities = TypedDict(
-    "Capabilities", {"boolean_indexing": bool, "data_dependent_shapes": bool}
-)
-
-
-@dataclass
-class Info:
-    """Namespace returned by `__array_namespace_info__`."""
-
-    @staticmethod
-    def capabilities() -> Capabilities:
-        ...
-
-    @staticmethod
-    def default_device() -> device:
-        ...
-
-    @staticmethod
-    def default_dtypes(*, device: Optional[device]) -> DefaultDataTypes:
-        ...
-
-    @staticmethod
-    def devices() -> List[device]:
-        ...
-
-    @staticmethod
-    def dtypes(
-        *, device: Optional[device], kind: Optional[Union[str, Tuple[str, ...]]]
-    ) -> DataTypes:
-        ...
-
 
 @dataclass
 class finfo_object:
@@ -147,3 +88,57 @@ class NestedSequence(Protocol[_T_co]):
 
     def __len__(self, /) -> int:
         ...
+
+
+class Info(Protocol):
+    """Namespace returned by `__array_namespace_info__`."""
+
+    def capabilities() -> Capabilities:
+        ...
+
+    def default_device() -> device:
+        ...
+
+    def default_dtypes(*, device: Optional[device]) -> DefaultDataTypes:
+        ...
+
+    def devices() -> List[device]:
+        ...
+
+    def dtypes(
+        *, device: Optional[device], kind: Optional[Union[str, Tuple[str, ...]]]
+    ) -> DataTypes:
+        ...
+
+
+DefaultDataTypes = TypedDict(
+    "DefaultDataTypes",
+    {
+        "real floating": dtype,
+        "complex floating": dtype,
+        "integral": dtype,
+        "indexing": dtype,
+    },
+)
+DataTypes = TypedDict(
+    "DataTypes",
+    {
+        "bool": dtype,
+        "float32": dtype,
+        "float64": dtype,
+        "complex64": dtype,
+        "complex128": dtype,
+        "int8": dtype,
+        "int16": dtype,
+        "int32": dtype,
+        "int64": dtype,
+        "uint8": dtype,
+        "uint16": dtype,
+        "uint32": dtype,
+        "uint64": dtype,
+    },
+    total=False,
+)
+Capabilities = TypedDict(
+    "Capabilities", {"boolean_indexing": bool, "data_dependent_shapes": bool}
+)
