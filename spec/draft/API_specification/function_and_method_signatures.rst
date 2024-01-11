@@ -5,7 +5,7 @@ Function and method signatures
 
 Function signatures in this standard adhere to the following:
 
-1. Positional parameters must be `positional-only <https://www.python.org/dev/peps/pep-0570/>`_ parameters.
+1. Positional parameters should be `positional-only <https://www.python.org/dev/peps/pep-0570/>`_ parameters.
    Positional-only parameters have no externally-usable name. When a function
    accepting positional-only parameters is called, positional arguments are
    mapped to these parameters based solely on their order.
@@ -20,7 +20,7 @@ Function signatures in this standard adhere to the following:
     namespace >= 3.8. Alternatively, they can add guidance to their users in the
     documentation to use the functions as if they were positional-only.
 
-2. Optional parameters must be `keyword-only <https://www.python.org/dev/peps/pep-3102/>`_ arguments.
+2. Optional parameters should be `keyword-only <https://www.python.org/dev/peps/pep-3102/>`_ arguments.
 
    *Rationale: this leads to more readable code, and it makes it easier to
    evolve an API over time by adding keywords without having to worry about
@@ -30,8 +30,8 @@ Function signatures in this standard adhere to the following:
    is called ``x``. For functions that have multiple array parameters, those
    parameters are called ``xi`` with ``i = 1, 2, ...`` (i.e., ``x1``, ``x2``).
 
-4. Type annotations are left out of the signatures themselves for readability; however,
-   they are added to individual parameter descriptions. For code which aims to
+4. Signatures include type annotations. The type annotations are also added to
+   individual parameter and return value descriptions. For code which aims to
    adhere to the standard, adding type annotations is strongly recommended.
 
 A function signature and description will look like:
@@ -57,3 +57,7 @@ A function signature and description will look like:
 
 
 Method signatures will follow the same conventions modulo the addition of ``self``.
+
+Note that there are a few exceptions to rules (1) and (2), in cases where
+it enhances readability or use of the non-default form of the parameter in
+question is commonly used in code written for existing array libraries.
