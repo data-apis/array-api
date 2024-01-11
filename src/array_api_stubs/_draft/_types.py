@@ -93,20 +93,20 @@ class NestedSequence(Protocol[_T_co]):
 class Info(Protocol):
     """Namespace returned by `__array_namespace_info__`."""
 
-    def capabilities() -> Capabilities:
+    def capabilities(self) -> Capabilities:
         ...
 
-    def default_device() -> device:
+    def default_device(self) -> device:
         ...
 
-    def default_dtypes(*, device: Optional[device]) -> DefaultDataTypes:
+    def default_dtypes(self, *, device: Optional[device]) -> DefaultDataTypes:
         ...
 
-    def devices() -> List[device]:
+    def devices(self) -> List[device]:
         ...
 
     def dtypes(
-        *, device: Optional[device], kind: Optional[Union[str, Tuple[str, ...]]]
+        self, *, device: Optional[device], kind: Optional[Union[str, Tuple[str, ...]]]
     ) -> DataTypes:
         ...
 
