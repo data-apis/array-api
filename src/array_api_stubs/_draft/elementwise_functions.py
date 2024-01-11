@@ -776,7 +776,6 @@ def ceil(x: array, /) -> array:
 def clip(
     x: array,
     /,
-    *,
     min: Optional[Union[int, float, array]] = None,
     max: Optional[Union[int, float, array]] = None,
 ) -> array:
