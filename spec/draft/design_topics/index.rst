@@ -7,6 +7,7 @@ Design topics & constraints
 
    copies_views_and_mutation
    data_dependent_output_shapes
+   lazy_eager
    data_interchange
    device_support
    static_typing

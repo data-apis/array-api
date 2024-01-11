@@ -34,6 +34,7 @@ Objects in API
    bitwise_xor
    ceil
    conj
+   copysign
    cos
    cosh
    divide
@@ -59,6 +60,8 @@ Objects in API
    logical_not
    logical_or
    logical_xor
+   maximum
+   minimum
    multiply
    negative
    not_equal
@@ -68,6 +71,7 @@ Objects in API
    remainder
    round
    sign
+   signbit
    sin
    sinh
    square

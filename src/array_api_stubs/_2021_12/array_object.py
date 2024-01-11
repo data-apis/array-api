@@ -453,7 +453,12 @@ class _array:
     def __getitem__(
         self: array,
         key: Union[
-            int, slice, ellipsis, Tuple[Union[int, slice, ellipsis], ...], array
+            int,
+            slice,
+            ellipsis,
+            None,
+            Tuple[Union[int, slice, ellipsis, None], ...],
+            array,
         ],
         /,
     ) -> array:
@@ -464,7 +469,7 @@ class _array:
         ----------
         self: array
             array instance.
-        key: Union[int, slice, ellipsis, Tuple[Union[int, slice, ellipsis], ...], array]
+        key: Union[int, slice, ellipsis, None, Tuple[Union[int, slice, ellipsis, None], ...], array]
             index key.
 
         Returns

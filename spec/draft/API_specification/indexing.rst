@@ -156,6 +156,9 @@ Multi-dimensional arrays must extend the concept of single-axis indexing to mult
   .. note::
     Expanding dimensions can be equivalently achieved via repeated invocation of :func:`~array_api.expand_dims`.
 
+  .. note::
+    The constant ``newaxis`` is an alias of ``None`` and can thus be used in a similar manner as ``None``.
+
 - Except in the case of providing a single ellipsis (e.g., ``A[2:10, ...]`` or ``A[1:, ..., 2:5]``), the number of provided single-axis indexing expressions (excluding ``None``) should equal ``N``. For example, if ``A`` has rank ``2``, a single-axis indexing expression should be explicitly provided for both axes (e.g., ``A[2:10, :]``). An ``IndexError`` exception should be raised if the number of provided single-axis indexing expressions (excluding ``None``) is less than ``N``.
 
   .. note::

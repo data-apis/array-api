@@ -1,7 +1,65 @@
-__all__ = ["max", "mean", "min", "prod", "std", "sum", "var"]
+__all__ = ["cumulative_sum", "max", "mean", "min", "prod", "std", "sum", "var"]
 
 
 from ._types import Optional, Tuple, Union, array, dtype
+
+
+def cumulative_sum(
+    x: array,
+    /,
+    *,
+    axis: Optional[int] = None,
+    dtype: Optional[dtype] = None,
+    include_initial: bool = False,
+) -> array:
+    """
+    Calculates the cumulative sum of elements in the input array ``x``.
+
+    Parameters
+    ----------
+    x: array
+        input array. Should have a numeric data type.
+    axis: Optional[int]
+        axis along which a cumulative sum must be computed. If ``axis`` is negative, the function must determine the axis along which to compute a cumulative sum by counting from the last dimension.
+
+        If ``x`` is a one-dimensional array, providing an ``axis`` is optional; however, if ``x`` has more than one dimension, providing an ``axis`` is required.
+    dtype: Optional[dtype]
+        data type of the returned array. If ``None``,
+
+        -   if the default data type corresponding to the data type "kind" (integer, real-valued floating-point, or complex floating-point) of ``x`` has a smaller range of values than the data type of ``x`` (e.g., ``x`` has data type ``int64`` and the default data type is ``int32``, or ``x`` has data type ``uint64`` and the default data type is ``int64``), the returned array must have the same data type as ``x``.
+
+        -   if the default data type corresponding to the data type "kind" of ``x`` has the same or a larger range of values than the data type of ``x``,
+
+            -   if ``x`` has a real-valued floating-point data type, the returned array must have the default real-valued floating-point data type.
+            -   if ``x`` has a complex floating-point data type, the returned array must have the default complex floating-point data type.
+            -   if ``x`` has a signed integer data type (e.g., ``int16``), the returned array must have the default integer data type.
+            -   if ``x`` has an unsigned integer data type (e.g., ``uint16``), the returned array must have an unsigned integer data type having the same number of bits as the default integer data type (e.g., if the default integer data type is ``int32``, the returned array must have a ``uint32`` data type).
+
+        If the data type (either specified or resolved) differs from the data type of ``x``, the input array should be cast to the specified data type before computing the sum. Default: ``None``.
+
+        .. note::
+           keyword argument is intended to help prevent data type overflows.
+
+    include_initial: bool
+        boolean indicating whether to include the initial value as the first value in the output. By convention, the initial value must be the additive identity (i.e., zero). Default: ``False``.
+
+    Returns
+    -------
+    out: array
+        an array containing the cumulative sums. The returned array must have a data type as described by the ``dtype`` parameter above.
+
+        Let ``N`` be the size of the axis along which to compute the cumulative sum. The returned array must have a shape determined according to the following rules:
+
+        -   if ``include_initial`` is ``True``, the returned array must have the same shape as ``x``, except the size of the axis along which to compute the cumulative sum must be ``N+1``.
+        -   if ``include_initial`` is ``False``, the returned array must have the same shape as ``x``.
+
+    Notes
+    -----
+
+    **Special Cases**
+
+    For both real-valued and complex floating-point operands, special cases must be handled as if the operation is implemented by successive application of :func:`~array_api.add`.
+    """
 
 
 def max(

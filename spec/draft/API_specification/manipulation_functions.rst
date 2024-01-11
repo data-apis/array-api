@@ -29,4 +29,5 @@ Objects in API
    roll
    squeeze
    stack
+   tile
    unstack

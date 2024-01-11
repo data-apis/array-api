@@ -16,6 +16,7 @@ __all__ = [
     "bitwise_xor",
     "ceil",
     "conj",
+    "copysign",
     "cos",
     "cosh",
     "divide",
@@ -41,6 +42,8 @@ __all__ = [
     "logical_not",
     "logical_or",
     "logical_xor",
+    "maximum",
+    "minimum",
     "multiply",
     "negative",
     "not_equal",
@@ -50,6 +53,7 @@ __all__ = [
     "remainder",
     "round",
     "sign",
+    "signbit",
     "sin",
     "sinh",
     "square",
@@ -790,7 +794,7 @@ def conj(x: array, /) -> array:
     Parameters
     ----------
     x: array
-        input array. Should have a complex-floating point data type.
+        input array. Should have a complex floating-point data type.
 
     Returns
     -------
@@ -801,6 +805,47 @@ def conj(x: array, /) -> array:
     -----
 
     .. versionadded:: 2022.12
+    """
+
+
+def copysign(x1: array, x2: array, /) -> array:
+    r"""
+    Composes a floating-point value with the magnitude of ``x1_i`` and the sign of ``x2_i`` for each element of the input array ``x1``.
+
+    Parameters
+    ----------
+    x1: array
+       input array containing magnitudes. Should have a real-valued floating-point data type.
+    x2: array
+       input array whose sign bits are applied to the magnitudes of ``x1``. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have a real-valued floating-point data type.
+
+    Returns
+    -------
+    out: array
+       an array containing the element-wise results. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
+
+    Notes
+    -----
+
+    **Special cases**
+
+    For real-valued floating-point operands, let ``|x|`` be the absolute value, and if ``x1_i`` is not ``NaN``,
+
+    - If ``x2_i`` is less than ``0``, the result is ``-|x1_i|``.
+    - If ``x2_i`` is ``-0``, the result is ``-|x1_i|``.
+    - If ``x2_i`` is ``+0``, the result is ``|x1_i|``.
+    - If ``x2_i`` is greater than ``0``, the result is ``|x1_i|``.
+    - If ``x2_i`` is ``NaN`` and the sign bit of ``x2_i`` is ``1``, the result is ``-|x1_i|``.
+    - If ``x2_i`` is ``NaN`` and the sign bit of ``x2_i`` is ``0``, the result is ``|x1_i|``.
+
+    If ``x1_i`` is ``NaN``,
+
+    - If ``x2_i`` is less than ``0``, the result is ``NaN`` with a sign bit of ``1``.
+    - If ``x2_i`` is ``-0``, the result is ``NaN`` with a sign bit of ``1``.
+    - If ``x2_i`` is ``+0``, the result is ``NaN`` with a sign bit of ``0``.
+    - If ``x2_i`` is greater than ``0``, the result is ``NaN`` with a sign bit of ``0``.
+    - If ``x2_i`` is ``NaN`` and the sign bit of ``x2_i`` is ``1``, the result is ``NaN`` with a sign bit of ``1``.
+    - If ``x2_i`` is ``NaN`` and the sign bit of ``x2_i`` is ``0``, the result is ``NaN`` with a sign bit of ``0``.
     """
 
 
@@ -1777,6 +1822,66 @@ def logical_xor(x1: array, x2: array, /) -> array:
     """
 
 
+def maximum(x1: array, x2: array, /) -> array:
+    r"""
+    Computes the maximum value for each element ``x1_i`` of the input array ``x1`` relative to the respective element ``x2_i`` of the input array ``x2``.
+
+    .. note::
+       For backward compatibility, conforming implementations may support complex numbers; however, inequality comparison of complex numbers is unspecified and thus implementation-dependent (see :ref:`complex-number-ordering`).
+
+    Parameters
+    ----------
+    x1: array
+       first input array. Should have a real-valued data type.
+    x2: array
+       second input array. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have a real-valued data type.
+
+    Returns
+    -------
+    out: array
+       an array containing the element-wise maximum values. The returned array must have a data type determined by :ref:`type-promotion`.
+
+    Notes
+    -----
+
+    **Special Cases**
+
+    For floating-point operands,
+
+    -   If either ``x1_i`` or ``x2_i`` is ``NaN``, the result is ``NaN``.
+    """
+
+
+def minimum(x1: array, x2: array, /) -> array:
+    r"""
+    Computes the minimum value for each element ``x1_i`` of the input array ``x1`` relative to the respective element ``x2_i`` of the input array ``x2``.
+
+    .. note::
+       For backward compatibility, conforming implementations may support complex numbers; however, inequality comparison of complex numbers is unspecified and thus implementation-dependent (see :ref:`complex-number-ordering`).
+
+    Parameters
+    ----------
+    x1: array
+       first input array. Should have a real-valued data type.
+    x2: array
+       second input array. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have a real-valued data type.
+
+    Returns
+    -------
+    out: array
+       an array containing the element-wise minimum values. The returned array must have a data type determined by :ref:`type-promotion`.
+
+    Notes
+    -----
+
+    **Special Cases**
+
+    For floating-point operands,
+
+    -   If either ``x1_i`` or ``x2_i`` is ``NaN``, the result is ``NaN``.
+    """
+
+
 def multiply(x1: array, x2: array, /) -> array:
     r"""
     Calculates the product for each element ``x1_i`` of the input array ``x1`` with the respective element ``x2_i`` of the input array ``x2``.
@@ -2170,6 +2275,40 @@ def sign(x: array, /) -> array:
 
     .. versionchanged:: 2022.12
        Added complex data type support.
+    """
+
+
+def signbit(x: array, /) -> array:
+    r"""
+    Determines whether the sign bit is set for each element ``x_i`` of the input array ``x``.
+
+    The sign bit of a real-valued floating-point number ``x_i`` is set whenever ``x_i`` is either ``-0``, less than zero, or a signed ``NaN`` (i.e., a ``NaN`` value whose sign bit is ``1``).
+
+    Parameters
+    ----------
+    x: array
+        input array. Should have a real-valued floating-point data type.
+
+    Returns
+    -------
+    out: array
+        an array containing the evaluated result for each element in ``x``. The returned array must have a data type of ``bool``.
+
+    Notes
+    -----
+
+    **Special cases**
+
+    For real-valued floating-point operands,
+
+    - If ``x_i`` is ``+0``, the result is ``False``.
+    - If ``x_i`` is ``-0``, the result is ``True``.
+    - If ``x_i`` is ``+infinity``, the result is ``False``.
+    - If ``x_i`` is ``-infinity``, the result is ``True``.
+    - If ``x_i`` is a positive (i.e., greater than ``0``) finite number, the result is ``False``.
+    - If ``x_i`` is a negative (i.e., less than ``0``) finite number, the result is ``True``.
+    - If ``x_i`` is ``NaN`` and the sign bit of ``x_i`` is ``0``, the result is ``False``.
+    - If ``x_i`` is ``NaN`` and the sign bit of ``x_i`` is ``1``, the result is ``True``.
     """
 
 
