@@ -801,6 +801,7 @@ def clip(
 
     - If both ``min`` and ``max`` are ``None``, the elements of the returned array must equal the respective elements in ``x``.
     - If a broadcasted element in ``min`` is greater than a corresponding broadcasted element in ``max``, behavior is unspecified and thus implementation-dependent.
+    - If ``x`` and either ``min`` or ``max`` have different data type kinds (e.g., integer versus floating-point), behavior is unspecified and thus implementation-dependent.
     """
 
 
