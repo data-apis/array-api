@@ -258,6 +258,8 @@
         <li class="md-nav__item"><a href="#design-topics-data-interchange--page-root" class="md-nav__link">Data interchange mechanisms</a><nav class="md-nav">
               <ul class="md-nav__list">
         <li class="md-nav__item"><a href="#dlpack-an-in-memory-tensor-structure" class="md-nav__link">DLPack: An in-memory tensor structure</a>
+        </li>
+        <li class="md-nav__item"><a href="#non-supported-use-cases" class="md-nav__link">Non-supported use cases</a>
         </li></ul>
             </nav>
         </li>
@@ -400,6 +402,8 @@
         <li class="md-nav__item"><a href="#design-topics-data-interchange--page-root" class="md-nav__link">Data interchange mechanisms</a><nav class="md-nav">
               <ul class="md-nav__list">
         <li class="md-nav__item"><a href="#dlpack-an-in-memory-tensor-structure" class="md-nav__link">DLPack: An in-memory tensor structure</a>
+        </li>
+        <li class="md-nav__item"><a href="#non-supported-use-cases" class="md-nav__link">Non-supported use cases</a>
         </li></ul>
             </nav>
         </li>
@@ -487,6 +491,24 @@ are recommended to do so using the same syntax and semantics as outlined
 below. They are not required to return an array object from <code class="docutils literal notranslate"><span class="pre">from_dlpack</span></code>
 which conforms to this standard.</p>
 </div>
+</section>
+<section id="non-supported-use-cases">
+<h2 id="non-supported-use-cases">Non-supported use cases<a class="headerlink" href="#non-supported-use-cases" title="Permalink to this headline">¶</a></h2>
+<p>Use of DLPack requires that the data can be represented by a strided, in-memory
+layout on a single device. This covers usage by a large range of, but not all,
+known and possible array libraries. Use cases that are not supported by DLPack
+include:</p>
+<ul class="simple">
+<li><p>Distributed arrays, i.e., the data residing on multiple nodes or devices,</p></li>
+<li><p>Sparse arrays, i.e., sparse representations where a data value (typically
+zero) is implicit.</p></li>
+</ul>
+<p>There may be other reasons why it is not possible or desirable for an
+implementation to materialize the array as strided data in memory. In such
+cases, the implementation may raise a <code class="code docutils literal notranslate"><span class="pre">BufferError</span></code> in the <code class="code docutils literal notranslate"><span class="pre">__dlpack__</span></code> or
+<code class="code docutils literal notranslate"><span class="pre">__dlpack_device__</span></code> method. In case an implementation is never able to export
+its array data via DLPack, it may omit <code class="code docutils literal notranslate"><span class="pre">__dlpack__</span></code> and <code class="code docutils literal notranslate"><span class="pre">__dlpack_device__</span></code>
+completely, and hence <code class="code docutils literal notranslate"><span class="pre">from_dlpack</span></code> may raise an <code class="code docutils literal notranslate"><span class="pre">AttributeError</span></code>.</p>
 </section>
 </section>
 

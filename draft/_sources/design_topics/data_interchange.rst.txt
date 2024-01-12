@@ -84,3 +84,22 @@ page gives a high-level specification for data exchange in Python using DLPack.
    are recommended to do so using the same syntax and semantics as outlined
    below. They are not required to return an array object from ``from_dlpack``
    which conforms to this standard.
+
+Non-supported use cases
+-----------------------
+
+Use of DLPack requires that the data can be represented by a strided, in-memory
+layout on a single device. This covers usage by a large range of, but not all,
+known and possible array libraries. Use cases that are not supported by DLPack
+include:
+
+- Distributed arrays, i.e., the data residing on multiple nodes or devices,
+- Sparse arrays, i.e., sparse representations where a data value (typically
+  zero) is implicit.
+
+There may be other reasons why it is not possible or desirable for an
+implementation to materialize the array as strided data in memory. In such
+cases, the implementation may raise a `BufferError` in the `__dlpack__` or
+`__dlpack_device__` method. In case an implementation is never able to export
+its array data via DLPack, it may omit `__dlpack__` and `__dlpack_device__`
+completely, and hence `from_dlpack` may raise an `AttributeError`.
