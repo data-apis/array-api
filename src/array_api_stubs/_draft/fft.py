@@ -493,7 +493,7 @@ def hfft(
     Returns
     -------
     out: array
-        an array transformed along the axis (dimension) indicated by ``axis``. The returned array must have the same data type as ``x``. The length along the transformed axis is ``n``, if given or ``2*(m-1)`` otherwise.
+        an array transformed along the axis (dimension) indicated by ``axis``. The returned array must have a real-valued floating-point data type whose precision matches the precision of ``x`` (e.g., if ``x`` is ``complex128``, then the returned array must have a ``float64`` data type). The length along the transformed axis is ``n``, if given or ``2*(m-1)`` otherwise.
 
     Notes
     -----
