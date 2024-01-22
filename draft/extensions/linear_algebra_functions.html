@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
     <link rel="icon" sizes="196x195" href="../_static/images/favicon.png" type="image/png">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -55,9 +55,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -358,12 +357,12 @@
           <article class="md-content__inner md-typeset" role="main">
             
   <section id="linear-algebra-extension">
-<span id="id1"></span><h1 id="extensions-linear-algebra-functions--page-root">Linear Algebra Extension<a class="headerlink" href="#extensions-linear-algebra-functions--page-root" title="Permalink to this headline">¶</a></h1>
+<span id="id1"></span><h1 id="extensions-linear-algebra-functions--page-root">Linear Algebra Extension<a class="headerlink" href="#extensions-linear-algebra-functions--page-root" title="Permalink to this heading">¶</a></h1>
 <blockquote>
 <div><p>Array API specification for linear algebra functions.</p>
 </div></blockquote>
 <section id="extension-name-and-usage">
-<h2 id="extension-name-and-usage">Extension name and usage<a class="headerlink" href="#extension-name-and-usage" title="Permalink to this headline">¶</a></h2>
+<h2 id="extension-name-and-usage">Extension name and usage<a class="headerlink" href="#extension-name-and-usage" title="Permalink to this heading">¶</a></h2>
 <p>The name of the namespace providing the extension must be: <code class="docutils literal notranslate"><span class="pre">linalg</span></code>.</p>
 <p>If implemented, this <code class="docutils literal notranslate"><span class="pre">linalg</span></code> extension must be retrievable via:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">xp</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">__array_namespace__</span><span class="p">()</span>
@@ -373,7 +372,7 @@
 </div>
 </section>
 <section id="design-principles">
-<h2 id="design-principles">Design Principles<a class="headerlink" href="#design-principles" title="Permalink to this headline">¶</a></h2>
+<h2 id="design-principles">Design Principles<a class="headerlink" href="#design-principles" title="Permalink to this heading">¶</a></h2>
 <p>A principal goal of this specification is to standardize commonly implemented interfaces among array libraries. While this specification endeavors to avoid straying too far from common practice, this specification does, with due restraint, seek to address design decisions arising more from historical accident than first principles. This is especially true for linear algebra APIs, which have arisen and evolved organically over time and have often been tied to particular underlying implementations (e.g., to BLAS and LAPACK).</p>
 <p>Accordingly, the standardization process affords the opportunity to reduce interface complexity among linear algebra APIs by inferring and subsequently codifying common design themes, thus allowing more consistent APIs. What follows is the set of design principles governing the APIs which follow:</p>
 <ol class="arabic">
@@ -434,13 +433,9 @@
 </ol>
 </section>
 <section id="objects-in-api">
-<h2 id="objects-in-api">Objects in API<a class="headerlink" href="#objects-in-api" title="Permalink to this headline">¶</a></h2>
+<h2 id="objects-in-api">Objects in API<a class="headerlink" href="#objects-in-api" title="Permalink to this heading">¶</a></h2>
 <p>A conforming implementation of this <code class="docutils literal notranslate"><span class="pre">linalg</span></code> extension must provide and support the following functions.</p>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%"/>
-<col style="width: 90%"/>
-</colgroup>
+<table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/array_api.linalg.cholesky.html#array_api.linalg.cholesky" title="array_api.linalg.cholesky"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cholesky</span></code></a>(x, /, *, upper=False)</p></td>
 <td><p>Returns the lower (upper) Cholesky decomposition of a complex Hermitian or real symmetric positive-definite matrix <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></td>
@@ -563,7 +558,7 @@
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.3.0.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>

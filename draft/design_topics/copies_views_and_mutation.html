@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
     <link rel="icon" sizes="196x195" href="../_static/images/favicon.png" type="image/png">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -55,9 +55,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -399,7 +398,7 @@
           <article class="md-content__inner md-typeset" role="main">
             
   <section id="copy-view-behaviour-and-mutability">
-<span id="copyview-mutability"></span><h1 id="design-topics-copies-views-and-mutation--page-root">Copy-view behaviour and mutability<a class="headerlink" href="#design-topics-copies-views-and-mutation--page-root" title="Permalink to this headline">¶</a></h1>
+<span id="copyview-mutability"></span><h1 id="design-topics-copies-views-and-mutation--page-root">Copy-view behaviour and mutability<a class="headerlink" href="#design-topics-copies-views-and-mutation--page-root" title="Permalink to this heading">¶</a></h1>
 <div class="important admonition">
 <p class="admonition-title">Mutating views</p>
 <p>Array API consumers are <em>strongly</em> advised to avoid <em>any</em> mutating operations when an array object may be either a “view” (i.e., an array whose data refers to memory that belongs to another array) or own memory of which one or more other array objects may be views. This admonition may become more strict in the future (e.g., this specification may require that view mutation be prohibited and trigger an exception). Accordingly, only perform mutation operations (e.g., in-place assignment) when absolutely confident that array data belongs to one, and only one, array object.</p>
@@ -512,7 +511,7 @@ libraries. This is something that the user must be careful about.</p>
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.3.0.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>

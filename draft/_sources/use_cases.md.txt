@@ -59,7 +59,7 @@ array implementation as a dependency.
 
 It's clear that SciPy functionality that relies on compiled extensions (C,
 C++, Cython, Fortran) directly can't easily be run on another array library
-than NumPy (see [C API](design_topics/C_API.md) for more details about this topic). Pure Python
+than NumPy (see [C API](design_topics/C_API.rst) for more details about this topic). Pure Python
 code can work though. There's two main possibilities:
 
 1. Testing with another package, manually or in CI, and simply provide a list

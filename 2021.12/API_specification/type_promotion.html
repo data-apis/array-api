@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
     <link rel="icon" sizes="196x195" href="../_static/images/favicon.png" type="image/png">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -55,9 +55,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -464,7 +463,7 @@
           <article class="md-content__inner md-typeset" role="main">
             
   <section id="type-promotion-rules">
-<span id="type-promotion"></span><h1 id="api-specification-type-promotion--page-root">Type Promotion Rules<a class="headerlink" href="#api-specification-type-promotion--page-root" title="Permalink to this headline">¶</a></h1>
+<span id="type-promotion"></span><h1 id="api-specification-type-promotion--page-root">Type Promotion Rules<a class="headerlink" href="#api-specification-type-promotion--page-root" title="Permalink to this heading">¶</a></h1>
 <blockquote>
 <div><p>Array API specification for type promotion rules.</p>
 </div></blockquote>
@@ -472,7 +471,7 @@
 <a class="reference external image-reference" href="Typepromotiondiagram"><img alt="../_images/dtype_promotion_lattice_no_complex.png" src="../_images/dtype_promotion_lattice_no_complex.png"/></a>
 <p><em>Type promotion diagram. Promotion between any two types is given by their join on this lattice. Only the types of participating arrays matter, not their values. Dashed lines indicate that behavior for Python scalars is undefined on overflow. Boolean, integer and floating-point dtypes are not connected, indicating mixed-kind promotion is undefined.</em></p>
 <section id="rules">
-<h2 id="rules">Rules<a class="headerlink" href="#rules" title="Permalink to this headline">¶</a></h2>
+<h2 id="rules">Rules<a class="headerlink" href="#rules" title="Permalink to this heading">¶</a></h2>
 <p>A conforming implementation of the array API standard must implement the following type promotion rules governing the common result type for two <strong>array</strong> operands during an arithmetic operation.</p>
 <p>A conforming implementation of the array API standard may support additional type promotion rules beyond those described in this specification.</p>
 <div class="admonition note">
@@ -481,15 +480,8 @@
 </div>
 <p>The following type promotion tables specify the casting behavior for operations involving two array operands. When more than two array operands participate, application of the promotion tables is associative (i.e., the result does not depend on operand order).</p>
 <section id="signed-integer-type-promotion-table">
-<h3 id="signed-integer-type-promotion-table">Signed integer type promotion table<a class="headerlink" href="#signed-integer-type-promotion-table" title="Permalink to this headline">¶</a></h3>
+<h3 id="signed-integer-type-promotion-table">Signed integer type promotion table<a class="headerlink" href="#signed-integer-type-promotion-table" title="Permalink to this heading">¶</a></h3>
 <table>
-<colgroup>
-<col style="width: 33%"/>
-<col style="width: 17%"/>
-<col style="width: 17%"/>
-<col style="width: 17%"/>
-<col style="width: 17%"/>
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"></th>
 <th class="head"><p>i1</p></th>
@@ -534,15 +526,8 @@
 </ul>
 </section>
 <section id="unsigned-integer-type-promotion-table">
-<h3 id="unsigned-integer-type-promotion-table">Unsigned integer type promotion table<a class="headerlink" href="#unsigned-integer-type-promotion-table" title="Permalink to this headline">¶</a></h3>
+<h3 id="unsigned-integer-type-promotion-table">Unsigned integer type promotion table<a class="headerlink" href="#unsigned-integer-type-promotion-table" title="Permalink to this heading">¶</a></h3>
 <table>
-<colgroup>
-<col style="width: 33%"/>
-<col style="width: 17%"/>
-<col style="width: 17%"/>
-<col style="width: 17%"/>
-<col style="width: 17%"/>
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"></th>
 <th class="head"><p>u1</p></th>
@@ -587,14 +572,8 @@
 </ul>
 </section>
 <section id="mixed-unsigned-and-signed-integer-type-promotion-table">
-<h3 id="mixed-unsigned-and-signed-integer-type-promotion-table">Mixed unsigned and signed integer type promotion table<a class="headerlink" href="#mixed-unsigned-and-signed-integer-type-promotion-table" title="Permalink to this headline">¶</a></h3>
+<h3 id="mixed-unsigned-and-signed-integer-type-promotion-table">Mixed unsigned and signed integer type promotion table<a class="headerlink" href="#mixed-unsigned-and-signed-integer-type-promotion-table" title="Permalink to this heading">¶</a></h3>
 <table>
-<colgroup>
-<col style="width: 40%"/>
-<col style="width: 20%"/>
-<col style="width: 20%"/>
-<col style="width: 20%"/>
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"></th>
 <th class="head"><p>u1</p></th>
@@ -627,13 +606,8 @@
 </table>
 </section>
 <section id="floating-point-type-promotion-table">
-<h3 id="floating-point-type-promotion-table">Floating-point type promotion table<a class="headerlink" href="#floating-point-type-promotion-table" title="Permalink to this headline">¶</a></h3>
+<h3 id="floating-point-type-promotion-table">Floating-point type promotion table<a class="headerlink" href="#floating-point-type-promotion-table" title="Permalink to this heading">¶</a></h3>
 <table>
-<colgroup>
-<col style="width: 50%"/>
-<col style="width: 25%"/>
-<col style="width: 25%"/>
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"></th>
 <th class="head"><p>f4</p></th>
@@ -658,7 +632,7 @@
 </ul>
 </section>
 <section id="notes">
-<h3 id="notes">Notes<a class="headerlink" href="#notes" title="Permalink to this headline">¶</a></h3>
+<h3 id="notes">Notes<a class="headerlink" href="#notes" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Type promotion rules must apply when determining the common result type for two <strong>array</strong> operands during an arithmetic operation, regardless of array dimension. Accordingly, zero-dimensional arrays must be subject to the same type promotion rules as dimensional arrays.</p></li>
 <li><p>Type promotion of non-numerical data types to numerical data types is unspecified (e.g., <code class="docutils literal notranslate"><span class="pre">bool</span></code> to <code class="docutils literal notranslate"><span class="pre">intxx</span></code> or <code class="docutils literal notranslate"><span class="pre">floatxx</span></code>).</p></li>
@@ -669,7 +643,7 @@
 </div>
 </section>
 <section id="mixing-arrays-with-python-scalars">
-<h3 id="mixing-arrays-with-python-scalars">Mixing arrays with Python scalars<a class="headerlink" href="#mixing-arrays-with-python-scalars" title="Permalink to this headline">¶</a></h3>
+<h3 id="mixing-arrays-with-python-scalars">Mixing arrays with Python scalars<a class="headerlink" href="#mixing-arrays-with-python-scalars" title="Permalink to this heading">¶</a></h3>
 <p>Using Python scalars (i.e., instances of <code class="docutils literal notranslate"><span class="pre">bool</span></code>, <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code>) together with arrays must be supported for:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">array</span> <span class="pre">&lt;op&gt;</span> <span class="pre">scalar</span></code></p></li>
@@ -742,7 +716,7 @@
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.3.0.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>

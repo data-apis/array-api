@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
     <link rel="icon" sizes="196x195" href="../_static/images/favicon.png" type="image/png">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -55,9 +55,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -516,53 +515,53 @@
           <article class="md-content__inner md-typeset" role="main">
             
   <section id="data-types">
-<span id="id1"></span><h1 id="api-specification-data-types--page-root">Data Types<a class="headerlink" href="#api-specification-data-types--page-root" title="Permalink to this headline">¶</a></h1>
+<span id="id1"></span><h1 id="api-specification-data-types--page-root">Data Types<a class="headerlink" href="#api-specification-data-types--page-root" title="Permalink to this heading">¶</a></h1>
 <blockquote>
 <div><p>Array API specification for supported data types.</p>
 </div></blockquote>
 <p>A conforming implementation of the array API standard must provide and support the following data types.</p>
 <section id="bool">
-<h2 id="bool">bool<a class="headerlink" href="#bool" title="Permalink to this headline">¶</a></h2>
+<h2 id="bool">bool<a class="headerlink" href="#bool" title="Permalink to this heading">¶</a></h2>
 <p>Boolean (<code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>).</p>
 </section>
 <section id="int8">
-<h2 id="int8">int8<a class="headerlink" href="#int8" title="Permalink to this headline">¶</a></h2>
+<h2 id="int8">int8<a class="headerlink" href="#int8" title="Permalink to this heading">¶</a></h2>
 <p>An 8-bit signed integer whose values exist on the interval <code class="docutils literal notranslate"><span class="pre">[-128,</span> <span class="pre">+127]</span></code>.</p>
 </section>
 <section id="int16">
-<h2 id="int16">int16<a class="headerlink" href="#int16" title="Permalink to this headline">¶</a></h2>
+<h2 id="int16">int16<a class="headerlink" href="#int16" title="Permalink to this heading">¶</a></h2>
 <p>A 16-bit signed integer whose values exist on the interval <code class="docutils literal notranslate"><span class="pre">[−32,767,</span> <span class="pre">+32,767]</span></code>.</p>
 </section>
 <section id="int32">
-<h2 id="int32">int32<a class="headerlink" href="#int32" title="Permalink to this headline">¶</a></h2>
+<h2 id="int32">int32<a class="headerlink" href="#int32" title="Permalink to this heading">¶</a></h2>
 <p>A 32-bit signed integer whose values exist on the interval <code class="docutils literal notranslate"><span class="pre">[−2,147,483,647,</span> <span class="pre">+2,147,483,647]</span></code>.</p>
 </section>
 <section id="int64">
-<h2 id="int64">int64<a class="headerlink" href="#int64" title="Permalink to this headline">¶</a></h2>
+<h2 id="int64">int64<a class="headerlink" href="#int64" title="Permalink to this heading">¶</a></h2>
 <p>A 64-bit signed integer whose values exist on the interval <code class="docutils literal notranslate"><span class="pre">[−9,223,372,036,854,775,807,</span> <span class="pre">+9,223,372,036,854,775,807]</span></code>.</p>
 </section>
 <section id="uint8">
-<h2 id="uint8">uint8<a class="headerlink" href="#uint8" title="Permalink to this headline">¶</a></h2>
+<h2 id="uint8">uint8<a class="headerlink" href="#uint8" title="Permalink to this heading">¶</a></h2>
 <p>An 8-bit unsigned integer whose values exist on the interval <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">+255]</span></code>.</p>
 </section>
 <section id="uint16">
-<h2 id="uint16">uint16<a class="headerlink" href="#uint16" title="Permalink to this headline">¶</a></h2>
+<h2 id="uint16">uint16<a class="headerlink" href="#uint16" title="Permalink to this heading">¶</a></h2>
 <p>A 16-bit unsigned integer whose values exist on the interval <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">+65,535]</span></code>.</p>
 </section>
 <section id="uint32">
-<h2 id="uint32">uint32<a class="headerlink" href="#uint32" title="Permalink to this headline">¶</a></h2>
+<h2 id="uint32">uint32<a class="headerlink" href="#uint32" title="Permalink to this heading">¶</a></h2>
 <p>A 32-bit unsigned integer whose values exist on the interval <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">+4,294,967,295]</span></code>.</p>
 </section>
 <section id="uint64">
-<h2 id="uint64">uint64<a class="headerlink" href="#uint64" title="Permalink to this headline">¶</a></h2>
+<h2 id="uint64">uint64<a class="headerlink" href="#uint64" title="Permalink to this heading">¶</a></h2>
 <p>A 64-bit unsigned integer whose values exist on the interval <code class="docutils literal notranslate"><span class="pre">[0,</span> <span class="pre">+18,446,744,073,709,551,615]</span></code>.</p>
 </section>
 <section id="float32">
-<h2 id="float32">float32<a class="headerlink" href="#float32" title="Permalink to this headline">¶</a></h2>
+<h2 id="float32">float32<a class="headerlink" href="#float32" title="Permalink to this heading">¶</a></h2>
 <p>IEEE 754 single-precision (32-bit) binary floating-point number (see IEEE 754-2019).</p>
 </section>
 <section id="float64">
-<h2 id="float64">float64<a class="headerlink" href="#float64" title="Permalink to this headline">¶</a></h2>
+<h2 id="float64">float64<a class="headerlink" href="#float64" title="Permalink to this heading">¶</a></h2>
 <p>IEEE 754 double-precision (64-bit) binary floating-point number (see IEEE 754-2019).</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -581,7 +580,7 @@
 </div>
 </section>
 <section id="data-type-objects">
-<span id="id2"></span><h2 id="data-type-objects">Data Type Objects<a class="headerlink" href="#data-type-objects" title="Permalink to this headline">¶</a></h2>
+<span id="id2"></span><h2 id="data-type-objects">Data Type Objects<a class="headerlink" href="#data-type-objects" title="Permalink to this heading">¶</a></h2>
 <p>Data types (“dtypes”) are objects which are used as <code class="docutils literal notranslate"><span class="pre">dtype</span></code> specifiers in functions and methods (e.g., <code class="docutils literal notranslate"><span class="pre">zeros((2,</span> <span class="pre">3),</span> <span class="pre">dtype=float32)</span></code>).</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -593,12 +592,8 @@
 </div>
 <p>A conforming implementation of the array API standard must provide and support data type objects having the following attributes and methods.</p>
 <section id="methods">
-<h3 id="methods">Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h3>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%"/>
-<col style="width: 90%"/>
-</colgroup>
+<h3 id="methods">Methods<a class="headerlink" href="#methods" title="Permalink to this heading">¶</a></h3>
+<table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/array_api.data_types.__eq__.html#array_api.data_types.__eq__" title="array_api.data_types.__eq__"><code class="xref py py-obj docutils literal notranslate"><span class="pre">__eq__</span></code></a>(self, other, /)</p></td>
 <td><p>Computes the truth value of <code class="docutils literal notranslate"><span class="pre">self</span> <span class="pre">==</span> <span class="pre">other</span></code> in order to test for data type object equality.</p></td>
@@ -608,7 +603,7 @@
 </section>
 </section>
 <section id="default-data-types">
-<span id="data-type-defaults"></span><h2 id="default-data-types">Default Data Types<a class="headerlink" href="#default-data-types" title="Permalink to this headline">¶</a></h2>
+<span id="data-type-defaults"></span><h2 id="default-data-types">Default Data Types<a class="headerlink" href="#default-data-types" title="Permalink to this heading">¶</a></h2>
 <p>A conforming implementation of the array API standard must define the following default data types.</p>
 <ul class="simple">
 <li><p>a default floating-point data type (either <code class="docutils literal notranslate"><span class="pre">float32</span></code> or <code class="docutils literal notranslate"><span class="pre">float64</span></code>).</p></li>
@@ -624,7 +619,7 @@
 </div>
 </section>
 <section id="data-type-categories">
-<span id="id3"></span><h2 id="data-type-categories">Data Type Categories<a class="headerlink" href="#data-type-categories" title="Permalink to this headline">¶</a></h2>
+<span id="id3"></span><h2 id="data-type-categories">Data Type Categories<a class="headerlink" href="#data-type-categories" title="Permalink to this heading">¶</a></h2>
 <p>For the purpose of organizing functions within this specification, the following data type categories are defined.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -635,19 +630,19 @@
 <p>Future versions of the specification will include additional categories for complex data types.</p>
 </div>
 <section id="numeric-data-types">
-<h3 id="numeric-data-types">Numeric Data Types<a class="headerlink" href="#numeric-data-types" title="Permalink to this headline">¶</a></h3>
+<h3 id="numeric-data-types">Numeric Data Types<a class="headerlink" href="#numeric-data-types" title="Permalink to this heading">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">int8</span></code>, <code class="docutils literal notranslate"><span class="pre">int16</span></code>, <code class="docutils literal notranslate"><span class="pre">int32</span></code>, <code class="docutils literal notranslate"><span class="pre">int64</span></code>, <code class="docutils literal notranslate"><span class="pre">uint8</span></code>, <code class="docutils literal notranslate"><span class="pre">uint16</span></code>, <code class="docutils literal notranslate"><span class="pre">uint32</span></code>, <code class="docutils literal notranslate"><span class="pre">uint64</span></code>, <code class="docutils literal notranslate"><span class="pre">float32</span></code>, and <code class="docutils literal notranslate"><span class="pre">float64</span></code> (i.e., all data types except for <code class="docutils literal notranslate"><span class="pre">bool</span></code>).</p>
 </section>
 <section id="integer-data-types">
-<h3 id="integer-data-types">Integer Data Types<a class="headerlink" href="#integer-data-types" title="Permalink to this headline">¶</a></h3>
+<h3 id="integer-data-types">Integer Data Types<a class="headerlink" href="#integer-data-types" title="Permalink to this heading">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">int8</span></code>, <code class="docutils literal notranslate"><span class="pre">int16</span></code>, <code class="docutils literal notranslate"><span class="pre">int32</span></code>, <code class="docutils literal notranslate"><span class="pre">int64</span></code>, <code class="docutils literal notranslate"><span class="pre">uint8</span></code>, <code class="docutils literal notranslate"><span class="pre">uint16</span></code>, <code class="docutils literal notranslate"><span class="pre">uint32</span></code>, and <code class="docutils literal notranslate"><span class="pre">uint64</span></code>.</p>
 </section>
 <section id="floating-point-data-types">
-<h3 id="floating-point-data-types">Floating-point Data Types<a class="headerlink" href="#floating-point-data-types" title="Permalink to this headline">¶</a></h3>
+<h3 id="floating-point-data-types">Floating-point Data Types<a class="headerlink" href="#floating-point-data-types" title="Permalink to this heading">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">float32</span></code> and <code class="docutils literal notranslate"><span class="pre">float64</span></code>.</p>
 </section>
 <section id="boolean-data-types">
-<h3 id="boolean-data-types">Boolean Data Types<a class="headerlink" href="#boolean-data-types" title="Permalink to this headline">¶</a></h3>
+<h3 id="boolean-data-types">Boolean Data Types<a class="headerlink" href="#boolean-data-types" title="Permalink to this heading">¶</a></h3>
 <p><code class="docutils literal notranslate"><span class="pre">bool</span></code>.</p>
 </section>
 </section>
@@ -700,7 +695,7 @@
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.3.0.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>

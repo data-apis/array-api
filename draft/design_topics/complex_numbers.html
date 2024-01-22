@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
     <link rel="icon" sizes="196x195" href="../_static/images/favicon.png" type="image/png">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -55,12 +55,11 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="C API" href="C_API.html" />
@@ -426,15 +425,15 @@
           <article class="md-content__inner md-typeset" role="main">
             
   <section id="complex-numbers">
-<span id="id1"></span><h1 id="design-topics-complex-numbers--page-root">Complex Numbers<a class="headerlink" href="#design-topics-complex-numbers--page-root" title="Permalink to this headline">¶</a></h1>
+<span id="id1"></span><h1 id="design-topics-complex-numbers--page-root">Complex Numbers<a class="headerlink" href="#design-topics-complex-numbers--page-root" title="Permalink to this heading">¶</a></h1>
 <section id="the-complex-plane">
-<h2 id="the-complex-plane">The Complex Plane<a class="headerlink" href="#the-complex-plane" title="Permalink to this headline">¶</a></h2>
+<h2 id="the-complex-plane">The Complex Plane<a class="headerlink" href="#the-complex-plane" title="Permalink to this heading">¶</a></h2>
 <p>Mathematically, equality comparison between complex numbers depends on the choice of topology. For example, the complex plane has a continuum of infinities; however, when the complex plane is projected onto the surface of a sphere (a stereographic projection commonly referred to as the <em>Riemann sphere</em>), infinities coalesce into a single <em>point at infinity</em>, thus modeling the extended complex plane. For the former, the value <span class="math notranslate nohighlight">\(\infty + 3j\)</span> is distinct from (i.e., does not equal) <span class="math notranslate nohighlight">\(\infty + 4j\)</span>, while, for the latter, <span class="math notranslate nohighlight">\(\infty + 3j\)</span> does equal <span class="math notranslate nohighlight">\(\infty + 4j\)</span>.</p>
 <p>Modeling complex numbers as a Riemann sphere conveys certain mathematical niceties (e.g., well-behaved division by zero and preservation of the identity <span class="math notranslate nohighlight">\(\frac{1}{\frac{1}{z}} = z\)</span>); however, translating the model to IEEE 754 floating-point operations can lead to some unexpected results. For example, according to IEEE 754, <span class="math notranslate nohighlight">\(+\infty\)</span> and <span class="math notranslate nohighlight">\(-\infty\)</span> are distinct values; hence, for equality comparison, if <span class="math notranslate nohighlight">\(x = +\infty\)</span> and <span class="math notranslate nohighlight">\(y = -\infty\)</span>, then <span class="math notranslate nohighlight">\(x \neq y\)</span>. In contrast, if we convert <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> to their complex number equivalents <span class="math notranslate nohighlight">\(x = +\infty + 0j\)</span> and <span class="math notranslate nohighlight">\(y = -\infty + 0j\)</span> and then interpret within the context of the extended complex plane, we arrive at the opposite result; namely, <span class="math notranslate nohighlight">\(x = y\)</span>.</p>
 <p>In short, given the constraints of floating-point arithmetic and the subtleties of signed zeros, infinities, NaNs, and their interaction, crafting a specification which always yields intuitive results and satisfies all use cases involving complex numbers is not possible. Instead, this specification attempts to follow precedent (e.g., C99, Python, Julia, NumPy, and elsewhere), while also minimizing surprise. The result is an imperfect balance in which certain APIs may appear to embrace the one-infinity model found in C/C++ for algebraic operations involving complex numbers (e.g., considering <span class="math notranslate nohighlight">\(\infty + \operatorname{NaN}\ j\)</span> to be infinite, irrespective of the imaginary component’s value, including NaN), while other APIs may rely on the complex plane with its multiplicity of infinities (e.g., in transcendental functions). Accordingly, consumers of this specification should expect that certain results involving complex numbers for one operation may not be wholly consistent with results involving complex numbers for another operation.</p>
 </section>
 <section id="branch-cuts">
-<span id="id2"></span><h2 id="branch-cuts">Branch Cuts<a class="headerlink" href="#branch-cuts" title="Permalink to this headline">¶</a></h2>
+<span id="id2"></span><h2 id="branch-cuts">Branch Cuts<a class="headerlink" href="#branch-cuts" title="Permalink to this heading">¶</a></h2>
 <p>In the mathematical field of complex analysis, a <strong>branch cut</strong> is a curve in the complex plane across which an analytic multi-valued function is discontinuous. Branch cuts are often taken as lines or line segments, and the choice of any particular branch cut is a matter of convention.</p>
 <p>For example, consider the function <span class="math notranslate nohighlight">\(z^2\)</span> which maps a complex number <span class="math notranslate nohighlight">\(z\)</span> to a well-defined number <span class="math notranslate nohighlight">\(z^2\)</span>. The function’s inverse function <span class="math notranslate nohighlight">\(\sqrt{z}\)</span> does not, however, map to a single value. For example, for <span class="math notranslate nohighlight">\(z = 1\)</span>, <span class="math notranslate nohighlight">\(\sqrt{1} = \pm 1\)</span>. While one can choose a unique principal value for this and similar functions (e.g., in this case, the principal square root is <span class="math notranslate nohighlight">\(+1\)</span>), choices cannot be made continuous over the whole complex plane, as lines of discontinuity must occur. To handle discontinuities, one commonly adopts branch cuts, which are not, in general, unique. Instead, one chooses a branch cut as a matter of convention in order to give simple analytic properties.</p>
 <p>Branch cuts do not arise for single-valued trigonometric, hyperbolic, integer power, or exponential functions; however, branch cuts do arise for their multi-valued inverses.</p>
@@ -446,7 +445,7 @@
 </div>
 </section>
 <section id="complex-number-ordering">
-<span id="id3"></span><h2 id="complex-number-ordering">Complex Number Ordering<a class="headerlink" href="#complex-number-ordering" title="Permalink to this headline">¶</a></h2>
+<span id="id3"></span><h2 id="complex-number-ordering">Complex Number Ordering<a class="headerlink" href="#complex-number-ordering" title="Permalink to this heading">¶</a></h2>
 <p>Given a set <span class="math notranslate nohighlight">\(\{a_1, \ldots, a_n\}\)</span>, an order relation must satisfy the following properties:</p>
 <ol class="arabic simple">
 <li><p><strong>Reflexive</strong>: for any <span class="math notranslate nohighlight">\(a\)</span> in the set, <span class="math notranslate nohighlight">\(a \leq a\)</span>.</p></li>
@@ -461,7 +460,7 @@
 <p>If a conforming implementation chooses to define an ordering for complex numbers, the ordering must be clearly documented.</p>
 </section>
 <section id="valued-based-promotion">
-<h2 id="valued-based-promotion">Valued-based Promotion<a class="headerlink" href="#valued-based-promotion" title="Permalink to this headline">¶</a></h2>
+<h2 id="valued-based-promotion">Valued-based Promotion<a class="headerlink" href="#valued-based-promotion" title="Permalink to this heading">¶</a></h2>
 <p>According to the type promotion rules described in this specification (see <a class="reference internal" href="../API_specification/type_promotion.html#type-promotion"><span class="std std-ref">Type Promotion Rules</span></a>), only the data types of the input arrays participating in an operation matter, not their values. The same principle applies to situations in which one or more results of operations on real-valued arrays are mathematically defined in the complex domain, but not in their real domain.</p>
 <p>By convention, the principal square root of <span class="math notranslate nohighlight">\(-1\)</span> is <span class="math notranslate nohighlight">\(j\)</span>, where <span class="math notranslate nohighlight">\(j\)</span> is the imaginary unit. Despite this convention, for those operations supporting type promotion, conforming implementations must only consider input array data types when determining the data type of the output array. For example, if a real-valued input array is provided to <a class="reference internal" href="../API_specification/generated/array_api.sqrt.html#array_api.sqrt" title="array_api.sqrt"><code class="xref py py-func docutils literal notranslate"><span class="pre">sqrt()</span></code></a>, the output array must also be real-valued, even if the input array contains negative values. Accordingly, if a consumer of a conforming implementation of this specification desires for an operation’s results to include the complex domain, the consumer should first cast the input array(s) to an appropriate complex floating-point data type before performing the operation.</p>
 </section>
@@ -514,7 +513,7 @@
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.3.0.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>

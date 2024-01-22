@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
     <link rel="icon" sizes="196x195" href="../_static/images/favicon.png" type="image/png">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -55,9 +55,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -452,17 +451,17 @@
           <article class="md-content__inner md-typeset" role="main">
             
   <section id="broadcasting">
-<span id="id1"></span><h1 id="api-specification-broadcasting--page-root">Broadcasting<a class="headerlink" href="#api-specification-broadcasting--page-root" title="Permalink to this headline">¶</a></h1>
+<span id="id1"></span><h1 id="api-specification-broadcasting--page-root">Broadcasting<a class="headerlink" href="#api-specification-broadcasting--page-root" title="Permalink to this heading">¶</a></h1>
 <blockquote>
 <div><p>Array API specification for broadcasting semantics.</p>
 </div></blockquote>
 <section id="overview">
-<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permalink to this heading">¶</a></h2>
 <p><strong>Broadcasting</strong> refers to the automatic (implicit) expansion of array dimensions to be of equal sizes without copying array data for the purpose of making arrays with different shapes have compatible shapes for element-wise operations.</p>
 <p>Broadcasting facilitates user ergonomics by encouraging users to avoid unnecessary copying of array data and can <strong>potentially</strong> enable more memory-efficient element-wise operations through vectorization, reduced memory consumption, and cache locality.</p>
 </section>
 <section id="algorithm">
-<h2 id="algorithm">Algorithm<a class="headerlink" href="#algorithm" title="Permalink to this headline">¶</a></h2>
+<h2 id="algorithm">Algorithm<a class="headerlink" href="#algorithm" title="Permalink to this heading">¶</a></h2>
 <p>Given an element-wise operation involving two compatible arrays, an array having a singleton dimension (i.e., a dimension whose size is one) is broadcast (i.e., virtually repeated) across an array having a corresponding non-singleton dimension.</p>
 <p>If two arrays are of unequal rank, the array having a lower rank is promoted to a higher rank by (virtually) prepending singleton dimensions until the number of dimensions matches that of the array having a higher rank.</p>
 <p>The results of the element-wise operation must be stored in an array having a shape determined by the following algorithm.</p>
@@ -499,7 +498,7 @@
 <li><p>Let <code class="docutils literal notranslate"><span class="pre">tuple(shape)</span></code> be the shape of the result array.</p></li>
 </ol>
 <section id="examples">
-<h3 id="examples">Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h3>
+<h3 id="examples">Examples<a class="headerlink" href="#examples" title="Permalink to this heading">¶</a></h3>
 <p>The following examples demonstrate the application of the broadcasting algorithm for two compatible arrays.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">A</span>      <span class="p">(</span><span class="mi">4</span><span class="n">d</span> <span class="n">array</span><span class="p">):</span>  <span class="mi">8</span> <span class="n">x</span> <span class="mi">1</span> <span class="n">x</span> <span class="mi">6</span> <span class="n">x</span> <span class="mi">1</span>
  <span class="n">B</span>      <span class="p">(</span><span class="mi">3</span><span class="n">d</span> <span class="n">array</span><span class="p">):</span>      <span class="mi">7</span> <span class="n">x</span> <span class="mi">1</span> <span class="n">x</span> <span class="mi">5</span>
@@ -541,7 +540,7 @@
 </section>
 </section>
 <section id="in-place-semantics">
-<h2 id="in-place-semantics">In-place Semantics<a class="headerlink" href="#in-place-semantics" title="Permalink to this headline">¶</a></h2>
+<h2 id="in-place-semantics">In-place Semantics<a class="headerlink" href="#in-place-semantics" title="Permalink to this heading">¶</a></h2>
 <p>As implied by the broadcasting algorithm, in-place element-wise operations must not change the shape of the in-place array as a result of broadcasting.</p>
 </section>
 </section>
@@ -593,7 +592,7 @@
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.3.0.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>

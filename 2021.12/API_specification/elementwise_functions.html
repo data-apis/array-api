@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
     <link rel="icon" sizes="196x195" href="../_static/images/favicon.png" type="image/png">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -55,9 +55,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -436,7 +435,7 @@
           <article class="md-content__inner md-typeset" role="main">
             
   <section id="element-wise-functions">
-<span id="id1"></span><h1 id="api-specification-elementwise-functions--page-root">Element-wise Functions<a class="headerlink" href="#api-specification-elementwise-functions--page-root" title="Permalink to this headline">¶</a></h1>
+<span id="id1"></span><h1 id="api-specification-elementwise-functions--page-root">Element-wise Functions<a class="headerlink" href="#api-specification-elementwise-functions--page-root" title="Permalink to this heading">¶</a></h1>
 <blockquote>
 <div><p>Array API specification for element-wise functions.</p>
 </div></blockquote>
@@ -452,12 +451,8 @@
 <li><p>Unless stated otherwise, element-wise mathematical functions must satisfy the minimum accuracy requirements defined in <a class="reference internal" href="../design_topics/accuracy.html#accuracy"><span class="std std-ref">Accuracy</span></a>.</p></li>
 </ul>
 <section id="objects-in-api">
-<h2 id="objects-in-api">Objects in API<a class="headerlink" href="#objects-in-api" title="Permalink to this headline">¶</a></h2>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%"/>
-<col style="width: 90%"/>
-</colgroup>
+<h2 id="objects-in-api">Objects in API<a class="headerlink" href="#objects-in-api" title="Permalink to this heading">¶</a></h2>
+<table class="autosummary longtable docutils align-default">
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/array_api.abs.html#array_api.abs" title="array_api.abs"><code class="xref py py-obj docutils literal notranslate"><span class="pre">abs</span></code></a>(x, /)</p></td>
 <td><p>Calculates the absolute value for each element <code class="docutils literal notranslate"><span class="pre">x_i</span></code> of the input array <code class="docutils literal notranslate"><span class="pre">x</span></code> (i.e., the element-wise result has the same magnitude as the respective element in <code class="docutils literal notranslate"><span class="pre">x</span></code> but has positive sign).</p></td>
@@ -679,7 +674,7 @@
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.3.0.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>

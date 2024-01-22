@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
     <link rel="icon" sizes="196x195" href="_static/images/favicon.png" type="image/png">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -55,9 +55,8 @@
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/css/custom.css" />
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -410,22 +409,22 @@
           <article class="md-content__inner md-typeset" role="main">
             
   <section id="changelog-per-api-standard-version">
-<h1 id="changelog--page-root">Changelog per API standard version<a class="headerlink" href="#changelog--page-root" title="Permalink to this headline">¶</a></h1>
+<h1 id="changelog--page-root">Changelog per API standard version<a class="headerlink" href="#changelog--page-root" title="Permalink to this heading">¶</a></h1>
 <section id="changelog">
-<h2 id="changelog">Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h2>
+<h2 id="changelog">Changelog<a class="headerlink" href="#changelog" title="Permalink to this heading">¶</a></h2>
 <blockquote>
 <div><p>Specification changelog.</p>
 </div></blockquote>
 <p>This changelog is organized by specification version and notes all changes with respect to the previous version. Within the section for a specific version (e.g., v2022.12), separate sections are used for (a) changes to existing APIs and requirements, (b) new APIs and new requirements, and (c) errata.</p>
 <section id="v2022-12">
-<h3 id="v2022-12">v2022.12<a class="headerlink" href="#v2022-12" title="Permalink to this headline">¶</a></h3>
+<h3 id="v2022-12">v2022.12<a class="headerlink" href="#v2022-12" title="Permalink to this heading">¶</a></h3>
 <section id="updates">
-<h4 id="updates">Updates<a class="headerlink" href="#updates" title="Permalink to this headline">¶</a></h4>
+<h4 id="updates">Updates<a class="headerlink" href="#updates" title="Permalink to this heading">¶</a></h4>
 <blockquote>
 <div><p>Updates to existing APIs and requirements.</p>
 </div></blockquote>
 <section id="apis">
-<h5 id="apis">APIs<a class="headerlink" href="#apis" title="Permalink to this headline">¶</a></h5>
+<h5 id="apis">APIs<a class="headerlink" href="#apis" title="Permalink to this heading">¶</a></h5>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">__bool__</span></code>: add support for non-boolean data types (<a class="reference external" href="https://github.com/data-apis/array-api/pull/497">gh-497</a>)</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">__dlpack__</span></code>: raise <code class="docutils literal notranslate"><span class="pre">BufferError</span></code> when data cannot be exported as DLPack (<a class="reference external" href="https://github.com/data-apis/array-api/pull/498">gh-498</a>)</p></li>
@@ -433,7 +432,7 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">__int__</span></code>: add support for non-integer data types (<a class="reference external" href="https://github.com/data-apis/array-api/pull/497">gh-497</a>)</p></li>
 </ul>
 <section id="complex-number-support">
-<h6 id="complex-number-support">Complex Number Support<a class="headerlink" href="#complex-number-support" title="Permalink to this headline">¶</a></h6>
+<h6 id="complex-number-support">Complex Number Support<a class="headerlink" href="#complex-number-support" title="Permalink to this heading">¶</a></h6>
 <p>The following APIs were updated to support arrays having complex floating-point data types:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">__abs__</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/546">gh-546</a>)</p></li>
@@ -508,7 +507,7 @@
 </section>
 </section>
 <section id="extensions">
-<h5 id="extensions">Extensions<a class="headerlink" href="#extensions" title="Permalink to this headline">¶</a></h5>
+<h5 id="extensions">Extensions<a class="headerlink" href="#extensions" title="Permalink to this heading">¶</a></h5>
 <blockquote>
 <div><p>Updates to APIs and requirements included as part of specification extensions.</p>
 </div></blockquote>
@@ -518,7 +517,7 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">linalg.trace</span></code>: add support for specifying output array data type (<a class="reference external" href="https://github.com/data-apis/array-api/pull/502">gh-502</a>)</p></li>
 </ul>
 <section id="id1">
-<h6 id="id1">Complex Number Support<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h6>
+<h6 id="id1">Complex Number Support<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h6>
 <p>The following APIs were updated to support arrays having complex floating-point data types:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">linalg.cholesky</span></code>(<a class="reference external" href="https://github.com/data-apis/array-api/pull/443">gh-443</a>)</p></li>
@@ -545,12 +544,12 @@
 </section>
 <hr class="docutils"/>
 <section id="additions">
-<h4 id="additions">Additions<a class="headerlink" href="#additions" title="Permalink to this headline">¶</a></h4>
+<h4 id="additions">Additions<a class="headerlink" href="#additions" title="Permalink to this heading">¶</a></h4>
 <blockquote>
 <div><p>New APIs and requirements added to the specification.</p>
 </div></blockquote>
 <section id="data-types">
-<h5 id="data-types">Data Types<a class="headerlink" href="#data-types" title="Permalink to this headline">¶</a></h5>
+<h5 id="data-types">Data Types<a class="headerlink" href="#data-types" title="Permalink to this heading">¶</a></h5>
 <p>The following data types were added to the specification:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">complex64</span></code>: single-precision complex floating-point numbers (<a class="reference external" href="https://github.com/data-apis/array-api/pull/418">gh-418</a>)</p></li>
@@ -568,7 +567,7 @@
 <p><strong>note</strong>: conforming implementations must define a default complex floating-point data type.</p>
 </section>
 <section id="id2">
-<h5 id="id2">APIs<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h5>
+<h5 id="id2">APIs<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h5>
 <p>The following APIs were added to the specification:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">__array_api_version__</span></code>: string representing the version of the array API specification (<a class="reference external" href="https://github.com/data-apis/array-api/pull/480">gh-480</a>)</p></li>
@@ -583,7 +582,7 @@
 </ul>
 </section>
 <section id="id3">
-<h5 id="id3">Extensions<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h5>
+<h5 id="id3">Extensions<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h5>
 <p>The following optional extensions were added to the specification:</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">fft</span></code>: Fast Fourier Transforms (FFT) (<a class="reference external" href="https://github.com/data-apis/array-api/pull/189">gh-189</a>)</p>
@@ -607,7 +606,7 @@
 </section>
 <hr class="docutils"/>
 <section id="errata">
-<h4 id="errata">Errata<a class="headerlink" href="#errata" title="Permalink to this headline">¶</a></h4>
+<h4 id="errata">Errata<a class="headerlink" href="#errata" title="Permalink to this heading">¶</a></h4>
 <p>The following is a list of fixes and points of clarification with regard to the previous version of the specification:</p>
 <ul class="simple">
 <li><p>Missing <code class="docutils literal notranslate"><span class="pre">self</span></code> parameter for array object properties (<a class="reference external" href="https://github.com/data-apis/array-api/pull/464">gh-464</a>)</p></li>
@@ -676,7 +675,7 @@
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.3.0.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>

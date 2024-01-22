@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
     <link rel="icon" sizes="196x195" href="../_static/images/favicon.png" type="image/png">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -55,9 +55,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/jquery.js"></script>
-    <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -359,7 +358,7 @@
           <article class="md-content__inner md-typeset" role="main">
             
   <section id="data-dependent-output-shapes">
-<span id="id1"></span><h1 id="design-topics-data-dependent-output-shapes--page-root">Data-dependent output shapes<a class="headerlink" href="#design-topics-data-dependent-output-shapes--page-root" title="Permalink to this headline">¶</a></h1>
+<span id="id1"></span><h1 id="design-topics-data-dependent-output-shapes--page-root">Data-dependent output shapes<a class="headerlink" href="#design-topics-data-dependent-output-shapes--page-root" title="Permalink to this heading">¶</a></h1>
 <p>Array libraries which build computation graphs commonly employ static analysis that relies upon known shapes. For example, JAX requires known array sizes when compiling code, in order to perform static memory allocation. Functions and operations which are value-dependent present difficulties for such libraries, as array sizes cannot be inferred ahead of time without also knowing the contents of the respective arrays.</p>
 <p>While value-dependent functions and operations are not impossible to implement for array libraries which build computation graphs, this specification does not want to impose an undue burden on such libraries and permits omission of value-dependent operations. All other array libraries are expected, however, to implement the value-dependent operations included in this specification in order to be array specification compliant.</p>
 <p>Value-dependent operations are demarcated in this specification using an admonition similar to the following:</p>
@@ -416,7 +415,7 @@
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.3.0.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>

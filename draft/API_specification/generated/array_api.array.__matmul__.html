@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
     <link rel="icon" sizes="196x195" href="../../_static/images/favicon.png" type="image/png">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -55,9 +55,8 @@
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css" />
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/jquery.js"></script>
-    <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -436,7 +435,14 @@
               <div class="md-sidebar__inner">
                 
 <nav class="md-nav md-nav--secondary">
+    <label class="md-nav__title" for="__toc">Contents</label>
   <ul class="md-nav__list" data-md-scrollfix="">
+        <li class="md-nav__item"><a href="#api-specification-generated-array-api-array-matmul--page-root" class="md-nav__link">__matmul__</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#array_api.array.__matmul__" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">array.__matmul__()</span></code></a>
+        </li></ul>
+            </nav>
+        </li>
   </ul>
 </nav>
               </div>
@@ -447,7 +453,7 @@
           <article class="md-content__inner md-typeset" role="main">
             
   <section id="matmul">
-<h1 id="api-specification-generated-array-api-array-matmul--page-root">__matmul__<a class="headerlink" href="#api-specification-generated-array-api-array-matmul--page-root" title="Permalink to this headline">¶</a></h1>
+<h1 id="api-specification-generated-array-api-array-matmul--page-root">__matmul__<a class="headerlink" href="#api-specification-generated-array-api-array-matmul--page-root" title="Permalink to this heading">¶</a></h1>
 <dl class="py method">
 <dt class="sig sig-object py" id="array_api.array.__matmul__">
 <span class="sig-prename descclassname"><span class="pre">array.</span></span><span class="sig-name descname"><span class="pre">__matmul__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">array</span></span></span><a class="headerlink" href="#array_api.array.__matmul__" title="Permalink to this definition">¶</a></dt>
@@ -457,7 +463,7 @@
 <p>The <code class="docutils literal notranslate"><span class="pre">matmul</span></code> function must implement the same semantics as the built-in <code class="docutils literal notranslate"><span class="pre">@</span></code> operator (see <a class="reference external" href="https://www.python.org/dev/peps/pep-0465">PEP 465</a>).</p>
 </div>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>self</strong> (<em>array</em>) – array instance. Should have a numeric data type. Must have at least one dimension. If <code class="docutils literal notranslate"><span class="pre">self</span></code> is one-dimensional having shape <code class="docutils literal notranslate"><span class="pre">(M,)</span></code> and <code class="docutils literal notranslate"><span class="pre">other</span></code> has more than one dimension, <code class="docutils literal notranslate"><span class="pre">self</span></code> must be promoted to a two-dimensional array by prepending <code class="docutils literal notranslate"><span class="pre">1</span></code> to its dimensions (i.e., must have shape <code class="docutils literal notranslate"><span class="pre">(1,</span> <span class="pre">M)</span></code>). After matrix multiplication, the prepended dimensions in the returned array must be removed. If <code class="docutils literal notranslate"><span class="pre">self</span></code> has more than one dimension (including after vector-to-matrix promotion), <code class="docutils literal notranslate"><span class="pre">shape(self)[:-2]</span></code> must be compatible with <code class="docutils literal notranslate"><span class="pre">shape(other)[:-2]</span></code> (after vector-to-matrix promotion) (see <a class="reference internal" href="../broadcasting.html#broadcasting"><span class="std std-ref">Broadcasting</span></a>). If <code class="docutils literal notranslate"><span class="pre">self</span></code> has shape <code class="docutils literal notranslate"><span class="pre">(...,</span> <span class="pre">M,</span> <span class="pre">K)</span></code>, the innermost two dimensions form matrices on which to perform matrix multiplication.</p></li>
 <li><p><strong>other</strong> (<em>array</em>) – other array. Should have a numeric data type. Must have at least one dimension. If <code class="docutils literal notranslate"><span class="pre">other</span></code> is one-dimensional having shape <code class="docutils literal notranslate"><span class="pre">(N,)</span></code> and <code class="docutils literal notranslate"><span class="pre">self</span></code> has more than one dimension, <code class="docutils literal notranslate"><span class="pre">other</span></code> must be promoted to a two-dimensional array by appending <code class="docutils literal notranslate"><span class="pre">1</span></code> to its dimensions (i.e., must have shape <code class="docutils literal notranslate"><span class="pre">(N,</span> <span class="pre">1)</span></code>). After matrix multiplication, the appended dimensions in the returned array must be removed. If <code class="docutils literal notranslate"><span class="pre">other</span></code> has more than one dimension (including after vector-to-matrix promotion), <code class="docutils literal notranslate"><span class="pre">shape(other)[:-2]</span></code> must be compatible with <code class="docutils literal notranslate"><span class="pre">shape(self)[:-2]</span></code> (after vector-to-matrix promotion) (see <a class="reference internal" href="../broadcasting.html#broadcasting"><span class="std std-ref">Broadcasting</span></a>). If <code class="docutils literal notranslate"><span class="pre">other</span></code> has shape <code class="docutils literal notranslate"><span class="pre">(...,</span> <span class="pre">K,</span> <span class="pre">N)</span></code>, the innermost two dimensions form matrices on which to perform matrix multiplication.</p></li>
@@ -469,7 +475,7 @@
 <p>If either <code class="docutils literal notranslate"><span class="pre">x1</span></code> or <code class="docutils literal notranslate"><span class="pre">x2</span></code> has a complex floating-point data type, neither argument must be complex-conjugated or transposed. If conjugation and/or transposition is desired, these operations should be explicitly performed prior to computing the matrix product.</p>
 </div>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>out</strong> (<em>array</em>) –</p>
 <ul class="simple">
 <li><p>if both <code class="docutils literal notranslate"><span class="pre">self</span></code> and <code class="docutils literal notranslate"><span class="pre">other</span></code> are one-dimensional arrays having shape <code class="docutils literal notranslate"><span class="pre">(N,)</span></code>, a zero-dimensional array containing the inner product as its only element.</p></li>
@@ -549,7 +555,7 @@
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.3.0.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>

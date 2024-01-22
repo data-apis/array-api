@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
     <link rel="icon" sizes="196x195" href="_static/images/favicon.png" type="image/png">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -55,9 +55,8 @@
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/css/custom.css" />
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -375,12 +374,12 @@
           <article class="md-content__inner md-typeset" role="main">
             
   <section id="usage-data">
-<span id="id1"></span><h1 id="usage-data--page-root">Usage Data<a class="headerlink" href="#usage-data--page-root" title="Permalink to this headline">¶</a></h1>
+<span id="id1"></span><h1 id="usage-data--page-root">Usage Data<a class="headerlink" href="#usage-data--page-root" title="Permalink to this heading">¶</a></h1>
 <blockquote>
 <div><p>Summary of existing array API design and usage.</p>
 </div></blockquote>
 <section id="introduction">
-<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">¶</a></h2>
 <p>With rare exception, technical standardization (“standardization”) occurs neither in a vacuum nor from first principles. Instead, standardization finds its origins in two or more, sometimes competing, implementations differing in design and behavior. These differences introduce friction as those (e.g., downstream end-users and library authors) who operate at higher levels of abstraction must either focus on an implementation subset (e.g., only NumPy-like array libraries) or accommodate variation through increased complexity (e.g., if NumPy array, call method <code class="docutils literal notranslate"><span class="pre">.foo()</span></code>; else if Dask array, call method <code class="docutils literal notranslate"><span class="pre">.bar()</span></code>).</p>
 <p>Standardization aspires to reduce this friction and is a process which codifies that which is common, while still encouraging experimentation and innovation. Through the process of standardization, implementations can align around a subset of established practices and channel development resources toward that which is new and novel. In short, standardization aims to thwart reinventing the proverbial wheel.</p>
 <p>A foundational step in standardization is articulating a subset of established practices and defining those practices in unambiguous terms. To this end, the standardization process must approach the problem from two directions: <strong>design</strong> and <strong>usage</strong>. The former direction seeks to understand</p>
@@ -397,7 +396,7 @@
 <p>By analyzing both design and usage, the standardization process grounds specification decisions in empirical data and analysis.</p>
 </section>
 <section id="design">
-<h2 id="design">Design<a class="headerlink" href="#design" title="Permalink to this headline">¶</a></h2>
+<h2 id="design">Design<a class="headerlink" href="#design" title="Permalink to this heading">¶</a></h2>
 <p>To understand API design, standardization follows the following process.</p>
 <ul class="simple">
 <li><p>Identify a representative sample of commonly used Python array libraries (e.g., NumPy, Dask Array, CuPy, MXNet, JAX, TensorFlow, and PyTorch).</p></li>
@@ -412,7 +411,7 @@
 repository for design data and summary analysis.</p>
 </section>
 <section id="usage">
-<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permalink to this heading">¶</a></h2>
 <p>To understand usage patterns, standardization follows the following process.</p>
 <ul class="simple">
 <li><p>Identify a representative sample of commonly used Python libraries (“downstream libraries”) which consume the subset of array libraries identified during design analysis (e.g., pandas, Matplotlib, SciPy, Xarray, scikit-learn, and scikit-image).</p></li>
@@ -449,7 +448,7 @@ repository for design data and summary analysis.</p>
 <p>See the <a class="reference external" href="https://github.com/data-apis/python-record-api"><code class="docutils literal notranslate"><span class="pre">python-record-api</span></code></a> repository for source code, usage data, and analysis. To perform a similar analysis on additional downstream libraries, including those not publicly released, see the published PyPI <a class="reference external" href="https://pypi.org/project/record_api/">package</a>.</p>
 </section>
 <section id="use-in-decision-making">
-<h2 id="use-in-decision-making">Use in Decision-Making<a class="headerlink" href="#use-in-decision-making" title="Permalink to this headline">¶</a></h2>
+<h2 id="use-in-decision-making">Use in Decision-Making<a class="headerlink" href="#use-in-decision-making" title="Permalink to this heading">¶</a></h2>
 <p>Design and usage data support specification decision-making in the following ways.</p>
 <ul class="simple">
 <li><p>Validate user stories to ensure that proposals satisfy existing needs.</p></li>
@@ -506,7 +505,7 @@ repository for design data and summary analysis.</p>
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.3.0.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>

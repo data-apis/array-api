@@ -1,10 +1,10 @@
 
 <!DOCTYPE html>
 
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
     <link rel="icon" sizes="196x195" href="_static/images/favicon.png" type="image/png">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -55,9 +55,8 @@
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/css/custom.css" />
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/jquery.js"></script>
-    <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
+    <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
@@ -375,9 +374,9 @@
           <article class="md-content__inner md-typeset" role="main">
             
   <section id="assumptions">
-<span id="id1"></span><h1 id="assumptions--page-root">Assumptions<a class="headerlink" href="#assumptions--page-root" title="Permalink to this headline">¶</a></h1>
+<span id="id1"></span><h1 id="assumptions--page-root">Assumptions<a class="headerlink" href="#assumptions--page-root" title="Permalink to this heading">¶</a></h1>
 <section id="hardware-and-software-environments">
-<h2 id="hardware-and-software-environments">Hardware and software environments<a class="headerlink" href="#hardware-and-software-environments" title="Permalink to this headline">¶</a></h2>
+<h2 id="hardware-and-software-environments">Hardware and software environments<a class="headerlink" href="#hardware-and-software-environments" title="Permalink to this heading">¶</a></h2>
 <p>No assumptions on a specific hardware environment are made. It must be possible
 to create an array library adhering to this standard that runs (efficiently) on
 a variety of different hardware: CPUs with different architectures, GPUs,
@@ -392,12 +391,12 @@ made in the API standard. For example, JIT compilers may require output dtypes
 of functions to be predictable from input dtypes only rather than input values.</p>
 </section>
 <section id="dependencies">
-<span id="assumptions-dependencies"></span><h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
+<span id="assumptions-dependencies"></span><h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this heading">¶</a></h2>
 <p>The only dependency that’s assumed in this standard is that on Python itself.
 Python &gt;= 3.8 is assumed, motivated by the use of positional-only parameters
-(see <a class="reference internal" href="API_specification/function_and_method_signatures.html"><span class="doc std std-doc">function and method signatures</span></a>).</p>
+(see <a class="reference internal" href="API_specification/function_and_method_signatures.html"><span class="std std-doc">function and method signatures</span></a>).</p>
 <p>Importantly, array libraries are not assumed to be aware of each other, or of
-a common array-specific layer. The <a class="reference internal" href="use_cases.html"><span class="doc std std-doc">use cases</span></a> do not require
+a common array-specific layer. The <a class="reference internal" href="use_cases.html"><span class="std std-doc">use cases</span></a> do not require
 such a dependency, and building and evolving an array library is easier without
 such a coupling. Facilitation support of multiple array types in downstream
 libraries is an important use case however, the assumed dependency structure
@@ -405,7 +404,7 @@ for that is:</p>
 <p><img alt="dependency assumptions diagram" src="_images/dependency_assumption_diagram.png"/></p>
 <p>Array libraries may know how to interoperate with each other, for example by
 constructing their own array type from that of another library or by shared
-memory use of an array (see <a class="reference internal" href="design_topics/data_interchange.html"><span class="doc std std-doc">Data interchange mechanisms</span></a>).
+memory use of an array (see <a class="reference internal" href="design_topics/data_interchange.html"><span class="std std-doc">Data interchange mechanisms</span></a>).
 This can be done without a dependency though - only adherence to a protocol is
 enough.</p>
 <p>Array-consuming libraries will have to depend on one or more array libraries.
@@ -414,7 +413,7 @@ namespace from array instances that are passed in, but not explicitly doing
 <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">arraylib_name</span></code>.</p>
 </section>
 <section id="backwards-compatibility">
-<h2 id="backwards-compatibility">Backwards compatibility<a class="headerlink" href="#backwards-compatibility" title="Permalink to this headline">¶</a></h2>
+<h2 id="backwards-compatibility">Backwards compatibility<a class="headerlink" href="#backwards-compatibility" title="Permalink to this heading">¶</a></h2>
 <p>The assumption made during creation of this standard is that libraries are
 constrained by backwards compatibility guarantees to their users, and are
 likely unwilling to make significant backwards-incompatible changes for the
@@ -424,7 +423,7 @@ library will provide a way to retrieve a module or module-like object that
 adheres to this standard. See <a class="reference internal" href="purpose_and_scope.html#how-to-adopt-this-api"><span class="std std-ref">How to adopt this API</span></a> for more details.</p>
 </section>
 <section id="production-code-interactive-use">
-<h2 id="production-code-interactive-use">Production code &amp; interactive use<a class="headerlink" href="#production-code-interactive-use" title="Permalink to this headline">¶</a></h2>
+<h2 id="production-code-interactive-use">Production code &amp; interactive use<a class="headerlink" href="#production-code-interactive-use" title="Permalink to this heading">¶</a></h2>
 <p>It is assumed that the primary use case is writing production code, for example
 in array-consuming libraries. As a consequence, making it easy to ensure that
 code is written as intended and has unambiguous semantics is preferred - and
@@ -487,7 +486,7 @@ on top of a more strict behavior.</p>
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 4.3.0.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>
