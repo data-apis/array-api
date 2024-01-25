@@ -257,7 +257,7 @@ def top_k_values(
         -  ``'smallest'``: return the indices of the ``k`` smallest elements.
 
         Default: ``'largest'``.
-    
+
     Returns
     -------
     out: array
@@ -271,7 +271,7 @@ def top_k_values(
     -   Conforming implementations may support complex numbers; however, inequality comparison of complex numbers is unspecified and thus implementation-dependent (see :ref:`complex-number-ordering`).
     """
 
-       
+
 def where(condition: array, x1: array, x2: array, /) -> array:
     """
     Returns elements chosen from ``x1`` or ``x2`` depending on ``condition``.
