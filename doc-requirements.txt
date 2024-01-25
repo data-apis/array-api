@@ -1,8 +1,7 @@
-sphinx==4.3.0
+sphinx==6.2.1
 sphinx-material==0.0.30
 myst-parser
 sphinx_markdown_tables
 sphinx_copybutton
 sphinx_favicon
-docutils<0.18
 sphinx-math-dollar

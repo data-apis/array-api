@@ -241,6 +241,10 @@ class _array:
 
         For complex floating-point operands, special cases must be handled as if the operation is implemented as the logical AND of ``bool(real(self))`` and ``bool(imag(self))``.
 
+        **Lazy implementations**
+
+        The Python language requires the return value to be of type ``bool``. Lazy implementations are therefore not able to return any kind of lazy/delayed object here and should raise a ``ValueError`` instead.
+
         .. versionchanged:: 2022.12
             Added boolean and complex data type support.
         """
@@ -275,6 +279,10 @@ class _array:
         - If ``self`` is ``+infinity``, the result is ``+infinity + 0j``.
         - If ``self`` is ``-infinity``, the result is ``-infinity + 0j``.
         - If ``self`` is a finite number, the result is ``self + 0j``.
+
+        **Lazy implementations**
+
+        The Python language requires the return value to be of type ``complex``. Lazy implementations are therefore not able to return any kind of lazy/delayed object here and should raise a ``ValueError`` instead.
 
         .. versionadded:: 2022.12
         """
@@ -424,6 +432,10 @@ class _array:
         - If ``self`` is ``True``, the result is ``1``.
         - If ``self`` is ``False``, the result is ``0``.
 
+        **Lazy implementations**
+
+        The Python language requires the return value to be of type ``float``. Lazy implementations are therefore not able to return any kind of lazy/delayed object here and should raise a ``ValueError`` instead.
+
         .. versionchanged:: 2022.12
             Added boolean and complex data type support.
         """
@@ -479,7 +491,12 @@ class _array:
     def __getitem__(
         self: array,
         key: Union[
-            int, slice, ellipsis, Tuple[Union[int, slice, ellipsis, None], ...], array
+            int,
+            slice,
+            ellipsis,
+            None,
+            Tuple[Union[int, slice, ellipsis, None], ...],
+            array,
         ],
         /,
     ) -> array:
@@ -490,7 +507,7 @@ class _array:
         ----------
         self: array
             array instance.
-        key: Union[int, slice, ellipsis, Tuple[Union[int, slice, ellipsis, None], ...], array]
+        key: Union[int, slice, ellipsis, None, Tuple[Union[int, slice, ellipsis, None], ...], array]
             index key.
 
         Returns
@@ -539,6 +556,13 @@ class _array:
         -------
         out: int
             a Python ``int`` object representing the single element of the array instance.
+
+        Notes
+        -----
+
+        **Lazy implementations**
+
+        The Python language requires the return value to be of type ``int``. Lazy implementations are therefore not able to return any kind of lazy/delayed object here and should raise a ``ValueError`` instead.
         """
 
     def __int__(self: array, /) -> int:
@@ -576,6 +600,13 @@ class _array:
 
         - If ``self`` is either ``+infinity`` or ``-infinity``, raise ``OverflowError``.
         - If ``self`` is ``NaN``, raise ``ValueError``.
+
+        Notes
+        -----
+
+        **Lazy implementations**
+
+        The Python language requires the return value to be of type ``int``. Lazy implementations are therefore not able to return any kind of lazy/delayed object here and should raise a ``ValueError`` instead.
 
         .. versionchanged:: 2022.12
             Added boolean and complex data type support.

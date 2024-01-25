@@ -727,7 +727,7 @@ def conj(x: array, /) -> array:
     Parameters
     ----------
     x: array
-        input array. Should have a complex-floating point data type.
+        input array. Should have a complex floating-point data type.
 
     Returns
     -------

@@ -7,7 +7,7 @@ Array object
 
 A conforming implementation of the array API standard must provide and support an array object having the following attributes and methods.
 
-Furthermore, a conforming implementation of the array API standard must support array objects of arbitrary rank ``N`` (i.e., number of dimensions), where ``N`` is greater than or equal to zero.
+Furthermore, a conforming implementation of the array API standard must support, at minimum, array objects of rank (i.e., number of dimensions) ``0``, ``1``, ``2``, ``3``, and ``4`` and must explicitly document their maximum supported rank ``N``.
 
 .. note::
     Conforming implementations must support zero-dimensional arrays.
