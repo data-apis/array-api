@@ -154,7 +154,7 @@ def dtypes(
 
 def devices() -> List[device]:
     """
-    Returns a list of supported devices.
+    Returns a list of supported devices which are available at runtime.
 
     Returns
     -------
