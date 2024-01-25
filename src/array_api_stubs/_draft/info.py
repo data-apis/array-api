@@ -36,12 +36,13 @@ def __array_namespace_info__() -> Info:
     The returned object may be either a namespace or a class, so long as an Array API user can access inspection utilities as follows:
 
     ::
-       info = xp.__array_namespace_info__()
-       info.capabilities()
-       info.devices()
-       info.dtypes()
-       info.default_dtypes()
-       # ...
+
+      info = xp.__array_namespace_info__()
+      info.capabilities()
+      info.devices()
+      info.dtypes()
+      info.default_dtypes()
+      # ...
     """
 
 
