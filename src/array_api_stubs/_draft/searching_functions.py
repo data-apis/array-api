@@ -2,6 +2,7 @@ __all__ = [
     "argmax",
     "argmin",
     "nonzero",
+    "searchsorted",
     "top_k",
     "top_k_values",
     "top_k_indices",
@@ -92,6 +93,56 @@ def nonzero(x: array, /) -> Tuple[array, ...]:
 
     .. versionchanged:: 2022.12
        Added complex data type support.
+    """
+
+
+def searchsorted(
+    x1: array,
+    x2: array,
+    /,
+    *,
+    side: Literal["left", "right"] = "left",
+    sorter: Optional[array] = None,
+) -> array:
+    """
+    Finds the indices into ``x1`` such that, if the corresponding elements in ``x2`` were inserted before the indices, the order of ``x1``, when sorted in ascending order, would be preserved.
+
+    Parameters
+    ----------
+    x1: array
+        input array. Must be a one-dimensional array. Should have a real-valued data type. If ``sorter`` is ``None``, must be sorted in ascending order; otherwise, ``sorter`` must be an array of indices that sort ``x1`` in ascending order.
+    x2: array
+        array containing search values. Should have a real-valued data type.
+    side: Literal['left', 'right']
+        argument controlling which index is returned if a value lands exactly on an edge.
+
+        Let ``x`` be an array of rank ``N`` where ``v`` is an individual element given by ``v = x2[n,m,...,j]``.
+
+        If ``side == 'left'``, then
+
+        - each returned index ``i`` must satisfy the index condition ``x1[i-1] < v <= x1[i]``.
+        - if no index satisfies the index condition, then the returned index for that element must be ``0``.
+
+        Otherwise, if ``side == 'right'``, then
+
+        - each returned index ``i`` must satisfy the index condition ``x1[i-1] <= v < x1[i]``.
+        - if no index satisfies the index condition, then the returned index for that element must be ``N``, where ``N`` is the number of elements in ``x1``.
+
+        Default: ``'left'``.
+    sorter: Optional[array]
+        array of indices that sort ``x1`` in ascending order. The array must have the same shape as ``x1`` and have an integer data type. Default: ``None``.
+
+    Returns
+    -------
+    out: array
+        an array of indices with the same shape as ``x2``. The returned array must have the default array index data type.
+
+    Notes
+    -----
+
+    For real-valued floating-point arrays, the sort order of NaNs and signed zeros is unspecified and thus implementation-dependent. Accordingly, when a real-valued floating-point array contains NaNs and signed zeros, what constitutes ascending order may vary among specification-conforming array libraries.
+
+    While behavior for arrays containing NaNs and signed zeros is implementation-dependent, specification-conforming libraries should, however, ensure consistency with ``sort`` and ``argsort`` (i.e., if a value in ``x2`` is inserted into ``x1`` according to the corresponding index in the output array and ``sort`` is invoked on the resultant array, the sorted result should be an array in the same order).
     """
 
 
@@ -206,7 +257,7 @@ def top_k_values(
         -  ``'smallest'``: return the indices of the ``k`` smallest elements.
 
         Default: ``'largest'``.
-
+    
     Returns
     -------
     out: array
@@ -220,7 +271,7 @@ def top_k_values(
     -   Conforming implementations may support complex numbers; however, inequality comparison of complex numbers is unspecified and thus implementation-dependent (see :ref:`complex-number-ordering`).
     """
 
-
+       
 def where(condition: array, x1: array, x2: array, /) -> array:
     """
     Returns elements chosen from ``x1`` or ``x2`` depending on ``condition``.

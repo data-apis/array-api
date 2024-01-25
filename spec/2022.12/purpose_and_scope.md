@@ -151,7 +151,7 @@ standard is shown in this diagram:
    _Rationale: this is an important topic for some array-consuming libraries,
    but there is no widely shared C/Cython API and hence it doesn't make sense at
    this point in time to standardize anything. See
-   the [C API section](design_topics/C_API.md) for more details._
+   the [C API section](design_topics/C_API.rst) for more details._
 
 4. Standardization of these dtypes is out of scope: bfloat16, extended
    precision floating point, datetime, string, object and void dtypes.

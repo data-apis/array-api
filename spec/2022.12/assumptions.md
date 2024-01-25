@@ -26,7 +26,7 @@ of functions to be predictable from input dtypes only rather than input values.
 
 The only dependency that's assumed in this standard is that on Python itself.
 Python >= 3.8 is assumed, motivated by the use of positional-only parameters
-(see [function and method signatures](API_specification/function_and_method_signatures.md)).
+(see [function and method signatures](API_specification/function_and_method_signatures.rst)).
 
 Importantly, array libraries are not assumed to be aware of each other, or of
 a common array-specific layer. The [use cases](use_cases.md) do not require
@@ -39,7 +39,7 @@ for that is:
 
 Array libraries may know how to interoperate with each other, for example by
 constructing their own array type from that of another library or by shared
-memory use of an array (see [Data interchange mechanisms](design_topics/data_interchange.md)).
+memory use of an array (see [Data interchange mechanisms](design_topics/data_interchange.rst)).
 This can be done without a dependency though - only adherence to a protocol is
 enough.
 
