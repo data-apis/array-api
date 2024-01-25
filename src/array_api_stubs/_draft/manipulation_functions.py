@@ -193,7 +193,7 @@ def repeat(
 
 
     .. note::
-       For specification-conforming array libraries supporting hardware acceleration, providing an array of ``repeats`` may cause device synchronization due to an unknown output shape. Conforming array libraries are advised to include a warning in their documentation regarding potential performance degradation when ``repeats`` is an array.
+       For specification-conforming array libraries supporting hardware acceleration, providing an array for ``repeats`` may cause device synchronization due to an unknown output shape. Conforming array libraries are advised to include a warning in their documentation regarding potential performance degradation when ``repeats`` is an array.
 
     axis: Optional[int]
         the axis (dimension) along which to repeat elements. If ``axis`` is `None`, the function must flatten the input array ``x`` and then repeat elements of the flattened input array and return the result as a one-dimensional output array. A flattened input array must be flattened in row-major, C-style order. Default: ``None``.
