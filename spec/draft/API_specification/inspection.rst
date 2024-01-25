@@ -27,7 +27,7 @@ Inspection APIs
 For the namespace (or class) returned by ``__array_namespace__info__``, a conforming implementation of the array API standard must provide and support the following functions (or methods) for programmatically querying data type and device support, capabilities, and other specification-defined implementation-specific behavior, as documented in the functions described below.
 
 ..
-  NOTE: please keep the methods in alphabetical order
+  NOTE: please keep the functions in alphabetical order
 
 .. autosummary::
    :toctree: generated
