@@ -140,5 +140,5 @@ DataTypes = TypedDict(
     total=False,
 )
 Capabilities = TypedDict(
-    "Capabilities", {"boolean_indexing": bool, "data_dependent_shapes": bool}
+    "Capabilities", {"boolean indexing": bool, "data dependent shapes": bool}
 )
