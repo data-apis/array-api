@@ -53,7 +53,7 @@ def capabilities() -> Capabilities:
     The dictionary should contain the following keys:
 
     -   **boolean indexing**: boolean indicating whether an array library supports boolean indexing.
-    -   **data dependent shapes**: boolean indicating whether an array library supports data-dependent output shapes.
+    -   **data-dependent shapes**: boolean indicating whether an array library supports data-dependent output shapes.
 
     Returns
     -------
