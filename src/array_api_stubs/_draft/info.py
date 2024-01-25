@@ -28,7 +28,20 @@ def __array_namespace_info__() -> Info:
     Returns
     -------
     out: Info
-        Namespace with Array API namespace inspection utilities.
+        An object containing Array API namespace inspection utilities.
+
+    Notes
+    -----
+
+    The returned object may be either a namespace or a class, so long as an Array API user can access inspection utilities as follows:
+
+    ::
+       info = xp.__array_namespace_info__()
+       info.capabilities()
+       info.devices()
+       info.dtypes()
+       info.default_dtypes()
+       # ...
     """
 
 
