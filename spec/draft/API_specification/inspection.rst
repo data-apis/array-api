@@ -29,7 +29,6 @@ For the namespace (or class) returned by ``__array_namespace__info__``, a confor
 ..
   NOTE: please keep the methods in alphabetical order
 
-
 .. autosummary::
    :toctree: generated
    :template: method.rst
