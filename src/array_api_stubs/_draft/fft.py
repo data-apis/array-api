@@ -124,8 +124,8 @@ def fftn(
     x: array,
     /,
     *,
-    s: Sequence[int] = None,
-    axes: Sequence[int] = None,
+    s: Optional[Sequence[int]] = None,
+    axes: Optional[Sequence[int]] = None,
     norm: Literal["backward", "ortho", "forward"] = "backward",
 ) -> array:
     """
@@ -138,7 +138,7 @@ def fftn(
     ----------
     x: array
         input array. Should have a complex-valued floating-point data type.
-    s: Sequence[int]
+    s: Optional[Sequence[int]]
         length of each transformed axis of the output. If
 
         - ``s[i]`` is greater than the length of the input array along the corresponding axis (dimension) ``i``, the input array along the axis ``i`` is zero-padded to length ``s[i]``.
@@ -149,7 +149,7 @@ def fftn(
         If ``s`` is not ``None``, ``axes`` must not be ``None`` either, and ``s[i]`` corresponds to the length along the transformed axis specified by ``axes[i]``.
 
         Default: ``None``.
-    axes: Sequence[int]
+    axes: Optional[Sequence[int]]
         axes (dimensions) over which to compute the Fourier transform. If ``None``, all axes must be transformed.
 
         If ``s`` is specified, the corresponding ``axes`` to be transformed must be explicitly specified too.
@@ -182,8 +182,8 @@ def ifftn(
     x: array,
     /,
     *,
-    s: Sequence[int] = None,
-    axes: Sequence[int] = None,
+    s: Optional[Sequence[int]] = None,
+    axes: Optional[Sequence[int]] = None,
     norm: Literal["backward", "ortho", "forward"] = "backward",
 ) -> array:
     """
@@ -196,7 +196,7 @@ def ifftn(
     ----------
     x: array
         input array. Should have a complex-valued floating-point data type.
-    s: Sequence[int]
+    s: Optional[Sequence[int]]
         length of each transformed axis of the output. If
 
         - ``s[i]`` is greater than the length of the input array along the corresponding axis (dimension) ``i``, the input array along the axis ``i`` is zero-padded to length ``s[i]``.
@@ -207,7 +207,7 @@ def ifftn(
         If ``s`` is not ``None``, ``axes`` must not be ``None`` either, and ``s[i]`` corresponds to the length along the transformed axis specified by ``axes[i]``.
 
         Default: ``None``.
-    axes: Sequence[int]
+    axes: Optional[Sequence[int]]
         axes (dimensions) over which to compute the Fourier transform. If ``None``, all axes must be transformed.
 
         If ``s`` is specified, the corresponding ``axes`` to be transformed must be explicitly specified too.
@@ -343,8 +343,8 @@ def rfftn(
     x: array,
     /,
     *,
-    s: Sequence[int] = None,
-    axes: Sequence[int] = None,
+    s: Optional[Sequence[int]] = None,
+    axes: Optional[Sequence[int]] = None,
     norm: Literal["backward", "ortho", "forward"] = "backward",
 ) -> array:
     """
@@ -357,7 +357,7 @@ def rfftn(
     ----------
     x: array
         input array. Must have a real-valued floating-point data type.
-    s: Sequence[int]
+    s: Optional[Sequence[int]]
         length of each transformed axis of the **input**. If
 
         - ``s[i]`` is greater than the length of the input array along the corresponding axis (dimension) ``i``, the input array along the axis ``i`` is zero-padded to length ``s[i]``.
@@ -368,7 +368,7 @@ def rfftn(
         If ``s`` is not ``None``, ``axes`` must not be ``None`` either, and ``s[i]`` corresponds to the length along the transformed axis specified by ``axes[i]``.
 
         Default: ``None``.
-    axes: Sequence[int]
+    axes: Optional[Sequence[int]]
         axes (dimensions) over which to compute the Fourier transform. If ``None``, all axes must be transformed.
 
         If ``s`` is specified, the corresponding ``axes`` to be transformed must be explicitly specified too.
@@ -402,8 +402,8 @@ def irfftn(
     x: array,
     /,
     *,
-    s: Sequence[int] = None,
-    axes: Sequence[int] = None,
+    s: Optional[Sequence[int]] = None,
+    axes: Optional[Sequence[int]] = None,
     norm: Literal["backward", "ortho", "forward"] = "backward",
 ) -> array:
     """
@@ -416,7 +416,7 @@ def irfftn(
     ----------
     x: array
         input array. Should have a complex-valued floating-point data type.
-    s: Sequence[int]
+    s: Optional[Sequence[int]]
         length of each transformed axis of the **output**. ``n=s[i]`` is also the number of input points used along the axis (dimension) ``i``, except for the last axis, where ``n=s[-1]//2+1`` points of the input are used. If
 
         - ``n`` is greater than the length of the input array along the corresponding axis (dimension) ``i``, the input array along the axis ``i`` is zero-padded to length ``n``.
@@ -427,7 +427,7 @@ def irfftn(
         If ``s`` is not ``None``, ``axes`` must not be ``None`` either, and ``s[i]`` corresponds to the length along the transformed axis specified by ``axes[i]``.
 
         Default: ``None``.
-    axes: Sequence[int]
+    axes: Optional[Sequence[int]]
         axes (dimensions) over which to compute the Fourier transform. If ``None``, all axes must be transformed.
 
         If ``s`` is specified, the corresponding ``axes`` to be transformed must be explicitly specified too.
@@ -618,7 +618,7 @@ def rfftfreq(n: int, /, *, d: float = 1.0, device: Optional[device] = None) -> a
     """
 
 
-def fftshift(x: array, /, *, axes: Union[int, Sequence[int]] = None) -> array:
+def fftshift(x: array, /, *, axes: Optional[Union[int, Sequence[int]]] = None) -> array:
     """
     Shift the zero-frequency component to the center of the spectrum.
 
@@ -631,7 +631,7 @@ def fftshift(x: array, /, *, axes: Union[int, Sequence[int]] = None) -> array:
     ----------
     x: array
         input array. Should have a floating-point data type.
-    axes: Union[int, Sequence[int]]
+    axes: Optional[Union[int, Sequence[int]]]
         axes over which to shift. If ``None``, the function must shift all axes. Default: ``None``.
 
     Returns
@@ -646,7 +646,7 @@ def fftshift(x: array, /, *, axes: Union[int, Sequence[int]] = None) -> array:
     """
 
 
-def ifftshift(x: array, /, *, axes: Union[int, Sequence[int]] = None) -> array:
+def ifftshift(x: array, /, *, axes: Optional[Union[int, Sequence[int]]] = None) -> array:
     """
     Inverse of ``fftshift``.
 
@@ -657,7 +657,7 @@ def ifftshift(x: array, /, *, axes: Union[int, Sequence[int]] = None) -> array:
     ----------
     x: array
         input array. Should have a floating-point data type.
-    axes: Union[int, Sequence[int]]
+    axes: Optional[Union[int, Sequence[int]]]
         axes over which to perform the inverse shift. If ``None``, the function must shift all axes. Default: ``None``.
 
     Returns
