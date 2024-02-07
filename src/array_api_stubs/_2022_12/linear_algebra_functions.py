@@ -32,6 +32,11 @@ def matmul(x1: array, x2: array, /) -> array:
 
         The returned array must have a data type determined by :ref:`type-promotion`.
 
+    Notes
+    -----
+
+    .. versionchanged:: 2022.12
+       Added complex data type support.
 
     **Raises**
 
@@ -91,7 +96,7 @@ def tensordot(
         -   If ``N`` equals ``1``, the result is the tensor dot product.
         -   If ``N`` equals ``2``, the result is the tensor double contraction (default).
 
-        If ``axes`` is a tuple of two sequences ``(x1_axes, x2_axes)``, the first sequence must apply to ``x`` and the second sequence to ``x2``. Both sequences must have the same length. Each axis (dimension) ``x1_axes[i]`` for ``x1`` must have the same size as the respective axis (dimension) ``x2_axes[i]`` for ``x2``. Each sequence must consist of unique (nonnegative) integers that specify valid axes for each respective array.
+        If ``axes`` is a tuple of two sequences ``(x1_axes, x2_axes)``, the first sequence must apply to ``x1`` and the second sequence to ``x2``. Both sequences must have the same length. Each axis (dimension) ``x1_axes[i]`` for ``x1`` must have the same size as the respective axis (dimension) ``x2_axes[i]`` for ``x2``. Each sequence must consist of unique (nonnegative) integers that specify valid axes for each respective array.
 
 
     .. note::
@@ -101,6 +106,12 @@ def tensordot(
     -------
     out: array
         an array containing the tensor contraction whose shape consists of the non-contracted axes (dimensions) of the first array ``x1``, followed by the non-contracted axes (dimensions) of the second array ``x2``. The returned array must have a data type determined by :ref:`type-promotion`.
+
+    Notes
+    -----
+
+    .. versionchanged:: 2022.12
+       Added complex data type support.
     """
 
 
@@ -111,9 +122,9 @@ def vecdot(x1: array, x2: array, /, *, axis: int = -1) -> array:
     Let :math:`\mathbf{a}` be a vector in ``x1`` and :math:`\mathbf{b}` be a corresponding vector in ``x2``. The dot product is defined as
 
     .. math::
-       \mathbf{a} \cdot \mathbf{b} = \sum_{i=0}^{n-1} a_i\overline{b_i}
+       \mathbf{a} \cdot \mathbf{b} = \sum_{i=0}^{n-1} \overline{a_i}b_i
 
-    over the dimension specified by ``axis`` and where :math:`n` is the dimension size and :math:`\overline{b_i}` denotes the complex conjugate if :math:`b_i` is complex and the identity if :math:`b_i` is real-valued.
+    over the dimension specified by ``axis`` and where :math:`n` is the dimension size and :math:`\overline{a_i}` denotes the complex conjugate if :math:`a_i` is complex and the identity if :math:`a_i` is real-valued.
 
     Parameters
     ----------
@@ -133,6 +144,11 @@ def vecdot(x1: array, x2: array, /, *, axis: int = -1) -> array:
     out: array
         if ``x1`` and ``x2`` are both one-dimensional arrays, a zero-dimensional containing the dot product; otherwise, a non-zero-dimensional array containing the dot products and having rank ``N-1``, where ``N`` is the rank (number of dimensions) of the shape determined according to :ref:`broadcasting` along the non-contracted axes. The returned array must have a data type determined by :ref:`type-promotion`.
 
+    Notes
+    -----
+
+    .. versionchanged:: 2022.12
+       Added complex data type support.
 
     **Raises**
 

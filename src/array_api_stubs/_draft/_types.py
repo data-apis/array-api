@@ -6,6 +6,27 @@ library, e.g., for NumPy TypeVar('array') would be replaced with ndarray.
 """
 from __future__ import annotations
 
+__all__ = [
+    "Any",
+    "List",
+    "Literal",
+    "NestedSequence",
+    "Optional",
+    "PyCapsule",
+    "SupportsBufferProtocol",
+    "SupportsDLPack",
+    "Tuple",
+    "Union",
+    "Sequence",
+    "array",
+    "device",
+    "dtype",
+    "ellipsis",
+    "finfo_object",
+    "iinfo_object",
+    "Enum",
+]
+
 from dataclasses import dataclass
 from typing import (
     Any,
@@ -34,19 +55,23 @@ ellipsis = TypeVar("ellipsis")
 @dataclass
 class finfo_object:
     """Dataclass returned by `finfo`."""
+
     bits: int
     eps: float
     max: float
     min: float
     smallest_normal: float
+    dtype: dtype
 
 
 @dataclass
 class iinfo_object:
     """Dataclass returned by `iinfo`."""
+
     bits: int
     max: int
     min: int
+    dtype: dtype
 
 
 _T_co = TypeVar("_T_co", covariant=True)
@@ -58,25 +83,3 @@ class NestedSequence(Protocol[_T_co]):
 
     def __len__(self, /) -> int:
         ...
-
-
-__all__ = [
-    "Any",
-    "List",
-    "Literal",
-    "NestedSequence",
-    "Optional",
-    "PyCapsule",
-    "SupportsBufferProtocol",
-    "SupportsDLPack",
-    "Tuple",
-    "Union",
-    "Sequence",
-    "array",
-    "device",
-    "dtype",
-    "ellipsis",
-    "finfo_object",
-    "iinfo_object",
-    "Enum",
-]

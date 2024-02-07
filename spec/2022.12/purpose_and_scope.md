@@ -144,23 +144,22 @@ standard is shown in this diagram:
    _Rationale: execution is the domain of implementations. Attempting to specify
    execution behavior in a standard is likely to require much more fine-grained
    coordination between developers of implementations, and hence is likely to
-   become an obstable to adoption._
+   become an obstacle to adoption._
 
 3. Non-Python API standardization (e.g., Cython or NumPy C APIs)
 
    _Rationale: this is an important topic for some array-consuming libraries,
    but there is no widely shared C/Cython API and hence it doesn't make sense at
    this point in time to standardize anything. See
-   the [C API section](design_topics/C_API.md) for more details._
+   the [C API section](design_topics/C_API.rst) for more details._
 
-4. Standardization of these dtypes is out of scope: bfloat16, complex, extended
+4. Standardization of these dtypes is out of scope: bfloat16, extended
    precision floating point, datetime, string, object and void dtypes.
 
    _Rationale: these dtypes aren't uniformly supported, and their inclusion at
    this point in time could put a significant implementation burden on
    libraries. It is expected that some of these dtypes - in particular
-   `bfloat16`, `complex64`, and `complex128` - will be included in a future
-   version of the standard._
+   `bfloat16` - will be included in a future version of the standard._
 
 5. The following topics are out of scope: I/O, polynomials, error handling,
    testing routines, building and packaging related functionality, methods of

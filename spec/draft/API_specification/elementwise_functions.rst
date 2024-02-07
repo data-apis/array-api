@@ -33,7 +33,9 @@ Objects in API
    bitwise_right_shift
    bitwise_xor
    ceil
+   clip
    conj
+   copysign
    cos
    cosh
    divide
@@ -44,6 +46,7 @@ Objects in API
    floor_divide
    greater
    greater_equal
+   imag
    isfinite
    isinf
    isnan
@@ -58,6 +61,8 @@ Objects in API
    logical_not
    logical_or
    logical_xor
+   maximum
+   minimum
    multiply
    negative
    not_equal
@@ -67,6 +72,7 @@ Objects in API
    remainder
    round
    sign
+   signbit
    sin
    sinh
    square

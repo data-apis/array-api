@@ -23,4 +23,5 @@ Objects in API
    argmax
    argmin
    nonzero
+   searchsorted
    where

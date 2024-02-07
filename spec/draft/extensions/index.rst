@@ -24,11 +24,10 @@ the implementer, e.g. via a regular submodule that is imported under the
 The functions in an extension must adhere to the same conventions as those in
 the array API standard. See :ref:`api-specification`.
 
-
-Extensions
-----------
+------------------------------------------------------------------------------
 
 .. toctree::
+   :caption: Extension modules:
    :maxdepth: 1
 
    fourier_transform_functions

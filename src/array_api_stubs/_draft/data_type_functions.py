@@ -1,7 +1,20 @@
-from ._types import Union, Tuple, array, dtype, finfo_object, iinfo_object
+__all__ = ["astype", "can_cast", "finfo", "iinfo", "isdtype", "result_type"]
+
+from ._types import (
+    Union,
+    Tuple,
+    array,
+    dtype,
+    finfo_object,
+    iinfo_object,
+    device,
+    Optional,
+)
 
 
-def astype(x: array, dtype: dtype, /, *, copy: bool = True) -> array:
+def astype(
+    x: array, dtype: dtype, /, *, copy: bool = True, device: Optional[device] = None
+) -> array:
     """
     Copies an array to a specified data type irrespective of :ref:`type-promotion` rules.
 
@@ -31,6 +44,8 @@ def astype(x: array, dtype: dtype, /, *, copy: bool = True) -> array:
         desired data type.
     copy: bool
         specifies whether to copy an array when the specified ``dtype`` matches the data type of the input array ``x``. If ``True``, a newly allocated array must always be returned. If ``False`` and the specified ``dtype`` matches the data type of the input array, the input array must be returned; otherwise, a newly allocated array must be returned. Default: ``True``.
+    device: Optional[device]
+        device on which to place the returned array. If ``device`` is ``None``, the output array device must be inferred from ``x``. Default: ``None``.
 
     Returns
     -------
@@ -164,13 +179,13 @@ def isdtype(
         -   If ``kind`` is a dtype, the function must return a boolean indicating whether the input ``dtype`` is equal to the dtype specified by ``kind``.
         -   If ``kind`` is a string, the function must return a boolean indicating whether the input ``dtype`` is of a specified data type kind. The following dtype kinds must be supported:
 
-            -   **bool**: boolean data types (e.g., ``bool``).
-            -   **signed integer**: signed integer data types (e.g., ``int8``, ``int16``, ``int32``, ``int64``).
-            -   **unsigned integer**: unsigned integer data types (e.g., ``uint8``, ``uint16``, ``uint32``, ``uint64``).
-            -   **integral**: integer data types. Shorthand for ``('signed integer', 'unsigned integer')``.
-            -   **real floating**: real-valued floating-point data types (e.g., ``float32``, ``float64``).
-            -   **complex floating**: complex floating-point data types (e.g., ``complex64``, ``complex128``).
-            -   **numeric**: numeric data types. Shorthand for ``('integral', 'real floating', 'complex floating')``.
+            -   ``'bool'``: boolean data types (e.g., ``bool``).
+            -   ``'signed integer'``: signed integer data types (e.g., ``int8``, ``int16``, ``int32``, ``int64``).
+            -   ``'unsigned integer'``: unsigned integer data types (e.g., ``uint8``, ``uint16``, ``uint32``, ``uint64``).
+            -   ``'integral'``: integer data types. Shorthand for ``('signed integer', 'unsigned integer')``.
+            -   ``'real floating'``: real-valued floating-point data types (e.g., ``float32``, ``float64``).
+            -   ``'complex floating'``: complex floating-point data types (e.g., ``complex64``, ``complex128``).
+            -   ``'numeric'``: numeric data types. Shorthand for ``('integral', 'real floating', 'complex floating')``.
 
         -   If ``kind`` is a tuple, the tuple specifies a union of dtypes and/or kinds, and the function must return a boolean indicating whether the input ``dtype`` is either equal to a specified dtype or belongs to at least one specified data type kind.
 
@@ -208,6 +223,3 @@ def result_type(*arrays_and_dtypes: Union[array, dtype]) -> dtype:
     out: dtype
         the dtype resulting from an operation involving the input arrays and dtypes.
     """
-
-
-__all__ = ["astype", "can_cast", "finfo", "iinfo", "isdtype", "result_type"]

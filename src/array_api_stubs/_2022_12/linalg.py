@@ -18,7 +18,7 @@ def cholesky(x: array, /, *, upper: bool = False) -> array:
     The upper Cholesky decomposition is defined similarly
 
     .. math::
-       x = UU^{H} \qquad \text{U $\in\ \mathbb{K}^{n \times n}$}
+       x = U^{H}U \qquad \text{U $\in\ \mathbb{K}^{n \times n}$}
 
     where :math:`U` is an upper triangular matrix.
 
@@ -38,6 +38,12 @@ def cholesky(x: array, /, *, upper: bool = False) -> array:
     -------
     out: array
         an array containing the Cholesky factors for each square matrix. If ``upper`` is ``False``, the returned array must contain lower-triangular matrices; otherwise, the returned array must contain upper-triangular matrices. The returned array must have a floating-point data type determined by :ref:`type-promotion` and must have the same shape as ``x``.
+
+    Notes
+    -----
+
+    .. versionchanged:: 2022.12
+       Added complex data type support.
     """
 
 
@@ -65,6 +71,14 @@ def cross(x1: array, x2: array, /, *, axis: int = -1) -> array:
     out: array
         an array containing the cross products. The returned array must have a data type determined by :ref:`type-promotion`.
 
+    Notes
+    -----
+
+    .. versionchanged:: 2022.12
+       Added support for broadcasting.
+
+    .. versionchanged:: 2022.12
+       Added complex data type support.
 
     **Raises**
 
@@ -87,6 +101,12 @@ def det(x: array, /) -> array:
     -------
     out: array
         if ``x`` is a two-dimensional array, a zero-dimensional array containing the determinant; otherwise, a non-zero dimensional array containing the determinant for each square matrix. The returned array must have the same data type as ``x``.
+
+    Notes
+    -----
+
+    .. versionchanged:: 2022.12
+       Added complex data type support.
     """
 
 
@@ -154,9 +174,14 @@ def eigh(x: array, /) -> Tuple[array]:
         -   first element must have the field name ``eigenvalues`` (corresponding to :math:`\operatorname{diag}\Lambda` above) and must be an array consisting of computed eigenvalues. The array containing the eigenvalues must have shape ``(..., M)`` and must have a real-valued floating-point data type whose precision matches the precision of ``x`` (e.g., if ``x`` is ``complex128``, then ``eigenvalues`` must be ``float64``).
         -   second element have have the field name ``eigenvectors`` (corresponding to :math:`Q` above) and must be an array where the columns of the inner most matrices contain the computed eigenvectors. These matrices must be orthogonal. The array containing the eigenvectors must have shape ``(..., M, M)`` and must have the same data type as ``x``.
 
+    Notes
+    -----
 
     .. note::
        Eigenvalue sort order is left unspecified and is thus implementation-dependent.
+
+    .. versionchanged:: 2022.12
+       Added complex data type support.
     """
 
 
@@ -192,9 +217,14 @@ def eigvalsh(x: array, /) -> array:
     out: array
         an array containing the computed eigenvalues. The returned array must have shape ``(..., M)`` and have a real-valued floating-point data type whose precision matches the precision of ``x`` (e.g., if ``x`` is ``complex128``, then must have a ``float64`` data type).
 
+    Notes
+    -----
 
     .. note::
        Eigenvalue sort order is left unspecified and is thus implementation-dependent.
+
+    .. versionchanged:: 2022.12
+       Added complex data type support.
     """
 
 
@@ -224,6 +254,12 @@ def inv(x: array, /) -> array:
     -------
     out: array
         an array containing the multiplicative inverses. The returned array must have a floating-point data type determined by :ref:`type-promotion` and must have the same shape as ``x``.
+
+    Notes
+    -----
+
+    .. versionchanged:: 2022.12
+       Added complex data type support.
     """
 
 
@@ -288,6 +324,12 @@ def matrix_norm(
     -------
     out: array
         an array containing the norms for each ``MxN`` matrix. If ``keepdims`` is ``False``, the returned array must have a rank which is two less than the rank of ``x``. If ``x`` has a real-valued data type, the returned array must have a real-valued floating-point data type determined by :ref:`type-promotion`. If ``x`` has a complex-valued data type, the returned array must have a real-valued floating-point data type whose precision matches the precision of ``x`` (e.g., if ``x`` is ``complex128``, then the returned array must have a ``float64`` data type).
+
+    Notes
+    -----
+
+    .. versionchanged:: 2022.12
+       Added complex data type support.
     """
 
 
@@ -306,6 +348,12 @@ def matrix_power(x: array, n: int, /) -> array:
     -------
     out: array
         if ``n`` is equal to zero, an array containing the identity matrix for each square matrix. If ``n`` is less than zero, an array containing the inverse of each square matrix raised to the absolute value of ``n``, provided that each square matrix is invertible. If ``n`` is greater than zero, an array containing the result of raising each square matrix to the power ``n``. The returned array must have the same shape as ``x`` and a floating-point data type determined by :ref:`type-promotion`.
+
+    Notes
+    -----
+
+    .. versionchanged:: 2022.12
+       Added complex data type support.
     """
 
 
@@ -326,6 +374,12 @@ def matrix_rank(x: array, /, *, rtol: Optional[Union[float, array]] = None) -> a
     -------
     out: array
         an array containing the ranks. The returned array must have the default integer data type and must have shape ``(...)`` (i.e., must have a shape equal to ``shape(x)[:-2]``).
+
+    Notes
+    -----
+
+    .. versionchanged:: 2022.12
+       Added complex data type support.
     """
 
 
@@ -348,6 +402,12 @@ def outer(x1: array, x2: array, /) -> array:
     -------
     out: array
         a two-dimensional array containing the outer product and whose shape is ``(N, M)``. The returned array must have a data type determined by :ref:`type-promotion`.
+
+    Notes
+    -----
+
+    .. versionchanged:: 2022.12
+       Added complex data type support.
     """
 
 
@@ -382,6 +442,12 @@ def pinv(x: array, /, *, rtol: Optional[Union[float, array]] = None) -> array:
     -------
     out: array
         an array containing the pseudo-inverse(s). The returned array must have a floating-point data type determined by :ref:`type-promotion` and must have shape ``(..., N, M)`` (i.e., must have the same shape as ``x``, except the innermost two dimensions must be transposed).
+
+    Notes
+    -----
+
+    .. versionchanged:: 2022.12
+       Added complex data type support.
     """
 
 
@@ -407,7 +473,7 @@ def qr(
 
     where :math:`Q \in\ \mathbb{K}^{m \times n}` and :math:`R \in\ \mathbb{K}^{n \times n}`.
 
-    The reduced QR decomposition equals with the complete QR decomposition when :math:`n \qeq m` (wide matrix).
+    The reduced QR decomposition equals with the complete QR decomposition when :math:`n \geq m` (wide matrix).
 
     When ``x`` is a stack of matrices, the function must compute the QR decomposition for each matrix in the stack.
 
@@ -441,6 +507,12 @@ def qr(
         -   second element must have the field name ``R`` and must be an array whose shape depends on the value of ``mode`` and contain upper-triangular matrices. If ``mode`` is ``'complete'``, the array must have shape ``(..., M, N)``. If ``mode`` is ``'reduced'``, the array must have shape ``(..., K, N)``, where ``K = min(M, N)``. The first ``x.ndim-2`` dimensions must have the same size as those of the input ``x``.
 
         Each returned array must have a floating-point data type determined by :ref:`type-promotion`.
+
+    Notes
+    -----
+
+    .. versionchanged:: 2022.12
+       Added complex data type support.
     """
 
 
@@ -490,6 +562,12 @@ def slogdet(x: array, /) -> Tuple[array, array]:
         -   second element must have the field name ``logabsdet`` and must be an array containing the natural logarithm of the absolute value of the determinant for each square matrix. If ``x`` is real-valued, the returned array must have a real-valued floating-point data type determined by :ref:`type-promotion`. If ``x`` is complex, the returned array must have a real-valued floating-point data type having the same precision as ``x`` (e.g., if ``x`` is ``complex64``, ``logabsdet`` must have a ``float32`` data type).
 
         Each returned array must have shape ``shape(x)[:-2]``.
+
+    Notes
+    -----
+
+    .. versionchanged:: 2022.12
+       Added complex data type support.
     """
 
 
@@ -522,10 +600,16 @@ def solve(x1: array, x2: array, /) -> array:
     -------
     out: array
         an array containing the solution to the system ``AX = B`` for each square matrix. The returned array must have the same shape as ``x2`` (i.e., the array corresponding to ``B``) and must have a floating-point data type determined by :ref:`type-promotion`.
+
+    Notes
+    -----
+
+    .. versionchanged:: 2022.12
+       Added complex data type support.
     """
 
 
-def svd(x: array, /, *, full_matrices: bool = True) -> Union[array, Tuple[array, ...]]:
+def svd(x: array, /, *, full_matrices: bool = True) -> Tuple[array, array, array]:
     r"""
     Returns a singular value decomposition (SVD) of a matrix (or a stack of matrices) ``x``.
 
@@ -565,12 +649,18 @@ def svd(x: array, /, *, full_matrices: bool = True) -> Union[array, Tuple[array,
 
     Returns
     -------
-    out: Union[array, Tuple[array, ...]]
+    out: Tuple[array, array, array]
         a namedtuple ``(U, S, Vh)`` whose
 
         -   first element must have the field name ``U`` and must be an array whose shape depends on the value of ``full_matrices`` and contain matrices with orthonormal columns (i.e., the columns are left singular vectors). If ``full_matrices`` is ``True``, the array must have shape ``(..., M, M)``. If ``full_matrices`` is ``False``, the array must have shape ``(..., M, K)``, where ``K = min(M, N)``. The first ``x.ndim-2`` dimensions must have the same shape as those of the input ``x``. Must have the same data type as ``x``.
         -   second element must have the field name ``S`` and must be an array with shape ``(..., K)`` that contains the vector(s) of singular values of length ``K``, where ``K = min(M, N)``. For each vector, the singular values must be sorted in descending order by magnitude, such that ``s[..., 0]`` is the largest value, ``s[..., 1]`` is the second largest value, et cetera. The first ``x.ndim-2`` dimensions must have the same shape as those of the input ``x``. Must have a real-valued floating-point data type having the same precision as ``x`` (e.g., if ``x`` is ``complex64``, ``S`` must have a ``float32`` data type).
         -   third element must have the field name ``Vh`` and must be an array whose shape depends on the value of ``full_matrices`` and contain orthonormal rows (i.e., the rows are the right singular vectors and the array is the adjoint). If ``full_matrices`` is ``True``, the array must have shape ``(..., N, N)``. If ``full_matrices`` is ``False``, the array must have shape ``(..., K, N)`` where ``K = min(M, N)``. The first ``x.ndim-2`` dimensions must have the same shape as those of the input ``x``. Must have the same data type as ``x``.
+
+    Notes
+    -----
+
+    .. versionchanged:: 2022.12
+       Added complex data type support.
     """
 
 
@@ -589,6 +679,12 @@ def svdvals(x: array, /) -> array:
     -------
     out: array
         an array with shape ``(..., K)`` that contains the vector(s) of singular values of length ``K``, where ``K = min(M, N)``. For each vector, the singular values must be sorted in descending order by magnitude, such that ``s[..., 0]`` is the largest value, ``s[..., 1]`` is the second largest value, et cetera. The first ``x.ndim-2`` dimensions must have the same shape as those of the input ``x``. The returned array must have a real-valued floating-point data type having the same precision as ``x`` (e.g., if ``x`` is ``complex64``, the returned array must have a ``float32`` data type).
+
+    Notes
+    -----
+
+    .. versionchanged:: 2022.12
+       Added complex data type support.
     """
 
 
@@ -653,6 +749,9 @@ def trace(x: array, /, *, offset: int = 0, dtype: Optional[dtype] = None) -> arr
     -   If ``N`` is ``0``, the sum is ``0`` (i.e., the empty sum).
 
     For both real-valued and complex floating-point operands, special cases must be handled as if the operation is implemented by successive application of :func:`~array_api.add`.
+
+    .. versionchanged:: 2022.12
+       Added complex data type support.
     """
 
 
@@ -716,6 +815,12 @@ def vector_norm(
     -------
     out: array
         an array containing the vector norms. If ``axis`` is ``None``, the returned array must be a zero-dimensional array containing a vector norm. If ``axis`` is a scalar value (``int`` or ``float``), the returned array must have a rank which is one less than the rank of ``x``. If ``axis`` is a ``n``-tuple, the returned array must have a rank which is ``n`` less than the rank of ``x``. If ``x`` has a real-valued data type, the returned array must have a real-valued floating-point data type determined by :ref:`type-promotion`. If ``x`` has a complex-valued data type, the returned array must have a real-valued floating-point data type whose precision matches the precision of ``x`` (e.g., if ``x`` is ``complex128``, then the returned array must have a ``float64`` data type).
+
+    Notes
+    -----
+
+    .. versionchanged:: 2022.12
+       Added complex data type support.
     """
 
 

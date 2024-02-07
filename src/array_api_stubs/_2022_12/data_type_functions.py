@@ -36,6 +36,12 @@ def astype(x: array, dtype: dtype, /, *, copy: bool = True) -> array:
     -------
     out: array
         an array having the specified data type. The returned array must have the same shape as ``x``.
+
+    Notes
+    -----
+
+    .. versionchanged:: 2022.12
+       Added complex data type support.
     """
 
 
@@ -97,6 +103,14 @@ def finfo(type: Union[dtype, array], /) -> finfo_object:
         - **dtype**: dtype
 
           real-valued floating-point data type.
+
+          .. versionadded:: 2022.12
+
+    Notes
+    -----
+
+    .. versionchanged:: 2022.12
+       Added complex data type support.
     """
 
 
@@ -129,6 +143,8 @@ def iinfo(type: Union[dtype, array], /) -> iinfo_object:
         - **dtype**: dtype
 
           integer data type.
+
+          .. versionadded:: 2022.12
     """
 
 
@@ -148,13 +164,13 @@ def isdtype(
         -   If ``kind`` is a dtype, the function must return a boolean indicating whether the input ``dtype`` is equal to the dtype specified by ``kind``.
         -   If ``kind`` is a string, the function must return a boolean indicating whether the input ``dtype`` is of a specified data type kind. The following dtype kinds must be supported:
 
-            -   **bool**: boolean data types (e.g., ``bool``).
-            -   **signed integer**: signed integer data types (e.g., ``int8``, ``int16``, ``int32``, ``int64``).
-            -   **unsigned integer**: unsigned integer data types (e.g., ``uint8``, ``uint16``, ``uint32``, ``uint64``).
-            -   **integral**: integer data types. Shorthand for ``('signed integer', 'unsigned integer')``.
-            -   **real floating**: real-valued floating-point data types (e.g., ``float32``, ``float64``).
-            -   **complex floating**: complex floating-point data types (e.g., ``complex64``, ``complex128``).
-            -   **numeric**: numeric data types. Shorthand for ``('integral', 'real floating', 'complex floating')``.
+            -   ``'bool'``: boolean data types (e.g., ``bool``).
+            -   ``'signed integer'``: signed integer data types (e.g., ``int8``, ``int16``, ``int32``, ``int64``).
+            -   ``'unsigned integer'``: unsigned integer data types (e.g., ``uint8``, ``uint16``, ``uint32``, ``uint64``).
+            -   ``'integral'``: integer data types. Shorthand for ``('signed integer', 'unsigned integer')``.
+            -   ``'real floating'``: real-valued floating-point data types (e.g., ``float32``, ``float64``).
+            -   ``'complex floating'``: complex floating-point data types (e.g., ``complex64``, ``complex128``).
+            -   ``'numeric'``: numeric data types. Shorthand for ``('integral', 'real floating', 'complex floating')``.
 
         -   If ``kind`` is a tuple, the tuple specifies a union of dtypes and/or kinds, and the function must return a boolean indicating whether the input ``dtype`` is either equal to a specified dtype or belongs to at least one specified data type kind.
 
@@ -167,6 +183,11 @@ def isdtype(
     -------
     out: bool
         boolean indicating whether a provided dtype is of a specified data type kind.
+
+    Notes
+    -----
+
+    .. versionadded:: 2022.12
     """
 
 

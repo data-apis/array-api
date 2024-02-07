@@ -1,6 +1,7 @@
 from ._types import Literal, Optional, Tuple, Union, Sequence, array
 from .constants import inf
 
+
 def cholesky(x: array, /, *, upper: bool = False) -> array:
     """
     Returns the lower (upper) Cholesky decomposition x = LLᵀ (x = UᵀU) of a symmetric positive-definite matrix (or a stack of matrices) ``x``, where ``L`` is a lower-triangular matrix or a stack of matrices (``U`` is an upper-triangular matrix or a stack of matrices).
@@ -24,6 +25,7 @@ def cholesky(x: array, /, *, upper: bool = False) -> array:
         an array containing the Cholesky factors for each square matrix. If ``upper`` is ``False``, the returned array must contain lower-triangular matrices; otherwise, the returned array must contain upper-triangular matrices. The returned array must have a floating-point data type determined by :ref:`type-promotion` and must have the same shape as ``x``.
     """
 
+
 def cross(x1: array, x2: array, /, *, axis: int = -1) -> array:
     """
     Returns the cross product of 3-element vectors. If ``x1`` and ``x2`` are multi-dimensional arrays (i.e., both have a rank greater than ``1``), then the cross-product of each pair of corresponding 3-element vectors is independently computed.
@@ -43,6 +45,7 @@ def cross(x1: array, x2: array, /, *, axis: int = -1) -> array:
         an array containing the cross products. The returned array must have a data type determined by :ref:`type-promotion`.
     """
 
+
 def det(x: array, /) -> array:
     """
     Returns the determinant of a square matrix (or a stack of square matrices) ``x``.
@@ -57,6 +60,7 @@ def det(x: array, /) -> array:
     out: array
         if ``x`` is a two-dimensional array, a zero-dimensional array containing the determinant; otherwise, a non-zero dimensional array containing the determinant for each square matrix. The returned array must have the same data type as ``x``.
     """
+
 
 def diagonal(x: array, /, *, offset: int = 0) -> array:
     """
@@ -80,6 +84,7 @@ def diagonal(x: array, /, *, offset: int = 0) -> array:
     out: array
         an array containing the diagonals and whose shape is determined by removing the last two dimensions and appending a dimension equal to the size of the resulting diagonals. The returned array must have the same data type as ``x``.
     """
+
 
 def eigh(x: array, /) -> Tuple[array]:
     """
@@ -113,6 +118,7 @@ def eigh(x: array, /) -> Tuple[array]:
        Eigenvalue sort order is left unspecified and is thus implementation-dependent.
     """
 
+
 def eigvalsh(x: array, /) -> array:
     """
     Returns the eigenvalues of a symmetric matrix (or a stack of symmetric matrices) ``x``.
@@ -140,6 +146,7 @@ def eigvalsh(x: array, /) -> array:
        Eigenvalue sort order is left unspecified and is thus implementation-dependent.
     """
 
+
 def inv(x: array, /) -> array:
     """
     Returns the multiplicative inverse of a square matrix (or a stack of square matrices) ``x``.
@@ -155,12 +162,20 @@ def inv(x: array, /) -> array:
         an array containing the multiplicative inverses. The returned array must have a floating-point data type determined by :ref:`type-promotion` and must have the same shape as ``x``.
     """
 
+
 def matmul(x1: array, x2: array, /) -> array:
     """
     Alias for :func:`~array_api.matmul`.
     """
 
-def matrix_norm(x: array, /, *, keepdims: bool = False, ord: Optional[Union[int, float, Literal[inf, -inf, 'fro', 'nuc']]] = 'fro') -> array:
+
+def matrix_norm(
+    x: array,
+    /,
+    *,
+    keepdims: bool = False,
+    ord: Optional[Union[int, float, Literal[inf, -inf, "fro", "nuc"]]] = "fro",
+) -> array:
     """
     Computes the matrix norm of a matrix (or a stack of matrices) ``x``.
 
@@ -213,6 +228,7 @@ def matrix_norm(x: array, /, *, keepdims: bool = False, ord: Optional[Union[int,
         an array containing the norms for each ``MxN`` matrix. If ``keepdims`` is ``False``, the returned array must have a rank which is two less than the rank of ``x``. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
     """
 
+
 def matrix_power(x: array, n: int, /) -> array:
     """
     Raises a square matrix (or a stack of square matrices) ``x`` to an integer power ``n``.
@@ -229,6 +245,7 @@ def matrix_power(x: array, n: int, /) -> array:
     out: array
         if ``n`` is equal to zero, an array containing the identity matrix for each square matrix. If ``n`` is less than zero, an array containing the inverse of each square matrix raised to the absolute value of ``n``, provided that each square matrix is invertible. If ``n`` is greater than zero, an array containing the result of raising each square matrix to the power ``n``. The returned array must have the same shape as ``x`` and a floating-point data type determined by :ref:`type-promotion`.
     """
+
 
 def matrix_rank(x: array, /, *, rtol: Optional[Union[float, array]] = None) -> array:
     """
@@ -247,10 +264,12 @@ def matrix_rank(x: array, /, *, rtol: Optional[Union[float, array]] = None) -> a
         an array containing the ranks. The returned array must have a floating-point data type determined by :ref:`type-promotion` and must have shape ``(...)`` (i.e., must have a shape equal to ``shape(x)[:-2]``).
     """
 
+
 def matrix_transpose(x: array, /) -> array:
     """
     Alias for :func:`~array_api.matrix_transpose`.
     """
+
 
 def outer(x1: array, x2: array, /) -> array:
     """
@@ -269,6 +288,7 @@ def outer(x1: array, x2: array, /) -> array:
         a two-dimensional array containing the outer product and whose shape is ``(N, M)``. The returned array must have a data type determined by :ref:`type-promotion`.
     """
 
+
 def pinv(x: array, /, *, rtol: Optional[Union[float, array]] = None) -> array:
     """
     Returns the (Moore-Penrose) pseudo-inverse of a matrix (or a stack of matrices) ``x``.
@@ -286,7 +306,10 @@ def pinv(x: array, /, *, rtol: Optional[Union[float, array]] = None) -> array:
         an array containing the pseudo-inverses. The returned array must have a floating-point data type determined by :ref:`type-promotion` and must have shape ``(..., N, M)`` (i.e., must have the same shape as ``x``, except the innermost two dimensions must be transposed).
     """
 
-def qr(x: array, /, *, mode: Literal['reduced', 'complete'] = 'reduced') -> Tuple[array, array]:
+
+def qr(
+    x: array, /, *, mode: Literal["reduced", "complete"] = "reduced"
+) -> Tuple[array, array]:
     """
     Returns the qr decomposition x = QR of a full column rank matrix (or a stack of matrices), where ``Q`` is an orthonormal matrix (or a stack of matrices) and ``R`` is an upper-triangular matrix (or a stack of matrices).
 
@@ -316,6 +339,7 @@ def qr(x: array, /, *, mode: Literal['reduced', 'complete'] = 'reduced') -> Tupl
         Each returned array must have a floating-point data type determined by :ref:`type-promotion`.
     """
 
+
 def slogdet(x: array, /) -> Tuple[array, array]:
     """
     Returns the sign and the natural logarithm of the absolute value of the determinant of a square matrix (or a stack of square matrices) ``x``.
@@ -344,6 +368,7 @@ def slogdet(x: array, /) -> Tuple[array, array]:
            If a determinant is zero, then the corresponding ``sign`` should be ``0`` and ``logabsdet`` should be ``-infinity``; however, depending on the underlying algorithm, the returned result may differ. In all cases, the determinant should be equal to ``sign * exp(logsabsdet)`` (although, again, the result may be subject to numerical precision errors).
     """
 
+
 def solve(x1: array, x2: array, /) -> array:
     """
     Returns the solution to the system of linear equations represented by the well-determined (i.e., full rank) linear matrix equation ``AX = B``.
@@ -364,7 +389,8 @@ def solve(x1: array, x2: array, /) -> array:
         an array containing the solution to the system ``AX = B`` for each square matrix. The returned array must have the same shape as ``x2`` (i.e., the array corresponding to ``B``) and must have a floating-point data type determined by :ref:`type-promotion`.
     """
 
-def svd(x: array, /, *, full_matrices: bool = True) -> Union[array, Tuple[array, ...]]:
+
+def svd(x: array, /, *, full_matrices: bool = True) -> Tuple[array, array, array]:
     """
     Returns a singular value decomposition A = USVh of a matrix (or a stack of matrices) ``x``, where ``U`` is a matrix (or a stack of matrices) with orthonormal columns, ``S`` is a vector of non-negative numbers (or stack of vectors), and ``Vh`` is a matrix (or a stack of matrices) with orthonormal rows.
 
@@ -379,7 +405,7 @@ def svd(x: array, /, *, full_matrices: bool = True) -> Union[array, Tuple[array,
     -------
     ..
       NOTE: once complex numbers are supported, each square matrix must be Hermitian.
-    out: Union[array, Tuple[array, ...]]
+    out: Tuple[array, array, array]
         a namedtuple ``(U, S, Vh)`` whose
 
         -   first element must have the field name ``U`` and must be an array whose shape depends on the value of ``full_matrices`` and contain matrices with orthonormal columns (i.e., the columns are left singular vectors). If ``full_matrices`` is ``True``, the array must have shape ``(..., M, M)``. If ``full_matrices`` is ``False``, the array must have shape ``(..., M, K)``, where ``K = min(M, N)``. The first ``x.ndim-2`` dimensions must have the same shape as those of the input ``x``.
@@ -388,6 +414,7 @@ def svd(x: array, /, *, full_matrices: bool = True) -> Union[array, Tuple[array,
 
         Each returned array must have the same floating-point data type as ``x``.
     """
+
 
 def svdvals(x: array, /) -> array:
     """
@@ -404,10 +431,18 @@ def svdvals(x: array, /) -> array:
         an array with shape ``(..., K)`` that contains the vector(s) of singular values of length ``K``, where ``K = min(M, N)``. For each vector, the singular values must be sorted in descending order by magnitude, such that ``s[..., 0]`` is the largest value, ``s[..., 1]`` is the second largest value, et cetera. The first ``x.ndim-2`` dimensions must have the same shape as those of the input ``x``. The returned array must have the same floating-point data type as ``x``.
     """
 
-def tensordot(x1: array, x2: array, /, *, axes: Union[int, Tuple[Sequence[int], Sequence[int]]] = 2) -> array:
+
+def tensordot(
+    x1: array,
+    x2: array,
+    /,
+    *,
+    axes: Union[int, Tuple[Sequence[int], Sequence[int]]] = 2,
+) -> array:
     """
     Alias for :func:`~array_api.tensordot`.
     """
+
 
 def trace(x: array, /, *, offset: int = 0) -> array:
     """
@@ -438,13 +473,22 @@ def trace(x: array, /, *, offset: int = 0) -> array:
         The returned array must have the same data type as ``x``.
     """
 
+
 def vecdot(x1: array, x2: array, /, *, axis: int = None) -> array:
     """
     Alias for :func:`~array_api.vecdot`.
     """
 
-def vector_norm(x: array, /, *, axis: Optional[Union[int, Tuple[int, ...]]] = None, keepdims: bool = False, ord: Union[int, float, Literal[inf, -inf]] = 2) -> array:
-    """
+
+def vector_norm(
+    x: array,
+    /,
+    *,
+    axis: Optional[Union[int, Tuple[int, ...]]] = None,
+    keepdims: bool = False,
+    ord: Union[int, float, Literal[inf, -inf]] = 2,
+) -> array:
+    r"""
     Computes the vector norm of a vector (or batch of vectors) ``x``.
 
     Parameters
@@ -494,4 +538,29 @@ def vector_norm(x: array, /, *, axis: Optional[Union[int, Tuple[int, ...]]] = No
         an array containing the vector norms. If ``axis`` is ``None``, the returned array must be a zero-dimensional array containing a vector norm. If ``axis`` is a scalar value (``int`` or ``float``), the returned array must have a rank which is one less than the rank of ``x``. If ``axis`` is a ``n``-tuple, the returned array must have a rank which is ``n`` less than the rank of ``x``. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
     """
 
-__all__ = ['cholesky', 'cross', 'det', 'diagonal', 'eigh', 'eigvalsh', 'inv', 'matmul', 'matrix_norm', 'matrix_power', 'matrix_rank', 'matrix_transpose', 'outer', 'pinv', 'qr', 'slogdet', 'solve', 'svd', 'svdvals', 'tensordot', 'trace', 'vecdot', 'vector_norm']
+
+__all__ = [
+    "cholesky",
+    "cross",
+    "det",
+    "diagonal",
+    "eigh",
+    "eigvalsh",
+    "inv",
+    "matmul",
+    "matrix_norm",
+    "matrix_power",
+    "matrix_rank",
+    "matrix_transpose",
+    "outer",
+    "pinv",
+    "qr",
+    "slogdet",
+    "solve",
+    "svd",
+    "svdvals",
+    "tensordot",
+    "trace",
+    "vecdot",
+    "vector_norm",
+]

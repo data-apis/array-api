@@ -1,3 +1,20 @@
+__all__ = [
+    "broadcast_arrays",
+    "broadcast_to",
+    "concat",
+    "expand_dims",
+    "flip",
+    "moveaxis",
+    "permute_dims",
+    "reshape",
+    "roll",
+    "squeeze",
+    "stack",
+    "tile",
+    "unstack",
+]
+
+
 from ._types import List, Optional, Tuple, Union, array
 
 
@@ -67,12 +84,17 @@ def expand_dims(x: array, /, *, axis: int = 0) -> array:
     x: array
         input array.
     axis: int
-        axis position (zero-based). If ``x`` has rank (i.e, number of dimensions) ``N``, a valid ``axis`` must reside on the closed-interval ``[-N-1, N]``. If provided a negative ``axis``, the axis position at which to insert a singleton dimension must be computed as ``N + axis + 1``. Hence, if provided ``-1``, the resolved axis position must be ``N`` (i.e., a singleton dimension must be appended to the input array ``x``). If provided ``-N-1``, the resolved axis position must be ``0`` (i.e., a singleton dimension must be prepended to the input array ``x``). An ``IndexError`` exception must be raised if provided an invalid ``axis`` position.
+        axis position (zero-based). If ``x`` has rank (i.e, number of dimensions) ``N``, a valid ``axis`` must reside on the closed-interval ``[-N-1, N]``. If provided a negative ``axis``, the axis position at which to insert a singleton dimension must be computed as ``N + axis + 1``. Hence, if provided ``-1``, the resolved axis position must be ``N`` (i.e., a singleton dimension must be appended to the input array ``x``). If provided ``-N-1``, the resolved axis position must be ``0`` (i.e., a singleton dimension must be prepended to the input array ``x``).
 
     Returns
     -------
     out: array
         an expanded output array having the same data type as ``x``.
+
+    Raises
+    ------
+    IndexError
+        If provided an invalid ``axis`` position, an ``IndexError`` should be raised.
     """
 
 
@@ -91,6 +113,31 @@ def flip(x: array, /, *, axis: Optional[Union[int, Tuple[int, ...]]] = None) -> 
     -------
     out: array
         an output array having the same data type and shape as ``x`` and whose elements, relative to ``x``, are reordered.
+    """
+
+
+def moveaxis(
+    x: array,
+    source: Union[int, Tuple[int, ...]],
+    destination: Union[int, Tuple[int, ...]],
+    /,
+) -> array:
+    """
+    Moves array axes (dimensions) to new positions, while leaving other axes in their original positions.
+
+    Parameters
+    ----------
+    x: array
+        input array.
+    source: Union[int, Tuple[int, ...]]
+        Axes to move. Provided axes must be unique. If ``x`` has rank (i.e, number of dimensions) ``N``, a valid axis must reside on the half-open interval ``[-N, N)``.
+    destination: Union[int, Tuple[int, ...]]
+        indices defining the desired positions for each respective ``source`` axis index. Provided indices must be unique. If ``x`` has rank (i.e, number of dimensions) ``N``, a valid axis must reside on the half-open interval ``[-N, N)``.
+
+    Returns
+    -------
+    out: array
+        an array containing reordered axes. The returned array must have the same data type as ``x``.
     """
 
 
@@ -125,12 +172,18 @@ def reshape(
     shape: Tuple[int, ...]
         a new shape compatible with the original shape. One shape dimension is allowed to be ``-1``. When a shape dimension is ``-1``, the corresponding output array shape dimension must be inferred from the length of the array and the remaining dimensions.
     copy: Optional[bool]
-        boolean indicating whether or not to copy the input array. If ``True``, the function must always copy. If ``False``, the function must never copy and must raise a ``ValueError`` in case a copy would be necessary. If ``None``, the function must reuse existing memory buffer if possible and copy otherwise. Default: ``None``.
+        whether or not to copy the input array. If ``True``, the function must always copy. If ``False``, the function must never copy. If ``None``, the function must avoid copying, if possible, and may copy otherwise. Default: ``None``.
 
     Returns
     -------
     out: array
         an output array having the same data type and elements as ``x``.
+
+    Raises
+    ------
+    ValueError
+        If ``copy=False`` and a copy would be necessary, a ``ValueError``
+        should be raised.
     """
 
 
@@ -169,12 +222,18 @@ def squeeze(x: array, /, axis: Union[int, Tuple[int, ...]]) -> array:
     x: array
         input array.
     axis: Union[int, Tuple[int, ...]]
-        axis (or axes) to squeeze. If a specified axis has a size greater than one, a ``ValueError`` must be raised.
+        axis (or axes) to squeeze.
 
     Returns
     -------
     out: array
         an output array having the same data type and elements as ``x``.
+
+    Raises
+    ------
+    ValueError
+        If a specified axis has a size greater than one (i.e., it is not a
+        singleton dimension), a ``ValueError`` should be raised.
     """
 
 
@@ -199,15 +258,43 @@ def stack(arrays: Union[Tuple[array, ...], List[array]], /, *, axis: int = 0) ->
     """
 
 
-__all__ = [
-    "broadcast_arrays",
-    "broadcast_to",
-    "concat",
-    "expand_dims",
-    "flip",
-    "permute_dims",
-    "reshape",
-    "roll",
-    "squeeze",
-    "stack",
-]
+def tile(x: array, repetitions: Tuple[int, ...], /):
+    """
+    Constructs an array by tiling an input array.
+
+    Parameters
+    ----------
+    x: array
+        input array.
+    repetitions: Tuple[int, ...]
+        number of repetitions along each axis (dimension).
+
+        Let ``N = len(x.shape)`` and ``M = len(repetitions)``.
+
+        If ``N > M``, the function must prepend ones until all axes (dimensions) are specified (e.g., if ``x`` has shape ``(8,6,4,2)`` and ``repetitions`` is the tuple ``(3,3)``, then ``repetitions`` must be treated as ``(1,1,3,3)``).
+
+        If ``N < M``, the function must prepend singleton axes (dimensions) to ``x`` until ``x`` has as many axes (dimensions) as ``repetitions`` specifies (e.g., if ``x`` has shape ``(4,2)`` and ``repetitions`` is the tuple ``(3,3,3,3)``, then ``x`` must be treated as if it has shape ``(1,1,4,2)``).
+
+    Returns
+    -------
+    out: array
+        a tiled output array. The returned array must have the same data type as ``x`` and must have a rank (i.e., number of dimensions) equal to ``max(N, M)``. If ``S`` is the shape of the tiled array after prepending singleton dimensions (if necessary) and ``r`` is the tuple of repetitions after prepending ones (if necessary), then the number of elements along each axis (dimension) must satisfy ``S[i]*r[i]``, where ``i`` refers to the ``i`` th axis (dimension).
+    """
+
+
+def unstack(x: array, /, *, axis: int = 0) -> Tuple[array, ...]:
+    """
+    Splits an array in a sequence of arrays along the given axis.
+
+    Parameters
+    ----------
+    x: array
+        input array.
+    axis: int
+        axis along which the array will be split. A valid ``axis`` must be on the interval ``[-N, N)``, where ``N`` is the rank (number of dimensions) of ``x``. If provided an ``axis`` outside of the required interval, the function must raise an exception. Default: ``0``.
+
+    Returns
+    -------
+    out: Tuple[array, ...]
+        tuple of slices along the given dimension. All the arrays have the same shape.
+    """

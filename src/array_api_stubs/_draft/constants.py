@@ -1,3 +1,5 @@
+__all__ = ["e", "inf", "nan", "newaxis", "pi"]
+
 e = 2.718281828459045
 """
 IEEE 754 floating-point representation of Euler's constant.
@@ -26,5 +28,3 @@ IEEE 754 floating-point representation of the mathematical constant ``π``.
 
 ``pi = 3.1415926535897932384626433...``
 """
-
-__all__ = ["e", "inf", "nan", "newaxis", "pi"]

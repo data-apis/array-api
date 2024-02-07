@@ -45,10 +45,10 @@ jobs:
 
     # Avoid running this workflow for forks and allow skipping CI:
     if: "github.repository == 'data-apis/array-api' && !contains(github.event.head_commit.message, '[ci skip]') && !contains(github.event.head_commit.message, '[skip ci]') && !contains(github.event.head_commit.message, '[skip github]')"
-    
+
     # Define a sequence of job steps...
     steps:
-      
+
       # Checkout the repository:
       - name: 'Checkout repository'
         uses: actions/checkout@v2
@@ -76,14 +76,14 @@ jobs:
       # Install dependencies:
       - name: 'Install dependencies'
         run: |
-          pip install .[doc]
+          pip install -r doc-requirements.txt
 
       # Generate the documentation:
       - name: 'Build documentation'
         run: |
           # Turn warnings into errors and ensure .doctrees is not deployed:
           export SPHINXOPTS="-b html -WT --keep-going -d doctrees"
-          make
+          make spec
 
       # Configure Git:
       - name: 'Configure Git'

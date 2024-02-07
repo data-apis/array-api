@@ -1,5 +1,6 @@
 from ._types import array
 
+
 def abs(x: array, /) -> array:
     """
     Calculates the absolute value for each element ``x_i`` of the input array ``x`` (i.e., the element-wise result has the same magnitude as the respective element in ``x`` but has positive sign).
@@ -26,6 +27,7 @@ def abs(x: array, /) -> array:
         an array containing the absolute value of each element in ``x``. The returned array must have the same data type as ``x``.
     """
 
+
 def acos(x: array, /) -> array:
     """
     Calculates an implementation-dependent approximation of the principal value of the inverse cosine, having domain ``[-1, +1]`` and codomain ``[+0, +π]``, for each element ``x_i`` of the input array ``x``. Each element-wise result is expressed in radians.
@@ -50,6 +52,7 @@ def acos(x: array, /) -> array:
         an array containing the inverse cosine of each element in ``x``. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
     """
 
+
 def acosh(x: array, /) -> array:
     """
     Calculates an implementation-dependent approximation to the inverse hyperbolic cosine, having domain ``[+1, +infinity]`` and codomain ``[+0, +infinity]``, for each element ``x_i`` of the input array ``x``.
@@ -73,6 +76,7 @@ def acosh(x: array, /) -> array:
     out: array
         an array containing the inverse hyperbolic cosine of each element in ``x``. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
     """
+
 
 def add(x1: array, x2: array, /) -> array:
     """
@@ -116,6 +120,7 @@ def add(x1: array, x2: array, /) -> array:
         an array containing the element-wise sums. The returned array must have a data type determined by :ref:`type-promotion`.
     """
 
+
 def asin(x: array, /) -> array:
     """
     Calculates an implementation-dependent approximation of the principal value of the inverse sine, having domain ``[-1, +1]`` and codomain ``[-π/2, +π/2]`` for each element ``x_i`` of the input array ``x``. Each element-wise result is expressed in radians.
@@ -140,6 +145,7 @@ def asin(x: array, /) -> array:
     out: array
         an array containing the inverse sine of each element in ``x``. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
     """
+
 
 def asinh(x: array, /) -> array:
     """
@@ -166,6 +172,7 @@ def asinh(x: array, /) -> array:
         an array containing the inverse hyperbolic sine of each element in ``x``. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
     """
 
+
 def atan(x: array, /) -> array:
     """
     Calculates an implementation-dependent approximation of the principal value of the inverse tangent, having domain ``[-infinity, +infinity]`` and codomain ``[-π/2, +π/2]``, for each element ``x_i`` of the input array ``x``. Each element-wise result is expressed in radians.
@@ -190,6 +197,7 @@ def atan(x: array, /) -> array:
     out: array
         an array containing the inverse tangent of each element in ``x``. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
     """
+
 
 def atan2(x1: array, x2: array, /) -> array:
     """
@@ -244,6 +252,7 @@ def atan2(x1: array, x2: array, /) -> array:
 
     """
 
+
 def atanh(x: array, /) -> array:
     """
     Calculates an implementation-dependent approximation to the inverse hyperbolic tangent, having domain ``[-1, +1]`` and codomain ``[-infinity, +infinity]``, for each element ``x_i`` of the input array ``x``.
@@ -271,6 +280,7 @@ def atanh(x: array, /) -> array:
         an array containing the inverse hyperbolic tangent of each element in ``x``. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
     """
 
+
 def bitwise_and(x1: array, x2: array, /) -> array:
     """
     Computes the bitwise AND of the underlying binary representation of each element ``x1_i`` of the input array ``x1`` with the respective element ``x2_i`` of the input array ``x2``.
@@ -287,6 +297,7 @@ def bitwise_and(x1: array, x2: array, /) -> array:
     out: array
         an array containing the element-wise results. The returned array must have a data type determined by :ref:`type-promotion`.
     """
+
 
 def bitwise_left_shift(x1: array, x2: array, /) -> array:
     """
@@ -305,6 +316,7 @@ def bitwise_left_shift(x1: array, x2: array, /) -> array:
         an array containing the element-wise results. The returned array must have a data type determined by :ref:`type-promotion`.
     """
 
+
 def bitwise_invert(x: array, /) -> array:
     """
     Inverts (flips) each bit for each element ``x_i`` of the input array ``x``.
@@ -319,6 +331,7 @@ def bitwise_invert(x: array, /) -> array:
     out: array
         an array containing the element-wise results. The returned array must have the same data type as ``x``.
     """
+
 
 def bitwise_or(x1: array, x2: array, /) -> array:
     """
@@ -336,6 +349,7 @@ def bitwise_or(x1: array, x2: array, /) -> array:
     out: array
         an array containing the element-wise results. The returned array must have a data type determined by :ref:`type-promotion`.
     """
+
 
 def bitwise_right_shift(x1: array, x2: array, /) -> array:
     """
@@ -357,6 +371,7 @@ def bitwise_right_shift(x1: array, x2: array, /) -> array:
         an array containing the element-wise results. The returned array must have a data type determined by :ref:`type-promotion`.
     """
 
+
 def bitwise_xor(x1: array, x2: array, /) -> array:
     """
     Computes the bitwise XOR of the underlying binary representation of each element ``x1_i`` of the input array ``x1`` with the respective element ``x2_i`` of the input array ``x2``.
@@ -373,6 +388,7 @@ def bitwise_xor(x1: array, x2: array, /) -> array:
     out: array
         an array containing the element-wise results. The returned array must have a data type determined by :ref:`type-promotion`.
     """
+
 
 def ceil(x: array, /) -> array:
     """
@@ -401,6 +417,7 @@ def ceil(x: array, /) -> array:
         an array containing the rounded result for each element in ``x``. The returned array must have the same data type as ``x``.
     """
 
+
 def cos(x: array, /) -> array:
     """
     Calculates an implementation-dependent approximation to the cosine, having domain ``(-infinity, +infinity)`` and codomain ``[-1, +1]``, for each element ``x_i`` of the input array ``x``. Each element ``x_i`` is assumed to be expressed in radians.
@@ -426,6 +443,7 @@ def cos(x: array, /) -> array:
         an array containing the cosine of each element in ``x``. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
     """
 
+
 def cosh(x: array, /) -> array:
     """
     Calculates an implementation-dependent approximation to the hyperbolic cosine, having domain ``[-infinity, +infinity]`` and codomain ``[-infinity, +infinity]``, for each element ``x_i`` in the input array ``x``.
@@ -450,6 +468,7 @@ def cosh(x: array, /) -> array:
     out: array
         an array containing the hyperbolic cosine of each element in ``x``. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
     """
+
 
 def divide(x1: array, x2: array, /) -> array:
     """
@@ -500,6 +519,7 @@ def divide(x1: array, x2: array, /) -> array:
         an array containing the element-wise results. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
     """
 
+
 def equal(x1: array, x2: array, /) -> array:
     """
     Computes the truth value of ``x1_i == x2_i`` for each element ``x1_i`` of the input array ``x1`` with the respective element ``x2_i`` of the input array ``x2``.
@@ -516,6 +536,7 @@ def equal(x1: array, x2: array, /) -> array:
     out: array
         an array containing the element-wise results. The returned array must have a data type of ``bool``.
     """
+
 
 def exp(x: array, /) -> array:
     """
@@ -541,6 +562,7 @@ def exp(x: array, /) -> array:
     out: array
         an array containing the evaluated exponential function result for each element in ``x``. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
     """
+
 
 def expm1(x: array, /) -> array:
     """
@@ -570,6 +592,7 @@ def expm1(x: array, /) -> array:
         an array containing the evaluated result for each element in ``x``. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
     """
 
+
 def floor(x: array, /) -> array:
     """
     Rounds each element ``x_i`` of the input array ``x`` to the greatest (i.e., closest to ``+infinity``) integer-valued number that is not greater than ``x_i``.
@@ -597,8 +620,9 @@ def floor(x: array, /) -> array:
         an array containing the rounded result for each element in ``x``. The returned array must have the same data type as ``x``.
     """
 
+
 def floor_divide(x1: array, x2: array, /) -> array:
-    """
+    r"""
     Rounds the result of dividing each element ``x1_i`` of the input array ``x1`` by the respective element ``x2_i`` of the input array ``x2`` to the greatest (i.e., closest to `+infinity`) integer-value number that is not greater than the division result.
 
     .. note::
@@ -653,6 +677,7 @@ def floor_divide(x1: array, x2: array, /) -> array:
         an array containing the element-wise results. The returned array must have a data type determined by :ref:`type-promotion`.
     """
 
+
 def greater(x1: array, x2: array, /) -> array:
     """
     Computes the truth value of ``x1_i > x2_i`` for each element ``x1_i`` of the input array ``x1`` with the respective element ``x2_i`` of the input array ``x2``.
@@ -669,6 +694,7 @@ def greater(x1: array, x2: array, /) -> array:
     out: array
         an array containing the element-wise results. The returned array must have a data type of ``bool``.
     """
+
 
 def greater_equal(x1: array, x2: array, /) -> array:
     """
@@ -687,6 +713,7 @@ def greater_equal(x1: array, x2: array, /) -> array:
         an array containing the element-wise results. The returned array must have a data type of ``bool``.
     """
 
+
 def isfinite(x: array, /) -> array:
     """
     Tests each element ``x_i`` of the input array ``x`` to determine if finite (i.e., not ``NaN`` and not equal to positive or negative infinity).
@@ -701,6 +728,7 @@ def isfinite(x: array, /) -> array:
     out: array
         an array containing test results. An element ``out_i`` is ``True`` if ``x_i`` is finite and ``False`` otherwise. The returned array must have a data type of ``bool``.
     """
+
 
 def isinf(x: array, /) -> array:
     """
@@ -717,6 +745,7 @@ def isinf(x: array, /) -> array:
         an array containing test results. An element ``out_i`` is ``True`` if ``x_i`` is either positive or negative infinity and ``False`` otherwise. The returned array must have a data type of ``bool``.
     """
 
+
 def isnan(x: array, /) -> array:
     """
     Tests each element ``x_i`` of the input array ``x`` to determine whether the element is ``NaN``.
@@ -731,6 +760,7 @@ def isnan(x: array, /) -> array:
     out: array
         an array containing test results. An element ``out_i`` is ``True`` if ``x_i`` is ``NaN`` and ``False`` otherwise. The returned array should have a data type of ``bool``.
     """
+
 
 def less(x1: array, x2: array, /) -> array:
     """
@@ -749,6 +779,7 @@ def less(x1: array, x2: array, /) -> array:
         an array containing the element-wise results. The returned array must have a data type of ``bool``.
     """
 
+
 def less_equal(x1: array, x2: array, /) -> array:
     """
     Computes the truth value of ``x1_i <= x2_i`` for each element ``x1_i`` of the input array ``x1`` with the respective element ``x2_i`` of the input array ``x2``.
@@ -765,6 +796,7 @@ def less_equal(x1: array, x2: array, /) -> array:
     out: array
         an array containing the element-wise results. The returned array must have a data type of ``bool``.
     """
+
 
 def log(x: array, /) -> array:
     """
@@ -790,6 +822,7 @@ def log(x: array, /) -> array:
     out: array
         an array containing the evaluated natural logarithm for each element in ``x``. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
     """
+
 
 def log1p(x: array, /) -> array:
     """
@@ -820,6 +853,7 @@ def log1p(x: array, /) -> array:
         an array containing the evaluated result for each element in ``x``. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
     """
 
+
 def log2(x: array, /) -> array:
     """
     Calculates an implementation-dependent approximation to the base ``2`` logarithm, having domain ``[0, +infinity]`` and codomain ``[-infinity, +infinity]``, for each element ``x_i`` of the input array ``x``.
@@ -844,6 +878,7 @@ def log2(x: array, /) -> array:
     out: array
         an array containing the evaluated base ``2`` logarithm for each element in ``x``. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
     """
+
 
 def log10(x: array, /) -> array:
     """
@@ -870,6 +905,7 @@ def log10(x: array, /) -> array:
         an array containing the evaluated base ``10`` logarithm for each element in ``x``. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
     """
 
+
 def logaddexp(x1: array, x2: array, /) -> array:
     """
     Calculates the logarithm of the sum of exponentiations ``log(exp(x1) + exp(x2))`` for each element ``x1_i`` of the input array ``x1`` with the respective element ``x2_i`` of the input array ``x2``.
@@ -895,6 +931,7 @@ def logaddexp(x1: array, x2: array, /) -> array:
         an array containing the element-wise results. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
     """
 
+
 def logical_and(x1: array, x2: array, /) -> array:
     """
     Computes the logical AND for each element ``x1_i`` of the input array ``x1`` with the respective element ``x2_i`` of the input array ``x2``.
@@ -915,6 +952,7 @@ def logical_and(x1: array, x2: array, /) -> array:
         an array containing the element-wise results. The returned array must have a data type of `bool`.
     """
 
+
 def logical_not(x: array, /) -> array:
     """
     Computes the logical NOT for each element ``x_i`` of the input array ``x``.
@@ -932,6 +970,7 @@ def logical_not(x: array, /) -> array:
     out: array
         an array containing the element-wise results. The returned array must have a data type of ``bool``.
     """
+
 
 def logical_or(x1: array, x2: array, /) -> array:
     """
@@ -953,6 +992,7 @@ def logical_or(x1: array, x2: array, /) -> array:
         an array containing the element-wise results. The returned array must have a data type of ``bool``.
     """
 
+
 def logical_xor(x1: array, x2: array, /) -> array:
     """
     Computes the logical XOR for each element ``x1_i`` of the input array ``x1`` with the respective element ``x2_i`` of the input array ``x2``.
@@ -972,6 +1012,7 @@ def logical_xor(x1: array, x2: array, /) -> array:
     out: array
         an array containing the element-wise results. The returned array must have a data type of ``bool``.
     """
+
 
 def multiply(x1: array, x2: array, /) -> array:
     """
@@ -1007,6 +1048,7 @@ def multiply(x1: array, x2: array, /) -> array:
         an array containing the element-wise products. The returned array must have a data type determined by :ref:`type-promotion`.
     """
 
+
 def negative(x: array, /) -> array:
     """
     Computes the numerical negative of each element ``x_i`` (i.e., ``y_i = -x_i``) of the input array ``x``.
@@ -1025,6 +1067,7 @@ def negative(x: array, /) -> array:
         an array containing the evaluated result for each element in ``x``. The returned array must have a data type determined by :ref:`type-promotion`.
     """
 
+
 def not_equal(x1: array, x2: array, /) -> array:
     """
     Computes the truth value of ``x1_i != x2_i`` for each element ``x1_i`` of the input array ``x1`` with the respective element ``x2_i`` of the input array ``x2``.
@@ -1042,6 +1085,7 @@ def not_equal(x1: array, x2: array, /) -> array:
         an array containing the element-wise results. The returned array must have a data type of ``bool``.
     """
 
+
 def positive(x: array, /) -> array:
     """
     Computes the numerical positive of each element ``x_i`` (i.e., ``y_i = +x_i``) of the input array ``x``.
@@ -1056,6 +1100,7 @@ def positive(x: array, /) -> array:
     out: array
         an array containing the evaluated result for each element in ``x``. The returned array must have the same data type as ``x``.
     """
+
 
 def pow(x1: array, x2: array, /) -> array:
     """
@@ -1108,6 +1153,7 @@ def pow(x1: array, x2: array, /) -> array:
         an array containing the element-wise results. The returned array must have a data type determined by :ref:`type-promotion`.
     """
 
+
 def remainder(x1: array, x2: array, /) -> array:
     """
     Returns the remainder of division for each element ``x1_i`` of the input array ``x1`` and the respective element ``x2_i`` of the input array ``x2``.
@@ -1159,6 +1205,7 @@ def remainder(x1: array, x2: array, /) -> array:
         an array containing the element-wise results. Each element-wise result must have the same sign as the respective element ``x2_i``. The returned array must have a data type determined by :ref:`type-promotion`.
     """
 
+
 def round(x: array, /) -> array:
     """
     Rounds each element ``x_i`` of the input array ``x`` to the nearest integer-valued number.
@@ -1187,6 +1234,7 @@ def round(x: array, /) -> array:
         an array containing the rounded result for each element in ``x``. The returned array must have the same data type as ``x``.
     """
 
+
 def sign(x: array, /) -> array:
     """
     Returns an indication of the sign of a number for each element ``x_i`` of the input array ``x``.
@@ -1207,6 +1255,7 @@ def sign(x: array, /) -> array:
     out: array
         an array containing the evaluated result for each element in ``x``. The returned array must have the same data type as ``x``.
     """
+
 
 def sin(x: array, /) -> array:
     """
@@ -1231,6 +1280,7 @@ def sin(x: array, /) -> array:
     out: array
         an array containing the sine of each element in ``x``. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
     """
+
 
 def sinh(x: array, /) -> array:
     """
@@ -1257,6 +1307,7 @@ def sinh(x: array, /) -> array:
         an array containing the hyperbolic sine of each element in ``x``. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
     """
 
+
 def square(x: array, /) -> array:
     """
     Squares (``x_i * x_i``) each element ``x_i`` of the input array ``x``.
@@ -1271,6 +1322,7 @@ def square(x: array, /) -> array:
     out: array
         an array containing the evaluated result for each element in ``x``. The returned array must have a data type determined by :ref:`type-promotion`.
     """
+
 
 def sqrt(x: array, /) -> array:
     """
@@ -1297,6 +1349,7 @@ def sqrt(x: array, /) -> array:
         an array containing the square root of each element in ``x``. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
     """
 
+
 def subtract(x1: array, x2: array, /) -> array:
     """
     Calculates the difference for each element ``x1_i`` of the input array ``x1`` with the respective element ``x2_i`` of the input array ``x2``. The result of ``x1_i - x2_i`` must be the same as ``x1_i + (-x2_i)`` and must be governed by the same floating-point rules as addition (see :meth:`add`).
@@ -1313,6 +1366,7 @@ def subtract(x1: array, x2: array, /) -> array:
     out: array
         an array containing the element-wise differences. The returned array must have a data type determined by :ref:`type-promotion`.
     """
+
 
 def tan(x: array, /) -> array:
     """
@@ -1338,6 +1392,7 @@ def tan(x: array, /) -> array:
         an array containing the tangent of each element in ``x``. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
     """
 
+
 def tanh(x: array, /) -> array:
     """
     Calculates an implementation-dependent approximation to the hyperbolic tangent, having domain ``[-infinity, +infinity]`` and codomain ``[-1, +1]``, for each element ``x_i`` of the input array ``x``.
@@ -1362,6 +1417,7 @@ def tanh(x: array, /) -> array:
     out: array
         an array containing the hyperbolic tangent of each element in ``x``. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
     """
+
 
 def trunc(x: array, /) -> array:
     """
@@ -1390,4 +1446,62 @@ def trunc(x: array, /) -> array:
         an array containing the rounded result for each element in ``x``. The returned array must have the same data type as ``x``.
     """
 
-__all__ = ['abs', 'acos', 'acosh', 'add', 'asin', 'asinh', 'atan', 'atan2', 'atanh', 'bitwise_and', 'bitwise_left_shift', 'bitwise_invert', 'bitwise_or', 'bitwise_right_shift', 'bitwise_xor', 'ceil', 'cos', 'cosh', 'divide', 'equal', 'exp', 'expm1', 'floor', 'floor_divide', 'greater', 'greater_equal', 'isfinite', 'isinf', 'isnan', 'less', 'less_equal', 'log', 'log1p', 'log2', 'log10', 'logaddexp', 'logical_and', 'logical_not', 'logical_or', 'logical_xor', 'multiply', 'negative', 'not_equal', 'positive', 'pow', 'remainder', 'round', 'sign', 'sin', 'sinh', 'square', 'sqrt', 'subtract', 'tan', 'tanh', 'trunc']
+
+__all__ = [
+    "abs",
+    "acos",
+    "acosh",
+    "add",
+    "asin",
+    "asinh",
+    "atan",
+    "atan2",
+    "atanh",
+    "bitwise_and",
+    "bitwise_left_shift",
+    "bitwise_invert",
+    "bitwise_or",
+    "bitwise_right_shift",
+    "bitwise_xor",
+    "ceil",
+    "cos",
+    "cosh",
+    "divide",
+    "equal",
+    "exp",
+    "expm1",
+    "floor",
+    "floor_divide",
+    "greater",
+    "greater_equal",
+    "isfinite",
+    "isinf",
+    "isnan",
+    "less",
+    "less_equal",
+    "log",
+    "log1p",
+    "log2",
+    "log10",
+    "logaddexp",
+    "logical_and",
+    "logical_not",
+    "logical_or",
+    "logical_xor",
+    "multiply",
+    "negative",
+    "not_equal",
+    "positive",
+    "pow",
+    "remainder",
+    "round",
+    "sign",
+    "sin",
+    "sinh",
+    "square",
+    "sqrt",
+    "subtract",
+    "tan",
+    "tanh",
+    "trunc",
+]
