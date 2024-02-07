@@ -41,7 +41,7 @@ def fft(
 
         - ``n`` is greater than the length of the input array along ``axis``, the input array along ``axis`` is zero-padded to length ``n``.
         - ``n`` is less than the length of the input array along ``axis``, the input array along ``axis`` is trimmed to length ``n``.
-        - ``n`` is not provided, the full the length of the input array along ``axis`` must be used. The length of the transformed axis of the output must equal the length of the input along the axis specified by ``axis``.
+        - ``n`` is not provided, the full length of the input array along ``axis`` must be used.
 
         Default: ``None``.
     axis: int
@@ -60,7 +60,7 @@ def fft(
     Returns
     -------
     out: array
-        an array transformed along the axis (dimension) indicated by ``axis``. The returned array must have the same data type as ``x``. The length along the transformed axis is ``n``, if given, or the length of the input along the axis specified by ``axis`` otherwise.
+        an array transformed along the axis (dimension) indicated by ``axis``. The returned array must have the same data type as ``x``. The length along the transformed axis is ``n``, if given, or the length of the input along ``axis`` otherwise. The lengths along the un-transformed axes remain unchanged.
 
     Notes
     -----
@@ -92,7 +92,7 @@ def ifft(
 
         - ``n`` is greater than the length of the input array along ``axis``, the input array along ``axis`` is zero-padded to length ``n``.
         - ``n`` is less than the length of the input array along ``axis``, the input array along ``axis`` is trimmed to length ``n``.
-        - ``n`` is not provided, the full the length of the input array along ``axis`` must be used. The length of the transformed axis of the output must equal the length of the input along the axis specified by ``axis``.
+        - ``n`` is not provided, the full length of the input array along ``axis`` must be used.
 
         Default: ``None``.
     axis: int
@@ -111,7 +111,7 @@ def ifft(
     Returns
     -------
     out: array
-        an array transformed along the axis (dimension) indicated by ``axis``. The returned array must have the same data type as ``x``. The length along the transformed axis is ``n``, if given, or the length of the input along the axis specified by ``axis`` otherwise.
+        an array transformed along the axis (dimension) indicated by ``axis``. The returned array must have the same data type as ``x``. The length along the transformed axis is ``n``, if given, or the length of the input along ``axis`` otherwise. The lengths along the un-transformed axes remain unchanged.
 
     Notes
     -----
@@ -169,7 +169,7 @@ def fftn(
     Returns
     -------
     out: array
-        an array transformed along the axes (dimension) indicated by ``axes``. The returned array must have the same data type as ``x``. The length along each transformed axis ``i`` is ``s[i]``, if ``s`` is given and ``s[i]`` is not ``-1``, or the length of the corresponding axis of the input array otherwise.
+        an array transformed along the axes (dimension) indicated by ``axes``. The returned array must have the same data type as ``x``. The length along each transformed axis ``i`` is ``s[i]``, if ``s`` is given and ``s[i]`` is not ``-1``, or the length of the corresponding axis of the input array otherwise. The lengths along the un-transformed axes remain unchanged.
 
     Notes
     -----
@@ -227,7 +227,7 @@ def ifftn(
     Returns
     -------
     out: array
-        an array transformed along the axes (dimension) indicated by ``axes``. The returned array must have the same data type as ``x``. The length along each transformed axis ``i`` is ``s[i]``, if ``s`` is given and ``s[i]`` is not ``-1``, or the length of the corresponding axis of the input array otherwise.
+        an array transformed along the axes (dimension) indicated by ``axes``. The returned array must have the same data type as ``x``. The length along each transformed axis ``i`` is ``s[i]``, if ``s`` is given and ``s[i]`` is not ``-1``, or the length of the corresponding axis of the input array otherwise. The lengths along the un-transformed axes remain unchanged.
 
     Notes
     -----
@@ -259,7 +259,7 @@ def rfft(
 
         - ``n`` is greater than the length of the input array along ``axis``, the input array along ``axis`` is zero-padded to length ``n``.
         - ``n`` is less than the length of the input array along ``axis``, the input array along ``axis`` is trimmed to length ``n``.
-        - ``n`` is not provided, the full the length of the input array along ``axis`` must be used.
+        - ``n`` is not provided, the full length of the input array along ``axis`` must be used.
 
         Default: ``None``.
     axis: int
@@ -278,7 +278,7 @@ def rfft(
     Returns
     -------
     out: array
-        an array transformed along the axis (dimension) indicated by ``axis``. The returned array must have a complex floating-point data type whose precision matches the precision of ``x`` (e.g., if ``x`` is ``float64``, then the returned array must have a ``complex128`` data type). If ``n`` is even, the length of the transformed axis is ``(n/2)+1``. If ``n`` is odd, the length is ``(n+1)/2``. If ``n`` is ``None``, it defaults to ``x.shape[axis]``.
+        an array transformed along the axis (dimension) indicated by ``axis``. The returned array must have a complex floating-point data type whose precision matches the precision of ``x`` (e.g., if ``x`` is ``float64``, then the returned array must have a ``complex128`` data type). The length along the transformed axis is ``n//2 + 1`` if ``n`` is given, or ``x.shape[axis]//2 + 1`` otherwise. The lengths along the un-transformed axes remain unchanged.
 
     Notes
     -----
@@ -310,7 +310,7 @@ def irfft(
 
         - ``n//2+1`` is greater than the length of the input array along ``axis``, the input array along ``axis`` is zero-padded to length ``n//2+1``.
         - ``n//2+1`` is less than the length of the input array, the input array along ``axis`` is trimmed to length ``n//2+1``.
-        - ``n`` is not provided, the full the length of the input array along ``axis`` must be used. The length of the transformed axis of the output must equal ``2*(x.shape[axis]-1)``.
+        - ``n`` is not provided, the full length of the input array along ``axis`` must be used. The length of the transformed axis of the output must equal ``2*(x.shape[axis] - 1)``.
 
         Default: ``None``.
     axis: int
@@ -329,7 +329,7 @@ def irfft(
     Returns
     -------
     out: array
-        an array transformed along the axis (dimension) indicated by ``axis``. The returned array must have a real-valued floating-point data type whose precision matches the precision of ``x`` (e.g., if ``x`` is ``complex128``, then the returned array must have a ``float64`` data type). The length along the transformed axis is ``n``, if given, or ``2*(x.shape[axis]-1)`` otherwise. Therefore, to get an odd number of output points along ``axis``, ``n`` must be specified.
+        an array transformed along the axis (dimension) indicated by ``axis``. The returned array must have a real-valued floating-point data type whose precision matches the precision of ``x`` (e.g., if ``x`` is ``complex128``, then the returned array must have a ``float64`` data type). The length along the transformed axis is ``n``, if given, or ``2*(x.shape[axis] - 1)`` otherwise. Therefore, to get an odd number of output points along ``axis``, ``n`` must be specified. The lengths along the un-transformed axes remain unchanged.
 
     Notes
     -----
@@ -387,7 +387,7 @@ def rfftn(
     Returns
     -------
     out: array
-        an array transformed along the axes (dimension) indicated by ``axes``. The returned array must have a complex floating-point data type whose precision matches the precision of ``x`` (e.g., if ``x`` is ``float64``, then the returned array must have a ``complex128`` data type). The length along the last transformed axis must be equal to ``s[-1]//2+1`` and the length along the remaining transformed axes ``i``  must be equal to ``s[i]``, where ``s`` defaults to ``x.shape`` if the parameter ``s`` is ``None`` and ``s[i]`` defaults to ``x.shape[i]`` if ``s[i]`` is ``-1``.
+        an array transformed along the axes (dimension) indicated by ``axes``. The returned array must have a complex floating-point data type whose precision matches the precision of ``x`` (e.g., if ``x`` is ``float64``, then the returned array must have a ``complex128`` data type). The length along the last transformed axis must be equal to ``s[-1]//2+1`` and the length along the remaining transformed axes ``i``  must be equal to ``s[i]``, where ``s`` defaults to ``x.shape`` if the parameter ``s`` is ``None`` and ``s[i]`` defaults to ``x.shape[i]`` if ``s[i]`` is ``-1``. The lengths along the un-transformed axes remain unchanged.
 
     Notes
     -----
@@ -445,7 +445,7 @@ def irfftn(
     Returns
     -------
     out: array
-        an array transformed along the axes (dimension) indicated by ``axes``. The returned array must have a real-valued floating-point data type whose precision matches the precision of ``x`` (e.g., if ``x`` is ``complex128``, then the returned array must have a ``float64`` data type). The length along the last transformed axis is ``s[-1]`` if given, or ``2*(m - 1)`` otherwise, and all other axes ``s[i]``. Therefore, to get an odd number of output points along the last axis, ``s`` must be specified.
+        an array transformed along the axes (dimension) indicated by ``axes``. The returned array must have a real-valued floating-point data type whose precision matches the precision of ``x`` (e.g., if ``x`` is ``complex128``, then the returned array must have a ``float64`` data type). The length along the last transformed axis is ``s[-1]``,  if given, or ``2*(x.shape[axes[-1]] - 1)`` otherwise, and all other axes ``s[i]``. Therefore, to get an odd number of output points along the last axis, ``s`` must be specified. The lengths along the un-transformed axes remain unchanged.
 
     Notes
     -----
@@ -474,7 +474,7 @@ def hfft(
 
         - ``n//2+1`` is greater than the length of the input array along ``axis``, the input array along ``axis`` is zero-padded to length ``n//2+1``.
         - ``n//2+1`` is less than the length of the input array along ``axis``, the input array along ``axis`` is trimmed to length ``n//2+1``.
-        - ``n`` is not provided, the full the length of the input array along ``axis`` must be used. The length of the transformed axis of the output must equal ``2*(m-1)``, where ``m`` is the length of the input along the axis specified by ``axis``.
+        - ``n`` is not provided, the full length of the input array along ``axis`` must be used. The length of the transformed axis of the output must equal ``2*(m-1)``, where ``m`` is the length of the input along ``axis``.
 
         Default: ``None``.
     axis: int
@@ -493,7 +493,7 @@ def hfft(
     Returns
     -------
     out: array
-        an array transformed along the axis (dimension) indicated by ``axis``. The returned array must have a real-valued floating-point data type whose precision matches the precision of ``x`` (e.g., if ``x`` is ``complex128``, then the returned array must have a ``float64`` data type). The length along the transformed axis is ``n``, if given or ``2*(m-1)`` otherwise.
+        an array transformed along the axis (dimension) indicated by ``axis``. The returned array must have a real-valued floating-point data type whose precision matches the precision of ``x`` (e.g., if ``x`` is ``complex128``, then the returned array must have a ``float64`` data type). The length along the transformed axis is ``n``, if given, or ``2*(x.shape[axis] - 1)`` otherwise. The lengths along the un-transformed axes remain unchanged.
 
     Notes
     -----
@@ -522,7 +522,7 @@ def ihfft(
 
         - ``n`` is greater than the length of the input array along ``axis``, the input array along ``axis`` is zero-padded to length ``n``.
         - ``n`` is less than the length of the input array along ``axis``, the input array along ``axis`` is trimmed to length ``n``.
-        - ``n`` is not provided, the full the length of the input array along ``axis`` must be used. The length of the transformed axis must equal ``m//2 + 1``, where ``m`` is the length of the input along the axis specified by ``axis``.
+        - ``n`` is not provided, the full length of the input array along ``axis`` must be used. The length of the transformed axis must equal ``m//2 + 1``, where ``m`` is the length of the input along ``axis``.
 
         Default: ``None``.
     axis: int
@@ -541,7 +541,7 @@ def ihfft(
     Returns
     -------
     out: array
-        an array transformed along the axis (dimension) indicated by ``axis``. The returned array must have a complex floating-point data type whose precision matches the precision of ``x`` (e.g., if ``x`` is ``float64``, then the returned array must have a ``complex128`` data type). The length along the transformed axis is ``m//2 + 1``, where ``m` is ``n` if ``n`` is given, or the length of the input along the axis specified by ``axis`` otherwise.
+        an array transformed along the axis (dimension) indicated by ``axis``. The returned array must have a complex floating-point data type whose precision matches the precision of ``x`` (e.g., if ``x`` is ``float64``, then the returned array must have a ``complex128`` data type). The length along the transformed axis is ``n//2 + 1`` if ``n`` is given, or ``x.shape[axis]//2 + 1`` otherwise. The lengths along the un-transformed axes remain unchanged.
 
     Notes
     -----
