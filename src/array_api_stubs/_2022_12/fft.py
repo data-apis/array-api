@@ -39,9 +39,9 @@ def fft(
     n: int
         length of the transformed axis of the output. If
 
-        - ``n`` is greater than the length of the input array axis, the input array axis is zero-padded to length ``n``.
-        - ``n`` is less than the length of the input array axis, the input array axis is trimmed to length ``n``.
-        - ``n`` is not provided, the full the length of the input array axis must be used. The length of the transformed axis of the output must equal the length of the input along the axis specified by ``axis``.
+        - ``n`` is greater than the length of the input array along ``axis``, the input array along ``axis`` is zero-padded to length ``n``.
+        - ``n`` is less than the length of the input array along ``axis``, the input array along ``axis`` is trimmed to length ``n``.
+        - ``n`` is not provided, the full the length of the input array along ``axis`` must be used. The length of the transformed axis of the output must equal the length of the input along the axis specified by ``axis``.
 
         Default: ``None``.
     axis: int
@@ -90,9 +90,9 @@ def ifft(
     n: int
         length of the transformed axis of the output. If
 
-        - ``n`` is greater than the length of the input array axis, the input array axis is zero-padded to length ``n``.
-        - ``n`` is less than the length of the input array axis, the input array axis is trimmed to length ``n``.
-        - ``n`` is not provided, the full the length of the input array axis must be used. The length of the transformed axis of the output must equal the length of the input along the axis specified by ``axis``.
+        - ``n`` is greater than the length of the input array along ``axis``, the input array along ``axis`` is zero-padded to length ``n``.
+        - ``n`` is less than the length of the input array along ``axis``, the input array along ``axis`` is trimmed to length ``n``.
+        - ``n`` is not provided, the full the length of the input array along ``axis`` must be used. The length of the transformed axis of the output must equal the length of the input along the axis specified by ``axis``.
 
         Default: ``None``.
     axis: int
@@ -257,9 +257,9 @@ def rfft(
     n: int
         length of the transformed axis of the **input**. If
 
-        - ``n`` is greater than the length of the input array axis, the input array axis is zero-padded to length ``n``.
-        - ``n`` is less than the length of the input array axis, the input array axis is trimmed to length ``n``.
-        - ``n`` is not provided, the full the length of the input array axis must be used.
+        - ``n`` is greater than the length of the input array along ``axis``, the input array along ``axis`` is zero-padded to length ``n``.
+        - ``n`` is less than the length of the input array along ``axis``, the input array along ``axis`` is trimmed to length ``n``.
+        - ``n`` is not provided, the full the length of the input array along ``axis`` must be used.
 
         Default: ``None``.
     axis: int
@@ -308,9 +308,9 @@ def irfft(
     n: int
         length of the transformed axis of the **output**. If
 
-        - ``n//2+1`` is greater than the length of the input array axis, the input array axis is zero-padded to length ``n//2+1``.
-        - ``n//2+1`` is less than the length of the input array, the input array axis is trimmed to length ``n//2+1``.
-        - ``n`` is not provided, the full the length of the input array axis must be used. The length of the transformed axis of the output must equal ``2*(x.shape[axis]-1)``.
+        - ``n//2+1`` is greater than the length of the input array along ``axis``, the input array along ``axis`` is zero-padded to length ``n//2+1``.
+        - ``n//2+1`` is less than the length of the input array, the input array along ``axis`` is trimmed to length ``n//2+1``.
+        - ``n`` is not provided, the full the length of the input array along ``axis`` must be used. The length of the transformed axis of the output must equal ``2*(x.shape[axis]-1)``.
 
         Default: ``None``.
     axis: int
@@ -472,9 +472,9 @@ def hfft(
     n: int
         length of the transformed axis of the **output**. If
 
-        - ``n//2+1`` is greater than the length of the input array axis, the input array axis is zero-padded to length ``n//2+1``.
-        - ``n//2+1`` is less than the length of the input array axis, the input array axis is trimmed to length ``n//2+1``.
-        - ``n`` is not provided, the full the length of the input array axis must be used. The length of the transformed axis of the output must equal ``2*(m-1)``, where ``m`` is the length of the input along the axis specified by ``axis``.
+        - ``n//2+1`` is greater than the length of the input array along ``axis``, the input array along ``axis`` is zero-padded to length ``n//2+1``.
+        - ``n//2+1`` is less than the length of the input array along ``axis``, the input array along ``axis`` is trimmed to length ``n//2+1``.
+        - ``n`` is not provided, the full the length of the input array along ``axis`` must be used. The length of the transformed axis of the output must equal ``2*(m-1)``, where ``m`` is the length of the input along the axis specified by ``axis``.
 
         Default: ``None``.
     axis: int
@@ -520,9 +520,9 @@ def ihfft(
     n: int
         length of the transformed axis of the **input**. If
 
-        - ``n`` is greater than the length of the input array axis, the input array axis is zero-padded to length ``n``.
-        - ``n`` is less than the length of the input array axis, the input array axis is trimmed to length ``n``.
-        - ``n`` is not provided, the full the length of the input array axis must be used. The length of the transformed axis must equal ``m//2 + 1``, where ``m`` is the length of the input along the axis specified by ``axis``.
+        - ``n`` is greater than the length of the input array along ``axis``, the input array along ``axis`` is zero-padded to length ``n``.
+        - ``n`` is less than the length of the input array along ``axis``, the input array along ``axis`` is trimmed to length ``n``.
+        - ``n`` is not provided, the full the length of the input array along ``axis`` must be used. The length of the transformed axis must equal ``m//2 + 1``, where ``m`` is the length of the input along the axis specified by ``axis``.
 
         Default: ``None``.
     axis: int
