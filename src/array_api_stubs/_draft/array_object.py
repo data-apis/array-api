@@ -289,8 +289,8 @@ class _array:
 
     def __dlpack__(
         self: array, /, *,
-        max_version: Optional[tuple[int, int]] = None,
-        stream: Optional[Union[int, Any]] = None
+        stream: Optional[Union[int, Any]] = None,
+        max_version: Optional[tuple[int, int]] = None
     ) -> PyCapsule:
         """
         Exports the array for consumption by :func:`~array_api.from_dlpack` as a DLPack capsule.
@@ -299,11 +299,6 @@ class _array:
         ----------
         self: array
             array instance.
-        max_version: Optional[tuple[int, int]]
-            The maximum DLPack version that the consumer (i.e., the caller of
-            ``__dlpack__``) supports, in the form ``(major, minor)``.
-            This method may return that maximum version (recommended if it does
-            support that), or a different version.
         stream: Optional[Union[int, Any]]
             for CUDA and ROCm, a Python integer representing a pointer to a stream, on devices that support streams. ``stream`` is provided by the consumer to the producer to instruct the producer to ensure that operations can safely be performed on the array (e.g., by inserting a dependency between streams via "wait for event"). The pointer must be a positive integer or ``-1``. If ``stream`` is ``-1``, the value may be used by the consumer to signal "producer must not perform any synchronization". The ownership of the stream stays with the consumer. On CPU and other device types without streams, only ``None`` is accepted.
 
@@ -335,6 +330,11 @@ class _array:
                 (ROCm) is preferred. ``None`` is a safe default for developers who do
                 not want to think about stream handling at all, potentially at the
                 cost of more synchronization than necessary.
+        max_version: Optional[tuple[int, int]]
+            The maximum DLPack version that the consumer (i.e., the caller of
+            ``__dlpack__``) supports, in the form ``(major, minor)``.
+            This method may return that maximum version (recommended if it does
+            support that), or a different version.
 
         Returns
         -------
