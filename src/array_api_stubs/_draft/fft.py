@@ -280,7 +280,6 @@ def rfft(
     out: array
         an array transformed along the axis (dimension) indicated by ``axis``. The returned array must have a complex floating-point data type whose precision matches the precision of ``x`` (e.g., if ``x`` is ``float64``, then the returned array must have a ``complex128`` data type). If ``n`` is even, the length of the transformed axis is ``(n/2)+1``. If ``n`` is odd, the length is ``(n+1)/2``. If ``n`` is ``None``, it defaults to ``x.shape[axis]``.
 
-
     Notes
     -----
 
@@ -389,7 +388,6 @@ def rfftn(
     -------
     out: array
         an array transformed along the axes (dimension) indicated by ``axes``. The returned array must have a complex floating-point data type whose precision matches the precision of ``x`` (e.g., if ``x`` is ``float64``, then the returned array must have a ``complex128`` data type). The length along the last transformed axis must be equal to ``s[-1]//2+1`` and the length along the remaining transformed axes ``i``  must be equal to ``s[i]``, where ``s`` defaults to ``x.shape`` if the parameter ``s`` is ``None`` and ``s[i]`` defaults to ``x.shape[i]`` if ``s[i]`` is ``-1``.
-
 
     Notes
     -----
