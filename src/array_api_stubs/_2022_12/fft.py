@@ -39,9 +39,9 @@ def fft(
     n: int
         length of the transformed axis of the output. If
 
-        - ``n`` is greater than the length of the input array along ``axis``, the input array along ``axis`` is zero-padded to length ``n``.
-        - ``n`` is less than the length of the input array along ``axis``, the input array along ``axis`` is trimmed to length ``n``.
-        - ``n`` is not provided, the full length of the input array along ``axis`` must be used.
+        - ``n`` is greater than the length of the input array along ``axis``, the input array along ``axis`` must be zero-padded to length ``n``.
+        - ``n`` is less than the length of the input array along ``axis``, the input array along ``axis`` must be trimmed to length ``n``.
+        - ``n`` is ``None``, the full length of the input array along ``axis`` must be used.
 
         Default: ``None``.
     axis: int
