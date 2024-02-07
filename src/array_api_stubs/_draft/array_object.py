@@ -293,6 +293,8 @@ class _array:
         *,
         stream: Optional[Union[int, Any]] = None,
         max_version: Optional[tuple[int, int]] = None,
+        dl_device: Optional[Tuple[Enum, int]] = None,
+        copy: Optional[bool] = False
     ) -> PyCapsule:
         """
         Exports the array for consumption by :func:`~array_api.from_dlpack` as a DLPack capsule.
@@ -339,6 +341,17 @@ class _array:
             if it does support that), or of a different version.
             This means the consumer must verify the version even when
             `max_version` is passed.
+        dl_device: Optional[Tuple[Enum, int]]
+            The DLPack device type. Default is ``None``, meaning the exported capsule
+            should be on the same device as ``self`` is. When specified, the format
+            must follow that of the return value of :meth:`array.__dlpack_device__`.
+            If the device type cannot be handled by the producer, this function must
+            raise `BufferError`.
+        copy: Optional[bool]
+            Whether or not a copy should be made. Default is ``False`` to enable
+            zero-copy data exchange. However, a user can request a copy to be made
+            by the producer (through the consumer's :func:`~array_api.from_dlpack`)
+            to move data across the library (and/or device) boundary.
 
         Returns
         -------
@@ -394,7 +407,7 @@ class _array:
                     # here to tell users that the consumer's max_version is too
                     # old to allow the data exchange to happen.
 
-        And this logic for the consumer in ``from_dlpack``:
+        And this logic for the consumer in :func:`~array_api.from_dlpack`:
 
         .. code:: python
 
@@ -409,7 +422,7 @@ class _array:
             Added BufferError.
 
         .. versionchanged:: 2023.12
-            Added the ``max_version`` keyword.
+            Added the ``max_version``, ``dl_device``, and ``copy`` keywords.
         """
 
     def __dlpack_device__(self: array, /) -> Tuple[Enum, int]:
@@ -436,6 +449,8 @@ class _array:
               METAL = 8
               VPI = 9
               ROCM = 10
+              CUDA_MANAGED = 13
+              ONE_API = 14
         """
 
     def __eq__(self: array, other: Union[int, float, bool, array], /) -> array:

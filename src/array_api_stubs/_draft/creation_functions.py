@@ -19,6 +19,7 @@ __all__ = [
 
 
 from ._types import (
+    Any,
     List,
     NestedSequence,
     Optional,
@@ -214,7 +215,11 @@ def eye(
     """
 
 
-def from_dlpack(x: object, /) -> array:
+def from_dlpack(
+    x: object, /, *,
+    device: Optional[device] = None,
+    copy: Optional[bool] = False,
+) -> Union[array, Any]:
     """
     Returns a new array containing the data from another (array) object with a ``__dlpack__`` method.
 
@@ -222,11 +227,24 @@ def from_dlpack(x: object, /) -> array:
     ----------
     x: object
         input (array) object.
+    device: Optional[device]
+        device on which to place the created array. If ``device`` is ``None`` and ``x`` supports DLPack, the output array device must be inferred from ``x``. Default: ``None``.
+
+        The v2023.12 standard only mandates that a compliant library must offer a way for ``from_dlpack`` to create an array on CPU (using
+        the library-chosen way to represent the CPU device - ``kDLCPU`` in DLPack - e.g. a ``"CPU"`` string or a ``Device("CPU")`` object).
+        If the compliant library does not support the CPU device and needs to outsource to another (compliant) array library, it may do so
+        with a clear user documentation and/or run-time warning. If a copy must be made to enable this, and ``copy`` is set to ``False``,
+        the function must raise ``ValueError``.
+
+        Other kinds of devices will be considered for standardization in a future version.
+    copy: Optional[bool]
+        boolean indicating whether or not to copy the input. If ``True``, the function must always copy. If ``False``, the function must never copy and must raise a ``BufferError`` in case a copy would be necessary (e.g. the producer disallows views). Default: ``False``.
 
     Returns
     -------
-    out: array
-        an array containing the data in `x`.
+    out: Union[array, Any]
+        an array containing the data in ``x``. In the case that the compliant library does not support the given ``device`` out of box
+        and must oursource to another (compliant) library, the output will be that library's compliant array object.
 
         .. admonition:: Note
            :class: note
@@ -238,9 +256,9 @@ def from_dlpack(x: object, /) -> array:
     BufferError
         The ``__dlpack__`` and ``__dlpack_device__`` methods on the input array
         may raise ``BufferError`` when the data cannot be exported as DLPack
-        (e.g., incompatible dtype or strides). It may also raise other errors
+        (e.g., incompatible dtype, strides, or device). It may also raise other errors
         when export fails for other reasons (e.g., not enough memory available
-        to materialize the data). ``from_dlpack`` must propagate such
+        to materialize the data, a copy must made, etc). ``from_dlpack`` must propagate such
         exceptions.
     AttributeError
         If the ``__dlpack__`` and ``__dlpack_device__`` methods are not present
@@ -251,6 +269,9 @@ def from_dlpack(x: object, /) -> array:
     -----
     See :meth:`array.__dlpack__` for implementation suggestions for `from_dlpack` in
     order to handle DLPack versioning correctly.
+
+    .. versionchanged:: 2023.12
+       Added device and copy support.
     """
 
 
