@@ -300,9 +300,9 @@ class _array:
         self: array
             array instance.
         stream: Optional[Union[int, Any]]
-            for CUDA and ROCm, a Python integer representing a pointer to a stream, on devices that support streams. ``stream`` is provided by the consumer to the producer to instruct the producer to ensure that operations can safely be performed on the array (e.g., by inserting a dependency between streams via "wait for event"). The pointer must be a positive integer or ``-1``. If ``stream`` is ``-1``, the value may be used by the consumer to signal "producer must not perform any synchronization". The ownership of the stream stays with the consumer. On CPU and other device types without streams, only ``None`` is accepted.
+            for CUDA and ROCm, a Python integer representing a pointer to a stream, on devices that support streams. ``stream`` is provided by the consumer to the producer to instruct the producer to ensure that operations can safely be performed on the array (e.g., by inserting a dependency between streams via "wait for event"). The pointer must be an integer larger than or equal to ``-1`` (see below for allowed values on each platform). If ``stream`` is ``-1``, the value may be used by the consumer to signal "producer must not perform any synchronization". The ownership of the stream stays with the consumer. On CPU and other device types without streams, only ``None`` is accepted.
 
-            For other device types which do have a stream, queue or similar synchronization mechanism, the most appropriate type to use for ``stream`` is not yet determined. E.g., for SYCL one may want to use an object containing an in-order ``cl::sycl::queue``. This is allowed when libraries agree on such a convention, and may be standardized in a future version of this API standard.
+            For other device types which do have a stream, queue, or similar synchronization/ordering mechanism, the most appropriate type to use for ``stream`` is not yet determined. E.g., for SYCL one may want to use an object containing an in-order ``cl::sycl::queue``. This is allowed when libraries agree on such a convention, and may be standardized in a future version of this API standard.
 
             .. note::
                 Support for a ``stream`` value other than ``None`` is optional and implementation-dependent.
@@ -329,12 +329,12 @@ class _array:
                 they use the legacy default stream, specifying ``1`` (CUDA) or ``0``
                 (ROCm) is preferred. ``None`` is a safe default for developers who do
                 not want to think about stream handling at all, potentially at the
-                cost of more synchronization than necessary.
+                cost of more synchronizations than necessary.
         max_version: Optional[tuple[int, int]]
-            The maximum DLPack version that the consumer (i.e., the caller of
-            ``__dlpack__``) supports, in the form ``(major, minor)``.
-            This method may return that maximum version (recommended if it does
-            support that), or a different version.
+            The maximum DLPack version that the *consumer* (i.e., the caller of
+            ``__dlpack__``) supports, in the form of a 2-tuple ``(major, minor)``.
+            This method may return a capsule of version ``max_version`` (recommended
+            if it does support that), or of a different version.
 
         Returns
         -------
@@ -351,14 +351,17 @@ class _array:
 
         Notes
         -----
-        Major DLPack versions represent ABI breaks, minor versions represent
-        ABI-compatible additions (e.g., new enum values for new data types or
-        device types).
+        The DLPack version scheme is SemVer, where the major DLPack versions
+        represent ABI breaks, and minor versions represent ABI-compatible additions
+        (e.g., new enum values for new data types or device types).
 
         The ``max_version`` keyword was introduced in v2023.12, and goes
         together with the ``DLManagedTensorVersioned`` struct added in DLPack
-        1.0. This keyword may not be used by consumers for some time after
-        introduction. It is recommended to use this logic in the implementation
+        1.0. This keyword may not be used by consumers until a later time after
+        introduction, because producers may implement the support at a different
+        point in time.
+
+        It is recommended for the producer to use this logic in the implementation
         of ``__dlpack__``:
 
         .. code:: python
@@ -368,7 +371,10 @@ class _array:
                 # Note: from March 2025 onwards (but ideally as late as
                 # possible), it's okay to raise BufferError here
             else:
-                # We get to produce `DLManagedTensorVersioned` now
+                # We get to produce `DLManagedTensorVersioned` now. Note that
+                # our_own_dlpack_version is the max version that the *producer*
+                # supports and fills in the `DLManagedTensorVersioned::version`
+                # field
                 if max_version >= our_own_dlpack_version:
                     # Consumer understands us, just return a Capsule with our max version
                 elif max_version[0] == our_own_dlpack_version[0]:
@@ -377,18 +383,21 @@ class _array:
                 else:
                     # if we're at a higher major version internally, did we
                     # keep an implementation of the older major version around?
-                    # If so, use that. Else, just return our max
-                    # version and let the consumer deal with it.
+                    # For example, if the producer is on DLPack 1.x and the consumer
+                    # is 0.y, can the producer still export a capsule containing
+                    # DLManagedTensor and not DLManagedTensorVersioned?
+                    # If so, use that. Else, the producer should raise a BufferError
+                    # here to tell users that the consumer's max_version is too
+                    # old to allow the data exchange to happen.
 
-        And this logic for the producer (i.e., in ``from_dlpack``):
+        And this logic for the consumer in ``from_dlpack``:
 
         .. code:: python
 
             try:
                 x.__dlpack__(max_version=(1, 0))
-                # if it succeeds, store info about capsule name being "dltensor_versioned",
-                # and needing to set the capsule name to "used_dltensor_versioned"
-                # when we're done
+                # if it succeeds, store info from the capsule named "dltensor_versioned",
+                # and need to set the name to "used_dltensor_versioned" when we're done
             except TypeError:
                 x.__dlpack__()
 
