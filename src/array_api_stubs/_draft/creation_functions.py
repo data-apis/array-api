@@ -240,6 +240,8 @@ def from_dlpack(
     copy: Optional[bool]
         boolean indicating whether or not to copy the input. If ``True``, the function must always copy. If ``False``, the function must never copy and must raise a ``BufferError`` in case a copy would be necessary (e.g. the producer disallows views). Default: ``False``.
 
+        If a copy is needed, the stream over which the copy is performed must be taken from the consumer, following the DLPack protocol (see :meth:`array.__dlpack__`).
+
     Returns
     -------
     out: Union[array, Any]
