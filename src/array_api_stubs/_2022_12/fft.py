@@ -234,7 +234,7 @@ def rfft(
     Computes the one-dimensional discrete Fourier transform for real-valued input.
 
     .. note::
-       Applying the one-dimensional inverse discrete Fourier transform for real-valued input to the output of this function must return the original (i.e., non-transformed) input array within numerical accuracy (i.e., ``irfft(rfft(x)) == x``), provided that the transform and inverse transform are performed with the same arguments (axis and and normalization mode) and consistent values for the number of elements over which to compute the transforms.
+       Applying the one-dimensional inverse discrete Fourier transform for real-valued input to the output of this function must return the original (i.e., non-transformed) input array within numerical accuracy (i.e., ``irfft(rfft(x)) == x``), provided that the transform and inverse transform are performed with the same arguments (axis and normalization mode) and consistent values for the number of elements over which to compute the transforms.
 
     Parameters
     ----------
@@ -283,7 +283,7 @@ def irfft(
     Computes the one-dimensional inverse of ``rfft`` for complex-valued input.
 
     .. note::
-       Applying the one-dimensional inverse discrete Fourier transform for real-valued input to the output of this function must return the original (i.e., non-transformed) input array within numerical accuracy (i.e., ``irfft(rfft(x)) == x``), provided that the transform and inverse transform are performed with the same arguments (axis and and normalization mode) and consistent values for the number of elements over which to compute the transforms.
+       Applying the one-dimensional inverse discrete Fourier transform for real-valued input to the output of this function must return the original (i.e., non-transformed) input array within numerical accuracy (i.e., ``irfft(rfft(x)) == x``), provided that the transform and inverse transform are performed with the same arguments (axis and normalization mode) and consistent values for the number of elements over which to compute the transforms.
 
     Parameters
     ----------
