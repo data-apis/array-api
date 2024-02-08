@@ -398,7 +398,7 @@ def irfftn(
 
         -   If ``n`` is greater than ``M[i]``, axis ``i`` of the input array must be zero-padded to size ``n``.
         -   If ``n`` is less than ``M[i]``, axis ``i`` of the input array must be trimmed to size ``n``.
-        -   If ``n`` equals ``M[i]`` or ``-1``, all elements along the axis ``i`` of the input array must be used when computing the transform.
+        -   If ``n`` equals ``M[i]`` or ``-1``, all elements along axis ``i`` of the input array must be used when computing the transform.
 
         If ``s`` is not ``None``, ``axes`` must not be ``None``. Default: ``None``.
     axes: Optional[Sequence[int]]
