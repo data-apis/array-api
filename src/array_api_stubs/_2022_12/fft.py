@@ -526,7 +526,7 @@ def fftfreq(n: int, /, *, d: float = 1.0, device: Optional[device] = None) -> ar
     """
     Computes the discrete Fourier transform sample frequencies.
 
-    For a Fourier transform of length ``n`` and length unit of ``d`` the frequencies are described as:
+    For a Fourier transform of length ``n`` and length unit of ``d``, the frequencies are described as:
 
     .. code-block::
 
@@ -558,7 +558,7 @@ def rfftfreq(n: int, /, *, d: float = 1.0, device: Optional[device] = None) -> a
     """
     Computes the discrete Fourier transform sample frequencies (for ``rfft`` and ``irfft``).
 
-    For a Fourier transform of length ``n`` and length unit of ``d`` the frequencies are described as:
+    For a Fourier transform of length ``n`` and length unit of ``d``, the frequencies are described as:
 
     .. code-block::
 
@@ -590,7 +590,7 @@ def rfftfreq(n: int, /, *, d: float = 1.0, device: Optional[device] = None) -> a
 
 def fftshift(x: array, /, *, axes: Optional[Union[int, Sequence[int]]] = None) -> array:
     """
-    Shift the zero-frequency component to the center of the spectrum.
+    Shifts the zero-frequency component to the center of the spectrum.
 
     This function swaps half-spaces for all axes (dimensions) specified by ``axes``.
 
@@ -607,7 +607,7 @@ def fftshift(x: array, /, *, axes: Optional[Union[int, Sequence[int]]] = None) -
     Returns
     -------
     out: array
-        the shifted array. The returned array must have the same data type as ``x``. The returned array must have the same shape as the input array ``x``.
+        the shifted array. The returned array must have the same data type and shape as ``x``.
 
     Notes
     -----
@@ -635,7 +635,7 @@ def ifftshift(
     Returns
     -------
     out: array
-        the shifted array. The returned array must have the same data type as ``x``. The returned array must have the same shape as the input array ``x``.
+        the shifted array. The returned array must have the same data type and shape as ``x``.
 
     Notes
     -----
