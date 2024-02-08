@@ -85,7 +85,7 @@ def default_dtypes(
     -   **real floating**: default real floating-point data type.
     -   **complex floating**: default complex floating-point data type.
     -   **integral**: default integral data type.
-    -   **indexing**: default index data type.
+    -   **indexing**: default array index data type.
 
     Parameters
     ----------
@@ -160,4 +160,9 @@ def devices() -> List[device]:
     -------
     out: List[device]
         a list of supported devices.
+
+    Notes
+    -----
+
+    Each device object (see :ref:`device-support`) in the list of returned devices must be an object which can be provided as a valid keyword-argument to array creation functions.
     """
