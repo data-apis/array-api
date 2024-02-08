@@ -394,23 +394,17 @@ def irfftn(
     x: array
         input array. Should have a complex-valued floating-point data type.
     s: Optional[Sequence[int]]
-        length of each transformed axis of the **output**. If ``s`` is not ``None``, ``n=s[i]`` is the number of input points used along the transformed axis (dimension) ``i``, except for the last transformed axis, where ``n=s[-1]//2 + 1`` points of the input are used. If
+        number of elements along the transformed axes (dimensions) specified by ``axes`` in the **output array**. Let ``i`` be the index of the nth axis specified by ``axes`` and ``M[i]`` be the size of the input array along axis ``i``. When ``s`` is ``None``, the function must set ``s`` equal to a sequence of integers, such that, for all ``i``, ``s[i]`` equals ``M[i]``, except for the last transformed axis in which ``s[i]`` equals ``2*(M[i]-1)``. For each ``i``, let ``n`` equal ``s[i]``, except for the last transformed axis in which ``n`` equals ``s[i]//2+1``.
 
-        - ``s[i]`` is greater than the length of the input array along the corresponding axis (dimension) ``i``, the input array along the axis ``i`` is zero-padded to length ``n``.
-        - ``s[i]`` is less than the length of the input array along the corresponding axis (dimension) ``i``, the input array along the axis ``i`` is trimmed to length ``n``.
-        - ``s[i]`` is ``-1``, the whole input array along the axis ``i`` is used (no padding/trimming).
+        -   If ``n`` is greater than ``M[i]``, axis ``i`` of the input array must be zero-padded to size ``n``.
+        -   If ``n`` is less than ``M[i]``, axis ``i`` of the input array must be trimmed to size ``n``.
+        -   If ``n`` equals ``M[i]`` or ``-1``, all elements along the axis ``i`` of the input array must be used when computing the transform.
 
-        If ``s`` is ``None`` (not provided), the full length of the input array along each transformed axis (dimension) must be used. The length of the output array must equal the length of the corresponding axis in the input array, except for the last transformed axis which must equal ``2*(x.shape[axes[-1]] - 1)``.
-
-        If ``s`` is not ``None``, ``axes`` must not be ``None`` either, and ``s[i]`` corresponds to the length along the transformed axis specified by ``axes[i]``.
-
-        Default: ``None``.
+        If ``s`` is not ``None``, ``axes`` must not be ``None``. Default: ``None``.
     axes: Optional[Sequence[int]]
-        axes (dimensions) over which to compute the Fourier transform. If ``None``, all axes must be transformed.
+       axes (dimensions) over which to compute the transform. A valid axis must be an integer on the interval ``[-N, N)``, where ``N`` is the rank (number of dimensions) of ``x``. If an axis is specified as a negative integer, the function must determine the axis along which to compute the transform by counting backward from the last dimension (where ``-1`` refers to the last dimension).
 
-        If ``s`` is specified, the corresponding ``axes`` to be transformed must be explicitly specified too.
-
-        Default: ``None``.
+        If ``s`` is provided, the corresponding ``axes`` to be transformed must also be provided. If ``axes`` is ``None``, the function must compute the transform over all axes. Default: ``None``.
     norm: Literal['backward', 'ortho', 'forward']
         normalization mode. Should be one of the following modes:
 
@@ -425,10 +419,12 @@ def irfftn(
     Returns
     -------
     out: array
-        an array transformed along the axes (dimension) indicated by ``axes``. The returned array must have a real-valued floating-point data type whose precision matches the precision of ``x`` (e.g., if ``x`` is ``complex128``, then the returned array must have a ``float64`` data type). The length along the last transformed axis is ``s[-1]``,  if given and not ``-1``, or ``2*(x.shape[axes[-1]] - 1)`` otherwise. The lengths along the remaining transformed axes ``i`` must equal ``s[i]``, if ``given and not ``-1``, or ``x.shape[i]``. Therefore, to get an odd number of output points along the last transformed axis, ``s`` must be specified. The lengths along the un-transformed axes remain unchanged.
+        an array transformed along the axes (dimension) specified by ``axes``. The returned array must have a real-valued floating-point data type whose precision matches the precision of ``x`` (e.g., if ``x`` is ``complex128``, then the returned array must have a ``float64`` data type). The returned array must have the same shape as ``x``, except for the transformed axes which must have size ``s[i]``.
 
     Notes
     -----
+
+    -   In order to return an array having an odd number of elements along the last transformed axis, the function must be provided an odd integer for ``s[-1]``.
 
     .. versionadded:: 2022.12
     """
