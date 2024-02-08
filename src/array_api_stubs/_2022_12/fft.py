@@ -37,7 +37,7 @@ def fft(
     x: array
         input array. Should have a complex-valued floating-point data type.
     n: Optional[int]
-        number of elements in the transformed axis of the output array. Let ``M`` be the size of the input array array along the axis (dimension) specified by ``axis``. When ``n`` is ``None``, the function must set ``n`` equal to ``M``.
+        number of elements in the transformed axis of the output array. Let ``M`` be the size of the input array along the axis (dimension) specified by ``axis``. When ``n`` is ``None``, the function must set ``n`` equal to ``M``.
 
         -   If ``n`` is greater than ``M``, the axis specified by ``axis`` must be zero-padded to size ``n``.
         -   If ``n`` is less than ``M``, the axis specified by ``axis`` must be trimmed to size ``n``.
@@ -86,7 +86,7 @@ def ifft(
     x: array
         input array. Should have a complex-valued floating-point data type.
     n: Optional[int]
-        number of elements in the transformed axis of the output array. Let ``M`` be the size of the input array array along the axis (dimension) specified by ``axis``. When ``n`` is ``None``, the function must set ``n`` equal to ``M``.
+        number of elements in the transformed axis of the output array. Let ``M`` be the size of the input array along the axis (dimension) specified by ``axis``. When ``n`` is ``None``, the function must set ``n`` equal to ``M``.
 
         -   If ``n`` is greater than ``M``, the axis specified by ``axis`` must be zero-padded to size ``n``.
         -   If ``n`` is less than ``M``, the axis specified by ``axis`` must be trimmed to size ``n``.
@@ -135,22 +135,17 @@ def fftn(
     x: array
         input array. Should have a complex-valued floating-point data type.
     s: Optional[Sequence[int]]
-        length of each transformed axis of the output. If
+        number of elements in the transformed axes (dimensions) of the output array. Let ``i`` be the index of the nth axis specified by ``axes`` and ``M[i]`` be the size of the input array along axis ``i``. When ``s`` is ``None``, the function must set ``s`` equal to a sequence of integers, such that, for all ``i``, ``s[i]`` equals ``M[i]``.
 
-        - ``s[i]`` is greater than the length of the input array along the corresponding axis (dimension) ``i``, the input array along the axis ``i`` is zero-padded to length ``s[i]``.
-        - ``s[i]`` is less than the length of the input array along a corresponding axis (dimension) ``i``, the input array along the axis ``i`` is trimmed to length ``s[i]``.
-        - ``s[i]`` is ``-1``, the whole input array along the axis ``i`` is used (no padding/trimming).
-        - ``s`` is not provided, the length of each transformed axis (dimension) in the output array must equal the length of the corresponding axis in the input array.
+        -   If ``s[i]`` is greater than ``M[i]``, axis ``i`` must be zero-padded to size ``s[i]``.
+        -   If ``s[i]`` is less than ``M[i]``, axis ``i`` must be trimmed to size ``s[i]``.
+        -   If ``s[i]`` equals ``M[i]`` or ``-1``, all elements along axis ``i`` must be used when computing the transform.
 
-        If ``s`` is not ``None``, ``axes`` must not be ``None`` either, and ``s[i]`` corresponds to the length along the transformed axis specified by ``axes[i]``.
-
-        Default: ``None``.
+        If ``s`` is not ``None``, ``axes`` must not be ``None``. Default: ``None``.
     axes: Optional[Sequence[int]]
-        axes (dimensions) over which to compute the Fourier transform. If ``None``, all axes must be transformed.
+        axes (dimensions) over which to compute the transform. A valid axis must be an integer on the interval ``[-N, N)``, where ``N`` is the rank (number of dimensions) of ``x``. If an axis is specified as a negative integer, the function must determine the axis along which to compute the transform by counting backward from the last dimension (where ``-1`` refers to the last dimension).
 
-        If ``s`` is specified, the corresponding ``axes`` to be transformed must be explicitly specified too.
-
-        Default: ``None``.
+        If ``s`` is provided, the corresponding ``axes`` to be transformed must also be provided. If ``axes`` is ``None``, the function must compute the transform over all axes. Default: ``None``.
     norm: Literal['backward', 'ortho', 'forward']
         normalization mode. Should be one of the following modes:
 
@@ -165,7 +160,7 @@ def fftn(
     Returns
     -------
     out: array
-        an array transformed along the axes (dimension) indicated by ``axes``. The returned array must have the same data type as ``x``. The length along each transformed axis ``i`` is ``s[i]``, if ``s`` is given and ``s[i]`` is not ``-1``, or the length of the corresponding axis of the input array otherwise. The lengths along the un-transformed axes remain unchanged.
+        an array transformed along the axes (dimensions) specified by ``axes``. The returned array must have the same data type as ``x`` and must have the same shape as ``x``, except for the axes specified by ``axes`` which must have size ``s[i]``.
 
     Notes
     -----
