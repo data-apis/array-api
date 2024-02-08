@@ -41,7 +41,7 @@ def fft(
 
         -   If ``n`` is greater than ``M``, the axis specified by ``axis`` must be zero-padded to size ``n``.
         -   If ``n`` is less than ``M``, the axis specified by ``axis`` must be trimmed to size ``n``.
-        -   If ``n`` equals ``M``, all elements along the axis specified by ``axis`` must be used when computing the discrete Fourier transform.
+        -   If ``n`` equals ``M``, all elements along the axis specified by ``axis`` must be used when computing the transform.
 
         Default: ``None``.
     axis: int
