@@ -334,23 +334,21 @@
 <dd><p>Computes the one-dimensional discrete Fourier transform.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Applying the one-dimensional inverse discrete Fourier transform to the output of this function must return the original (i.e., non-transformed) input array within numerical accuracy (i.e., <code class="docutils literal notranslate"><span class="pre">ifft(fft(x))</span> <span class="pre">==</span> <span class="pre">x</span></code>), provided that the transform and inverse transform are performed with the same arguments (length, axis, and normalization mode).</p>
+<p>Applying the one-dimensional inverse discrete Fourier transform to the output of this function must return the original (i.e., non-transformed) input array within numerical accuracy (i.e., <code class="docutils literal notranslate"><span class="pre">ifft(fft(x))</span> <span class="pre">==</span> <span class="pre">x</span></code>), provided that the transform and inverse transform are performed with the same arguments (number of elements, axis, and normalization mode).</p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>x</strong> (<em>array</em>) – input array. Should have a floating-point data type.</p></li>
-<li><p><strong>n</strong> (<em>int</em>) – <p>length of the transformed axis of the output. If</p>
+<li><p><strong>x</strong> (<em>array</em>) – input array. Should have a complex-valued floating-point data type.</p></li>
+<li><p><strong>n</strong> (<em>Optional</em><em>[</em><em>int</em><em>]</em>) – <p>number of elements over which to compute the transform along the axis (dimension) specified by <code class="docutils literal notranslate"><span class="pre">axis</span></code>. Let <code class="docutils literal notranslate"><span class="pre">M</span></code> be the size of the input array along the axis specified by <code class="docutils literal notranslate"><span class="pre">axis</span></code>. When <code class="docutils literal notranslate"><span class="pre">n</span></code> is <code class="docutils literal notranslate"><span class="pre">None</span></code>, the function must set <code class="docutils literal notranslate"><span class="pre">n</span></code> equal to <code class="docutils literal notranslate"><span class="pre">M</span></code>.</p>
 <ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">n</span></code> is greater than the length of the input array, the input array is zero-padded to length <code class="docutils literal notranslate"><span class="pre">n</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">n</span></code> is less than the length of the input array, the input array is trimmed to length <code class="docutils literal notranslate"><span class="pre">n</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">n</span></code> is not provided, the length of the transformed axis of the output must equal the length of the input along the axis specified by <code class="docutils literal notranslate"><span class="pre">axis</span></code>.</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">n</span></code> is greater than <code class="docutils literal notranslate"><span class="pre">M</span></code>, the axis specified by <code class="docutils literal notranslate"><span class="pre">axis</span></code> must be zero-padded to size <code class="docutils literal notranslate"><span class="pre">n</span></code>.</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">n</span></code> is less than <code class="docutils literal notranslate"><span class="pre">M</span></code>, the axis specified by <code class="docutils literal notranslate"><span class="pre">axis</span></code> must be trimmed to size <code class="docutils literal notranslate"><span class="pre">n</span></code>.</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">n</span></code> equals <code class="docutils literal notranslate"><span class="pre">M</span></code>, all elements along the axis specified by <code class="docutils literal notranslate"><span class="pre">axis</span></code> must be used when computing the transform.</p></li>
 </ul>
 <p>Default: <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
 </p></li>
-<li><p><strong>axis</strong> (<em>int</em>) – <p>axis (dimension) over which to compute the Fourier transform. If not set, the last axis (dimension) is used.</p>
-<p>Default: <code class="docutils literal notranslate"><span class="pre">-1</span></code>.</p>
-</p></li>
+<li><p><strong>axis</strong> (<em>int</em>) – axis (dimension) of the input array over which to compute the transform. A valid <code class="docutils literal notranslate"><span class="pre">axis</span></code> must be an integer on the interval <code class="docutils literal notranslate"><span class="pre">[-N,</span> <span class="pre">N)</span></code>, where <code class="docutils literal notranslate"><span class="pre">N</span></code> is the rank (number of dimensions) of <code class="docutils literal notranslate"><span class="pre">x</span></code>. If an <code class="docutils literal notranslate"><span class="pre">axis</span></code> is specified as a negative integer, the function must determine the axis along which to compute the transform by counting backward from the last dimension (where <code class="docutils literal notranslate"><span class="pre">-1</span></code> refers to the last dimension). Default: <code class="docutils literal notranslate"><span class="pre">-1</span></code>.</p></li>
 <li><p><strong>norm</strong> (<em>Literal</em><em>[</em><em>'backward'</em><em>, </em><em>'ortho'</em><em>, </em><em>'forward'</em><em>]</em>) – <p>normalization mode. Should be one of the following modes:</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">'backward'</span></code>: no normalization.</p></li>
@@ -362,7 +360,7 @@
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>out</strong> (<em>array</em>) – an array transformed along the axis (dimension) indicated by <code class="docutils literal notranslate"><span class="pre">axis</span></code>. The returned array must have a complex floating-point data type determined by <a class="reference internal" href="../../API_specification/type_promotion.html#type-promotion"><span class="std std-ref">Type Promotion Rules</span></a>.</p>
+<dd class="field-even"><p><strong>out</strong> (<em>array</em>) – an array transformed along the axis (dimension) specified by <code class="docutils literal notranslate"><span class="pre">axis</span></code>. The returned array must have the same data type as <code class="docutils literal notranslate"><span class="pre">x</span></code> and must have the same shape as <code class="docutils literal notranslate"><span class="pre">x</span></code>, except for the axis specified by <code class="docutils literal notranslate"><span class="pre">axis</span></code> which must have size <code class="docutils literal notranslate"><span class="pre">n</span></code>.</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
