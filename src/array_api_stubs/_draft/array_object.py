@@ -337,6 +337,8 @@ class _array:
             ``__dlpack__``) supports, in the form of a 2-tuple ``(major, minor)``.
             This method may return a capsule of version ``max_version`` (recommended
             if it does support that), or of a different version.
+            This means the consumer must verify the version even when
+            `max_version` is passed.
 
         Returns
         -------
