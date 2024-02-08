@@ -445,19 +445,16 @@ def hfft(
     ----------
     x: array
         input array. Should have a complex-valued floating-point data type.
-    n: int
-        length of the transformed axis of the **output**. If ``n`` is not ``None`` and
+    n: Optional[int]
+        number of elements along the transformed axis (dimension) specified by ``axis`` in the **output array**. Let ``M`` be the size of the input array along the axis specified by ``axis``. When ``n`` is ``None``, the function must set ``n`` equal to ``2*(M-1)``.
 
-        - ``n//2+1`` is greater than the length of the input array along ``axis``, the input array along ``axis`` is zero-padded to length ``n//2+1``.
-        - ``n//2+1`` is less than the length of the input array along ``axis``, the input array along ``axis`` is trimmed to length ``n//2+1``.
-
-        If ``n`` is ``None`` (not provided), the full length of the input array along ``axis`` must be used. The length along the transformed axis of the output must equal ``2*(x.shape[axis] - 1)``.
+        -   If ``n//2+1`` is greater than ``M``, the axis of the input array specified by ``axis`` must be zero-padded to length ``n//2+1``.
+        -   If ``n//2+1`` is less than ``M``, the axis of the input array specified by ``axis`` must be trimmed to size ``n//2+1``.
+        -   If ``n//2+1`` equals ``M``, all elements along the axis of the input array specified by ``axis`` must be used when computing the transform.
 
         Default: ``None``.
     axis: int
-        axis (dimension) over which to compute the Fourier transform. If not set, the last axis (dimension) is used.
-
-        Default: ``-1``.
+        axis (dimension) of the input array over which to compute the transform. A valid ``axis`` must be an integer on the interval ``[-N, N)``, where ``N`` is the rank (number of dimensions) of ``x``. If an ``axis`` is specified as a negative integer, the function must determine the axis along which to compute the transform by counting backward from the last dimension (where ``-1`` refers to the last dimension). Default: ``-1``.
     norm: Literal['backward', 'ortho', 'forward']
         normalization mode. Should be one of the following modes:
 
@@ -470,7 +467,7 @@ def hfft(
     Returns
     -------
     out: array
-        an array transformed along the axis (dimension) indicated by ``axis``. The returned array must have a real-valued floating-point data type whose precision matches the precision of ``x`` (e.g., if ``x`` is ``complex128``, then the returned array must have a ``float64`` data type). The length along the transformed axis is ``n``, if given, or ``2*(x.shape[axis] - 1)`` otherwise. The lengths along the un-transformed axes remain unchanged.
+        an array transformed along the axis (dimension) specified by ``axis``. The returned array must have a real-valued floating-point data type whose precision matches the precision of ``x`` (e.g., if ``x`` is ``complex128``, then the returned array must have a ``float64`` data type). The returned array must have the same shape as ``x``, except for the axis specified by ``axis`` which must have size ``n``.
 
     Notes
     -----
