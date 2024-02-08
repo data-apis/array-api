@@ -491,19 +491,16 @@ def ihfft(
     ----------
     x: array
         input array. Must have a real-valued floating-point data type.
-    n: int
-        length of the transformed axis of the **input**. If ``n`` is not ``None`` and
+    n: Optional[int]
+        number of elements over which to compute the transform along the axis (dimension) specified by ``axis``. Let ``M`` be the size of the input array along the axis specified by ``axis``. When ``n`` is ``None``, the function must set ``n`` equal to ``M``.
 
-        - ``n`` is greater than the length of the input array along ``axis``, the input array along ``axis`` is zero-padded to length ``n``.
-        - ``n`` is less than the length of the input array along ``axis``, the input array along ``axis`` is trimmed to length ``n``.
-
-        If ``n`` is ``None`` (not provided), the full length of the input array along ``axis`` must be used. The length along the transformed axis must equal ``x.shape[axis]//2 + 1``.
+        -   If ``n`` is greater than ``M``, the axis specified by ``axis`` must be zero-padded to size ``n``.
+        -   If ``n`` is less than ``M``, the axis specified by ``axis`` must be trimmed to size ``n``.
+        -   If ``n`` equals ``M``, all elements along the axis specified by ``axis`` must be used when computing the transform.
 
         Default: ``None``.
     axis: int
-        axis (dimension) over which to compute the Fourier transform. If not set, the last axis (dimension) is used.
-
-        Default: ``-1``.
+        axis (dimension) of the input array over which to compute the transform. A valid ``axis`` must be an integer on the interval ``[-N, N)``, where ``N`` is the rank (number of dimensions) of ``x``. If an ``axis`` is specified as a negative integer, the function must determine the axis along which to compute the transform by counting backward from the last dimension (where ``-1`` refers to the last dimension). Default: ``-1``.
     norm: Literal['backward', 'ortho', 'forward']
         normalization mode. Should be one of the following modes:
 
@@ -516,7 +513,7 @@ def ihfft(
     Returns
     -------
     out: array
-        an array transformed along the axis (dimension) indicated by ``axis``. The returned array must have a complex floating-point data type whose precision matches the precision of ``x`` (e.g., if ``x`` is ``float64``, then the returned array must have a ``complex128`` data type). The length along the transformed axis is ``n//2 + 1`` if ``n`` is given, or ``x.shape[axis]//2 + 1`` otherwise. The lengths along the un-transformed axes remain unchanged.
+        an array transformed along the axis (dimension) specified by ``axis``. The returned array must have a complex floating-point data type whose precision matches the precision of ``x`` (e.g., if ``x`` is ``float64``, then the returned array must have a ``complex128`` data type). The returned array must have the same shape as ``x``, except for the axis specified by ``axis`` which must have size ``n//2 + 1``.
 
     Notes
     -----
