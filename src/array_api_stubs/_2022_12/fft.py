@@ -37,7 +37,7 @@ def fft(
     x: array
         input array. Should have a complex-valued floating-point data type.
     n: Optional[int]
-        number of elements in the transformed axis of the output array. Let ``M`` be the size of the input array along the axis (dimension) specified by ``axis``. When ``n`` is ``None``, the function must set ``n`` equal to ``M``.
+        number of elements over which to compute the transform along the axis (dimension) specified by ``axis``. Let ``M`` be the size of the input array along the axis specified by ``axis``. When ``n`` is ``None``, the function must set ``n`` equal to ``M``.
 
         -   If ``n`` is greater than ``M``, the axis specified by ``axis`` must be zero-padded to size ``n``.
         -   If ``n`` is less than ``M``, the axis specified by ``axis`` must be trimmed to size ``n``.
@@ -86,7 +86,7 @@ def ifft(
     x: array
         input array. Should have a complex-valued floating-point data type.
     n: Optional[int]
-        number of elements in the transformed axis of the output array. Let ``M`` be the size of the input array along the axis (dimension) specified by ``axis``. When ``n`` is ``None``, the function must set ``n`` equal to ``M``.
+        number of elements over which to compute the transform along the axis (dimension) specified by ``axis``. Let ``M`` be the size of the input array along the axis specified by ``axis``. When ``n`` is ``None``, the function must set ``n`` equal to ``M``.
 
         -   If ``n`` is greater than ``M``, the axis specified by ``axis`` must be zero-padded to size ``n``.
         -   If ``n`` is less than ``M``, the axis specified by ``axis`` must be trimmed to size ``n``.
@@ -135,7 +135,7 @@ def fftn(
     x: array
         input array. Should have a complex-valued floating-point data type.
     s: Optional[Sequence[int]]
-        number of elements in the transformed axes (dimensions) of the output array. Let ``i`` be the index of the nth axis specified by ``axes`` and ``M[i]`` be the size of the input array along axis ``i``. When ``s`` is ``None``, the function must set ``s`` equal to a sequence of integers, such that, for all ``i``, ``s[i]`` equals ``M[i]``.
+        number of elements over which to compute the transform along the axes (dimensions) specified by ``axes``. Let ``i`` be the index of the nth axis specified by ``axes`` and ``M[i]`` be the size of the input array along axis ``i``. When ``s`` is ``None``, the function must set ``s`` equal to a sequence of integers, such that, for all ``i``, ``s[i]`` equals ``M[i]``.
 
         -   If ``s[i]`` is greater than ``M[i]``, axis ``i`` must be zero-padded to size ``s[i]``.
         -   If ``s[i]`` is less than ``M[i]``, axis ``i`` must be trimmed to size ``s[i]``.
@@ -188,7 +188,7 @@ def ifftn(
     x: array
         input array. Should have a complex-valued floating-point data type.
     s: Optional[Sequence[int]]
-         number of elements in the transformed axes (dimensions) of the output array. Let ``i`` be the index of the nth axis specified by ``axes`` and ``M[i]`` be the size of the input array along axis ``i``. When ``s`` is ``None``, the function must set ``s`` equal to a sequence of integers, such that, for all ``i``, ``s[i]`` equals ``M[i]``.
+        number of elements over which to compute the transform along the axes (dimensions) specified by ``axes``. Let ``i`` be the index of the nth axis specified by ``axes`` and ``M[i]`` be the size of the input array along axis ``i``. When ``s`` is ``None``, the function must set ``s`` equal to a sequence of integers, such that, for all ``i``, ``s[i]`` equals ``M[i]``.
 
         -   If ``s[i]`` is greater than ``M[i]``, axis ``i`` must be zero-padded to size ``s[i]``.
         -   If ``s[i]`` is less than ``M[i]``, axis ``i`` must be trimmed to size ``s[i]``.
