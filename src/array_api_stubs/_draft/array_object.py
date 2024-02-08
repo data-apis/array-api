@@ -288,7 +288,9 @@ class _array:
         """
 
     def __dlpack__(
-        self: array, /, *,
+        self: array,
+        /,
+        *,
         stream: Optional[Union[int, Any]] = None,
         max_version: Optional[tuple[int, int]] = None,
     ) -> PyCapsule:
