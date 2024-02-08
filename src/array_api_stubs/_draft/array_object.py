@@ -294,7 +294,7 @@ class _array:
         stream: Optional[Union[int, Any]] = None,
         max_version: Optional[tuple[int, int]] = None,
         dl_device: Optional[Tuple[Enum, int]] = None,
-        copy: Optional[bool] = False
+        copy: Optional[bool] = None
     ) -> PyCapsule:
         """
         Exports the array for consumption by :func:`~array_api.from_dlpack` as a DLPack capsule.
@@ -335,23 +335,24 @@ class _array:
                 not want to think about stream handling at all, potentially at the
                 cost of more synchronizations than necessary.
         max_version: Optional[tuple[int, int]]
-            The maximum DLPack version that the *consumer* (i.e., the caller of
+            the maximum DLPack version that the *consumer* (i.e., the caller of
             ``__dlpack__``) supports, in the form of a 2-tuple ``(major, minor)``.
             This method may return a capsule of version ``max_version`` (recommended
             if it does support that), or of a different version.
             This means the consumer must verify the version even when
             `max_version` is passed.
         dl_device: Optional[Tuple[Enum, int]]
-            The DLPack device type. Default is ``None``, meaning the exported capsule
+            the DLPack device type. Default is ``None``, meaning the exported capsule
             should be on the same device as ``self`` is. When specified, the format
             must follow that of the return value of :meth:`array.__dlpack_device__`.
             If the device type cannot be handled by the producer, this function must
             raise `BufferError`.
         copy: Optional[bool]
-            Whether or not a copy should be made. Default is ``False`` to enable
-            zero-copy data exchange. However, a user can request a copy to be made
-            by the producer (through the consumer's :func:`~array_api.from_dlpack`)
-            to move data across the library (and/or device) boundary.
+            boolean indicating whether or not to copy the input. If ``True``, the
+            function must always copy (paerformed by the producer), potentially allowing
+            data movement across the library (and/or device) boundary. If ``False``,
+            the function must never copy. If ``None``, the function must reuse existing
+            memory buffer if possible and copy otherwise. Default: ``None``.
 
         Returns
         -------

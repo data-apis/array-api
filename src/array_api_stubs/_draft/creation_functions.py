@@ -218,7 +218,7 @@ def eye(
 def from_dlpack(
     x: object, /, *,
     device: Optional[device] = None,
-    copy: Optional[bool] = False,
+    copy: Optional[bool] = None
 ) -> Union[array, Any]:
     """
     Returns a new array containing the data from another (array) object with a ``__dlpack__`` method.
@@ -238,7 +238,7 @@ def from_dlpack(
 
         Other kinds of devices will be considered for standardization in a future version.
     copy: Optional[bool]
-        boolean indicating whether or not to copy the input. If ``True``, the function must always copy. If ``False``, the function must never copy and must raise a ``BufferError`` in case a copy would be necessary (e.g. the producer disallows views). Default: ``False``.
+        boolean indicating whether or not to copy the input. If ``True``, the function must always copy. If ``False``, the function must never copy and must raise a ``BufferError`` in case a copy would be necessary (e.g. the producer disallows views). If ``None``, the function must reuse existing memory buffer if possible and copy otherwise. Default: ``None``.
 
         If a copy is needed, the stream over which the copy is performed must be taken from the consumer, following the DLPack protocol (see :meth:`array.__dlpack__`).
 
