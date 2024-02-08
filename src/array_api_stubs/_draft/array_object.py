@@ -290,7 +290,7 @@ class _array:
     def __dlpack__(
         self: array, /, *,
         stream: Optional[Union[int, Any]] = None,
-        max_version: Optional[tuple[int, int]] = None
+        max_version: Optional[tuple[int, int]] = None,
     ) -> PyCapsule:
         """
         Exports the array for consumption by :func:`~array_api.from_dlpack` as a DLPack capsule.
