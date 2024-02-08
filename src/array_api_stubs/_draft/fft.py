@@ -650,7 +650,9 @@ def fftshift(x: array, /, *, axes: Optional[Union[int, Sequence[int]]] = None) -
     """
 
 
-def ifftshift(x: array, /, *, axes: Optional[Union[int, Sequence[int]]] = None) -> array:
+def ifftshift(
+    x: array, /, *, axes: Optional[Union[int, Sequence[int]]] = None
+) -> array:
     """
     Inverse of ``fftshift``.
 
