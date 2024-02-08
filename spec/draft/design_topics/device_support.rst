@@ -39,7 +39,7 @@ into library code which may have to do the following:
 Syntax for device assignment
 ----------------------------
 
-The array API will offer the following syntax for device assignment and
+The array API provides the following syntax for device assignment and
 cross-device data transfer:
 
 1. A ``.device`` property on the array object, which returns a ``Device`` object
@@ -52,19 +52,20 @@ cross-device data transfer:
 3. A ``.to_device`` method on the array object to copy an array to a different device.
 
 .. note::
-   In the current API standard, the only way to obtain a ``Device`` object is from the
-   ``.device`` property on the array object. The standard does **not** include a universal
-   ``Device`` object recognized by all compliant libraries. Accordingly, the standard does
-   not provide a means of instantiating a ``Device`` object to point to a specific physical or
-   logical device.
+   The current API standard does **not** include a universal ``Device`` object
+   recognized by all compliant libraries. Accordingly, the standard does not
+   provide a means of instantiating a ``Device`` object to point to a specific
+   physical or logical device.
 
-   The choice to not include a standardized ``Device`` object may be revisited in a future revision of this standard.
+   The choice to not include a standardized ``Device`` object may be revisited
+   in a future revision of this standard.
 
-   For array libraries which concern themselves with multi-device support, including CPU and GPU,
-   they are free to expose a library-specific device object (e.g., for creating an
-   array on a particular device). While a library-specific device object can be used as input to
-   ``to_device``, beware that this will mean non-portability as code will be specific to
-   that library.
+   For array libraries which concern themselves with multi-device support,
+   including CPU and GPU, they are free to expose a library-specific device
+   object (e.g., for creating an array on a particular device). While a
+   library-specific device object can be used as input to ``to_device``, beware
+   that this will mean non-portability as code will be specific to that
+   library.
 
 Semantics
 ---------
