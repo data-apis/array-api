@@ -228,19 +228,17 @@ def from_dlpack(
     x: object
         input (array) object.
     device: Optional[device]
-        device on which to place the created array. If ``device`` is ``None`` and ``x`` supports DLPack, the output array device must be inferred from ``x``. Default: ``None``.
+        device on which to place the created array. If ``device`` is ``None`` and ``x`` supports DLPack, the output array device must be inferred from ``x.device``. Default: ``None``.
 
         The v2023.12 standard only mandates that a compliant library must offer a way for ``from_dlpack`` to create an array on CPU (using
-        the library-chosen way to represent the CPU device - ``kDLCPU`` in DLPack - e.g. a ``"CPU"`` string or a ``Device("CPU")`` object).
-        If the compliant library does not support the CPU device and needs to outsource to another (compliant) array library, it may do so
+        a library-specifc way to represent the CPU device (``kDLCPU`` in DLPack) e.g. a ``"CPU"`` string or a ``Device("CPU")`` object).
+        If the array library does not support the CPU device and needs to outsource to another (compliant) array library, it may do so
         with a clear user documentation and/or run-time warning. If a copy must be made to enable this, and ``copy`` is set to ``False``,
         the function must raise ``ValueError``.
 
-        Other kinds of devices will be considered for standardization in a future version.
+        Other kinds of devices will be considered for standardization in a future version of this API standard.
     copy: Optional[bool]
-        boolean indicating whether or not to copy the input. If ``True``, the function must always copy. If ``False``, the function must never copy and must raise a ``BufferError`` in case a copy would be necessary (e.g. the producer disallows views). If ``None``, the function must reuse existing memory buffer if possible and copy otherwise. Default: ``None``.
-
-        If a copy is needed, the stream over which the copy is performed must be taken from the consumer, following the DLPack protocol (see :meth:`array.__dlpack__`).
+        boolean indicating whether or not to copy the input. If ``True``, the function must always copy. If ``False``, the function must never copy and must raise a ``BufferError`` in case a copy is deemed necessary (e.g. the producer disallows views). If ``None``, the function must reuse the existing memory buffer if possible and copy otherwise. Default: ``None``.
 
     Returns
     -------

@@ -326,6 +326,12 @@ class _array:
             - ``> 2``: stream number represented as a Python integer.
             - Using ``1`` and ``2`` is not supported.
 
+            .. note::
+                When ``dl_device`` is provided explicitly, ``stream`` must be a valid
+                construct for the specified device type. In particular, when ``kDLCPU``
+                is in use, ``stream`` must be ``None`` and a synchronization must be
+                performed to ensure data safety.
+
             .. admonition:: Tip
                 :class: important
 
@@ -344,15 +350,21 @@ class _array:
         dl_device: Optional[Tuple[Enum, int]]
             the DLPack device type. Default is ``None``, meaning the exported capsule
             should be on the same device as ``self`` is. When specified, the format
-            must follow that of the return value of :meth:`array.__dlpack_device__`.
+            must be a 2-tuple, following that of the return value of :meth:`array.__dlpack_device__`.
             If the device type cannot be handled by the producer, this function must
-            raise `BufferError`.
+            raise ``BufferError``.
         copy: Optional[bool]
             boolean indicating whether or not to copy the input. If ``True``, the
             function must always copy (paerformed by the producer), potentially allowing
             data movement across the library (and/or device) boundary. If ``False``,
             the function must never copy. If ``None``, the function must reuse existing
             memory buffer if possible and copy otherwise. Default: ``None``.
+
+            When a copy happens, the ``DLPACK_FLAG_BITMASK_IS_COPIED`` flag must be set.
+
+            .. note::
+                If a copy happens, and if the consumer-provided ``stream`` and ``dl_device``
+                can be understood by the producer, the copy must be performed over ``stream``.
 
         Returns
         -------
@@ -413,11 +425,14 @@ class _array:
         .. code:: python
 
             try:
-                x.__dlpack__(max_version=(1, 0))
+                x.__dlpack__(max_version=(1, 0), ...)
                 # if it succeeds, store info from the capsule named "dltensor_versioned",
                 # and need to set the name to "used_dltensor_versioned" when we're done
             except TypeError:
-                x.__dlpack__()
+                x.__dlpack__(...)
+
+        This logic is also applicable to handling of the new ``dl_device`` and ``copy``
+        keywords.
 
         .. versionchanged:: 2022.12
             Added BufferError.
