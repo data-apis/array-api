@@ -456,64 +456,110 @@
 <h1 id="api-specification-generated-array-api-array-dlpack--page-root">__dlpack__<a class="headerlink" href="#api-specification-generated-array-api-array-dlpack--page-root" title="Permalink to this heading">¶</a></h1>
 <dl class="py method">
 <dt class="sig sig-object py" id="array_api.array.__dlpack__">
-<span class="sig-prename descclassname"><span class="pre">array.</span></span><span class="sig-name descname"><span class="pre">__dlpack__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Any</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">PyCapsule</span></span></span><a class="headerlink" href="#array_api.array.__dlpack__" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">array.</span></span><span class="sig-name descname"><span class="pre">__dlpack__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Any</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_version</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">PyCapsule</span></span></span><a class="headerlink" href="#array_api.array.__dlpack__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Exports the array for consumption by <a class="reference internal" href="array_api.from_dlpack.html#array_api.from_dlpack" title="array_api.from_dlpack"><code class="xref py py-func docutils literal notranslate"><span class="pre">from_dlpack()</span></code></a> as a DLPack capsule.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>self</strong> (<em>array</em>) – array instance.</p></li>
-<li><p><strong>stream</strong> (<em>Optional</em><em>[</em><em>Union</em><em>[</em><em>int</em><em>, </em><em>Any</em><em>]</em><em>]</em>) – <p>for CUDA and ROCm, a Python integer representing a pointer to a stream, on devices that support streams. <code class="docutils literal notranslate"><span class="pre">stream</span></code> is provided by the consumer to the producer to instruct the producer to ensure that operations can safely be performed on the array (e.g., by inserting a dependency between streams via “wait for event”). The pointer must be a positive integer or <code class="docutils literal notranslate"><span class="pre">-1</span></code>. If <code class="docutils literal notranslate"><span class="pre">stream</span></code> is <code class="docutils literal notranslate"><span class="pre">-1</span></code>, the value may be used by the consumer to signal “producer must not perform any synchronization”. The ownership of the stream stays with the consumer. On CPU and other device types without streams, only <code class="docutils literal notranslate"><span class="pre">None</span></code> is accepted.</p>
-<p>For other device types which do have a stream, queue or similar synchronization mechanism, the most appropriate type to use for <code class="docutils literal notranslate"><span class="pre">stream</span></code> is not yet determined. E.g., for SYCL one may want to use an object containing an in-order <code class="docutils literal notranslate"><span class="pre">cl::sycl::queue</span></code>. This is allowed when libraries agree on such a convention, and may be standardized in a future version of this API standard.</p>
-</p></li>
-</ul>
-</dd>
-</dl>
+<li><p><strong>stream</strong> (<em>Optional</em><em>[</em><em>Union</em><em>[</em><em>int</em><em>, </em><em>Any</em><em>]</em><em>]</em>) – <p>for CUDA and ROCm, a Python integer representing a pointer to a stream, on devices that support streams. <code class="docutils literal notranslate"><span class="pre">stream</span></code> is provided by the consumer to the producer to instruct the producer to ensure that operations can safely be performed on the array (e.g., by inserting a dependency between streams via “wait for event”). The pointer must be an integer larger than or equal to <code class="docutils literal notranslate"><span class="pre">-1</span></code> (see below for allowed values on each platform). If <code class="docutils literal notranslate"><span class="pre">stream</span></code> is <code class="docutils literal notranslate"><span class="pre">-1</span></code>, the value may be used by the consumer to signal “producer must not perform any synchronization”. The ownership of the stream stays with the consumer. On CPU and other device types without streams, only <code class="docutils literal notranslate"><span class="pre">None</span></code> is accepted.</p>
+<p>For other device types which do have a stream, queue, or similar synchronization/ordering mechanism, the most appropriate type to use for <code class="docutils literal notranslate"><span class="pre">stream</span></code> is not yet determined. E.g., for SYCL one may want to use an object containing an in-order <code class="docutils literal notranslate"><span class="pre">cl::sycl::queue</span></code>. This is allowed when libraries agree on such a convention, and may be standardized in a future version of this API standard.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Support for a <code class="docutils literal notranslate"><span class="pre">stream</span></code> value other than <code class="docutils literal notranslate"><span class="pre">None</span></code> is optional and implementation-dependent.</p>
 </div>
-<p>Device-specific notes:</p>
-<div class="note admonition">
-<p class="admonition-title">CUDA</p>
-<ul class="simple">
+<p>Device-specific values of <code class="docutils literal notranslate"><span class="pre">stream</span></code> for CUDA:</p>
+<ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">None</span></code>: producer must assume the legacy default stream (default).</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">1</span></code>: the legacy default stream.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">2</span></code>: the per-thread default stream.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">&gt;</span> <span class="pre">2</span></code>: stream number represented as a Python integer.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">0</span></code> is disallowed due to its ambiguity: <code class="docutils literal notranslate"><span class="pre">0</span></code> could mean either <code class="docutils literal notranslate"><span class="pre">None</span></code>, <code class="docutils literal notranslate"><span class="pre">1</span></code>, or <code class="docutils literal notranslate"><span class="pre">2</span></code>.</p></li>
 </ul>
-</div>
-<div class="note admonition">
-<p class="admonition-title">ROCm</p>
-<ul class="simple">
+<p>Device-specific values of <code class="docutils literal notranslate"><span class="pre">stream</span></code> for ROCm:</p>
+<ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">None</span></code>: producer must assume the legacy default stream (default).</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">0</span></code>: the default stream.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">&gt;</span> <span class="pre">2</span></code>: stream number represented as a Python integer.</p></li>
 <li><p>Using <code class="docutils literal notranslate"><span class="pre">1</span></code> and <code class="docutils literal notranslate"><span class="pre">2</span></code> is not supported.</p></li>
 </ul>
-</div>
 <div class="important admonition">
 <p class="admonition-title">Tip</p>
 <p>It is recommended that implementers explicitly handle streams. If
 they use the legacy default stream, specifying <code class="docutils literal notranslate"><span class="pre">1</span></code> (CUDA) or <code class="docutils literal notranslate"><span class="pre">0</span></code>
 (ROCm) is preferred. <code class="docutils literal notranslate"><span class="pre">None</span></code> is a safe default for developers who do
 not want to think about stream handling at all, potentially at the
-cost of more synchronization than necessary.</p>
+cost of more synchronizations than necessary.</p>
 </div>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>capsule</strong> (<em>PyCapsule</em>) – a DLPack capsule for the array. See <a class="reference internal" href="../../design_topics/data_interchange.html#data-interchange"><span class="std std-ref">Data interchange mechanisms</span></a> for details.</p>
+</p></li>
+<li><p><strong>max_version</strong> (<em>Optional</em><em>[</em><em>tuple</em><em>[</em><em>int</em><em>, </em><em>int</em><em>]</em><em>]</em>) – The maximum DLPack version that the <em>consumer</em> (i.e., the caller of
+<code class="docutils literal notranslate"><span class="pre">__dlpack__</span></code>) supports, in the form of a 2-tuple <code class="docutils literal notranslate"><span class="pre">(major,</span> <span class="pre">minor)</span></code>.
+This method may return a capsule of version <code class="docutils literal notranslate"><span class="pre">max_version</span></code> (recommended
+if it does support that), or of a different version.
+This means the consumer must verify the version even when
+<code class="code docutils literal notranslate"><span class="pre">max_version</span></code> is passed.</p></li>
+</ul>
 </dd>
-<dt class="field-even">Raises<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>BufferError</strong> – Implementations should raise <code class="docutils literal notranslate"><span class="pre">BufferError</span></code> when the data cannot
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>capsule</strong> (<em>PyCapsule</em>) – a DLPack capsule for the array. See <a class="reference internal" href="../../design_topics/data_interchange.html#data-interchange"><span class="std std-ref">Data interchange mechanisms</span></a> for details.</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>BufferError</strong> – Implementations should raise <code class="docutils literal notranslate"><span class="pre">BufferError</span></code> when the data cannot
     be exported as DLPack (e.g., incompatible dtype or strides). Other
     errors are raised when export fails for other reasons (e.g., incorrect
     arguments passed or out of memory).</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
+<p>The DLPack version scheme is SemVer, where the major DLPack versions
+represent ABI breaks, and minor versions represent ABI-compatible additions
+(e.g., new enum values for new data types or device types).</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">max_version</span></code> keyword was introduced in v2023.12, and goes
+together with the <code class="docutils literal notranslate"><span class="pre">DLManagedTensorVersioned</span></code> struct added in DLPack
+1.0. This keyword may not be used by consumers until a later time after
+introduction, because producers may implement the support at a different
+point in time.</p>
+<p>It is recommended for the producer to use this logic in the implementation
+of <code class="docutils literal notranslate"><span class="pre">__dlpack__</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">max_version</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="c1"># Keep and use the DLPack 0.X implementation</span>
+    <span class="c1"># Note: from March 2025 onwards (but ideally as late as</span>
+    <span class="c1"># possible), it's okay to raise BufferError here</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="c1"># We get to produce `DLManagedTensorVersioned` now. Note that</span>
+    <span class="c1"># our_own_dlpack_version is the max version that the *producer*</span>
+    <span class="c1"># supports and fills in the `DLManagedTensorVersioned::version`</span>
+    <span class="c1"># field</span>
+    <span class="k">if</span> <span class="n">max_version</span> <span class="o">&gt;=</span> <span class="n">our_own_dlpack_version</span><span class="p">:</span>
+        <span class="c1"># Consumer understands us, just return a Capsule with our max version</span>
+    <span class="k">elif</span> <span class="n">max_version</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">our_own_dlpack_version</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+        <span class="c1"># major versions match, we should still be fine here -</span>
+        <span class="c1"># return our own max version</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># if we're at a higher major version internally, did we</span>
+        <span class="c1"># keep an implementation of the older major version around?</span>
+        <span class="c1"># For example, if the producer is on DLPack 1.x and the consumer</span>
+        <span class="c1"># is 0.y, can the producer still export a capsule containing</span>
+        <span class="c1"># DLManagedTensor and not DLManagedTensorVersioned?</span>
+        <span class="c1"># If so, use that. Else, the producer should raise a BufferError</span>
+        <span class="c1"># here to tell users that the consumer's max_version is too</span>
+        <span class="c1"># old to allow the data exchange to happen.</span>
+</pre></div>
+</div>
+<p>And this logic for the consumer in <code class="docutils literal notranslate"><span class="pre">from_dlpack</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>
+    <span class="n">x</span><span class="o">.</span><span class="n">__dlpack__</span><span class="p">(</span><span class="n">max_version</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+    <span class="c1"># if it succeeds, store info from the capsule named "dltensor_versioned",</span>
+    <span class="c1"># and need to set the name to "used_dltensor_versioned" when we're done</span>
+<span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+    <span class="n">x</span><span class="o">.</span><span class="n">__dlpack__</span><span class="p">()</span>
+</pre></div>
+</div>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Changed in version 2022.12: </span>Added BufferError.</p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 2023.12: </span>Added the <code class="docutils literal notranslate"><span class="pre">max_version</span></code> keyword.</p>
 </div>
 </dd></dl>
 </section>
