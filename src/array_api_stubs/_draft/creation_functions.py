@@ -246,6 +246,11 @@ def from_dlpack(x: object, /) -> array:
         If the ``__dlpack__`` and ``__dlpack_device__`` methods are not present
         on the input array. This may happen for libraries that are never able
         to export their data with DLPack.
+
+    Notes
+    -----
+    See :meth:`array.__dlpack__` for implementation suggestions for `from_dlpack` in
+    order to handle DLPack versioning correctly.
     """
 
 
