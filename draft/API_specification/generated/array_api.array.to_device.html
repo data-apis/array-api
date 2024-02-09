@@ -470,10 +470,11 @@
 <dd class="field-even"><p><strong>out</strong> (<em>array</em>) – an array with the same data and data type as <code class="docutils literal notranslate"><span class="pre">self</span></code> and located on the specified <code class="docutils literal notranslate"><span class="pre">device</span></code>.</p>
 </dd>
 </dl>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If <code class="docutils literal notranslate"><span class="pre">stream</span></code> is given, the copy operation should be enqueued on the provided <code class="docutils literal notranslate"><span class="pre">stream</span></code>; otherwise, the copy operation should be enqueued on the default stream/queue. Whether the copy is performed synchronously or asynchronously is implementation-dependent. Accordingly, if synchronization is required to guarantee data safety, this must be clearly explained in a conforming library’s documentation.</p>
-</div>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>When a provided <code class="docutils literal notranslate"><span class="pre">device</span></code> object corresponds to the same device on which an array instance resides, implementations may choose to perform an explicit copy or return <code class="docutils literal notranslate"><span class="pre">self</span></code>.</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">stream</span></code> is provided, the copy operation should be enqueued on the provided <code class="docutils literal notranslate"><span class="pre">stream</span></code>; otherwise, the copy operation should be enqueued on the default stream/queue. Whether the copy is performed synchronously or asynchronously is implementation-dependent. Accordingly, if synchronization is required to guarantee data safety, this must be clearly explained in a conforming array library’s documentation.</p></li>
+</ul>
 </dd></dl>
 </section>
 
