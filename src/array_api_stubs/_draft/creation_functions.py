@@ -238,7 +238,7 @@ def from_dlpack(
 
         Other kinds of devices will be considered for standardization in a future version of this API standard.
     copy: Optional[bool]
-        boolean indicating whether or not to copy the input. If ``True``, the function must always copy. If ``False``, the function must never copy and must raise a ``BufferError`` in case a copy is deemed necessary (e.g. the producer disallows views). If ``None``, the function must reuse the existing memory buffer if possible and copy otherwise. Default: ``None``.
+        boolean indicating whether or not to copy the input. If ``True``, the function must always copy. If ``False``, the function must never copy, and raise ``BufferError`` in case a copy is deemed necessary (e.g.  if a cross-device data movement is requested, and it is not possible without a copy). If ``None``, the function must reuse the existing memory buffer if possible and copy otherwise. Default: ``None``.
 
     Returns
     -------
