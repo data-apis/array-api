@@ -228,10 +228,10 @@ def from_dlpack(
     x: object
         input (array) object.
     device: Optional[device]
-        device on which to place the created array. If ``device`` is ``None`` and ``x`` supports DLPack, the output array device must be inferred from ``x.device``. Default: ``None``.
+        device on which to place the created array. If ``device`` is ``None`` and ``x`` supports DLPack, the output array must be on the same device as ``x``. Default: ``None``.
 
         The v2023.12 standard only mandates that a compliant library must offer a way for ``from_dlpack`` to create an array on CPU (using
-        a library-specifc way to represent the CPU device (``kDLCPU`` in DLPack) e.g. a ``"CPU"`` string or a ``Device("CPU")`` object).
+        a library-specific way to represent the CPU device (``kDLCPU`` in DLPack) e.g. a ``"CPU"`` string or a ``Device("CPU")`` object).
         If the array library does not support the CPU device and needs to outsource to another (compliant) array library, it may do so
         with a clear user documentation and/or run-time warning. If a copy must be made to enable this, and ``copy`` is set to ``False``,
         the function must raise ``ValueError``.

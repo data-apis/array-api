@@ -355,10 +355,11 @@ class _array:
             raise ``BufferError``.
         copy: Optional[bool]
             boolean indicating whether or not to copy the input. If ``True``, the
-            function must always copy (paerformed by the producer), potentially allowing
-            data movement across the library (and/or device) boundary. If ``False``,
-            the function must never copy. If ``None``, the function must reuse existing
-            memory buffer if possible and copy otherwise. Default: ``None``.
+            function must always copy (performed by the producer). If ``False``, the
+            function must never copy, and raise a ``BufferError`` in case a copy is
+            deemed necessary (e.g. if a cross-device data movement is requested, and
+            it is not possible without a copy). If ``None``, the function must reuse
+            the existing memory buffer if possible and copy otherwise. Default: ``None``.
 
             When a copy happens, the ``DLPACK_FLAG_BITMASK_IS_COPIED`` flag must be set.
 
