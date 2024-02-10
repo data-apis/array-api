@@ -23,22 +23,14 @@ def cumulative_sum(
         axis along which a cumulative sum must be computed. If ``axis`` is negative, the function must determine the axis along which to compute a cumulative sum by counting from the last dimension.
 
         If ``x`` is a one-dimensional array, providing an ``axis`` is optional; however, if ``x`` has more than one dimension, providing an ``axis`` is required.
+
     dtype: Optional[dtype]
-        data type of the returned array. If ``None``,
+        data type of the returned array. If ``None``, the returned array must have the same data type as ``x``, unless ``x`` has an integer dtype supporting a smaller range of values than the default integer dtype (e.g., ``x`` has an ``int16`` or ``uint32`` dtype and the default integer dtype is ``int64``). In those latter cases:
 
-        -   if the default data type corresponding to the data type "kind" (integer, real-valued floating-point, or complex floating-point) of ``x`` has a smaller range of values than the data type of ``x`` (e.g., ``x`` has data type ``int64`` and the default data type is ``int32``, or ``x`` has data type ``uint64`` and the default data type is ``int64``), the returned array must have the same data type as ``x``.
+        -   if ``x`` has a signed integer data type (e.g., ``int16``), the returned array must have the default integer data type.
+        -   if ``x`` has an unsigned integer data type (e.g., ``uint16``), the returned array must have an unsigned integer data type having the same number of bits as the default integer data type (e.g., if the default integer data type is ``int32``, the returned array must have a ``uint32`` data type).
 
-        -   if the default data type corresponding to the data type "kind" of ``x`` has the same or a larger range of values than the data type of ``x``,
-
-            -   if ``x`` has a real-valued floating-point data type, the returned array must have the default real-valued floating-point data type.
-            -   if ``x`` has a complex floating-point data type, the returned array must have the default complex floating-point data type.
-            -   if ``x`` has a signed integer data type (e.g., ``int16``), the returned array must have the default integer data type.
-            -   if ``x`` has an unsigned integer data type (e.g., ``uint16``), the returned array must have an unsigned integer data type having the same number of bits as the default integer data type (e.g., if the default integer data type is ``int32``, the returned array must have a ``uint32`` data type).
-
-        If the data type (either specified or resolved) differs from the data type of ``x``, the input array should be cast to the specified data type before computing the sum. Default: ``None``.
-
-        .. note::
-           keyword argument is intended to help prevent data type overflows.
+        If the data type (either specified or resolved) differs from the data type of ``x``, the input array should be cast to the specified data type before computing the sum (rationale: the ``dtype`` keyword argument is intended to help prevent overflows). Default: ``None``.
 
     include_initial: bool
         boolean indicating whether to include the initial value as the first value in the output. By convention, the initial value must be the additive identity (i.e., zero). Default: ``False``.
@@ -200,20 +192,14 @@ def prod(
         input array. Should have a numeric data type.
     axis: Optional[Union[int, Tuple[int, ...]]]
         axis or axes along which products must be computed. By default, the product must be computed over the entire array. If a tuple of integers, products must be computed over multiple axes. Default: ``None``.
+
     dtype: Optional[dtype]
-        data type of the returned array. If ``None``,
+        data type of the returned array. If ``None``, the returned array must have the same data type as ``x``, unless ``x`` has an integer dtype supporting a smaller range of values than the default integer dtype (e.g., ``x`` has an ``int16`` or ``uint32`` dtype and the default integer dtype is ``int64``). In those latter cases:
 
-        -   if the default data type corresponding to the data type "kind" (integer, real-valued floating-point, or complex floating-point) of ``x`` has a smaller range of values than the data type of ``x`` (e.g., ``x`` has data type ``int64`` and the default data type is ``int32``, or ``x`` has data type ``uint64`` and the default data type is ``int64``), the returned array must have the same data type as ``x``.
-        -   if the default data type corresponding to the data type "kind" of ``x`` has the same or a larger range of values than the data type of ``x``,
-            -   if ``x`` has a real-valued floating-point data type, the returned array must have the default real-valued floating-point data type.
-            -   if ``x`` has a complex floating-point data type, the returned array must have the default complex floating-point data type.
-            -   if ``x`` has a signed integer data type (e.g., ``int16``), the returned array must have the default integer data type.
-            -   if ``x`` has an unsigned integer data type (e.g., ``uint16``), the returned array must have an unsigned integer data type having the same number of bits as the default integer data type (e.g., if the default integer data type is ``int32``, the returned array must have a ``uint32`` data type).
+        -   if ``x`` has a signed integer data type (e.g., ``int16``), the returned array must have the default integer data type.
+        -   if ``x`` has an unsigned integer data type (e.g., ``uint16``), the returned array must have an unsigned integer data type having the same number of bits as the default integer data type (e.g., if the default integer data type is ``int32``, the returned array must have a ``uint32`` data type).
 
-        If the data type (either specified or resolved) differs from the data type of ``x``, the input array should be cast to the specified data type before computing the product. Default: ``None``.
-
-        .. note::
-           This keyword argument is intended to help prevent data type overflows.
+        If the data type (either specified or resolved) differs from the data type of ``x``, the input array should be cast to the specified data type before computing the sum (rationale: the ``dtype`` keyword argument is intended to help prevent overflows). Default: ``None``.
 
     keepdims: bool
         if ``True``, the reduced axes (dimensions) must be included in the result as singleton dimensions, and, accordingly, the result must be compatible with the input array (see :ref:`broadcasting`). Otherwise, if ``False``, the reduced axes (dimensions) must not be included in the result. Default: ``False``.
@@ -298,20 +284,14 @@ def sum(
         input array. Should have a numeric data type.
     axis: Optional[Union[int, Tuple[int, ...]]]
         axis or axes along which sums must be computed. By default, the sum must be computed over the entire array. If a tuple of integers, sums must be computed over multiple axes. Default: ``None``.
+
     dtype: Optional[dtype]
-        data type of the returned array. If ``None``,
+        data type of the returned array. If ``None``, the returned array must have the same data type as ``x``, unless ``x`` has an integer dtype supporting a smaller range of values than the default integer dtype (e.g., ``x`` has an ``int16`` or ``uint32`` dtype and the default integer dtype is ``int64``). In those latter cases:
 
-        -   if the default data type corresponding to the data type "kind" (integer, real-valued floating-point, or complex floating-point) of ``x`` has a smaller range of values than the data type of ``x`` (e.g., ``x`` has data type ``int64`` and the default data type is ``int32``, or ``x`` has data type ``uint64`` and the default data type is ``int64``), the returned array must have the same data type as ``x``.
-        -   if the default data type corresponding to the data type "kind" of ``x`` has the same or a larger range of values than the data type of ``x``,
-            -   if ``x`` has a real-valued floating-point data type, the returned array must have the default real-valued floating-point data type.
-            -   if ``x`` has a complex floating-point data type, the returned array must have the default complex floating-point data type.
-            -   if ``x`` has a signed integer data type (e.g., ``int16``), the returned array must have the default integer data type.
-            -   if ``x`` has an unsigned integer data type (e.g., ``uint16``), the returned array must have an unsigned integer data type having the same number of bits as the default integer data type (e.g., if the default integer data type is ``int32``, the returned array must have a ``uint32`` data type).
+        -   if ``x`` has a signed integer data type (e.g., ``int16``), the returned array must have the default integer data type.
+        -   if ``x`` has an unsigned integer data type (e.g., ``uint16``), the returned array must have an unsigned integer data type having the same number of bits as the default integer data type (e.g., if the default integer data type is ``int32``, the returned array must have a ``uint32`` data type).
 
-        If the data type (either specified or resolved) differs from the data type of ``x``, the input array should be cast to the specified data type before computing the sum. Default: ``None``.
-
-        .. note::
-           keyword argument is intended to help prevent data type overflows.
+        If the data type (either specified or resolved) differs from the data type of ``x``, the input array should be cast to the specified data type before computing the sum (rationale: the ``dtype`` keyword argument is intended to help prevent overflows). Default: ``None``.
 
     keepdims: bool
         if ``True``, the reduced axes (dimensions) must be included in the result as singleton dimensions, and, accordingly, the result must be compatible with the input array (see :ref:`broadcasting`). Otherwise, if ``False``, the reduced axes (dimensions) must not be included in the result. Default: ``False``.
