@@ -1,0 +1,33 @@
+{
+  "private": true,
+  "name": "@data-apis/array-api",
+  "version": "0.0.0",
+  "license": "MIT",
+  "description": "Array API specification.",
+  "author": {},
+  "contributors": [],
+  "main": "",
+  "directories": {},
+  "scripts": {
+    "build": "npm run build:install && npm run build:compat",
+    "build:install": "cd ./node_modules/array-api-compat-data && npm install",
+    "build:compat": "npm run build:compat:draft && npm run build:compat:latest && npm run build:compat:2022 && npm run build:compat:2021",
+    "build:compat:init": "cd ./node_modules/array-api-compat-data && rm -rf ./build/embed && mkdir -p ./build/embed && cd ./../../",
+    "build:compat:draft": "npm run build:compat:init && cd ./node_modules/array-api-compat-data && node ./scripts/build_embed.js --max-version='*' && node ./scripts/build_spec.js ./../../_site/draft",
+    "build:compat:latest": "npm run build:compat:init && cd ./node_modules/array-api-compat-data && node ./scripts/build_embed.js --max-version='*' && node ./scripts/build_spec.js ./../../_site/latest",
+    "build:compat:2022": "npm run build:compat:init && cd ./node_modules/array-api-compat-data && node ./scripts/build_embed.js --max-version='2022.12' && node ./scripts/build_spec.js ./../../_site/2022.12",
+    "build:compat:2021": "npm run build:compat:init && cd ./node_modules/array-api-compat-data && node ./scripts/build_embed.js --max-version='2021.12' && node ./scripts/build_spec.js ./../../_site/2021.12"
+  },
+  "homepage": "https://github.com/data-apis/array-api",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/data-apis/array-api.git"
+  },
+  "bugs": {
+    "url": "https://github.com/data-apis/array-api/issues"
+  },
+  "devDependencies": {
+    "array-api-compat-data": "git+https://github.com/data-apis/array-api-compat-data.git#main"
+  },
+  "keywords": []
+}
