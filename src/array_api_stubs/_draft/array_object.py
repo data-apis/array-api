@@ -294,7 +294,7 @@ class _array:
         stream: Optional[Union[int, Any]] = None,
         max_version: Optional[tuple[int, int]] = None,
         dl_device: Optional[Tuple[Enum, int]] = None,
-        copy: Optional[bool] = None
+        copy: Optional[bool] = None,
     ) -> PyCapsule:
         """
         Exports the array for consumption by :func:`~array_api.from_dlpack` as a DLPack capsule.

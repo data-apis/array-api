@@ -216,9 +216,11 @@ def eye(
 
 
 def from_dlpack(
-    x: object, /, *,
+    x: object,
+    /,
+    *,
     device: Optional[device] = None,
-    copy: Optional[bool] = None
+    copy: Optional[bool] = None,
 ) -> Union[array, Any]:
     """
     Returns a new array containing the data from another (array) object with a ``__dlpack__`` method.
