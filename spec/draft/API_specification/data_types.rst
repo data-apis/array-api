@@ -72,17 +72,16 @@ Data type objects are used as ``dtype`` specifiers in functions and methods
 arrays, and used in various casting and introspection functions (e.g.,
 ``isdtype(x.dtype, 'integral')``).
 
-``dtype`` keywords in functions specify the dtype of arrays returned from
+``dtype`` keywords in functions specify the data type of arrays returned from
 functions or methods. ``dtype`` keywords are not required to affect the data
 type used for intermediate calculations or results (e.g., implementors are free
-to use a higher-precision dtype when accumulating values for reductions, as
-long as the returned array has the specified dtype).
+to use a higher-precision data type when accumulating values for reductions, as
+long as the returned array has the specified data type).
 
 .. note::
    Implementations may provide other ways to specify data types (e.g., ``zeros((2, 3), dtype='f4')``) which are not described in this specification; however, in order to ensure portability, array library consumers are recommended to use data type objects as provided by specification conforming array libraries.
 
-When arrays with different dtypes or different dtype objects are used together,
-what happens is described in :ref:`type-promotion`.
+See :ref:`type-promotion` for specification guidance describing the rules governing the interaction of two or more data types or data type objects.
 
 
 .. _data-type-defaults:
