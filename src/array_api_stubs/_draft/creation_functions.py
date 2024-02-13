@@ -19,7 +19,6 @@ __all__ = [
 
 
 from ._types import (
-    Any,
     List,
     NestedSequence,
     Optional,
@@ -221,7 +220,7 @@ def from_dlpack(
     *,
     device: Optional[device] = None,
     copy: Optional[bool] = None,
-) -> Union[array, Any]:
+) -> array:
     """
     Returns a new array containing the data from another (array) object with a ``__dlpack__`` method.
 
@@ -232,12 +231,10 @@ def from_dlpack(
     device: Optional[device]
         device on which to place the created array. If ``device`` is ``None`` and ``x`` supports DLPack, the output array must be on the same device as ``x``. Default: ``None``.
 
-        The v2023.12 standard only mandates that a compliant library must offer a way for ``from_dlpack`` to create an array
-        whose underlying memory is accessible to the Python interpreter (using a library-specific way to represent the CPU
-        device (``kDLCPU`` in DLPack) e.g. a ``"CPU"`` string or a ``Device("CPU")`` object).
-        If the array library does not support the CPU device and needs to outsource to another (compliant) array library, it may do so
-        with a clear user documentation and/or run-time warning. If a copy must be made to enable this, and ``copy`` is set to ``False``,
-        the function must raise ``ValueError``.
+        The v2023.12 standard only mandates that a compliant library should offer a way for ``from_dlpack`` to create an array
+        whose underlying memory is accessible to the Python interpreter (represented by the ``kDLCPU`` enumerator in DLPack).
+        If the array library does not support such case at all, the function must raise ``BufferError``. If a copy must be made
+        to enable this but ``copy`` is set to ``False``, the function must raise ``ValueError``.
 
         Other kinds of devices will be considered for standardization in a future version of this API standard.
     copy: Optional[bool]
@@ -245,9 +242,8 @@ def from_dlpack(
 
     Returns
     -------
-    out: Union[array, Any]
-        an array containing the data in ``x``. In the case that the compliant library does not support the given ``device`` out of box
-        and must oursource to another (compliant) library, the output will be that library's compliant array object.
+    out: array
+        an array containing the data in ``x``.
 
         .. admonition:: Note
            :class: note
@@ -261,17 +257,37 @@ def from_dlpack(
         may raise ``BufferError`` when the data cannot be exported as DLPack
         (e.g., incompatible dtype, strides, or device). It may also raise other errors
         when export fails for other reasons (e.g., not enough memory available
-        to materialize the data, a copy must made, etc). ``from_dlpack`` must propagate such
+        to materialize the data). ``from_dlpack`` must propagate such
         exceptions.
     AttributeError
         If the ``__dlpack__`` and ``__dlpack_device__`` methods are not present
         on the input array. This may happen for libraries that are never able
         to export their data with DLPack.
+    ValueError
+        If data exchange is possible via an explicit copy but ``copy`` is set to ``False``.
 
     Notes
     -----
     See :meth:`array.__dlpack__` for implementation suggestions for `from_dlpack` in
     order to handle DLPack versioning correctly.
+
+    A way to move data from two array libraries to the same device (assumed supported by both libraries) in
+    a library-agnostic fashion is illustrated below:
+
+    .. code:: python
+
+        def func(x, y):
+            xp_x = x.__array_namespace__()
+            xp_y = y.__array_namespace__()
+        
+            # Other functions than `from_dlpack` only work if both arrays are from the same library. So if
+            # `y` is from a different one than `x`, let's convert `y` into an array of the same type as `x`:
+            if not xp_x == xp_y:
+                y = xp_x.from_dlpack(y, copy=True, device=x.device)
+        
+            # From now on use `xp_x.xxxxx` functions, as both arrays are from the library `xp_x`
+            ...
+
 
     .. versionchanged:: 2023.12
        Added device and copy support.
