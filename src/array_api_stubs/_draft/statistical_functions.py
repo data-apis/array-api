@@ -25,7 +25,7 @@ def cumulative_sum(
         If ``x`` is a one-dimensional array, providing an ``axis`` is optional; however, if ``x`` has more than one dimension, providing an ``axis`` is required.
 
     dtype: Optional[dtype]
-        data type of the returned array. If ``None``, the returned array must have the same data type as ``x``, unless ``x`` has an integer dtype supporting a smaller range of values than the default integer dtype (e.g., ``x`` has an ``int16`` or ``uint32`` dtype and the default integer dtype is ``int64``). In those latter cases:
+        data type of the returned array. If ``None``, the returned array must have the same data type as ``x``, unless ``x`` has an integer data type supporting a smaller range of values than the default integer data type (e.g., ``x`` has an ``int16`` or ``uint32`` data type and the default integer data type is ``int64``). In those latter cases:
 
         -   if ``x`` has a signed integer data type (e.g., ``int16``), the returned array must have the default integer data type.
         -   if ``x`` has an unsigned integer data type (e.g., ``uint16``), the returned array must have an unsigned integer data type having the same number of bits as the default integer data type (e.g., if the default integer data type is ``int32``, the returned array must have a ``uint32`` data type).
@@ -194,7 +194,7 @@ def prod(
         axis or axes along which products must be computed. By default, the product must be computed over the entire array. If a tuple of integers, products must be computed over multiple axes. Default: ``None``.
 
     dtype: Optional[dtype]
-        data type of the returned array. If ``None``, the returned array must have the same data type as ``x``, unless ``x`` has an integer dtype supporting a smaller range of values than the default integer dtype (e.g., ``x`` has an ``int16`` or ``uint32`` dtype and the default integer dtype is ``int64``). In those latter cases:
+        data type of the returned array. If ``None``, the returned array must have the same data type as ``x``, unless ``x`` has an integer data type supporting a smaller range of values than the default integer data type (e.g., ``x`` has an ``int16`` or ``uint32`` data type and the default integer data type is ``int64``). In those latter cases:
 
         -   if ``x`` has a signed integer data type (e.g., ``int16``), the returned array must have the default integer data type.
         -   if ``x`` has an unsigned integer data type (e.g., ``uint16``), the returned array must have an unsigned integer data type having the same number of bits as the default integer data type (e.g., if the default integer data type is ``int32``, the returned array must have a ``uint32`` data type).
@@ -286,7 +286,7 @@ def sum(
         axis or axes along which sums must be computed. By default, the sum must be computed over the entire array. If a tuple of integers, sums must be computed over multiple axes. Default: ``None``.
 
     dtype: Optional[dtype]
-        data type of the returned array. If ``None``, the returned array must have the same data type as ``x``, unless ``x`` has an integer dtype supporting a smaller range of values than the default integer dtype (e.g., ``x`` has an ``int16`` or ``uint32`` dtype and the default integer dtype is ``int64``). In those latter cases:
+        data type of the returned array. If ``None``, the returned array must have the same data type as ``x``, unless ``x`` has an integer data type supporting a smaller range of values than the default integer data type (e.g., ``x`` has an ``int16`` or ``uint32`` data type and the default integer data type is ``int64``). In those latter cases:
 
         -   if ``x`` has a signed integer data type (e.g., ``int16``), the returned array must have the default integer data type.
         -   if ``x`` has an unsigned integer data type (e.g., ``uint16``), the returned array must have an unsigned integer data type having the same number of bits as the default integer data type (e.g., if the default integer data type is ``int32``, the returned array must have a ``uint32`` data type).
