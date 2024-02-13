@@ -143,11 +143,11 @@ def fftn(
 
         If ``s`` is not ``None``, ``axes`` must not be ``None``. Default: ``None``.
     axes: Optional[Sequence[int]]
-        axes (dimensions) over which to compute the transform. A valid axis in ``axes`` must be an integer on the interval ``[-N, N)``, where ``N`` is the rank (number of dimensions) of ``x`` along that axis. If an axis is specified as a negative integer, the function must determine the axis along which to compute the transform by counting backward from the last dimension (where ``-1`` refers to the last dimension).
+        axes (dimensions) over which to compute the transform. A valid axis in ``axes`` must be an integer on the interval ``[-N, N)``, where ``N`` is the rank (number of dimensions) of ``x``. If an axis is specified as a negative integer, the function must determine the axis along which to compute the transform by counting backward from the last dimension (where ``-1`` refers to the last dimension).
 
         If ``s`` is provided, the corresponding ``axes`` to be transformed must also be provided. If ``axes`` is ``None``, the function must compute the transform over all axes. Default: ``None``.
 
-        If ``axes`` contains any repeated entries, the behavior is unspecified and thus implementation-defined.
+        If ``axes`` contains two or more entries which resolve to the same axis (i.e., resolved axes are not unique), the behavior is unspecified and thus implementation-defined.
     norm: Literal['backward', 'ortho', 'forward']
         normalization mode. Should be one of the following modes:
 
@@ -198,11 +198,11 @@ def ifftn(
 
         If ``s`` is not ``None``, ``axes`` must not be ``None``. Default: ``None``.
     axes: Optional[Sequence[int]]
-        axes (dimensions) over which to compute the transform. A valid axis in ``axes`` must be an integer on the interval ``[-N, N)``, where ``N`` is the rank (number of dimensions) of ``x`` along that axis. If an axis is specified as a negative integer, the function must determine the axis along which to compute the transform by counting backward from the last dimension (where ``-1`` refers to the last dimension).
+        axes (dimensions) over which to compute the transform. A valid axis in ``axes`` must be an integer on the interval ``[-N, N)``, where ``N`` is the rank (number of dimensions) of ``x``. If an axis is specified as a negative integer, the function must determine the axis along which to compute the transform by counting backward from the last dimension (where ``-1`` refers to the last dimension).
 
         If ``s`` is provided, the corresponding ``axes`` to be transformed must also be provided. If ``axes`` is ``None``, the function must compute the transform over all axes. Default: ``None``.
 
-        If ``axes`` contains any repeated entries, the behavior is unspecified and thus implementation-defined.
+        If ``axes`` contains two or more entries which resolve to the same axis (i.e., resolved axes are not unique), the behavior is unspecified and thus implementation-defined.
     norm: Literal['backward', 'ortho', 'forward']
         specify the normalization mode. Should be one of the following modes:
 
@@ -357,7 +357,7 @@ def rfftn(
 
         If ``s`` is provided, the corresponding ``axes`` to be transformed must also be provided. If ``axes`` is ``None``, the function must compute the transform over all axes. Default: ``None``.
 
-        If ``axes`` contains any repeated entries, the behavior is unspecified and thus implementation-defined.
+        If ``axes`` contains two or more entries which resolve to the same axis (i.e., resolved axes are not unique), the behavior is unspecified and thus implementation-defined.
     norm: Literal['backward', 'ortho', 'forward']
         normalization mode. Should be one of the following modes:
 
@@ -408,11 +408,11 @@ def irfftn(
 
         If ``s`` is not ``None``, ``axes`` must not be ``None``. Default: ``None``.
     axes: Optional[Sequence[int]]
-        axes (dimensions) over which to compute the transform. A valid axis in ``axes`` must be an integer on the interval ``[-N, N)``, where ``N`` is the rank (number of dimensions) of ``x`` along that axis. If an axis is specified as a negative integer, the function must determine the axis along which to compute the transform by counting backward from the last dimension (where ``-1`` refers to the last dimension).
+        axes (dimensions) over which to compute the transform. A valid axis in ``axes`` must be an integer on the interval ``[-N, N)``, where ``N`` is the rank (number of dimensions) of ``x``. If an axis is specified as a negative integer, the function must determine the axis along which to compute the transform by counting backward from the last dimension (where ``-1`` refers to the last dimension).
 
         If ``s`` is provided, the corresponding ``axes`` to be transformed must also be provided. If ``axes`` is ``None``, the function must compute the transform over all axes. Default: ``None``.
 
-        If ``axes`` contains any repeated entries, the behavior is unspecified and thus implementation-defined.
+        If ``axes`` contains two or more entries which resolve to the same axis (i.e., resolved axes are not unique), the behavior is unspecified and thus implementation-defined.
     norm: Literal['backward', 'ortho', 'forward']
         normalization mode. Should be one of the following modes:
 
@@ -612,7 +612,7 @@ def fftshift(x: array, /, *, axes: Optional[Union[int, Sequence[int]]] = None) -
     axes: Optional[Union[int, Sequence[int]]]
         axes over which to shift. If ``None``, the function must shift all axes. Default: ``None``.
 
-        If ``axes`` contains any repeated entries, the behavior is unspecified and thus implementation-defined.
+        If ``axes`` contains two or more entries which resolve to the same axis (i.e., resolved axes are not unique), the behavior is unspecified and thus implementation-defined.
 
     Returns
     -------
@@ -642,7 +642,7 @@ def ifftshift(
     axes: Optional[Union[int, Sequence[int]]]
         axes over which to perform the inverse shift. If ``None``, the function must shift all axes. Default: ``None``.
 
-        If ``axes`` contains any repeated entries, the behavior is unspecified and thus implementation-defined.
+        If ``axes`` contains two or more entries which resolve to the same axis (i.e., resolved axes are not unique), the behavior is unspecified and thus implementation-defined.
 
     Returns
     -------
