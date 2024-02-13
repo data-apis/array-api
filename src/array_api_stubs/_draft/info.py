@@ -50,10 +50,10 @@ def capabilities() -> Capabilities:
     """
     Returns a dictionary of array library capabilities.
 
-    The dictionary should contain the following keys:
+    The dictionary must contain the following keys:
 
-    -   **boolean indexing**: boolean indicating whether an array library supports boolean indexing.
-    -   **data-dependent shapes**: boolean indicating whether an array library supports data-dependent output shapes.
+    -   **boolean indexing**: boolean indicating whether an array library supports boolean indexing. If a conforming implementation fully supports boolean indexing in compliance with this specification (see :ref:`indexing`), the corresponding dictionary value must be `True`; otherwise, the value must be `False`.
+    -   **data-dependent shapes**: boolean indicating whether an array library supports data-dependent output shapes. If a conforming implementation fully supports all APIs included in this specification (excluding boolean indexing) which have data-dependent output shapes, the corresponding dictionary value must be `True`; otherwise, the value must be `False`.
 
     Returns
     -------
@@ -80,12 +80,14 @@ def default_dtypes(
     """
     Returns a dictionary containing default data types.
 
-    The dictionary should have the following keys:
+    The dictionary must have the following keys:
 
     -   **real floating**: default real floating-point data type.
     -   **complex floating**: default complex floating-point data type.
     -   **integral**: default integral data type.
     -   **indexing**: default array index data type.
+
+    Dictionary values must be the corresponding data type object.
 
     Parameters
     ----------
