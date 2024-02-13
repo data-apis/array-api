@@ -742,19 +742,12 @@ def trace(x: array, /, *, offset: int = 0, dtype: Optional[dtype] = None) -> arr
 
         Default: ``0``.
     dtype: Optional[dtype]
-        data type of the returned array. If ``None``,
+        data type of the returned array. If ``None``, the returned array must have the same data type as ``x``, unless ``x`` has an integer data type supporting a smaller range of values than the default integer data type (e.g., ``x`` has an ``int16`` or ``uint32`` data type and the default integer data type is ``int64``). In those latter cases:
 
-        -   if the default data type corresponding to the data type "kind" (integer, real-valued floating-point, or complex floating-point) of ``x`` has a smaller range of values than the data type of ``x`` (e.g., ``x`` has data type ``int64`` and the default data type is ``int32``, or ``x`` has data type ``uint64`` and the default data type is ``int64``), the returned array must have the same data type as ``x``.
-        -   if the default data type corresponding to the data type "kind" of ``x`` has the same or a larger range of values than the data type of ``x``,
-            -   if ``x`` has a real-valued floating-point data type, the returned array must have the default real-valued floating-point data type.
-            -   if ``x`` has a complex floating-point data type, the returned array must have the default complex floating-point data type.
-            -   if ``x`` has a signed integer data type (e.g., ``int16``), the returned array must have the default integer data type.
-            -   if ``x`` has an unsigned integer data type (e.g., ``uint16``), the returned array must have an unsigned integer data type having the same number of bits as the default integer data type (e.g., if the default integer data type is ``int32``, the returned array must have a ``uint32`` data type).
+        -   if ``x`` has a signed integer data type (e.g., ``int16``), the returned array must have the default integer data type.
+        -   if ``x`` has an unsigned integer data type (e.g., ``uint16``), the returned array must have an unsigned integer data type having the same number of bits as the default integer data type (e.g., if the default integer data type is ``int32``, the returned array must have a ``uint32`` data type).
 
-        If the data type (either specified or resolved) differs from the data type of ``x``, the input array should be cast to the specified data type before computing the sum. Default: ``None``.
-
-        .. note::
-           keyword argument is intended to help prevent data type overflows.
+        If the data type (either specified or resolved) differs from the data type of ``x``, the input array should be cast to the specified data type before computing the sum (rationale: the ``dtype`` keyword argument is intended to help prevent overflows). Default: ``None``.
 
     Returns
     -------
