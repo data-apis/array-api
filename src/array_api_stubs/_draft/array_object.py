@@ -357,9 +357,8 @@ class _array:
             The v2023.12 standard only mandates that a compliant library should offer a way for
             ``__dlpack__`` to return a capsule referencing an array whose underlying memory is
             accessible to the Python interpreter (represented by the ``kDLCPU`` enumerator in DLPack).
-            If the array library does not support ``kDLCPU`` at all, the function must raise
-            ``BufferError``. If a copy must be made to enable this support but ``copy`` is set to
-            ``False``, the function must raise ``ValueError``.
+            If a copy must be made to enable this support but ``copy`` is set to ``False``, the
+            function must raise ``ValueError``.
 
             Other device kinds will be considered for standardization in a future version of this
             API standard.
