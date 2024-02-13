@@ -293,7 +293,7 @@ class _array:
         *,
         stream: Optional[Union[int, Any]] = None,
         max_version: Optional[tuple[int, int]] = None,
-        dl_device: Optional[Tuple[Enum, int]] = None,
+        dl_device: Optional[tuple[Enum, int]] = None,
         copy: Optional[bool] = None,
     ) -> PyCapsule:
         """
@@ -347,7 +347,7 @@ class _array:
             if it does support that), or of a different version.
             This means the consumer must verify the version even when
             `max_version` is passed.
-        dl_device: Optional[Tuple[Enum, int]]
+        dl_device: Optional[tuple[enum.Enum, int]]
             the DLPack device type. Default is ``None``, meaning the exported capsule
             should be on the same device as ``self`` is. When specified, the format
             must be a 2-tuple, following that of the return value of :meth:`array.__dlpack_device__`.
