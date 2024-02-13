@@ -279,12 +279,12 @@ def from_dlpack(
         def func(x, y):
             xp_x = x.__array_namespace__()
             xp_y = y.__array_namespace__()
-        
+
             # Other functions than `from_dlpack` only work if both arrays are from the same library. So if
             # `y` is from a different one than `x`, let's convert `y` into an array of the same type as `x`:
             if not xp_x == xp_y:
                 y = xp_x.from_dlpack(y, copy=True, device=x.device)
-        
+
             # From now on use `xp_x.xxxxx` functions, as both arrays are from the library `xp_x`
             ...
 
