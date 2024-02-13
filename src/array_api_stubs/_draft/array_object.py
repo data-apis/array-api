@@ -353,6 +353,16 @@ class _array:
             must be a 2-tuple, following that of the return value of :meth:`array.__dlpack_device__`.
             If the device type cannot be handled by the producer, this function must
             raise ``BufferError``.
+
+            The v2023.12 standard only mandates that a compliant library should offer a way for
+            ``__dlpack__`` to return a capsule referencing an array whose underlying memory is
+            accessible to the Python interpreter (represented by the ``kDLCPU`` enumerator in DLPack).
+            If the array library does not support ``kDLCPU`` at all, the function must raise
+            ``BufferError``. If a copy must be made to enable this support but ``copy`` is set to
+            ``False``, the function must raise ``ValueError``.
+
+            Other device kinds will be considered for standardization in a future version of this
+            API standard.
         copy: Optional[bool]
             boolean indicating whether or not to copy the input. If ``True``, the
             function must always copy (performed by the producer). If ``False``, the

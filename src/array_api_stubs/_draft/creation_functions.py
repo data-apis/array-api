@@ -231,12 +231,12 @@ def from_dlpack(
     device: Optional[device]
         device on which to place the created array. If ``device`` is ``None`` and ``x`` supports DLPack, the output array must be on the same device as ``x``. Default: ``None``.
 
-        The v2023.12 standard only mandates that a compliant library should offer a way for ``from_dlpack`` to create an array
-        whose underlying memory is accessible to the Python interpreter (represented by the ``kDLCPU`` enumerator in DLPack).
-        If the array library does not support such case at all, the function must raise ``BufferError``. If a copy must be made
-        to enable this but ``copy`` is set to ``False``, the function must raise ``ValueError``.
+        The v2023.12 standard only mandates that a compliant library should offer a way for ``from_dlpack`` to return an array
+        whose underlying memory is accessible to the Python interpreter, when the corresponding ``device`` is provided. If the
+        array library does not support such cases at all, the function must raise ``BufferError``. If a copy must be made to
+        enable this support but ``copy`` is set to ``False``, the function must raise ``ValueError``.
 
-        Other kinds of devices will be considered for standardization in a future version of this API standard.
+        Other device kinds will be considered for standardization in a future version of this API standard.
     copy: Optional[bool]
         boolean indicating whether or not to copy the input. If ``True``, the function must always copy. If ``False``, the function must never copy, and raise ``BufferError`` in case a copy is deemed necessary (e.g.  if a cross-device data movement is requested, and it is not possible without a copy). If ``None``, the function must reuse the existing memory buffer if possible and copy otherwise. Default: ``None``.
 
