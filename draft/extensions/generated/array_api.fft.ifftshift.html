@@ -347,7 +347,9 @@
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>x</strong> (<em>array</em>) – input array. Should have a floating-point data type.</p></li>
-<li><p><strong>axes</strong> (<em>Optional</em><em>[</em><em>Union</em><em>[</em><em>int</em><em>, </em><em>Sequence</em><em>[</em><em>int</em><em>]</em><em>]</em><em>]</em>) – axes over which to perform the inverse shift. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, the function must shift all axes. Default: <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+<li><p><strong>axes</strong> (<em>Optional</em><em>[</em><em>Union</em><em>[</em><em>int</em><em>, </em><em>Sequence</em><em>[</em><em>int</em><em>]</em><em>]</em><em>]</em>) – <p>axes over which to perform the inverse shift. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, the function must shift all axes. Default: <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">axes</span></code> contains two or more entries which resolve to the same axis (i.e., resolved axes are not unique), the behavior is unspecified and thus implementation-defined.</p>
+</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
