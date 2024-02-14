@@ -456,14 +456,24 @@
 <h1 id="api-specification-generated-array-api-from-dlpack--page-root">from_dlpack<a class="headerlink" href="#api-specification-generated-array-api-from-dlpack--page-root" title="Permalink to this heading">¶</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="array_api.from_dlpack">
-<span class="sig-name descname"><span class="pre">from_dlpack</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">object</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">array</span></span></span><a class="headerlink" href="#array_api.from_dlpack" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">from_dlpack</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">object</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">device</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">copy</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">array</span></span></span><a class="headerlink" href="#array_api.from_dlpack" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns a new array containing the data from another (array) object with a <code class="docutils literal notranslate"><span class="pre">__dlpack__</span></code> method.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>x</strong> (<em>object</em>) – input (array) object.</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>object</em>) – input (array) object.</p></li>
+<li><p><strong>device</strong> (<em>Optional</em><em>[</em><em>device</em><em>]</em>) – <p>device on which to place the created array. If <code class="docutils literal notranslate"><span class="pre">device</span></code> is <code class="docutils literal notranslate"><span class="pre">None</span></code> and <code class="docutils literal notranslate"><span class="pre">x</span></code> supports DLPack, the output array must be on the same device as <code class="docutils literal notranslate"><span class="pre">x</span></code>. Default: <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+<p>The v2023.12 standard only mandates that a compliant library should offer a way for <code class="docutils literal notranslate"><span class="pre">from_dlpack</span></code> to return an array
+whose underlying memory is accessible to the Python interpreter, when the corresponding <code class="docutils literal notranslate"><span class="pre">device</span></code> is provided. If the
+array library does not support such cases at all, the function must raise <code class="docutils literal notranslate"><span class="pre">BufferError</span></code>. If a copy must be made to
+enable this support but <code class="docutils literal notranslate"><span class="pre">copy</span></code> is set to <code class="docutils literal notranslate"><span class="pre">False</span></code>, the function must raise <code class="docutils literal notranslate"><span class="pre">ValueError</span></code>.</p>
+<p>Other device kinds will be considered for standardization in a future version of this API standard.</p>
+</p></li>
+<li><p><strong>copy</strong> (<em>Optional</em><em>[</em><em>bool</em><em>]</em>) – boolean indicating whether or not to copy the input. If <code class="docutils literal notranslate"><span class="pre">True</span></code>, the function must always copy. If <code class="docutils literal notranslate"><span class="pre">False</span></code>, the function must never copy, and raise <code class="docutils literal notranslate"><span class="pre">BufferError</span></code> in case a copy is deemed necessary (e.g.  if a cross-device data movement is requested, and it is not possible without a copy). If <code class="docutils literal notranslate"><span class="pre">None</span></code>, the function must reuse the existing memory buffer if possible and copy otherwise. Default: <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+</ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>out</strong> (<em>array</em>) – an array containing the data in <code class="code docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<dd class="field-even"><p><strong>out</strong> (<em>array</em>) – an array containing the data in <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
 <div class="note admonition">
 <p class="admonition-title">Note</p>
 <p>The returned array may be either a copy or a view. See <a class="reference internal" href="../../design_topics/data_interchange.html#data-interchange"><span class="std std-ref">Data interchange mechanisms</span></a> for details.</p>
@@ -473,19 +483,38 @@
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>BufferError</strong> – The <code class="docutils literal notranslate"><span class="pre">__dlpack__</span></code> and <code class="docutils literal notranslate"><span class="pre">__dlpack_device__</span></code> methods on the input array
     may raise <code class="docutils literal notranslate"><span class="pre">BufferError</span></code> when the data cannot be exported as DLPack
-    (e.g., incompatible dtype or strides). It may also raise other errors
+    (e.g., incompatible dtype, strides, or device). It may also raise other errors
     when export fails for other reasons (e.g., not enough memory available
     to materialize the data). <code class="docutils literal notranslate"><span class="pre">from_dlpack</span></code> must propagate such
     exceptions.</p></li>
 <li><p><strong>AttributeError</strong> – If the <code class="docutils literal notranslate"><span class="pre">__dlpack__</span></code> and <code class="docutils literal notranslate"><span class="pre">__dlpack_device__</span></code> methods are not present
     on the input array. This may happen for libraries that are never able
     to export their data with DLPack.</p></li>
+<li><p><strong>ValueError</strong> – If data exchange is possible via an explicit copy but <code class="docutils literal notranslate"><span class="pre">copy</span></code> is set to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
 </ul>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
 <p>See <a class="reference internal" href="array_api.array.__dlpack__.html#array_api.array.__dlpack__" title="array_api.array.__dlpack__"><code class="xref py py-meth docutils literal notranslate"><span class="pre">array.__dlpack__()</span></code></a> for implementation suggestions for <code class="code docutils literal notranslate"><span class="pre">from_dlpack</span></code> in
 order to handle DLPack versioning correctly.</p>
+<p>A way to move data from two array libraries to the same device (assumed supported by both libraries) in
+a library-agnostic fashion is illustrated below:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="n">xp_x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">__array_namespace__</span><span class="p">()</span>
+    <span class="n">xp_y</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">__array_namespace__</span><span class="p">()</span>
+
+    <span class="c1"># Other functions than `from_dlpack` only work if both arrays are from the same library. So if</span>
+    <span class="c1"># `y` is from a different one than `x`, let's convert `y` into an array of the same type as `x`:</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">xp_x</span> <span class="o">==</span> <span class="n">xp_y</span><span class="p">:</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">xp_x</span><span class="o">.</span><span class="n">from_dlpack</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">x</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+
+    <span class="c1"># From now on use `xp_x.xxxxx` functions, as both arrays are from the library `xp_x`</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 2023.12: </span>Added device and copy support.</p>
+</div>
 </dd></dl>
 </section>
 
