@@ -72,6 +72,10 @@ nitpick_ignore_regex = [
     ("py:class", ".*PyCapsule"),
     ("py:class", ".*finfo_object"),
     ("py:class", ".*iinfo_object"),
+    ("py:class", ".*Info"),
+    ("py:class", ".*Capabilities"),
+    ("py:class", ".*DefaultDataTypes"),
+    ("py:class", ".*DataTypes"),
 ]
 # In array_object.py we have to use aliased names for some types because they
 # would otherwise refer back to method objects of array

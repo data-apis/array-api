@@ -29,6 +29,7 @@ A conforming implementation of the array API standard must provide and support t
    function_and_method_signatures
    indexing
    indexing_functions
+   inspection
    linear_algebra_functions
    manipulation_functions
    searching_functions
