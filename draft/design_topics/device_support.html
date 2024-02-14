@@ -458,7 +458,7 @@ above-listed use cases.</p>
 </section>
 <section id="syntax-for-device-assignment">
 <h2 id="syntax-for-device-assignment">Syntax for device assignment<a class="headerlink" href="#syntax-for-device-assignment" title="Permalink to this heading">¶</a></h2>
-<p>The array API will offer the following syntax for device assignment and
+<p>The array API provides the following syntax for device assignment and
 cross-device data transfer:</p>
 <ol class="arabic simple">
 <li><p>A <code class="docutils literal notranslate"><span class="pre">.device</span></code> property on the array object, which returns a <code class="docutils literal notranslate"><span class="pre">Device</span></code> object
@@ -472,17 +472,18 @@ instance of a <code class="docutils literal notranslate"><span class="pre">Devic
 </ol>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>In the current API standard, the only way to obtain a <code class="docutils literal notranslate"><span class="pre">Device</span></code> object is from the
-<code class="docutils literal notranslate"><span class="pre">.device</span></code> property on the array object. The standard does <strong>not</strong> include a universal
-<code class="docutils literal notranslate"><span class="pre">Device</span></code> object recognized by all compliant libraries. Accordingly, the standard does
-not provide a means of instantiating a <code class="docutils literal notranslate"><span class="pre">Device</span></code> object to point to a specific physical or
-logical device.</p>
-<p>The choice to not include a standardized <code class="docutils literal notranslate"><span class="pre">Device</span></code> object may be revisited in a future revision of this standard.</p>
-<p>For array libraries which concern themselves with multi-device support, including CPU and GPU,
-they are free to expose a library-specific device object (e.g., for creating an
-array on a particular device). While a library-specific device object can be used as input to
-<code class="docutils literal notranslate"><span class="pre">to_device</span></code>, beware that this will mean non-portability as code will be specific to
-that library.</p>
+<p>The current API standard does <strong>not</strong> include a universal <code class="docutils literal notranslate"><span class="pre">Device</span></code> object
+recognized by all compliant libraries. Accordingly, the standard does not
+provide a means of instantiating a <code class="docutils literal notranslate"><span class="pre">Device</span></code> object to point to a specific
+physical or logical device.</p>
+<p>The choice to not include a standardized <code class="docutils literal notranslate"><span class="pre">Device</span></code> object may be revisited
+in a future revision of this standard.</p>
+<p>For array libraries which concern themselves with multi-device support,
+including CPU and GPU, they are free to expose a library-specific device
+object (e.g., for creating an array on a particular device). While a
+library-specific device object can be used as input to <code class="docutils literal notranslate"><span class="pre">to_device</span></code>, beware
+that this will mean non-portability as code will be specific to that
+library.</p>
 </div>
 </section>
 <section id="semantics">
