@@ -293,6 +293,8 @@ class _array:
         *,
         stream: Optional[Union[int, Any]] = None,
         max_version: Optional[tuple[int, int]] = None,
+        dl_device: Optional[tuple[Enum, int]] = None,
+        copy: Optional[bool] = None,
     ) -> PyCapsule:
         """
         Exports the array for consumption by :func:`~array_api.from_dlpack` as a DLPack capsule.
@@ -324,6 +326,12 @@ class _array:
             - ``> 2``: stream number represented as a Python integer.
             - Using ``1`` and ``2`` is not supported.
 
+            .. note::
+                When ``dl_device`` is provided explicitly, ``stream`` must be a valid
+                construct for the specified device type. In particular, when ``kDLCPU``
+                is in use, ``stream`` must be ``None`` and a synchronization must be
+                performed to ensure data safety.
+
             .. admonition:: Tip
                 :class: important
 
@@ -333,12 +341,40 @@ class _array:
                 not want to think about stream handling at all, potentially at the
                 cost of more synchronizations than necessary.
         max_version: Optional[tuple[int, int]]
-            The maximum DLPack version that the *consumer* (i.e., the caller of
+            the maximum DLPack version that the *consumer* (i.e., the caller of
             ``__dlpack__``) supports, in the form of a 2-tuple ``(major, minor)``.
             This method may return a capsule of version ``max_version`` (recommended
             if it does support that), or of a different version.
             This means the consumer must verify the version even when
             `max_version` is passed.
+        dl_device: Optional[tuple[enum.Enum, int]]
+            the DLPack device type. Default is ``None``, meaning the exported capsule
+            should be on the same device as ``self`` is. When specified, the format
+            must be a 2-tuple, following that of the return value of :meth:`array.__dlpack_device__`.
+            If the device type cannot be handled by the producer, this function must
+            raise ``BufferError``.
+
+            The v2023.12 standard only mandates that a compliant library should offer a way for
+            ``__dlpack__`` to return a capsule referencing an array whose underlying memory is
+            accessible to the Python interpreter (represented by the ``kDLCPU`` enumerator in DLPack).
+            If a copy must be made to enable this support but ``copy`` is set to ``False``, the
+            function must raise ``ValueError``.
+
+            Other device kinds will be considered for standardization in a future version of this
+            API standard.
+        copy: Optional[bool]
+            boolean indicating whether or not to copy the input. If ``True``, the
+            function must always copy (performed by the producer). If ``False``, the
+            function must never copy, and raise a ``BufferError`` in case a copy is
+            deemed necessary (e.g. if a cross-device data movement is requested, and
+            it is not possible without a copy). If ``None``, the function must reuse
+            the existing memory buffer if possible and copy otherwise. Default: ``None``.
+
+            When a copy happens, the ``DLPACK_FLAG_BITMASK_IS_COPIED`` flag must be set.
+
+            .. note::
+                If a copy happens, and if the consumer-provided ``stream`` and ``dl_device``
+                can be understood by the producer, the copy must be performed over ``stream``.
 
         Returns
         -------
@@ -394,22 +430,25 @@ class _array:
                     # here to tell users that the consumer's max_version is too
                     # old to allow the data exchange to happen.
 
-        And this logic for the consumer in ``from_dlpack``:
+        And this logic for the consumer in :func:`~array_api.from_dlpack`:
 
         .. code:: python
 
             try:
-                x.__dlpack__(max_version=(1, 0))
+                x.__dlpack__(max_version=(1, 0), ...)
                 # if it succeeds, store info from the capsule named "dltensor_versioned",
                 # and need to set the name to "used_dltensor_versioned" when we're done
             except TypeError:
-                x.__dlpack__()
+                x.__dlpack__(...)
+
+        This logic is also applicable to handling of the new ``dl_device`` and ``copy``
+        keywords.
 
         .. versionchanged:: 2022.12
             Added BufferError.
 
         .. versionchanged:: 2023.12
-            Added the ``max_version`` keyword.
+            Added the ``max_version``, ``dl_device``, and ``copy`` keywords.
         """
 
     def __dlpack_device__(self: array, /) -> Tuple[Enum, int]:
@@ -436,6 +475,8 @@ class _array:
               METAL = 8
               VPI = 9
               ROCM = 10
+              CUDA_MANAGED = 13
+              ONE_API = 14
         """
 
     def __eq__(self: array, other: Union[int, float, bool, array], /) -> array:

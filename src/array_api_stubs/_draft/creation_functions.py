@@ -214,7 +214,13 @@ def eye(
     """
 
 
-def from_dlpack(x: object, /) -> array:
+def from_dlpack(
+    x: object,
+    /,
+    *,
+    device: Optional[device] = None,
+    copy: Optional[bool] = None,
+) -> array:
     """
     Returns a new array containing the data from another (array) object with a ``__dlpack__`` method.
 
@@ -222,11 +228,22 @@ def from_dlpack(x: object, /) -> array:
     ----------
     x: object
         input (array) object.
+    device: Optional[device]
+        device on which to place the created array. If ``device`` is ``None`` and ``x`` supports DLPack, the output array must be on the same device as ``x``. Default: ``None``.
+
+        The v2023.12 standard only mandates that a compliant library should offer a way for ``from_dlpack`` to return an array
+        whose underlying memory is accessible to the Python interpreter, when the corresponding ``device`` is provided. If the
+        array library does not support such cases at all, the function must raise ``BufferError``. If a copy must be made to
+        enable this support but ``copy`` is set to ``False``, the function must raise ``ValueError``.
+
+        Other device kinds will be considered for standardization in a future version of this API standard.
+    copy: Optional[bool]
+        boolean indicating whether or not to copy the input. If ``True``, the function must always copy. If ``False``, the function must never copy, and raise ``BufferError`` in case a copy is deemed necessary (e.g.  if a cross-device data movement is requested, and it is not possible without a copy). If ``None``, the function must reuse the existing memory buffer if possible and copy otherwise. Default: ``None``.
 
     Returns
     -------
     out: array
-        an array containing the data in `x`.
+        an array containing the data in ``x``.
 
         .. admonition:: Note
            :class: note
@@ -238,7 +255,7 @@ def from_dlpack(x: object, /) -> array:
     BufferError
         The ``__dlpack__`` and ``__dlpack_device__`` methods on the input array
         may raise ``BufferError`` when the data cannot be exported as DLPack
-        (e.g., incompatible dtype or strides). It may also raise other errors
+        (e.g., incompatible dtype, strides, or device). It may also raise other errors
         when export fails for other reasons (e.g., not enough memory available
         to materialize the data). ``from_dlpack`` must propagate such
         exceptions.
@@ -246,11 +263,34 @@ def from_dlpack(x: object, /) -> array:
         If the ``__dlpack__`` and ``__dlpack_device__`` methods are not present
         on the input array. This may happen for libraries that are never able
         to export their data with DLPack.
+    ValueError
+        If data exchange is possible via an explicit copy but ``copy`` is set to ``False``.
 
     Notes
     -----
     See :meth:`array.__dlpack__` for implementation suggestions for `from_dlpack` in
     order to handle DLPack versioning correctly.
+
+    A way to move data from two array libraries to the same device (assumed supported by both libraries) in
+    a library-agnostic fashion is illustrated below:
+
+    .. code:: python
+
+        def func(x, y):
+            xp_x = x.__array_namespace__()
+            xp_y = y.__array_namespace__()
+
+            # Other functions than `from_dlpack` only work if both arrays are from the same library. So if
+            # `y` is from a different one than `x`, let's convert `y` into an array of the same type as `x`:
+            if not xp_x == xp_y:
+                y = xp_x.from_dlpack(y, copy=True, device=x.device)
+
+            # From now on use `xp_x.xxxxx` functions, as both arrays are from the library `xp_x`
+            ...
+
+
+    .. versionchanged:: 2023.12
+       Added device and copy support.
     """
 
 
