@@ -444,6 +444,12 @@ class _array:
         This logic is also applicable to handling of the new ``dl_device`` and ``copy``
         keywords.
 
+        DLPack 1.0 added a flag to indicate that the array is read-only
+        (``DLPACK_FLAG_BITMASK_READ_ONLY``). A consumer that does not support
+        read-only arrays should ignore this flag (this is preferred over
+        raising an exception; the user is then responsible for ensuring the
+        memory isn't modified).
+
         .. versionchanged:: 2022.12
             Added BufferError.
 
