@@ -168,7 +168,7 @@ def repeat(
     axis: Optional[int] = None,
 ) -> array:
     """
-    Repeats elements of an array.
+    Repeats each element of an array a specified number of times on a per-element basis.
 
     .. admonition:: Data-dependent output shape
         :class: important
