@@ -52,12 +52,14 @@ nitpicky = True
 nitpick_ignore = [
     ("py:class", "collections.abc.Sequence"),
     ("py:class", "Optional[Union[int, float, Literal[inf, - inf, 'fro', 'nuc']]]"),
+    ("py:class", "int | float | ~typing.Literal[inf, -inf, 'fro', 'nuc'] | None"),
     ("py:class", "Union[int, float, Literal[inf, - inf]]"),
     (
         "py:obj",
         "typing.Optional[typing.Union[int, float, typing.Literal[inf, - inf, 'fro', 'nuc']]]",
     ),
     ("py:obj", "typing.Union[int, float, typing.Literal[inf, - inf]]"),
+    ("py:class", "int | float | ~typing.Literal[inf, -inf]"),
     ("py:class", "enum.Enum"),
     ("py:class", "ellipsis"),
 ]
@@ -70,6 +72,10 @@ nitpick_ignore_regex = [
     ("py:class", ".*PyCapsule"),
     ("py:class", ".*finfo_object"),
     ("py:class", ".*iinfo_object"),
+    ("py:class", ".*Info"),
+    ("py:class", ".*Capabilities"),
+    ("py:class", ".*DefaultDataTypes"),
+    ("py:class", ".*DataTypes"),
 ]
 # In array_object.py we have to use aliased names for some types because they
 # would otherwise refer back to method objects of array

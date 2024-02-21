@@ -241,6 +241,10 @@ class _array:
 
         For complex floating-point operands, special cases must be handled as if the operation is implemented as the logical AND of ``bool(real(self))`` and ``bool(imag(self))``.
 
+        **Lazy implementations**
+
+        The Python language requires the return value to be of type ``bool``. Lazy implementations are therefore not able to return any kind of lazy/delayed object here and should raise a ``ValueError`` instead.
+
         .. versionchanged:: 2022.12
             Added boolean and complex data type support.
         """
@@ -276,11 +280,21 @@ class _array:
         - If ``self`` is ``-infinity``, the result is ``-infinity + 0j``.
         - If ``self`` is a finite number, the result is ``self + 0j``.
 
+        **Lazy implementations**
+
+        The Python language requires the return value to be of type ``complex``. Lazy implementations are therefore not able to return any kind of lazy/delayed object here and should raise a ``ValueError`` instead.
+
         .. versionadded:: 2022.12
         """
 
     def __dlpack__(
-        self: array, /, *, stream: Optional[Union[int, Any]] = None
+        self: array,
+        /,
+        *,
+        stream: Optional[Union[int, Any]] = None,
+        max_version: Optional[tuple[int, int]] = None,
+        dl_device: Optional[tuple[Enum, int]] = None,
+        copy: Optional[bool] = None,
     ) -> PyCapsule:
         """
         Exports the array for consumption by :func:`~array_api.from_dlpack` as a DLPack capsule.
@@ -290,20 +304,14 @@ class _array:
         self: array
             array instance.
         stream: Optional[Union[int, Any]]
-            for CUDA and ROCm, a Python integer representing a pointer to a stream, on devices that support streams. ``stream`` is provided by the consumer to the producer to instruct the producer to ensure that operations can safely be performed on the array (e.g., by inserting a dependency between streams via "wait for event"). The pointer must be a positive integer or ``-1``. If ``stream`` is ``-1``, the value may be used by the consumer to signal "producer must not perform any synchronization". The ownership of the stream stays with the consumer. On CPU and other device types without streams, only ``None`` is accepted.
+            for CUDA and ROCm, a Python integer representing a pointer to a stream, on devices that support streams. ``stream`` is provided by the consumer to the producer to instruct the producer to ensure that operations can safely be performed on the array (e.g., by inserting a dependency between streams via "wait for event"). The pointer must be an integer larger than or equal to ``-1`` (see below for allowed values on each platform). If ``stream`` is ``-1``, the value may be used by the consumer to signal "producer must not perform any synchronization". The ownership of the stream stays with the consumer. On CPU and other device types without streams, only ``None`` is accepted.
 
-            For other device types which do have a stream, queue or similar synchronization mechanism, the most appropriate type to use for ``stream`` is not yet determined. E.g., for SYCL one may want to use an object containing an in-order ``cl::sycl::queue``. This is allowed when libraries agree on such a convention, and may be standardized in a future version of this API standard.
+            For other device types which do have a stream, queue, or similar synchronization/ordering mechanism, the most appropriate type to use for ``stream`` is not yet determined. E.g., for SYCL one may want to use an object containing an in-order ``cl::sycl::queue``. This is allowed when libraries agree on such a convention, and may be standardized in a future version of this API standard.
 
+            .. note::
+                Support for a ``stream`` value other than ``None`` is optional and implementation-dependent.
 
-        .. note::
-            Support for a ``stream`` value other than ``None`` is optional and implementation-dependent.
-
-
-        Device-specific notes:
-
-
-        .. admonition:: CUDA
-            :class: note
+            Device-specific values of ``stream`` for CUDA:
 
             - ``None``: producer must assume the legacy default stream (default).
             - ``1``: the legacy default stream.
@@ -311,24 +319,62 @@ class _array:
             - ``> 2``: stream number represented as a Python integer.
             - ``0`` is disallowed due to its ambiguity: ``0`` could mean either ``None``, ``1``, or ``2``.
 
-
-        .. admonition:: ROCm
-            :class: note
+            Device-specific values of ``stream`` for ROCm:
 
             - ``None``: producer must assume the legacy default stream (default).
             - ``0``: the default stream.
             - ``> 2``: stream number represented as a Python integer.
             - Using ``1`` and ``2`` is not supported.
 
+            .. note::
+                When ``dl_device`` is provided explicitly, ``stream`` must be a valid
+                construct for the specified device type. In particular, when ``kDLCPU``
+                is in use, ``stream`` must be ``None`` and a synchronization must be
+                performed to ensure data safety.
 
-        .. admonition:: Tip
-            :class: important
+            .. admonition:: Tip
+                :class: important
 
-            It is recommended that implementers explicitly handle streams. If
-            they use the legacy default stream, specifying ``1`` (CUDA) or ``0``
-            (ROCm) is preferred. ``None`` is a safe default for developers who do
-            not want to think about stream handling at all, potentially at the
-            cost of more synchronization than necessary.
+                It is recommended that implementers explicitly handle streams. If
+                they use the legacy default stream, specifying ``1`` (CUDA) or ``0``
+                (ROCm) is preferred. ``None`` is a safe default for developers who do
+                not want to think about stream handling at all, potentially at the
+                cost of more synchronizations than necessary.
+        max_version: Optional[tuple[int, int]]
+            the maximum DLPack version that the *consumer* (i.e., the caller of
+            ``__dlpack__``) supports, in the form of a 2-tuple ``(major, minor)``.
+            This method may return a capsule of version ``max_version`` (recommended
+            if it does support that), or of a different version.
+            This means the consumer must verify the version even when
+            `max_version` is passed.
+        dl_device: Optional[tuple[enum.Enum, int]]
+            the DLPack device type. Default is ``None``, meaning the exported capsule
+            should be on the same device as ``self`` is. When specified, the format
+            must be a 2-tuple, following that of the return value of :meth:`array.__dlpack_device__`.
+            If the device type cannot be handled by the producer, this function must
+            raise ``BufferError``.
+
+            The v2023.12 standard only mandates that a compliant library should offer a way for
+            ``__dlpack__`` to return a capsule referencing an array whose underlying memory is
+            accessible to the Python interpreter (represented by the ``kDLCPU`` enumerator in DLPack).
+            If a copy must be made to enable this support but ``copy`` is set to ``False``, the
+            function must raise ``ValueError``.
+
+            Other device kinds will be considered for standardization in a future version of this
+            API standard.
+        copy: Optional[bool]
+            boolean indicating whether or not to copy the input. If ``True``, the
+            function must always copy (performed by the producer). If ``False``, the
+            function must never copy, and raise a ``BufferError`` in case a copy is
+            deemed necessary (e.g. if a cross-device data movement is requested, and
+            it is not possible without a copy). If ``None``, the function must reuse
+            the existing memory buffer if possible and copy otherwise. Default: ``None``.
+
+            When a copy happens, the ``DLPACK_FLAG_BITMASK_IS_COPIED`` flag must be set.
+
+            .. note::
+                If a copy happens, and if the consumer-provided ``stream`` and ``dl_device``
+                can be understood by the producer, the copy must be performed over ``stream``.
 
         Returns
         -------
@@ -345,9 +391,70 @@ class _array:
 
         Notes
         -----
+        The DLPack version scheme is SemVer, where the major DLPack versions
+        represent ABI breaks, and minor versions represent ABI-compatible additions
+        (e.g., new enum values for new data types or device types).
+
+        The ``max_version`` keyword was introduced in v2023.12, and goes
+        together with the ``DLManagedTensorVersioned`` struct added in DLPack
+        1.0. This keyword may not be used by consumers until a later time after
+        introduction, because producers may implement the support at a different
+        point in time.
+
+        It is recommended for the producer to use this logic in the implementation
+        of ``__dlpack__``:
+
+        .. code:: python
+
+            if max_version is None:
+                # Keep and use the DLPack 0.X implementation
+                # Note: from March 2025 onwards (but ideally as late as
+                # possible), it's okay to raise BufferError here
+            else:
+                # We get to produce `DLManagedTensorVersioned` now. Note that
+                # our_own_dlpack_version is the max version that the *producer*
+                # supports and fills in the `DLManagedTensorVersioned::version`
+                # field
+                if max_version >= our_own_dlpack_version:
+                    # Consumer understands us, just return a Capsule with our max version
+                elif max_version[0] == our_own_dlpack_version[0]:
+                    # major versions match, we should still be fine here -
+                    # return our own max version
+                else:
+                    # if we're at a higher major version internally, did we
+                    # keep an implementation of the older major version around?
+                    # For example, if the producer is on DLPack 1.x and the consumer
+                    # is 0.y, can the producer still export a capsule containing
+                    # DLManagedTensor and not DLManagedTensorVersioned?
+                    # If so, use that. Else, the producer should raise a BufferError
+                    # here to tell users that the consumer's max_version is too
+                    # old to allow the data exchange to happen.
+
+        And this logic for the consumer in :func:`~array_api.from_dlpack`:
+
+        .. code:: python
+
+            try:
+                x.__dlpack__(max_version=(1, 0), ...)
+                # if it succeeds, store info from the capsule named "dltensor_versioned",
+                # and need to set the name to "used_dltensor_versioned" when we're done
+            except TypeError:
+                x.__dlpack__(...)
+
+        This logic is also applicable to handling of the new ``dl_device`` and ``copy``
+        keywords.
+
+        DLPack 1.0 added a flag to indicate that the array is read-only
+        (``DLPACK_FLAG_BITMASK_READ_ONLY``). A consumer that does not support
+        read-only arrays should ignore this flag (this is preferred over
+        raising an exception; the user is then responsible for ensuring the
+        memory isn't modified).
 
         .. versionchanged:: 2022.12
             Added BufferError.
+
+        .. versionchanged:: 2023.12
+            Added the ``max_version``, ``dl_device``, and ``copy`` keywords.
         """
 
     def __dlpack_device__(self: array, /) -> Tuple[Enum, int]:
@@ -374,6 +481,8 @@ class _array:
               METAL = 8
               VPI = 9
               ROCM = 10
+              CUDA_MANAGED = 13
+              ONE_API = 14
         """
 
     def __eq__(self: array, other: Union[int, float, bool, array], /) -> array:
@@ -423,6 +532,10 @@ class _array:
 
         - If ``self`` is ``True``, the result is ``1``.
         - If ``self`` is ``False``, the result is ``0``.
+
+        **Lazy implementations**
+
+        The Python language requires the return value to be of type ``float``. Lazy implementations are therefore not able to return any kind of lazy/delayed object here and should raise a ``ValueError`` instead.
 
         .. versionchanged:: 2022.12
             Added boolean and complex data type support.
@@ -544,6 +657,13 @@ class _array:
         -------
         out: int
             a Python ``int`` object representing the single element of the array instance.
+
+        Notes
+        -----
+
+        **Lazy implementations**
+
+        The Python language requires the return value to be of type ``int``. Lazy implementations are therefore not able to return any kind of lazy/delayed object here and should raise a ``ValueError`` instead.
         """
 
     def __int__(self: array, /) -> int:
@@ -581,6 +701,13 @@ class _array:
 
         - If ``self`` is either ``+infinity`` or ``-infinity``, raise ``OverflowError``.
         - If ``self`` is ``NaN``, raise ``ValueError``.
+
+        Notes
+        -----
+
+        **Lazy implementations**
+
+        The Python language requires the return value to be of type ``int``. Lazy implementations are therefore not able to return any kind of lazy/delayed object here and should raise a ``ValueError`` instead.
 
         .. versionchanged:: 2022.12
             Added boolean and complex data type support.
@@ -1060,8 +1187,11 @@ class _array:
             an array with the same data and data type as ``self`` and located on the specified ``device``.
 
 
-        .. note::
-           If ``stream`` is given, the copy operation should be enqueued on the provided ``stream``; otherwise, the copy operation should be enqueued on the default stream/queue. Whether the copy is performed synchronously or asynchronously is implementation-dependent. Accordingly, if synchronization is required to guarantee data safety, this must be clearly explained in a conforming library's documentation.
+        Notes
+        -----
+
+        -   When a provided ``device`` object corresponds to the same device on which an array instance resides, implementations may choose to perform an explicit copy or return ``self``.
+        -   If ``stream`` is provided, the copy operation should be enqueued on the provided ``stream``; otherwise, the copy operation should be enqueued on the default stream/queue. Whether the copy is performed synchronously or asynchronously is implementation-dependent. Accordingly, if synchronization is required to guarantee data safety, this must be clearly explained in a conforming array library's documentation.
         """
 
 

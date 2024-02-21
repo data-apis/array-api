@@ -7,7 +7,7 @@ Array object
 
 A conforming implementation of the array API standard must provide and support an array object having the following attributes and methods.
 
-Furthermore, a conforming implementation of the array API standard must support array objects of arbitrary rank ``N`` (i.e., number of dimensions), where ``N`` is greater than or equal to zero.
+Furthermore, a conforming implementation of the array API standard must support, at minimum, array objects of rank (i.e., number of dimensions) ``0``, ``1``, ``2``, ``3``, and ``4`` and must explicitly document their maximum supported rank ``N``.
 
 .. note::
     Conforming implementations must support zero-dimensional arrays.
@@ -163,7 +163,8 @@ A conforming implementation of the array API standard must provide and support a
     -   `operator.ne(x1, x2) <https://docs.python.org/3/library/operator.html#operator.ne>`_
     -   `operator.__ne__(x1, x2) <https://docs.python.org/3/library/operator.html#operator.__ne__>`_
 
-Comparison operators should be defined for arrays having any data type.
+:meth:`.array.__lt__`, :meth:`.array.__le__`, :meth:`.array.__gt__`, :meth:`.array.__ge__` are only defined for arrays having real-valued data types. Other comparison operators should be defined for arrays having any data type.
+For backward compatibility, conforming implementations may support complex numbers; however, inequality comparison of complex numbers is unspecified and thus implementation-dependent (see :ref:`complex-number-ordering`).
 
 In-place Operators
 ~~~~~~~~~~~~~~~~~~

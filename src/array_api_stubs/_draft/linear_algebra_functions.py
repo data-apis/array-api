@@ -126,9 +126,9 @@ def vecdot(x1: array, x2: array, /, *, axis: int = -1) -> array:
     Let :math:`\mathbf{a}` be a vector in ``x1`` and :math:`\mathbf{b}` be a corresponding vector in ``x2``. The dot product is defined as
 
     .. math::
-       \mathbf{a} \cdot \mathbf{b} = \sum_{i=0}^{n-1} a_i\overline{b_i}
+       \mathbf{a} \cdot \mathbf{b} = \sum_{i=0}^{n-1} \overline{a_i}b_i
 
-    over the dimension specified by ``axis`` and where :math:`n` is the dimension size and :math:`\overline{b_i}` denotes the complex conjugate if :math:`b_i` is complex and the identity if :math:`b_i` is real-valued.
+    over the dimension specified by ``axis`` and where :math:`n` is the dimension size and :math:`\overline{a_i}` denotes the complex conjugate if :math:`a_i` is complex and the identity if :math:`a_i` is real-valued.
 
     Parameters
     ----------
@@ -141,7 +141,7 @@ def vecdot(x1: array, x2: array, /, *, axis: int = -1) -> array:
            The contracted axis (dimension) must not be broadcasted.
 
     axis: int
-        axis over which to compute the dot product. Must be an integer on the interval ``[-N, N)``, where ``N`` is the rank (number of dimensions) of the shape determined according to :ref:`broadcasting`. If specified as a negative integer, the function must determine the axis along which to compute the dot product by counting backward from the last dimension (where ``-1`` refers to the last dimension). By default, the function must compute the dot product over the last axis. Default: ``-1``.
+        the axis (dimension) of ``x1`` and ``x2`` containing the vectors for which to compute the dot product. Should be an integer on the interval ``[-N, -1]``, where ``N`` is ``min(x1.ndim, x2.ndim)``. The function must determine the axis along which to compute the dot product by counting backward from the last dimension (where ``-1`` refers to the last dimension). By default, the function must compute the dot product over the last axis. Default: ``-1``.
 
     Returns
     -------
