@@ -1874,7 +1874,7 @@ def maximum(x1: array, x2: array, /) -> array:
     Notes
     -----
 
-    The order of signed zeros is unspecified and thus implementation-defined. When the choosing between ``-0`` or ``+0`` as a maximum value, specification-compliant libraries may choose to return either value.
+    The order of signed zeros is unspecified and thus implementation-defined. When choosing between ``-0`` or ``+0`` as a maximum value, specification-compliant libraries may choose to return either value.
 
     For backward compatibility, conforming implementations may support complex numbers; however, inequality comparison of complex numbers is unspecified and thus implementation-defined (see :ref:`complex-number-ordering`).
 
@@ -1905,7 +1905,7 @@ def minimum(x1: array, x2: array, /) -> array:
     Notes
     -----
 
-    The order of signed zeros is unspecified and thus implementation-defined. When the choosing between ``-0`` or ``+0`` as a minimum value, specification-compliant libraries may choose to return either value.
+    The order of signed zeros is unspecified and thus implementation-defined. When choosing between ``-0`` or ``+0`` as a minimum value, specification-compliant libraries may choose to return either value.
 
     For backward compatibility, conforming implementations may support complex numbers; however, inequality comparison of complex numbers is unspecified and thus implementation-defined (see :ref:`complex-number-ordering`).
 
