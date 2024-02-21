@@ -1859,9 +1859,6 @@ def maximum(x1: array, x2: array, /) -> array:
     r"""
     Computes the maximum value for each element ``x1_i`` of the input array ``x1`` relative to the respective element ``x2_i`` of the input array ``x2``.
 
-    .. note::
-       For backward compatibility, conforming implementations may support complex numbers; however, inequality comparison of complex numbers is unspecified and thus implementation-dependent (see :ref:`complex-number-ordering`).
-
     Parameters
     ----------
     x1: array
@@ -1877,6 +1874,10 @@ def maximum(x1: array, x2: array, /) -> array:
     Notes
     -----
 
+    The order of signed zeros is unspecified and thus implementation-defined. When the choosing between ``-0`` or ``+0`` as a maximum value, specification-compliant libraries may choose to return either value.
+
+    For backward compatibility, conforming implementations may support complex numbers; however, inequality comparison of complex numbers is unspecified and thus implementation-defined (see :ref:`complex-number-ordering`).
+
     **Special Cases**
 
     For floating-point operands,
@@ -1888,9 +1889,6 @@ def maximum(x1: array, x2: array, /) -> array:
 def minimum(x1: array, x2: array, /) -> array:
     r"""
     Computes the minimum value for each element ``x1_i`` of the input array ``x1`` relative to the respective element ``x2_i`` of the input array ``x2``.
-
-    .. note::
-       For backward compatibility, conforming implementations may support complex numbers; however, inequality comparison of complex numbers is unspecified and thus implementation-dependent (see :ref:`complex-number-ordering`).
 
     Parameters
     ----------
@@ -1906,6 +1904,10 @@ def minimum(x1: array, x2: array, /) -> array:
 
     Notes
     -----
+
+    The order of signed zeros is unspecified and thus implementation-defined. When the choosing between ``-0`` or ``+0`` as a minimum value, specification-compliant libraries may choose to return either value.
+
+    For backward compatibility, conforming implementations may support complex numbers; however, inequality comparison of complex numbers is unspecified and thus implementation-defined (see :ref:`complex-number-ordering`).
 
     **Special Cases**
 
