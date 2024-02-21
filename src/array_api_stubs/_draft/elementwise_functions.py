@@ -28,6 +28,7 @@ __all__ = [
     "floor_divide",
     "greater",
     "greater_equal",
+    "hypot",
     "imag",
     "isfinite",
     "isinf",
@@ -1364,6 +1365,51 @@ def greater_equal(x1: array, x2: array, /) -> array:
     -------
     out: array
         an array containing the element-wise results. The returned array must have a data type of ``bool``.
+    """
+
+
+def hypot(x1: array, x2: array, /) -> array:
+    r"""
+    Computes the square root of the sum of squares for each element ``x1_i`` of the input array ``x1`` with the respective element ``x2_i`` of the input array ``x2``.
+
+    .. note::
+       The value computed by this function may be interpreted as the length of the hypotenuse of a right-angled triangle with sides of length ``x1_i`` and ``x2_i``, the distance of a point ``(x1_i, x2_i)`` from the origin ``(0, 0)``, or the magnitude of a complex number ``x1_i + x2_i * 1j``.
+
+    Parameters
+    ----------
+    x1: array
+       first input array. Should have a real-valued floating-point data type.
+    x2: array
+       second input array. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have a real-valued floating-point data type.
+
+    Returns
+    -------
+    out: array
+       an array containing the element-wise results. The returned array must have a real-valued floating-point data type determined by :ref:`type-promotion`.
+
+    Notes
+    -----
+
+    The purpose of this function is to avoid underflow and overflow during intermediate stages of computation. Accordingly, conforming implementations should not use naive implementations.
+
+    **Special Cases**
+
+    For real-valued floating-point operands,
+
+    - If ``x1_i`` is ``+infinity`` or ``-infinity`` and ``x2_i`` is any value, including ``NaN``, the result is ``+infinity``.
+    - If ``x2_i`` is ``+infinity`` or ``-infinity`` and ``x1_i`` is any value, including ``NaN``, the result is ``+infinity``.
+    - If ``x1_i`` is either ``+0`` or ``-0``, the result is equivalent to ``abs(x2_i)``.
+    - If ``x2_i`` is either ``+0`` or ``-0``, the result is equivalent to ``abs(x1_i)``.
+    - If ``x1_i`` is a finite number or ``NaN`` and ``x2_i`` is ``NaN``, the result is ``NaN``.
+    - If ``x2_i`` is a finite number or ``NaN`` and ``x1_i`` is ``NaN``, the result is ``NaN``.
+    - Underflow may only occur when both arguments are subnormal and the correct result is also subnormal.
+
+    For real-valued floating-point operands, ``hypot(x1, x2)`` must equal ``hypot(x2, x1)``, ``hypot(x1, -x2)``, ``hypot(-x1, x2)``, and ``hypot(-x1, -x2)``.
+
+    .. note::
+       IEEE 754-2019 requires support for subnormal (a.k.a., denormal) numbers, which are useful for supporting gradual underflow. However, hardware support for subnormal numbers is not universal, and many platforms (e.g., accelerators) and compilers support toggling denormals-are-zero (DAZ) and/or flush-to-zero (FTZ) behavior to increase performance and to guard against timing attacks.
+
+       Accordingly, conforming implementations may vary in their support for subnormal numbers.
     """
 
 
