@@ -1354,6 +1354,8 @@ def hypot(x1: array, x2: array, /) -> array:
     Notes
     -----
 
+    The purpose of this function is to avoid underflow and overflow during intermediate stages of computation. Accordingly, conforming implementations should not use naive implementations.
+
     **Special Cases**
 
     For real-valued floating-point operands,
@@ -1367,8 +1369,6 @@ def hypot(x1: array, x2: array, /) -> array:
     - Underflow may only occur when both arguments are subnormal and the correct result is also subnormal.
 
     For real-valued floating-point operands, ``hypot(x1, x2)`` must equal ``hypot(x2, x1)``, ``hypot(x1, -x2)``, ``hypot(-x1, x2)``, and ``hypot(-x1, -x2)``.
-
-    The purpose of this function is to avoid underflow and overflow during intermediate stages of computation. Accordingly, conforming implementations should not use naive implementations.
 
     .. note::
        IEEE 754-2019 requires support for subnormal (a.k.a., denormal) numbers, which are useful for supporting gradual underflow. However, hardware support for subnormal numbers is not universal, and many platforms (e.g., accelerators) and compilers support toggling denormals-are-zero (DAZ) and/or flush-to-zero (FTZ) behavior to increase performance and to guard against timing attacks.
