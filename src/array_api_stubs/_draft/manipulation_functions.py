@@ -203,7 +203,7 @@ def repeat(
     Returns
     -------
     out: array
-        an output array containing repeated elements. The returned array must have the same data type as ``x``. If ``axis`` is ``None``, the returned array must be a one-dimensional array; otherwise, the returned array have the same shape as ``x``, except for the axis (dimension) along which elements were repeated.
+        an output array containing repeated elements. The returned array must have the same data type as ``x``. If ``axis`` is ``None``, the returned array must be a one-dimensional array; otherwise, the returned array must have the same shape as ``x``, except for the axis (dimension) along which elements were repeated.
     """
 
 
