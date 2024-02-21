@@ -16,7 +16,7 @@ __all__ = [
 ]
 
 
-from ._types import List, Optional, Tuple, Union, Sequence, array
+from ._types import List, Optional, Tuple, Union, array
 
 
 def broadcast_arrays(*arrays: array) -> List[array]:
