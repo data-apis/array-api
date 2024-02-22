@@ -25,6 +25,7 @@ Objects in API
    flip
    moveaxis
    permute_dims
+   repeat
    reshape
    roll
    squeeze
