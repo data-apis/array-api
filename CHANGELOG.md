@@ -124,7 +124,7 @@ The following is a list of fixes and points of clarification with regard to the 
 - `asarray`: fix typo in `device` keyword argument description ([gh-681](https://github.com/data-apis/array-api/pull/681))
 - `conj`: fix typo in parameter description ([gh-706](https://github.com/data-apis/array-api/pull/706))
 - `finfo_object`: fix missing `dtype` attribute ([gh-639](https://github.com/data-apis/array-api/pull/639))
-- `fft.*`: fix various typing issues and input/output data type guidance ([gh-720](https://github.com/data-apis/array-api/pull/720))
+- `fft.*`: fix various typing issues ([gh-720](https://github.com/data-apis/array-api/pull/720))
 - `iinfo_object`: fix missing `dtype` attribute ([gh-639](https://github.com/data-apis/array-api/pull/639))
 - `linalg.qr`: fix typo in function description ([gh-661](https://github.com/data-apis/array-api/pull/661))
 - `linalg.cholesky`: fix typo in function description ([gh-677](https://github.com/data-apis/array-api/pull/677))
