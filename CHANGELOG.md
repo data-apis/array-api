@@ -116,10 +116,10 @@ The following is a list of breaking changes in specification extensions relative
 The following is a list of fixes and points of clarification with regard to the previous version of the specification:
 
 - `__getitem__`: clarify typing to allow `None` in indexing ([gh-674](https://github.com/data-apis/array-api/pull/674) and [gh-687](https://github.com/data-apis/array-api/pull/687))
-- `__ge__`: clarify that operation is only defined for arrays having real-valued data types ([gh-736](https://github.com/data-apis/array-api/pull/736))
-- `__gt__`: clarify that operation is only defined for arrays having real-valued data types ([gh-736](https://github.com/data-apis/array-api/pull/736))
-- `__le__`: clarify that operation is only defined for arrays having real-valued data types ([gh-736](https://github.com/data-apis/array-api/pull/736))
-- `__lt__`: clarify that operation is only defined for arrays having real-valued data types ([gh-736](https://github.com/data-apis/array-api/pull/736))
+- `__ge__`: clarify that the operation is only defined for arrays having real-valued data types ([gh-736](https://github.com/data-apis/array-api/pull/736))
+- `__gt__`: clarify that the operation is only defined for arrays having real-valued data types ([gh-736](https://github.com/data-apis/array-api/pull/736))
+- `__le__`: clarify that the operation is only defined for arrays having real-valued data types ([gh-736](https://github.com/data-apis/array-api/pull/736))
+- `__lt__`: clarify that the operation is only defined for arrays having real-valued data types ([gh-736](https://github.com/data-apis/array-api/pull/736))
 - `abs`: fix typo in return value description ([gh-633](https://github.com/data-apis/array-api/pull/633))
 - `asarray`: fix typo in `device` keyword argument description ([gh-681](https://github.com/data-apis/array-api/pull/681))
 - `conj`: fix typo in parameter description ([gh-706](https://github.com/data-apis/array-api/pull/706))
