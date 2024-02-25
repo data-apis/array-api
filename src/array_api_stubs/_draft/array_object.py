@@ -249,7 +249,7 @@ class _array:
             Added boolean and complex data type support.
 
         .. versionchanged:: 2023.12
-            Allow lazy implementations to error.
+            Allowed lazy implementations to error.
         """
 
     def __complex__(self: array, /) -> complex:
@@ -290,7 +290,7 @@ class _array:
         .. versionadded:: 2022.12
 
         .. versionchanged:: 2023.12
-            Allow lazy implementations to error.
+            Allowed lazy implementations to error.
         """
 
     def __dlpack__(
@@ -550,7 +550,7 @@ class _array:
             Added boolean and complex data type support.
 
         .. versionchanged:: 2023.12
-            Allow lazy implementations to error.
+            Allowed lazy implementations to error.
         """
 
     def __floordiv__(self: array, other: Union[int, float, array], /) -> array:
@@ -678,7 +678,7 @@ class _array:
         The Python language requires the return value to be of type ``int``. Lazy implementations are therefore not able to return any kind of lazy/delayed object here and should raise a ``ValueError`` instead.
 
         .. versionchanged:: 2023.12
-            Allow lazy implementations to error.
+            Allowed lazy implementations to error.
         """
 
     def __int__(self: array, /) -> int:
@@ -728,7 +728,7 @@ class _array:
             Added boolean and complex data type support.
 
         .. versionchanged:: 2023.12
-            Allow lazy implementations to error.
+            Allowed lazy implementations to error.
         """
 
     def __invert__(self: array, /) -> array:
