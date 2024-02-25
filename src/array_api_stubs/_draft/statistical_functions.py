@@ -51,6 +51,8 @@ def cumulative_sum(
     **Special Cases**
 
     For both real-valued and complex floating-point operands, special cases must be handled as if the operation is implemented by successive application of :func:`~array_api.add`.
+
+    .. versionadded:: 2023.12
     """
 
 
@@ -92,6 +94,9 @@ def max(
     For floating-point operands,
 
     -   If ``x_i`` is ``NaN``, the maximum value is ``NaN`` (i.e., ``NaN`` values propagate).
+
+    .. versionchanged:: 2023.12
+       Clarified that the order of signed zeros is implementation-defined.
     """
 
 
@@ -172,6 +177,9 @@ def min(
     For floating-point operands,
 
     -   If ``x_i`` is ``NaN``, the minimum value is ``NaN`` (i.e., ``NaN`` values propagate).
+
+    .. versionchanged:: 2023.12
+       Clarified that the order of signed zeros is implementation-defined.
     """
 
 
@@ -222,6 +230,9 @@ def prod(
 
     .. versionchanged:: 2022.12
        Added complex data type support.
+
+    .. versionchanged:: 2023.12
+       Required the function to return a floating-point array having the same data type as the input array when provided a floating-point array.
     """
 
 
@@ -314,6 +325,9 @@ def sum(
 
     .. versionchanged:: 2022.12
        Added complex data type support.
+
+    .. versionchanged:: 2023.12
+       Required the function to return a floating-point array having the same data type as the input array when provided a floating-point array.
     """
 
 

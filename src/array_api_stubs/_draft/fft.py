@@ -64,6 +64,9 @@ def fft(
     -----
 
     .. versionadded:: 2022.12
+
+    .. versionchanged:: 2023.12
+       Required the input array have a complex-valued floating-point data type and required that the output array have the same data type as the input array.
     """
 
 
@@ -113,6 +116,9 @@ def ifft(
     -----
 
     .. versionadded:: 2022.12
+
+    .. versionchanged:: 2023.12
+       Required the input array have a complex-valued floating-point data type and required that the output array have the same data type as the input array.
     """
 
 
@@ -168,6 +174,9 @@ def fftn(
     -----
 
     .. versionadded:: 2022.12
+
+    .. versionchanged:: 2023.12
+       Required the input array have a complex-valued floating-point data type and required that the output array have the same data type as the input array.
     """
 
 
@@ -223,6 +232,9 @@ def ifftn(
     -----
 
     .. versionadded:: 2022.12
+
+    .. versionchanged:: 2023.12
+       Required the input array have a complex-valued floating-point data type and required that the output array have the same data type as the input array.
     """
 
 
@@ -323,6 +335,9 @@ def irfft(
     -   In order to return an array having an odd number of elements along the transformed axis, the function must be provided an odd integer for ``n``.
 
     .. versionadded:: 2022.12
+
+    .. versionchanged:: 2023.12
+       Required the output array have a real-valued floating-point data type having the same precision as the input array.
     """
 
 
@@ -435,6 +450,9 @@ def irfftn(
     -   In order to return an array having an odd number of elements along the last transformed axis, the function must be provided an odd integer for ``s[-1]``.
 
     .. versionadded:: 2022.12
+
+    .. versionchanged:: 2023.12
+       Required the output array have a real-valued floating-point data type having the same precision as the input array.
     """
 
 
@@ -481,6 +499,9 @@ def hfft(
     -----
 
     .. versionadded:: 2022.12
+
+    .. versionchanged:: 2023.12
+       Required the input array to have a complex-valued floating-point data type and required that the output array have a real-valued data type having the same precision as the input array.
     """
 
 
@@ -559,6 +580,9 @@ def fftfreq(n: int, /, *, d: float = 1.0, device: Optional[device] = None) -> ar
     -----
 
     .. versionadded:: 2022.12
+
+    .. versionchanged:: 2023.12
+       Required the output array have the default real-valued floating-point data type.
     """
 
 
@@ -593,6 +617,9 @@ def rfftfreq(n: int, /, *, d: float = 1.0, device: Optional[device] = None) -> a
     -----
 
     .. versionadded:: 2022.12
+
+    .. versionchanged:: 2023.12
+       Required the output array have the default real-valued floating-point data type.
     """
 
 

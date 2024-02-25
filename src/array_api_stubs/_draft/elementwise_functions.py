@@ -806,6 +806,8 @@ def clip(
     - If both ``min`` and ``max`` are ``None``, the elements of the returned array must equal the respective elements in ``x``.
     - If a broadcasted element in ``min`` is greater than a corresponding broadcasted element in ``max``, behavior is unspecified and thus implementation-dependent.
     - If ``x`` and either ``min`` or ``max`` have different data type kinds (e.g., integer versus floating-point), behavior is unspecified and thus implementation-dependent.
+
+    .. versionadded:: 2023.12
     """
 
 
@@ -880,6 +882,8 @@ def copysign(x1: array, x2: array, /) -> array:
     - If ``x2_i`` is greater than ``0``, the result is ``NaN`` with a sign bit of ``0``.
     - If ``x2_i`` is ``NaN`` and the sign bit of ``x2_i`` is ``1``, the result is ``NaN`` with a sign bit of ``1``.
     - If ``x2_i`` is ``NaN`` and the sign bit of ``x2_i`` is ``0``, the result is ``NaN`` with a sign bit of ``0``.
+
+    .. versionadded:: 2023.12
     """
 
 
@@ -1410,6 +1414,8 @@ def hypot(x1: array, x2: array, /) -> array:
        IEEE 754-2019 requires support for subnormal (a.k.a., denormal) numbers, which are useful for supporting gradual underflow. However, hardware support for subnormal numbers is not universal, and many platforms (e.g., accelerators) and compilers support toggling denormals-are-zero (DAZ) and/or flush-to-zero (FTZ) behavior to increase performance and to guard against timing attacks.
 
        Accordingly, conforming implementations may vary in their support for subnormal numbers.
+
+    .. versionadded:: 2023.12
     """
 
 
@@ -1929,6 +1935,8 @@ def maximum(x1: array, x2: array, /) -> array:
     For floating-point operands,
 
     -   If either ``x1_i`` or ``x2_i`` is ``NaN``, the result is ``NaN``.
+
+    .. versionadded:: 2023.12
     """
 
 
@@ -1960,6 +1968,8 @@ def minimum(x1: array, x2: array, /) -> array:
     For floating-point operands,
 
     -   If either ``x1_i`` or ``x2_i`` is ``NaN``, the result is ``NaN``.
+
+    .. versionadded:: 2023.12
     """
 
 
@@ -2390,6 +2400,8 @@ def signbit(x: array, /) -> array:
     - If ``x_i`` is a negative (i.e., less than ``0``) finite number, the result is ``True``.
     - If ``x_i`` is ``NaN`` and the sign bit of ``x_i`` is ``0``, the result is ``False``.
     - If ``x_i`` is ``NaN`` and the sign bit of ``x_i`` is ``1``, the result is ``True``.
+
+    .. versionadded:: 2023.12
     """
 
 

@@ -116,6 +116,9 @@ def tensordot(
 
     .. versionchanged:: 2022.12
        Added complex data type support.
+
+    .. versionchanged:: 2023.12
+       Allow negative axes.
     """
 
 
@@ -151,10 +154,13 @@ def vecdot(x1: array, x2: array, /, *, axis: int = -1) -> array:
     Notes
     -----
 
-    .. versionchanged:: 2022.12
-       Added complex data type support.
-
     **Raises**
 
     -   if the size of the axis over which to compute the dot product is not the same (before broadcasting) for both ``x1`` and ``x2``.
+
+    .. versionchanged:: 2022.12
+       Added complex data type support.
+
+    .. versionchanged:: 2023.12
+       Restricted ``axis`` to only negative integers.
     """

@@ -47,6 +47,9 @@ def unique_all(x: array, /) -> Tuple[array, array, array, array]:
 
     .. versionchanged:: 2022.12
        Added complex data type support.
+
+    .. versionchanged:: 2023.12
+       Clarified flattening behavior and required the order of ``counts`` match the order of ``values``.
     """
 
 
@@ -89,6 +92,9 @@ def unique_counts(x: array, /) -> Tuple[array, array]:
 
     .. versionchanged:: 2022.12
        Added complex data type support.
+
+    .. versionchanged:: 2023.12
+       Clarified flattening behavior and required the order of ``counts`` match the order of ``values``.
     """
 
 
@@ -131,6 +137,9 @@ def unique_inverse(x: array, /) -> Tuple[array, array]:
 
     .. versionchanged:: 2022.12
        Added complex data type support.
+
+    .. versionchanged:: 2023.12
+       Clarified flattening behavior.
     """
 
 
@@ -168,4 +177,7 @@ def unique_values(x: array, /) -> array:
 
     .. versionchanged:: 2022.12
        Added complex data type support.
+
+    .. versionchanged:: 2023.12
+       Required that the output array must be one-dimensional.
     """

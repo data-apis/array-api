@@ -102,15 +102,18 @@ def cross(x1: array, x2: array, /, *, axis: int = -1) -> array:
     Notes
     -----
 
+    **Raises**
+
+    -   if the size of the axis over which to compute the cross product is not equal to ``3`` (before broadcasting) for both ``x1`` and ``x2``.
+
     .. versionchanged:: 2022.12
        Added support for broadcasting.
 
     .. versionchanged:: 2022.12
        Added complex data type support.
 
-    **Raises**
-
-    -   if the size of the axis over which to compute the cross product is not equal to ``3`` (before broadcasting) for both ``x1`` and ``x2``.
+    .. versionchanged:: 2023.12
+       Restricted broadcasting to only non-compute axes and required that ``axis`` be a negative integer.
     """
 
 
@@ -772,6 +775,9 @@ def trace(x: array, /, *, offset: int = 0, dtype: Optional[dtype] = None) -> arr
 
     .. versionchanged:: 2022.12
        Added complex data type support.
+
+    .. versionchanged:: 2023.12
+       Required the function to return a floating-point array having the same data type as the input array when provided a floating-point array.
     """
 
 

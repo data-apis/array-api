@@ -43,6 +43,8 @@ def __array_namespace_info__() -> Info:
       info.dtypes()
       info.default_dtypes()
       # ...
+
+    .. versionadded: 2023.12
     """
 
 
@@ -59,6 +61,11 @@ def capabilities() -> Capabilities:
     -------
     out: Capabilities
         a dictionary of array library capabilities.
+
+    Notes
+    -----
+
+    .. versionadded: 2023.12
     """
 
 
@@ -70,6 +77,11 @@ def default_device() -> device:
     -------
     out: device
         an object corresponding to the default device.
+
+    Notes
+    -----
+
+    .. versionadded: 2023.12
     """
 
 
@@ -101,6 +113,11 @@ def default_dtypes(
     -------
     out: DefaultDataTypes
         a dictionary containing the default data type for respective data type kinds.
+
+    Notes
+    -----
+
+    .. versionadded: 2023.12
     """
 
 
@@ -151,6 +168,11 @@ def dtypes(
 
         .. note::
            Dictionary keys must only consist of canonical names as defined in :ref:`data-types`.
+
+    Notes
+    -----
+
+    .. versionadded: 2023.12
     """
 
 
@@ -167,4 +189,9 @@ def devices() -> List[device]:
     -----
 
     Each device object (see :ref:`device-support`) in the list of returned devices must be an object which can be provided as a valid keyword-argument to array creation functions.
+
+    Notes
+    -----
+
+    .. versionadded: 2023.12
     """
