@@ -45,9 +45,7 @@ This changelog is organized by specification version and notes all changes with 
 
 > Updates to APIs and requirements included as part of specification extensions.
 
-- `fft.*`: clarify behavior of the `n` and `s` keyword arguments and the expected output array shape ([gh-720](https://github.com/data-apis/array-api/pull/720) and [gh-746](https://github.com/data-apis/array-api/pull/746))
-
-	- **Note**: these changes were backported to the v2022.12 revision of the Array API specification.
+- `fft.*`: clarify behavior of the `n` and `s` keyword arguments and the expected output array shape ([gh-720](https://github.com/data-apis/array-api/pull/720) and [gh-746](https://github.com/data-apis/array-api/pull/746); backported to v2022.12 revision of Array API specification)
 
 * * *
 
