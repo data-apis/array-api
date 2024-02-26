@@ -34,3 +34,4 @@ tmp/
 *.egg-info/
 *.egg
 dist/
+.DS_STORE
