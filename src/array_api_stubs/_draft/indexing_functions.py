@@ -20,7 +20,7 @@ def take(x: array, indices: array, /, *, axis: Optional[int] = None) -> array:
         .. note::
            This specification does not require bounds checking. The behavior for out-of-bounds indices is left unspecified.
 
-    axis: int
+    axis: Optional[int]
         axis over which to select values. If ``axis`` is negative, the function must determine the axis along which to select values by counting from the last dimension.
 
         If ``x`` is a one-dimensional array, providing an ``axis`` is optional; however, if ``x`` has more than one dimension, providing an ``axis`` is required.
@@ -34,4 +34,7 @@ def take(x: array, indices: array, /, *, axis: Optional[int] = None) -> array:
     -----
 
     .. versionadded:: 2022.12
+
+    .. versionchanged:: 2023.12
+       Out-of-bounds behavior is explicitly left unspecified.
     """

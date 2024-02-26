@@ -139,6 +139,11 @@ def moveaxis(
     -------
     out: array
         an array containing reordered axes. The returned array must have the same data type as ``x``.
+
+    Notes
+    -----
+
+    .. versionadded:: 2023.12
     """
 
 
@@ -204,6 +209,11 @@ def repeat(
     -------
     out: array
         an output array containing repeated elements. The returned array must have the same data type as ``x``. If ``axis`` is ``None``, the returned array must be a one-dimensional array; otherwise, the returned array must have the same shape as ``x``, except for the axis (dimension) along which elements were repeated.
+
+    Notes
+    -----
+
+    .. versionadded:: 2023.12
     """
 
 
@@ -327,6 +337,11 @@ def tile(x: array, repetitions: Tuple[int, ...], /):
     -------
     out: array
         a tiled output array. The returned array must have the same data type as ``x`` and must have a rank (i.e., number of dimensions) equal to ``max(N, M)``. If ``S`` is the shape of the tiled array after prepending singleton dimensions (if necessary) and ``r`` is the tuple of repetitions after prepending ones (if necessary), then the number of elements along each axis (dimension) must satisfy ``S[i]*r[i]``, where ``i`` refers to the ``i`` th axis (dimension).
+
+    Notes
+    -----
+
+    .. versionadded:: 2023.12
     """
 
 
@@ -345,4 +360,9 @@ def unstack(x: array, /, *, axis: int = 0) -> Tuple[array, ...]:
     -------
     out: Tuple[array, ...]
         tuple of slices along the given dimension. All the arrays have the same shape.
+
+    Notes
+    -----
+
+    .. versionadded:: 2023.12
     """

@@ -57,6 +57,9 @@ def astype(
 
     .. versionchanged:: 2022.12
        Added complex data type support.
+
+    .. versionchanged:: 2023.12
+       Added device keyword argument support.
     """
 
 

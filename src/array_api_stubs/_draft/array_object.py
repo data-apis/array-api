@@ -247,6 +247,9 @@ class _array:
 
         .. versionchanged:: 2022.12
             Added boolean and complex data type support.
+
+        .. versionchanged:: 2023.12
+            Allowed lazy implementations to error.
         """
 
     def __complex__(self: array, /) -> complex:
@@ -285,6 +288,9 @@ class _array:
         The Python language requires the return value to be of type ``complex``. Lazy implementations are therefore not able to return any kind of lazy/delayed object here and should raise a ``ValueError`` instead.
 
         .. versionadded:: 2022.12
+
+        .. versionchanged:: 2023.12
+            Allowed lazy implementations to error.
         """
 
     def __dlpack__(
@@ -451,10 +457,13 @@ class _array:
         memory isn't modified).
 
         .. versionchanged:: 2022.12
-            Added BufferError.
+           Added BufferError.
 
         .. versionchanged:: 2023.12
-            Added the ``max_version``, ``dl_device``, and ``copy`` keywords.
+           Added the ``max_version``, ``dl_device``, and ``copy`` keywords.
+
+        .. versionchanged:: 2023.12
+           Added recommendation for handling read-only arrays.
         """
 
     def __dlpack_device__(self: array, /) -> Tuple[Enum, int]:
@@ -539,6 +548,9 @@ class _array:
 
         .. versionchanged:: 2022.12
             Added boolean and complex data type support.
+
+        .. versionchanged:: 2023.12
+            Allowed lazy implementations to error.
         """
 
     def __floordiv__(self: array, other: Union[int, float, array], /) -> array:
@@ -664,6 +676,9 @@ class _array:
         **Lazy implementations**
 
         The Python language requires the return value to be of type ``int``. Lazy implementations are therefore not able to return any kind of lazy/delayed object here and should raise a ``ValueError`` instead.
+
+        .. versionchanged:: 2023.12
+            Allowed lazy implementations to error.
         """
 
     def __int__(self: array, /) -> int:
@@ -711,6 +726,9 @@ class _array:
 
         .. versionchanged:: 2022.12
             Added boolean and complex data type support.
+
+        .. versionchanged:: 2023.12
+            Allowed lazy implementations to error.
         """
 
     def __invert__(self: array, /) -> array:
@@ -1192,6 +1210,9 @@ class _array:
 
         -   When a provided ``device`` object corresponds to the same device on which an array instance resides, implementations may choose to perform an explicit copy or return ``self``.
         -   If ``stream`` is provided, the copy operation should be enqueued on the provided ``stream``; otherwise, the copy operation should be enqueued on the default stream/queue. Whether the copy is performed synchronously or asynchronously is implementation-dependent. Accordingly, if synchronization is required to guarantee data safety, this must be clearly explained in a conforming array library's documentation.
+
+        .. versionchanged:: 2023.12
+           Clarified behavior when a provided ``device`` object corresponds to the device on which an array instance resides.
         """
 
 

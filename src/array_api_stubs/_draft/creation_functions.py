@@ -290,6 +290,9 @@ def from_dlpack(
 
 
     .. versionchanged:: 2023.12
+       Required exceptions to address unsupported use cases.
+
+    .. versionchanged:: 2023.12
        Added device and copy support.
     """
 
