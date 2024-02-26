@@ -35,7 +35,7 @@ This changelog is organized by specification version and notes all changes with 
 - `min`: clarify that the order of signed zeros is unspecified ([gh-751](https://github.com/data-apis/array-api/pull/751))
 - `take`: explicitly leave out-of-bounds behavior unspecified ([gh-701](https://github.com/data-apis/array-api/pull/701))
 - `tensordot`: allow negative axes ([gh-625](https://github.com/data-apis/array-api/pull/625))
-- `to_device`: clarified behavior when a provided `device` object corresponds to the same device on which an array instance resides ([gh-742](https://github.com/data-apis/array-api/pull/742))
+- `to_device`: clarify behavior when a provided `device` object corresponds to the same device on which an array instance resides ([gh-742](https://github.com/data-apis/array-api/pull/742))
 - `unique_all`: clarify the shape of the array containing unique values and the order of returned counts ([gh-752](https://github.com/data-apis/array-api/pull/752))
 - `unique_counts`: clarify the shape of the array containing unique values and the order of returned counts ([gh-752](https://github.com/data-apis/array-api/pull/752))
 - `unique_inverse`: clarify the shape of the array containing unique values ([gh-752](https://github.com/data-apis/array-api/pull/752))
