@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" sizes="196x195" href="../_static/images/favicon.png" type="image/png">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -50,15 +49,15 @@
   
   
     <title>Data Types &#8212; Python array API standard DRAFT documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/material.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=83e35b93" />
+    <link rel="stylesheet" type="text/css" href="../_static/material.css?v=79c92029" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=e159c6a3" />
+    <script src="../_static/documentation_options.js?v=a088130d"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="__eq__" href="generated/array_api.data_types.__eq__.html" />
@@ -110,8 +109,8 @@
 <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
-    <form class="md-search__form" action="../search.html" method="GET" name="search">
-      <input type="text" class="md-search__input" name="q" placeholder="Search"
+    <form class="md-search__form" action="../search.html" method="get" name="search">
+      <input type="text" class="md-search__input" name="q" placeholder=""Search""
              autocapitalize="off" autocomplete="off" spellcheck="false"
              data-md-component="query" data-md-state="active">
       <label class="md-icon md-search__icon" for="__search"></label>
@@ -280,7 +279,7 @@
       
         
 <nav class="md-nav md-nav--secondary">
-    <label class="md-nav__title" for="__toc">Contents</label>
+    <label class="md-nav__title" for="__toc">"Contents"</label>
   <ul class="md-nav__list" data-md-scrollfix="">
         <li class="md-nav__item"><a href="#api-specification-data-types--page-root" class="md-nav__link">Data Types</a><nav class="md-nav">
               <ul class="md-nav__list">
@@ -461,7 +460,7 @@
               <div class="md-sidebar__inner">
                 
 <nav class="md-nav md-nav--secondary">
-    <label class="md-nav__title" for="__toc">Contents</label>
+    <label class="md-nav__title" for="__toc">"Contents"</label>
   <ul class="md-nav__list" data-md-scrollfix="">
         <li class="md-nav__item"><a href="#api-specification-data-types--page-root" class="md-nav__link">Data Types</a><nav class="md-nav">
               <ul class="md-nav__list">
@@ -483,7 +482,7 @@
           <article class="md-content__inner md-typeset" role="main">
             
   <section id="data-types">
-<span id="id1"></span><h1 id="api-specification-data-types--page-root">Data Types<a class="headerlink" href="#api-specification-data-types--page-root" title="Permalink to this heading">¶</a></h1>
+<span id="id1"></span><h1 id="api-specification-data-types--page-root">Data Types<a class="headerlink" href="#api-specification-data-types--page-root" title="Link to this heading">¶</a></h1>
 <blockquote>
 <div><p>Array API specification for supported data types.</p>
 </div></blockquote>
@@ -558,7 +557,7 @@ It may also support additional methods and attributes on dtype objects.</p>
 <p>Accordingly, subnormal behavior is left unspecified and, thus, implementation-defined. Conforming implementations may vary in their support for subnormal numbers.</p>
 </div>
 <section id="use-of-data-type-objects">
-<h2 id="use-of-data-type-objects">Use of data type objects<a class="headerlink" href="#use-of-data-type-objects" title="Permalink to this heading">¶</a></h2>
+<h2 id="use-of-data-type-objects">Use of data type objects<a class="headerlink" href="#use-of-data-type-objects" title="Link to this heading">¶</a></h2>
 <p>Data type objects are used as <code class="docutils literal notranslate"><span class="pre">dtype</span></code> specifiers in functions and methods
 (e.g., <code class="docutils literal notranslate"><span class="pre">zeros((2,</span> <span class="pre">3),</span> <span class="pre">dtype=float32)</span></code>), accessible as <code class="docutils literal notranslate"><span class="pre">.dtype</span></code> attribute on
 arrays, and used in various casting and introspection functions (e.g.,
@@ -575,7 +574,7 @@ long as the returned array has the specified data type).</p>
 <p>See <a class="reference internal" href="type_promotion.html#type-promotion"><span class="std std-ref">Type Promotion Rules</span></a> for specification guidance describing the rules governing the interaction of two or more data types or data type objects.</p>
 </section>
 <section id="default-data-types">
-<span id="data-type-defaults"></span><h2 id="default-data-types">Default Data Types<a class="headerlink" href="#default-data-types" title="Permalink to this heading">¶</a></h2>
+<span id="data-type-defaults"></span><h2 id="default-data-types">Default Data Types<a class="headerlink" href="#default-data-types" title="Link to this heading">¶</a></h2>
 <p>A conforming implementation of the array API standard must define the following default data types.</p>
 <ul class="simple">
 <li><p>a default real-valued floating-point data type (either <code class="docutils literal notranslate"><span class="pre">float32</span></code> or <code class="docutils literal notranslate"><span class="pre">float64</span></code>).</p></li>
@@ -597,7 +596,7 @@ the library should clearly warn about this in its documentation.</p>
 </div>
 </section>
 <section id="data-type-categories">
-<span id="id2"></span><h2 id="data-type-categories">Data Type Categories<a class="headerlink" href="#data-type-categories" title="Permalink to this heading">¶</a></h2>
+<span id="id2"></span><h2 id="data-type-categories">Data Type Categories<a class="headerlink" href="#data-type-categories" title="Link to this heading">¶</a></h2>
 <p>For the purpose of organizing functions within this specification, the following data type categories are defined.</p>
 <table>
 <thead>
@@ -655,7 +654,7 @@ the library should clearly warn about this in its documentation.</p>
               <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
                 <span class="md-flex__ellipsis">
                   <span
-                      class="md-footer-nav__direction"> Previous </span> result_type </span>
+                      class="md-footer-nav__direction"> "Previous" </span> result_type </span>
               </div>
             </a>
           
@@ -665,7 +664,7 @@ the library should clearly warn about this in its documentation.</p>
                rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
                 class="md-flex__ellipsis"> <span
-                class="md-footer-nav__direction"> Next </span> __eq__ </span>
+                class="md-footer-nav__direction"> "Next" </span> __eq__ </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink"><i
                 class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
@@ -679,11 +678,11 @@ the library should clearly warn about this in its documentation.</p>
       <div class="md-footer-meta__inner md-grid">
         <div class="md-footer-copyright">
           <div class="md-footer-copyright__highlight">
-              &#169; Copyright 2020-2022, Consortium for Python Data API Standards.
+              &#169; Copyright 2020-2024, Consortium for Python Data API Standards.
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>

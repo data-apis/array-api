@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" sizes="196x195" href="../_static/images/favicon.png" type="image/png">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -50,15 +49,15 @@
   
   
     <title>Accuracy &#8212; Python array API standard DRAFT documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/material.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=83e35b93" />
+    <link rel="stylesheet" type="text/css" href="../_static/material.css?v=79c92029" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=e159c6a3" />
+    <script src="../_static/documentation_options.js?v=a088130d"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Exceptions" href="exceptions.html" />
@@ -110,8 +109,8 @@
 <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
-    <form class="md-search__form" action="../search.html" method="GET" name="search">
-      <input type="text" class="md-search__input" name="q" placeholder="Search"
+    <form class="md-search__form" action="../search.html" method="get" name="search">
+      <input type="text" class="md-search__input" name="q" placeholder=""Search""
              autocapitalize="off" autocomplete="off" spellcheck="false"
              data-md-component="query" data-md-state="active">
       <label class="md-icon md-search__icon" for="__search"></label>
@@ -273,7 +272,7 @@
       
         
 <nav class="md-nav md-nav--secondary">
-    <label class="md-nav__title" for="__toc">Contents</label>
+    <label class="md-nav__title" for="__toc">"Contents"</label>
   <ul class="md-nav__list" data-md-scrollfix="">
         <li class="md-nav__item"><a href="#design-topics-accuracy--page-root" class="md-nav__link">Accuracy</a><nav class="md-nav">
               <ul class="md-nav__list">
@@ -400,7 +399,7 @@
               <div class="md-sidebar__inner">
                 
 <nav class="md-nav md-nav--secondary">
-    <label class="md-nav__title" for="__toc">Contents</label>
+    <label class="md-nav__title" for="__toc">"Contents"</label>
   <ul class="md-nav__list" data-md-scrollfix="">
         <li class="md-nav__item"><a href="#design-topics-accuracy--page-root" class="md-nav__link">Accuracy</a><nav class="md-nav">
               <ul class="md-nav__list">
@@ -424,12 +423,12 @@
           <article class="md-content__inner md-typeset" role="main">
             
   <section id="accuracy">
-<span id="id1"></span><h1 id="design-topics-accuracy--page-root">Accuracy<a class="headerlink" href="#design-topics-accuracy--page-root" title="Permalink to this heading">¶</a></h1>
+<span id="id1"></span><h1 id="design-topics-accuracy--page-root">Accuracy<a class="headerlink" href="#design-topics-accuracy--page-root" title="Link to this heading">¶</a></h1>
 <blockquote>
 <div><p>Array API specification for minimum accuracy requirements.</p>
 </div></blockquote>
 <section id="arithmetic-operations">
-<h2 id="arithmetic-operations">Arithmetic Operations<a class="headerlink" href="#arithmetic-operations" title="Permalink to this heading">¶</a></h2>
+<h2 id="arithmetic-operations">Arithmetic Operations<a class="headerlink" href="#arithmetic-operations" title="Link to this heading">¶</a></h2>
 <p>The results of element-wise arithmetic operations</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">+</span></code></p></li>
@@ -448,7 +447,7 @@
 <p>for floating-point operands must return the nearest representable value according to IEEE 754-2019 and a supported rounding mode. By default, the rounding mode should be <code class="docutils literal notranslate"><span class="pre">roundTiesToEven</span></code> (i.e., ties rounded toward the nearest value with an even least significant bit).</p>
 </section>
 <section id="mathematical-functions">
-<h2 id="mathematical-functions">Mathematical Functions<a class="headerlink" href="#mathematical-functions" title="Permalink to this heading">¶</a></h2>
+<h2 id="mathematical-functions">Mathematical Functions<a class="headerlink" href="#mathematical-functions" title="Link to this heading">¶</a></h2>
 <p>This specification does <strong>not</strong> precisely define the behavior of the following functions</p>
 <ul class="simple">
 <li><p>acos</p></li>
@@ -485,7 +484,7 @@
 </div>
 </section>
 <section id="statistical-functions">
-<h2 id="statistical-functions">Statistical Functions<a class="headerlink" href="#statistical-functions" title="Permalink to this heading">¶</a></h2>
+<h2 id="statistical-functions">Statistical Functions<a class="headerlink" href="#statistical-functions" title="Link to this heading">¶</a></h2>
 <p>This specification does not specify accuracy requirements for statistical functions; however, this specification does expect that a conforming implementation of the array API standard will make a best-effort attempt to ensure that its implementations are theoretically sound and numerically robust.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -493,7 +492,7 @@
 </div>
 </section>
 <section id="linear-algebra">
-<h2 id="linear-algebra">Linear Algebra<a class="headerlink" href="#linear-algebra" title="Permalink to this heading">¶</a></h2>
+<h2 id="linear-algebra">Linear Algebra<a class="headerlink" href="#linear-algebra" title="Link to this heading">¶</a></h2>
 <p>This specification does not specify accuracy requirements for linear algebra functions; however, this specification does expect that a conforming implementation of the array API standard will make a best-effort attempt to ensure that its implementations are theoretically sound and numerically robust.</p>
 </section>
 </section>
@@ -517,7 +516,7 @@
               <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
                 <span class="md-flex__ellipsis">
                   <span
-                      class="md-footer-nav__direction"> Previous </span> Static typing </span>
+                      class="md-footer-nav__direction"> "Previous" </span> Static typing </span>
               </div>
             </a>
           
@@ -527,7 +526,7 @@
                rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
                 class="md-flex__ellipsis"> <span
-                class="md-footer-nav__direction"> Next </span> Exceptions </span>
+                class="md-footer-nav__direction"> "Next" </span> Exceptions </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink"><i
                 class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
@@ -541,11 +540,11 @@
       <div class="md-footer-meta__inner md-grid">
         <div class="md-footer-copyright">
           <div class="md-footer-copyright__highlight">
-              &#169; Copyright 2020-2022, Consortium for Python Data API Standards.
+              &#169; Copyright 2020-2024, Consortium for Python Data API Standards.
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>

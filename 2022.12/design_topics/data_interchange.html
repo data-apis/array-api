@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" sizes="196x195" href="../_static/images/favicon.png" type="image/png">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -50,15 +49,15 @@
   
   
     <title>Data interchange mechanisms &#8212; Python array API standard 2022.12 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/material.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=83e35b93" />
+    <link rel="stylesheet" type="text/css" href="../_static/material.css?v=79c92029" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=e159c6a3" />
+    <script src="../_static/documentation_options.js?v=2cfb0a62"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Device support" href="device_support.html" />
@@ -110,8 +109,8 @@
 <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
-    <form class="md-search__form" action="../search.html" method="GET" name="search">
-      <input type="text" class="md-search__input" name="q" placeholder="Search"
+    <form class="md-search__form" action="../search.html" method="get" name="search">
+      <input type="text" class="md-search__input" name="q" placeholder=""Search""
              autocapitalize="off" autocomplete="off" spellcheck="false"
              data-md-component="query" data-md-state="active">
       <label class="md-icon md-search__icon" for="__search"></label>
@@ -245,7 +244,7 @@
       
         
 <nav class="md-nav md-nav--secondary">
-    <label class="md-nav__title" for="__toc">Contents</label>
+    <label class="md-nav__title" for="__toc">"Contents"</label>
   <ul class="md-nav__list" data-md-scrollfix="">
         <li class="md-nav__item"><a href="#design-topics-data-interchange--page-root" class="md-nav__link">Data interchange mechanisms</a><nav class="md-nav">
               <ul class="md-nav__list">
@@ -380,7 +379,7 @@
               <div class="md-sidebar__inner">
                 
 <nav class="md-nav md-nav--secondary">
-    <label class="md-nav__title" for="__toc">Contents</label>
+    <label class="md-nav__title" for="__toc">"Contents"</label>
   <ul class="md-nav__list" data-md-scrollfix="">
         <li class="md-nav__item"><a href="#design-topics-data-interchange--page-root" class="md-nav__link">Data interchange mechanisms</a><nav class="md-nav">
               <ul class="md-nav__list">
@@ -398,7 +397,7 @@
           <article class="md-content__inner md-typeset" role="main">
             
   <section id="data-interchange-mechanisms">
-<span id="data-interchange"></span><h1 id="design-topics-data-interchange--page-root">Data interchange mechanisms<a class="headerlink" href="#design-topics-data-interchange--page-root" title="Permalink to this heading">¶</a></h1>
+<span id="data-interchange"></span><h1 id="design-topics-data-interchange--page-root">Data interchange mechanisms<a class="headerlink" href="#design-topics-data-interchange--page-root" title="Link to this heading">¶</a></h1>
 <p>This section discusses the mechanism to convert one type of array into another.
 As discussed in the <a class="reference internal" href="../assumptions.html#assumptions"><span class="std std-ref">assumptions-dependencies</span></a> section,
 <em>functions</em> provided by an array library are not expected to operate on
@@ -431,7 +430,7 @@ ABI is required for packages to work well together.</em></p>
 </li>
 </ol>
 <section id="dlpack-an-in-memory-tensor-structure">
-<h2 id="dlpack-an-in-memory-tensor-structure">DLPack: An in-memory tensor structure<a class="headerlink" href="#dlpack-an-in-memory-tensor-structure" title="Permalink to this heading">¶</a></h2>
+<h2 id="dlpack-an-in-memory-tensor-structure">DLPack: An in-memory tensor structure<a class="headerlink" href="#dlpack-an-in-memory-tensor-structure" title="Link to this heading">¶</a></h2>
 <p>The best candidate for this protocol is
 <a class="reference external" href="https://dmlc.github.io/dlpack/latest/">DLPack</a>, and hence that is what this
 standard has chosen as the primary/recommended protocol. Note that the
@@ -494,7 +493,7 @@ which conforms to this standard.</p>
               <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
                 <span class="md-flex__ellipsis">
                   <span
-                      class="md-footer-nav__direction"> Previous </span> Data-dependent output shapes </span>
+                      class="md-footer-nav__direction"> "Previous" </span> Data-dependent output shapes </span>
               </div>
             </a>
           
@@ -504,7 +503,7 @@ which conforms to this standard.</p>
                rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
                 class="md-flex__ellipsis"> <span
-                class="md-footer-nav__direction"> Next </span> Device support </span>
+                class="md-footer-nav__direction"> "Next" </span> Device support </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink"><i
                 class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
@@ -518,11 +517,11 @@ which conforms to this standard.</p>
       <div class="md-footer-meta__inner md-grid">
         <div class="md-footer-copyright">
           <div class="md-footer-copyright__highlight">
-              &#169; Copyright 2020-2022, Consortium for Python Data API Standards.
+              &#169; Copyright 2020-2024, Consortium for Python Data API Standards.
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>

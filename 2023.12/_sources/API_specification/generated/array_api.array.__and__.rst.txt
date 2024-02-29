@@ -1,0 +1,6 @@
+﻿.. currentmodule:: array_api
+
+__and__
+=======
+
+.. automethod:: array.__and__

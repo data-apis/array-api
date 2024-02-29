@@ -1,0 +1,6 @@
+﻿.. currentmodule:: array_api.info
+
+default_device
+==============
+
+.. autofunction:: default_device

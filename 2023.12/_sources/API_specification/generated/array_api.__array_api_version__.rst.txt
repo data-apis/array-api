@@ -1,0 +1,6 @@
+﻿.. currentmodule:: array_api
+
+__array_api_version__
+=====================
+
+.. autodata:: __array_api_version__

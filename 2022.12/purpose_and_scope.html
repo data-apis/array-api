@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="./">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" sizes="196x195" href="_static/images/favicon.png" type="image/png">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -50,15 +49,15 @@
   
   
     <title>Purpose and scope &#8212; Python array API standard 2022.12 documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/material.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/css/custom.css" />
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=83e35b93" />
+    <link rel="stylesheet" type="text/css" href="_static/material.css?v=79c92029" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=e159c6a3" />
+    <script src="_static/documentation_options.js?v=2cfb0a62"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Use cases" href="use_cases.html" />
@@ -110,8 +109,8 @@
 <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
-    <form class="md-search__form" action="search.html" method="GET" name="search">
-      <input type="text" class="md-search__input" name="q" placeholder="Search"
+    <form class="md-search__form" action="search.html" method="get" name="search">
+      <input type="text" class="md-search__input" name="q" placeholder=""Search""
              autocapitalize="off" autocomplete="off" spellcheck="false"
              data-md-component="query" data-md-state="active">
       <label class="md-icon md-search__icon" for="__search"></label>
@@ -199,7 +198,7 @@
       
         
 <nav class="md-nav md-nav--secondary">
-    <label class="md-nav__title" for="__toc">Contents</label>
+    <label class="md-nav__title" for="__toc">"Contents"</label>
   <ul class="md-nav__list" data-md-scrollfix="">
         <li class="md-nav__item"><a href="#purpose-and-scope--page-root" class="md-nav__link">Purpose and scope</a><nav class="md-nav">
               <ul class="md-nav__list">
@@ -406,7 +405,7 @@
               <div class="md-sidebar__inner">
                 
 <nav class="md-nav md-nav--secondary">
-    <label class="md-nav__title" for="__toc">Contents</label>
+    <label class="md-nav__title" for="__toc">"Contents"</label>
   <ul class="md-nav__list" data-md-scrollfix="">
         <li class="md-nav__item"><a href="#purpose-and-scope--page-root" class="md-nav__link">Purpose and scope</a><nav class="md-nav">
               <ul class="md-nav__list">
@@ -458,9 +457,9 @@
           <article class="md-content__inner md-typeset" role="main">
             
   <section id="purpose-and-scope">
-<h1 id="purpose-and-scope--page-root">Purpose and scope<a class="headerlink" href="#purpose-and-scope--page-root" title="Permalink to this heading">¶</a></h1>
+<h1 id="purpose-and-scope--page-root">Purpose and scope<a class="headerlink" href="#purpose-and-scope--page-root" title="Link to this heading">¶</a></h1>
 <section id="introduction">
-<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">¶</a></h2>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h2>
 <p>Python users have a wealth of choice for libraries and frameworks for
 numerical computing, data science, machine learning, and deep learning. New
 frameworks pushing forward the state of the art in these fields are appearing
@@ -482,7 +481,7 @@ compilers in mind. Other libraries often deviate from NumPy for good
 ones NumPy makes, or close to it, but are different where necessary to make
 sure all existing array libraries can adopt this API.</p>
 <section id="this-api-standard">
-<h3 id="this-api-standard">This API standard<a class="headerlink" href="#this-api-standard" title="Permalink to this heading">¶</a></h3>
+<h3 id="this-api-standard">This API standard<a class="headerlink" href="#this-api-standard" title="Link to this heading">¶</a></h3>
 <p>This document aims to standardize functionality that exists in most/all array
 libraries and either is commonly used or is needed for
 consistency/completeness. Usage is determined via analysis of downstream
@@ -503,7 +502,7 @@ library, is unlikely to be present in all other libraries</p></li>
 </ul>
 </section>
 <section id="history">
-<h3 id="history">History<a class="headerlink" href="#history" title="Permalink to this heading">¶</a></h3>
+<h3 id="history">History<a class="headerlink" href="#history" title="Link to this heading">¶</a></h3>
 <p>The first library for numerical and scientific computing in Python was
 Numeric, developed in the mid-1990s. In the early 2000s a second, similar
 library, Numarray, was created. In 2005 NumPy was written, superceding both
@@ -530,10 +529,10 @@ API.</p>
 </section>
 </section>
 <section id="scope-includes-out-of-scope-non-goals">
-<span id="scope"></span><h2 id="scope-includes-out-of-scope-non-goals">Scope (includes out-of-scope / non-goals)<a class="headerlink" href="#scope-includes-out-of-scope-non-goals" title="Permalink to this heading">¶</a></h2>
+<span id="scope"></span><h2 id="scope-includes-out-of-scope-non-goals">Scope (includes out-of-scope / non-goals)<a class="headerlink" href="#scope-includes-out-of-scope-non-goals" title="Link to this heading">¶</a></h2>
 <p>This section outlines what is in scope and out of scope for this API standard.</p>
 <section id="in-scope">
-<h3 id="in-scope">In scope<a class="headerlink" href="#in-scope" title="Permalink to this heading">¶</a></h3>
+<h3 id="in-scope">In scope<a class="headerlink" href="#in-scope" title="Link to this heading">¶</a></h3>
 <p>The scope of the array API standard includes:</p>
 <ul class="simple">
 <li><p>Functionality which needs to be included in an array library for it to adhere
@@ -575,7 +574,7 @@ library to another one.</p></li>
 </ul>
 </section>
 <section id="out-of-scope">
-<h3 id="out-of-scope">Out of scope<a class="headerlink" href="#out-of-scope" title="Permalink to this heading">¶</a></h3>
+<h3 id="out-of-scope">Out of scope<a class="headerlink" href="#out-of-scope" title="Link to this heading">¶</a></h3>
 <ol class="arabic">
 <li><p>Implementations of the standard are out of scope.</p>
 <p><em>Rationale: the standard will consist of a document and an accompanying test
@@ -647,7 +646,7 @@ used is best left to the end user.</em></p>
 </ul>
 </section>
 <section id="implications-of-in-out-of-scope">
-<h3 id="implications-of-in-out-of-scope">Implications of in/out of scope<a class="headerlink" href="#implications-of-in-out-of-scope" title="Permalink to this heading">¶</a></h3>
+<h3 id="implications-of-in-out-of-scope">Implications of in/out of scope<a class="headerlink" href="#implications-of-in-out-of-scope" title="Link to this heading">¶</a></h3>
 <p>If something is out of scope and therefore will not be part of (the current
 version of) the API standard, that means that there are no guarantees that that
 functionality works the same way, or even exists at all, across the set of
@@ -656,7 +655,7 @@ functionality is less important or should not be used.</p>
 </section>
 </section>
 <section id="stakeholders">
-<h2 id="stakeholders">Stakeholders<a class="headerlink" href="#stakeholders" title="Permalink to this heading">¶</a></h2>
+<h2 id="stakeholders">Stakeholders<a class="headerlink" href="#stakeholders" title="Link to this heading">¶</a></h2>
 <p>Arrays are fundamental to scientific computing, data science, and machine
 learning and deep learning. Hence there are many stakeholders for an array API
 standard. The <em>direct</em> stakeholders of this standard are <strong>authors/maintainers of
@@ -731,11 +730,11 @@ relevant:</p>
 </ul>
 </section>
 <section id="how-to-read-this-document">
-<h2 id="how-to-read-this-document">How to read this document<a class="headerlink" href="#how-to-read-this-document" title="Permalink to this heading">¶</a></h2>
+<h2 id="how-to-read-this-document">How to read this document<a class="headerlink" href="#how-to-read-this-document" title="Link to this heading">¶</a></h2>
 <p>For guidance on how to read and understand the type annotations included in this specification, consult the Python <a class="reference external" href="https://docs.python.org/3/library/typing.html">documentation</a>.</p>
 </section>
 <section id="how-to-adopt-this-api">
-<span id="id1"></span><h2 id="how-to-adopt-this-api">How to adopt this API<a class="headerlink" href="#how-to-adopt-this-api" title="Permalink to this heading">¶</a></h2>
+<span id="id1"></span><h2 id="how-to-adopt-this-api">How to adopt this API<a class="headerlink" href="#how-to-adopt-this-api" title="Link to this heading">¶</a></h2>
 <p>Most (all) existing array libraries will find something in this API standard
 that is incompatible with a current implementation, and that they cannot
 change due to backwards compatibility concerns. Therefore we expect that each
@@ -765,7 +764,7 @@ request a specific API version:</p>
 including additional functionality is not recommended as doing so may hinder
 portability and inter-operation of array libraries within user code.</p>
 <section id="checking-an-array-object-for-compliance">
-<h3 id="checking-an-array-object-for-compliance">Checking an array object for Compliance<a class="headerlink" href="#checking-an-array-object-for-compliance" title="Permalink to this heading">¶</a></h3>
+<h3 id="checking-an-array-object-for-compliance">Checking an array object for Compliance<a class="headerlink" href="#checking-an-array-object-for-compliance" title="Link to this heading">¶</a></h3>
 <p>Array-consuming libraries are likely to want a mechanism for determining
 whether a provided array is specification compliant. The recommended approach
 to check for compliance is by checking whether an array object has an
@@ -788,7 +787,7 @@ prove useful for verifying one is writing portable code.</p>
 </div>
 </section>
 <section id="discoverability-of-conforming-implementations">
-<h3 id="discoverability-of-conforming-implementations">Discoverability of conforming implementations<a class="headerlink" href="#discoverability-of-conforming-implementations" title="Permalink to this heading">¶</a></h3>
+<h3 id="discoverability-of-conforming-implementations">Discoverability of conforming implementations<a class="headerlink" href="#discoverability-of-conforming-implementations" title="Link to this heading">¶</a></h3>
 <p>It may be useful to have a way to discover all packages in a Python
 environment which provide a conforming array API implementation, and the
 namespace that that implementation resides in.
@@ -828,7 +827,7 @@ conforming libraries:</p>
 </section>
 <hr class="docutils"/>
 <section id="conformance">
-<h2 id="conformance">Conformance<a class="headerlink" href="#conformance" title="Permalink to this heading">¶</a></h2>
+<h2 id="conformance">Conformance<a class="headerlink" href="#conformance" title="Link to this heading">¶</a></h2>
 <p>A conforming implementation of the array API standard must provide and support
 all the functions, arguments, data types, syntax, and semantics described in
 this specification.</p>
@@ -842,7 +841,7 @@ the level of (non-)conformance. For details on how to do this, see
 </section>
 <hr class="docutils"/>
 <section id="terms-and-definitions">
-<h2 id="terms-and-definitions">Terms and Definitions<a class="headerlink" href="#terms-and-definitions" title="Permalink to this heading">¶</a></h2>
+<h2 id="terms-and-definitions">Terms and Definitions<a class="headerlink" href="#terms-and-definitions" title="Link to this heading">¶</a></h2>
 <p>For the purposes of this specification, the following terms and definitions apply.</p>
 <!-- NOTE: please keep terms in alphabetical order -->
 <p><strong>array</strong>:
@@ -870,7 +869,7 @@ a one-dimensional array.</p>
 </section>
 <hr class="docutils"/>
 <section id="normative-references">
-<h2 id="normative-references">Normative References<a class="headerlink" href="#normative-references" title="Permalink to this heading">¶</a></h2>
+<h2 id="normative-references">Normative References<a class="headerlink" href="#normative-references" title="Link to this heading">¶</a></h2>
 <p>The following referenced documents are indispensable for the application of this specification.</p>
 <ul class="simple">
 <li><p><strong>IEEE 754-2019: IEEE Standard for Floating-Point Arithmetic.</strong> Institute of Electrical and Electronic Engineers, New York (2019).</p></li>
@@ -898,7 +897,7 @@ a one-dimensional array.</p>
               <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
                 <span class="md-flex__ellipsis">
                   <span
-                      class="md-footer-nav__direction"> Previous </span> Python array API standard </span>
+                      class="md-footer-nav__direction"> "Previous" </span> Python array API standard </span>
               </div>
             </a>
           
@@ -908,7 +907,7 @@ a one-dimensional array.</p>
                rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
                 class="md-flex__ellipsis"> <span
-                class="md-footer-nav__direction"> Next </span> Use cases </span>
+                class="md-footer-nav__direction"> "Next" </span> Use cases </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink"><i
                 class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
@@ -922,11 +921,11 @@ a one-dimensional array.</p>
       <div class="md-footer-meta__inner md-grid">
         <div class="md-footer-copyright">
           <div class="md-footer-copyright__highlight">
-              &#169; Copyright 2020-2022, Consortium for Python Data API Standards.
+              &#169; Copyright 2020-2024, Consortium for Python Data API Standards.
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>

@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" sizes="196x195" href="../_static/images/favicon.png" type="image/png">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -50,15 +49,15 @@
   
   
     <title>C API &#8212; Python array API standard 2021.12 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/material.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=83e35b93" />
+    <link rel="stylesheet" type="text/css" href="../_static/material.css?v=79c92029" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=e159c6a3" />
+    <script src="../_static/documentation_options.js?v=1bb14e4c"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Parallelism" href="parallelism.html" />
@@ -110,8 +109,8 @@
 <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
-    <form class="md-search__form" action="../search.html" method="GET" name="search">
-      <input type="text" class="md-search__input" name="q" placeholder="Search"
+    <form class="md-search__form" action="../search.html" method="get" name="search">
+      <input type="text" class="md-search__input" name="q" placeholder=""Search""
              autocapitalize="off" autocomplete="off" spellcheck="false"
              data-md-component="query" data-md-state="active">
       <label class="md-icon md-search__icon" for="__search"></label>
@@ -273,7 +272,7 @@
       
         
 <nav class="md-nav md-nav--secondary">
-    <label class="md-nav__title" for="__toc">Contents</label>
+    <label class="md-nav__title" for="__toc">"Contents"</label>
   <ul class="md-nav__list" data-md-scrollfix="">
         <li class="md-nav__item"><a href="#design-topics-c-api--page-root" class="md-nav__link">C API</a><nav class="md-nav">
               <ul class="md-nav__list">
@@ -372,7 +371,7 @@
               <div class="md-sidebar__inner">
                 
 <nav class="md-nav md-nav--secondary">
-    <label class="md-nav__title" for="__toc">Contents</label>
+    <label class="md-nav__title" for="__toc">"Contents"</label>
   <ul class="md-nav__list" data-md-scrollfix="">
         <li class="md-nav__item"><a href="#design-topics-c-api--page-root" class="md-nav__link">C API</a><nav class="md-nav">
               <ul class="md-nav__list">
@@ -408,7 +407,7 @@
           <article class="md-content__inner md-typeset" role="main">
             
   <section id="c-api">
-<span id="id1"></span><h1 id="design-topics-c-api--page-root">C API<a class="headerlink" href="#design-topics-c-api--page-root" title="Permalink to this heading">¶</a></h1>
+<span id="id1"></span><h1 id="design-topics-c-api--page-root">C API<a class="headerlink" href="#design-topics-c-api--page-root" title="Link to this heading">¶</a></h1>
 <p>Use of a C API is out of scope for this array API, as mentioned in <a class="reference internal" href="../purpose_and_scope.html#scope"><span class="std std-ref">Scope (includes out-of-scope / non-goals)</span></a>.
 There are a lot of libraries that do use such an API - in particular via Cython code
 or via direct usage of the NumPy C API. When the maintainers of such libraries
@@ -430,9 +429,9 @@ certainty that a conversion will be zero-copy. This may indeed be
 possible, see <a class="reference internal" href="data_interchange.html#data-interchange"><span class="std std-ref">Data interchange mechanisms</span></a>.</p>
 </div>
 <section id="example-situations-for-c-cython-usage">
-<h2 id="example-situations-for-c-cython-usage">Example situations for C/Cython usage<a class="headerlink" href="#example-situations-for-c-cython-usage" title="Permalink to this heading">¶</a></h2>
+<h2 id="example-situations-for-c-cython-usage">Example situations for C/Cython usage<a class="headerlink" href="#example-situations-for-c-cython-usage" title="Link to this heading">¶</a></h2>
 <section id="situation-1-a-python-package-that-is-mostly-pure-python-with-a-limited-number-of-cython-extensions">
-<h3 id="situation-1-a-python-package-that-is-mostly-pure-python-with-a-limited-number-of-cython-extensions">Situation 1: a Python package that is mostly pure Python, with a limited number of Cython extensions<a class="headerlink" href="#situation-1-a-python-package-that-is-mostly-pure-python-with-a-limited-number-of-cython-extensions" title="Permalink to this heading">¶</a></h3>
+<h3 id="situation-1-a-python-package-that-is-mostly-pure-python-with-a-limited-number-of-cython-extensions">Situation 1: a Python package that is mostly pure Python, with a limited number of Cython extensions<a class="headerlink" href="#situation-1-a-python-package-that-is-mostly-pure-python-with-a-limited-number-of-cython-extensions" title="Link to this heading">¶</a></h3>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Projects in this situation include Statsmodels, scikit-bio and QuTiP</p>
@@ -440,7 +439,7 @@ possible, see <a class="reference internal" href="data_interchange.html#data-int
 <p>Main strategy: documentation. The functionality using Cython code will not support other array types (or only with conversion to/from <code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code>), which can be documented per function.</p>
 </section>
 <section id="situation-2-a-python-package-that-contains-a-lot-of-cython-code">
-<h3 id="situation-2-a-python-package-that-contains-a-lot-of-cython-code">Situation 2: a Python package that contains a lot of Cython code<a class="headerlink" href="#situation-2-a-python-package-that-contains-a-lot-of-cython-code" title="Permalink to this heading">¶</a></h3>
+<h3 id="situation-2-a-python-package-that-contains-a-lot-of-cython-code">Situation 2: a Python package that contains a lot of Cython code<a class="headerlink" href="#situation-2-a-python-package-that-contains-a-lot-of-cython-code" title="Link to this heading">¶</a></h3>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Projects in this situation include scikit-learn and scikit-image</p>
@@ -449,7 +448,7 @@ possible, see <a class="reference internal" href="data_interchange.html#data-int
 <p>Longer term: specific support for particular array types (e.g. <code class="docutils literal notranslate"><span class="pre">cupy.ndarray</span></code> can be supported with Python-only code via <code class="docutils literal notranslate"><span class="pre">cupy.ElementwiseKernel</span></code>).</p>
 </section>
 <section id="situation-3-a-python-package-that-uses-the-numpy-or-python-c-api-directly">
-<h3 id="situation-3-a-python-package-that-uses-the-numpy-or-python-c-api-directly">Situation 3: a Python package that uses the NumPy or Python C API directly<a class="headerlink" href="#situation-3-a-python-package-that-uses-the-numpy-or-python-c-api-directly" title="Permalink to this heading">¶</a></h3>
+<h3 id="situation-3-a-python-package-that-uses-the-numpy-or-python-c-api-directly">Situation 3: a Python package that uses the NumPy or Python C API directly<a class="headerlink" href="#situation-3-a-python-package-that-uses-the-numpy-or-python-c-api-directly" title="Link to this heading">¶</a></h3>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Projects in this situation include SciPy and Astropy</p>
@@ -458,15 +457,15 @@ possible, see <a class="reference internal" href="data_interchange.html#data-int
 </section>
 </section>
 <section id="device-support">
-<h2 id="device-support">Device support<a class="headerlink" href="#device-support" title="Permalink to this heading">¶</a></h2>
+<h2 id="device-support">Device support<a class="headerlink" href="#device-support" title="Link to this heading">¶</a></h2>
 <p>Supporting non-CPU array types in code using the C API or Cython seems problematic,
 this almost inevitably will require custom device-specific code (e.g., CUDA, ROCm) or
 something like JIT compilation with Numba.</p>
 </section>
 <section id="other-longer-term-approaches">
-<h2 id="other-longer-term-approaches">Other longer-term approaches<a class="headerlink" href="#other-longer-term-approaches" title="Permalink to this heading">¶</a></h2>
+<h2 id="other-longer-term-approaches">Other longer-term approaches<a class="headerlink" href="#other-longer-term-approaches" title="Link to this heading">¶</a></h2>
 <section id="further-python-api-standardization">
-<h3 id="further-python-api-standardization">Further Python API standardization<a class="headerlink" href="#further-python-api-standardization" title="Permalink to this heading">¶</a></h3>
+<h3 id="further-python-api-standardization">Further Python API standardization<a class="headerlink" href="#further-python-api-standardization" title="Link to this heading">¶</a></h3>
 <p>There may be cases where it makes sense to standardize additional sets of
 functions, because they’re important enough that array libraries tend to
 reimplement them. An example of this may be <em>special functions</em>, as provided
@@ -476,7 +475,7 @@ particular implementation that does use a C API (e.g., one can then rely on
 <code class="docutils literal notranslate"><span class="pre">arraylib.special.gamma</span></code> rather than having to use <code class="docutils literal notranslate"><span class="pre">scipy.special.gamma</span></code>).</p>
 </section>
 <section id="hpy">
-<h3 id="hpy">HPy<a class="headerlink" href="#hpy" title="Permalink to this heading">¶</a></h3>
+<h3 id="hpy">HPy<a class="headerlink" href="#hpy" title="Link to this heading">¶</a></h3>
 <p><a class="reference external" href="https://github.com/hpyproject/hpy">HPy</a> is a new project that will provide a higher-level
 C API and ABI than CPython offers. A Cython backend targeting HPy will be provided as well.</p>
 <ul class="simple">
@@ -510,7 +509,7 @@ support to Cython more feasible.</p>
               <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
                 <span class="md-flex__ellipsis">
                   <span
-                      class="md-footer-nav__direction"> Previous </span> Accuracy </span>
+                      class="md-footer-nav__direction"> "Previous" </span> Accuracy </span>
               </div>
             </a>
           
@@ -520,7 +519,7 @@ support to Cython more feasible.</p>
                rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
                 class="md-flex__ellipsis"> <span
-                class="md-footer-nav__direction"> Next </span> Parallelism </span>
+                class="md-footer-nav__direction"> "Next" </span> Parallelism </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink"><i
                 class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
@@ -534,11 +533,11 @@ support to Cython more feasible.</p>
       <div class="md-footer-meta__inner md-grid">
         <div class="md-footer-copyright">
           <div class="md-footer-copyright__highlight">
-              &#169; Copyright 2020-2022, Consortium for Python Data API Standards.
+              &#169; Copyright 2020-2024, Consortium for Python Data API Standards.
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>

@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="../">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" sizes="196x195" href="../_static/images/favicon.png" type="image/png">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -50,15 +49,15 @@
   
   
     <title>Indexing &#8212; Python array API standard 2022.12 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/material.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
-    <script src="../_static/clipboard.min.js"></script>
-    <script src="../_static/copybutton.js"></script>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=83e35b93" />
+    <link rel="stylesheet" type="text/css" href="../_static/material.css?v=79c92029" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=e159c6a3" />
+    <script src="../_static/documentation_options.js?v=2cfb0a62"></script>
+    <script src="../_static/doctools.js?v=888ff710"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Indexing Functions" href="indexing_functions.html" />
@@ -110,8 +109,8 @@
 <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
-    <form class="md-search__form" action="../search.html" method="GET" name="search">
-      <input type="text" class="md-search__input" name="q" placeholder="Search"
+    <form class="md-search__form" action="../search.html" method="get" name="search">
+      <input type="text" class="md-search__input" name="q" placeholder=""Search""
              autocapitalize="off" autocomplete="off" spellcheck="false"
              data-md-component="query" data-md-state="active">
       <label class="md-icon md-search__icon" for="__search"></label>
@@ -301,7 +300,7 @@
       
         
 <nav class="md-nav md-nav--secondary">
-    <label class="md-nav__title" for="__toc">Contents</label>
+    <label class="md-nav__title" for="__toc">"Contents"</label>
   <ul class="md-nav__list" data-md-scrollfix="">
         <li class="md-nav__item"><a href="#api-specification-indexing--page-root" class="md-nav__link">Indexing</a><nav class="md-nav">
               <ul class="md-nav__list">
@@ -460,7 +459,7 @@
               <div class="md-sidebar__inner">
                 
 <nav class="md-nav md-nav--secondary">
-    <label class="md-nav__title" for="__toc">Contents</label>
+    <label class="md-nav__title" for="__toc">"Contents"</label>
   <ul class="md-nav__list" data-md-scrollfix="">
         <li class="md-nav__item"><a href="#api-specification-indexing--page-root" class="md-nav__link">Indexing</a><nav class="md-nav">
               <ul class="md-nav__list">
@@ -488,13 +487,13 @@
           <article class="md-content__inner md-typeset" role="main">
             
   <section id="indexing">
-<span id="id1"></span><h1 id="api-specification-indexing--page-root">Indexing<a class="headerlink" href="#api-specification-indexing--page-root" title="Permalink to this heading">¶</a></h1>
+<span id="id1"></span><h1 id="api-specification-indexing--page-root">Indexing<a class="headerlink" href="#api-specification-indexing--page-root" title="Link to this heading">¶</a></h1>
 <blockquote>
 <div><p>Array API specification for indexing arrays.</p>
 </div></blockquote>
 <p>A conforming implementation of the array API standard must adhere to the following conventions.</p>
 <section id="single-axis-indexing">
-<h2 id="single-axis-indexing">Single-axis Indexing<a class="headerlink" href="#single-axis-indexing" title="Permalink to this heading">¶</a></h2>
+<h2 id="single-axis-indexing">Single-axis Indexing<a class="headerlink" href="#single-axis-indexing" title="Link to this heading">¶</a></h2>
 <p>To index a single array axis, an array must support standard Python indexing rules. Let <code class="docutils literal notranslate"><span class="pre">n</span></code> be the axis (dimension) size.</p>
 <ul>
 <li><p>An integer index must be an object satisfying <a class="reference external" href="https://www.python.org/dev/peps/pep-0357/">operator.index</a> (e.g., <code class="docutils literal notranslate"><span class="pre">int</span></code>).</p></li>
@@ -526,7 +525,7 @@
 </li>
 </ul>
 <section id="slice-syntax">
-<h3 id="slice-syntax">Slice Syntax<a class="headerlink" href="#slice-syntax" title="Permalink to this heading">¶</a></h3>
+<h3 id="slice-syntax">Slice Syntax<a class="headerlink" href="#slice-syntax" title="Link to this heading">¶</a></h3>
 <p>The basic slice syntax is <code class="docutils literal notranslate"><span class="pre">i:j:k</span></code> where <code class="docutils literal notranslate"><span class="pre">i</span></code> is the starting index, <code class="docutils literal notranslate"><span class="pre">j</span></code> is the stopping index, and <code class="docutils literal notranslate"><span class="pre">k</span></code> is the step (<code class="docutils literal notranslate"><span class="pre">k</span> <span class="pre">!=</span> <span class="pre">0</span></code>). A slice may contain either one or two colons, with either an integer value or nothing on either side of each colon. The following are valid slices.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">A</span><span class="p">[:]</span>
 <span class="n">A</span><span class="p">[</span><span class="n">i</span><span class="p">:]</span>
@@ -604,7 +603,7 @@
 </section>
 </section>
 <section id="multi-axis-indexing">
-<h2 id="multi-axis-indexing">Multi-axis Indexing<a class="headerlink" href="#multi-axis-indexing" title="Permalink to this heading">¶</a></h2>
+<h2 id="multi-axis-indexing">Multi-axis Indexing<a class="headerlink" href="#multi-axis-indexing" title="Link to this heading">¶</a></h2>
 <p>Multi-dimensional arrays must extend the concept of single-axis indexing to multiple axes by applying single-axis indexing rules along each axis (dimension) and supporting the following additional rules. Let <code class="docutils literal notranslate"><span class="pre">N</span></code> be the number of dimensions (“rank”) of a multi-dimensional array <code class="docutils literal notranslate"><span class="pre">A</span></code>.</p>
 <ul>
 <li><p>Each axis may be independently indexed via single-axis indexing by providing a comma-separated sequence (“selection tuple”) of single-axis indexing expressions (e.g., <code class="docutils literal notranslate"><span class="pre">A[:,</span> <span class="pre">2:10,</span> <span class="pre">:,</span> <span class="pre">5]</span></code>).</p>
@@ -653,7 +652,7 @@
 </ul>
 </section>
 <section id="boolean-array-indexing">
-<h2 id="boolean-array-indexing">Boolean Array Indexing<a class="headerlink" href="#boolean-array-indexing" title="Permalink to this heading">¶</a></h2>
+<h2 id="boolean-array-indexing">Boolean Array Indexing<a class="headerlink" href="#boolean-array-indexing" title="Link to this heading">¶</a></h2>
 <div class="admonition important">
 <p class="admonition-title">Data-dependent output shape</p>
 <p>For common boolean array use cases (e.g., using a dynamically-sized boolean array mask to filter the values of another array), the shape of the output array is data-dependent; hence, array libraries which build computation graphs (e.g., JAX, Dask, etc.) may find boolean array indexing difficult to implement. Accordingly, such libraries may choose to omit boolean array indexing. See <a class="reference internal" href="../design_topics/data_dependent_output_shapes.html#data-dependent-output-shapes"><span class="std std-ref">Data-dependent output shapes</span></a> section for more details.</p>
@@ -679,7 +678,7 @@
 </ul>
 </section>
 <section id="return-values">
-<h2 id="return-values">Return Values<a class="headerlink" href="#return-values" title="Permalink to this heading">¶</a></h2>
+<h2 id="return-values">Return Values<a class="headerlink" href="#return-values" title="Link to this heading">¶</a></h2>
 <p>The result of an indexing operation (e.g., multi-axis indexing, boolean array indexing, etc) must be an array of the same data type as the indexed array.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -707,7 +706,7 @@
               <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
                 <span class="md-flex__ellipsis">
                   <span
-                      class="md-footer-nav__direction"> Previous </span> Function and method signatures </span>
+                      class="md-footer-nav__direction"> "Previous" </span> Function and method signatures </span>
               </div>
             </a>
           
@@ -717,7 +716,7 @@
                rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
                 class="md-flex__ellipsis"> <span
-                class="md-footer-nav__direction"> Next </span> Indexing Functions </span>
+                class="md-footer-nav__direction"> "Next" </span> Indexing Functions </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink"><i
                 class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
@@ -731,11 +730,11 @@
       <div class="md-footer-meta__inner md-grid">
         <div class="md-footer-copyright">
           <div class="md-footer-copyright__highlight">
-              &#169; Copyright 2020-2022, Consortium for Python Data API Standards.
+              &#169; Copyright 2020-2024, Consortium for Python Data API Standards.
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>

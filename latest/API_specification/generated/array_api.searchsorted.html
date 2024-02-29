@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" sizes="196x195" href="../../_static/images/favicon.png" type="image/png">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="lang:clipboard.copy" content="Copy to clipboard">
+  <meta name="lang:clipboard.copied" content="Copied to clipboard">
+  <meta name="lang:search.language" content="en">
+  <meta name="lang:search.pipeline.stopwords" content="True">
+  <meta name="lang:search.pipeline.trimmer" content="True">
+  <meta name="lang:search.result.none" content="No matching documents">
+  <meta name="lang:search.result.one" content="1 matching document">
+  <meta name="lang:search.result.other" content="# matching documents">
+  <meta name="lang:search.tokenizer" content="[\s\-]+">
+
+  
+    <link href="https://fonts.gstatic.com/" rel="preconnect" crossorigin>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,500,700|Roboto:300,400,400i,700&display=fallback" rel="stylesheet">
+
+    <style>
+      body,
+      input {
+        font-family: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif
+      }
+
+      code,
+      kbd,
+      pre {
+        font-family: "Roboto Mono", "Courier New", Courier, monospace
+      }
+    </style>
+  
+
+  <link rel="stylesheet" href="../../_static/stylesheets/application.css"/>
+  <link rel="stylesheet" href="../../_static/stylesheets/application-palette.css"/>
+  <link rel="stylesheet" href="../../_static/stylesheets/application-fixes.css"/>
+  
+  <link rel="stylesheet" href="../../_static/fonts/material-icons.css"/>
+  
+  <meta name="theme-color" content="#2196f3">
+  <script src="../../_static/javascripts/modernizr.js"></script>
+  
+  
+    <link rel="apple-touch-icon" href="../../_static/images/apple-icon-152x152.png"/>
+  
+  
+    <title>searchsorted &#8212; Python array API standard 2023.12 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=83e35b93" />
+    <link rel="stylesheet" type="text/css" href="../../_static/material.css?v=79c92029" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=e159c6a3" />
+    <script src="../../_static/documentation_options.js?v=3e3d3678"></script>
+    <script src="../../_static/doctools.js?v=888ff710"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="where" href="array_api.where.html" />
+    <link rel="prev" title="nonzero" href="array_api.nonzero.html" />
+  
+    <link rel="apple-touch-icon" href="../../_static/images/apple-icon-152x152.png"/>
+  
+   
+
+  </head>
+  <body dir=ltr
+        data-md-color-primary=indigo data-md-color-accent=green>
+  
+  <svg class="md-svg">
+    <defs data-children-count="0">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+      
+    </defs>
+  </svg>
+  
+  <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer">
+  <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search">
+  <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+  <a href="#API_specification/generated/array_api.searchsorted" tabindex="1" class="md-skip"> Skip to content </a>
+  <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex navheader">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../../index.html" title="Python array API standard 2023.12 documentation"
+           class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">&#xe869</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          <span class="md-header-nav__topic">Python array API standard v2023.12</span>
+          <span class="md-header-nav__topic"> searchsorted </span>
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+        
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" action="../../search.html" method="get" name="search">
+      <input type="text" class="md-search__input" name="q" placeholder=""Search""
+             autocapitalize="off" autocomplete="off" spellcheck="false"
+             data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+      </div>
+      
+      
+  
+  <script src="../../_static/javascripts/version_dropdown.js"></script>
+  <script>
+    var json_loc = "../../../versions.json",
+        target_loc = "../../../",
+        text = "Versions";
+    $( document ).ready( add_version_dropdown(json_loc, target_loc, text));
+  </script>
+  
+
+    </div>
+  </nav>
+</header>
+
+  
+  <div class="md-container">
+    
+    
+    
+  <nav class="md-tabs" data-md-component="tabs">
+    <div class="md-tabs__inner md-grid">
+      <ul class="md-tabs__list">
+            
+            <li class="md-tabs__item"><a href="../../index.html" class="md-tabs__link">Array API standard</a></li>
+            
+            <li class="md-tabs__item"><a href="https://data-apis.org" class="md-tabs__link">Consortium for Python Data API Standards</a></li>
+          <li class="md-tabs__item"><a href="../index.html" class="md-tabs__link">API specification</a></li>
+          <li class="md-tabs__item"><a href="../searching_functions.html" class="md-tabs__link">Searching Functions</a></li>
+      </ul>
+    </div>
+  </nav>
+    <main class="md-main">
+      <div class="md-main__inner md-grid" data-md-component="container">
+        
+          <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../../index.html" title="Python array API standard 2023.12 documentation" class="md-nav__button md-logo">
+      
+        <i class="md-icon">&#xe869</i>
+      
+    </a>
+    <a href="../../index.html"
+       title="Python array API standard 2023.12 documentation">Python array API standard v2023.12</a>
+  </label>
+  
+
+  
+  <ul class="md-nav__list">
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">Context</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../purpose_and_scope.html" class="md-nav__link">Purpose and scope</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../use_cases.html" class="md-nav__link">Use cases</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../assumptions.html" class="md-nav__link">Assumptions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">API</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../design_topics/index.html" class="md-nav__link">Design topics & constraints</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../future_API_evolution.html" class="md-nav__link">Future API standard evolution</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../index.html" class="md-nav__link">API specification</a>
+      <ul class="md-nav__list"> 
+    <li class="md-nav__item">
+    
+    
+      <a href="../array_object.html" class="md-nav__link">Array object</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../broadcasting.html" class="md-nav__link">Broadcasting</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../constants.html" class="md-nav__link">Constants</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../creation_functions.html" class="md-nav__link">Creation Functions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../data_type_functions.html" class="md-nav__link">Data Type Functions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../data_types.html" class="md-nav__link">Data Types</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../elementwise_functions.html" class="md-nav__link">Element-wise Functions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../function_and_method_signatures.html" class="md-nav__link">Function and method signatures</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../indexing.html" class="md-nav__link">Indexing</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../indexing_functions.html" class="md-nav__link">Indexing Functions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../inspection.html" class="md-nav__link">Inspection</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../linear_algebra_functions.html" class="md-nav__link">Linear Algebra Functions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../manipulation_functions.html" class="md-nav__link">Manipulation Functions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../searching_functions.html" class="md-nav__link">Searching Functions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../set_functions.html" class="md-nav__link">Set Functions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../sorting_functions.html" class="md-nav__link">Sorting Functions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../statistical_functions.html" class="md-nav__link">Statistical Functions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../type_promotion.html" class="md-nav__link">Type Promotion Rules</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../utility_functions.html" class="md-nav__link">Utility Functions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../version.html" class="md-nav__link">Version</a>
+      
+    
+    </li></ul>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../extensions/index.html" class="md-nav__link">Extensions</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">Methodology and Usage</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../usage_data.html" class="md-nav__link">Usage Data</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../verification_test_suite.html" class="md-nav__link">Verification - test suite</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../benchmark_suite.html" class="md-nav__link">Benchmark suite</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+      <span class="md-nav__link caption"><span class="caption-text">Other</span></span>
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../changelog.html" class="md-nav__link">Changelog per API standard version</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="../../license.html" class="md-nav__link">License</a>
+      
+    
+    </li>
+  </ul>
+  
+
+</nav>
+              </div>
+            </div>
+          </div>
+          <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+            <div class="md-sidebar__scrollwrap">
+              <div class="md-sidebar__inner">
+                
+<nav class="md-nav md-nav--secondary">
+    <label class="md-nav__title" for="__toc">"Contents"</label>
+  <ul class="md-nav__list" data-md-scrollfix="">
+        <li class="md-nav__item"><a href="#api-specification-generated-array-api-searchsorted--page-root" class="md-nav__link">searchsorted</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#array_api.searchsorted" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">searchsorted()</span></code></a>
+        </li></ul>
+            </nav>
+        </li>
+  </ul>
+</nav>
+              </div>
+            </div>
+          </div>
+        
+        <div class="md-content">
+          <article class="md-content__inner md-typeset" role="main">
+            
+  <section id="searchsorted">
+<h1 id="api-specification-generated-array-api-searchsorted--page-root">searchsorted<a class="headerlink" href="#api-specification-generated-array-api-searchsorted--page-root" title="Link to this heading">¶</a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="array_api.searchsorted">
+<span class="sig-name descname"><span class="pre">searchsorted</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">side</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'left'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'right'</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'left'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sorter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">array</span></span></span><a class="headerlink" href="#array_api.searchsorted" title="Link to this definition">¶</a></dt>
+<dd><p>Finds the indices into <code class="docutils literal notranslate"><span class="pre">x1</span></code> such that, if the corresponding elements in <code class="docutils literal notranslate"><span class="pre">x2</span></code> were inserted before the indices, the order of <code class="docutils literal notranslate"><span class="pre">x1</span></code>, when sorted in ascending order, would be preserved.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x1</strong> (<em>array</em>) – input array. Must be a one-dimensional array. Should have a real-valued data type. If <code class="docutils literal notranslate"><span class="pre">sorter</span></code> is <code class="docutils literal notranslate"><span class="pre">None</span></code>, must be sorted in ascending order; otherwise, <code class="docutils literal notranslate"><span class="pre">sorter</span></code> must be an array of indices that sort <code class="docutils literal notranslate"><span class="pre">x1</span></code> in ascending order.</p></li>
+<li><p><strong>x2</strong> (<em>array</em>) – array containing search values. Should have a real-valued data type.</p></li>
+<li><p><strong>side</strong> (<em>Literal</em><em>[</em><em>'left'</em><em>, </em><em>'right'</em><em>]</em>) – <p>argument controlling which index is returned if a value lands exactly on an edge.</p>
+<p>Let <code class="docutils literal notranslate"><span class="pre">x</span></code> be an array of rank <code class="docutils literal notranslate"><span class="pre">N</span></code> where <code class="docutils literal notranslate"><span class="pre">v</span></code> is an individual element given by <code class="docutils literal notranslate"><span class="pre">v</span> <span class="pre">=</span> <span class="pre">x2[n,m,...,j]</span></code>.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">side</span> <span class="pre">==</span> <span class="pre">'left'</span></code>, then</p>
+<ul>
+<li><p>each returned index <code class="docutils literal notranslate"><span class="pre">i</span></code> must satisfy the index condition <code class="docutils literal notranslate"><span class="pre">x1[i-1]</span> <span class="pre">&lt;</span> <span class="pre">v</span> <span class="pre">&lt;=</span> <span class="pre">x1[i]</span></code>.</p></li>
+<li><p>if no index satisfies the index condition, then the returned index for that element must be <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p></li>
+</ul>
+<p>Otherwise, if <code class="docutils literal notranslate"><span class="pre">side</span> <span class="pre">==</span> <span class="pre">'right'</span></code>, then</p>
+<ul>
+<li><p>each returned index <code class="docutils literal notranslate"><span class="pre">i</span></code> must satisfy the index condition <code class="docutils literal notranslate"><span class="pre">x1[i-1]</span> <span class="pre">&lt;=</span> <span class="pre">v</span> <span class="pre">&lt;</span> <span class="pre">x1[i]</span></code>.</p></li>
+<li><p>if no index satisfies the index condition, then the returned index for that element must be <code class="docutils literal notranslate"><span class="pre">N</span></code>, where <code class="docutils literal notranslate"><span class="pre">N</span></code> is the number of elements in <code class="docutils literal notranslate"><span class="pre">x1</span></code>.</p></li>
+</ul>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">'left'</span></code>.</p>
+</p></li>
+<li><p><strong>sorter</strong> (<em>Optional</em><em>[</em><em>array</em><em>]</em>) – array of indices that sort <code class="docutils literal notranslate"><span class="pre">x1</span></code> in ascending order. The array must have the same shape as <code class="docutils literal notranslate"><span class="pre">x1</span></code> and have an integer data type. Default: <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>out</strong> (<em>array</em>) – an array of indices with the same shape as <code class="docutils literal notranslate"><span class="pre">x2</span></code>. The returned array must have the default array index data type.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>For real-valued floating-point arrays, the sort order of NaNs and signed zeros is unspecified and thus implementation-dependent. Accordingly, when a real-valued floating-point array contains NaNs and signed zeros, what constitutes ascending order may vary among specification-conforming array libraries.</p>
+<p>While behavior for arrays containing NaNs and signed zeros is implementation-dependent, specification-conforming libraries should, however, ensure consistency with <code class="docutils literal notranslate"><span class="pre">sort</span></code> and <code class="docutils literal notranslate"><span class="pre">argsort</span></code> (i.e., if a value in <code class="docutils literal notranslate"><span class="pre">x2</span></code> is inserted into <code class="docutils literal notranslate"><span class="pre">x1</span></code> according to the corresponding index in the output array and <code class="docutils literal notranslate"><span class="pre">sort</span></code> is invoked on the resultant array, the sorted result should be an array in the same order).</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 2023.12.</span></p>
+</div>
+</dd></dl>
+</section>
+
+
+          </article>
+        </div>
+      </div>
+    </main>
+  </div>
+  <footer class="md-footer">
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+          
+            <a href="array_api.nonzero.html" title="nonzero"
+               class="md-flex md-footer-nav__link md-footer-nav__link--prev"
+               rel="prev">
+              <div class="md-flex__cell md-flex__cell--shrink">
+                <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+              </div>
+              <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+                <span class="md-flex__ellipsis">
+                  <span
+                      class="md-footer-nav__direction"> "Previous" </span> nonzero </span>
+              </div>
+            </a>
+          
+          
+            <a href="array_api.where.html" title="where"
+               class="md-flex md-footer-nav__link md-footer-nav__link--next"
+               rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
+                class="md-flex__ellipsis"> <span
+                class="md-footer-nav__direction"> "Next" </span> where </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink"><i
+                class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          
+        </a>
+        
+      </nav>
+    </div>
+    <div class="md-footer-meta md-typeset">
+      <div class="md-footer-meta__inner md-grid">
+        <div class="md-footer-copyright">
+          <div class="md-footer-copyright__highlight">
+              &#169; Copyright 2020-2024, Consortium for Python Data API Standards.
+              
+          </div>
+            Created using
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
+             and
+            <a href="https://github.com/bashtage/sphinx-material/">Material for
+              Sphinx</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="../../_static/javascripts/application.js"></script>
+  <script>app.initialize({version: "1.0.4", url: {base: ".."}})</script>
+  </body>
+</html>

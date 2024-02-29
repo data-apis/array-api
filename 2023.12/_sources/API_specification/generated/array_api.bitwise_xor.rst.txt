@@ -1,0 +1,6 @@
+﻿.. currentmodule:: array_api
+
+bitwise_xor
+===========
+
+.. autofunction:: bitwise_xor

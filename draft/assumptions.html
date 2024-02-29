@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" data-content_root="./">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon" sizes="196x195" href="_static/images/favicon.png" type="image/png">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -50,15 +49,15 @@
   
   
     <title>Assumptions &#8212; Python array API standard DRAFT documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/material.css" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="_static/css/custom.css" />
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
-    <script src="_static/clipboard.min.js"></script>
-    <script src="_static/copybutton.js"></script>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=83e35b93" />
+    <link rel="stylesheet" type="text/css" href="_static/material.css?v=79c92029" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=e159c6a3" />
+    <script src="_static/documentation_options.js?v=a088130d"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Design topics &amp; constraints" href="design_topics/index.html" />
@@ -110,8 +109,8 @@
 <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
-    <form class="md-search__form" action="search.html" method="GET" name="search">
-      <input type="text" class="md-search__input" name="q" placeholder="Search"
+    <form class="md-search__form" action="search.html" method="get" name="search">
+      <input type="text" class="md-search__input" name="q" placeholder=""Search""
              autocapitalize="off" autocomplete="off" spellcheck="false"
              data-md-component="query" data-md-state="active">
       <label class="md-icon md-search__icon" for="__search"></label>
@@ -213,7 +212,7 @@
       
         
 <nav class="md-nav md-nav--secondary">
-    <label class="md-nav__title" for="__toc">Contents</label>
+    <label class="md-nav__title" for="__toc">"Contents"</label>
   <ul class="md-nav__list" data-md-scrollfix="">
         <li class="md-nav__item"><a href="#assumptions--page-root" class="md-nav__link">Assumptions</a><nav class="md-nav">
               <ul class="md-nav__list">
@@ -350,7 +349,7 @@
               <div class="md-sidebar__inner">
                 
 <nav class="md-nav md-nav--secondary">
-    <label class="md-nav__title" for="__toc">Contents</label>
+    <label class="md-nav__title" for="__toc">"Contents"</label>
   <ul class="md-nav__list" data-md-scrollfix="">
         <li class="md-nav__item"><a href="#assumptions--page-root" class="md-nav__link">Assumptions</a><nav class="md-nav">
               <ul class="md-nav__list">
@@ -374,9 +373,9 @@
           <article class="md-content__inner md-typeset" role="main">
             
   <section id="assumptions">
-<span id="id1"></span><h1 id="assumptions--page-root">Assumptions<a class="headerlink" href="#assumptions--page-root" title="Permalink to this heading">¶</a></h1>
+<span id="id1"></span><h1 id="assumptions--page-root">Assumptions<a class="headerlink" href="#assumptions--page-root" title="Link to this heading">¶</a></h1>
 <section id="hardware-and-software-environments">
-<h2 id="hardware-and-software-environments">Hardware and software environments<a class="headerlink" href="#hardware-and-software-environments" title="Permalink to this heading">¶</a></h2>
+<h2 id="hardware-and-software-environments">Hardware and software environments<a class="headerlink" href="#hardware-and-software-environments" title="Link to this heading">¶</a></h2>
 <p>No assumptions on a specific hardware environment are made. It must be possible
 to create an array library adhering to this standard that runs (efficiently) on
 a variety of different hardware: CPUs with different architectures, GPUs,
@@ -391,7 +390,7 @@ made in the API standard. For example, JIT compilers may require output dtypes
 of functions to be predictable from input dtypes only rather than input values.</p>
 </section>
 <section id="dependencies">
-<span id="assumptions-dependencies"></span><h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this heading">¶</a></h2>
+<span id="assumptions-dependencies"></span><h2 id="dependencies">Dependencies<a class="headerlink" href="#dependencies" title="Link to this heading">¶</a></h2>
 <p>The only dependency that’s assumed in this standard is that on Python itself.
 Python &gt;= 3.8 is assumed, motivated by the use of positional-only parameters
 (see <a class="reference internal" href="API_specification/function_and_method_signatures.html"><span class="std std-doc">function and method signatures</span></a>).</p>
@@ -413,7 +412,7 @@ namespace from array instances that are passed in, but not explicitly doing
 <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">arraylib_name</span></code>.</p>
 </section>
 <section id="backwards-compatibility">
-<h2 id="backwards-compatibility">Backwards compatibility<a class="headerlink" href="#backwards-compatibility" title="Permalink to this heading">¶</a></h2>
+<h2 id="backwards-compatibility">Backwards compatibility<a class="headerlink" href="#backwards-compatibility" title="Link to this heading">¶</a></h2>
 <p>The assumption made during creation of this standard is that libraries are
 constrained by backwards compatibility guarantees to their users, and are
 likely unwilling to make significant backwards-incompatible changes for the
@@ -423,7 +422,7 @@ library will provide a way to retrieve a module or module-like object that
 adheres to this standard. See <a class="reference internal" href="purpose_and_scope.html#how-to-adopt-this-api"><span class="std std-ref">How to adopt this API</span></a> for more details.</p>
 </section>
 <section id="production-code-interactive-use">
-<h2 id="production-code-interactive-use">Production code &amp; interactive use<a class="headerlink" href="#production-code-interactive-use" title="Permalink to this heading">¶</a></h2>
+<h2 id="production-code-interactive-use">Production code &amp; interactive use<a class="headerlink" href="#production-code-interactive-use" title="Link to this heading">¶</a></h2>
 <p>It is assumed that the primary use case is writing production code, for example
 in array-consuming libraries. As a consequence, making it easy to ensure that
 code is written as intended and has unambiguous semantics is preferred - and
@@ -458,7 +457,7 @@ on top of a more strict behavior.</p>
               <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
                 <span class="md-flex__ellipsis">
                   <span
-                      class="md-footer-nav__direction"> Previous </span> Use cases </span>
+                      class="md-footer-nav__direction"> "Previous" </span> Use cases </span>
               </div>
             </a>
           
@@ -468,7 +467,7 @@ on top of a more strict behavior.</p>
                rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
                 class="md-flex__ellipsis"> <span
-                class="md-footer-nav__direction"> Next </span> Design topics &amp; constraints </span>
+                class="md-footer-nav__direction"> "Next" </span> Design topics &amp; constraints </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink"><i
                 class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
@@ -482,11 +481,11 @@ on top of a more strict behavior.</p>
       <div class="md-footer-meta__inner md-grid">
         <div class="md-footer-copyright">
           <div class="md-footer-copyright__highlight">
-              &#169; Copyright 2020-2022, Consortium for Python Data API Standards.
+              &#169; Copyright 2020-2024, Consortium for Python Data API Standards.
               
           </div>
             Created using
-            <a href="http://www.sphinx-doc.org/">Sphinx</a> 6.2.1.
+            <a href="http://www.sphinx-doc.org/">Sphinx</a> 7.2.6.
              and
             <a href="https://github.com/bashtage/sphinx-material/">Material for
               Sphinx</a>

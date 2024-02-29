@@ -1,0 +1,6 @@
+﻿.. currentmodule:: array_api.info
+
+__array_namespace_info__
+========================
+
+.. autofunction:: __array_namespace_info__
