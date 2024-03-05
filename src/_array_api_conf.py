@@ -36,6 +36,7 @@ extensions = [
     "sphinx_copybutton",
     "sphinx_favicon",
     "sphinx_markdown_tables",
+    "sphinxcontrib.jquery",
 ]
 
 autosummary_generate = True
