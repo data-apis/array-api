@@ -2,6 +2,7 @@ from __future__ import annotations
 
 __all__ = ["array"]
 
+from typing import SupportsIndex
 from ._types import (
     array,
     dtype as Dtype,
@@ -604,11 +605,11 @@ class _array:
     def __getitem__(
         self: array,
         key: Union[
-            int,
+            SupportsIndex,
             slice,
             ellipsis,
             None,
-            Tuple[Union[int, slice, ellipsis, None], ...],
+            Tuple[Union[SupportsIndex, slice, ellipsis, None], ...],
             array,
         ],
         /,
@@ -620,8 +621,12 @@ class _array:
         ----------
         self: array
             array instance.
-        key: Union[int, slice, ellipsis, None, Tuple[Union[int, slice, ellipsis, None], ...], array]
+        key: Union[SupportsIndex, slice, ellipsis, None, Tuple[Union[SupportsIndex, slice, ellipsis, None], ...], array]
             index key.
+
+
+        .. note::
+           ``key`` can only be an array if it is valid for boolean array indexing, or supports ``__index__()``.
 
         Returns
         -------
@@ -1077,7 +1082,11 @@ class _array:
     def __setitem__(
         self: array,
         key: Union[
-            int, slice, ellipsis, Tuple[Union[int, slice, ellipsis], ...], array
+            SupportsIndex,
+            slice,
+            ellipsis,
+            Tuple[Union[SupportsIndex, slice, ellipsis], ...],
+            array,
         ],
         value: Union[int, float, bool, array],
         /,
@@ -1089,11 +1098,13 @@ class _array:
         ----------
         self: array
             array instance.
-        key: Union[int, slice, ellipsis, Tuple[Union[int, slice, ellipsis], ...], array]
+        key: Union[SupportsIndex, slice, ellipsis, Tuple[Union[SupportsIndex, slice, ellipsis], ...], array]
             index key.
         value: Union[int, float, bool, array]
             value(s) to set. Must be compatible with ``self[key]`` (see :ref:`broadcasting`).
 
+        .. note::
+           ``key`` can only be an array if it is valid for boolean array indexing, or supports ``__index__()``.
 
         .. note::
 
