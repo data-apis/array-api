@@ -56,6 +56,7 @@ def capabilities() -> Capabilities:
 
     -   `"boolean indexing"`: boolean indicating whether an array library supports boolean indexing. If a conforming implementation fully supports boolean indexing in compliance with this specification (see :ref:`indexing`), the corresponding dictionary value must be ``True``; otherwise, the value must be ``False``.
     -   `"data-dependent shapes"`: boolean indicating whether an array library supports data-dependent output shapes. If a conforming implementation fully supports all APIs included in this specification (excluding boolean indexing) which have data-dependent output shapes, as explicitly demarcated throughout the specification, the corresponding dictionary value must be ``True``; otherwise, the value must be ``False``.
+    -   `"max rank"`: maximum number of supported dimensions. If a conforming implementation supports arrays having an arbitrary number of dimensions (potentially infinite), the corresponding dictionary value must be ``None``; otherwise, the value must be a finite integer.
 
     Returns
     -------
