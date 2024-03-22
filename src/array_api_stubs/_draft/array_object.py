@@ -1105,6 +1105,7 @@ class _array:
         value: Union[int, float, bool, array]
             value(s) to set. Must be compatible with ``self[key]`` (see :ref:`broadcasting`).
 
+
         .. note::
            ``key`` can only be an array if it is valid for boolean array indexing, or supports ``__index__()``.
 
