@@ -89,7 +89,7 @@ The following is a list of breaking changes relative to the previous version of 
 
 - `prod`: when provided a floating-point array, the function must return a floating-point array having the same data type ([gh-744](https://github.com/data-apis/array-api/pull/744))
 - `sum`: when provided a floating-point array, the function must return a floating-point array having the same data type ([gh-744](https://github.com/data-apis/array-api/pull/744))
-- `vecdot`: only allow a negative integer for the `axis` keyword argument ([gh-740](https://github.com/data-apis/array-api/pull/740))
+- `vecdot`: only require a negative integer for the `axis` keyword argument ([gh-740](https://github.com/data-apis/array-api/pull/740))
 
 #### Extensions
 
@@ -104,7 +104,7 @@ The following is a list of breaking changes in specification extensions relative
 - `fft.irfftn`: require the output array have a real-valued floating-point data type having the same precision as the input array ([gh-720](https://github.com/data-apis/array-api/pull/720); backported to v2022.12 revision of Array API specification)
 - `fft.fftfreq`: require the output array have the default real-valued floating-point data type ([gh-720](https://github.com/data-apis/array-api/pull/720); backported to v2022.12 revision of Array API specification)
 - `fft.rfftfreq`: require the output array have the default real-valued floating-point data type ([gh-720](https://github.com/data-apis/array-api/pull/720); backported to v2022.12 revision of Array API specification)
-- `linalg.cross`: broadcast only along non-compute axes and only allow a negative integer for the `axis` keyword argument ([gh-740](https://github.com/data-apis/array-api/pull/740))
+- `linalg.cross`: broadcast only along non-compute axes and only require a negative integer for the `axis` keyword argument ([gh-740](https://github.com/data-apis/array-api/pull/740))
 - `linalg.trace`: when provided a floating-point array, the function must return a floating-point array having the same data type ([gh-744](https://github.com/data-apis/array-api/pull/744))
 
 * * *
