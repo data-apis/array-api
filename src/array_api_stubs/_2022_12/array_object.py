@@ -237,7 +237,7 @@ class _array:
         - If ``self`` is either ``+infinity`` or ``-infinity``, the result is ``True``.
         - If ``self`` is either ``+0`` or ``-0``, the result is ``False``.
 
-        For complex floating-point operands, special cases must be handled as if the operation is implemented as the logical AND of ``bool(real(self))`` and ``bool(imag(self))``.
+        For complex floating-point operands, special cases must be handled as if the operation is implemented as the logical OR of ``bool(real(self))`` and ``bool(imag(self))``.
 
         .. versionchanged:: 2022.12
             Added boolean and complex data type support.
