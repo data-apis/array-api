@@ -475,7 +475,7 @@
 <li><p>If <code class="docutils literal notranslate"><span class="pre">self</span></code> is either <code class="docutils literal notranslate"><span class="pre">+infinity</span></code> or <code class="docutils literal notranslate"><span class="pre">-infinity</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p></li>
 <li><p>If <code class="docutils literal notranslate"><span class="pre">self</span></code> is either <code class="docutils literal notranslate"><span class="pre">+0</span></code> or <code class="docutils literal notranslate"><span class="pre">-0</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
 </ul>
-<p>For complex floating-point operands, special cases must be handled as if the operation is implemented as the logical AND of <code class="docutils literal notranslate"><span class="pre">bool(real(self))</span></code> and <code class="docutils literal notranslate"><span class="pre">bool(imag(self))</span></code>.</p>
+<p>For complex floating-point operands, special cases must be handled as if the operation is implemented as the logical OR of <code class="docutils literal notranslate"><span class="pre">bool(real(self))</span></code> and <code class="docutils literal notranslate"><span class="pre">bool(imag(self))</span></code>.</p>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Changed in version 2022.12: </span>Added boolean and complex data type support.</p>
 </div>
