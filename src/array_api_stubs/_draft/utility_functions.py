@@ -1,4 +1,4 @@
-__all__ = ["all", "any"]
+__all__ = ["all", "any", "diff"]
 
 
 from ._types import Optional, Tuple, Union, array
@@ -83,4 +83,46 @@ def any(
 
     .. versionchanged:: 2022.12
        Added complex data type support.
+    """
+
+
+def diff(
+    x: array,
+    /,
+    *,
+    axis: int = -1,
+    n: int = 1,
+    prepend: Optional[array],
+    append: Optional[array],
+) -> array:
+    """
+    Calculates the n-th discrete forward difference along a specified axis.
+
+    Parameters
+    ----------
+    x: array
+        input array. Should have a numeric data type.
+    axis: int
+        axis along which to compute differences. A valid ``axis`` must be an integer on the interval ``[-N, N)``, where ``N`` is the rank (number of dimensions) of ``x``. If an ``axis`` is specified as a negative integer, the function must determine the axis along which to compute differences by counting backward from the last dimension (where ``-1`` refers to the last dimension). If provided an invalid ``axis``, the function must raise an exception. Default: ``-1``.
+    n: int
+        number of times to recursively compute differences. Default: ``1``.
+    prepend: array
+        values to prepend to a specified axis prior to computing differences. Must have the same shape as ``x``, except for the axis specified by ``axis`` which may have any size. Should have the same data type as ``x``.
+    append: array
+        values to append to a specified axis prior to computing differences. Must have the same shape as ``x``, except for the axis specified by ``axis`` which may have any size. Should have the same data type as ``x``.
+
+    Returns
+    -------
+    out: array
+        an array containing the n-th differences. Should have the same data type as ``x``. Must have the same shape as ``x``, except for the axis specified by ``axis`` which must have a size determined as follows:
+
+        -   Let ``M`` be the number of elements along an axis specified by ``axis``.
+        -   Let ``N1`` be the number of prepended values along an axis specified by ``axis``.
+        -   Let ``N2`` be the number of appended values along an axis specified by ``axis``.
+        -   The final size of the axis specified by ``axis`` must be ``M + N1 + N2 - n``.
+
+    Notes
+    -----
+
+    -   The first-order differences are given by ``out[i] = x[i+1] - x[i]`` along a specified axis. Higher-order differences must be calculated recursively (e.g., by calling ``diff(out, axis=axis, n=n-1)``).
     """
