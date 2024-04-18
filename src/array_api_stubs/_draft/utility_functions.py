@@ -92,8 +92,8 @@ def diff(
     *,
     axis: int = -1,
     n: int = 1,
-    prepend: Optional[array],
-    append: Optional[array],
+    prepend: Optional[array] = None,
+    append: Optional[array] = None,
 ) -> array:
     """
     Calculates the n-th discrete forward difference along a specified axis.
@@ -106,10 +106,10 @@ def diff(
         axis along which to compute differences. A valid ``axis`` must be an integer on the interval ``[-N, N)``, where ``N`` is the rank (number of dimensions) of ``x``. If an ``axis`` is specified as a negative integer, the function must determine the axis along which to compute differences by counting backward from the last dimension (where ``-1`` refers to the last dimension). If provided an invalid ``axis``, the function must raise an exception. Default: ``-1``.
     n: int
         number of times to recursively compute differences. Default: ``1``.
-    prepend: array
-        values to prepend to a specified axis prior to computing differences. Must have the same shape as ``x``, except for the axis specified by ``axis`` which may have any size. Should have the same data type as ``x``.
-    append: array
-        values to append to a specified axis prior to computing differences. Must have the same shape as ``x``, except for the axis specified by ``axis`` which may have any size. Should have the same data type as ``x``.
+    prepend: Optional[array]
+        values to prepend to a specified axis prior to computing differences. Must have the same shape as ``x``, except for the axis specified by ``axis`` which may have any size. Should have the same data type as ``x``. Default: ``None``.
+    append: Optional[array]
+        values to append to a specified axis prior to computing differences. Must have the same shape as ``x``, except for the axis specified by ``axis`` which may have any size. Should have the same data type as ``x``. Default: ``None``.
 
     Returns
     -------
