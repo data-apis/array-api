@@ -316,7 +316,7 @@ def stack(arrays: Union[Tuple[array, ...], List[array]], /, *, axis: int = 0) ->
     """
 
 
-def tile(x: array, repetitions: Tuple[int, ...], /):
+def tile(x: array, repetitions: Tuple[int, ...], /) -> array:
     """
     Constructs an array by tiling an input array.
 
