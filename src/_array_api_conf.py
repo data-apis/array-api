@@ -37,6 +37,7 @@ extensions = [
     "sphinx_favicon",
     "sphinx_markdown_tables",
     "sphinxcontrib.jquery",
+    "autobold_rfc2119",
 ]
 
 autosummary_generate = True
