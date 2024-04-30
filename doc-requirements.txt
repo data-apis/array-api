@@ -1,8 +1,8 @@
 sphinx==7.2.6
 sphinx-material==0.0.36
 myst-parser
-sphinx_markdown_tables
-sphinx_copybutton
-sphinx_favicon
+sphinx-markdown-tables
+sphinx-copybutton
+sphinx-favicon
 sphinx-math-dollar
 sphinxcontrib-jquery
