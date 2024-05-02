@@ -1,7 +1,7 @@
 __all__ = ["argmax", "argmin", "count_nonzero", "nonzero", "searchsorted", "where"]
 
 
-from ._types import Optional, Tuple, Literal, array
+from ._types import Optional, Tuple, Literal, Union, array
 
 
 def argmax(x: array, /, *, axis: Optional[int] = None, keepdims: bool = False) -> array:
