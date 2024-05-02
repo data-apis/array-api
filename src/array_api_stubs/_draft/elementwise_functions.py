@@ -48,6 +48,7 @@ __all__ = [
     "minimum",
     "multiply",
     "negative",
+    "nextafter",
     "not_equal",
     "positive",
     "pow",
@@ -2066,6 +2067,35 @@ def negative(x: array, /) -> array:
 
     .. versionchanged:: 2022.12
        Added complex data type support.
+    """
+
+
+def nextafter(x1: array, x2: array, /) -> array:
+    """
+    Returns the next representable floating-point value for each element ``x1_i`` of the input array ``x1`` in the direction of the respective element ``x2_i`` of the input array ``x2``.
+
+    Parameters
+    ----------
+    x1: array
+        first input array. Should have a real-valued floating-point data type.
+    x2: array
+        second input array. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have the same data type as ``x1``.
+
+    Returns
+    -------
+    out: array
+        an array containing the element-wise results. The returned array must have the same data type as ``x1``.
+
+    Notes
+    -----
+
+    **Special cases**
+
+    For real-valued floating-point operands,
+
+    - If either ``x1_i`` or ``x2_i`` is ``NaN``, the result is ``NaN``.
+    - If ``x1_i`` is ``-0`` and ``x2_i`` is ``+0``, the result is ``+0``.
+    - If ``x1_i`` is ``+0`` and ``x2_i`` is ``-0``, the result is ``-0``.
     """
 
 

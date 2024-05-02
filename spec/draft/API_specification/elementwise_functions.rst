@@ -66,6 +66,7 @@ Objects in API
    minimum
    multiply
    negative
+   nextafter
    not_equal
    positive
    pow
