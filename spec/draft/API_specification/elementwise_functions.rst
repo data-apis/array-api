@@ -71,6 +71,7 @@ Objects in API
    positive
    pow
    real
+   reciprocal
    remainder
    round
    sign
