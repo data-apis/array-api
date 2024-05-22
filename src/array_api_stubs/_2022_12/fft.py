@@ -35,7 +35,7 @@ def fft(
     Parameters
     ----------
     x: array
-        input array. Should have a complex-valued floating-point data type.
+        input array. Should have a complex floating-point data type.
     n: Optional[int]
         number of elements over which to compute the transform along the axis (dimension) specified by ``axis``. Let ``M`` be the size of the input array along the axis specified by ``axis``. When ``n`` is ``None``, the function must set ``n`` equal to ``M``.
 
@@ -84,7 +84,7 @@ def ifft(
     Parameters
     ----------
     x: array
-        input array. Should have a complex-valued floating-point data type.
+        input array. Should have a complex floating-point data type.
     n: Optional[int]
         number of elements over which to compute the transform along the axis (dimension) specified by ``axis``. Let ``M`` be the size of the input array along the axis specified by ``axis``. When ``n`` is ``None``, the function must set ``n`` equal to ``M``.
 
@@ -133,7 +133,7 @@ def fftn(
     Parameters
     ----------
     x: array
-        input array. Should have a complex-valued floating-point data type.
+        input array. Should have a complex floating-point data type.
     s: Optional[Sequence[int]]
         number of elements over which to compute the transform along the axes (dimensions) specified by ``axes``. Let ``i`` be the index of the ``n``-th axis specified by ``axes`` (i.e., ``i = axes[n]``) and ``M[i]`` be the size of the input array along axis ``i``. When ``s`` is ``None``, the function must set ``s`` equal to a sequence of integers such that ``s[i]`` equals ``M[i]`` for all ``i``.
 
@@ -188,7 +188,7 @@ def ifftn(
     Parameters
     ----------
     x: array
-        input array. Should have a complex-valued floating-point data type.
+        input array. Should have a complex floating-point data type.
     s: Optional[Sequence[int]]
         number of elements over which to compute the transform along the axes (dimensions) specified by ``axes``. Let ``i`` be the index of the ``n``-th axis specified by ``axes`` (i.e., ``i = axes[n]``) and ``M[i]`` be the size of the input array along axis ``i``. When ``s`` is ``None``, the function must set ``s`` equal to a sequence of integers such that ``s[i]`` equals ``M[i]`` for all ``i``.
 
@@ -292,7 +292,7 @@ def irfft(
     Parameters
     ----------
     x: array
-        input array. Should have a complex-valued floating-point data type.
+        input array. Should have a complex floating-point data type.
     n: Optional[int]
         number of elements along the transformed axis (dimension) specified by ``axis`` in the **output array**. Let ``M`` be the size of the input array along the axis specified by ``axis``. When ``n`` is ``None``, the function must set ``n`` equal to ``2*(M-1)``.
 
@@ -398,7 +398,7 @@ def irfftn(
     Parameters
     ----------
     x: array
-        input array. Should have a complex-valued floating-point data type.
+        input array. Should have a complex floating-point data type.
     s: Optional[Sequence[int]]
         number of elements along the transformed axes (dimensions) specified by ``axes`` in the **output array**. Let ``i`` be the index of the ``n``-th axis specified by ``axes`` (i.e., ``i = axes[n]``) and ``M[i]`` be the size of the input array along axis ``i``. When ``s`` is ``None``, the function must set ``s`` equal to a sequence of integers such that ``s[i]`` equals ``M[i]`` for all ``i``, except for the last transformed axis in which ``s[i]`` equals ``2*(M[i]-1)``. For each ``i``, let ``n`` equal ``s[i]``, except for the last transformed axis in which ``n`` equals ``s[i]//2+1``.
 
@@ -452,7 +452,7 @@ def hfft(
     Parameters
     ----------
     x: array
-        input array. Should have a complex-valued floating-point data type.
+        input array. Should have a complex floating-point data type.
     n: Optional[int]
         number of elements along the transformed axis (dimension) specified by ``axis`` in the **output array**. Let ``M`` be the size of the input array along the axis specified by ``axis``. When ``n`` is ``None``, the function must set ``n`` equal to ``2*(M-1)``.
 

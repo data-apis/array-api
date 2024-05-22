@@ -875,14 +875,12 @@ def copysign(x1: array, x2: array, /) -> array:
     - If ``x2_i`` is ``NaN`` and the sign bit of ``x2_i`` is ``1``, the result is ``-|x1_i|``.
     - If ``x2_i`` is ``NaN`` and the sign bit of ``x2_i`` is ``0``, the result is ``|x1_i|``.
 
-    If ``x1_i`` is ``NaN``,
-
-    - If ``x2_i`` is less than ``0``, the result is ``NaN`` with a sign bit of ``1``.
-    - If ``x2_i`` is ``-0``, the result is ``NaN`` with a sign bit of ``1``.
-    - If ``x2_i`` is ``+0``, the result is ``NaN`` with a sign bit of ``0``.
-    - If ``x2_i`` is greater than ``0``, the result is ``NaN`` with a sign bit of ``0``.
-    - If ``x2_i`` is ``NaN`` and the sign bit of ``x2_i`` is ``1``, the result is ``NaN`` with a sign bit of ``1``.
-    - If ``x2_i`` is ``NaN`` and the sign bit of ``x2_i`` is ``0``, the result is ``NaN`` with a sign bit of ``0``.
+    - If ``x1_i`` is ``NaN`` and ``x2_i`` is less than ``0``, the result is ``NaN`` with a sign bit of ``1``.
+    - If ``x1_i`` is ``NaN`` and ``x2_i`` is ``-0``, the result is ``NaN`` with a sign bit of ``1``.
+    - If ``x1_i`` is ``NaN`` and ``x2_i`` is ``+0``, the result is ``NaN`` with a sign bit of ``0``.
+    - If ``x1_i`` is ``NaN`` and ``x2_i`` is greater than ``0``, the result is ``NaN`` with a sign bit of ``0``.
+    - If ``x1_i`` is ``NaN`` and ``x2_i`` is ``NaN`` and the sign bit of ``x2_i`` is ``1``, the result is ``NaN`` with a sign bit of ``1``.
+    - If ``x1_i`` is ``NaN`` and ``x2_i`` is ``NaN`` and the sign bit of ``x2_i`` is ``0``, the result is ``NaN`` with a sign bit of ``0``.
 
     .. versionadded:: 2023.12
     """
