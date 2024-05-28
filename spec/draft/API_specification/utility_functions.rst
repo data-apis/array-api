@@ -20,3 +20,4 @@ Objects in API
 
    all
    any
+   diff
