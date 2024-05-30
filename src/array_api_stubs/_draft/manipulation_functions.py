@@ -347,7 +347,7 @@ def tile(x: array, repetitions: Tuple[int, ...], /) -> array:
 
 def unstack(x: array, /, *, axis: int = 0) -> Tuple[array, ...]:
     """
-    Splits an array in a sequence of arrays along the given axis.
+    Splits an array into a sequence of arrays along the given axis.
 
     Parameters
     ----------
