@@ -807,6 +807,12 @@ def clip(
     - If a broadcasted element in ``min`` is greater than a corresponding broadcasted element in ``max``, behavior is unspecified and thus implementation-dependent.
     - If ``x`` and either ``min`` or ``max`` have different data type kinds (e.g., integer versus floating-point), behavior is unspecified and thus implementation-dependent.
 
+    **Special cases**
+
+    - If ``x_i`` is ``NaN``, the result is ``NaN``.
+    - If ``min_i`` is ``NaN``, the result is ``NaN``.
+    - If ``max_i`` is ``NaN``, the result is ``NaN``.
+
     .. versionadded:: 2023.12
     """
 
