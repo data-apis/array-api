@@ -50,6 +50,10 @@ def take_along_axis(x: array, indices: array, /, *, axis: int = -1) -> array:
         input array. Must be compatible with ``indices``, except for the axis (dimension) specified by ``axis`` (see :ref:`broadcasting`).
     indices: array
         array indices. Must have the same rank (i.e., number of dimensions) as ``x``.
+
+        .. note::
+           This specification does not require bounds checking. The behavior for out-of-bounds indices is left unspecified.
+
     axis: int
         axis along which to select values. If ``axis`` is negative, the function must determine the axis along which to select values by counting from the last dimension. Default: ``-1``.
 
