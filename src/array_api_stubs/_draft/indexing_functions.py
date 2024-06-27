@@ -1,4 +1,4 @@
-__all__ = ["take"]
+__all__ = ["take", "take_along_axis"]
 
 from ._types import Union, Optional, array
 
@@ -37,4 +37,24 @@ def take(x: array, indices: array, /, *, axis: Optional[int] = None) -> array:
 
     .. versionchanged:: 2023.12
        Out-of-bounds behavior is explicitly left unspecified.
+    """
+
+
+def take_along_axis(x: array, indices: array, /, *, axis: int = -1) -> array:
+    """
+    Returns elements from an array at the one-dimensional indices specified by ``indices`` along a provided ``axis``.
+
+    Parameters
+    ----------
+    x: array
+        input array. Must be compatible with ``indices``, except for the axis (dimension) specified by ``axis`` (see :ref:`broadcasting`).
+    indices: array
+        array indices. Must have the same rank (i.e., number of dimensions) as ``x``.
+    axis: int
+        axis along which to select values. If ``axis`` is negative, the function must determine the axis along which to select values by counting from the last dimension. Default: ``-1``.
+
+    Returns
+    -------
+    out: array
+        an array having the same data type as ``x``. Must have the same rank (i.e., number of dimensions) as ``x`` and must have a shape determined according to :ref:`broadcasting`, except for the axis (dimension) specified by ``axis`` whose size must equal the size of the corresponding axis (dimension) in ``indices``.
     """
