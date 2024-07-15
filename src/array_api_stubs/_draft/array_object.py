@@ -616,6 +616,8 @@ class _array:
         """
         Returns ``self[key]``.
 
+        See :ref:`indexing` for details on supported indexing semantics.
+
         Parameters
         ----------
         self: array
@@ -1084,6 +1086,8 @@ class _array:
     ) -> None:
         """
         Sets ``self[key]`` to ``value``.
+
+        See :ref:`indexing` for details on supported indexing semantics.
 
         Parameters
         ----------
