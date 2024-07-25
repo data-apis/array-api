@@ -53,6 +53,7 @@ __all__ = [
     "positive",
     "pow",
     "real",
+    "reciprocal",
     "remainder",
     "round",
     "sign",
@@ -2249,6 +2250,29 @@ def real(x: array, /) -> array:
     -----
 
     .. versionadded:: 2022.12
+    """
+
+
+def reciprocal(x: array, /) -> array:
+    """
+    Returns the reciprocal for each element ``x_i`` of the input array ``x``.
+
+    Parameters
+    ----------
+    x: array
+        input array. Should have a floating-point data type.
+
+    Returns
+    -------
+    out: array
+        an array containing the element-wise results. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
+
+    Notes
+    -----
+
+    **Special cases**
+
+    For floating-point operands, special cases must be handled as if the operation is implemented as ``1.0 / x`` (see :func:`~array_api.divide`).
     """
 
 
