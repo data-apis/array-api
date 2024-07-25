@@ -793,9 +793,9 @@ def clip(
     x: array
       input array. Should have a real-valued data type.
     min: Optional[Union[int, float, array]]
-      lower-bound of the range to which to clamp. If ``None``, no lower bound must be applied. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have a real-valued data type. Default: ``None``.
+      lower-bound of the range to which to clamp. If ``None``, no lower bound must be applied. Must be compatible with ``x`` and ``max`` (see :ref:`broadcasting`). Should have a real-valued data type. Default: ``None``.
     max: Optional[Union[int, float, array]]
-      upper-bound of the range to which to clamp. If ``None``, no upper bound must be applied. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have a real-valued data type. Default: ``None``.
+      upper-bound of the range to which to clamp. If ``None``, no upper bound must be applied. Must be compatible with ``x`` and ``min`` (see :ref:`broadcasting`). Should have a real-valued data type. Default: ``None``.
 
     Returns
     -------
@@ -807,7 +807,7 @@ def clip(
 
     - If both ``min`` and ``max`` are ``None``, the elements of the returned array must equal the respective elements in ``x``.
     - If a broadcasted element in ``min`` is greater than a corresponding broadcasted element in ``max``, behavior is unspecified and thus implementation-dependent.
-    - If ``x`` and either ``min`` or ``max`` have different data type kinds (e.g., integer versus floating-point), behavior is unspecified and thus implementation-dependent.
+    - If ``x`` has an integer data type and either ``min`` or ``max`` is a ``float``, behavior is unspecified and thus implementation-dependent.
 
     .. versionadded:: 2023.12
     """
