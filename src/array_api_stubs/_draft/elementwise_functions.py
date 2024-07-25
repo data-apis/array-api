@@ -1119,6 +1119,9 @@ def equal(x1: array, x2: array, /) -> array:
     .. note::
        For discussion of complex number equality, see :ref:`complex-numbers`.
 
+    .. note::
+       Comparisons of arrays without a corresponding promotable data type (see :ref:`type-promotion`) is undefined and thus implementation-dependent.
+
     .. versionchanged:: 2022.12
        Added complex data type support.
     """
@@ -1348,6 +1351,10 @@ def greater(x1: array, x2: array, /) -> array:
     -------
     out: array
         an array containing the element-wise results. The returned array must have a data type of ``bool``.
+
+    .. note::
+       Comparisons of arrays without a corresponding promotable data type (see :ref:`type-promotion`) is undefined and thus implementation-dependent.
+
     """
 
 
@@ -1369,6 +1376,9 @@ def greater_equal(x1: array, x2: array, /) -> array:
     -------
     out: array
         an array containing the element-wise results. The returned array must have a data type of ``bool``.
+
+    .. note::
+       Comparisons of arrays without a corresponding promotable data type (see :ref:`type-promotion`) is undefined and thus implementation-dependent.
     """
 
 
@@ -1564,6 +1574,9 @@ def less(x1: array, x2: array, /) -> array:
     -------
     out: array
         an array containing the element-wise results. The returned array must have a data type of ``bool``.
+
+    .. note::
+       Comparisons of arrays without a corresponding promotable data type (see :ref:`type-promotion`) is undefined and thus implementation-dependent.
     """
 
 
@@ -1585,6 +1598,9 @@ def less_equal(x1: array, x2: array, /) -> array:
     -------
     out: array
         an array containing the element-wise results. The returned array must have a data type of ``bool``.
+
+    .. note::
+       Comparisons of arrays without a corresponding promotable data type (see :ref:`type-promotion`) is undefined and thus implementation-dependent.
     """
 
 
@@ -2134,6 +2150,9 @@ def not_equal(x1: array, x2: array, /) -> array:
 
     .. note::
        For discussion of complex number equality, see :ref:`complex-numbers`.
+
+    .. note::
+       Comparisons of arrays without a corresponding promotable data type (see :ref:`type-promotion`) is undefined and thus implementation-dependent.
 
     .. versionchanged:: 2022.12
        Added complex data type support.
