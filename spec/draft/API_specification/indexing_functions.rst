@@ -21,3 +21,4 @@ Objects in API
    :template: method.rst
 
    take
+   take_along_axis
