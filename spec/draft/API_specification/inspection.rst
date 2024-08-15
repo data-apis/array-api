@@ -1,3 +1,5 @@
+.. _inspection:
+
 Inspection
 ==========
 
