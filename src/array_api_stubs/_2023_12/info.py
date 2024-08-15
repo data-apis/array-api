@@ -25,6 +25,8 @@ def __array_namespace_info__() -> Info:
     """
     Returns a namespace with Array API namespace inspection utilities.
 
+    See :ref:`inspection` for a list of inspection APIs.
+
     Returns
     -------
     out: Info
