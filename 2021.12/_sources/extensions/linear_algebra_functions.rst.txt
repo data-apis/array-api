@@ -48,8 +48,8 @@ Accordingly, the standardization process affords the opportunity to reduce inter
 
     In general, interfaces should avoid polymorphic return values (e.g., returning an array **or** a namedtuple, dependent on, e.g., an optional keyword argument). Dedicated interfaces for each return value type are preferred, as dedicated interfaces are easier to reason about at both the implementation level and user level. Example interfaces which could be combined into a single overloaded interface, but are not, include:
 
-    -   ``eig``: computing both eigenvalues and eignvectors.
-    -   ``eigvals``: computing only eigenvalues.
+    -   ``eigh``: computing both eigenvalues and eigenvectors.
+    -   ``eigvalsh``: computing only eigenvalues.
 
 4.  **Implementation agnosticism**: a standardized interface should eschew parameterization (including keyword arguments) biased toward particular implementations.
 

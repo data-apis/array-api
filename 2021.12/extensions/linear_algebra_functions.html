@@ -374,8 +374,8 @@
 <li><p><strong>Return values</strong>: if an interface has more than one return value, the interface should return a namedtuple consisting of each value.</p>
 <p>In general, interfaces should avoid polymorphic return values (e.g., returning an array <strong>or</strong> a namedtuple, dependent on, e.g., an optional keyword argument). Dedicated interfaces for each return value type are preferred, as dedicated interfaces are easier to reason about at both the implementation level and user level. Example interfaces which could be combined into a single overloaded interface, but are not, include:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">eig</span></code>: computing both eigenvalues and eignvectors.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">eigvals</span></code>: computing only eigenvalues.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">eigh</span></code>: computing both eigenvalues and eigenvectors.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">eigvalsh</span></code>: computing only eigenvalues.</p></li>
 </ul>
 </li>
 <li><p><strong>Implementation agnosticism</strong>: a standardized interface should eschew parameterization (including keyword arguments) biased toward particular implementations.</p>
