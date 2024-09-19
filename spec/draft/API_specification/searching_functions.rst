@@ -22,6 +22,7 @@ Objects in API
 
    argmax
    argmin
+   count_nonzero
    nonzero
    searchsorted
    where
