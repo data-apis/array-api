@@ -484,6 +484,12 @@
 <li><p>If a broadcasted element in <code class="docutils literal notranslate"><span class="pre">min</span></code> is greater than a corresponding broadcasted element in <code class="docutils literal notranslate"><span class="pre">max</span></code>, behavior is unspecified and thus implementation-dependent.</p></li>
 <li><p>If <code class="docutils literal notranslate"><span class="pre">x</span></code> and either <code class="docutils literal notranslate"><span class="pre">min</span></code> or <code class="docutils literal notranslate"><span class="pre">max</span></code> have different data type kinds (e.g., integer versus floating-point), behavior is unspecified and thus implementation-dependent.</p></li>
 </ul>
+<p><strong>Special cases</strong></p>
+<ul class="simple">
+<li><p>If <code class="docutils literal notranslate"><span class="pre">x_i</span></code> is <code class="docutils literal notranslate"><span class="pre">NaN</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">NaN</span></code>.</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">min_i</span></code> is <code class="docutils literal notranslate"><span class="pre">NaN</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">NaN</span></code>.</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">max_i</span></code> is <code class="docutils literal notranslate"><span class="pre">NaN</span></code>, the result is <code class="docutils literal notranslate"><span class="pre">NaN</span></code>.</p></li>
+</ul>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version 2023.12.</span></p>
 </div>
