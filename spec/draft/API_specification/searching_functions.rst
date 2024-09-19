@@ -24,4 +24,7 @@ Objects in API
    argmin
    nonzero
    searchsorted
+   top_k
+   top_k_indices
+   top_k_values
    where
