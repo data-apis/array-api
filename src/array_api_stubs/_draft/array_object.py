@@ -829,6 +829,9 @@ class _array:
 
         .. note::
            Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.less`.
+
+        .. note::
+           Comparison of arrays without a corresponding promotable data type (see :ref:`type-promotion`) is undefined and thus implementation-dependent.
         """
 
     def __matmul__(self: array, other: array, /) -> array:
