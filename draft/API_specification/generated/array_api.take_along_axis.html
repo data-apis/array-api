@@ -48,7 +48,7 @@
     <link rel="apple-touch-icon" href="../../_static/images/apple-icon-152x152.png"/>
   
   
-    <title>take &#8212; Python array API standard DRAFT documentation</title>
+    <title>take_along_axis &#8212; Python array API standard DRAFT documentation</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=83e35b93" />
     <link rel="stylesheet" type="text/css" href="../../_static/material.css?v=79c92029" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -62,8 +62,8 @@
     <script src="../../_static/copybutton.js?v=f281be69"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="take_along_axis" href="array_api.take_along_axis.html" />
-    <link rel="prev" title="Indexing Functions" href="../indexing_functions.html" />
+    <link rel="next" title="Inspection" href="../inspection.html" />
+    <link rel="prev" title="take" href="array_api.take.html" />
   
     <link rel="apple-touch-icon" href="../../_static/images/apple-icon-152x152.png"/>
   
@@ -84,7 +84,7 @@
   <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer">
   <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search">
   <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
-  <a href="#API_specification/generated/array_api.take" tabindex="1" class="md-skip"> Skip to content </a>
+  <a href="#API_specification/generated/array_api.take_along_axis" tabindex="1" class="md-skip"> Skip to content </a>
   <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
     <div class="md-flex navheader">
@@ -102,7 +102,7 @@
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           <span class="md-header-nav__topic">Python array API standard DRAFT</span>
-          <span class="md-header-nav__topic"> take </span>
+          <span class="md-header-nav__topic"> take_along_axis </span>
         </div>
       </div>
       <div class="md-flex__cell md-flex__cell--shrink">
@@ -445,9 +445,9 @@
 <nav class="md-nav md-nav--secondary">
     <label class="md-nav__title" for="__toc">"Contents"</label>
   <ul class="md-nav__list" data-md-scrollfix="">
-        <li class="md-nav__item"><a href="#api-specification-generated-array-api-take--page-root" class="md-nav__link">take</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#api-specification-generated-array-api-take-along-axis--page-root" class="md-nav__link">take_along_axis</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#array_api.take" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">take()</span></code></a>
+        <li class="md-nav__item"><a href="#array_api.take_along_axis" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">take_along_axis()</span></code></a>
         </li></ul>
             </nav>
         </li>
@@ -460,42 +460,29 @@
         <div class="md-content">
           <article class="md-content__inner md-typeset" role="main">
             
-  <section id="take">
-<h1 id="api-specification-generated-array-api-take--page-root">take<a class="headerlink" href="#api-specification-generated-array-api-take--page-root" title="Link to this heading">¶</a></h1>
+  <section id="take-along-axis">
+<h1 id="api-specification-generated-array-api-take-along-axis--page-root">take_along_axis<a class="headerlink" href="#api-specification-generated-array-api-take-along-axis--page-root" title="Link to this heading">¶</a></h1>
 <dl class="py function">
-<dt class="sig sig-object py" id="array_api.take">
-<span class="sig-name descname"><span class="pre">take</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indices</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">array</span></span></span><a class="headerlink" href="#array_api.take" title="Link to this definition">¶</a></dt>
-<dd><p>Returns elements of an array along an axis.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Conceptually, <code class="docutils literal notranslate"><span class="pre">take(x,</span> <span class="pre">indices,</span> <span class="pre">axis=3)</span></code> is equivalent to <code class="docutils literal notranslate"><span class="pre">x[:,:,:,indices,...]</span></code>; however, explicit indexing via arrays of indices is not currently supported in this specification due to concerns regarding <code class="docutils literal notranslate"><span class="pre">__setitem__</span></code> and array mutation semantics.</p>
-</div>
+<dt class="sig sig-object py" id="array_api.take_along_axis">
+<span class="sig-name descname"><span class="pre">take_along_axis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indices</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">-1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">array</span></span></span><a class="headerlink" href="#array_api.take_along_axis" title="Link to this definition">¶</a></dt>
+<dd><p>Returns elements from an array at the one-dimensional indices specified by <code class="docutils literal notranslate"><span class="pre">indices</span></code> along a provided <code class="docutils literal notranslate"><span class="pre">axis</span></code>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>x</strong> (<em>array</em>) – input array.</p></li>
-<li><p><strong>indices</strong> (<em>array</em>) – <p>array indices. The array must be one-dimensional and have an integer data type.</p>
+<li><p><strong>x</strong> (<em>array</em>) – input array. Must be compatible with <code class="docutils literal notranslate"><span class="pre">indices</span></code>, except for the axis (dimension) specified by <code class="docutils literal notranslate"><span class="pre">axis</span></code> (see <a class="reference internal" href="../broadcasting.html#broadcasting"><span class="std std-ref">Broadcasting</span></a>).</p></li>
+<li><p><strong>indices</strong> (<em>array</em>) – <p>array indices. Must have the same rank (i.e., number of dimensions) as <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This specification does not require bounds checking. The behavior for out-of-bounds indices is left unspecified.</p>
 </div>
 </p></li>
-<li><p><strong>axis</strong> (<em>Optional</em><em>[</em><em>int</em><em>]</em>) – <p>axis over which to select values. If <code class="docutils literal notranslate"><span class="pre">axis</span></code> is negative, the function must determine the axis along which to select values by counting from the last dimension.</p>
-<p>If <code class="docutils literal notranslate"><span class="pre">x</span></code> is a one-dimensional array, providing an <code class="docutils literal notranslate"><span class="pre">axis</span></code> is optional; however, if <code class="docutils literal notranslate"><span class="pre">x</span></code> has more than one dimension, providing an <code class="docutils literal notranslate"><span class="pre">axis</span></code> is required.</p>
-</p></li>
+<li><p><strong>axis</strong> (<em>int</em>) – axis along which to select values. If <code class="docutils literal notranslate"><span class="pre">axis</span></code> is negative, the function must determine the axis along which to select values by counting from the last dimension. Default: <code class="docutils literal notranslate"><span class="pre">-1</span></code>.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>out</strong> (<em>array</em>) – an array having the same data type as <code class="docutils literal notranslate"><span class="pre">x</span></code>. The output array must have the same rank (i.e., number of dimensions) as <code class="docutils literal notranslate"><span class="pre">x</span></code> and must have the same shape as <code class="docutils literal notranslate"><span class="pre">x</span></code>, except for the axis specified by <code class="docutils literal notranslate"><span class="pre">axis</span></code> whose size must equal the number of elements in <code class="docutils literal notranslate"><span class="pre">indices</span></code>.</p>
+<dd class="field-even"><p><strong>out</strong> (<em>array</em>) – an array having the same data type as <code class="docutils literal notranslate"><span class="pre">x</span></code>. Must have the same rank (i.e., number of dimensions) as <code class="docutils literal notranslate"><span class="pre">x</span></code> and must have a shape determined according to <a class="reference internal" href="../broadcasting.html#broadcasting"><span class="std std-ref">Broadcasting</span></a>, except for the axis (dimension) specified by <code class="docutils literal notranslate"><span class="pre">axis</span></code> whose size must equal the size of the corresponding axis (dimension) in <code class="docutils literal notranslate"><span class="pre">indices</span></code>.</p>
 </dd>
 </dl>
-<p class="rubric">Notes</p>
-<div class="versionadded">
-<p><span class="versionmodified added">New in version 2022.12.</span></p>
-</div>
-<div class="versionchanged">
-<p><span class="versionmodified changed">Changed in version 2023.12: </span>Out-of-bounds behavior is explicitly left unspecified.</p>
-</div>
 </dd></dl>
 </section>
 
@@ -509,7 +496,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
           
-            <a href="../indexing_functions.html" title="Indexing Functions"
+            <a href="array_api.take.html" title="take"
                class="md-flex md-footer-nav__link md-footer-nav__link--prev"
                rel="prev">
               <div class="md-flex__cell md-flex__cell--shrink">
@@ -518,17 +505,17 @@
               <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
                 <span class="md-flex__ellipsis">
                   <span
-                      class="md-footer-nav__direction"> "Previous" </span> Indexing Functions </span>
+                      class="md-footer-nav__direction"> "Previous" </span> take </span>
               </div>
             </a>
           
           
-            <a href="array_api.take_along_axis.html" title="take_along_axis"
+            <a href="../inspection.html" title="Inspection"
                class="md-flex md-footer-nav__link md-footer-nav__link--next"
                rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
                 class="md-flex__ellipsis"> <span
-                class="md-footer-nav__direction"> "Next" </span> take_along_axis </span>
+                class="md-footer-nav__direction"> "Next" </span> Inspection </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink"><i
                 class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
