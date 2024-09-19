@@ -631,7 +631,7 @@ class _array:
             an array containing the accessed value(s). The returned array must have the same data type as ``self``.
 
         .. note::
-           When ``__getitem__`` is defined on an object, Python will automatically define iteration (i.e., the behavior from ``iter(x)``) as  ``x[0]``, ``x[1]``, .... This can also be implemented directly by defining ``__iter__``. Therefore, for 1-D arrays, iteration should produce the sequence ``x[0]``, ``x[1]``, ... of 0-D arrays. Iteration behavior for arrays with more than one dimension is unspecified and thus implementation-defined.
+           When ``__getitem__`` is defined on an object, Python will automatically define iteration (i.e., the behavior from ``iter(x)``) as  ``x[0]``, ``x[1]``, and so forth. This can also be implemented directly by defining ``__iter__``. Therefore, for one-dimensional arrays, iteration should produce the sequence ``x[0]``, ``x[1]``, ... of zero-dimensional arrays. Iteration behavior for arrays having more than one dimension is unspecified and thus implementation-defined.
 
         """
 
