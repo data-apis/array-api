@@ -18,6 +18,7 @@ Objects in API
    :toctree: generated
    :template: method.rst
 
+   cumulative_prod
    cumulative_sum
    max
    mean
