@@ -2065,7 +2065,7 @@ def sign(x: array, /) -> array:
     .. math::
        \operatorname{sign}(x_i) = \begin{cases}
        0 & \textrm{if } x_i = 0 \\
-       \frac{x}{|x|} & \textrm{otherwise}
+       \frac{x_i}{|x_i|} & \textrm{otherwise}
        \end{cases}
 
     where :math:`|x_i|` is the absolute value of :math:`x_i`.
