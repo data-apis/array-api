@@ -13,7 +13,12 @@ from ._types import (
 
 
 def astype(
-    x: array, dtype_or_kind: Union[dtype, str], /, *, copy: bool = True, device: Optional[device] = None
+    x: array,
+    dtype_or_kind: Union[dtype, str],
+    /,
+    *,
+    copy: bool = True,
+    device: Optional[device] = None,
 ) -> array:
     """
     Copies an array to a specified data type irrespective of :ref:`type-promotion` rules, or to a *kind* of data type.
