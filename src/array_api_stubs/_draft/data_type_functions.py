@@ -57,12 +57,12 @@ def astype(
     Returns
     -------
     out: array
-        For ``dtype_or_kind`` a data type, an array having the specified data type.
-        For ``dtype_or_kind`` a kind of data type:
-        -   If ``x.dtype`` is already of that kind, the data type is maintained.
-        -   Otherwise, an attempt is made to convert to the specified kind, according to the type promotion rules (see :ref:`type-promotion`).
+        For ``dtype`` a data type, an array having the specified data type.
+        For ``dtype`` a kind of data type:
+        -   If ``x.dtype`` is already of that kind, the data type must be maintained.
+        -   Otherwise, ``x`` should be cast to a data type of that kind, according to the type promotion rules (see :ref:`type-promotion`) and the above notes.
 
-            -   Numeric kinds are interpreted as the lowest-precision standard data type of that kind for the purposes of type promotion. For example, ``astype(x, 'complex floating')`` will return an array with the data type ``complex64`` when ``x.dtype`` is ``float32``, since ``complex64`` is the result of promoting ``float32`` with the lowest-precision standard complex data type, ``complex64``.
+            -   Kinds must be interpreted as the lowest-precision standard data type of that kind for the purposes of type promotion. For example, ``astype(x, 'complex floating')`` will return an array with the data type ``complex64`` when ``x.dtype`` is ``float32``, since ``complex64`` is the result of promoting ``float32`` with the lowest-precision standard complex data type, ``complex64``.
 
         The returned array must have the same shape as ``x``.
 
