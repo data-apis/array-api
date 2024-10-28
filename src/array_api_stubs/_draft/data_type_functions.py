@@ -63,6 +63,7 @@ def astype(
         -   Otherwise, ``x`` should be cast to a data type of that kind, according to the type promotion rules (see :ref:`type-promotion`) and the above notes.
 
             -   Kinds must be interpreted as the lowest-precision standard data type of that kind for the purposes of type promotion. For example, ``astype(x, 'complex floating')`` will return an array with the data type ``complex64`` when ``x.dtype`` is ``float32``, since ``complex64`` is the result of promoting ``float32`` with the lowest-precision standard complex data type, ``complex64``.
+            -   Where type promotion is unspecified and thus implementation-specific, the result is also unspecified. For example, ``astype(x, 'complex floating')``, where ``x`` has data type ``int32``.
 
         The returned array must have the same shape as ``x``.
 
