@@ -67,7 +67,7 @@ def count_nonzero(
     Parameters
     ----------
     x: array
-        input array. Must have a positive rank. If ``x`` is zero-dimensional, the function must raise an exception.
+        input array.
     axis: Optional[Union[int, Tuple[int, ...]]]
         axis or axes along which to count non-zero values. By default, the number of non-zero values must be computed over the entire array. If a tuple of integers, the number of non-zero values must be computed over multiple axes. Default: ``None``.
     keepdims: bool
