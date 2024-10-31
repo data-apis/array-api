@@ -28,7 +28,7 @@ def cumulative_prod(
     Parameters
     ----------
     x: array
-        input array. Should have a numeric data type.
+        input array. Should have one or more dimensions (axes). Should have a numeric data type.
     axis: Optional[int]
         axis along which a cumulative product must be computed. If ``axis`` is negative, the function must determine the axis along which to compute a cumulative product by counting from the last dimension.
 
@@ -57,6 +57,8 @@ def cumulative_prod(
 
     Notes
     -----
+
+    -   When ``x`` is a zero-dimensional array, behavior is unspecified and thus implementation-defined.
 
     **Special Cases**
 
