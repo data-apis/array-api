@@ -513,6 +513,9 @@ class _array:
 
         .. note::
            Element-wise results, including special cases, must equal the results returned by the equivalent element-wise function :func:`~array_api.equal`.
+
+        .. note::
+           Comparison of arrays without a corresponding promotable data type (see :ref:`type-promotion`) is undefined and thus implementation-dependent.
         """
 
     def __float__(self: array, /) -> float:
@@ -599,6 +602,9 @@ class _array:
 
         .. note::
            Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.greater_equal`.
+
+        .. note::
+           Comparison of arrays without a corresponding promotable data type (see :ref:`type-promotion`) is undefined and thus implementation-dependent.
         """
 
     def __getitem__(
@@ -657,6 +663,9 @@ class _array:
 
         .. note::
            Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.greater`.
+
+        .. note::
+           Comparison of arrays without a corresponding promotable data type (see :ref:`type-promotion`) is undefined and thus implementation-dependent.
         """
 
     def __index__(self: array, /) -> int:
@@ -778,6 +787,9 @@ class _array:
 
         .. note::
            Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.less_equal`.
+
+        .. note::
+           Comparison of arrays without a corresponding promotable data type (see :ref:`type-promotion`) is undefined and thus implementation-dependent.
         """
 
     def __lshift__(self: array, other: Union[int, array], /) -> array:
@@ -823,6 +835,9 @@ class _array:
 
         .. note::
            Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.less`.
+
+        .. note::
+           Comparison of arrays without a corresponding promotable data type (see :ref:`type-promotion`) is undefined and thus implementation-dependent.
         """
 
     def __matmul__(self: array, other: array, /) -> array:
@@ -948,6 +963,9 @@ class _array:
 
         .. note::
            Element-wise results, including special cases, must equal the results returned by the equivalent element-wise function :func:`~array_api.not_equal`.
+
+        .. note::
+           Comparison of arrays without a corresponding promotable data type (see :ref:`type-promotion`) is undefined and thus implementation-dependent.
 
         .. versionchanged:: 2022.12
             Added complex data type support.
