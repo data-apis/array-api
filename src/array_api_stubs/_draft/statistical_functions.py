@@ -113,7 +113,7 @@ def mean(
     Parameters
     ----------
     x: array
-        input array. Should have a real-valued floating-point data type.
+        input array. Should have a floating-point data type.
     axis: Optional[Union[int, Tuple[int, ...]]]
         axis or axes along which arithmetic means must be computed. By default, the mean must be computed over the entire array. If a tuple of integers, arithmetic means must be computed over multiple axes. Default: ``None``.
     keepdims: bool
@@ -125,17 +125,23 @@ def mean(
         if the arithmetic mean was computed over the entire array, a zero-dimensional array containing the arithmetic mean; otherwise, a non-zero-dimensional array containing the arithmetic means. The returned array must have the same data type as ``x``.
 
         .. note::
-           While this specification recommends that this function only accept input arrays having a real-valued floating-point data type, specification-compliant array libraries may choose to accept input arrays having an integer data type. While mixed data type promotion is implementation-defined, if the input array ``x`` has an integer data type, the returned array must have the default real-valued floating-point data type.
+           While this specification recommends that this function only accept input arrays having a floating-point data type, specification-compliant array libraries may choose to accept input arrays having an integer data type. While mixed data type promotion is implementation-defined, if the input array ``x`` has an integer data type, the returned array must have the default real-valued floating-point data type.
 
     Notes
     -----
 
     **Special Cases**
 
-    Let ``N`` equal the number of elements over which to compute the arithmetic mean.
+    Let ``N`` equal the number of elements over which to compute the arithmetic mean. For real-valued operands,
 
     -   If ``N`` is ``0``, the arithmetic mean is ``NaN``.
     -   If ``x_i`` is ``NaN``, the arithmetic mean is ``NaN`` (i.e., ``NaN`` values propagate).
+
+    For complex floating-point operands, real-valued floating-point special cases must independently apply to the real and imaginary component operations involving real numbers. For example, let ``a = real(x_i)`` and ``b = imag(x_i)``, and
+
+    -   If ``N`` is ``0``, the arithmetic mean is ``NaN + NaN j``.
+    -   If ``a`` is ``NaN``, the real component of the result is ``NaN``.
+    -   Similarly, if ``b`` is ``NaN``, the imaginary component of the result is ``NaN``.
     """
 
 
