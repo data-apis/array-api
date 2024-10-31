@@ -460,6 +460,8 @@ a dimension whose size is one.
 **vector**:
 a one-dimensional array.
 
+In addition to the above terms, the key words "**must**", "**must not**", "**required**", "**shall**", "**shall not**", "**should**", "**should not**", "**recommended**", "**may**", and "**optional**" in this specification are to be interpreted as described in [RFC 2119](https://datatracker.ietf.org/doc/html/rfc2119).
+
 * * *
 
 ## Normative References
