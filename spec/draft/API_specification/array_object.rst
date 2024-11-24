@@ -163,7 +163,7 @@ A conforming implementation of the array API standard must provide and support a
     -   `operator.ne(x1, x2) <https://docs.python.org/3/library/operator.html#operator.ne>`_
     -   `operator.__ne__(x1, x2) <https://docs.python.org/3/library/operator.html#operator.__ne__>`_
 
-:meth:`.array.__lt__`, :meth:`.array.__le__`, :meth:`.array.__gt__`, :meth:`.array.__ge__` are only defined for arrays having real-valued data types. Other comparison operators should be defined for arrays having any data type.
+:meth:`.Array.__lt__`, :meth:`.Array.__le__`, :meth:`.Array.__gt__`, :meth:`.Array.__ge__` are only defined for arrays having real-valued data types. Other comparison operators should be defined for arrays having any data type.
 For backward compatibility, conforming implementations may support complex numbers; however, inequality comparison of complex numbers is unspecified and thus implementation-dependent (see :ref:`complex-number-ordering`).
 
 In-place Operators

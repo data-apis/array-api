@@ -62,6 +62,7 @@ nitpick_ignore = [
     ("py:obj", "typing.Union[int, float, typing.Literal[inf, - inf]]"),
     ("py:class", "int | float | ~typing.Literal[inf, -inf]"),
     ("py:class", "enum.Enum"),
+    ("py:class", "Enum"),
     ("py:class", "ellipsis"),
 ]
 nitpick_ignore_regex = [

@@ -2,8 +2,9 @@ from __future__ import annotations
 
 __all__ = ["Array"]
 
-from typing import TYPE_CHECKING, Protocol, TypeVar
 from enum import Enum
+from typing import TYPE_CHECKING, Protocol, TypeVar
+
 from .data_types import DType
 from ._types import Device
 
@@ -311,7 +312,7 @@ class Array(Protocol):
         self,
         /,
         *,
-        stream:  Any | None = None,
+        stream: Any | None = None,
         max_version: tuple[int, int] | None = None,
         dl_device: tuple[Enum, int] | None = None,
         copy: bool | None = None,
@@ -370,7 +371,7 @@ class Array(Protocol):
         dl_device: Optional[tuple[enum.Enum, int]]
             the DLPack device type. Default is ``None``, meaning the exported capsule
             should be on the same device as ``self`` is. When specified, the format
-            must be a 2-tuple, following that of the return value of :meth:`array.__dlpack_device__`.
+            must be a 2-tuple, following that of the return value of :meth:`Array.__dlpack_device__`.
             If the device type cannot be handled by the producer, this function must
             raise ``BufferError``.
 
@@ -492,7 +493,7 @@ class Array(Protocol):
 
         Returns
         -------
-        device: Tuple[Enum, int]
+        device: Tuple[enum.Enum, int]
             a tuple ``(device_type, device_id)`` in DLPack format. Valid device type enum members are:
 
             ::

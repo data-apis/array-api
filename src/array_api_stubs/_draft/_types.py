@@ -110,17 +110,17 @@ class Info(Protocol):
     def capabilities(self) -> Capabilities:
         ...
 
-    def default_device(self) -> device:
+    def default_device(self) -> Device:
         ...
 
-    def default_dtypes(self, *, device: Optional[device]) -> DefaultDataTypes:
+    def default_dtypes(self, *, device: Optional[Device]) -> DefaultDataTypes:
         ...
 
-    def devices(self) -> List[device]:
+    def devices(self) -> List[Device]:
         ...
 
     def dtypes(
-        self, *, device: Optional[device], kind: Optional[Union[str, Tuple[str, ...]]]
+        self, *, device: Optional[Device], kind: Optional[Union[str, Tuple[str, ...]]]
     ) -> DataTypes:
         ...
 
