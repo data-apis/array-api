@@ -1,4 +1,12 @@
 repos:
+  # run .pre-commit/update_array_namespace.py
+  - repo: local
+    hooks:
+      - id: update-array-namespace
+        name: Update array namespace
+        entry: .pre-commit/update_array_namespace.py
+        language: python
+
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.4.0
     hooks:
