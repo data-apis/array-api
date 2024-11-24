@@ -31,7 +31,6 @@ __all__ = [
     "Info",
 ]
 
-from dataclasses import dataclass
 from typing import (
     Any,
     List,
@@ -45,10 +44,13 @@ from typing import (
     Protocol,
 )
 from enum import Enum
+from .data_types import DType
 
-array = TypeVar("array", bound="array_")
+array = TypeVar("array", bound="Array")
 device = TypeVar("device")
-dtype = TypeVar("dtype")
+dtype = TypeVar("dtype", bound=DType)
+device_ = TypeVar("device_")  # only used in this file
+dtype_ = TypeVar("dtype_", bound=DType)  # only used in this file
 SupportsDLPack = TypeVar("SupportsDLPack")
 SupportsBufferProtocol = TypeVar("SupportsBufferProtocol")
 PyCapsule = TypeVar("PyCapsule")
@@ -88,7 +90,7 @@ class NestedSequence(Protocol[_T_co]):
         ...
 
 
-class Info(Protocol):
+class Info(Protocol[device]):
     """Namespace returned by `__array_namespace_info__`."""
 
     def capabilities(self) -> Capabilities:
@@ -147,12 +149,12 @@ Capabilities = TypedDict(
 )
 
 
-class _array(Protocol[array, dtype, device]):
+class Array(Protocol[array, dtype_, device_, PyCapsule]):  # type: ignore
     def __init__(self: array) -> None:
         """Initialize the attributes for the array object class."""
 
     @property
-    def dtype(self: array) -> dtype:
+    def dtype(self: array) -> dtype_:
         """
         Data type of the array elements.
 
@@ -163,7 +165,7 @@ class _array(Protocol[array, dtype, device]):
         """
 
     @property
-    def device(self: array) -> device:
+    def device(self: array) -> device_:
         """
         Hardware device the array data resides on.
 
@@ -625,7 +627,7 @@ class _array(Protocol[array, dtype, device]):
               ONE_API = 14
         """
 
-    def __eq__(self: array, other: Union[int, float, bool, array], /) -> array:
+    def __eq__(self: array, other: Union[int, float, bool, array], /) -> array:  # type: ignore
         r"""
         Computes the truth value of ``self_i == other_i`` for each element of an array instance with the respective element of the array ``other``.
 
@@ -1072,7 +1074,7 @@ class _array(Protocol[array, dtype, device]):
             Added complex data type support.
         """
 
-    def __ne__(self: array, other: Union[int, float, bool, array], /) -> array:
+    def __ne__(self: array, other: Union[int, float, bool, array], /) -> array:  # type: ignore
         """
         Computes the truth value of ``self_i != other_i`` for each element of an array instance with the respective element of the array ``other``.
 
@@ -1342,7 +1344,7 @@ class _array(Protocol[array, dtype, device]):
         """
 
     def to_device(
-        self: array, device: device, /, *, stream: Optional[Union[int, Any]] = None
+        self: array, device: device_, /, *, stream: Optional[Union[int, Any]] = None
     ) -> array:
         """
         Copy the array from the device on which it currently resides to the specified ``device``.

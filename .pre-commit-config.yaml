@@ -48,3 +48,13 @@ repos:
     rev: 23.7.0
     hooks:
       - id: black
+
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: "v1.0.0"
+    hooks:
+      - id: mypy
+        additional_dependencies: [typing_extensions>=4.4.0]
+        args:
+          - --ignore-missing-imports
+          - --config=pyproject.toml
+        files: ".*(_draft.*)$"
