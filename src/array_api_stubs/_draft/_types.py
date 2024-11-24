@@ -49,8 +49,6 @@ from .data_types import DType
 array = TypeVar("array", bound="Array")
 device = TypeVar("device")
 dtype = TypeVar("dtype", bound=DType)
-device_ = TypeVar("device_")  # only used in this file
-dtype_ = TypeVar("dtype_", bound=DType)  # only used in this file
 SupportsDLPack = TypeVar("SupportsDLPack")
 SupportsBufferProtocol = TypeVar("SupportsBufferProtocol")
 PyCapsule = TypeVar("PyCapsule")
@@ -149,12 +147,12 @@ Capabilities = TypedDict(
 )
 
 
-class Array(Protocol[array, dtype_, device_, PyCapsule]):  # type: ignore
+class Array(Protocol[array, "dtype", "device", PyCapsule]):  # type: ignore
     def __init__(self: array) -> None:
         """Initialize the attributes for the array object class."""
 
     @property
-    def dtype(self: array) -> dtype_:
+    def dtype(self: array) -> "dtype":
         """
         Data type of the array elements.
 
@@ -165,7 +163,7 @@ class Array(Protocol[array, dtype_, device_, PyCapsule]):  # type: ignore
         """
 
     @property
-    def device(self: array) -> device_:
+    def device(self: array) -> "device":
         """
         Hardware device the array data resides on.
 
@@ -1344,7 +1342,7 @@ class Array(Protocol[array, dtype_, device_, PyCapsule]):  # type: ignore
         """
 
     def to_device(
-        self: array, device: device_, /, *, stream: Optional[Union[int, Any]] = None
+        self: array, device: "device", /, *, stream: Optional[Union[int, Any]] = None  # type: ignore
     ) -> array:
         """
         Copy the array from the device on which it currently resides to the specified ``device``.
