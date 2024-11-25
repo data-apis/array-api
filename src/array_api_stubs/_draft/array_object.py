@@ -494,7 +494,7 @@ class _array:
               ONE_API = 14
         """
 
-    def __eq__(self: array, other: Union[int, float, bool, array], /) -> array:
+    def __eq__(self: array, other: Union[int, float, complex, bool, array], /) -> array:
         r"""
         Computes the truth value of ``self_i == other_i`` for each element of an array instance with the respective element of the array ``other``.
 
@@ -502,7 +502,7 @@ class _array:
         ----------
         self: array
             array instance. May have any data type.
-        other: Union[int, float, bool, array]
+        other: Union[int, float, complex, bool, array]
             other array. Must be compatible with ``self`` (see :ref:`broadcasting`). May have any data type.
 
         Returns
@@ -510,12 +510,11 @@ class _array:
         out: array
             an array containing the element-wise results. The returned array must have a data type of ``bool``.
 
+        Notes
+        -----
 
-        .. note::
-           Element-wise results, including special cases, must equal the results returned by the equivalent element-wise function :func:`~array_api.equal`.
-
-        .. note::
-           Comparison of arrays without a corresponding promotable data type (see :ref:`type-promotion`) is undefined and thus implementation-dependent.
+        -   Element-wise results, including special cases, must equal the results returned by the equivalent element-wise function :func:`~array_api.equal`.
+        -   Comparison of arrays without a corresponding promotable data type (see :ref:`type-promotion`) is undefined and thus implementation-dependent.
         """
 
     def __float__(self: array, /) -> float:
@@ -584,9 +583,6 @@ class _array:
         """
         Computes the truth value of ``self_i >= other_i`` for each element of an array instance with the respective element of the array ``other``.
 
-        .. note::
-           For backward compatibility, conforming implementations may support complex numbers; however, inequality comparison of complex numbers is unspecified and thus implementation-dependent (see :ref:`complex-number-ordering`).
-
         Parameters
         ----------
         self: array
@@ -599,12 +595,12 @@ class _array:
         out: array
             an array containing the element-wise results. The returned array must have a data type of ``bool``.
 
+        Notes
+        -----
 
-        .. note::
-           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.greater_equal`.
-
-        .. note::
-           Comparison of arrays without a corresponding promotable data type (see :ref:`type-promotion`) is undefined and thus implementation-dependent.
+        -   Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.greater_equal`.
+        -   Comparison of arrays without a corresponding promotable data type (see :ref:`type-promotion`) is undefined and thus implementation-dependent.
+        -   For backward compatibility, conforming implementations may support complex numbers; however, inequality comparison of complex numbers is unspecified and thus implementation-dependent (see :ref:`complex-number-ordering`).
         """
 
     def __getitem__(
@@ -645,9 +641,6 @@ class _array:
         """
         Computes the truth value of ``self_i > other_i`` for each element of an array instance with the respective element of the array ``other``.
 
-        .. note::
-           For backward compatibility, conforming implementations may support complex numbers; however, inequality comparison of complex numbers is unspecified and thus implementation-dependent (see :ref:`complex-number-ordering`).
-
         Parameters
         ----------
         self: array
@@ -660,12 +653,12 @@ class _array:
         out: array
             an array containing the element-wise results. The returned array must have a data type of ``bool``.
 
+        Notes
+        -----
 
-        .. note::
-           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.greater`.
-
-        .. note::
-           Comparison of arrays without a corresponding promotable data type (see :ref:`type-promotion`) is undefined and thus implementation-dependent.
+        -   Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.greater`.
+        -   Comparison of arrays without a corresponding promotable data type (see :ref:`type-promotion`) is undefined and thus implementation-dependent.
+        -   For backward compatibility, conforming implementations may support complex numbers; however, inequality comparison of complex numbers is unspecified and thus implementation-dependent (see :ref:`complex-number-ordering`).
         """
 
     def __index__(self: array, /) -> int:
@@ -769,9 +762,6 @@ class _array:
         """
         Computes the truth value of ``self_i <= other_i`` for each element of an array instance with the respective element of the array ``other``.
 
-        .. note::
-           For backward compatibility, conforming implementations may support complex numbers; however, inequality comparison of complex numbers is unspecified and thus implementation-dependent (see :ref:`complex-number-ordering`).
-
         Parameters
         ----------
         self: array
@@ -784,12 +774,12 @@ class _array:
         out: array
             an array containing the element-wise results. The returned array must have a data type of ``bool``.
 
+        Notes
+        -----
 
-        .. note::
-           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.less_equal`.
-
-        .. note::
-           Comparison of arrays without a corresponding promotable data type (see :ref:`type-promotion`) is undefined and thus implementation-dependent.
+        -   Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.less_equal`.
+        -   Comparison of arrays without a corresponding promotable data type (see :ref:`type-promotion`) is undefined and thus implementation-dependent.
+        -   For backward compatibility, conforming implementations may support complex numbers; however, inequality comparison of complex numbers is unspecified and thus implementation-dependent (see :ref:`complex-number-ordering`).
         """
 
     def __lshift__(self: array, other: Union[int, array], /) -> array:
@@ -808,17 +798,15 @@ class _array:
         out: array
             an array containing the element-wise results. The returned array must have the same data type as ``self``.
 
+        Notes
+        -----
 
-        .. note::
-           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.bitwise_left_shift`.
+        -   Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.bitwise_left_shift`.
         """
 
     def __lt__(self: array, other: Union[int, float, array], /) -> array:
         """
         Computes the truth value of ``self_i < other_i`` for each element of an array instance with the respective element of the array ``other``.
-
-        .. note::
-           For backward compatibility, conforming implementations may support complex numbers; however, inequality comparison of complex numbers is unspecified and thus implementation-dependent (see :ref:`complex-number-ordering`).
 
         Parameters
         ----------
@@ -832,12 +820,12 @@ class _array:
         out: array
             an array containing the element-wise results. The returned array must have a data type of ``bool``.
 
+        Notes
+        -----
 
-        .. note::
-           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.less`.
-
-        .. note::
-           Comparison of arrays without a corresponding promotable data type (see :ref:`type-promotion`) is undefined and thus implementation-dependent.
+        -   Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.less`.
+        -   Comparison of arrays without a corresponding promotable data type (see :ref:`type-promotion`) is undefined and thus implementation-dependent.
+        -   For backward compatibility, conforming implementations may support complex numbers; however, inequality comparison of complex numbers is unspecified and thus implementation-dependent (see :ref:`complex-number-ordering`).
         """
 
     def __matmul__(self: array, other: array, /) -> array:
@@ -892,9 +880,6 @@ class _array:
         """
         Evaluates ``self_i % other_i`` for each element of an array instance with the respective element of the array ``other``.
 
-        .. note::
-           For input arrays which promote to an integer data type, the result of division by zero is unspecified and thus implementation-defined.
-
         Parameters
         ----------
         self: array
@@ -907,12 +892,14 @@ class _array:
         out: array
             an array containing the element-wise results. Each element-wise result must have the same sign as the respective element ``other_i``. The returned array must have a real-valued floating-point data type determined by :ref:`type-promotion`.
 
+        Notes
+        -----
 
-        .. note::
-           Element-wise results, including special cases, must equal the results returned by the equivalent element-wise function :func:`~array_api.remainder`.
+        -   Element-wise results, including special cases, must equal the results returned by the equivalent element-wise function :func:`~array_api.remainder`.
+        -   For input arrays which promote to an integer data type, the result of division by zero is unspecified and thus implementation-defined.
         """
 
-    def __mul__(self: array, other: Union[int, float, array], /) -> array:
+    def __mul__(self: array, other: Union[int, float, complex, array], /) -> array:
         r"""
         Calculates the product for each element of an array instance with the respective element of the array ``other``.
 
@@ -923,7 +910,7 @@ class _array:
         ----------
         self: array
             array instance. Should have a numeric data type.
-        other: Union[int, float, array]
+        other: Union[int, float, complex, array]
             other array. Must be compatible with ``self`` (see :ref:`broadcasting`). Should have a numeric data type.
 
         Returns
@@ -934,14 +921,13 @@ class _array:
         Notes
         -----
 
-        .. note::
-           Element-wise results, including special cases, must equal the results returned by the equivalent element-wise function :func:`~array_api.multiply`.
+        -   Element-wise results, including special cases, must equal the results returned by the equivalent element-wise function :func:`~array_api.multiply`.
 
         .. versionchanged:: 2022.12
             Added complex data type support.
         """
 
-    def __ne__(self: array, other: Union[int, float, bool, array], /) -> array:
+    def __ne__(self: array, other: Union[int, float, complex, bool, array], /) -> array:
         """
         Computes the truth value of ``self_i != other_i`` for each element of an array instance with the respective element of the array ``other``.
 
@@ -949,7 +935,7 @@ class _array:
         ----------
         self: array
             array instance. May have any data type.
-        other: Union[int, float, bool, array]
+        other: Union[int, float, complex, bool, array]
             other array. Must be compatible with ``self`` (see :ref:`broadcasting`). May have any data type.
 
         Returns
@@ -957,15 +943,11 @@ class _array:
         out: array
             an array containing the element-wise results. The returned array must have a data type of ``bool`` (i.e., must be a boolean array).
 
-
         Notes
         -----
 
-        .. note::
-           Element-wise results, including special cases, must equal the results returned by the equivalent element-wise function :func:`~array_api.not_equal`.
-
-        .. note::
-           Comparison of arrays without a corresponding promotable data type (see :ref:`type-promotion`) is undefined and thus implementation-dependent.
+        -   Element-wise results, including special cases, must equal the results returned by the equivalent element-wise function :func:`~array_api.not_equal`.
+        -   Comparison of arrays without a corresponding promotable data type (see :ref:`type-promotion`) is undefined and thus implementation-dependent.
 
         .. versionchanged:: 2022.12
             Added complex data type support.
@@ -1017,9 +999,10 @@ class _array:
         out: array
             an array containing the element-wise results. The returned array must have a data type determined by :ref:`type-promotion`.
 
+        Notes
+        -----
 
-        .. note::
-           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.bitwise_or`.
+        -   Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.bitwise_or`.
         """
 
     def __pos__(self: array, /) -> array:
@@ -1046,14 +1029,9 @@ class _array:
             Added complex data type support.
         """
 
-    def __pow__(self: array, other: Union[int, float, array], /) -> array:
+    def __pow__(self: array, other: Union[int, float, complex, array], /) -> array:
         r"""
         Calculates an implementation-dependent approximation of exponentiation by raising each element (the base) of an array instance to the power of ``other_i`` (the exponent), where ``other_i`` is the corresponding element of the array ``other``.
-
-        .. note::
-           If both ``self`` and ``other`` have integer data types, the result of ``__pow__`` when `other_i` is negative (i.e., less than zero) is unspecified and thus implementation-dependent.
-
-           If ``self`` has an integer data type and ``other`` has a floating-point data type, behavior is implementation-dependent, as type promotion between data type "kinds" (e.g., integer versus floating-point) is unspecified.
 
         Parameters
         ----------
@@ -1070,8 +1048,9 @@ class _array:
         Notes
         -----
 
-        .. note::
-           Element-wise results, including special cases, must equal the results returned by the equivalent element-wise function :func:`~array_api.pow`.
+        -   Element-wise results, including special cases, must equal the results returned by the equivalent element-wise function :func:`~array_api.pow`.
+        -   If both ``self`` and ``other`` have integer data types, the result of ``__pow__`` when `other_i` is negative (i.e., less than zero) is unspecified and thus implementation-dependent.
+        -   If ``self`` has an integer data type and ``other`` has a floating-point data type, behavior is implementation-dependent, as type promotion between data type "kinds" (e.g., integer versus floating-point) is unspecified.
 
         .. versionchanged:: 2022.12
             Added complex data type support.
@@ -1093,9 +1072,10 @@ class _array:
         out: array
             an array containing the element-wise results. The returned array must have the same data type as ``self``.
 
+        Notes
+        -----
 
-        .. note::
-           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.bitwise_right_shift`.
+        -   Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.bitwise_right_shift`.
         """
 
     def __setitem__(
@@ -1130,42 +1110,35 @@ class _array:
            When ``value`` is an ``array`` of a different data type than ``self``, how values are cast to the data type of ``self`` is implementation defined.
         """
 
-    def __sub__(self: array, other: Union[int, float, array], /) -> array:
+    def __sub__(self: array, other: Union[int, float, complex, array], /) -> array:
         """
-        Calculates the difference for each element of an array instance with the respective element of the array ``other``.
+         Calculates the difference for each element of an array instance with the respective element of the array ``other``.
 
-        The result of ``self_i - other_i`` must be the same as ``self_i + (-other_i)`` and must be governed by the same floating-point rules as addition (see :meth:`array.__add__`).
+         Parameters
+         ----------
+         self: array
+             array instance (minuend array). Should have a numeric data type.
+         other: Union[int, float, array]
+             subtrahend array. Must be compatible with ``self`` (see :ref:`broadcasting`). Should have a numeric data type.
 
-        Parameters
-        ----------
-        self: array
-            array instance (minuend array). Should have a numeric data type.
-        other: Union[int, float, array]
-            subtrahend array. Must be compatible with ``self`` (see :ref:`broadcasting`). Should have a numeric data type.
+         Returns
+         -------
+         out: array
+             an array containing the element-wise differences. The returned array must have a data type determined by :ref:`type-promotion`.
 
-        Returns
-        -------
-        out: array
-            an array containing the element-wise differences. The returned array must have a data type determined by :ref:`type-promotion`.
+         Notes
+         -----
 
-        Notes
-        -----
+        -   Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.subtract`.
+        -   The result of ``self_i - other_i`` must be the same as ``self_i + (-other_i)`` and must be governed by the same floating-point rules as addition (see :meth:`array.__add__`).
 
-        .. note::
-           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.subtract`.
-
-        .. versionchanged:: 2022.12
-            Added complex data type support.
+         .. versionchanged:: 2022.12
+             Added complex data type support.
         """
 
     def __truediv__(self: array, other: Union[int, float, array], /) -> array:
         r"""
         Evaluates ``self_i / other_i`` for each element of an array instance with the respective element of the array ``other``.
-
-        .. note::
-           If one or both of ``self`` and ``other`` have integer data types, the result is implementation-dependent, as type promotion between data type "kinds" (e.g., integer versus floating-point) is unspecified.
-
-           Specification-compliant libraries may choose to raise an error or return an array containing the element-wise results. If an array is returned, the array must have a real-valued floating-point data type.
 
         Parameters
         ----------
@@ -1182,8 +1155,11 @@ class _array:
         Notes
         -----
 
-        .. note::
-           Element-wise results, including special cases, must equal the results returned by the equivalent element-wise function :func:`~array_api.divide`.
+        -   Element-wise results, including special cases, must equal the results returned by the equivalent element-wise function :func:`~array_api.divide`.
+
+        -   If one or both of ``self`` and ``other`` have integer data types, the result is implementation-dependent, as type promotion between data type "kinds" (e.g., integer versus floating-point) is unspecified.
+
+            Specification-compliant libraries may choose to raise an error or return an array containing the element-wise results. If an array is returned, the array must have a real-valued floating-point data type.
 
         .. versionchanged:: 2022.12
             Added complex data type support.
@@ -1205,9 +1181,10 @@ class _array:
         out: array
             an array containing the element-wise results. The returned array must have a data type determined by :ref:`type-promotion`.
 
+        Notes
+        -----
 
-        .. note::
-           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.bitwise_xor`.
+        -   Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.bitwise_xor`.
         """
 
     def to_device(

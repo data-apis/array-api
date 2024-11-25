@@ -666,17 +666,15 @@ def bitwise_and(x1: Union[array, int, bool], x2: Union[array, int, bool], /) -> 
     """
 
 
-def bitwise_left_shift(
-    x1: Union[array, int, bool], x2: Union[array, int, bool], /
-) -> array:
+def bitwise_left_shift(x1: Union[array, int], x2: Union[array, int], /) -> array:
     """
     Shifts the bits of each element ``x1_i`` of the input array ``x1`` to the left by appending ``x2_i`` (i.e., the respective element in the input array ``x2``) zeros to the right of ``x1_i``.
 
     Parameters
     ----------
-    x1: Union[array, int, bool]
+    x1: Union[array, int]
         first input array. Should have an integer data type.
-    x2: Union[array, int, bool]
+    x2: Union[array, int]
         second input array. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have an integer data type. Each element must be greater than or equal to ``0``.
 
     Returns
@@ -730,9 +728,7 @@ def bitwise_or(x1: Union[array, int, bool], x2: Union[array, int, bool], /) -> a
     """
 
 
-def bitwise_right_shift(
-    x1: Union[array, int, bool], x2: Union[array, int, bool], /
-) -> array:
+def bitwise_right_shift(x1: Union[array, int], x2: Union[array, int], /) -> array:
     """
     Shifts the bits of each element ``x1_i`` of the input array ``x1`` to the right according to the respective element ``x2_i`` of the input array ``x2``.
 
@@ -741,9 +737,9 @@ def bitwise_right_shift(
 
     Parameters
     ----------
-    x1: Union[array, int, bool]
+    x1: Union[array, int]
         first input array. Should have an integer data type.
-    x2: Union[array, int, bool]
+    x2: Union[array, int]
         second input array. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have an integer data type. Each element must be greater than or equal to ``0``.
 
     Returns
@@ -1044,11 +1040,6 @@ def divide(
     r"""
     Calculates the division of each element ``x1_i`` of the input array ``x1`` with the respective element ``x2_i`` of the input array ``x2``.
 
-    .. note::
-       If one or both of the input arrays have integer data types, the result is implementation-dependent, as type promotion between data type "kinds" (e.g., integer versus floating-point) is unspecified.
-
-       Specification-compliant libraries may choose to raise an error or return an array containing the element-wise results. If an array is returned, the array must have a real-valued floating-point data type.
-
     Parameters
     ----------
     x1: Union[array, int, float, complex]
@@ -1065,6 +1056,10 @@ def divide(
     -----
 
     -   At least one of ``x1`` or ``x2`` must be an array.
+
+    -   If one or both of the input arrays have integer data types, the result is implementation-dependent, as type promotion between data type "kinds" (e.g., integer versus floating-point) is unspecified.
+
+        Specification-compliant libraries may choose to raise an error or return an array containing the element-wise results. If an array is returned, the array must have a real-valued floating-point data type.
 
     **Special cases**
 
@@ -1330,9 +1325,6 @@ def floor_divide(
     r"""
     Rounds the result of dividing each element ``x1_i`` of the input array ``x1`` by the respective element ``x2_i`` of the input array ``x2`` to the greatest (i.e., closest to `+infinity`) integer-value number that is not greater than the division result.
 
-    .. note::
-       For input arrays which promote to an integer data type, the result of division by zero is unspecified and thus implementation-defined.
-
     Parameters
     ----------
     x1: Union[array, int, float]
@@ -1349,6 +1341,7 @@ def floor_divide(
     -----
 
     -   At least one of ``x1`` or ``x2`` must be an array.
+    -   For input arrays which promote to an integer data type, the result of division by zero is unspecified and thus implementation-defined.
 
     **Special cases**
 
@@ -1392,9 +1385,6 @@ def greater(x1: Union[array, int, float], x2: Union[array, int, float], /) -> ar
     """
     Computes the truth value of ``x1_i > x2_i`` for each element ``x1_i`` of the input array ``x1`` with the respective element ``x2_i`` of the input array ``x2``.
 
-    .. note::
-       For backward compatibility, conforming implementations may support complex numbers; however, inequality comparison of complex numbers is unspecified and thus implementation-dependent (see :ref:`complex-number-ordering`).
-
     Parameters
     ----------
     x1: Union[array, int, float]
@@ -1412,6 +1402,7 @@ def greater(x1: Union[array, int, float], x2: Union[array, int, float], /) -> ar
 
     -   At least one of ``x1`` or ``x2`` must be an array.
     -   Comparison of arrays without a corresponding promotable data type (see :ref:`type-promotion`) is undefined and thus implementation-dependent.
+    -   For backward compatibility, conforming implementations may support complex numbers; however, inequality comparison of complex numbers is unspecified and thus implementation-dependent (see :ref:`complex-number-ordering`).
 
     """
 
@@ -1422,9 +1413,6 @@ def greater_equal(
     """
     Computes the truth value of ``x1_i >= x2_i`` for each element ``x1_i`` of the input array ``x1`` with the respective element ``x2_i`` of the input array ``x2``.
 
-    .. note::
-       For backward compatibility, conforming implementations may support complex numbers; however, inequality comparison of complex numbers is unspecified and thus implementation-dependent (see :ref:`complex-number-ordering`).
-
     Parameters
     ----------
     x1: Union[array, int, float]
@@ -1442,6 +1430,7 @@ def greater_equal(
 
     -   At least one of ``x1`` or ``x2`` must be an array.
     -   Comparison of arrays without a corresponding promotable data type (see :ref:`type-promotion`) is undefined and thus implementation-dependent.
+    -   For backward compatibility, conforming implementations may support complex numbers; however, inequality comparison of complex numbers is unspecified and thus implementation-dependent (see :ref:`complex-number-ordering`).
     """
 
 
@@ -1624,9 +1613,6 @@ def less(x1: Union[array, int, float], x2: Union[array, int, float], /) -> array
     """
     Computes the truth value of ``x1_i < x2_i`` for each element ``x1_i`` of the input array ``x1`` with the respective element ``x2_i`` of the input array ``x2``.
 
-    .. note::
-       For backward compatibility, conforming implementations may support complex numbers; however, inequality comparison of complex numbers is unspecified and thus implementation-dependent (see :ref:`complex-number-ordering`).
-
     Parameters
     ----------
     x1: Union[array, int, float]
@@ -1644,6 +1630,7 @@ def less(x1: Union[array, int, float], x2: Union[array, int, float], /) -> array
 
     -   At least one of ``x1`` or ``x2`` must be an array.
     -   Comparison of arrays without a corresponding promotable data type (see :ref:`type-promotion`) is undefined and thus implementation-dependent.
+    -   For backward compatibility, conforming implementations may support complex numbers; however, inequality comparison of complex numbers is unspecified and thus implementation-dependent (see :ref:`complex-number-ordering`).
     """
 
 
@@ -1651,9 +1638,6 @@ def less_equal(x1: Union[array, int, float], x2: Union[array, int, float], /) ->
     """
     Computes the truth value of ``x1_i <= x2_i`` for each element ``x1_i`` of the input array ``x1`` with the respective element ``x2_i`` of the input array ``x2``.
 
-    .. note::
-       For backward compatibility, conforming implementations may support complex numbers; however, inequality comparison of complex numbers is unspecified and thus implementation-dependent (see :ref:`complex-number-ordering`).
-
     Parameters
     ----------
     x1: Union[array, int, float]
@@ -1671,6 +1655,7 @@ def less_equal(x1: Union[array, int, float], x2: Union[array, int, float], /) ->
 
     -   At least one of ``x1`` or ``x2`` must be an array.
     -   Comparison of arrays without a corresponding promotable data type (see :ref:`type-promotion`) is undefined and thus implementation-dependent.
+    -   For backward compatibility, conforming implementations may support complex numbers; however, inequality comparison of complex numbers is unspecified and thus implementation-dependent (see :ref:`complex-number-ordering`).
     """
 
 
