@@ -272,15 +272,17 @@ def acosh(x: array, /) -> array:
     """
 
 
-def add(x1: Union[array, int, float], x2: Union[array, int, float], /) -> array:
+def add(
+    x1: Union[array, int, float, complex], x2: Union[array, int, float, complex], /
+) -> array:
     """
     Calculates the sum for each element ``x1_i`` of the input array ``x1`` with the respective element ``x2_i`` of the input array ``x2``.
 
     Parameters
     ----------
-    x1: Union[array, int, float]
+    x1: Union[array, int, float, complex]
         first input array. Should have a numeric data type.
-    x2: Union[array, int, float]
+    x2: Union[array, int, float, complex]
         second input array. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have a numeric data type.
 
     Returns

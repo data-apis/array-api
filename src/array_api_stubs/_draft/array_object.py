@@ -148,7 +148,7 @@ class _array:
             Added complex data type support.
         """
 
-    def __add__(self: array, other: Union[int, float, array], /) -> array:
+    def __add__(self: array, other: Union[int, float, complex, array], /) -> array:
         """
         Calculates the sum for each element of an array instance with the respective element of the array ``other``.
 
@@ -167,8 +167,7 @@ class _array:
         Notes
         -----
 
-        .. note::
-           Element-wise results, including special cases, must equal the results returned by the equivalent element-wise function :func:`~array_api.add`.
+        -   Element-wise results, including special cases, must equal the results returned by the equivalent element-wise function :func:`~array_api.add`.
 
         .. versionchanged:: 2022.12
             Added complex data type support.
@@ -190,9 +189,10 @@ class _array:
         out: array
             an array containing the element-wise results. The returned array must have a data type determined by :ref:`type-promotion`.
 
+        Notes
+        -----
 
-        .. note::
-           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.bitwise_and`.
+        -   Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.bitwise_and`.
         """
 
     def __array_namespace__(
