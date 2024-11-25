@@ -139,7 +139,12 @@ def searchsorted(
     """
 
 
-def where(condition: array, x1: Union[array, int, float, bool], x2: Union[array, int, float, bool], /) -> array:
+def where(
+    condition: array,
+    x1: Union[array, int, float, bool],
+    x2: Union[array, int, float, bool],
+    /,
+) -> array:
     """
     Returns elements chosen from ``x1`` or ``x2`` depending on ``condition``.
 
