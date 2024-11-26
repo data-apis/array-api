@@ -122,6 +122,7 @@ Notes
 
 
 .. _mixing-scalars-and-arrays:
+
 Mixing arrays with Python scalars
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
