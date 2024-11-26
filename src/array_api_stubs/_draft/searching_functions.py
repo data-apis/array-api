@@ -151,16 +151,20 @@ def where(
     Parameters
     ----------
     condition: array
-        when ``True``, yield ``x1_i`` (scalar ``x1``); otherwise, yield ``x2_i`` (scalar ``x2``). Must be compatible with ``x1`` and ``x2`` (see :ref:`broadcasting`).
-    x1: Union[array, int, float, bool]
-        first input array or scalar. Must be compatible with ``condition`` and ``x2`` (see :ref:`broadcasting`).
-    x2: Union[array, int, float, bool]
-        second input array or scalar. Must be compatible with ``condition`` and ``x1`` (see :ref:`broadcasting`).
+        when ``True``, yield ``x1_i``; otherwise, yield ``x2_i``. Must be compatible with ``x1`` and ``x2`` (see :ref:`broadcasting`).
+    x1: Union[array, int, float, complex, bool]
+        first input array or scalar. Scalar values are treated like an array filled with this value. Must be compatible with ``condition`` and ``x2`` (see :ref:`broadcasting`).
+    x2: Union[array, int, float, complex, bool]
+        second input array or scalar. Scalar values are treated like an array filled with this value. Must be compatible with ``condition`` and ``x1`` (see :ref:`broadcasting`).
 
     Returns
     -------
     out: array
         an array with elements from ``x1`` where ``condition`` is ``True``, and elements from ``x2`` elsewhere. The returned array must have a data type determined by :ref:`type-promotion` rules with the arrays ``x1`` and ``x2``.
+
+    Notes
+    -----
+    See :ref:`mixing-scalars-and-arrays` on compatibility requirements and handling of scalar arguments for ``x1`` and ``x2``.
 
     .. versionchanged:: 2024.12
         ``x1`` and ``x2`` may be scalars.

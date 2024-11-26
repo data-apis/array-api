@@ -120,6 +120,8 @@ Notes
 .. note::
    Mixed integer and floating-point type promotion rules are not specified because behavior varies between implementations.
 
+
+.. _mixing-scalars-and-arrays:
 Mixing arrays with Python scalars
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
