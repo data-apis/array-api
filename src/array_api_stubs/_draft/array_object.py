@@ -1112,28 +1112,28 @@ class _array:
 
     def __sub__(self: array, other: Union[int, float, complex, array], /) -> array:
         """
-         Calculates the difference for each element of an array instance with the respective element of the array ``other``.
+        Calculates the difference for each element of an array instance with the respective element of the array ``other``.
 
-         Parameters
-         ----------
-         self: array
-             array instance (minuend array). Should have a numeric data type.
-         other: Union[int, float, array]
-             subtrahend array. Must be compatible with ``self`` (see :ref:`broadcasting`). Should have a numeric data type.
+        Parameters
+        ----------
+        self: array
+            array instance (minuend array). Should have a numeric data type.
+        other: Union[int, float, array]
+            subtrahend array. Must be compatible with ``self`` (see :ref:`broadcasting`). Should have a numeric data type.
 
-         Returns
-         -------
-         out: array
-             an array containing the element-wise differences. The returned array must have a data type determined by :ref:`type-promotion`.
+        Returns
+        -------
+        out: array
+            an array containing the element-wise differences. The returned array must have a data type determined by :ref:`type-promotion`.
 
-         Notes
-         -----
+        Notes
+        -----
 
         -   Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.subtract`.
         -   The result of ``self_i - other_i`` must be the same as ``self_i + (-other_i)`` and must be governed by the same floating-point rules as addition (see :meth:`array.__add__`).
 
-         .. versionchanged:: 2022.12
-             Added complex data type support.
+        .. versionchanged:: 2022.12
+            Added complex data type support.
         """
 
     def __truediv__(self: array, other: Union[int, float, array], /) -> array:
