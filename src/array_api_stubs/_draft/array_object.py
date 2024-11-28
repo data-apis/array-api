@@ -1037,7 +1037,7 @@ class _array:
         ----------
         self: array
             array instance whose elements correspond to the exponentiation base. Should have a numeric data type.
-        other: Union[int, float, array]
+        other: Union[int, float, complex, array]
             other array whose elements correspond to the exponentiation exponent. Must be compatible with ``self`` (see :ref:`broadcasting`). Should have a numeric data type.
 
         Returns
@@ -1083,7 +1083,7 @@ class _array:
         key: Union[
             int, slice, ellipsis, Tuple[Union[int, slice, ellipsis], ...], array
         ],
-        value: Union[int, float, bool, array],
+        value: Union[int, float, complex, bool, array],
         /,
     ) -> None:
         """
@@ -1097,17 +1097,15 @@ class _array:
             array instance.
         key: Union[int, slice, ellipsis, Tuple[Union[int, slice, ellipsis], ...], array]
             index key.
-        value: Union[int, float, bool, array]
+        value: Union[int, float, complex, bool, array]
             value(s) to set. Must be compatible with ``self[key]`` (see :ref:`broadcasting`).
 
+        Notes
+        -----
 
-        .. note::
-
-           Setting array values must not affect the data type of ``self``.
-
-           When ``value`` is a Python scalar (i.e., ``int``, ``float``, ``bool``), behavior must follow specification guidance on mixing arrays with Python scalars (see :ref:`type-promotion`).
-
-           When ``value`` is an ``array`` of a different data type than ``self``, how values are cast to the data type of ``self`` is implementation defined.
+        -   Setting array values must not affect the data type of ``self``.
+        -   When ``value`` is a Python scalar (i.e., ``int``, ``float``, ``complex``, ``bool``), behavior must follow specification guidance on mixing arrays with Python scalars (see :ref:`type-promotion`).
+        -   When ``value`` is an ``array`` of a different data type than ``self``, how values are cast to the data type of ``self`` is implementation defined.
         """
 
     def __sub__(self: array, other: Union[int, float, complex, array], /) -> array:
@@ -1118,7 +1116,7 @@ class _array:
         ----------
         self: array
             array instance (minuend array). Should have a numeric data type.
-        other: Union[int, float, array]
+        other: Union[int, float, complex, array]
             subtrahend array. Must be compatible with ``self`` (see :ref:`broadcasting`). Should have a numeric data type.
 
         Returns
@@ -1136,7 +1134,7 @@ class _array:
             Added complex data type support.
         """
 
-    def __truediv__(self: array, other: Union[int, float, array], /) -> array:
+    def __truediv__(self: array, other: Union[int, float, complex, array], /) -> array:
         r"""
         Evaluates ``self_i / other_i`` for each element of an array instance with the respective element of the array ``other``.
 
@@ -1144,7 +1142,7 @@ class _array:
         ----------
         self: array
             array instance. Should have a numeric data type.
-        other: Union[int, float, array]
+        other: Union[int, float, complex, array]
             other array. Must be compatible with ``self`` (see :ref:`broadcasting`). Should have a numeric data type.
 
         Returns

@@ -518,7 +518,7 @@ def atan(x: array, /) -> array:
     """
 
 
-def atan2(x1: Union[array, float], x2: Union[array, float], /) -> array:
+def atan2(x1: Union[array, int, float], x2: Union[array, int, float], /) -> array:
     """
     Calculates an implementation-dependent approximation of the inverse tangent of the quotient ``x1/x2``, having domain ``[-infinity, +infinity] x [-infinity, +infinity]`` (where the ``x`` notation denotes the set of ordered pairs of elements ``(x1_i, x2_i)``) and codomain ``[-π, +π]``, for each pair of elements ``(x1_i, x2_i)`` of the input arrays ``x1`` and ``x2``, respectively. Each element-wise result is expressed in radians.
 
@@ -531,9 +531,9 @@ def atan2(x1: Union[array, float], x2: Union[array, float], /) -> array:
 
     Parameters
     ----------
-    x1: Union[array, float]
+    x1: Union[array, int, float]
         input array corresponding to the y-coordinates. Should have a real-valued floating-point data type.
-    x2: Union[array, float]
+    x2: Union[array, int, float]
         input array corresponding to the x-coordinates. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have a real-valued floating-point data type.
 
     Returns
@@ -824,9 +824,9 @@ def clip(
     x: array
       input array. Should have a real-valued data type.
     min: Optional[Union[int, float, array]]
-      lower-bound of the range to which to clamp. If ``None``, no lower bound must be applied. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have a real-valued data type. Default: ``None``.
+      lower-bound of the range to which to clamp. If ``None``, no lower bound must be applied. Must be compatible with ``x`` (see :ref:`broadcasting`). Should have a real-valued data type. Default: ``None``.
     max: Optional[Union[int, float, array]]
-      upper-bound of the range to which to clamp. If ``None``, no upper bound must be applied. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have a real-valued data type. Default: ``None``.
+      upper-bound of the range to which to clamp. If ``None``, no upper bound must be applied. Must be compatible with ``x`` (see :ref:`broadcasting`). Should have a real-valued data type. Default: ``None``.
 
     Returns
     -------
@@ -883,15 +883,15 @@ def conj(x: array, /) -> array:
     """
 
 
-def copysign(x1: Union[array, float], x2: Union[array, float], /) -> array:
+def copysign(x1: Union[array, int, float], x2: Union[array, int, float], /) -> array:
     r"""
     Composes a floating-point value with the magnitude of ``x1_i`` and the sign of ``x2_i`` for each element of the input array ``x1``.
 
     Parameters
     ----------
-    x1: Union[array, float]
+    x1: Union[array, int, float]
        input array containing magnitudes. Should have a real-valued floating-point data type.
-    x2: Union[array, float]
+    x2: Union[array, int, float]
        input array whose sign bits are applied to the magnitudes of ``x1``. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have a real-valued floating-point data type.
 
     Returns
@@ -1436,7 +1436,7 @@ def greater_equal(
     """
 
 
-def hypot(x1: Union[array, float], x2: Union[array, float], /) -> array:
+def hypot(x1: Union[array, int, float], x2: Union[array, int, float], /) -> array:
     r"""
     Computes the square root of the sum of squares for each element ``x1_i`` of the input array ``x1`` with the respective element ``x2_i`` of the input array ``x2``.
 
@@ -1445,9 +1445,9 @@ def hypot(x1: Union[array, float], x2: Union[array, float], /) -> array:
 
     Parameters
     ----------
-    x1: Union[array, float]
+    x1: Union[array, int, float]
        first input array. Should have a real-valued floating-point data type.
-    x2: Union[array, float]
+    x2: Union[array, int, float]
        second input array. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have a real-valued floating-point data type.
 
     Returns
@@ -1869,15 +1869,15 @@ def log10(x: array, /) -> array:
     """
 
 
-def logaddexp(x1: Union[array, float], x2: Union[array, float], /) -> array:
+def logaddexp(x1: Union[array, int, float], x2: Union[array, int, float], /) -> array:
     """
     Calculates the logarithm of the sum of exponentiations ``log(exp(x1) + exp(x2))`` for each element ``x1_i`` of the input array ``x1`` with the respective element ``x2_i`` of the input array ``x2``.
 
     Parameters
     ----------
-    x1: Union[array, float]
+    x1: Union[array, int, float]
         first input array. Should have a real-valued floating-point data type.
-    x2: Union[array, float]
+    x2: Union[array, int, float]
         second input array. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have a real-valued floating-point data type.
 
     Returns
@@ -2163,15 +2163,15 @@ def negative(x: array, /) -> array:
     """
 
 
-def nextafter(x1: Union[array, float], x2: Union[array, float], /) -> array:
+def nextafter(x1: Union[array, int, float], x2: Union[array, int, float], /) -> array:
     """
     Returns the next representable floating-point value for each element ``x1_i`` of the input array ``x1`` in the direction of the respective element ``x2_i`` of the input array ``x2``.
 
     Parameters
     ----------
-    x1: Union[array, float]
+    x1: Union[array, int, float]
         first input array. Should have a real-valued floating-point data type.
-    x2: Union[array, float]
+    x2: Union[array, int, float]
         second input array. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have the same data type as ``x1``.
 
     Returns
