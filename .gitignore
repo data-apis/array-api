@@ -35,3 +35,5 @@ tmp/
 *.egg
 dist/
 .DS_STORE
+venv
+.venv
