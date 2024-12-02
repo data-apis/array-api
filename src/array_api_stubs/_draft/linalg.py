@@ -301,7 +301,7 @@ def matrix_norm(
     /,
     *,
     keepdims: bool = False,
-    ord: Optional[Union[int, float, Literal[inf, -inf, "fro", "nuc"]]] = "fro",
+    ord: Optional[Union[int, float, Literal[inf, -inf, "fro", "nuc"]]] = "fro",  # type: ignore
 ) -> array:
     """
     Computes the matrix norm of a matrix (or a stack of matrices) ``x``.
@@ -791,7 +791,7 @@ def vector_norm(
     *,
     axis: Optional[Union[int, Tuple[int, ...]]] = None,
     keepdims: bool = False,
-    ord: Union[int, float, Literal[inf, -inf]] = 2,
+    ord: Union[int, float, Literal[inf, -inf]] = 2,  # type: ignore
 ) -> array:
     r"""
     Computes the vector norm of a vector (or batch of vectors) ``x``.

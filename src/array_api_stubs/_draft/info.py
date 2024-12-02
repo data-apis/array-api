@@ -18,10 +18,11 @@ from ._types import (
     DataTypes,
     Capabilities,
     Info,
+    Device,
 )
 
 
-def __array_namespace_info__() -> Info:
+def __array_namespace_info__() -> Info:  # type: ignore[empty-body]
     """
     Returns a namespace with Array API namespace inspection utilities.
 
@@ -48,9 +49,10 @@ def __array_namespace_info__() -> Info:
 
     .. versionadded: 2023.12
     """
+    ...
 
 
-def capabilities() -> Capabilities:
+def capabilities() -> Capabilities:  # type: ignore[empty-body]
     """
     Returns a dictionary of array library capabilities.
 
@@ -72,7 +74,7 @@ def capabilities() -> Capabilities:
     """
 
 
-def default_device() -> device:
+def default_device() -> Device:  # type: ignore[empty-body]
     """
     Returns the default device.
 
@@ -88,7 +90,7 @@ def default_device() -> device:
     """
 
 
-def default_dtypes(
+def default_dtypes(  # type: ignore[empty-body]
     *,
     device: Optional[device] = None,
 ) -> DefaultDataTypes:
@@ -124,7 +126,7 @@ def default_dtypes(
     """
 
 
-def dtypes(
+def dtypes(  # type: ignore[empty-body]
     *,
     device: Optional[device] = None,
     kind: Optional[Union[str, Tuple[str, ...]]] = None,
@@ -179,7 +181,7 @@ def dtypes(
     """
 
 
-def devices() -> List[device]:
+def devices() -> List[device]:  # type: ignore[empty-body]
     """
     Returns a list of supported devices which are available at runtime.
 

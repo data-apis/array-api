@@ -317,7 +317,7 @@ namespace (e.g. `import package_name.array_api`). This has two issues though:
 
 To address both issues, a uniform way must be provided by a conforming
 implementation to access the API namespace, namely a [method on the array
-object](array.__array_namespace__):
+object](Array.__array_namespace__):
 
 ```
 xp = x.__array_namespace__()
