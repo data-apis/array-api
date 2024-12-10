@@ -9,17 +9,17 @@ As discussed in the :ref:`assumptions-dependencies <Assumptions>` section,
 *array types* implemented by another library. Instead, the array can be
 converted to a "native" array type.
 
-The interchange mechanism must offer the following:
+The interchange mechanism *must* offer the following:
 
 1. Data access via a protocol that describes the memory layout of the array
    in an implementation-independent manner.
 
-   *Rationale: any number of libraries must be able to exchange data, and no
-   particular package must be needed to do so.*
+   *Rationale: any number of libraries *must* be able to exchange data, and no
+   particular package *must* be needed to do so.*
 
 2. Support for all dtypes in this API standard (see :ref:`data-types`).
 
-3. Device support. It must be possible to determine on what device the array
+3. Device support. It *must* be possible to determine on what device the array
    that is to be converted lives.
 
    *Rationale: there are CPU-only, GPU-only, and multi-device array types;
@@ -57,7 +57,7 @@ support libraries that already implement buffer protocol support.
      (Python-side only at the moment)
 
    An issue with device-specific protocols are: if two libraries both
-   support multiple device types, in which order should the protocols be
+   support multiple device types, in which order *should* the protocols be
    tried? A growth in the number of protocols to support each time a new
    device gets supported by array libraries (e.g. TPUs, AMD GPUs, emerging
    hardware accelerators) also seems undesirable.
@@ -67,7 +67,7 @@ support libraries that already implement buffer protocol support.
    being a lot older and standardized as part of Python itself via PEP 3118,
    hardly has any support from array libraries. CPU interoperability is
    mostly dealt with via the NumPy-specific ``__array__`` (which, when called,
-   means the object it is attached to must return a ``numpy.ndarray``
+   means the object it is attached to *must* return a ``numpy.ndarray``
    containing the data the object holds).
 
    See the `RFC to adopt DLPack <https://github.com/data-apis/consortium-feedback/issues/1>`_

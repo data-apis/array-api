@@ -5,12 +5,12 @@ Array object
 
     Array API specification for array object attributes and methods.
 
-A conforming implementation of the array API standard must provide and support an array object having the following attributes and methods.
+A conforming implementation of the array API standard *must* provide and support an array object having the following attributes and methods.
 
-Furthermore, a conforming implementation of the array API standard must support, at minimum, array objects of rank (i.e., number of dimensions) ``0``, ``1``, ``2``, ``3``, and ``4`` and must explicitly document their maximum supported rank ``N``.
+Furthermore, a conforming implementation of the array API standard *must* support, at minimum, array objects of rank (i.e., number of dimensions) ``0``, ``1``, ``2``, ``3``, and ``4`` and *must* explicitly document their maximum supported rank ``N``.
 
 .. note::
-    Conforming implementations must support zero-dimensional arrays.
+    Conforming implementations *must* support zero-dimensional arrays.
 
     Apart from array object attributes, such as ``ndim``, ``device``, and ``dtype``, all operations in this standard return arrays (or tuples of arrays), including those operations, such as ``mean``, ``var``, and ``std``, from which some common array libraries (e.g., NumPy) return scalar values.
 
@@ -23,12 +23,12 @@ Furthermore, a conforming implementation of the array API standard must support,
 Operators
 ---------
 
-A conforming implementation of the array API standard must provide and support an array object supporting the following Python operators.
+A conforming implementation of the array API standard *must* provide and support an array object supporting the following Python operators.
 
 Arithmetic Operators
 ~~~~~~~~~~~~~~~~~~~~
 
-A conforming implementation of the array API standard must provide and support an array object supporting the following Python arithmetic operators.
+A conforming implementation of the array API standard *must* provide and support an array object supporting the following Python arithmetic operators.
 
 -   ``+x``: :meth:`.array.__pos__`
 
@@ -75,24 +75,24 @@ A conforming implementation of the array API standard must provide and support a
     -   `operator.pow(x1, x2) <https://docs.python.org/3/library/operator.html#operator.pow>`_
     -   `operator.__pow__(x1, x2) <https://docs.python.org/3/library/operator.html#operator.__pow__>`_
 
-Arithmetic operators should be defined for arrays having real-valued data types.
+Arithmetic operators *should* be defined for arrays having real-valued data types.
 
 Array Operators
 ~~~~~~~~~~~~~~~
 
-A conforming implementation of the array API standard must provide and support an array object supporting the following Python array operators.
+A conforming implementation of the array API standard *must* provide and support an array object supporting the following Python array operators.
 
 -   `x1 @ x2`: :meth:`.array.__matmul__`
 
     -   `operator.matmul(x1, x2) <https://docs.python.org/3/library/operator.html#operator.matmul>`_
     -   `operator.__matmul__(x1, x2) <https://docs.python.org/3/library/operator.html#operator.__matmul__>`_
 
-The matmul ``@`` operator should be defined for arrays having real-valued data types.
+The matmul ``@`` operator *should* be defined for arrays having real-valued data types.
 
 Bitwise Operators
 ~~~~~~~~~~~~~~~~~
 
-A conforming implementation of the array API standard must provide and support an array object supporting the following Python bitwise operators.
+A conforming implementation of the array API standard *must* provide and support an array object supporting the following Python bitwise operators.
 
 -   `~x`: :meth:`.array.__invert__`
 
@@ -126,12 +126,12 @@ A conforming implementation of the array API standard must provide and support a
     -   `operator.rshift(x1, x2) <https://docs.python.org/3/library/operator.html#operator.rshift>`_
     -   `operator.__rshift__(x1, x2) <https://docs.python.org/3/library/operator.html#operator.__rshift__>`_
 
-Bitwise operators should be defined for arrays having integer and boolean data types.
+Bitwise operators *should* be defined for arrays having integer and boolean data types.
 
 Comparison Operators
 ~~~~~~~~~~~~~~~~~~~~
 
-A conforming implementation of the array API standard must provide and support an array object supporting the following Python comparison operators.
+A conforming implementation of the array API standard *must* provide and support an array object supporting the following Python comparison operators.
 
 -   `x1 < x2`: :meth:`.array.__lt__`
 
@@ -163,20 +163,20 @@ A conforming implementation of the array API standard must provide and support a
     -   `operator.ne(x1, x2) <https://docs.python.org/3/library/operator.html#operator.ne>`_
     -   `operator.__ne__(x1, x2) <https://docs.python.org/3/library/operator.html#operator.__ne__>`_
 
-:meth:`.array.__lt__`, :meth:`.array.__le__`, :meth:`.array.__gt__`, :meth:`.array.__ge__` are only defined for arrays having real-valued data types. Other comparison operators should be defined for arrays having any data type.
+:meth:`.array.__lt__`, :meth:`.array.__le__`, :meth:`.array.__gt__`, :meth:`.array.__ge__` are only defined for arrays having real-valued data types. Other comparison operators *should* be defined for arrays having any data type.
 For backward compatibility, conforming implementations may support complex numbers; however, inequality comparison of complex numbers is unspecified and thus implementation-dependent (see :ref:`complex-number-ordering`).
 
 In-place Operators
 ~~~~~~~~~~~~~~~~~~
 
-A conforming implementation of the array API standard must provide and support an array object supporting the following in-place Python operators.
+A conforming implementation of the array API standard *must* provide and support an array object supporting the following in-place Python operators.
 
-An in-place operation must not change the data type or shape of the in-place array as a result of :ref:`type-promotion` or :ref:`broadcasting`.
+An in-place operation *must not* change the data type or shape of the in-place array as a result of :ref:`type-promotion` or :ref:`broadcasting`.
 
-An in-place operation must have the same behavior (including special cases) as its respective binary (i.e., two operand, non-assignment) operation. For example, after in-place addition ``x1 += x2``, the modified array ``x1`` must always equal the result of the equivalent binary arithmetic operation ``x1 = x1 + x2``.
+An in-place operation *must* have the same behavior (including special cases) as its respective binary (i.e., two operand, non-assignment) operation. For example, after in-place addition ``x1 += x2``, the modified array ``x1`` *must* always equal the result of the equivalent binary arithmetic operation ``x1 = x1 + x2``.
 
 .. note::
-    In-place operators must be supported as discussed in :ref:`copyview-mutability`.
+    In-place operators *must* be supported as discussed in :ref:`copyview-mutability`.
 
 Arithmetic Operators
 """"""""""""""""""""
@@ -206,12 +206,12 @@ Bitwise Operators
 Reflected Operators
 ~~~~~~~~~~~~~~~~~~~
 
-A conforming implementation of the array API standard must provide and support an array object supporting the following reflected operators.
+A conforming implementation of the array API standard *must* provide and support an array object supporting the following reflected operators.
 
-The results of applying reflected operators must match their non-reflected equivalents.
+The results of applying reflected operators *must* match their non-reflected equivalents.
 
 .. note::
-    All operators for which ``array <op> scalar`` is implemented must have an equivalent reflected operator implementation.
+    All operators for which ``array <op> scalar`` is implemented *must* have an equivalent reflected operator implementation.
 
 Arithmetic Operators
 """"""""""""""""""""

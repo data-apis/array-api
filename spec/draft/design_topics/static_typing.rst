@@ -39,12 +39,12 @@ should both be fine. There may be other variations possible. Also note that
 this standard does not require that input and output array types are the same
 (they're expected to be defined in the same library though). Given that
 array libraries don't have to be aware of other types of arrays defined in
-other libraries (see :ref:`assumptions-dependencies`), this should be enough
+other libraries (see :ref:`assumptions-dependencies`), this *should* be enough
 for a single array library.
 
 That said, an array-consuming library aiming to support multiple array types
 may need more - for example a protocol to enable structural subtyping. This
 API standard currently takes the position that it does not provide any
-reference implementation or package that can or should be relied on at
+reference implementation or package that can or *should* be relied on at
 runtime, hence no such protocol is defined here. This may be dealt with in a
 future version of this standard.

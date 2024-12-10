@@ -15,7 +15,7 @@ Type promotion rules can be understood at a high level from the following diagra
 Rules
 -----
 
-A conforming implementation of the array API standard must implement the following type promotion rules governing the common result type for two **array** operands during an arithmetic operation.
+A conforming implementation of the array API standard *must* implement the following type promotion rules governing the common result type for two **array** operands during an arithmetic operation.
 
 A conforming implementation of the array API standard may support additional type promotion rules beyond those described in this specification.
 
@@ -114,7 +114,7 @@ where
 Notes
 ~~~~~
 
--   Type promotion rules must apply when determining the common result type for two **array** operands during an arithmetic operation, regardless of array dimension. Accordingly, zero-dimensional arrays must be subject to the same type promotion rules as dimensional arrays.
+-   Type promotion rules *must* apply when determining the common result type for two **array** operands during an arithmetic operation, regardless of array dimension. Accordingly, zero-dimensional arrays *must* be subject to the same type promotion rules as dimensional arrays.
 -   Type promotion of non-numerical data types to numerical data types is unspecified (e.g., ``bool`` to ``intxx`` or ``floatxx``).
 
 .. note::
@@ -123,7 +123,7 @@ Notes
 Mixing arrays with Python scalars
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Using Python scalars (i.e., instances of ``bool``, ``int``, ``float``, ``complex``) together with arrays must be supported for:
+Using Python scalars (i.e., instances of ``bool``, ``int``, ``float``, ``complex``) together with arrays *must* be supported for:
 
 -   ``array <op> scalar``
 -   ``scalar <op> array``
