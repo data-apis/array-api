@@ -1,7 +1,7 @@
 """
 Types for type annotations used in the array API standard.
 
-The type variables should be replaced with the actual types for a given
+The type variables *should* be replaced with the actual types for a given
 library, e.g., for NumPy TypeVar('array') would be replaced with ndarray.
 """
 from __future__ import annotations
