@@ -3,7 +3,7 @@ Linear Algebra Functions
 
   Array API specification for linear algebra functions.
 
-A conforming implementation of the array API standard must provide and support the following functions.
+A conforming implementation of the array API standard *must* provide and support the following functions.
 
 
 .. currentmodule:: array_api

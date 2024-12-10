@@ -8,9 +8,9 @@ Linear Algebra Extension
 Extension name and usage
 ------------------------
 
-The name of the namespace providing the extension must be: ``linalg``.
+The name of the namespace providing the extension *must* be: ``linalg``.
 
-If implemented, this ``linalg`` extension must be retrievable via::
+If implemented, this ``linalg`` extension *must* be retrievable via::
 
     >>> xp = x.__array_namespace__()
     >>> if hasattr(xp, 'linalg'):
@@ -24,13 +24,13 @@ A principal goal of this specification is to standardize commonly implemented in
 
 Accordingly, the standardization process affords the opportunity to reduce interface complexity among linear algebra APIs by inferring and subsequently codifying common design themes, thus allowing more consistent APIs. What follows is the set of design principles governing the APIs which follow:
 
-1.  **Batching**: if an operation is explicitly defined in terms of matrices (i.e., two-dimensional arrays), then the associated interface should support "batching" (i.e., the ability to perform the operation over a "stack" of matrices). Example operations include:
+1.  **Batching**: if an operation is explicitly defined in terms of matrices (i.e., two-dimensional arrays), then the associated interface *should* support "batching" (i.e., the ability to perform the operation over a "stack" of matrices). Example operations include:
 
     -   ``inv``: computing the multiplicative inverse of a square matrix.
     -   ``cholesky``: performing Cholesky decomposition.
     -   ``matmul``: performing matrix multiplication.
 
-2.  **Data types**: if an operation requires decimal operations and :ref:`type-promotion` semantics are undefined (e.g., as is the case for mixed-kind promotions), then the associated interface should be specified as being restricted to floating-point data types. While the specification uses the term "SHOULD" rather than "MUST", a conforming implementation of the array API standard should only ignore the restriction provided overly compelling reasons for doing so. Example operations which should be limited to floating-point data types include:
+2.  **Data types**: if an operation requires decimal operations and :ref:`type-promotion` semantics are undefined (e.g., as is the case for mixed-kind promotions), then the associated interface *should* be specified as being restricted to floating-point data types. While the specification uses the term "*SHOULD*" rather than "*MUST*", a conforming implementation of the array API standard *should* only ignore the restriction provided overly compelling reasons for doing so. Example operations which *should* be limited to floating-point data types include:
 
     -   ``inv``: computing the multiplicative inverse.
     -   ``slogdet``: computing the natural logarithm of the absolute value of the determinant.
@@ -42,23 +42,23 @@ Accordingly, the standardization process affords the opportunity to reduce inter
     -   ``trace``: computing the sum along the diagonal.
     -   ``cross``: computing the vector cross product.
 
-    Lastly, certain operations may be performed independent of data type, and, thus, the associated interfaces should support all data types specified in this standard. Example operations include:
+    Lastly, certain operations may be performed independent of data type, and, thus, the associated interfaces *should* support all data types specified in this standard. Example operations include:
 
     -   ``matrix_transpose``: computing the transpose.
     -   ``diagonal``: returning the diagonal.
 
-3.  **Return values**: if an interface has more than one return value, the interface should return a namedtuple consisting of each value.
+3.  **Return values**: if an interface has more than one return value, the interface *should* return a namedtuple consisting of each value.
 
     In general, interfaces should avoid polymorphic return values (e.g., returning an array **or** a namedtuple, dependent on, e.g., an optional keyword argument). Dedicated interfaces for each return value type are preferred, as dedicated interfaces are easier to reason about at both the implementation level and user level. Example interfaces which could be combined into a single overloaded interface, but are not, include:
 
     -   ``eigh``: computing both eigenvalues and eigenvectors.
     -   ``eigvalsh``: computing only eigenvalues.
 
-4.  **Implementation agnosticism**: a standardized interface should eschew parameterization (including keyword arguments) biased toward particular implementations.
+4.  **Implementation agnosticism**: a standardized interface *should* eschew parameterization (including keyword arguments) biased toward particular implementations.
 
-    Historically, at a time when all array computing happened on CPUs, BLAS and LAPACK underpinned most numerical computing libraries and environments. Naturally, language and library abstractions catered to the parameterization of those libraries, often exposing low-level implementation details verbatim in their higher-level interfaces, even if such choices would be considered poor or ill-advised by today's standards (e.g., NumPy's use of `UPLO` in `eigh`). However, the present day is considerably different. While still important, BLAS and LAPACK no longer hold a monopoly over linear algebra operations, especially given the proliferation of devices and hardware on which such operations must be performed. Accordingly, interfaces must be conservative in the parameterization they support in order to best ensure universality. Such conservatism applies even to performance optimization parameters afforded by certain hardware.
+    Historically, at a time when all array computing happened on CPUs, BLAS and LAPACK underpinned most numerical computing libraries and environments. Naturally, language and library abstractions catered to the parameterization of those libraries, often exposing low-level implementation details verbatim in their higher-level interfaces, even if such choices would be considered poor or ill-advised by today's standards (e.g., NumPy's use of `UPLO` in `eigh`). However, the present day is considerably different. While still important, BLAS and LAPACK no longer hold a monopoly over linear algebra operations, especially given the proliferation of devices and hardware on which such operations *must* be performed. Accordingly, interfaces *must* be conservative in the parameterization they support in order to best ensure universality. Such conservatism applies even to performance optimization parameters afforded by certain hardware.
 
-5.  **Orthogonality**: an interface should have clearly defined and delineated functionality which, ideally, has no overlap with the functionality of other interfaces in the specification. Providing multiple interfaces which can all perform the same operation creates unnecessary confusion regarding interface applicability (i.e., which interface is best at which time) and decreases readability of both library and user code. Where overlap is possible, the specification must be parsimonious in the number of interfaces, ensuring that each interface provides a unique and compelling abstraction. Examples of related interfaces which provide distinct levels of abstraction (and generality) include:
+5.  **Orthogonality**: an interface *should* have clearly defined and delineated functionality which, ideally, has no overlap with the functionality of other interfaces in the specification. Providing multiple interfaces which can all perform the same operation creates unnecessary confusion regarding interface applicability (i.e., which interface is best at which time) and decreases readability of both library and user code. Where overlap is possible, the specification *must* be parsimonious in the number of interfaces, ensuring that each interface provides a unique and compelling abstraction. Examples of related interfaces which provide distinct levels of abstraction (and generality) include:
 
     -   ``vecdot``: computing the dot product of two vectors.
     -   ``matmul``: performing matrix multiplication (including between two vectors and thus the dot product).
@@ -82,7 +82,7 @@ Accordingly, the standardization process affords the opportunity to reduce inter
 Objects in API
 --------------
 
-A conforming implementation of this ``linalg`` extension must provide and support the following functions.
+A conforming implementation of this ``linalg`` extension *must* provide and support the following functions.
 
 ..
   NOTE: please keep the functions in alphabetical order

@@ -6,9 +6,9 @@ Fourier transform Functions
 Extension name and usage
 ------------------------
 
-The name of the namespace providing the extension must be: ``fft``.
+The name of the namespace providing the extension *must* be: ``fft``.
 
-If implemented, this ``fft`` extension must be retrievable via::
+If implemented, this ``fft`` extension *must* be retrievable via::
 
     >>> xp = x.__array_namespace__()
     >>> if hasattr(xp, 'fft'):
@@ -18,7 +18,7 @@ If implemented, this ``fft`` extension must be retrievable via::
 Objects in API
 --------------
 
-A conforming implementation of this ``fft`` extension must provide and support the following functions.
+A conforming implementation of this ``fft`` extension *must* provide and support the following functions.
 
 .. currentmodule:: array_api.fft
 

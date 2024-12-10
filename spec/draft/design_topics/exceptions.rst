@@ -18,11 +18,11 @@ ones.
 
 In specific cases, it may be useful to provide guidance to array library
 authors regarding what an appropriate exception is. That guidance will be
-phrased as *should* rather than *must* (typically in a *Raises* section),
+phrased as **should** rather than **must** (typically in a *Raises* section),
 because (a) there may be reasons for an implementer to deviate, and (b) more
 often than not, existing array library implementation already differ in their
 choices, and it may not be worth them breaking backward compatibility in order
-to comply with a "must" in this standard.
+to comply with a "*must*" in this standard.
 
-In other cases, this standard will only specify that an exception should or
+In other cases, this standard will only specify that an exception *should* or
 must be raised, but not mention what type of exception that is.
