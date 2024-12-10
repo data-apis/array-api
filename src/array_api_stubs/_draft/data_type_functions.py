@@ -22,19 +22,19 @@ def astype(
        Casting floating-point ``NaN`` and ``infinity`` values to integral data types is not specified and is implementation-dependent.
 
     .. note::
-       Casting a complex floating-point array to a real-valued data type should not be permitted.
+       Casting a complex floating-point array to a real-valued data type *should not* be permitted.
 
-       Historically, when casting a complex floating-point array to a real-valued data type, libraries such as NumPy have discarded imaginary components such that, for a complex floating-point array ``x``, ``astype(x)`` equals ``astype(real(x))``). This behavior is considered problematic as the choice to discard the imaginary component is arbitrary and introduces more than one way to achieve the same outcome (i.e., for a complex floating-point array ``x``, ``astype(x)`` and ``astype(real(x))`` versus only ``astype(imag(x))``). Instead, in order to avoid ambiguity and to promote clarity, this specification requires that array API consumers explicitly express which component should be cast to a specified real-valued data type.
-
-    .. note::
-       When casting a boolean input array to a real-valued data type, a value of ``True`` must cast to a real-valued number equal to ``1``, and a value of ``False`` must cast to a real-valued number equal to ``0``.
-
-       When casting a boolean input array to a complex floating-point data type, a value of ``True`` must cast to a complex number equal to ``1 + 0j``, and a value of ``False`` must cast to a complex number equal to ``0 + 0j``.
+       Historically, when casting a complex floating-point array to a real-valued data type, libraries such as NumPy have discarded imaginary components such that, for a complex floating-point array ``x``, ``astype(x)`` equals ``astype(real(x))``). This behavior is considered problematic as the choice to discard the imaginary component is arbitrary and introduces more than one way to achieve the same outcome (i.e., for a complex floating-point array ``x``, ``astype(x)`` and ``astype(real(x))`` versus only ``astype(imag(x))``). Instead, in order to avoid ambiguity and to promote clarity, this specification requires that array API consumers explicitly express which component *should* be cast to a specified real-valued data type.
 
     .. note::
-       When casting a real-valued input array to ``bool``, a value of ``0`` must cast to ``False``, and a non-zero value must cast to ``True``.
+       When casting a boolean input array to a real-valued data type, a value of ``True`` *must* cast to a real-valued number equal to ``1``, and a value of ``False`` *must* cast to a real-valued number equal to ``0``.
 
-       When casting a complex floating-point array to ``bool``, a value of ``0 + 0j`` must cast to ``False``, and all other values must cast to ``True``.
+       When casting a boolean input array to a complex floating-point data type, a value of ``True`` *must* cast to a complex number equal to ``1 + 0j``, and a value of ``False`` *must* cast to a complex number equal to ``0 + 0j``.
+
+    .. note::
+       When casting a real-valued input array to ``bool``, a value of ``0`` *must* cast to ``False``, and a non-zero value *must* cast to ``True``.
+
+       When casting a complex floating-point array to ``bool``, a value of ``0 + 0j`` *must* cast to ``False``, and all other values *must* cast to ``True``.
 
     Parameters
     ----------
@@ -43,14 +43,14 @@ def astype(
     dtype: dtype
         desired data type.
     copy: bool
-        specifies whether to copy an array when the specified ``dtype`` matches the data type of the input array ``x``. If ``True``, a newly allocated array must always be returned. If ``False`` and the specified ``dtype`` matches the data type of the input array, the input array must be returned; otherwise, a newly allocated array must be returned. Default: ``True``.
+        specifies whether to copy an array when the specified ``dtype`` matches the data type of the input array ``x``. If ``True``, a newly allocated array *must* always be returned. If ``False`` and the specified ``dtype`` matches the data type of the input array, the input array *must* be returned; otherwise, a newly allocated array *must* be returned. Default: ``True``.
     device: Optional[device]
-        device on which to place the returned array. If ``device`` is ``None``, the output array device must be inferred from ``x``. Default: ``None``.
+        device on which to place the returned array. If ``device`` is ``None``, the output array device *must* be inferred from ``x``. Default: ``None``.
 
     Returns
     -------
     out: array
-        an array having the specified data type. The returned array must have the same shape as ``x``.
+        an array having the specified data type. The returned array *must* have the same shape as ``x``.
 
     Notes
     -----
@@ -91,7 +91,7 @@ def finfo(type: Union[dtype, array], /) -> finfo_object:
         the kind of floating-point data-type about which to get information. If complex, the information is about its component data type.
 
         .. note::
-           Complex floating-point data types are specified to always use the same precision for both its real and imaginary components, so the information should be true for either component.
+           Complex floating-point data types are specified to always use the same precision for both its real and imaginary components, so the information *should* be true for either component.
 
     Returns
     -------
@@ -179,8 +179,8 @@ def isdtype(
     kind: Union[str, dtype, Tuple[Union[str, dtype], ...]]
         data type kind.
 
-        -   If ``kind`` is a dtype, the function must return a boolean indicating whether the input ``dtype`` is equal to the dtype specified by ``kind``.
-        -   If ``kind`` is a string, the function must return a boolean indicating whether the input ``dtype`` is of a specified data type kind. The following dtype kinds must be supported:
+        -   If ``kind`` is a dtype, the function *must* return a boolean indicating whether the input ``dtype`` is equal to the dtype specified by ``kind``.
+        -   If ``kind`` is a string, the function *must* return a boolean indicating whether the input ``dtype`` is of a specified data type kind. The following dtype kinds *must* be supported:
 
             -   ``'bool'``: boolean data types (e.g., ``bool``).
             -   ``'signed integer'``: signed integer data types (e.g., ``int8``, ``int16``, ``int32``, ``int64``).
@@ -190,12 +190,12 @@ def isdtype(
             -   ``'complex floating'``: complex floating-point data types (e.g., ``complex64``, ``complex128``).
             -   ``'numeric'``: numeric data types. Shorthand for ``('integral', 'real floating', 'complex floating')``.
 
-        -   If ``kind`` is a tuple, the tuple specifies a union of dtypes and/or kinds, and the function must return a boolean indicating whether the input ``dtype`` is either equal to a specified dtype or belongs to at least one specified data type kind.
+        -   If ``kind`` is a tuple, the tuple specifies a union of dtypes and/or kinds, and the function *must* return a boolean indicating whether the input ``dtype`` is either equal to a specified dtype or belongs to at least one specified data type kind.
 
         .. note::
            A conforming implementation of the array API standard is **not** limited to only including the dtypes described in this specification in the required data type kinds. For example, implementations supporting ``float16`` and ``bfloat16`` can include ``float16`` and ``bfloat16`` in the ``real floating`` data type kind. Similarly, implementations supporting ``int128`` can include ``int128`` in the ``signed integer`` data type kind.
 
-           In short, conforming implementations may extend data type kinds; however, data type kinds must remain consistent (e.g., only integer dtypes may belong to integer data type kinds and only floating-point dtypes may belong to floating-point data type kinds), and extensions must be clearly documented as such in library documentation.
+           In short, conforming implementations may extend data type kinds; however, data type kinds *must* remain consistent (e.g., only integer dtypes may belong to integer data type kinds and only floating-point dtypes may belong to floating-point data type kinds), and extensions *must* be clearly documented as such in library documentation.
 
     Returns
     -------
