@@ -410,7 +410,7 @@ all the functions, arguments, data types, syntax, and semantics described in
 this specification.
 
 A conforming implementation of the array API standard may provide additional
-features (e.g. values, objects, properties, data types, functions, and function
+features (e.g., values, objects, properties, data types, functions, and function
 arguments) beyond those described in this specification.
 
 Libraries which aim to provide a conforming implementation but haven't yet
