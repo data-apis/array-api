@@ -132,7 +132,7 @@ where ``<op>`` is a built-in operator (including in-place operators, but excludi
 
 -   a Python ``bool`` for a ``bool`` array data type.
 -   a Python ``int`` within the bounds of the given data type for integer array :ref:`data-types`.
--   a Python ``int`` or ``float`` for real-valued floating-point array data types.
+-   a Python ``int``, ``float``, or ``complex`` for real-valued floating-point array data types.
 -   a Python ``int``, ``float``, or ``complex`` for complex floating-point array data types.
 
 Provided the above requirements are met, the expected behavior is equivalent to:
@@ -143,6 +143,10 @@ Provided the above requirements are met, the expected behavior is equivalent to:
 .. note::
    Behavior is not specified when mixing a Python ``float`` and an array with an integer data type; this may give ``float32``, ``float64``, or raise an exception. Behavior is implementation-specific.
 
-   Similarly, behavior is not specified when mixing a Python ``complex`` and an array with a real-valued data type; this may give ``complex64``, ``complex128``, or raise an exception. Behavior is implementation-specific.
-
    Behavior is also not specified for integers outside of the bounds of a given integer data type. Integers outside of bounds may result in overflow or an error.
+
+
+.. note::
+    Mixing a Python ``complex`` and an array with a real-valued data type is allowed; the result is an array of the data type of the same *precision* as the array operand. In other word, ``1j <op> float32_array`` results in a ``complex64`` array; ``1j <op> float64_array`` results in a ``complex128`` array.
+
+   Behavior is not specificed when mixing ``complex`` scalars with integer arrays; this may give ``complex64``, ``complex128``, or raise an exception. Behavior is implementation-specific.
