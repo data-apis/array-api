@@ -63,7 +63,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="searchsorted" href="array_api.searchsorted.html" />
-    <link rel="prev" title="argmin" href="array_api.argmin.html" />
+    <link rel="prev" title="count_nonzero" href="array_api.count_nonzero.html" />
   
     <link rel="apple-touch-icon" href="../../_static/images/apple-icon-152x152.png"/>
   
@@ -466,14 +466,6 @@
 <dt class="sig sig-object py" id="array_api.nonzero">
 <span class="sig-name descname"><span class="pre">nonzero</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">array</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#array_api.nonzero" title="Link to this definition">¶</a></dt>
 <dd><p>Returns the indices of the array elements which are non-zero.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If <code class="docutils literal notranslate"><span class="pre">x</span></code> has a complex floating-point data type, non-zero elements are those elements having at least one component (real or imaginary) which is non-zero.</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If <code class="docutils literal notranslate"><span class="pre">x</span></code> has a boolean data type, non-zero elements are those elements which are equal to <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
-</div>
 <div class="admonition important">
 <p class="admonition-title">Data-dependent output shape</p>
 <p>The shape of the output array for this function depends on the data values in the input array; hence, array libraries which build computation graphs (e.g., JAX, Dask, etc.) may find this function difficult to implement without knowing array values. Accordingly, such libraries may choose to omit this function. See <a class="reference internal" href="../../design_topics/data_dependent_output_shapes.html#data-dependent-output-shapes"><span class="std std-ref">Data-dependent output shapes</span></a> section for more details.</p>
@@ -483,10 +475,14 @@
 <dd class="field-odd"><p><strong>x</strong> (<em>array</em>) – input array. Must have a positive rank. If <code class="docutils literal notranslate"><span class="pre">x</span></code> is zero-dimensional, the function must raise an exception.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>out</strong> (<em>Typle[array, …]</em>) – a tuple of <code class="docutils literal notranslate"><span class="pre">k</span></code> arrays, one for each dimension of <code class="docutils literal notranslate"><span class="pre">x</span></code> and each of size <code class="docutils literal notranslate"><span class="pre">n</span></code> (where <code class="docutils literal notranslate"><span class="pre">n</span></code> is the total number of non-zero elements), containing the indices of the non-zero elements in that dimension. The indices must be returned in row-major, C-style order. The returned array must have the default array index data type.</p>
+<dd class="field-even"><p><strong>out</strong> (<em>Tuple[array, …]</em>) – a tuple of <code class="docutils literal notranslate"><span class="pre">k</span></code> arrays, one for each dimension of <code class="docutils literal notranslate"><span class="pre">x</span></code> and each of size <code class="docutils literal notranslate"><span class="pre">n</span></code> (where <code class="docutils literal notranslate"><span class="pre">n</span></code> is the total number of non-zero elements), containing the indices of the non-zero elements in that dimension. The indices must be returned in row-major, C-style order. The returned array must have the default array index data type.</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>If <code class="docutils literal notranslate"><span class="pre">x</span></code> has a complex floating-point data type, non-zero elements are those elements having at least one component (real or imaginary) which is non-zero.</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">x</span></code> has a boolean data type, non-zero elements are those elements which are equal to <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p></li>
+</ul>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Changed in version 2022.12: </span>Added complex data type support.</p>
 </div>
@@ -503,7 +499,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
           
-            <a href="array_api.argmin.html" title="argmin"
+            <a href="array_api.count_nonzero.html" title="count_nonzero"
                class="md-flex md-footer-nav__link md-footer-nav__link--prev"
                rel="prev">
               <div class="md-flex__cell md-flex__cell--shrink">
@@ -512,7 +508,7 @@
               <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
                 <span class="md-flex__ellipsis">
                   <span
-                      class="md-footer-nav__direction"> "Previous" </span> argmin </span>
+                      class="md-footer-nav__direction"> "Previous" </span> count_nonzero </span>
               </div>
             </a>
           
