@@ -151,7 +151,7 @@ standard is shown in this diagram:
    _Rationale: this is an important topic for some array-consuming libraries,
    but there is no widely shared C/Cython API and hence it doesn't make sense at
    this point in time to standardize anything. See
-   the [C API section](design_topics/C_API.md) for more details._
+   the [C API section](design_topics/C_API.rst) for more details._
 
 4. Standardization of these dtypes is out of scope: bfloat16, extended
    precision floating point, datetime, string, object and void dtypes.
@@ -410,8 +410,8 @@ all the functions, arguments, data types, syntax, and semantics described in
 this specification.
 
 A conforming implementation of the array API standard may provide additional
-values, objects, properties, data types, and functions beyond those described
-in this specification.
+features (e.g., values, objects, properties, data types, functions, and function
+arguments) beyond those described in this specification.
 
 Libraries which aim to provide a conforming implementation but haven't yet
 completed such an implementation may, and are encouraged to, provide details on

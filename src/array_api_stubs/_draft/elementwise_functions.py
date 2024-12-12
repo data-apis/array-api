@@ -15,6 +15,7 @@ __all__ = [
     "bitwise_right_shift",
     "bitwise_xor",
     "ceil",
+    "clip",
     "conj",
     "copysign",
     "cos",
@@ -27,6 +28,7 @@ __all__ = [
     "floor_divide",
     "greater",
     "greater_equal",
+    "hypot",
     "imag",
     "isfinite",
     "isinf",
@@ -46,10 +48,12 @@ __all__ = [
     "minimum",
     "multiply",
     "negative",
+    "nextafter",
     "not_equal",
     "positive",
     "pow",
     "real",
+    "reciprocal",
     "remainder",
     "round",
     "sign",
@@ -65,7 +69,7 @@ __all__ = [
 ]
 
 
-from ._types import array
+from ._types import Optional, Union, array
 
 
 def abs(x: array, /) -> array:
@@ -775,6 +779,46 @@ def ceil(x: array, /) -> array:
     """
 
 
+def clip(
+    x: array,
+    /,
+    min: Optional[Union[int, float, array]] = None,
+    max: Optional[Union[int, float, array]] = None,
+) -> array:
+    r"""
+    Clamps each element ``x_i`` of the input array ``x`` to the range ``[min, max]``.
+
+    Parameters
+    ----------
+    x: array
+      input array. Should have a real-valued data type.
+    min: Optional[Union[int, float, array]]
+      lower-bound of the range to which to clamp. If ``None``, no lower bound must be applied. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have a real-valued data type. Default: ``None``.
+    max: Optional[Union[int, float, array]]
+      upper-bound of the range to which to clamp. If ``None``, no upper bound must be applied. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have a real-valued data type. Default: ``None``.
+
+    Returns
+    -------
+    out: array
+      an array containing element-wise results. The returned array must have the same data type as ``x``.
+
+    Notes
+    -----
+
+    - If both ``min`` and ``max`` are ``None``, the elements of the returned array must equal the respective elements in ``x``.
+    - If a broadcasted element in ``min`` is greater than a corresponding broadcasted element in ``max``, behavior is unspecified and thus implementation-dependent.
+    - If ``x`` and either ``min`` or ``max`` have different data type kinds (e.g., integer versus floating-point), behavior is unspecified and thus implementation-dependent.
+
+    **Special cases**
+
+    - If ``x_i`` is ``NaN``, the result is ``NaN``.
+    - If ``min_i`` is ``NaN``, the result is ``NaN``.
+    - If ``max_i`` is ``NaN``, the result is ``NaN``.
+
+    .. versionadded:: 2023.12
+    """
+
+
 def conj(x: array, /) -> array:
     """
     Returns the complex conjugate for each element ``x_i`` of the input array ``x``.
@@ -838,14 +882,14 @@ def copysign(x1: array, x2: array, /) -> array:
     - If ``x2_i`` is ``NaN`` and the sign bit of ``x2_i`` is ``1``, the result is ``-|x1_i|``.
     - If ``x2_i`` is ``NaN`` and the sign bit of ``x2_i`` is ``0``, the result is ``|x1_i|``.
 
-    If ``x1_i`` is ``NaN``,
+    - If ``x1_i`` is ``NaN`` and ``x2_i`` is less than ``0``, the result is ``NaN`` with a sign bit of ``1``.
+    - If ``x1_i`` is ``NaN`` and ``x2_i`` is ``-0``, the result is ``NaN`` with a sign bit of ``1``.
+    - If ``x1_i`` is ``NaN`` and ``x2_i`` is ``+0``, the result is ``NaN`` with a sign bit of ``0``.
+    - If ``x1_i`` is ``NaN`` and ``x2_i`` is greater than ``0``, the result is ``NaN`` with a sign bit of ``0``.
+    - If ``x1_i`` is ``NaN`` and ``x2_i`` is ``NaN`` and the sign bit of ``x2_i`` is ``1``, the result is ``NaN`` with a sign bit of ``1``.
+    - If ``x1_i`` is ``NaN`` and ``x2_i`` is ``NaN`` and the sign bit of ``x2_i`` is ``0``, the result is ``NaN`` with a sign bit of ``0``.
 
-    - If ``x2_i`` is less than ``0``, the result is ``NaN`` with a sign bit of ``1``.
-    - If ``x2_i`` is ``-0``, the result is ``NaN`` with a sign bit of ``1``.
-    - If ``x2_i`` is ``+0``, the result is ``NaN`` with a sign bit of ``0``.
-    - If ``x2_i`` is greater than ``0``, the result is ``NaN`` with a sign bit of ``0``.
-    - If ``x2_i`` is ``NaN`` and the sign bit of ``x2_i`` is ``1``, the result is ``NaN`` with a sign bit of ``1``.
-    - If ``x2_i`` is ``NaN`` and the sign bit of ``x2_i`` is ``0``, the result is ``NaN`` with a sign bit of ``0``.
+    .. versionadded:: 2023.12
     """
 
 
@@ -1081,6 +1125,9 @@ def equal(x1: array, x2: array, /) -> array:
     .. note::
        For discussion of complex number equality, see :ref:`complex-numbers`.
 
+    .. note::
+       Comparison of arrays without a corresponding promotable data type (see :ref:`type-promotion`) is undefined and thus implementation-dependent.
+
     .. versionchanged:: 2022.12
        Added complex data type support.
     """
@@ -1310,6 +1357,10 @@ def greater(x1: array, x2: array, /) -> array:
     -------
     out: array
         an array containing the element-wise results. The returned array must have a data type of ``bool``.
+
+    .. note::
+       Comparison of arrays without a corresponding promotable data type (see :ref:`type-promotion`) is undefined and thus implementation-dependent.
+
     """
 
 
@@ -1331,6 +1382,56 @@ def greater_equal(x1: array, x2: array, /) -> array:
     -------
     out: array
         an array containing the element-wise results. The returned array must have a data type of ``bool``.
+
+    .. note::
+       Comparison of arrays without a corresponding promotable data type (see :ref:`type-promotion`) is undefined and thus implementation-dependent.
+    """
+
+
+def hypot(x1: array, x2: array, /) -> array:
+    r"""
+    Computes the square root of the sum of squares for each element ``x1_i`` of the input array ``x1`` with the respective element ``x2_i`` of the input array ``x2``.
+
+    .. note::
+       The value computed by this function may be interpreted as the length of the hypotenuse of a right-angled triangle with sides of length ``x1_i`` and ``x2_i``, the distance of a point ``(x1_i, x2_i)`` from the origin ``(0, 0)``, or the magnitude of a complex number ``x1_i + x2_i * 1j``.
+
+    Parameters
+    ----------
+    x1: array
+       first input array. Should have a real-valued floating-point data type.
+    x2: array
+       second input array. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have a real-valued floating-point data type.
+
+    Returns
+    -------
+    out: array
+       an array containing the element-wise results. The returned array must have a real-valued floating-point data type determined by :ref:`type-promotion`.
+
+    Notes
+    -----
+
+    The purpose of this function is to avoid underflow and overflow during intermediate stages of computation. Accordingly, conforming implementations should not use naive implementations.
+
+    **Special Cases**
+
+    For real-valued floating-point operands,
+
+    - If ``x1_i`` is ``+infinity`` or ``-infinity`` and ``x2_i`` is any value, including ``NaN``, the result is ``+infinity``.
+    - If ``x2_i`` is ``+infinity`` or ``-infinity`` and ``x1_i`` is any value, including ``NaN``, the result is ``+infinity``.
+    - If ``x1_i`` is either ``+0`` or ``-0``, the result is equivalent to ``abs(x2_i)``.
+    - If ``x2_i`` is either ``+0`` or ``-0``, the result is equivalent to ``abs(x1_i)``.
+    - If ``x1_i`` is a finite number or ``NaN`` and ``x2_i`` is ``NaN``, the result is ``NaN``.
+    - If ``x2_i`` is a finite number or ``NaN`` and ``x1_i`` is ``NaN``, the result is ``NaN``.
+    - Underflow may only occur when both arguments are subnormal and the correct result is also subnormal.
+
+    For real-valued floating-point operands, ``hypot(x1, x2)`` must equal ``hypot(x2, x1)``, ``hypot(x1, -x2)``, ``hypot(-x1, x2)``, and ``hypot(-x1, -x2)``.
+
+    .. note::
+       IEEE 754-2019 requires support for subnormal (a.k.a., denormal) numbers, which are useful for supporting gradual underflow. However, hardware support for subnormal numbers is not universal, and many platforms (e.g., accelerators) and compilers support toggling denormals-are-zero (DAZ) and/or flush-to-zero (FTZ) behavior to increase performance and to guard against timing attacks.
+
+       Accordingly, conforming implementations may vary in their support for subnormal numbers.
+
+    .. versionadded:: 2023.12
     """
 
 
@@ -1479,6 +1580,9 @@ def less(x1: array, x2: array, /) -> array:
     -------
     out: array
         an array containing the element-wise results. The returned array must have a data type of ``bool``.
+
+    .. note::
+       Comparison of arrays without a corresponding promotable data type (see :ref:`type-promotion`) is undefined and thus implementation-dependent.
     """
 
 
@@ -1500,6 +1604,9 @@ def less_equal(x1: array, x2: array, /) -> array:
     -------
     out: array
         an array containing the element-wise results. The returned array must have a data type of ``bool``.
+
+    .. note::
+       Comparison of arrays without a corresponding promotable data type (see :ref:`type-promotion`) is undefined and thus implementation-dependent.
     """
 
 
@@ -1826,9 +1933,6 @@ def maximum(x1: array, x2: array, /) -> array:
     r"""
     Computes the maximum value for each element ``x1_i`` of the input array ``x1`` relative to the respective element ``x2_i`` of the input array ``x2``.
 
-    .. note::
-       For backward compatibility, conforming implementations may support complex numbers; however, inequality comparison of complex numbers is unspecified and thus implementation-dependent (see :ref:`complex-number-ordering`).
-
     Parameters
     ----------
     x1: array
@@ -1844,20 +1948,23 @@ def maximum(x1: array, x2: array, /) -> array:
     Notes
     -----
 
+    The order of signed zeros is unspecified and thus implementation-defined. When choosing between ``-0`` or ``+0`` as a maximum value, specification-compliant libraries may choose to return either value.
+
+    For backward compatibility, conforming implementations may support complex numbers; however, inequality comparison of complex numbers is unspecified and thus implementation-defined (see :ref:`complex-number-ordering`).
+
     **Special Cases**
 
     For floating-point operands,
 
     -   If either ``x1_i`` or ``x2_i`` is ``NaN``, the result is ``NaN``.
+
+    .. versionadded:: 2023.12
     """
 
 
 def minimum(x1: array, x2: array, /) -> array:
     r"""
     Computes the minimum value for each element ``x1_i`` of the input array ``x1`` relative to the respective element ``x2_i`` of the input array ``x2``.
-
-    .. note::
-       For backward compatibility, conforming implementations may support complex numbers; however, inequality comparison of complex numbers is unspecified and thus implementation-dependent (see :ref:`complex-number-ordering`).
 
     Parameters
     ----------
@@ -1874,11 +1981,17 @@ def minimum(x1: array, x2: array, /) -> array:
     Notes
     -----
 
+    The order of signed zeros is unspecified and thus implementation-defined. When choosing between ``-0`` or ``+0`` as a minimum value, specification-compliant libraries may choose to return either value.
+
+    For backward compatibility, conforming implementations may support complex numbers; however, inequality comparison of complex numbers is unspecified and thus implementation-defined (see :ref:`complex-number-ordering`).
+
     **Special Cases**
 
     For floating-point operands,
 
     -   If either ``x1_i`` or ``x2_i`` is ``NaN``, the result is ``NaN``.
+
+    .. versionadded:: 2023.12
     """
 
 
@@ -1978,6 +2091,35 @@ def negative(x: array, /) -> array:
     """
 
 
+def nextafter(x1: array, x2: array, /) -> array:
+    """
+    Returns the next representable floating-point value for each element ``x1_i`` of the input array ``x1`` in the direction of the respective element ``x2_i`` of the input array ``x2``.
+
+    Parameters
+    ----------
+    x1: array
+        first input array. Should have a real-valued floating-point data type.
+    x2: array
+        second input array. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have the same data type as ``x1``.
+
+    Returns
+    -------
+    out: array
+        an array containing the element-wise results. The returned array must have the same data type as ``x1``.
+
+    Notes
+    -----
+
+    **Special cases**
+
+    For real-valued floating-point operands,
+
+    - If either ``x1_i`` or ``x2_i`` is ``NaN``, the result is ``NaN``.
+    - If ``x1_i`` is ``-0`` and ``x2_i`` is ``+0``, the result is ``+0``.
+    - If ``x1_i`` is ``+0`` and ``x2_i`` is ``-0``, the result is ``-0``.
+    """
+
+
 def not_equal(x1: array, x2: array, /) -> array:
     """
     Computes the truth value of ``x1_i != x2_i`` for each element ``x1_i`` of the input array ``x1`` with the respective element ``x2_i`` of the input array ``x2``.
@@ -2014,6 +2156,9 @@ def not_equal(x1: array, x2: array, /) -> array:
 
     .. note::
        For discussion of complex number equality, see :ref:`complex-numbers`.
+
+    .. note::
+       Comparison of arrays without a corresponding promotable data type (see :ref:`type-promotion`) is undefined and thus implementation-dependent.
 
     .. versionchanged:: 2022.12
        Added complex data type support.
@@ -2133,6 +2278,29 @@ def real(x: array, /) -> array:
     """
 
 
+def reciprocal(x: array, /) -> array:
+    """
+    Returns the reciprocal for each element ``x_i`` of the input array ``x``.
+
+    Parameters
+    ----------
+    x: array
+        input array. Should have a floating-point data type.
+
+    Returns
+    -------
+    out: array
+        an array containing the element-wise results. The returned array must have a floating-point data type determined by :ref:`type-promotion`.
+
+    Notes
+    -----
+
+    **Special cases**
+
+    For floating-point operands, special cases must be handled as if the operation is implemented as ``1.0 / x`` (see :func:`~array_api.divide`).
+    """
+
+
 def remainder(x1: array, x2: array, /) -> array:
     """
     Returns the remainder of division for each element ``x1_i`` of the input array ``x1`` and the respective element ``x2_i`` of the input array ``x2``.
@@ -2240,7 +2408,7 @@ def sign(x: array, /) -> array:
     .. math::
        \operatorname{sign}(x_i) = \begin{cases}
        0 & \textrm{if } x_i = 0 \\
-       \frac{x}{|x|} & \textrm{otherwise}
+       \frac{x_i}{|x_i|} & \textrm{otherwise}
        \end{cases}
 
     where :math:`|x_i|` is the absolute value of :math:`x_i`.
@@ -2309,6 +2477,8 @@ def signbit(x: array, /) -> array:
     - If ``x_i`` is a negative (i.e., less than ``0``) finite number, the result is ``True``.
     - If ``x_i`` is ``NaN`` and the sign bit of ``x_i`` is ``0``, the result is ``False``.
     - If ``x_i`` is ``NaN`` and the sign bit of ``x_i`` is ``1``, the result is ``True``.
+
+    .. versionadded:: 2023.12
     """
 
 
