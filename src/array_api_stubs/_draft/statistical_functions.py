@@ -137,11 +137,14 @@ def mean(
     -   If ``N`` is ``0``, the arithmetic mean is ``NaN``.
     -   If ``x_i`` is ``NaN``, the arithmetic mean is ``NaN`` (i.e., ``NaN`` values propagate).
 
-    For complex floating-point operands, real-valued floating-point special cases must independently apply to the real and imaginary component operations involving real numbers. For example, let ``a = real(x_i)`` and ``b = imag(x_i)``, and
+    For complex floating-point operands, real-valued floating-point special cases should independently apply to the real and imaginary component operations involving real numbers. For example, let ``a = real(x_i)`` and ``b = imag(x_i)``, and
 
     -   If ``N`` is ``0``, the arithmetic mean is ``NaN + NaN j``.
     -   If ``a`` is ``NaN``, the real component of the result is ``NaN``.
     -   Similarly, if ``b`` is ``NaN``, the imaginary component of the result is ``NaN``.
+
+    .. note::
+       Array libraries, such as NumPy, PyTorch, and JAX, currently deviate from this specification in their handling of components which are ``NaN`` when computing the arithmetic mean. In general, consumers of array libraries implementing this specification should use :func:`~array_api.isnan` to test whether the result of computing the arithmetic mean over an array have a complex floating-point data type is ``NaN``, rather than relying on ``NaN`` propagation of individual components.
     """
 
 
