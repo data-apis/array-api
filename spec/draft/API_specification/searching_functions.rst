@@ -24,6 +24,4 @@ Objects in API
    argmin
    nonzero
    top_k
-   top_k_indices
-   top_k_values
    where
