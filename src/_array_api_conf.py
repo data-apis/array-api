@@ -17,7 +17,7 @@ import sphinx_material
 # -- Project information -----------------------------------------------------
 
 project = "Python array API standard"
-copyright = "2020-2022, Consortium for Python Data API Standards"
+copyright = "2020-2024, Consortium for Python Data API Standards"
 author = "Consortium for Python Data API Standards"
 
 # -- General configuration ---------------------------------------------------
@@ -36,6 +36,7 @@ extensions = [
     "sphinx_copybutton",
     "sphinx_favicon",
     "sphinx_markdown_tables",
+    "sphinxcontrib.jquery",
 ]
 
 autosummary_generate = True
@@ -72,6 +73,10 @@ nitpick_ignore_regex = [
     ("py:class", ".*PyCapsule"),
     ("py:class", ".*finfo_object"),
     ("py:class", ".*iinfo_object"),
+    ("py:class", ".*Info"),
+    ("py:class", ".*Capabilities"),
+    ("py:class", ".*DefaultDataTypes"),
+    ("py:class", ".*DataTypes"),
 ]
 # In array_object.py we have to use aliased names for some types because they
 # would otherwise refer back to method objects of array

@@ -25,6 +25,10 @@ __all__ = [
     "finfo_object",
     "iinfo_object",
     "Enum",
+    "DefaultDataTypes",
+    "DataTypes",
+    "Capabilities",
+    "Info",
 ]
 
 from dataclasses import dataclass
@@ -35,6 +39,7 @@ from typing import (
     Optional,
     Sequence,
     Tuple,
+    TypedDict,
     TypeVar,
     Union,
     Protocol,
@@ -83,3 +88,62 @@ class NestedSequence(Protocol[_T_co]):
 
     def __len__(self, /) -> int:
         ...
+
+
+class Info(Protocol):
+    """Namespace returned by `__array_namespace_info__`."""
+
+    def capabilities(self) -> Capabilities:
+        ...
+
+    def default_device(self) -> device:
+        ...
+
+    def default_dtypes(self, *, device: Optional[device]) -> DefaultDataTypes:
+        ...
+
+    def devices(self) -> List[device]:
+        ...
+
+    def dtypes(
+        self, *, device: Optional[device], kind: Optional[Union[str, Tuple[str, ...]]]
+    ) -> DataTypes:
+        ...
+
+
+DefaultDataTypes = TypedDict(
+    "DefaultDataTypes",
+    {
+        "real floating": dtype,
+        "complex floating": dtype,
+        "integral": dtype,
+        "indexing": dtype,
+    },
+)
+DataTypes = TypedDict(
+    "DataTypes",
+    {
+        "bool": dtype,
+        "float32": dtype,
+        "float64": dtype,
+        "complex64": dtype,
+        "complex128": dtype,
+        "int8": dtype,
+        "int16": dtype,
+        "int32": dtype,
+        "int64": dtype,
+        "uint8": dtype,
+        "uint16": dtype,
+        "uint32": dtype,
+        "uint64": dtype,
+    },
+    total=False,
+)
+Capabilities = TypedDict(
+    "Capabilities",
+    {
+        "boolean indexing": bool,
+        "data-dependent shapes": bool,
+        "max rank": Optional[int],
+    },
+)

@@ -46,6 +46,7 @@ Objects in API
    floor_divide
    greater
    greater_equal
+   hypot
    imag
    isfinite
    isinf
@@ -65,10 +66,12 @@ Objects in API
    minimum
    multiply
    negative
+   nextafter
    not_equal
    positive
    pow
    real
+   reciprocal
    remainder
    round
    sign
