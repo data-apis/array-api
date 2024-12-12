@@ -69,7 +69,7 @@ def where(condition: array, x1: array, x2: array, /) -> array:
     Parameters
     ----------
     condition: array
-        when ``True``, yield ``x1_i``; otherwise, yield ``x2_i``. Must be compatible with ``x1`` and ``x2`` (see :ref:`broadcasting`).
+        when ``True``, yield ``x1_i``; otherwise, yield ``x2_i``. Should have a boolean data type. Must be compatible with ``x1`` and ``x2`` (see :ref:`broadcasting`).
     x1: array
         first input array. Must be compatible with ``condition`` and ``x2`` (see :ref:`broadcasting`).
     x2: array
