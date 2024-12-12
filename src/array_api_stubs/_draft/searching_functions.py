@@ -155,7 +155,7 @@ def top_k(
     mode: Literal["largest", "smallest"] = "largest",
 ) -> Tuple[array, array]:
     """
-    Returns the ``k`` largest (or smallest) elements of an input array ``x`` along a specified dimension.
+    Returns the values and indices of the ``k`` largest (or smallest) elements of an input array ``x`` along a specified dimension.
 
     Parameters
     ----------
