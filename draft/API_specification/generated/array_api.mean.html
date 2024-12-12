@@ -469,7 +469,7 @@
 <dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>x</strong> (<em>array</em>) – input array. Should have a real-valued floating-point data type.</p></li>
+<li><p><strong>x</strong> (<em>array</em>) – input array. Should have a floating-point data type.</p></li>
 <li><p><strong>axis</strong> (<em>Optional</em><em>[</em><em>Union</em><em>[</em><em>int</em><em>, </em><em>Tuple</em><em>[</em><em>int</em><em>, </em><em>...</em><em>]</em><em>]</em><em>]</em>) – axis or axes along which arithmetic means must be computed. By default, the mean must be computed over the entire array. If a tuple of integers, arithmetic means must be computed over multiple axes. Default: <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
 <li><p><strong>keepdims</strong> (<em>bool</em>) – if <code class="docutils literal notranslate"><span class="pre">True</span></code>, the reduced axes (dimensions) must be included in the result as singleton dimensions, and, accordingly, the result must be compatible with the input array (see <a class="reference internal" href="../broadcasting.html#broadcasting"><span class="std std-ref">Broadcasting</span></a>). Otherwise, if <code class="docutils literal notranslate"><span class="pre">False</span></code>, the reduced axes (dimensions) must not be included in the result. Default: <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
 </ul>
@@ -478,17 +478,27 @@
 <dd class="field-even"><p><strong>out</strong> (<em>array</em>) – if the arithmetic mean was computed over the entire array, a zero-dimensional array containing the arithmetic mean; otherwise, a non-zero-dimensional array containing the arithmetic means. The returned array must have the same data type as <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>While this specification recommends that this function only accept input arrays having a real-valued floating-point data type, specification-compliant array libraries may choose to accept input arrays having an integer data type. While mixed data type promotion is implementation-defined, if the input array <code class="docutils literal notranslate"><span class="pre">x</span></code> has an integer data type, the returned array must have the default real-valued floating-point data type.</p>
+<p>While this specification recommends that this function only accept input arrays having a floating-point data type, specification-compliant array libraries may choose to accept input arrays having an integer data type. While mixed data type promotion is implementation-defined, if the input array <code class="docutils literal notranslate"><span class="pre">x</span></code> has an integer data type, the returned array must have the default real-valued floating-point data type.</p>
 </div>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
 <p><strong>Special Cases</strong></p>
-<p>Let <code class="docutils literal notranslate"><span class="pre">N</span></code> equal the number of elements over which to compute the arithmetic mean.</p>
+<p>Let <code class="docutils literal notranslate"><span class="pre">N</span></code> equal the number of elements over which to compute the arithmetic mean. For real-valued operands,</p>
 <ul class="simple">
 <li><p>If <code class="docutils literal notranslate"><span class="pre">N</span></code> is <code class="docutils literal notranslate"><span class="pre">0</span></code>, the arithmetic mean is <code class="docutils literal notranslate"><span class="pre">NaN</span></code>.</p></li>
 <li><p>If <code class="docutils literal notranslate"><span class="pre">x_i</span></code> is <code class="docutils literal notranslate"><span class="pre">NaN</span></code>, the arithmetic mean is <code class="docutils literal notranslate"><span class="pre">NaN</span></code> (i.e., <code class="docutils literal notranslate"><span class="pre">NaN</span></code> values propagate).</p></li>
 </ul>
+<p>For complex floating-point operands, real-valued floating-point special cases should independently apply to the real and imaginary component operations involving real numbers. For example, let <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">=</span> <span class="pre">real(x_i)</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span> <span class="pre">=</span> <span class="pre">imag(x_i)</span></code>, and</p>
+<ul class="simple">
+<li><p>If <code class="docutils literal notranslate"><span class="pre">N</span></code> is <code class="docutils literal notranslate"><span class="pre">0</span></code>, the arithmetic mean is <code class="docutils literal notranslate"><span class="pre">NaN</span> <span class="pre">+</span> <span class="pre">NaN</span> <span class="pre">j</span></code>.</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">a</span></code> is <code class="docutils literal notranslate"><span class="pre">NaN</span></code>, the real component of the result is <code class="docutils literal notranslate"><span class="pre">NaN</span></code>.</p></li>
+<li><p>Similarly, if <code class="docutils literal notranslate"><span class="pre">b</span></code> is <code class="docutils literal notranslate"><span class="pre">NaN</span></code>, the imaginary component of the result is <code class="docutils literal notranslate"><span class="pre">NaN</span></code>.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Array libraries, such as NumPy, PyTorch, and JAX, currently deviate from this specification in their handling of components which are <code class="docutils literal notranslate"><span class="pre">NaN</span></code> when computing the arithmetic mean. In general, consumers of array libraries implementing this specification should use <a class="reference internal" href="array_api.isnan.html#array_api.isnan" title="array_api.isnan"><code class="xref py py-func docutils literal notranslate"><span class="pre">isnan()</span></code></a> to test whether the result of computing the arithmetic mean over an array have a complex floating-point data type is <code class="docutils literal notranslate"><span class="pre">NaN</span></code>, rather than relying on <code class="docutils literal notranslate"><span class="pre">NaN</span></code> propagation of individual components.</p>
+</div>
 </dd></dl>
 </section>
 
