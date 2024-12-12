@@ -5,41 +5,41 @@ Data Types
 
     Array API specification for supported data types.
 
-A conforming implementation of the array API standard *must* provide and support
+A conforming implementation of the array API standard must provide and support
 the following data types ("dtypes") in its array object, and as data type
 objects in its main namespace under the specified names:
 
-+--------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| dtype object | description                                                                                                                                                                                  |
-+==============+==============================================================================================================================================================================================+
-| bool         | Boolean (``True`` or ``False``).                                                                                                                                                             |
-+--------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| int8         | An 8-bit signed integer whose values exist on the interval ``[-128, +127]``.                                                                                                                 |
-+--------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| int16        | A 16-bit signed integer whose values exist on the interval ``[−32,767, +32,767]``.                                                                                                           |
-+--------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| int32        | A 32-bit signed integer whose values exist on the interval ``[−2,147,483,647, +2,147,483,647]``.                                                                                             |
-+--------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| int64        | A 64-bit signed integer whose values exist on the interval ``[−9,223,372,036,854,775,807, +9,223,372,036,854,775,807]``.                                                                     |
-+--------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| uint8        | An 8-bit unsigned integer whose values exist on the interval ``[0, +255]``.                                                                                                                  |
-+--------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| uint16       | A 16-bit unsigned integer whose values exist on the interval ``[0, +65,535]``.                                                                                                               |
-+--------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| uint32       | A 32-bit unsigned integer whose values exist on the interval ``[0, +4,294,967,295]``.                                                                                                        |
-+--------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| uint64       | A 64-bit unsigned integer whose values exist on the interval ``[0, +18,446,744,073,709,551,615]``.                                                                                           |
-+--------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| float32      | IEEE 754 single-precision (32-bit) binary floating-point number (see IEEE 754-2019).                                                                                                         |
-+--------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| float64      | IEEE 754 double-precision (64-bit) binary floating-point number (see IEEE 754-2019).                                                                                                         |
-+--------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| complex64    | Single-precision (64-bit) complex floating-point number whose real and imaginary components *must* be IEEE 754 single-precision (32-bit) binary floating-point numbers (see IEEE 754-2019).  |
-+--------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| complex128   | Double-precision (128-bit) complex floating-point number whose real and imaginary components *must* be IEEE 754 double-precision (64-bit) binary floating-point numbers (see IEEE 754-2019). |
-+--------------+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
++--------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| dtype object | description                                                                                                                                                                                |
++==============+============================================================================================================================================================================================+
+| bool         | Boolean (``True`` or ``False``).                                                                                                                                                           |
++--------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| int8         | An 8-bit signed integer whose values exist on the interval ``[-128, +127]``.                                                                                                               |
++--------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| int16        | A 16-bit signed integer whose values exist on the interval ``[−32,767, +32,767]``.                                                                                                         |
++--------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| int32        | A 32-bit signed integer whose values exist on the interval ``[−2,147,483,647, +2,147,483,647]``.                                                                                           |
++--------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| int64        | A 64-bit signed integer whose values exist on the interval ``[−9,223,372,036,854,775,807, +9,223,372,036,854,775,807]``.                                                                   |
++--------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| uint8        | An 8-bit unsigned integer whose values exist on the interval ``[0, +255]``.                                                                                                                |
++--------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| uint16       | A 16-bit unsigned integer whose values exist on the interval ``[0, +65,535]``.                                                                                                             |
++--------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| uint32       | A 32-bit unsigned integer whose values exist on the interval ``[0, +4,294,967,295]``.                                                                                                      |
++--------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| uint64       | A 64-bit unsigned integer whose values exist on the interval ``[0, +18,446,744,073,709,551,615]``.                                                                                         |
++--------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| float32      | IEEE 754 single-precision (32-bit) binary floating-point number (see IEEE 754-2019).                                                                                                       |
++--------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| float64      | IEEE 754 double-precision (64-bit) binary floating-point number (see IEEE 754-2019).                                                                                                       |
++--------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| complex64    | Single-precision (64-bit) complex floating-point number whose real and imaginary components must be IEEE 754 single-precision (32-bit) binary floating-point numbers (see IEEE 754-2019).  |
++--------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+| complex128   | Double-precision (128-bit) complex floating-point number whose real and imaginary components must be IEEE 754 double-precision (64-bit) binary floating-point numbers (see IEEE 754-2019). |
++--------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
-Data type objects *must* have the following methods (no attributes are required):
+Data type objects must have the following methods (no attributes are required):
 
 ..
   NOTE: please keep the functions in alphabetical order
@@ -89,28 +89,28 @@ See :ref:`type-promotion` for specification guidance describing the rules govern
 Default Data Types
 ------------------
 
-A conforming implementation of the array API standard *must* define the following default data types.
+A conforming implementation of the array API standard must define the following default data types.
 
 -   a default real-valued floating-point data type (either ``float32`` or ``float64``).
 -   a default complex floating-point data type (either ``complex64`` or ``complex128``).
 -   a default integer data type (either ``int32`` or ``int64``).
 -   a default array index data type (either ``int32`` or ``int64``).
 
-The default real-valued floating-point and complex floating-point data types *must* be the same across platforms.
+The default real-valued floating-point and complex floating-point data types must be the same across platforms.
 
-The default complex floating-point point data type *should* match the default real-valued floating-point data type. For example, if the default real-valued floating-point data type is ``float32``, the default complex floating-point data type *must* be ``complex64``. If the default real-valued floating-point data type is ``float64``, the default complex floating-point data type *must* be ``complex128``.
+The default complex floating-point point data type should match the default real-valued floating-point data type. For example, if the default real-valued floating-point data type is ``float32``, the default complex floating-point data type must be ``complex64``. If the default real-valued floating-point data type is ``float64``, the default complex floating-point data type must be ``complex128``.
 
-The default integer data type *should* be the same across platforms, but the default may vary depending on whether Python is 32-bit or 64-bit.
+The default integer data type should be the same across platforms, but the default may vary depending on whether Python is 32-bit or 64-bit.
 
-The default array index data type may be ``int32`` on 32-bit platforms, but the default *should* be ``int64`` otherwise.
+The default array index data type may be ``int32`` on 32-bit platforms, but the default should be ``int64`` otherwise.
 
 Note that it is possible that a library supports multiple devices, with not all
 those device types supporting the same data types. In this case, the default
 integer or floating-point data types may vary with device. If that is the case,
-the library *should* clearly warn about this in its documentation.
+the library should clearly warn about this in its documentation.
 
 .. note::
-   The default data types *should* be clearly defined in a conforming library's documentation.
+   The default data types should be clearly defined in a conforming library's documentation.
 
 
 .. _data-type-categories:

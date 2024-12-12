@@ -37,7 +37,7 @@ In contrast to real-valued floating-point numbers which have well-defined behavi
 Complex Number Ordering
 -----------------------
 
-Given a set :math:`\{a_1, \ldots, a_n\}`, an order relation *must* satisfy the following properties:
+Given a set :math:`\{a_1, \ldots, a_n\}`, an order relation must satisfy the following properties:
 
 1. **Reflexive**: for any :math:`a` in the set, :math:`a \leq a`.
 2. **Transitive**: for any :math:`a`, :math:`b`, and :math:`c` in the set, if :math:`a \leq b` and :math:`b \leq c`, then :math:`a \leq c`.
@@ -50,7 +50,7 @@ Defining an order relation for complex numbers which satisfies all six propertie
 
 In order to satisfy backward compatibility guarantees, conforming implementations of the array API standard may choose to define an ordering for complex numbers (e.g., lexicographic); however, consumers of the array API standard should **not** assume that complex number ordering is consistent between implementations or even supported.
 
-If a conforming implementation chooses to define an ordering for complex numbers, the ordering *must* be clearly documented.
+If a conforming implementation chooses to define an ordering for complex numbers, the ordering must be clearly documented.
 
 
 Valued-based Promotion
@@ -58,4 +58,4 @@ Valued-based Promotion
 
 According to the type promotion rules described in this specification (see :ref:`type-promotion`), only the data types of the input arrays participating in an operation matter, not their values. The same principle applies to situations in which one or more results of operations on real-valued arrays are mathematically defined in the complex domain, but not in their real domain.
 
-By convention, the principal square root of :math:`-1` is :math:`j`, where :math:`j` is the imaginary unit. Despite this convention, for those operations supporting type promotion, conforming implementations *must* only consider input array data types when determining the data type of the output array. For example, if a real-valued input array is provided to :func:`~array_api.sqrt`, the output array *must* also be real-valued, even if the input array contains negative values. Accordingly, if a consumer of a conforming implementation of this specification desires for an operation's results to include the complex domain, the consumer *should* first cast the input array(s) to an appropriate complex floating-point data type before performing the operation.
+By convention, the principal square root of :math:`-1` is :math:`j`, where :math:`j` is the imaginary unit. Despite this convention, for those operations supporting type promotion, conforming implementations must only consider input array data types when determining the data type of the output array. For example, if a real-valued input array is provided to :func:`~array_api.sqrt`, the output array must also be real-valued, even if the input array contains negative values. Accordingly, if a consumer of a conforming implementation of this specification desires for an operation's results to include the complex domain, the consumer should first cast the input array(s) to an appropriate complex floating-point data type before performing the operation.

@@ -19,7 +19,7 @@ Given an element-wise operation involving two compatible arrays, an array having
 
 If two arrays are of unequal rank, the array having a lower rank is promoted to a higher rank by (virtually) prepending singleton dimensions until the number of dimensions matches that of the array having a higher rank.
 
-The results of the element-wise operation *must* be stored in an array having a shape determined by the following algorithm.
+The results of the element-wise operation must be stored in an array having a shape determined by the following algorithm.
 
 #.  Let ``A`` and ``B`` both be arrays.
 
@@ -112,7 +112,7 @@ The following examples demonstrate array shapes which do **not** broadcast.
 In-place Semantics
 ------------------
 
-As implied by the broadcasting algorithm, in-place element-wise operations (including ``__setitem__``) *must not* change the shape of the in-place array as a result of broadcasting. Such operations should only be supported in the case where the right-hand operand can broadcast to the shape of the left-hand operand, after any indexing operations are performed.
+As implied by the broadcasting algorithm, in-place element-wise operations (including ``__setitem__``) must not change the shape of the in-place array as a result of broadcasting. Such operations should only be supported in the case where the right-hand operand can broadcast to the shape of the left-hand operand, after any indexing operations are performed.
 
 For example:
 

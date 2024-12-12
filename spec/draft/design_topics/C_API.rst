@@ -19,7 +19,7 @@ to the supported array type.
    Often a zero-copy conversion to ``numpy.ndarray`` is possible, at least for CPU arrays.
    If that's the case, this may be a good way to support other array types.
    The main difficulty in that case will be getting the return array type right - however,
-   this standard does provide a Python-level API for array construction that *should* allow
+   this standard does provide a Python-level API for array construction that should allow
    doing this. A relevant question is if it's possible to know with
    certainty that a conversion will be zero-copy. This may indeed be
    possible, see :ref:`data-interchange`.

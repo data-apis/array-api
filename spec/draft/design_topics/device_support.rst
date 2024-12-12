@@ -78,7 +78,7 @@ rather than hard requirements:
 - Preserve device assignment as much as possible (e.g. output arrays from a function are expected to be on the same device as input arrays to the function).
 - Raise an exception if an operation involves arrays on different devices (i.e. avoid implicit data transfer between devices).
 - Use a default for ``device=None`` which is consistent between functions within the same library.
-- If a library has multiple ways of controlling device placement, the most explicit method *should* have the highest priority. For example:
+- If a library has multiple ways of controlling device placement, the most explicit method should have the highest priority. For example:
 
   1. If ``device=`` keyword is specified, that always takes precedence
 

@@ -5,7 +5,7 @@ Function and method signatures
 
 Function signatures in this standard adhere to the following:
 
-1. Positional parameters *should* be `positional-only <https://www.python.org/dev/peps/pep-0570/>`_ parameters.
+1. Positional parameters should be `positional-only <https://www.python.org/dev/peps/pep-0570/>`_ parameters.
    Positional-only parameters have no externally-usable name. When a function
    accepting positional-only parameters is called, positional arguments are
    mapped to these parameters based solely on their order.
@@ -20,7 +20,7 @@ Function signatures in this standard adhere to the following:
     namespace >= 3.8. Alternatively, they can add guidance to their users in the
     documentation to use the functions as if they were positional-only.
 
-2. Optional parameters *should* be `keyword-only <https://www.python.org/dev/peps/pep-3102/>`_ arguments.
+2. Optional parameters should be `keyword-only <https://www.python.org/dev/peps/pep-3102/>`_ arguments.
 
    *Rationale: this leads to more readable code, and it makes it easier to
    evolve an API over time by adding keywords without having to worry about
