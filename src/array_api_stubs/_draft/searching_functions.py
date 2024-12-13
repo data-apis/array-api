@@ -18,14 +18,14 @@ def argmax(x: array, /, *, axis: Optional[int] = None, keepdims: bool = False) -
     x: array
         input array. Should have a real-valued data type.
     axis: Optional[int]
-        axis along which to search. If ``None``, the function must return the index of the maximum value of the flattened array. Default: ``None``.
+        axis along which to search. If ``None``, the function *must* return the index of the maximum value of the flattened array. Default: ``None``.
     keepdims: bool
-        if ``True``, the reduced axes (dimensions) must be included in the result as singleton dimensions, and, accordingly, the result must be compatible with the input array (see :ref:`broadcasting`). Otherwise, if ``False``, the reduced axes (dimensions) must not be included in the result. Default: ``False``.
+        if ``True``, the reduced axes (dimensions) must be included in the result as singleton dimensions, and, accordingly, the result must be compatible with the input array (see :ref:`broadcasting`). Otherwise, if ``False``, the reduced axes (dimensions) *must not* be included in the result. Default: ``False``.
 
     Returns
     -------
     out: array
-        if ``axis`` is ``None``, a zero-dimensional array containing the index of the first occurrence of the maximum value; otherwise, a non-zero-dimensional array containing the indices of the maximum values. The returned array must have be the default array index data type.
+        if ``axis`` is ``None``, a zero-dimensional array containing the index of the first occurrence of the maximum value; otherwise, a non-zero-dimensional array containing the indices of the maximum values. The returned array *must* have be the default array index data type.
     """
 
 
@@ -43,14 +43,14 @@ def argmin(x: array, /, *, axis: Optional[int] = None, keepdims: bool = False) -
     x: array
         input array. Should have a real-valued data type.
     axis: Optional[int]
-        axis along which to search. If ``None``, the function must return the index of the minimum value of the flattened array. Default: ``None``.
+        axis along which to search. If ``None``, the function *must* return the index of the minimum value of the flattened array. Default: ``None``.
     keepdims: bool
-        if ``True``, the reduced axes (dimensions) must be included in the result as singleton dimensions, and, accordingly, the result must be compatible with the input array (see :ref:`broadcasting`). Otherwise, if ``False``, the reduced axes (dimensions) must not be included in the result. Default: ``False``.
+        if ``True``, the reduced axes (dimensions) must be included in the result as singleton dimensions, and, accordingly, the result must be compatible with the input array (see :ref:`broadcasting`). Otherwise, if ``False``, the reduced axes (dimensions) *must not* be included in the result. Default: ``False``.
 
     Returns
     -------
     out: array
-        if ``axis`` is ``None``, a zero-dimensional array containing the index of the first occurrence of the minimum value; otherwise, a non-zero-dimensional array containing the indices of the minimum values. The returned array must have the default array index data type.
+        if ``axis`` is ``None``, a zero-dimensional array containing the index of the first occurrence of the minimum value; otherwise, a non-zero-dimensional array containing the indices of the minimum values. The returned array *must* have the default array index data type.
     """
 
 
@@ -98,12 +98,12 @@ def nonzero(x: array, /) -> Tuple[array, ...]:
     Parameters
     ----------
     x: array
-        input array. Must have a positive rank. If ``x`` is zero-dimensional, the function must raise an exception.
+        input array. Must have a positive rank. If ``x`` is zero-dimensional, the function *must* raise an exception.
 
     Returns
     -------
     out: Tuple[array, ...]
-        a tuple of ``k`` arrays, one for each dimension of ``x`` and each of size ``n`` (where ``n`` is the total number of non-zero elements), containing the indices of the non-zero elements in that dimension. The indices must be returned in row-major, C-style order. The returned array must have the default array index data type.
+        a tuple of ``k`` arrays, one for each dimension of ``x`` and each of size ``n`` (where ``n`` is the total number of non-zero elements), containing the indices of the non-zero elements in that dimension. The indices *must* be returned in row-major, C-style order. The returned array *must* have the default array index data type.
 
     Notes
     -----
@@ -130,7 +130,7 @@ def searchsorted(
     Parameters
     ----------
     x1: array
-        input array. Must be a one-dimensional array. Should have a real-valued data type. If ``sorter`` is ``None``, must be sorted in ascending order; otherwise, ``sorter`` must be an array of indices that sort ``x1`` in ascending order.
+        input array. Must be a one-dimensional array. Should have a real-valued data type. If ``sorter`` is ``None``, *must* be sorted in ascending order; otherwise, ``sorter`` *must* be an array of indices that sort ``x1`` in ascending order.
     x2: array
         array containing search values. Should have a real-valued data type.
     side: Literal['left', 'right']
@@ -140,29 +140,29 @@ def searchsorted(
 
         If ``side == 'left'``, then
 
-        - each returned index ``i`` must satisfy the index condition ``x1[i-1] < v <= x1[i]``.
-        - if no index satisfies the index condition, then the returned index for that element must be ``0``.
+        - each returned index ``i`` *must* satisfy the index condition ``x1[i-1] < v <= x1[i]``.
+        - if no index satisfies the index condition, then the returned index for that element *must* be ``0``.
 
         Otherwise, if ``side == 'right'``, then
 
-        - each returned index ``i`` must satisfy the index condition ``x1[i-1] <= v < x1[i]``.
-        - if no index satisfies the index condition, then the returned index for that element must be ``N``, where ``N`` is the number of elements in ``x1``.
+        - each returned index ``i`` *must* satisfy the index condition ``x1[i-1] <= v < x1[i]``.
+        - if no index satisfies the index condition, then the returned index for that element *must* be ``N``, where ``N`` is the number of elements in ``x1``.
 
         Default: ``'left'``.
     sorter: Optional[array]
-        array of indices that sort ``x1`` in ascending order. The array must have the same shape as ``x1`` and have an integer data type. Default: ``None``.
+        array of indices that sort ``x1`` in ascending order. The array *must* have the same shape as ``x1`` and have an integer data type. Default: ``None``.
 
     Returns
     -------
     out: array
-        an array of indices with the same shape as ``x2``. The returned array must have the default array index data type.
+        an array of indices with the same shape as ``x2``. The returned array *must* have the default array index data type.
 
     Notes
     -----
 
     For real-valued floating-point arrays, the sort order of NaNs and signed zeros is unspecified and thus implementation-dependent. Accordingly, when a real-valued floating-point array contains NaNs and signed zeros, what constitutes ascending order may vary among specification-conforming array libraries.
 
-    While behavior for arrays containing NaNs and signed zeros is implementation-dependent, specification-conforming libraries should, however, ensure consistency with ``sort`` and ``argsort`` (i.e., if a value in ``x2`` is inserted into ``x1`` according to the corresponding index in the output array and ``sort`` is invoked on the resultant array, the sorted result should be an array in the same order).
+    While behavior for arrays containing NaNs and signed zeros is implementation-dependent, specification-conforming libraries *should*, however, ensure consistency with ``sort`` and ``argsort`` (i.e., if a value in ``x2`` is inserted into ``x1`` according to the corresponding index in the output array and ``sort`` is invoked on the resultant array, the sorted result *should* be an array in the same order).
 
     .. versionadded:: 2023.12
     """
@@ -184,5 +184,5 @@ def where(condition: array, x1: array, x2: array, /) -> array:
     Returns
     -------
     out: array
-        an array with elements from ``x1`` where ``condition`` is ``True``, and elements from ``x2`` elsewhere. The returned array must have a data type determined by :ref:`type-promotion` rules with the arrays ``x1`` and ``x2``.
+        an array with elements from ``x1`` where ``condition`` is ``True``, and elements from ``x2`` elsewhere. The returned array *must* have a data type determined by :ref:`type-promotion` rules with the arrays ``x1`` and ``x2``.
     """
