@@ -1,4 +1,12 @@
 repos:
+  # run .pre-commit/update_array_namespace.py
+  - repo: local
+    hooks:
+      - id: update-array-namespace
+        name: Update array namespace
+        entry: .pre-commit/update_array_namespace.py
+        language: python
+
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.4.0
     hooks:
@@ -48,3 +56,13 @@ repos:
     rev: 23.7.0
     hooks:
       - id: black
+
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: "v1.0.0"
+    hooks:
+      - id: mypy
+        additional_dependencies: [typing_extensions>=4.4.0]
+        args:
+          - --ignore-missing-imports
+          - --config=pyproject.toml
+        files: ".*(_draft.*)$"
