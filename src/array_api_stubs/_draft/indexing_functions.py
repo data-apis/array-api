@@ -33,10 +33,15 @@ def take(x: array, indices: array, /, *, axis: Optional[int] = None) -> array:
     Notes
     -----
 
+    Behavior for 0-dimensional arrays is unspecified.
+
     .. versionadded:: 2022.12
 
     .. versionchanged:: 2023.12
        Out-of-bounds behavior is explicitly left unspecified.
+
+    .. versionchanged:: 2024.12
+       Behavior for 0-dimensional arrays is explicitly left unspecified.
     """
 
 
