@@ -49,7 +49,7 @@
   
   
     <title>from_dlpack &#8212; Python array API standard 2023.12 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=83e35b93" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=75810a84" />
     <link rel="stylesheet" type="text/css" href="../../_static/material.css?v=79c92029" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=e159c6a3" />
@@ -507,7 +507,7 @@ enable this support but <code class="docutils literal notranslate"><span class="
 order to handle DLPack versioning correctly.</p>
 <p>A way to move data from two array libraries to the same device (assumed supported by both libraries) in
 a library-agnostic fashion is illustrated below:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
     <span class="n">xp_x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">__array_namespace__</span><span class="p">()</span>
     <span class="n">xp_y</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">__array_namespace__</span><span class="p">()</span>
 

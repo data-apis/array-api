@@ -49,7 +49,7 @@
   
   
     <title>Use cases &#8212; Python array API standard DRAFT documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=83e35b93" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=75810a84" />
     <link rel="stylesheet" type="text/css" href="_static/material.css?v=79c92029" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=e159c6a3" />
@@ -449,7 +449,7 @@ module that implements the array API standard for the given input array type,
 and then functions from that module could be used instead of NumPy functions.</p>
 <p>If the user has another array type, say a CuPy or PyTorch array <code class="docutils literal notranslate"><span class="pre">x</span></code> on their
 GPU, doing:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">signal</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">signal</span>
 
 <span class="n">signal</span><span class="o">.</span><span class="n">welch</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
@@ -499,7 +499,7 @@ contains the glue code needed to support that many array libraries.</p></li>
 </ul>
 <p>The amount of code in each of those two files is almost the same (~550 LoC each).
 The typical pattern in <code class="docutils literal notranslate"><span class="pre">einops.py</span></code> is:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">some_func</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">some_func</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="o">...</span>
     <span class="n">backend</span> <span class="o">=</span> <span class="n">get_backend</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
     <span class="n">shape</span> <span class="o">=</span> <span class="n">backend</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
@@ -571,7 +571,7 @@ returned value(s) depends only on the <em>types</em> of the input but not on the
 <p>A concrete goal for this use case is to have better matching between
 JIT-compiled and non-JIT execution. Here is an example from the Numba code
 base, the need for which should be avoided in the future:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">check</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">check</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
     <span class="n">got</span> <span class="o">=</span> <span class="n">cfunc</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
     <span class="n">np</span><span class="o">.</span><span class="n">testing</span><span class="o">.</span><span class="n">assert_array_almost_equal</span><span class="p">(</span><span class="n">got</span><span class="p">,</span> <span class="n">pyfunc</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">))</span>
     <span class="c1"># Check the power operation conserved the input's dtype</span>

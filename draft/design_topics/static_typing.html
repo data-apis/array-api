@@ -49,7 +49,7 @@
   
   
     <title>Static typing &#8212; Python array API standard DRAFT documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=83e35b93" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=75810a84" />
     <link rel="stylesheet" type="text/css" href="../_static/material.css?v=79c92029" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/css/custom.css?v=e159c6a3" />
@@ -416,7 +416,7 @@ object, or some superclass or typing Protocol - as long as it is consistent
 with the array object specified in <a class="reference internal" href="../API_specification/array_object.html#array-object"><span class="std std-ref">Array object</span></a>. To illustrate by
 example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># `Array` is a particular class in the library</span>
-<span class="k">def</span> <span class="nf">sin</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Array</span><span class="p">,</span> <span class="o">/</span> <span class="o">...</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Array</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">sin</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Array</span><span class="p">,</span> <span class="o">/</span> <span class="o">...</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Array</span><span class="p">:</span>
     <span class="o">...</span>
 </pre></div>
 </div>
@@ -424,7 +424,7 @@ example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># There's some base class `_BaseArray`, and there may be multiple</span>
 <span class="c1"># array subclasses inside the library</span>
 <span class="n">A</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s1">'A'</span><span class="p">,</span> <span class="n">bound</span><span class="o">=</span><span class="n">_BaseArray</span><span class="p">)</span>
-<span class="k">def</span> <span class="nf">sin</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">A</span><span class="p">,</span> <span class="o">/</span> <span class="o">...</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">A</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">sin</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">A</span><span class="p">,</span> <span class="o">/</span> <span class="o">...</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">A</span><span class="p">:</span>
     <span class="o">...</span>
 </pre></div>
 </div>

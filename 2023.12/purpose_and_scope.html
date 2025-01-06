@@ -49,7 +49,7 @@
   
   
     <title>Purpose and scope &#8212; Python array API standard 2023.12 documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=83e35b93" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=75810a84" />
     <link rel="stylesheet" type="text/css" href="_static/material.css?v=79c92029" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=e159c6a3" />
@@ -774,7 +774,7 @@ to check for compliance is by checking whether an array object has an
 an array-compliant object.</p>
 <p>Checking for an <code class="docutils literal notranslate"><span class="pre">__array_namespace__</span></code> attribute can be implemented as a small
 utility function similar to the following.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">is_array_api_obj</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">is_array_api_obj</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="s1">'__array_namespace__'</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -806,7 +806,7 @@ mandate providing an entry point.</p>
 </div>
 <p>The following code is an example for how one can discover installed
 conforming libraries:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">importlib.metadata</span> <span class="kn">import</span> <span class="n">entry_points</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">importlib.metadata</span><span class="w"> </span><span class="kn">import</span> <span class="n">entry_points</span>
 
 <span class="k">try</span><span class="p">:</span>
     <span class="n">eps</span> <span class="o">=</span> <span class="n">entry_points</span><span class="p">()[</span><span class="s1">'array_api'</span><span class="p">]</span>
