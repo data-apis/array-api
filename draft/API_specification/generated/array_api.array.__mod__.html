@@ -466,10 +466,6 @@
 <dt class="sig sig-object py" id="array_api.array.__mod__">
 <span class="sig-prename descclassname"><span class="pre">array.</span></span><span class="sig-name descname"><span class="pre">__mod__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">array</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">array</span></span></span><a class="headerlink" href="#array_api.array.__mod__" title="Link to this definition">¶</a></dt>
 <dd><p>Evaluates <code class="docutils literal notranslate"><span class="pre">self_i</span> <span class="pre">%</span> <span class="pre">other_i</span></code> for each element of an array instance with the respective element of the array <code class="docutils literal notranslate"><span class="pre">other</span></code>.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>For input arrays which promote to an integer data type, the result of division by zero is unspecified and thus implementation-defined.</p>
-</div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -481,10 +477,11 @@
 <dd class="field-even"><p><strong>out</strong> (<em>array</em>) – an array containing the element-wise results. Each element-wise result must have the same sign as the respective element <code class="docutils literal notranslate"><span class="pre">other_i</span></code>. The returned array must have a real-valued floating-point data type determined by <a class="reference internal" href="../type_promotion.html#type-promotion"><span class="std std-ref">Type Promotion Rules</span></a>.</p>
 </dd>
 </dl>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Element-wise results, including special cases, must equal the results returned by the equivalent element-wise function <a class="reference internal" href="array_api.remainder.html#array_api.remainder" title="array_api.remainder"><code class="xref py py-func docutils literal notranslate"><span class="pre">remainder()</span></code></a>.</p>
-</div>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>Element-wise results, including special cases, must equal the results returned by the equivalent element-wise function <a class="reference internal" href="array_api.remainder.html#array_api.remainder" title="array_api.remainder"><code class="xref py py-func docutils literal notranslate"><span class="pre">remainder()</span></code></a>.</p></li>
+<li><p>For input arrays which promote to an integer data type, the result of division by zero is unspecified and thus implementation-defined.</p></li>
+</ul>
 </dd></dl>
 </section>
 

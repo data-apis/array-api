@@ -464,13 +464,13 @@
 <h1 id="api-specification-generated-array-api-copysign--page-root">copysign<a class="headerlink" href="#api-specification-generated-array-api-copysign--page-root" title="Link to this heading">¶</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="array_api.copysign">
-<span class="sig-name descname"><span class="pre">copysign</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">array</span></span></span><a class="headerlink" href="#array_api.copysign" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">copysign</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">array</span></span></span><a class="headerlink" href="#array_api.copysign" title="Link to this definition">¶</a></dt>
 <dd><p>Composes a floating-point value with the magnitude of <code class="docutils literal notranslate"><span class="pre">x1_i</span></code> and the sign of <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> for each element of the input array <code class="docutils literal notranslate"><span class="pre">x1</span></code>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>x1</strong> (<em>array</em>) – input array containing magnitudes. Should have a real-valued floating-point data type.</p></li>
-<li><p><strong>x2</strong> (<em>array</em>) – input array whose sign bits are applied to the magnitudes of <code class="docutils literal notranslate"><span class="pre">x1</span></code>. Must be compatible with <code class="docutils literal notranslate"><span class="pre">x1</span></code> (see <a class="reference internal" href="../broadcasting.html#broadcasting"><span class="std std-ref">Broadcasting</span></a>). Should have a real-valued floating-point data type.</p></li>
+<li><p><strong>x1</strong> (<em>Union</em><em>[</em><em>array</em><em>, </em><em>int</em><em>, </em><em>float</em><em>]</em>) – input array containing magnitudes. Should have a real-valued floating-point data type.</p></li>
+<li><p><strong>x2</strong> (<em>Union</em><em>[</em><em>array</em><em>, </em><em>int</em><em>, </em><em>float</em><em>]</em>) – input array whose sign bits are applied to the magnitudes of <code class="docutils literal notranslate"><span class="pre">x1</span></code>. Must be compatible with <code class="docutils literal notranslate"><span class="pre">x1</span></code> (see <a class="reference internal" href="../broadcasting.html#broadcasting"><span class="std std-ref">Broadcasting</span></a>). Should have a real-valued floating-point data type.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -478,6 +478,9 @@
 </dd>
 </dl>
 <p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>At least one of <code class="docutils literal notranslate"><span class="pre">x1</span></code> or <code class="docutils literal notranslate"><span class="pre">x2</span></code> must be an array.</p></li>
+</ul>
 <p><strong>Special cases</strong></p>
 <p>For real-valued floating-point operands, let <code class="docutils literal notranslate"><span class="pre">|x|</span></code> be the absolute value, and if <code class="docutils literal notranslate"><span class="pre">x1_i</span></code> is not <code class="docutils literal notranslate"><span class="pre">NaN</span></code>,</p>
 <ul class="simple">

@@ -464,18 +464,13 @@
 <h1 id="api-specification-generated-array-api-array-truediv--page-root">__truediv__<a class="headerlink" href="#api-specification-generated-array-api-array-truediv--page-root" title="Link to this heading">¶</a></h1>
 <dl class="py method">
 <dt class="sig sig-object py" id="array_api.array.__truediv__">
-<span class="sig-prename descclassname"><span class="pre">array.</span></span><span class="sig-name descname"><span class="pre">__truediv__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">array</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">array</span></span></span><a class="headerlink" href="#array_api.array.__truediv__" title="Link to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">array.</span></span><span class="sig-name descname"><span class="pre">__truediv__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">complex</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">array</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">array</span></span></span><a class="headerlink" href="#array_api.array.__truediv__" title="Link to this definition">¶</a></dt>
 <dd><p>Evaluates <code class="docutils literal notranslate"><span class="pre">self_i</span> <span class="pre">/</span> <span class="pre">other_i</span></code> for each element of an array instance with the respective element of the array <code class="docutils literal notranslate"><span class="pre">other</span></code>.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If one or both of <code class="docutils literal notranslate"><span class="pre">self</span></code> and <code class="docutils literal notranslate"><span class="pre">other</span></code> have integer data types, the result is implementation-dependent, as type promotion between data type “kinds” (e.g., integer versus floating-point) is unspecified.</p>
-<p>Specification-compliant libraries may choose to raise an error or return an array containing the element-wise results. If an array is returned, the array must have a real-valued floating-point data type.</p>
-</div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>self</strong> (<em>array</em>) – array instance. Should have a numeric data type.</p></li>
-<li><p><strong>other</strong> (<em>Union</em><em>[</em><em>int</em><em>, </em><em>float</em><em>, </em><em>array</em><em>]</em>) – other array. Must be compatible with <code class="docutils literal notranslate"><span class="pre">self</span></code> (see <a class="reference internal" href="../broadcasting.html#broadcasting"><span class="std std-ref">Broadcasting</span></a>). Should have a numeric data type.</p></li>
+<li><p><strong>other</strong> (<em>Union</em><em>[</em><em>int</em><em>, </em><em>float</em><em>, </em><em>complex</em><em>, </em><em>array</em><em>]</em>) – other array. Must be compatible with <code class="docutils literal notranslate"><span class="pre">self</span></code> (see <a class="reference internal" href="../broadcasting.html#broadcasting"><span class="std std-ref">Broadcasting</span></a>). Should have a numeric data type.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -483,10 +478,12 @@
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Element-wise results, including special cases, must equal the results returned by the equivalent element-wise function <a class="reference internal" href="array_api.divide.html#array_api.divide" title="array_api.divide"><code class="xref py py-func docutils literal notranslate"><span class="pre">divide()</span></code></a>.</p>
-</div>
+<ul>
+<li><p>Element-wise results, including special cases, must equal the results returned by the equivalent element-wise function <a class="reference internal" href="array_api.divide.html#array_api.divide" title="array_api.divide"><code class="xref py py-func docutils literal notranslate"><span class="pre">divide()</span></code></a>.</p></li>
+<li><p>If one or both of <code class="docutils literal notranslate"><span class="pre">self</span></code> and <code class="docutils literal notranslate"><span class="pre">other</span></code> have integer data types, the result is implementation-dependent, as type promotion between data type “kinds” (e.g., integer versus floating-point) is unspecified.</p>
+<p>Specification-compliant libraries may choose to raise an error or return an array containing the element-wise results. If an array is returned, the array must have a real-valued floating-point data type.</p>
+</li>
+</ul>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Changed in version 2022.12: </span>Added complex data type support.</p>
 </div>

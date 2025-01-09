@@ -464,13 +464,13 @@
 <h1 id="api-specification-generated-array-api-minimum--page-root">minimum<a class="headerlink" href="#api-specification-generated-array-api-minimum--page-root" title="Link to this heading">¶</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="array_api.minimum">
-<span class="sig-name descname"><span class="pre">minimum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">array</span></span></span><a class="headerlink" href="#array_api.minimum" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">minimum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">array</span></span></span><a class="headerlink" href="#array_api.minimum" title="Link to this definition">¶</a></dt>
 <dd><p>Computes the minimum value for each element <code class="docutils literal notranslate"><span class="pre">x1_i</span></code> of the input array <code class="docutils literal notranslate"><span class="pre">x1</span></code> relative to the respective element <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> of the input array <code class="docutils literal notranslate"><span class="pre">x2</span></code>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>x1</strong> (<em>array</em>) – first input array. Should have a real-valued data type.</p></li>
-<li><p><strong>x2</strong> (<em>array</em>) – second input array. Must be compatible with <code class="docutils literal notranslate"><span class="pre">x1</span></code> (see <a class="reference internal" href="../broadcasting.html#broadcasting"><span class="std std-ref">Broadcasting</span></a>). Should have a real-valued data type.</p></li>
+<li><p><strong>x1</strong> (<em>Union</em><em>[</em><em>array</em><em>, </em><em>int</em><em>, </em><em>float</em><em>]</em>) – first input array. Should have a real-valued data type.</p></li>
+<li><p><strong>x2</strong> (<em>Union</em><em>[</em><em>array</em><em>, </em><em>int</em><em>, </em><em>float</em><em>]</em>) – second input array. Must be compatible with <code class="docutils literal notranslate"><span class="pre">x1</span></code> (see <a class="reference internal" href="../broadcasting.html#broadcasting"><span class="std std-ref">Broadcasting</span></a>). Should have a real-valued data type.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -478,8 +478,11 @@
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p>The order of signed zeros is unspecified and thus implementation-defined. When choosing between <code class="docutils literal notranslate"><span class="pre">-0</span></code> or <code class="docutils literal notranslate"><span class="pre">+0</span></code> as a minimum value, specification-compliant libraries may choose to return either value.</p>
-<p>For backward compatibility, conforming implementations may support complex numbers; however, inequality comparison of complex numbers is unspecified and thus implementation-defined (see <a class="reference internal" href="../../design_topics/complex_numbers.html#complex-number-ordering"><span class="std std-ref">Complex Number Ordering</span></a>).</p>
+<ul class="simple">
+<li><p>At least one of <code class="docutils literal notranslate"><span class="pre">x1</span></code> or <code class="docutils literal notranslate"><span class="pre">x2</span></code> must be an array.</p></li>
+<li><p>The order of signed zeros is unspecified and thus implementation-defined. When choosing between <code class="docutils literal notranslate"><span class="pre">-0</span></code> or <code class="docutils literal notranslate"><span class="pre">+0</span></code> as a minimum value, specification-compliant libraries may choose to return either value.</p></li>
+<li><p>For backward compatibility, conforming implementations may support complex numbers; however, inequality comparison of complex numbers is unspecified and thus implementation-defined (see <a class="reference internal" href="../../design_topics/complex_numbers.html#complex-number-ordering"><span class="std std-ref">Complex Number Ordering</span></a>).</p></li>
+</ul>
 <p><strong>Special Cases</strong></p>
 <p>For floating-point operands,</p>
 <ul class="simple">

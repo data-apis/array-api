@@ -466,10 +466,6 @@
 <dt class="sig sig-object py" id="array_api.array.__lt__">
 <span class="sig-prename descclassname"><span class="pre">array.</span></span><span class="sig-name descname"><span class="pre">__lt__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">other</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">array</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">array</span></span></span><a class="headerlink" href="#array_api.array.__lt__" title="Link to this definition">¶</a></dt>
 <dd><p>Computes the truth value of <code class="docutils literal notranslate"><span class="pre">self_i</span> <span class="pre">&lt;</span> <span class="pre">other_i</span></code> for each element of an array instance with the respective element of the array <code class="docutils literal notranslate"><span class="pre">other</span></code>.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>For backward compatibility, conforming implementations may support complex numbers; however, inequality comparison of complex numbers is unspecified and thus implementation-dependent (see <a class="reference internal" href="../../design_topics/complex_numbers.html#complex-number-ordering"><span class="std std-ref">Complex Number Ordering</span></a>).</p>
-</div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -481,14 +477,12 @@
 <dd class="field-even"><p><strong>out</strong> (<em>array</em>) – an array containing the element-wise results. The returned array must have a data type of <code class="docutils literal notranslate"><span class="pre">bool</span></code>.</p>
 </dd>
 </dl>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Element-wise results must equal the results returned by the equivalent element-wise function <a class="reference internal" href="array_api.less.html#array_api.less" title="array_api.less"><code class="xref py py-func docutils literal notranslate"><span class="pre">less()</span></code></a>.</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Comparison of arrays without a corresponding promotable data type (see <a class="reference internal" href="../type_promotion.html#type-promotion"><span class="std std-ref">Type Promotion Rules</span></a>) is undefined and thus implementation-dependent.</p>
-</div>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>Element-wise results must equal the results returned by the equivalent element-wise function <a class="reference internal" href="array_api.less.html#array_api.less" title="array_api.less"><code class="xref py py-func docutils literal notranslate"><span class="pre">less()</span></code></a>.</p></li>
+<li><p>Comparison of arrays without a corresponding promotable data type (see <a class="reference internal" href="../type_promotion.html#type-promotion"><span class="std std-ref">Type Promotion Rules</span></a>) is undefined and thus implementation-dependent.</p></li>
+<li><p>For backward compatibility, conforming implementations may support complex numbers; however, inequality comparison of complex numbers is unspecified and thus implementation-dependent (see <a class="reference internal" href="../../design_topics/complex_numbers.html#complex-number-ordering"><span class="std std-ref">Complex Number Ordering</span></a>).</p></li>
+</ul>
 </dd></dl>
 </section>
 
