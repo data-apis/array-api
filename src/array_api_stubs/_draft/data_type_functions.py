@@ -13,10 +13,15 @@ from ._types import (
 
 
 def astype(
-    x: array, dtype: dtype, /, *, copy: bool = True, device: Optional[device] = None
+    x: array,
+    dtype: Union[dtype, str],
+    /,
+    *,
+    copy: bool = True,
+    device: Optional[device] = None,
 ) -> array:
     """
-    Copies an array to a specified data type irrespective of :ref:`type-promotion` rules.
+    Copies an array to a specified data type irrespective of :ref:`type-promotion` rules, or to a *kind* of data type.
 
     .. note::
        Casting floating-point ``NaN`` and ``infinity`` values to integral data types is not specified and is implementation-dependent.
@@ -40,8 +45,12 @@ def astype(
     ----------
     x: array
         array to cast.
-    dtype: dtype
-        desired data type.
+    dtype: Union[dtype, str]
+        desired data type or kind of data type. Supported kinds are:
+
+        -   ``'signed integer'``: signed integer data types (e.g., ``int8``, ``int16``, ``int32``, ``int64``).
+        -   ``'complex floating'``: complex floating-point data types (e.g., ``complex64``, ``complex128``).
+
     copy: bool
         specifies whether to copy an array when the specified ``dtype`` matches the data type of the input array ``x``. If ``True``, a newly allocated array must always be returned. If ``False`` and the specified ``dtype`` matches the data type of the input array, the input array must be returned; otherwise, a newly allocated array must be returned. Default: ``True``.
     device: Optional[device]
@@ -50,7 +59,15 @@ def astype(
     Returns
     -------
     out: array
-        an array having the specified data type. The returned array must have the same shape as ``x``.
+        For ``dtype`` a data type, an array having the specified data type.
+        For ``dtype`` a kind of data type:
+
+        -   If ``x.dtype`` is already of that kind, the data type must be maintained.
+        -   Otherwise, ``x`` should be cast to a data type of that kind, according to the type promotion rules (see :ref:`type-promotion`) and the above notes.
+        -   Kinds must be interpreted as the lowest-precision standard data type of that kind for the purposes of type promotion. For example, ``astype(x, 'complex floating')`` will return an array with the data type ``complex64`` when ``x.dtype`` is ``float32``, since ``complex64`` is the result of promoting ``float32`` with the lowest-precision standard complex data type, ``complex64``.
+        -   Where type promotion is unspecified and thus implementation-specific, the result is also unspecified. For example, ``astype(x, 'complex floating')``, where ``x`` has data type ``int32``.
+
+        The returned array must have the same shape as ``x``.
 
     Notes
     -----
