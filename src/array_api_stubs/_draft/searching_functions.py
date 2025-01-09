@@ -168,7 +168,12 @@ def searchsorted(
     """
 
 
-def where(condition: array, x1: array, x2: array, /) -> array:
+def where(
+    condition: array,
+    x1: Union[array, int, float, complex, bool],
+    x2: Union[array, int, float, complex, bool],
+    /,
+) -> array:
     """
     Returns elements chosen from ``x1`` or ``x2`` depending on ``condition``.
 
@@ -176,13 +181,22 @@ def where(condition: array, x1: array, x2: array, /) -> array:
     ----------
     condition: array
         when ``True``, yield ``x1_i``; otherwise, yield ``x2_i``. Should have a boolean data type. Must be compatible with ``x1`` and ``x2`` (see :ref:`broadcasting`).
-    x1: array
+    x1: Union[array, int, float, complex, bool]
         first input array. Must be compatible with ``condition`` and ``x2`` (see :ref:`broadcasting`).
-    x2: array
+    x2: Union[array, int, float, complex, bool]
         second input array. Must be compatible with ``condition`` and ``x1`` (see :ref:`broadcasting`).
 
     Returns
     -------
     out: array
         an array with elements from ``x1`` where ``condition`` is ``True``, and elements from ``x2`` elsewhere. The returned array must have a data type determined by :ref:`type-promotion` rules with the arrays ``x1`` and ``x2``.
+
+    Notes
+    -----
+
+    -   At least one of  ``x1`` and ``x2`` must be an array.
+    -   If either ``x1`` or ``x2`` is a scalar value, the returned array must have a data type determined according to :ref:`mixing-scalars-and-arrays`.
+
+    .. versionchanged:: 2024.12
+        Added support for scalar arguments.
     """
