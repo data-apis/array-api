@@ -209,20 +209,25 @@ def isdtype(
     """
 
 
-def result_type(*arrays_and_dtypes: Union[array, dtype]) -> dtype:
+def result_type(
+    *arrays_and_dtypes: Union[array, int, float, complex, bool, dtype]
+) -> dtype:
     """
-    Returns the dtype that results from applying the type promotion rules (see :ref:`type-promotion`) to the arguments.
-
-    .. note::
-       If provided mixed dtypes (e.g., integer and floating-point), the returned dtype will be implementation-specific.
+    Returns the dtype that results from applying type promotion rules (see :ref:`type-promotion`) to the arguments.
 
     Parameters
     ----------
-    arrays_and_dtypes: Union[array, dtype]
-        an arbitrary number of input arrays and/or dtypes.
+    arrays_and_dtypes: Union[array, int, float, complex, bool, dtype]
+        an arbitrary number of input arrays, scalars, and/or dtypes.
 
     Returns
     -------
     out: dtype
-        the dtype resulting from an operation involving the input arrays and dtypes.
+        the dtype resulting from an operation involving the input arrays, scalars, and/or dtypes.
+
+    Notes
+    -----
+
+    -   At least one argument must be an array or a dtype.
+    -   If provided array and/or dtype arguments having mixed data type kinds (e.g., integer and floating-point), the returned dtype is unspecified and is implementation-dependent.
     """

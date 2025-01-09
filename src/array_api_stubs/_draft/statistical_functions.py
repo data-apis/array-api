@@ -1,7 +1,69 @@
-__all__ = ["cumulative_sum", "max", "mean", "min", "prod", "std", "sum", "var"]
+__all__ = [
+    "cumulative_sum",
+    "cumulative_prod",
+    "max",
+    "mean",
+    "min",
+    "prod",
+    "std",
+    "sum",
+    "var",
+]
 
 
 from ._types import Optional, Tuple, Union, array, dtype
+
+
+def cumulative_prod(
+    x: array,
+    /,
+    *,
+    axis: Optional[int] = None,
+    dtype: Optional[dtype] = None,
+    include_initial: bool = False,
+) -> array:
+    """
+    Calculates the cumulative product of elements in the input array ``x``.
+
+    Parameters
+    ----------
+    x: array
+        input array. Should have one or more dimensions (axes). Should have a numeric data type.
+    axis: Optional[int]
+        axis along which a cumulative product must be computed. If ``axis`` is negative, the function must determine the axis along which to compute a cumulative product by counting from the last dimension.
+
+        If ``x`` is a one-dimensional array, providing an ``axis`` is optional; however, if ``x`` has more than one dimension, providing an ``axis`` is required.
+
+    dtype: Optional[dtype]
+        data type of the returned array. If ``None``, the returned array must have the same data type as ``x``, unless ``x`` has an integer data type supporting a smaller range of values than the default integer data type (e.g., ``x`` has an ``int16`` or ``uint32`` data type and the default integer data type is ``int64``). In those latter cases:
+
+        -   if ``x`` has a signed integer data type (e.g., ``int16``), the returned array must have the default integer data type.
+        -   if ``x`` has an unsigned integer data type (e.g., ``uint16``), the returned array must have an unsigned integer data type having the same number of bits as the default integer data type (e.g., if the default integer data type is ``int32``, the returned array must have a ``uint32`` data type).
+
+        If the data type (either specified or resolved) differs from the data type of ``x``, the input array should be cast to the specified data type before computing the product (rationale: the ``dtype`` keyword argument is intended to help prevent overflows). Default: ``None``.
+
+    include_initial: bool
+        boolean indicating whether to include the initial value as the first value in the output. By convention, the initial value must be the multiplicative identity (i.e., one). Default: ``False``.
+
+    Returns
+    -------
+    out: array
+        an array containing the cumulative products. The returned array must have a data type as described by the ``dtype`` parameter above.
+
+        Let ``N`` be the size of the axis along which to compute the cumulative product. The returned array must have a shape determined according to the following rules:
+
+        -   if ``include_initial`` is ``True``, the returned array must have the same shape as ``x``, except the size of the axis along which to compute the cumulative product must be ``N+1``.
+        -   if ``include_initial`` is ``False``, the returned array must have the same shape as ``x``.
+
+    Notes
+    -----
+
+    -   When ``x`` is a zero-dimensional array, behavior is unspecified and thus implementation-defined.
+
+    **Special Cases**
+
+    For both real-valued and complex floating-point operands, special cases must be handled as if the operation is implemented by successive application of :func:`~array_api.multiply`.
+    """
 
 
 def cumulative_sum(
@@ -18,7 +80,7 @@ def cumulative_sum(
     Parameters
     ----------
     x: array
-        input array. Should have a numeric data type.
+        input array. Should have one or more dimensions (axes). Should have a numeric data type.
     axis: Optional[int]
         axis along which a cumulative sum must be computed. If ``axis`` is negative, the function must determine the axis along which to compute a cumulative sum by counting from the last dimension.
 
@@ -47,6 +109,8 @@ def cumulative_sum(
 
     Notes
     -----
+
+    -   When ``x`` is a zero-dimensional array, behavior is unspecified and thus implementation-defined.
 
     **Special Cases**
 
@@ -113,7 +177,7 @@ def mean(
     Parameters
     ----------
     x: array
-        input array. Should have a real-valued floating-point data type.
+        input array. Should have a floating-point data type.
     axis: Optional[Union[int, Tuple[int, ...]]]
         axis or axes along which arithmetic means must be computed. By default, the mean must be computed over the entire array. If a tuple of integers, arithmetic means must be computed over multiple axes. Default: ``None``.
     keepdims: bool
@@ -125,17 +189,26 @@ def mean(
         if the arithmetic mean was computed over the entire array, a zero-dimensional array containing the arithmetic mean; otherwise, a non-zero-dimensional array containing the arithmetic means. The returned array must have the same data type as ``x``.
 
         .. note::
-           While this specification recommends that this function only accept input arrays having a real-valued floating-point data type, specification-compliant array libraries may choose to accept input arrays having an integer data type. While mixed data type promotion is implementation-defined, if the input array ``x`` has an integer data type, the returned array must have the default real-valued floating-point data type.
+           While this specification recommends that this function only accept input arrays having a floating-point data type, specification-compliant array libraries may choose to accept input arrays having an integer data type. While mixed data type promotion is implementation-defined, if the input array ``x`` has an integer data type, the returned array must have the default real-valued floating-point data type.
 
     Notes
     -----
 
     **Special Cases**
 
-    Let ``N`` equal the number of elements over which to compute the arithmetic mean.
+    Let ``N`` equal the number of elements over which to compute the arithmetic mean. For real-valued operands,
 
     -   If ``N`` is ``0``, the arithmetic mean is ``NaN``.
     -   If ``x_i`` is ``NaN``, the arithmetic mean is ``NaN`` (i.e., ``NaN`` values propagate).
+
+    For complex floating-point operands, real-valued floating-point special cases should independently apply to the real and imaginary component operations involving real numbers. For example, let ``a = real(x_i)`` and ``b = imag(x_i)``, and
+
+    -   If ``N`` is ``0``, the arithmetic mean is ``NaN + NaN j``.
+    -   If ``a`` is ``NaN``, the real component of the result is ``NaN``.
+    -   Similarly, if ``b`` is ``NaN``, the imaginary component of the result is ``NaN``.
+
+    .. note::
+       Array libraries, such as NumPy, PyTorch, and JAX, currently deviate from this specification in their handling of components which are ``NaN`` when computing the arithmetic mean. In general, consumers of array libraries implementing this specification should use :func:`~array_api.isnan` to test whether the result of computing the arithmetic mean over an array have a complex floating-point data type is ``NaN``, rather than relying on ``NaN`` propagation of individual components.
     """
 
 

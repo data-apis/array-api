@@ -474,7 +474,7 @@ def trace(x: array, /, *, offset: int = 0) -> array:
     """
 
 
-def vecdot(x1: array, x2: array, /, *, axis: int = None) -> array:
+def vecdot(x1: array, x2: array, /, *, axis: int = -1) -> array:
     """
     Alias for :func:`~array_api.vecdot`.
     """
