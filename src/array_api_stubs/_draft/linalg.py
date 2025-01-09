@@ -301,7 +301,7 @@ def matrix_norm(
     /,
     *,
     keepdims: bool = False,
-    ord: Optional[Union[int, float, Literal[inf, -inf, "fro", "nuc"]]] = "fro",
+    ord: Optional[Union[int, float, Literal[inf, -inf, "fro", "nuc"]]] = "fro",  # type: ignore
 ) -> array:
     """
     Computes the matrix norm of a matrix (or a stack of matrices) ``x``.
@@ -781,7 +781,7 @@ def trace(x: array, /, *, offset: int = 0, dtype: Optional[dtype] = None) -> arr
     """
 
 
-def vecdot(x1: array, x2: array, /, *, axis: int = None) -> array:
+def vecdot(x1: array, x2: array, /, *, axis: Optional[int] = None) -> array:
     """Alias for :func:`~array_api.vecdot`."""
 
 
@@ -791,7 +791,7 @@ def vector_norm(
     *,
     axis: Optional[Union[int, Tuple[int, ...]]] = None,
     keepdims: bool = False,
-    ord: Union[int, float, Literal[inf, -inf]] = 2,
+    ord: Union[int, float, Literal[inf, -inf]] = 2,  # type: ignore
 ) -> array:
     r"""
     Computes the vector norm of a vector (or batch of vectors) ``x``.
