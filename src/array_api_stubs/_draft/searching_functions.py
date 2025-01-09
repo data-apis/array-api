@@ -164,7 +164,9 @@ def where(
 
     Notes
     -----
-    See :ref:`mixing-scalars-and-arrays` on compatibility requirements and handling of scalar arguments for ``x1`` and ``x2``.
+
+    -   At least one of  ``x1`` and ``x2`` must be an array.
+    -   If either ``x1`` or ``x2`` is a scalar value, the returned array must have a data type determined according to :ref:`mixing-scalars-and-arrays`.
 
     .. versionchanged:: 2024.12
         ``x1`` and ``x2`` may be scalars.
