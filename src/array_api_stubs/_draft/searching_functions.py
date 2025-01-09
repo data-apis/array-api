@@ -141,8 +141,8 @@ def searchsorted(
 
 def where(
     condition: array,
-    x1: Union[array, int, float, bool],
-    x2: Union[array, int, float, bool],
+    x1: Union[array, int, float, complex, bool],
+    x2: Union[array, int, float, complex, bool],
     /,
 ) -> array:
     """
