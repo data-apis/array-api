@@ -25,4 +25,5 @@ Objects in API
    count_nonzero
    nonzero
    searchsorted
+   top_k
    where
