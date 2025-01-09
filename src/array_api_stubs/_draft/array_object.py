@@ -47,12 +47,12 @@ class _array:
         """
         Transpose of a matrix (or a stack of matrices).
 
-        If an array instance has fewer than two dimensions, an error should be raised.
+        If an array instance has fewer than two dimensions, an error *should* be raised.
 
         Returns
         -------
         out: array
-            array whose last two dimensions (axes) are permuted in reverse order relative to original array (i.e., for an array instance having shape ``(..., M, N)``, the returned array must have shape ``(..., N, M)``). The returned array must have the same data type as the original array.
+            array whose last two dimensions (axes) are permuted in reverse order relative to original array (i.e., for an array instance having shape ``(..., M, N)``, the returned array *must* have shape ``(..., N, M)``). The returned array *must* have the same data type as the original array.
         """
 
     @property
@@ -74,14 +74,14 @@ class _array:
         Returns
         -------
         out: Tuple[Optional[int], ...]
-            array dimensions. An array dimension must be ``None`` if and only if a dimension is unknown.
+            array dimensions. An array dimension *must* be ``None`` if and only if a dimension is unknown.
 
 
         .. note::
            For array libraries having graph-based computational models, array dimensions may be unknown due to data-dependent operations (e.g., boolean indexing; ``A[:, B > 0]``) and thus cannot be statically resolved without knowing array contents.
 
         .. note::
-           The returned value should be a tuple; however, where warranted, an array library may choose to return a custom shape object. If an array library returns a custom shape object, the object must be immutable, must support indexing for dimension retrieval, and must behave similarly to a tuple.
+           The returned value *should* be a tuple; however, where warranted, an array library may choose to return a custom shape object. If an array library returns a custom shape object, the object *must* be immutable, *must* support indexing for dimension retrieval, and *must* behave similarly to a tuple.
         """
 
     @property
@@ -90,12 +90,12 @@ class _array:
         Number of elements in an array.
 
         .. note::
-           This must equal the product of the array's dimensions.
+           This *must* equal the product of the array's dimensions.
 
         Returns
         -------
         out: Optional[int]
-            number of elements in an array. The returned value must be ``None`` if and only if one or more array dimensions are unknown.
+            number of elements in an array. The returned value *must* be ``None`` if and only if one or more array dimensions are unknown.
 
 
         .. note::
@@ -112,7 +112,7 @@ class _array:
         Returns
         -------
         out: array
-            two-dimensional array whose first and last dimensions (axes) are permuted in reverse order relative to original array. The returned array must have the same data type as the original array.
+            two-dimensional array whose first and last dimensions (axes) are permuted in reverse order relative to original array. The returned array *must* have the same data type as the original array.
 
 
         .. note::
@@ -136,13 +136,13 @@ class _array:
         Returns
         -------
         out: array
-            an array containing the element-wise absolute value. If ``self`` has a real-valued data type, the returned array must have the same data type as ``self``. If ``self`` has a complex floating-point data type, the returned arrayed must have a real-valued floating-point data type whose precision matches the precision of ``self`` (e.g., if ``self`` is ``complex128``, then the returned array must have a ``float64`` data type).
+            an array containing the element-wise absolute value. If ``self`` has a real-valued data type, the returned array *must* have the same data type as ``self``. If ``self`` has a complex floating-point data type, the returned arrayed *must* have a real-valued floating-point data type whose precision matches the precision of ``self`` (e.g., if ``self`` is ``complex128``, then the returned array *must* have a ``float64`` data type).
 
         Notes
         -----
 
         .. note::
-           Element-wise results, including special cases, must equal the results returned by the equivalent element-wise function :func:`~array_api.abs`.
+           Element-wise results, including special cases, *must* equal the results returned by the equivalent element-wise function :func:`~array_api.abs`.
 
         .. versionchanged:: 2022.12
             Added complex data type support.
@@ -162,13 +162,13 @@ class _array:
         Returns
         -------
         out: array
-            an array containing the element-wise sums. The returned array must have a data type determined by :ref:`type-promotion`.
+            an array containing the element-wise sums. The returned array *must* have a data type determined by :ref:`type-promotion`.
 
         Notes
         -----
 
         .. note::
-           Element-wise results, including special cases, must equal the results returned by the equivalent element-wise function :func:`~array_api.add`.
+           Element-wise results, including special cases, *must* equal the results returned by the equivalent element-wise function :func:`~array_api.add`.
 
         .. versionchanged:: 2022.12
             Added complex data type support.
@@ -188,11 +188,11 @@ class _array:
         Returns
         -------
         out: array
-            an array containing the element-wise results. The returned array must have a data type determined by :ref:`type-promotion`.
+            an array containing the element-wise results. The returned array *must* have a data type determined by :ref:`type-promotion`.
 
 
         .. note::
-           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.bitwise_and`.
+           Element-wise results *must* equal the results returned by the equivalent element-wise function :func:`~array_api.bitwise_and`.
         """
 
     def __array_namespace__(
@@ -211,7 +211,7 @@ class _array:
         Returns
         -------
         out: Any
-            an object representing the array API namespace. It should have every top-level function defined in the specification as an attribute. It may contain other public names as well, but it is recommended to only include those names that are part of the specification.
+            an object representing the array API namespace. It *should* have every top-level function defined in the specification as an attribute. It may contain other public names as well, but it is recommended to only include those names that are part of the specification.
         """
 
     def __bool__(self: array, /) -> bool:
@@ -239,7 +239,7 @@ class _array:
         - If ``self`` is either ``+infinity`` or ``-infinity``, the result is ``True``.
         - If ``self`` is either ``+0`` or ``-0``, the result is ``False``.
 
-        For complex floating-point operands, special cases must be handled as if the operation is implemented as the logical OR of ``bool(real(self))`` and ``bool(imag(self))``.
+        For complex floating-point operands, special cases *must* be handled as if the operation is implemented as the logical OR of ``bool(real(self))`` and ``bool(imag(self))``.
 
         **Lazy implementations**
 
@@ -310,7 +310,7 @@ class _array:
         self: array
             array instance.
         stream: Optional[Union[int, Any]]
-            for CUDA and ROCm, a Python integer representing a pointer to a stream, on devices that support streams. ``stream`` is provided by the consumer to the producer to instruct the producer to ensure that operations can safely be performed on the array (e.g., by inserting a dependency between streams via "wait for event"). The pointer must be an integer larger than or equal to ``-1`` (see below for allowed values on each platform). If ``stream`` is ``-1``, the value may be used by the consumer to signal "producer must not perform any synchronization". The ownership of the stream stays with the consumer. On CPU and other device types without streams, only ``None`` is accepted.
+            for CUDA and ROCm, a Python integer representing a pointer to a stream, on devices that support streams. ``stream`` is provided by the consumer to the producer to instruct the producer to ensure that operations can safely be performed on the array (e.g., by inserting a dependency between streams via "wait for event"). The pointer must be an integer larger than or equal to ``-1`` (see below for allowed values on each platform). If ``stream`` is ``-1``, the value may be used by the consumer to signal "producer *must not* perform any synchronization". The ownership of the stream stays with the consumer. On CPU and other device types without streams, only ``None`` is accepted.
 
             For other device types which do have a stream, queue, or similar synchronization/ordering mechanism, the most appropriate type to use for ``stream`` is not yet determined. E.g., for SYCL one may want to use an object containing an in-order ``cl::sycl::queue``. This is allowed when libraries agree on such a convention, and may be standardized in a future version of this API standard.
 
@@ -319,7 +319,7 @@ class _array:
 
             Device-specific values of ``stream`` for CUDA:
 
-            - ``None``: producer must assume the legacy default stream (default).
+            - ``None``: producer *must* assume the legacy default stream (default).
             - ``1``: the legacy default stream.
             - ``2``: the per-thread default stream.
             - ``> 2``: stream number represented as a Python integer.
@@ -327,15 +327,15 @@ class _array:
 
             Device-specific values of ``stream`` for ROCm:
 
-            - ``None``: producer must assume the legacy default stream (default).
+            - ``None``: producer *must* assume the legacy default stream (default).
             - ``0``: the default stream.
             - ``> 2``: stream number represented as a Python integer.
             - Using ``1`` and ``2`` is not supported.
 
             .. note::
-                When ``dl_device`` is provided explicitly, ``stream`` must be a valid
+                When ``dl_device`` is provided explicitly, ``stream`` *must* be a valid
                 construct for the specified device type. In particular, when ``kDLCPU``
-                is in use, ``stream`` must be ``None`` and a synchronization must be
+                is in use, ``stream`` *must* be ``None`` and a synchronization *must* be
                 performed to ensure data safety.
 
             .. admonition:: Tip
@@ -351,36 +351,36 @@ class _array:
             ``__dlpack__``) supports, in the form of a 2-tuple ``(major, minor)``.
             This method may return a capsule of version ``max_version`` (recommended
             if it does support that), or of a different version.
-            This means the consumer must verify the version even when
+            This means the consumer *must* verify the version even when
             `max_version` is passed.
         dl_device: Optional[tuple[enum.Enum, int]]
             the DLPack device type. Default is ``None``, meaning the exported capsule
-            should be on the same device as ``self`` is. When specified, the format
-            must be a 2-tuple, following that of the return value of :meth:`array.__dlpack_device__`.
+            *should* be on the same device as ``self`` is. When specified, the format
+            *must* be a 2-tuple, following that of the return value of :meth:`array.__dlpack_device__`.
             If the device type cannot be handled by the producer, this function must
             raise ``BufferError``.
 
-            The v2023.12 standard only mandates that a compliant library should offer a way for
+            The v2023.12 standard only mandates that a compliant library *should* offer a way for
             ``__dlpack__`` to return a capsule referencing an array whose underlying memory is
             accessible to the Python interpreter (represented by the ``kDLCPU`` enumerator in DLPack).
-            If a copy must be made to enable this support but ``copy`` is set to ``False``, the
-            function must raise ``ValueError``.
+            If a copy *must* be made to enable this support but ``copy`` is set to ``False``, the
+            function *must* raise ``ValueError``.
 
             Other device kinds will be considered for standardization in a future version of this
             API standard.
         copy: Optional[bool]
             boolean indicating whether or not to copy the input. If ``True``, the
-            function must always copy (performed by the producer). If ``False``, the
-            function must never copy, and raise a ``BufferError`` in case a copy is
+            function *must* always copy (performed by the producer). If ``False``, the
+            function *must* never copy, and raise a ``BufferError`` in case a copy is
             deemed necessary (e.g. if a cross-device data movement is requested, and
             it is not possible without a copy). If ``None``, the function must reuse
             the existing memory buffer if possible and copy otherwise. Default: ``None``.
 
-            When a copy happens, the ``DLPACK_FLAG_BITMASK_IS_COPIED`` flag must be set.
+            When a copy happens, the ``DLPACK_FLAG_BITMASK_IS_COPIED`` flag *must* be set.
 
             .. note::
                 If a copy happens, and if the consumer-provided ``stream`` and ``dl_device``
-                can be understood by the producer, the copy must be performed over ``stream``.
+                can be understood by the producer, the copy *must* be performed over ``stream``.
 
         Returns
         -------
@@ -424,7 +424,7 @@ class _array:
                 if max_version >= our_own_dlpack_version:
                     # Consumer understands us, just return a Capsule with our max version
                 elif max_version[0] == our_own_dlpack_version[0]:
-                    # major versions match, we should still be fine here -
+                    # major versions match, we *should* still be fine here -
                     # return our own max version
                 else:
                     # if we're at a higher major version internally, did we
@@ -432,7 +432,7 @@ class _array:
                     # For example, if the producer is on DLPack 1.x and the consumer
                     # is 0.y, can the producer still export a capsule containing
                     # DLManagedTensor and not DLManagedTensorVersioned?
-                    # If so, use that. Else, the producer should raise a BufferError
+                    # If so, use that. Else, the producer *should* raise a BufferError
                     # here to tell users that the consumer's max_version is too
                     # old to allow the data exchange to happen.
 
@@ -452,7 +452,7 @@ class _array:
 
         DLPack 1.0 added a flag to indicate that the array is read-only
         (``DLPACK_FLAG_BITMASK_READ_ONLY``). A consumer that does not support
-        read-only arrays should ignore this flag (this is preferred over
+        read-only arrays *should* ignore this flag (this is preferred over
         raising an exception; the user is then responsible for ensuring the
         memory isn't modified).
 
@@ -508,11 +508,11 @@ class _array:
         Returns
         -------
         out: array
-            an array containing the element-wise results. The returned array must have a data type of ``bool``.
+            an array containing the element-wise results. The returned array *must* have a data type of ``bool``.
 
 
         .. note::
-           Element-wise results, including special cases, must equal the results returned by the equivalent element-wise function :func:`~array_api.equal`.
+           Element-wise results, including special cases, *must* equal the results returned by the equivalent element-wise function :func:`~array_api.equal`.
 
         .. note::
            Comparison of arrays without a corresponding promotable data type (see :ref:`type-promotion`) is undefined and thus implementation-dependent.
@@ -528,7 +528,7 @@ class _array:
         Parameters
         ----------
         self: array
-            zero-dimensional array instance. Should have a real-valued or boolean data type. If ``self`` has a complex floating-point data type, the function must raise a ``TypeError``.
+            zero-dimensional array instance. Should have a real-valued or boolean data type. If ``self`` has a complex floating-point data type, the function *must* raise a ``TypeError``.
 
         Returns
         -------
@@ -573,11 +573,11 @@ class _array:
         Returns
         -------
         out: array
-            an array containing the element-wise results. The returned array must have a data type determined by :ref:`type-promotion`.
+            an array containing the element-wise results. The returned array *must* have a data type determined by :ref:`type-promotion`.
 
 
         .. note::
-           Element-wise results, including special cases, must equal the results returned by the equivalent element-wise function :func:`~array_api.floor_divide`.
+           Element-wise results, including special cases, *must* equal the results returned by the equivalent element-wise function :func:`~array_api.floor_divide`.
         """
 
     def __ge__(self: array, other: Union[int, float, array], /) -> array:
@@ -597,11 +597,11 @@ class _array:
         Returns
         -------
         out: array
-            an array containing the element-wise results. The returned array must have a data type of ``bool``.
+            an array containing the element-wise results. The returned array *must* have a data type of ``bool``.
 
 
         .. note::
-           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.greater_equal`.
+           Element-wise results *must* equal the results returned by the equivalent element-wise function :func:`~array_api.greater_equal`.
 
         .. note::
            Comparison of arrays without a corresponding promotable data type (see :ref:`type-promotion`) is undefined and thus implementation-dependent.
@@ -634,10 +634,10 @@ class _array:
         Returns
         -------
         out: array
-            an array containing the accessed value(s). The returned array must have the same data type as ``self``.
+            an array containing the accessed value(s). The returned array *must* have the same data type as ``self``.
 
         .. note::
-           When ``__getitem__`` is defined on an object, Python will automatically define iteration (i.e., the behavior from ``iter(x)``) as  ``x[0]``, ``x[1]``, ..., ``x[N-1]``. This can also be implemented directly by defining ``__iter__``. Therefore, for a one-dimensional array ``x``, iteration should produce a sequence of zero-dimensional arrays ``x[0]``, ``x[1]``, ..., ``x[N-1]``, where ``N`` is the number of elements in the array. Iteration behavior for arrays having zero dimensions or more than one dimension is unspecified and thus implementation-defined.
+           When ``__getitem__`` is defined on an object, Python will automatically define iteration (i.e., the behavior from ``iter(x)``) as  ``x[0]``, ``x[1]``, ..., ``x[N-1]``. This can also be implemented directly by defining ``__iter__``. Therefore, for a one-dimensional array ``x``, iteration *should* produce a sequence of zero-dimensional arrays ``x[0]``, ``x[1]``, ..., ``x[N-1]``, where ``N`` is the number of elements in the array. Iteration behavior for arrays having zero dimensions or more than one dimension is unspecified and thus implementation-defined.
 
         """
 
@@ -658,11 +658,11 @@ class _array:
         Returns
         -------
         out: array
-            an array containing the element-wise results. The returned array must have a data type of ``bool``.
+            an array containing the element-wise results. The returned array *must* have a data type of ``bool``.
 
 
         .. note::
-           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.greater`.
+           Element-wise results *must* equal the results returned by the equivalent element-wise function :func:`~array_api.greater`.
 
         .. note::
            Comparison of arrays without a corresponding promotable data type (see :ref:`type-promotion`) is undefined and thus implementation-dependent.
@@ -678,7 +678,7 @@ class _array:
         Parameters
         ----------
         self: array
-            zero-dimensional array instance. Should have an integer data type. If ``self`` has a floating-point data type, the function must raise a ``TypeError``.
+            zero-dimensional array instance. Should have an integer data type. If ``self`` has a floating-point data type, the function *must* raise a ``TypeError``.
 
         Returns
         -------
@@ -703,7 +703,7 @@ class _array:
         Parameters
         ----------
         self: array
-            zero-dimensional array instance. Should have a real-valued or boolean data type. If ``self`` has a complex floating-point data type, the function must raise a ``TypeError``.
+            zero-dimensional array instance. Should have a real-valued or boolean data type. If ``self`` has a complex floating-point data type, the function *must* raise a ``TypeError``.
 
         Returns
         -------
@@ -758,11 +758,11 @@ class _array:
         Returns
         -------
         out: array
-            an array containing the element-wise results. The returned array must have the same data type as `self`.
+            an array containing the element-wise results. The returned array *must* have the same data type as `self`.
 
 
         .. note::
-           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.bitwise_invert`.
+           Element-wise results *must* equal the results returned by the equivalent element-wise function :func:`~array_api.bitwise_invert`.
         """
 
     def __le__(self: array, other: Union[int, float, array], /) -> array:
@@ -782,11 +782,11 @@ class _array:
         Returns
         -------
         out: array
-            an array containing the element-wise results. The returned array must have a data type of ``bool``.
+            an array containing the element-wise results. The returned array *must* have a data type of ``bool``.
 
 
         .. note::
-           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.less_equal`.
+           Element-wise results *must* equal the results returned by the equivalent element-wise function :func:`~array_api.less_equal`.
 
         .. note::
            Comparison of arrays without a corresponding promotable data type (see :ref:`type-promotion`) is undefined and thus implementation-dependent.
@@ -801,16 +801,16 @@ class _array:
         self: array
             array instance. Should have an integer data type.
         other: Union[int, array]
-            other array. Must be compatible with ``self`` (see :ref:`broadcasting`). Should have an integer data type. Each element must be greater than or equal to ``0``.
+            other array. Must be compatible with ``self`` (see :ref:`broadcasting`). Should have an integer data type. Each element *must* be greater than or equal to ``0``.
 
         Returns
         -------
         out: array
-            an array containing the element-wise results. The returned array must have the same data type as ``self``.
+            an array containing the element-wise results. The returned array *must* have the same data type as ``self``.
 
 
         .. note::
-           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.bitwise_left_shift`.
+           Element-wise results *must* equal the results returned by the equivalent element-wise function :func:`~array_api.bitwise_left_shift`.
         """
 
     def __lt__(self: array, other: Union[int, float, array], /) -> array:
@@ -830,11 +830,11 @@ class _array:
         Returns
         -------
         out: array
-            an array containing the element-wise results. The returned array must have a data type of ``bool``.
+            an array containing the element-wise results. The returned array *must* have a data type of ``bool``.
 
 
         .. note::
-           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.less`.
+           Element-wise results *must* equal the results returned by the equivalent element-wise function :func:`~array_api.less`.
 
         .. note::
            Comparison of arrays without a corresponding promotable data type (see :ref:`type-promotion`) is undefined and thus implementation-dependent.
@@ -845,36 +845,36 @@ class _array:
         Computes the matrix product.
 
         .. note::
-           The ``matmul`` function must implement the same semantics as the built-in ``@`` operator (see `PEP 465 <https://www.python.org/dev/peps/pep-0465>`_).
+           The ``matmul`` function *must* implement the same semantics as the built-in ``@`` operator (see `PEP 465 <https://www.python.org/dev/peps/pep-0465>`_).
 
         Parameters
         ----------
         self: array
-            array instance. Should have a numeric data type. Must have at least one dimension. If ``self`` is one-dimensional having shape ``(M,)`` and ``other`` has more than one dimension, ``self`` must be promoted to a two-dimensional array by prepending ``1`` to its dimensions (i.e., must have shape ``(1, M)``). After matrix multiplication, the prepended dimensions in the returned array must be removed. If ``self`` has more than one dimension (including after vector-to-matrix promotion), ``shape(self)[:-2]`` must be compatible with ``shape(other)[:-2]`` (after vector-to-matrix promotion) (see :ref:`broadcasting`). If ``self`` has shape ``(..., M, K)``, the innermost two dimensions form matrices on which to perform matrix multiplication.
+            array instance. Should have a numeric data type. Must have at least one dimension. If ``self`` is one-dimensional having shape ``(M,)`` and ``other`` has more than one dimension, ``self`` *must* be promoted to a two-dimensional array by prepending ``1`` to its dimensions (i.e., *must* have shape ``(1, M)``). After matrix multiplication, the prepended dimensions in the returned array *must* be removed. If ``self`` has more than one dimension (including after vector-to-matrix promotion), ``shape(self)[:-2]`` *must* be compatible with ``shape(other)[:-2]`` (after vector-to-matrix promotion) (see :ref:`broadcasting`). If ``self`` has shape ``(..., M, K)``, the innermost two dimensions form matrices on which to perform matrix multiplication.
         other: array
-            other array. Should have a numeric data type. Must have at least one dimension. If ``other`` is one-dimensional having shape ``(N,)`` and ``self`` has more than one dimension, ``other`` must be promoted to a two-dimensional array by appending ``1`` to its dimensions (i.e., must have shape ``(N, 1)``). After matrix multiplication, the appended dimensions in the returned array must be removed. If ``other`` has more than one dimension (including after vector-to-matrix promotion), ``shape(other)[:-2]`` must be compatible with ``shape(self)[:-2]`` (after vector-to-matrix promotion) (see :ref:`broadcasting`). If ``other`` has shape ``(..., K, N)``, the innermost two dimensions form matrices on which to perform matrix multiplication.
+            other array. Should have a numeric data type. Must have at least one dimension. If ``other`` is one-dimensional having shape ``(N,)`` and ``self`` has more than one dimension, ``other`` *must* be promoted to a two-dimensional array by appending ``1`` to its dimensions (i.e., *must* have shape ``(N, 1)``). After matrix multiplication, the appended dimensions in the returned array *must* be removed. If ``other`` has more than one dimension (including after vector-to-matrix promotion), ``shape(other)[:-2]`` *must* be compatible with ``shape(self)[:-2]`` (after vector-to-matrix promotion) (see :ref:`broadcasting`). If ``other`` has shape ``(..., K, N)``, the innermost two dimensions form matrices on which to perform matrix multiplication.
 
 
         .. note::
-           If either ``x1`` or ``x2`` has a complex floating-point data type, neither argument must be complex-conjugated or transposed. If conjugation and/or transposition is desired, these operations should be explicitly performed prior to computing the matrix product.
+           If either ``x1`` or ``x2`` has a complex floating-point data type, neither argument *must* be complex-conjugated or transposed. If conjugation and/or transposition is desired, these operations *should* be explicitly performed prior to computing the matrix product.
 
         Returns
         -------
         out: array
             -   if both ``self`` and ``other`` are one-dimensional arrays having shape ``(N,)``, a zero-dimensional array containing the inner product as its only element.
             -   if ``self`` is a two-dimensional array having shape ``(M, K)`` and ``other`` is a two-dimensional array having shape ``(K, N)``, a two-dimensional array containing the `conventional matrix product <https://en.wikipedia.org/wiki/Matrix_multiplication>`_ and having shape ``(M, N)``.
-            -   if ``self`` is a one-dimensional array having shape ``(K,)`` and ``other`` is an array having shape ``(..., K, N)``, an array having shape ``(..., N)`` (i.e., prepended dimensions during vector-to-matrix promotion must be removed) and containing the `conventional matrix product <https://en.wikipedia.org/wiki/Matrix_multiplication>`_.
-            -   if ``self`` is an array having shape ``(..., M, K)`` and ``other`` is a one-dimensional array having shape ``(K,)``, an array having shape ``(..., M)`` (i.e., appended dimensions during vector-to-matrix promotion must be removed) and containing the `conventional matrix product <https://en.wikipedia.org/wiki/Matrix_multiplication>`_.
+            -   if ``self`` is a one-dimensional array having shape ``(K,)`` and ``other`` is an array having shape ``(..., K, N)``, an array having shape ``(..., N)`` (i.e., prepended dimensions during vector-to-matrix promotion *must* be removed) and containing the `conventional matrix product <https://en.wikipedia.org/wiki/Matrix_multiplication>`_.
+            -   if ``self`` is an array having shape ``(..., M, K)`` and ``other`` is a one-dimensional array having shape ``(K,)``, an array having shape ``(..., M)`` (i.e., appended dimensions during vector-to-matrix promotion *must* be removed) and containing the `conventional matrix product <https://en.wikipedia.org/wiki/Matrix_multiplication>`_.
             -   if ``self`` is a two-dimensional array having shape ``(M, K)`` and ``other`` is an array having shape ``(..., K, N)``, an array having shape ``(..., M, N)`` and containing the `conventional matrix product <https://en.wikipedia.org/wiki/Matrix_multiplication>`_ for each stacked matrix.
             -   if ``self`` is an array having shape ``(..., M, K)`` and ``other`` is a two-dimensional array having shape ``(K, N)``, an array having shape ``(..., M, N)`` and containing the `conventional matrix product <https://en.wikipedia.org/wiki/Matrix_multiplication>`_ for each stacked matrix.
             -   if either ``self`` or ``other`` has more than two dimensions, an array having a shape determined by :ref:`broadcasting` ``shape(self)[:-2]`` against ``shape(other)[:-2]`` and containing the `conventional matrix product <https://en.wikipedia.org/wiki/Matrix_multiplication>`_ for each stacked matrix.
-            -   The returned array must have a data type determined by :ref:`type-promotion`.
+            -   The returned array *must* have a data type determined by :ref:`type-promotion`.
 
         Notes
         -----
 
         .. note::
-           Results must equal the results returned by the equivalent function :func:`~array_api.matmul`.
+           Results *must* equal the results returned by the equivalent function :func:`~array_api.matmul`.
 
         **Raises**
 
@@ -905,11 +905,11 @@ class _array:
         Returns
         -------
         out: array
-            an array containing the element-wise results. Each element-wise result must have the same sign as the respective element ``other_i``. The returned array must have a real-valued floating-point data type determined by :ref:`type-promotion`.
+            an array containing the element-wise results. Each element-wise result *must* have the same sign as the respective element ``other_i``. The returned array *must* have a real-valued floating-point data type determined by :ref:`type-promotion`.
 
 
         .. note::
-           Element-wise results, including special cases, must equal the results returned by the equivalent element-wise function :func:`~array_api.remainder`.
+           Element-wise results, including special cases, *must* equal the results returned by the equivalent element-wise function :func:`~array_api.remainder`.
         """
 
     def __mul__(self: array, other: Union[int, float, array], /) -> array:
@@ -929,13 +929,13 @@ class _array:
         Returns
         -------
         out: array
-            an array containing the element-wise products. The returned array must have a data type determined by :ref:`type-promotion`.
+            an array containing the element-wise products. The returned array *must* have a data type determined by :ref:`type-promotion`.
 
         Notes
         -----
 
         .. note::
-           Element-wise results, including special cases, must equal the results returned by the equivalent element-wise function :func:`~array_api.multiply`.
+           Element-wise results, including special cases, *must* equal the results returned by the equivalent element-wise function :func:`~array_api.multiply`.
 
         .. versionchanged:: 2022.12
             Added complex data type support.
@@ -955,7 +955,7 @@ class _array:
         Returns
         -------
         out: array
-            an array containing the element-wise results. The returned array must have a data type of ``bool`` (i.e., must be a boolean array).
+            an array containing the element-wise results. The returned array *must* have a data type of ``bool`` (i.e., *must* be a boolean array).
 
 
         Notes
@@ -979,7 +979,7 @@ class _array:
            For signed integer data types, the numerical negative of the minimum representable integer is implementation-dependent.
 
         .. note::
-           If ``self`` has a complex floating-point data type, both the real and imaginary components for each ``self_i`` must be negated (a result which follows from the rules of complex number multiplication).
+           If ``self`` has a complex floating-point data type, both the real and imaginary components for each ``self_i`` *must* be negated (a result which follows from the rules of complex number multiplication).
 
         Parameters
         ----------
@@ -989,13 +989,13 @@ class _array:
         Returns
         -------
         out: array
-            an array containing the evaluated result for each element in ``self``. The returned array must have a data type determined by :ref:`type-promotion`.
+            an array containing the evaluated result for each element in ``self``. The returned array *must* have a data type determined by :ref:`type-promotion`.
 
         Notes
         -----
 
         .. note::
-           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.negative`.
+           Element-wise results *must* equal the results returned by the equivalent element-wise function :func:`~array_api.negative`.
 
         .. versionchanged:: 2022.12
             Added complex data type support.
@@ -1015,11 +1015,11 @@ class _array:
         Returns
         -------
         out: array
-            an array containing the element-wise results. The returned array must have a data type determined by :ref:`type-promotion`.
+            an array containing the element-wise results. The returned array *must* have a data type determined by :ref:`type-promotion`.
 
 
         .. note::
-           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.bitwise_or`.
+           Element-wise results *must* equal the results returned by the equivalent element-wise function :func:`~array_api.bitwise_or`.
         """
 
     def __pos__(self: array, /) -> array:
@@ -1034,13 +1034,13 @@ class _array:
         Returns
         -------
         out: array
-            an array containing the evaluated result for each element. The returned array must have the same data type as ``self``.
+            an array containing the evaluated result for each element. The returned array *must* have the same data type as ``self``.
 
         Notes
         -----
 
         .. note::
-           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.positive`.
+           Element-wise results *must* equal the results returned by the equivalent element-wise function :func:`~array_api.positive`.
 
         .. versionchanged:: 2022.12
             Added complex data type support.
@@ -1065,13 +1065,13 @@ class _array:
         Returns
         -------
         out: array
-            an array containing the element-wise results. The returned array must have a data type determined by :ref:`type-promotion`.
+            an array containing the element-wise results. The returned array *must* have a data type determined by :ref:`type-promotion`.
 
         Notes
         -----
 
         .. note::
-           Element-wise results, including special cases, must equal the results returned by the equivalent element-wise function :func:`~array_api.pow`.
+           Element-wise results, including special cases, *must* equal the results returned by the equivalent element-wise function :func:`~array_api.pow`.
 
         .. versionchanged:: 2022.12
             Added complex data type support.
@@ -1086,16 +1086,16 @@ class _array:
         self: array
             array instance. Should have an integer data type.
         other: Union[int, array]
-            other array. Must be compatible with ``self`` (see :ref:`broadcasting`). Should have an integer data type. Each element must be greater than or equal to ``0``.
+            other array. Must be compatible with ``self`` (see :ref:`broadcasting`). Should have an integer data type. Each element *must* be greater than or equal to ``0``.
 
         Returns
         -------
         out: array
-            an array containing the element-wise results. The returned array must have the same data type as ``self``.
+            an array containing the element-wise results. The returned array *must* have the same data type as ``self``.
 
 
         .. note::
-           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.bitwise_right_shift`.
+           Element-wise results *must* equal the results returned by the equivalent element-wise function :func:`~array_api.bitwise_right_shift`.
         """
 
     def __setitem__(
@@ -1123,9 +1123,9 @@ class _array:
 
         .. note::
 
-           Setting array values must not affect the data type of ``self``.
+           Setting array values *must not* affect the data type of ``self``.
 
-           When ``value`` is a Python scalar (i.e., ``int``, ``float``, ``bool``), behavior must follow specification guidance on mixing arrays with Python scalars (see :ref:`type-promotion`).
+           When ``value`` is a Python scalar (i.e., ``int``, ``float``, ``bool``), behavior *must* follow specification guidance on mixing arrays with Python scalars (see :ref:`type-promotion`).
 
            When ``value`` is an ``array`` of a different data type than ``self``, how values are cast to the data type of ``self`` is implementation defined.
         """
@@ -1134,7 +1134,7 @@ class _array:
         """
         Calculates the difference for each element of an array instance with the respective element of the array ``other``.
 
-        The result of ``self_i - other_i`` must be the same as ``self_i + (-other_i)`` and must be governed by the same floating-point rules as addition (see :meth:`array.__add__`).
+        The result of ``self_i - other_i`` *must* be the same as ``self_i + (-other_i)`` and *must* be governed by the same floating-point rules as addition (see :meth:`array.__add__`).
 
         Parameters
         ----------
@@ -1146,13 +1146,13 @@ class _array:
         Returns
         -------
         out: array
-            an array containing the element-wise differences. The returned array must have a data type determined by :ref:`type-promotion`.
+            an array containing the element-wise differences. The returned array *must* have a data type determined by :ref:`type-promotion`.
 
         Notes
         -----
 
         .. note::
-           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.subtract`.
+           Element-wise results *must* equal the results returned by the equivalent element-wise function :func:`~array_api.subtract`.
 
         .. versionchanged:: 2022.12
             Added complex data type support.
@@ -1165,7 +1165,7 @@ class _array:
         .. note::
            If one or both of ``self`` and ``other`` have integer data types, the result is implementation-dependent, as type promotion between data type "kinds" (e.g., integer versus floating-point) is unspecified.
 
-           Specification-compliant libraries may choose to raise an error or return an array containing the element-wise results. If an array is returned, the array must have a real-valued floating-point data type.
+           Specification-compliant libraries may choose to raise an error or return an array containing the element-wise results. If an array is returned, the array *must* have a real-valued floating-point data type.
 
         Parameters
         ----------
@@ -1177,13 +1177,13 @@ class _array:
         Returns
         -------
         out: array
-            an array containing the element-wise results. The returned array should have a floating-point data type determined by :ref:`type-promotion`.
+            an array containing the element-wise results. The returned array *should* have a floating-point data type determined by :ref:`type-promotion`.
 
         Notes
         -----
 
         .. note::
-           Element-wise results, including special cases, must equal the results returned by the equivalent element-wise function :func:`~array_api.divide`.
+           Element-wise results, including special cases, *must* equal the results returned by the equivalent element-wise function :func:`~array_api.divide`.
 
         .. versionchanged:: 2022.12
             Added complex data type support.
@@ -1203,11 +1203,11 @@ class _array:
         Returns
         -------
         out: array
-            an array containing the element-wise results. The returned array must have a data type determined by :ref:`type-promotion`.
+            an array containing the element-wise results. The returned array *must* have a data type determined by :ref:`type-promotion`.
 
 
         .. note::
-           Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.bitwise_xor`.
+           Element-wise results *must* equal the results returned by the equivalent element-wise function :func:`~array_api.bitwise_xor`.
         """
 
     def to_device(
@@ -1235,7 +1235,7 @@ class _array:
         -----
 
         -   When a provided ``device`` object corresponds to the same device on which an array instance resides, implementations may choose to perform an explicit copy or return ``self``.
-        -   If ``stream`` is provided, the copy operation should be enqueued on the provided ``stream``; otherwise, the copy operation should be enqueued on the default stream/queue. Whether the copy is performed synchronously or asynchronously is implementation-dependent. Accordingly, if synchronization is required to guarantee data safety, this must be clearly explained in a conforming array library's documentation.
+        -   If ``stream`` is provided, the copy operation *should* be enqueued on the provided ``stream``; otherwise, the copy operation *should* be enqueued on the default stream/queue. Whether the copy is performed synchronously or asynchronously is implementation-dependent. Accordingly, if synchronization is required to guarantee data safety, this *must* be clearly explained in a conforming array library's documentation.
 
         .. versionchanged:: 2023.12
            Clarified behavior when a provided ``device`` object corresponds to the device on which an array instance resides.
