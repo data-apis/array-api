@@ -153,9 +153,9 @@ def where(
     condition: array
         when ``True``, yield ``x1_i``; otherwise, yield ``x2_i``. Must be compatible with ``x1`` and ``x2`` (see :ref:`broadcasting`).
     x1: Union[array, int, float, complex, bool]
-        first input array or scalar. Scalar values are treated like an array filled with this value. Must be compatible with ``condition`` and ``x2`` (see :ref:`broadcasting`).
+        first input array. Must be compatible with ``condition`` and ``x2`` (see :ref:`broadcasting`).
     x2: Union[array, int, float, complex, bool]
-        second input array or scalar. Scalar values are treated like an array filled with this value. Must be compatible with ``condition`` and ``x1`` (see :ref:`broadcasting`).
+        second input array. Must be compatible with ``condition`` and ``x1`` (see :ref:`broadcasting`).
 
     Returns
     -------
