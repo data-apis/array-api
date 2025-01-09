@@ -272,15 +272,17 @@ def acosh(x: array, /) -> array:
     """
 
 
-def add(x1: array, x2: array, /) -> array:
+def add(
+    x1: Union[array, int, float, complex], x2: Union[array, int, float, complex], /
+) -> array:
     """
     Calculates the sum for each element ``x1_i`` of the input array ``x1`` with the respective element ``x2_i`` of the input array ``x2``.
 
     Parameters
     ----------
-    x1: array
+    x1: Union[array, int, float, complex]
         first input array. Should have a numeric data type.
-    x2: array
+    x2: Union[array, int, float, complex]
         second input array. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have a numeric data type.
 
     Returns
@@ -290,6 +292,8 @@ def add(x1: array, x2: array, /) -> array:
 
     Notes
     -----
+
+    -   At least one of ``x1`` or ``x2`` must be an array.
 
     **Special cases**
 
@@ -514,7 +518,7 @@ def atan(x: array, /) -> array:
     """
 
 
-def atan2(x1: array, x2: array, /) -> array:
+def atan2(x1: Union[array, int, float], x2: Union[array, int, float], /) -> array:
     """
     Calculates an implementation-dependent approximation of the inverse tangent of the quotient ``x1/x2``, having domain ``[-infinity, +infinity] x [-infinity, +infinity]`` (where the ``x`` notation denotes the set of ordered pairs of elements ``(x1_i, x2_i)``) and codomain ``[-π, +π]``, for each pair of elements ``(x1_i, x2_i)`` of the input arrays ``x1`` and ``x2``, respectively. Each element-wise result is expressed in radians.
 
@@ -527,9 +531,9 @@ def atan2(x1: array, x2: array, /) -> array:
 
     Parameters
     ----------
-    x1: array
+    x1: Union[array, int, float]
         input array corresponding to the y-coordinates. Should have a real-valued floating-point data type.
-    x2: array
+    x2: Union[array, int, float]
         input array corresponding to the x-coordinates. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have a real-valued floating-point data type.
 
     Returns
@@ -539,6 +543,8 @@ def atan2(x1: array, x2: array, /) -> array:
 
     Notes
     -----
+
+    -   At least one of ``x1`` or ``x2`` must be an array.
 
     **Special cases**
 
@@ -639,39 +645,49 @@ def atanh(x: array, /) -> array:
     """
 
 
-def bitwise_and(x1: array, x2: array, /) -> array:
+def bitwise_and(x1: Union[array, int, bool], x2: Union[array, int, bool], /) -> array:
     """
     Computes the bitwise AND of the underlying binary representation of each element ``x1_i`` of the input array ``x1`` with the respective element ``x2_i`` of the input array ``x2``.
 
     Parameters
     ----------
-    x1: array
+    x1: Union[array, int, bool]
         first input array. Should have an integer or boolean data type.
-    x2: array
+    x2: Union[array, int, bool]
         second input array. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have an integer or boolean data type.
 
     Returns
     -------
     out: array
         an array containing the element-wise results. The returned array must have a data type determined by :ref:`type-promotion`.
+
+    Notes
+    -----
+
+    -   At least one of ``x1`` or ``x2`` must be an array.
     """
 
 
-def bitwise_left_shift(x1: array, x2: array, /) -> array:
+def bitwise_left_shift(x1: Union[array, int], x2: Union[array, int], /) -> array:
     """
     Shifts the bits of each element ``x1_i`` of the input array ``x1`` to the left by appending ``x2_i`` (i.e., the respective element in the input array ``x2``) zeros to the right of ``x1_i``.
 
     Parameters
     ----------
-    x1: array
+    x1: Union[array, int]
         first input array. Should have an integer data type.
-    x2: array
+    x2: Union[array, int]
         second input array. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have an integer data type. Each element must be greater than or equal to ``0``.
 
     Returns
     -------
     out: array
         an array containing the element-wise results. The returned array must have a data type determined by :ref:`type-promotion`.
+
+    Notes
+    -----
+
+    -   At least one of ``x1`` or ``x2`` must be an array.
     """
 
 
@@ -691,25 +707,30 @@ def bitwise_invert(x: array, /) -> array:
     """
 
 
-def bitwise_or(x1: array, x2: array, /) -> array:
+def bitwise_or(x1: Union[array, int, bool], x2: Union[array, int, bool], /) -> array:
     """
     Computes the bitwise OR of the underlying binary representation of each element ``x1_i`` of the input array ``x1`` with the respective element ``x2_i`` of the input array ``x2``.
 
     Parameters
     ----------
-    x1: array
+    x1: Union[array, int, bool]
         first input array. Should have an integer or boolean data type.
-    x2: array
+    x2: Union[array, int, bool]
         second input array. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have an integer or boolean data type.
 
     Returns
     -------
     out: array
         an array containing the element-wise results. The returned array must have a data type determined by :ref:`type-promotion`.
+
+    Notes
+    -----
+
+    -   At least one of ``x1`` or ``x2`` must be an array.
     """
 
 
-def bitwise_right_shift(x1: array, x2: array, /) -> array:
+def bitwise_right_shift(x1: Union[array, int], x2: Union[array, int], /) -> array:
     """
     Shifts the bits of each element ``x1_i`` of the input array ``x1`` to the right according to the respective element ``x2_i`` of the input array ``x2``.
 
@@ -718,33 +739,43 @@ def bitwise_right_shift(x1: array, x2: array, /) -> array:
 
     Parameters
     ----------
-    x1: array
+    x1: Union[array, int]
         first input array. Should have an integer data type.
-    x2: array
+    x2: Union[array, int]
         second input array. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have an integer data type. Each element must be greater than or equal to ``0``.
 
     Returns
     -------
     out: array
         an array containing the element-wise results. The returned array must have a data type determined by :ref:`type-promotion`.
+
+    Notes
+    -----
+
+    -   At least one of ``x1`` or ``x2`` must be an array.
     """
 
 
-def bitwise_xor(x1: array, x2: array, /) -> array:
+def bitwise_xor(x1: Union[array, int, bool], x2: Union[array, int, bool], /) -> array:
     """
     Computes the bitwise XOR of the underlying binary representation of each element ``x1_i`` of the input array ``x1`` with the respective element ``x2_i`` of the input array ``x2``.
 
     Parameters
     ----------
-    x1: array
+    x1: Union[array, int, bool]
         first input array. Should have an integer or boolean data type.
-    x2: array
+    x2: Union[array, int, bool]
         second input array. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have an integer or boolean data type.
 
     Returns
     -------
     out: array
         an array containing the element-wise results. The returned array must have a data type determined by :ref:`type-promotion`.
+
+    Notes
+    -----
+
+    -   At least one of ``x1`` or ``x2`` must be an array.
     """
 
 
@@ -793,9 +824,9 @@ def clip(
     x: array
       input array. Should have a real-valued data type.
     min: Optional[Union[int, float, array]]
-      lower-bound of the range to which to clamp. If ``None``, no lower bound must be applied. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have a real-valued data type. Default: ``None``.
+      lower-bound of the range to which to clamp. If ``None``, no lower bound must be applied. Must be compatible with ``x`` (see :ref:`broadcasting`). Should have a real-valued data type. Default: ``None``.
     max: Optional[Union[int, float, array]]
-      upper-bound of the range to which to clamp. If ``None``, no upper bound must be applied. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have a real-valued data type. Default: ``None``.
+      upper-bound of the range to which to clamp. If ``None``, no upper bound must be applied. Must be compatible with ``x`` (see :ref:`broadcasting`). Should have a real-valued data type. Default: ``None``.
 
     Returns
     -------
@@ -852,15 +883,15 @@ def conj(x: array, /) -> array:
     """
 
 
-def copysign(x1: array, x2: array, /) -> array:
+def copysign(x1: Union[array, int, float], x2: Union[array, int, float], /) -> array:
     r"""
     Composes a floating-point value with the magnitude of ``x1_i`` and the sign of ``x2_i`` for each element of the input array ``x1``.
 
     Parameters
     ----------
-    x1: array
+    x1: Union[array, int, float]
        input array containing magnitudes. Should have a real-valued floating-point data type.
-    x2: array
+    x2: Union[array, int, float]
        input array whose sign bits are applied to the magnitudes of ``x1``. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have a real-valued floating-point data type.
 
     Returns
@@ -870,6 +901,8 @@ def copysign(x1: array, x2: array, /) -> array:
 
     Notes
     -----
+
+    -   At least one of ``x1`` or ``x2`` must be an array.
 
     **Special cases**
 
@@ -1003,20 +1036,17 @@ def cosh(x: array, /) -> array:
     """
 
 
-def divide(x1: array, x2: array, /) -> array:
+def divide(
+    x1: Union[array, int, float, complex], x2: Union[array, int, float, complex], /
+) -> array:
     r"""
     Calculates the division of each element ``x1_i`` of the input array ``x1`` with the respective element ``x2_i`` of the input array ``x2``.
 
-    .. note::
-       If one or both of the input arrays have integer data types, the result is implementation-dependent, as type promotion between data type "kinds" (e.g., integer versus floating-point) is unspecified.
-
-       Specification-compliant libraries may choose to raise an error or return an array containing the element-wise results. If an array is returned, the array must have a real-valued floating-point data type.
-
     Parameters
     ----------
-    x1: array
+    x1: Union[array, int, float, complex]
         dividend input array. Should have a numeric data type.
-    x2: array
+    x2: Union[array, int, float, complex]
         divisor input array. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have a numeric data type.
 
     Returns
@@ -1026,6 +1056,12 @@ def divide(x1: array, x2: array, /) -> array:
 
     Notes
     -----
+
+    -   At least one of ``x1`` or ``x2`` must be an array.
+
+    -   If one or both of the input arrays have integer data types, the result is implementation-dependent, as type promotion between data type "kinds" (e.g., integer versus floating-point) is unspecified.
+
+        Specification-compliant libraries may choose to raise an error or return an array containing the element-wise results. If an array is returned, the array must have a real-valued floating-point data type.
 
     **Special cases**
 
@@ -1086,15 +1122,19 @@ def divide(x1: array, x2: array, /) -> array:
     """
 
 
-def equal(x1: array, x2: array, /) -> array:
+def equal(
+    x1: Union[array, int, float, complex, bool],
+    x2: Union[array, int, float, complex, bool],
+    /,
+) -> array:
     r"""
     Computes the truth value of ``x1_i == x2_i`` for each element ``x1_i`` of the input array ``x1`` with the respective element ``x2_i`` of the input array ``x2``.
 
     Parameters
     ----------
-    x1: array
+    x1: Union[array, int, float, complex, bool]
         first input array. May have any data type.
-    x2: array
+    x2: Union[array, int, float, complex, bool]
         second input array. Must be compatible with ``x1`` (see :ref:`broadcasting`). May have any data type.
 
     Returns
@@ -1104,6 +1144,8 @@ def equal(x1: array, x2: array, /) -> array:
 
     Notes
     -----
+
+    -   At least one of ``x1`` or ``x2`` must be an array.
 
     **Special Cases**
 
@@ -1279,18 +1321,17 @@ def floor(x: array, /) -> array:
     """
 
 
-def floor_divide(x1: array, x2: array, /) -> array:
+def floor_divide(
+    x1: Union[array, int, float], x2: Union[array, int, float], /
+) -> array:
     r"""
     Rounds the result of dividing each element ``x1_i`` of the input array ``x1`` by the respective element ``x2_i`` of the input array ``x2`` to the greatest (i.e., closest to `+infinity`) integer-value number that is not greater than the division result.
 
-    .. note::
-       For input arrays which promote to an integer data type, the result of division by zero is unspecified and thus implementation-defined.
-
     Parameters
     ----------
-    x1: array
+    x1: Union[array, int, float]
         dividend input array. Should have a real-valued data type.
-    x2: array
+    x2: Union[array, int, float]
         divisor input array. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have a real-valued data type.
 
     Returns
@@ -1300,6 +1341,9 @@ def floor_divide(x1: array, x2: array, /) -> array:
 
     Notes
     -----
+
+    -   At least one of ``x1`` or ``x2`` must be an array.
+    -   For input arrays which promote to an integer data type, the result of division by zero is unspecified and thus implementation-defined.
 
     **Special cases**
 
@@ -1339,18 +1383,15 @@ def floor_divide(x1: array, x2: array, /) -> array:
     """
 
 
-def greater(x1: array, x2: array, /) -> array:
+def greater(x1: Union[array, int, float], x2: Union[array, int, float], /) -> array:
     """
     Computes the truth value of ``x1_i > x2_i`` for each element ``x1_i`` of the input array ``x1`` with the respective element ``x2_i`` of the input array ``x2``.
 
-    .. note::
-       For backward compatibility, conforming implementations may support complex numbers; however, inequality comparison of complex numbers is unspecified and thus implementation-dependent (see :ref:`complex-number-ordering`).
-
     Parameters
     ----------
-    x1: array
+    x1: Union[array, int, float]
         first input array. Should have a real-valued data type.
-    x2: array
+    x2: Union[array, int, float]
         second input array. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have a real-valued data type.
 
     Returns
@@ -1358,24 +1399,27 @@ def greater(x1: array, x2: array, /) -> array:
     out: array
         an array containing the element-wise results. The returned array must have a data type of ``bool``.
 
-    .. note::
-       Comparison of arrays without a corresponding promotable data type (see :ref:`type-promotion`) is undefined and thus implementation-dependent.
+    Notes
+    -----
+
+    -   At least one of ``x1`` or ``x2`` must be an array.
+    -   Comparison of arrays without a corresponding promotable data type (see :ref:`type-promotion`) is undefined and thus implementation-dependent.
+    -   For backward compatibility, conforming implementations may support complex numbers; however, inequality comparison of complex numbers is unspecified and thus implementation-dependent (see :ref:`complex-number-ordering`).
 
     """
 
 
-def greater_equal(x1: array, x2: array, /) -> array:
+def greater_equal(
+    x1: Union[array, int, float], x2: Union[array, int, float], /
+) -> array:
     """
     Computes the truth value of ``x1_i >= x2_i`` for each element ``x1_i`` of the input array ``x1`` with the respective element ``x2_i`` of the input array ``x2``.
 
-    .. note::
-       For backward compatibility, conforming implementations may support complex numbers; however, inequality comparison of complex numbers is unspecified and thus implementation-dependent (see :ref:`complex-number-ordering`).
-
     Parameters
     ----------
-    x1: array
+    x1: Union[array, int, float]
         first input array. Should have a real-valued data type.
-    x2: array
+    x2: Union[array, int, float]
         second input array. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have a real-valued data type.
 
     Returns
@@ -1383,12 +1427,16 @@ def greater_equal(x1: array, x2: array, /) -> array:
     out: array
         an array containing the element-wise results. The returned array must have a data type of ``bool``.
 
-    .. note::
-       Comparison of arrays without a corresponding promotable data type (see :ref:`type-promotion`) is undefined and thus implementation-dependent.
+    Notes
+    -----
+
+    -   At least one of ``x1`` or ``x2`` must be an array.
+    -   Comparison of arrays without a corresponding promotable data type (see :ref:`type-promotion`) is undefined and thus implementation-dependent.
+    -   For backward compatibility, conforming implementations may support complex numbers; however, inequality comparison of complex numbers is unspecified and thus implementation-dependent (see :ref:`complex-number-ordering`).
     """
 
 
-def hypot(x1: array, x2: array, /) -> array:
+def hypot(x1: Union[array, int, float], x2: Union[array, int, float], /) -> array:
     r"""
     Computes the square root of the sum of squares for each element ``x1_i`` of the input array ``x1`` with the respective element ``x2_i`` of the input array ``x2``.
 
@@ -1397,9 +1445,9 @@ def hypot(x1: array, x2: array, /) -> array:
 
     Parameters
     ----------
-    x1: array
+    x1: Union[array, int, float]
        first input array. Should have a real-valued floating-point data type.
-    x2: array
+    x2: Union[array, int, float]
        second input array. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have a real-valued floating-point data type.
 
     Returns
@@ -1410,7 +1458,8 @@ def hypot(x1: array, x2: array, /) -> array:
     Notes
     -----
 
-    The purpose of this function is to avoid underflow and overflow during intermediate stages of computation. Accordingly, conforming implementations should not use naive implementations.
+    -   At least one of ``x1`` or ``x2`` must be an array.
+    -   The purpose of this function is to avoid underflow and overflow during intermediate stages of computation. Accordingly, conforming implementations should not use naive implementations.
 
     **Special Cases**
 
@@ -1562,18 +1611,15 @@ def isnan(x: array, /) -> array:
     """
 
 
-def less(x1: array, x2: array, /) -> array:
+def less(x1: Union[array, int, float], x2: Union[array, int, float], /) -> array:
     """
     Computes the truth value of ``x1_i < x2_i`` for each element ``x1_i`` of the input array ``x1`` with the respective element ``x2_i`` of the input array ``x2``.
 
-    .. note::
-       For backward compatibility, conforming implementations may support complex numbers; however, inequality comparison of complex numbers is unspecified and thus implementation-dependent (see :ref:`complex-number-ordering`).
-
     Parameters
     ----------
-    x1: array
+    x1: Union[array, int, float]
         first input array. Should have a real-valued data type.
-    x2: array
+    x2: Union[array, int, float]
         second input array. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have a real-valued data type.
 
     Returns
@@ -1581,23 +1627,24 @@ def less(x1: array, x2: array, /) -> array:
     out: array
         an array containing the element-wise results. The returned array must have a data type of ``bool``.
 
-    .. note::
-       Comparison of arrays without a corresponding promotable data type (see :ref:`type-promotion`) is undefined and thus implementation-dependent.
+    Notes
+    -----
+
+    -   At least one of ``x1`` or ``x2`` must be an array.
+    -   Comparison of arrays without a corresponding promotable data type (see :ref:`type-promotion`) is undefined and thus implementation-dependent.
+    -   For backward compatibility, conforming implementations may support complex numbers; however, inequality comparison of complex numbers is unspecified and thus implementation-dependent (see :ref:`complex-number-ordering`).
     """
 
 
-def less_equal(x1: array, x2: array, /) -> array:
+def less_equal(x1: Union[array, int, float], x2: Union[array, int, float], /) -> array:
     """
     Computes the truth value of ``x1_i <= x2_i`` for each element ``x1_i`` of the input array ``x1`` with the respective element ``x2_i`` of the input array ``x2``.
 
-    .. note::
-       For backward compatibility, conforming implementations may support complex numbers; however, inequality comparison of complex numbers is unspecified and thus implementation-dependent (see :ref:`complex-number-ordering`).
-
     Parameters
     ----------
-    x1: array
+    x1: Union[array, int, float]
         first input array. Should have a real-valued data type.
-    x2: array
+    x2: Union[array, int, float]
         second input array. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have a real-valued data type.
 
     Returns
@@ -1605,8 +1652,12 @@ def less_equal(x1: array, x2: array, /) -> array:
     out: array
         an array containing the element-wise results. The returned array must have a data type of ``bool``.
 
-    .. note::
-       Comparison of arrays without a corresponding promotable data type (see :ref:`type-promotion`) is undefined and thus implementation-dependent.
+    Notes
+    -----
+
+    -   At least one of ``x1`` or ``x2`` must be an array.
+    -   Comparison of arrays without a corresponding promotable data type (see :ref:`type-promotion`) is undefined and thus implementation-dependent.
+    -   For backward compatibility, conforming implementations may support complex numbers; however, inequality comparison of complex numbers is unspecified and thus implementation-dependent (see :ref:`complex-number-ordering`).
     """
 
 
@@ -1818,15 +1869,15 @@ def log10(x: array, /) -> array:
     """
 
 
-def logaddexp(x1: array, x2: array, /) -> array:
+def logaddexp(x1: Union[array, int, float], x2: Union[array, int, float], /) -> array:
     """
     Calculates the logarithm of the sum of exponentiations ``log(exp(x1) + exp(x2))`` for each element ``x1_i`` of the input array ``x1`` with the respective element ``x2_i`` of the input array ``x2``.
 
     Parameters
     ----------
-    x1: array
+    x1: Union[array, int, float]
         first input array. Should have a real-valued floating-point data type.
-    x2: array
+    x2: Union[array, int, float]
         second input array. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have a real-valued floating-point data type.
 
     Returns
@@ -1836,6 +1887,8 @@ def logaddexp(x1: array, x2: array, /) -> array:
 
     Notes
     -----
+
+    -   At least one of ``x1`` or ``x2`` must be an array.
 
     **Special cases**
 
@@ -1847,7 +1900,7 @@ def logaddexp(x1: array, x2: array, /) -> array:
     """
 
 
-def logical_and(x1: array, x2: array, /) -> array:
+def logical_and(x1: Union[array, bool], x2: Union[array, bool], /) -> array:
     """
     Computes the logical AND for each element ``x1_i`` of the input array ``x1`` with the respective element ``x2_i`` of the input array ``x2``.
 
@@ -1856,15 +1909,20 @@ def logical_and(x1: array, x2: array, /) -> array:
 
     Parameters
     ----------
-    x1: array
+    x1: Union[array, bool]
         first input array. Should have a boolean data type.
-    x2: array
+    x2: Union[array, bool]
         second input array. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have a boolean data type.
 
     Returns
     -------
     out: array
         an array containing the element-wise results. The returned array must have a data type of `bool`.
+
+    Notes
+    -----
+
+    -   At least one of ``x1`` or ``x2`` must be an array.
     """
 
 
@@ -1887,7 +1945,7 @@ def logical_not(x: array, /) -> array:
     """
 
 
-def logical_or(x1: array, x2: array, /) -> array:
+def logical_or(x1: Union[array, bool], x2: Union[array, bool], /) -> array:
     """
     Computes the logical OR for each element ``x1_i`` of the input array ``x1`` with the respective element ``x2_i`` of the input array ``x2``.
 
@@ -1896,19 +1954,24 @@ def logical_or(x1: array, x2: array, /) -> array:
 
     Parameters
     ----------
-    x1: array
+    x1: Union[array, bool]
         first input array. Should have a boolean data type.
-    x2: array
+    x2: Union[array, bool]
         second input array. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have a boolean data type.
 
     Returns
     -------
     out: array
         an array containing the element-wise results. The returned array must have a data type of ``bool``.
+
+    Notes
+    -----
+
+    -   At least one of ``x1`` or ``x2`` must be an array.
     """
 
 
-def logical_xor(x1: array, x2: array, /) -> array:
+def logical_xor(x1: Union[array, bool], x2: Union[array, bool], /) -> array:
     """
     Computes the logical XOR for each element ``x1_i`` of the input array ``x1`` with the respective element ``x2_i`` of the input array ``x2``.
 
@@ -1917,27 +1980,32 @@ def logical_xor(x1: array, x2: array, /) -> array:
 
     Parameters
     ----------
-    x1: array
+    x1: Union[array, bool]
         first input array. Should have a boolean data type.
-    x2: array
+    x2: Union[array, bool]
         second input array. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have a boolean data type.
 
     Returns
     -------
     out: array
         an array containing the element-wise results. The returned array must have a data type of ``bool``.
+
+    Notes
+    -----
+
+    -   At least one of ``x1`` or ``x2`` must be an array.
     """
 
 
-def maximum(x1: array, x2: array, /) -> array:
+def maximum(x1: Union[array, int, float], x2: Union[array, int, float], /) -> array:
     r"""
     Computes the maximum value for each element ``x1_i`` of the input array ``x1`` relative to the respective element ``x2_i`` of the input array ``x2``.
 
     Parameters
     ----------
-    x1: array
+    x1: Union[array, int, float]
        first input array. Should have a real-valued data type.
-    x2: array
+    x2: Union[array, int, float]
        second input array. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have a real-valued data type.
 
     Returns
@@ -1948,9 +2016,9 @@ def maximum(x1: array, x2: array, /) -> array:
     Notes
     -----
 
-    The order of signed zeros is unspecified and thus implementation-defined. When choosing between ``-0`` or ``+0`` as a maximum value, specification-compliant libraries may choose to return either value.
-
-    For backward compatibility, conforming implementations may support complex numbers; however, inequality comparison of complex numbers is unspecified and thus implementation-defined (see :ref:`complex-number-ordering`).
+    -   At least one of ``x1`` or ``x2`` must be an array.
+    -   The order of signed zeros is unspecified and thus implementation-defined. When choosing between ``-0`` or ``+0`` as a maximum value, specification-compliant libraries may choose to return either value.
+    -   For backward compatibility, conforming implementations may support complex numbers; however, inequality comparison of complex numbers is unspecified and thus implementation-defined (see :ref:`complex-number-ordering`).
 
     **Special Cases**
 
@@ -1962,15 +2030,15 @@ def maximum(x1: array, x2: array, /) -> array:
     """
 
 
-def minimum(x1: array, x2: array, /) -> array:
+def minimum(x1: Union[array, int, float], x2: Union[array, int, float], /) -> array:
     r"""
     Computes the minimum value for each element ``x1_i`` of the input array ``x1`` relative to the respective element ``x2_i`` of the input array ``x2``.
 
     Parameters
     ----------
-    x1: array
+    x1: Union[array, int, float]
        first input array. Should have a real-valued data type.
-    x2: array
+    x2: Union[array, int, float]
        second input array. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have a real-valued data type.
 
     Returns
@@ -1981,9 +2049,9 @@ def minimum(x1: array, x2: array, /) -> array:
     Notes
     -----
 
-    The order of signed zeros is unspecified and thus implementation-defined. When choosing between ``-0`` or ``+0`` as a minimum value, specification-compliant libraries may choose to return either value.
-
-    For backward compatibility, conforming implementations may support complex numbers; however, inequality comparison of complex numbers is unspecified and thus implementation-defined (see :ref:`complex-number-ordering`).
+    -   At least one of ``x1`` or ``x2`` must be an array.
+    -   The order of signed zeros is unspecified and thus implementation-defined. When choosing between ``-0`` or ``+0`` as a minimum value, specification-compliant libraries may choose to return either value.
+    -   For backward compatibility, conforming implementations may support complex numbers; however, inequality comparison of complex numbers is unspecified and thus implementation-defined (see :ref:`complex-number-ordering`).
 
     **Special Cases**
 
@@ -1995,7 +2063,9 @@ def minimum(x1: array, x2: array, /) -> array:
     """
 
 
-def multiply(x1: array, x2: array, /) -> array:
+def multiply(
+    x1: Union[array, int, float, complex], x2: Union[array, int, float, complex], /
+) -> array:
     r"""
     Calculates the product for each element ``x1_i`` of the input array ``x1`` with the respective element ``x2_i`` of the input array ``x2``.
 
@@ -2004,9 +2074,9 @@ def multiply(x1: array, x2: array, /) -> array:
 
     Parameters
     ----------
-    x1: array
+    x1: Union[array, int, float, complex]
         first input array. Should have a numeric data type.
-    x2: array
+    x2: Union[array, int, float, complex]
         second input array. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have a numeric data type.
 
     Returns
@@ -2016,6 +2086,8 @@ def multiply(x1: array, x2: array, /) -> array:
 
     Notes
     -----
+
+    -   At least one of ``x1`` or ``x2`` must be an array.
 
     **Special cases**
 
@@ -2091,15 +2163,15 @@ def negative(x: array, /) -> array:
     """
 
 
-def nextafter(x1: array, x2: array, /) -> array:
+def nextafter(x1: Union[array, int, float], x2: Union[array, int, float], /) -> array:
     """
     Returns the next representable floating-point value for each element ``x1_i`` of the input array ``x1`` in the direction of the respective element ``x2_i`` of the input array ``x2``.
 
     Parameters
     ----------
-    x1: array
+    x1: Union[array, int, float]
         first input array. Should have a real-valued floating-point data type.
-    x2: array
+    x2: Union[array, int, float]
         second input array. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have the same data type as ``x1``.
 
     Returns
@@ -2109,6 +2181,8 @@ def nextafter(x1: array, x2: array, /) -> array:
 
     Notes
     -----
+
+    -   At least one of ``x1`` or ``x2`` must be an array.
 
     **Special cases**
 
@@ -2120,15 +2194,19 @@ def nextafter(x1: array, x2: array, /) -> array:
     """
 
 
-def not_equal(x1: array, x2: array, /) -> array:
+def not_equal(
+    x1: Union[array, int, float, complex, bool],
+    x2: Union[array, int, float, complex, bool],
+    /,
+) -> array:
     """
     Computes the truth value of ``x1_i != x2_i`` for each element ``x1_i`` of the input array ``x1`` with the respective element ``x2_i`` of the input array ``x2``.
 
     Parameters
     ----------
-    x1: array
+    x1: Union[array, int, float, complex, bool]
         first input array. May have any data type.
-    x2: array
+    x2: Union[array, int, float, complex, bool]
         second input array. Must be compatible with ``x1`` (see :ref:`broadcasting`).
 
     Returns
@@ -2138,6 +2216,8 @@ def not_equal(x1: array, x2: array, /) -> array:
 
     Notes
     -----
+
+    -   At least one of ``x1`` or ``x2`` must be an array.
 
     **Special Cases**
 
@@ -2187,27 +2267,17 @@ def positive(x: array, /) -> array:
     """
 
 
-def pow(x1: array, x2: array, /) -> array:
+def pow(
+    x1: Union[array, int, float, complex], x2: Union[array, int, float, complex], /
+) -> array:
     r"""
     Calculates an implementation-dependent approximation of exponentiation by raising each element ``x1_i`` (the base) of the input array ``x1`` to the power of ``x2_i`` (the exponent), where ``x2_i`` is the corresponding element of the input array ``x2``.
 
-    .. note::
-       If both ``x1`` and ``x2`` have integer data types, the result of ``pow`` when ``x2_i`` is negative (i.e., less than zero) is unspecified and thus implementation-dependent.
-
-       If ``x1`` has an integer data type and ``x2`` has a floating-point data type, behavior is implementation-dependent (type promotion between data type "kinds" (integer versus floating-point) is unspecified).
-
-    .. note::
-       By convention, the branch cut of the natural logarithm is the negative real axis :math:`(-\infty, 0)`.
-
-       The natural logarithm is a continuous function from above the branch cut, taking into account the sign of the imaginary component. As special cases involving complex floating-point operands should be handled according to ``exp(x2*log(x1))``, exponentiation has the same branch cut for ``x1`` as the natural logarithm (see :func:`~array_api.log`).
-
-       *Note: branch cuts follow C99 and have provisional status* (see :ref:`branch-cuts`).
-
     Parameters
     ----------
-    x1: array
+    x1: Union[array, int, float, complex]
         first input array whose elements correspond to the exponentiation base. Should have a numeric data type.
-    x2: array
+    x2: Union[array, int, float, complex]
         second input array whose elements correspond to the exponentiation exponent. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have a numeric data type.
 
     Returns
@@ -2217,6 +2287,18 @@ def pow(x1: array, x2: array, /) -> array:
 
     Notes
     -----
+
+    -   At least one of ``x1`` or ``x2`` must be an array.
+
+    -   If both ``x1`` and ``x2`` have integer data types, the result of ``pow`` when ``x2_i`` is negative (i.e., less than zero) is unspecified and thus implementation-dependent.
+
+    -   If ``x1`` has an integer data type and ``x2`` has a floating-point data type, behavior is implementation-dependent (type promotion between data type "kinds" (integer versus floating-point) is unspecified).
+
+    -   By convention, the branch cut of the natural logarithm is the negative real axis :math:`(-\infty, 0)`.
+
+        The natural logarithm is a continuous function from above the branch cut, taking into account the sign of the imaginary component. As special cases involving complex floating-point operands should be handled according to ``exp(x2*log(x1))``, exponentiation has the same branch cut for ``x1`` as the natural logarithm (see :func:`~array_api.log`).
+
+        *Note: branch cuts follow C99 and have provisional status* (see :ref:`branch-cuts`).
 
     **Special cases**
 
@@ -2301,21 +2383,18 @@ def reciprocal(x: array, /) -> array:
     """
 
 
-def remainder(x1: array, x2: array, /) -> array:
+def remainder(x1: Union[array, int, float], x2: Union[array, int, float], /) -> array:
     """
     Returns the remainder of division for each element ``x1_i`` of the input array ``x1`` and the respective element ``x2_i`` of the input array ``x2``.
 
     .. note::
        This function is equivalent to the Python modulus operator ``x1_i % x2_i``.
 
-    .. note::
-       For input arrays which promote to an integer data type, the result of division by zero is unspecified and thus implementation-defined.
-
     Parameters
     ----------
-    x1: array
+    x1: Union[array, int, float]
         dividend input array. Should have a real-valued data type.
-    x2: array
+    x2: Union[array, int, float]
         divisor input array. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have a real-valued data type.
 
     Returns
@@ -2325,6 +2404,9 @@ def remainder(x1: array, x2: array, /) -> array:
 
     Notes
     -----
+
+    -   At least one of ``x1`` or ``x2`` must be an array.
+    -   For input arrays which promote to an integer data type, the result of division by zero is unspecified and thus implementation-defined.
 
     **Special cases**
 
@@ -2681,17 +2763,17 @@ def sqrt(x: array, /) -> array:
     """
 
 
-def subtract(x1: array, x2: array, /) -> array:
+def subtract(
+    x1: Union[array, int, float, complex], x2: Union[array, int, float, complex], /
+) -> array:
     """
     Calculates the difference for each element ``x1_i`` of the input array ``x1`` with the respective element ``x2_i`` of the input array ``x2``.
 
-    The result of ``x1_i - x2_i`` must be the same as ``x1_i + (-x2_i)`` and must be governed by the same floating-point rules as addition (see :meth:`add`).
-
     Parameters
     ----------
-    x1: array
+    x1: Union[array, int, float, complex]
         first input array. Should have a numeric data type.
-    x2: array
+    x2: Union[array, int, float, complex]
         second input array. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have a numeric data type.
 
     Returns
@@ -2701,6 +2783,9 @@ def subtract(x1: array, x2: array, /) -> array:
 
     Notes
     -----
+
+    -   At least one of ``x1`` or ``x2`` must be an array.
+    -   The result of ``x1_i - x2_i`` must be the same as ``x1_i + (-x2_i)`` and must be governed by the same floating-point rules as addition (see :meth:`add`).
 
     .. versionchanged:: 2022.12
        Added complex data type support.
