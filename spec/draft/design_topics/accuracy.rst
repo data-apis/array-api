@@ -23,10 +23,17 @@ including the corresponding element-wise array APIs defined in this standard
 -   multiply
 -   divide
 
-for floating-point operands must return the nearest representable value according to IEEE 754-2019 and a supported rounding mode. By default, the rounding mode should be ``roundTiesToEven`` (i.e., round to nearest with ties rounded toward the nearest value with an even least significant bit).
+for real-valued floating-point operands must return the nearest representable value according to IEEE 754-2019 and a supported rounding mode. By default, the rounding mode should be ``roundTiesToEven`` (i.e., round to nearest with ties rounded toward the nearest value with an even least significant bit).
 
 Mathematical Functions
 ----------------------
+
+The results of the following functions
+
+-   reciprocal
+-   sqrt
+
+for real-valued floating-point operands must return the nearest representable value according to IEEE 754-2019 and a supported rounding mode.
 
 This specification does **not** precisely define the behavior of the following functions
 
@@ -41,10 +48,12 @@ This specification does **not** precisely define the behavior of the following f
 -   cosh
 -   exp
 -   expm1
+-   hypot
 -   log
 -   log1p
 -   log2
 -   log10
+-   logaddexp
 -   pow
 -   sin
 -   sinh
@@ -75,3 +84,8 @@ Linear Algebra
 --------------
 
 This specification does not specify accuracy requirements for linear algebra functions; however, this specification does expect that a conforming implementation of the array API standard will make a best-effort attempt to ensure that its implementations are theoretically sound and numerically robust.
+
+Operations Involving Complex Numbers
+------------------------------------
+
+This specification does not specify accuracy requirements for arithmetic or functional operations involving complex-valued floating-point operands; however, this specification does expect that a conforming implementation of the array API standard will make a best-effort attempt to ensure that its implementations are theoretically sound and numerically robust.
