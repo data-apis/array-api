@@ -13,7 +13,7 @@ def take(x: array, indices: array, /, *, axis: Optional[int] = None) -> array:
     Parameters
     ----------
     x: array
-        input array.
+        input array. Should have one or more dimensions (axes).
     indices: array
         array indices. The array *must* be one-dimensional and have an integer data type.
 
@@ -32,6 +32,8 @@ def take(x: array, indices: array, /, *, axis: Optional[int] = None) -> array:
 
     Notes
     -----
+
+    -   When ``x`` is a zero-dimensional array, behavior is unspecified and thus implementation-defined.
 
     .. versionadded:: 2022.12
 
