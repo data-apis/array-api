@@ -268,7 +268,7 @@ def from_dlpack(
 
     Notes
     -----
-    See :meth:`array.__dlpack__` for implementation suggestions for `from_dlpack` in
+    See :meth:`Array.__dlpack__` for implementation suggestions for `from_dlpack` in
     order to handle DLPack versioning correctly.
 
     A way to move data from two array libraries to the same device (assumed supported by both libraries) in

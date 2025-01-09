@@ -48,3 +48,29 @@ repos:
     rev: 23.7.0
     hooks:
       - id: black
+
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: "v1.0.0"
+    hooks:
+      - id: mypy
+        additional_dependencies: [typing_extensions>=4.4.0]
+        args:
+          - --ignore-missing-imports
+          - --config=pyproject.toml
+        files: ".*(_draft.*)$"
+        exclude: |
+          (?x)^(
+              .*creation_functions.py|
+              .*data_type_functions.py|
+              .*elementwise_functions.py|
+              .*fft.py|
+              .*indexing_functions.py|
+              .*linalg.py|
+              .*linear_algebra_functions.py|
+              .*manipulation_functions.py|
+              .*searching_functions.py|
+              .*set_functions.py|
+              .*sorting_functions.py|
+              .*statistical_functions.py|
+              .*utility_functions.py|
+          )$
