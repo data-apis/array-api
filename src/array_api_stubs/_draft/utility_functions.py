@@ -125,5 +125,5 @@ def diff(
     -----
 
     -   The first-order differences are given by ``out[i] = x[i+1] - x[i]`` along a specified axis. Higher-order differences must be calculated recursively (e.g., by calling ``diff(out, axis=axis, n=n-1)``).
-    -   If a conforming implementation chooses to support ``prepend`` and ``append`` arrays which have a different data type than ``x``, the ``prepend`` and ``append`` arrays should promote to the same data type as ``x`` (see :ref:`type-promotion`). If ``prepend`` and ``append`` do not promote to the same data type as ``x`` or are of a different data type "kind" (integer, real-valued floating-point, or complex floating-point), behavior is unspecified and thus implementation-defined.
+    -   If a conforming implementation chooses to support ``prepend`` and ``append`` arrays which have a different data type than ``x``, behavior is unspecified and thus implementation-defined. Implementations may choose to type promote (:ref:`type-promotion`), cast ``prepend`` and/or ``append`` to the same data type as ``x``, or raise an exception.
     """
