@@ -169,5 +169,5 @@ def where(
     -   If either ``x1`` or ``x2`` is a scalar value, the returned array must have a data type determined according to :ref:`mixing-scalars-and-arrays`.
 
     .. versionchanged:: 2024.12
-        ``x1`` and ``x2`` may be scalars.
+        Added support for scalar arguments.
     """
