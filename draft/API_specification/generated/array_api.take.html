@@ -473,7 +473,7 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>x</strong> (<em>array</em>) – input array.</p></li>
+<li><p><strong>x</strong> (<em>array</em>) – input array. Should have one or more dimensions (axes).</p></li>
 <li><p><strong>indices</strong> (<em>array</em>) – <p>array indices. The array must be one-dimensional and have an integer data type.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -490,6 +490,9 @@
 </dd>
 </dl>
 <p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>When <code class="docutils literal notranslate"><span class="pre">x</span></code> is a zero-dimensional array, behavior is unspecified and thus implementation-defined.</p></li>
+</ul>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version 2022.12.</span></p>
 </div>
