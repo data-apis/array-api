@@ -869,7 +869,7 @@ def conj(x: array, /) -> array:
     Parameters
     ----------
     x: array
-        input array. Should have a complex floating-point data type.
+        input array. Should have a floating-point data type.
 
     Returns
     -------
@@ -880,6 +880,9 @@ def conj(x: array, /) -> array:
     -----
 
     .. versionadded:: 2022.12
+
+    If ``x`` array has a real floating-point dtype, the returned array is a copy of ``x``.
+
     """
 
 
@@ -2346,7 +2349,7 @@ def real(x: array, /) -> array:
     Parameters
     ----------
     x: array
-        input array. Should have a complex floating-point data type.
+        input array. Should have a floating-point data type.
 
     Returns
     -------
@@ -2357,6 +2360,9 @@ def real(x: array, /) -> array:
     -----
 
     .. versionadded:: 2022.12
+
+    If ``x`` array has a real floating-point dtype, the returned array is a copy of ``x``.
+
     """
 
 
