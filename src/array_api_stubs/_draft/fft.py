@@ -15,7 +15,7 @@ __all__ = [
     "ifftshift",
 ]
 
-from ._types import Tuple, Union, Sequence, array, Optional, Literal, device
+from ._types import Tuple, Union, Sequence, array, Optional, Literal, dtype, device
 
 
 def fft(
