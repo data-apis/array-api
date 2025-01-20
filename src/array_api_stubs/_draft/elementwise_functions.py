@@ -881,8 +881,9 @@ def conj(x: array, /) -> array:
 
     .. versionadded:: 2022.12
 
-    If ``x`` array has a real floating-point dtype, the returned array is a copy of ``x``.
-
+    A conforming implementation may return a "view" into the input array or a copy. Therefore, whether
+    the output array and the input array share the underlying memory buffer is unspecified and
+    thus implementation-defined.
     """
 
 
@@ -2361,8 +2362,9 @@ def real(x: array, /) -> array:
 
     .. versionadded:: 2022.12
 
-    If ``x`` array has a real floating-point dtype, the returned array is a copy of ``x``.
-
+    A conforming implementation may return a "view" into the input array or a copy. Therefore, whether
+    the output array and the input array share the underlying memory buffer is unspecified and
+    thus implementation-defined.
     """
 
 
