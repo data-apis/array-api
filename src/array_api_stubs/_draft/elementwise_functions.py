@@ -869,7 +869,7 @@ def conj(x: array, /) -> array:
     Parameters
     ----------
     x: array
-        input array. Should have a floating-point data type.
+        input array. Should have a numeric data type.
 
     Returns
     -------
@@ -2350,7 +2350,7 @@ def real(x: array, /) -> array:
     Parameters
     ----------
     x: array
-        input array. Should have a floating-point data type.
+        input array. Should have a numeric data type.
 
     Returns
     -------
