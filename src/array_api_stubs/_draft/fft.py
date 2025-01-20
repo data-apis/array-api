@@ -551,7 +551,14 @@ def ihfft(
     """
 
 
-def fftfreq(n: int, /, *, d: float = 1.0, device: Optional[device] = None) -> array:
+def fftfreq(
+    n: int,
+    /,
+    *,
+    d: float = 1.0,
+    dtype: Optional[dtype] = None,
+    device: Optional[device] = None,
+) -> array:
     """
     Computes the discrete Fourier transform sample frequencies.
 
@@ -568,13 +575,15 @@ def fftfreq(n: int, /, *, d: float = 1.0, device: Optional[device] = None) -> ar
         window length.
     d: float
         sample spacing between individual samples of the Fourier transform input. Default: ``1.0``.
+    dtype: Optional[dtype]
+        output array data type. Must be a real-valued floating-point data type. If ``dtype`` is ``None``, the output array data type must be the default real-valued floating-point data type. Default: ``None``.
     device: Optional[device]
         device on which to place the created array. Default: ``None``.
 
     Returns
     -------
     out: array
-        an array of shape ``(n,)`` containing the sample frequencies. The returned array must have the default real-valued floating-point data type.
+        an array of shape ``(n,)`` containing the sample frequencies.
 
     Notes
     -----
@@ -586,7 +595,14 @@ def fftfreq(n: int, /, *, d: float = 1.0, device: Optional[device] = None) -> ar
     """
 
 
-def rfftfreq(n: int, /, *, d: float = 1.0, device: Optional[device] = None) -> array:
+def rfftfreq(
+    n: int,
+    /,
+    *,
+    d: float = 1.0,
+    dtype: Optional[dtype] = None,
+    device: Optional[device] = None,
+) -> array:
     """
     Computes the discrete Fourier transform sample frequencies (for ``rfft`` and ``irfft``).
 
@@ -605,13 +621,15 @@ def rfftfreq(n: int, /, *, d: float = 1.0, device: Optional[device] = None) -> a
         window length.
     d: float
         sample spacing between individual samples of the Fourier transform input. Default: ``1.0``.
+    dtype: Optional[dtype]
+        output array data type. Must be a real-valued floating-point data type. If ``dtype`` is ``None``, the output array data type must be the default real-valued floating-point data type. Default: ``None``.
     device: Optional[device]
         device on which to place the created array. Default: ``None``.
 
     Returns
     -------
     out: array
-        an array of shape ``(n//2+1,)`` containing the sample frequencies. The returned array must have the default real-valued floating-point data type.
+        an array of shape ``(n//2+1,)`` containing the sample frequencies.
 
     Notes
     -----
