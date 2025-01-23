@@ -21,35 +21,34 @@ def astype(
     device: Optional[device] = None,
 ) -> array:
     """
-    Copies an array to a specified data type irrespective of :ref:`type-promotion` rules, or to a *kind* of data type.
-
-    .. note::
-       Casting floating-point ``NaN`` and ``infinity`` values to integral data types is not specified and is implementation-dependent.
-
-    .. note::
-       Casting a complex floating-point array to a real-valued data type should not be permitted.
-
-       Historically, when casting a complex floating-point array to a real-valued data type, libraries such as NumPy have discarded imaginary components such that, for a complex floating-point array ``x``, ``astype(x)`` equals ``astype(real(x))``). This behavior is considered problematic as the choice to discard the imaginary component is arbitrary and introduces more than one way to achieve the same outcome (i.e., for a complex floating-point array ``x``, ``astype(x)`` and ``astype(real(x))`` versus only ``astype(imag(x))``). Instead, in order to avoid ambiguity and to promote clarity, this specification requires that array API consumers explicitly express which component should be cast to a specified real-valued data type.
-
-    .. note::
-       When casting a boolean input array to a real-valued data type, a value of ``True`` must cast to a real-valued number equal to ``1``, and a value of ``False`` must cast to a real-valued number equal to ``0``.
-
-       When casting a boolean input array to a complex floating-point data type, a value of ``True`` must cast to a complex number equal to ``1 + 0j``, and a value of ``False`` must cast to a complex number equal to ``0 + 0j``.
-
-    .. note::
-       When casting a real-valued input array to ``bool``, a value of ``0`` must cast to ``False``, and a non-zero value must cast to ``True``.
-
-       When casting a complex floating-point array to ``bool``, a value of ``0 + 0j`` must cast to ``False``, and all other values must cast to ``True``.
+    Copies an array to a specified data type or data type kind irrespective of :ref:`type-promotion` rules.
 
     Parameters
     ----------
     x: array
         array to cast.
     dtype: Union[dtype, str]
-        desired data type or kind of data type. Supported kinds are:
+        desired data type or data type kind.
 
-        -   ``'signed integer'``: signed integer data types (e.g., ``int8``, ``int16``, ``int32``, ``int64``).
-        -   ``'complex floating'``: complex floating-point data types (e.g., ``complex64``, ``complex128``).
+        -   If ``dtype`` is a data type, the function must return an array having the specified data type.
+        -   If ``dtype`` is a data type kind,
+
+            -   If the data type of ``x`` belongs to the specified data type kind, the function must return an array having the same data type as ``x``.
+            -   If the data type of ``x`` does not belong to the specified data type kind, the function cast the input array to a data type of the specified data type kind according to type promotion rules (see :ref:`type-promotion`) and the casting rules documented below.
+
+                -   When applying type promotion rules, the returned array must have the lowest-precision data type belonging to the specified data type kind to which the data type of ``x`` promotes (e.g., if ``x`` is ``float32`` and the data type kind is ``'complex floating'``, then the returned array must have the data type ``complex64``; if ``x`` is ``uint16`` and the data type kind is ``'signed integer'``, then the returned array must have the data type ``int32``).
+                -   When type promotion rules are not specified between the data type of ``x`` and the specified data type kind (e.g., ``int16`` and ``'real floating'``) and there exists one or more data types belonging to the specified data kind in which the elements in ``x`` can be represented exactly (e.g., ``int32`` and ``float64``), the function must return an array having the smallest data type (in terms of range of values) capable of precisely representing the elements of ``x`` (e.g., if ``x`` is ``int16`` and the data type kind is ``'complex floating'``, then the returned array must have the data type ``complex64``; if ``x`` is `bool`` and the data type kind is ``integral``, then the returned array must have the data type ``int8``).
+                -   When type promotion rules are not specified between the data type of ``x`` and the specified data type kind and there neither exists a data type belonging to the specified data type in which the elements of ``x`` can be represented exactly (e.g., ``uint64`` and ``'real floating'``) nor are there applicable casting rules documented below, behavior is unspecified and thus implementation-defined.
+
+            The following data type kinds must be supported:
+
+            -   ``'bool'``: boolean data types (e.g., ``bool``).
+            -   ``'signed integer'``: signed integer data types (e.g., ``int8``, ``int16``, ``int32``, ``int64``).
+            -   ``'unsigned integer'``: unsigned integer data types (e.g., ``uint8``, ``uint16``, ``uint32``, ``uint64``).
+            -   ``'integral'``: integer data types. Shorthand for ``('signed integer', 'unsigned integer')``.
+            -   ``'real floating'``: real-valued floating-point data types (e.g., ``float32``, ``float64``).
+            -   ``'complex floating'``: complex floating-point data types (e.g., ``complex64``, ``complex128``).
+            -   ``'numeric'``: numeric data types. Shorthand for ``('integral', 'real floating', 'complex floating')``.
 
     copy: bool
         specifies whether to copy an array when the specified ``dtype`` matches the data type of the input array ``x``. If ``True``, a newly allocated array must always be returned. If ``False`` and the specified ``dtype`` matches the data type of the input array, the input array must be returned; otherwise, a newly allocated array must be returned. Default: ``True``.
@@ -59,18 +58,24 @@ def astype(
     Returns
     -------
     out: array
-        For ``dtype`` a data type, an array having the specified data type.
-        For ``dtype`` a kind of data type:
-
-        -   If ``x.dtype`` is already of that kind, the data type must be maintained.
-        -   Otherwise, ``x`` should be cast to a data type of that kind, according to the type promotion rules (see :ref:`type-promotion`) and the above notes.
-        -   Kinds must be interpreted as the lowest-precision standard data type of that kind for the purposes of type promotion. For example, ``astype(x, 'complex floating')`` will return an array with the data type ``complex64`` when ``x.dtype`` is ``float32``, since ``complex64`` is the result of promoting ``float32`` with the lowest-precision standard complex data type, ``complex64``.
-        -   Where type promotion is unspecified and thus implementation-specific, the result is also unspecified. For example, ``astype(x, 'complex floating')``, where ``x`` has data type ``int32``.
-
-        The returned array must have the same shape as ``x``.
+        an array having the specified data type or data type kind. The returned array must have the same shape as ``x``.
 
     Notes
     -----
+
+    -   Casting floating-point ``NaN`` and ``infinity`` values to integral data types is not specified and is implementation-dependent.
+
+    -   Casting a complex floating-point array to a real-valued data type should not be permitted.
+
+        Historically, when casting a complex floating-point array to a real-valued data type, libraries such as NumPy have discarded imaginary components such that, for a complex floating-point array ``x``, ``astype(x)`` equals ``astype(real(x))``). This behavior is considered problematic as the choice to discard the imaginary component is arbitrary and introduces more than one way to achieve the same outcome (i.e., for a complex floating-point array ``x``, ``astype(x)`` and ``astype(real(x))`` versus only ``astype(imag(x))``). Instead, in order to avoid ambiguity and to promote clarity, this specification requires that array API consumers explicitly express which component should be cast to a specified real-valued data type.
+
+    -   When casting a boolean input array to a real-valued data type, a value of ``True`` must cast to a real-valued number equal to ``1``, and a value of ``False`` must cast to a real-valued number equal to ``0``.
+
+    -   When casting a boolean input array to a complex floating-point data type, a value of ``True`` must cast to a complex number equal to ``1 + 0j``, and a value of ``False`` must cast to a complex number equal to ``0 + 0j``.
+
+    -   When casting a real-valued input array to ``bool``, a value of ``0`` must cast to ``False``, and a non-zero value must cast to ``True``.
+
+    -   When casting a complex floating-point array to ``bool``, a value of ``0 + 0j`` must cast to ``False``, and all other values must cast to ``True``.
 
     .. versionchanged:: 2022.12
        Added complex data type support.
