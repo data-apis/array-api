@@ -100,18 +100,14 @@ def asarray(
 
         Default: ``None``.
 
-        .. admonition:: Note
-           :class: note
-
-           If ``dtype`` is not ``None``, then array conversions should obey :ref:`type-promotion` rules. Conversions not specified according to :ref:`type-promotion` rules may or may not be permitted by a conforming array library. To perform an explicit cast, use :func:`array_api.astype`.
-
-        .. note::
-           If an input value exceeds the precision of the resolved output array data type, behavior is left unspecified and, thus, implementation-defined.
-
     device: Optional[device]
         device on which to place the created array. If ``device`` is ``None`` and ``obj`` is an array, the output array device must be inferred from ``obj``. Default: ``None``.
     copy: Optional[bool]
         boolean indicating whether or not to copy the input. If ``True``, the function must always copy. If ``False``, the function must never copy for input which supports the buffer protocol and must raise a ``ValueError`` in case a copy would be necessary. If ``None``, the function must reuse existing memory buffer if possible and copy otherwise. Default: ``None``.
+
+        .. note::
+
+           A common use case for setting ``copy`` equal to ``True`` is to guarantee that, when provided an array ``x``, ``asarray(x, copy=True)`` returns an array which may be mutated without affecting user data. For conforming implementations which disallow mutation, explicitly copying array data belonging to a known array type to a new memory location may not be necessary. Accordingly, such implementations may choose to ignore the ``copy`` keyword argument when ``obj`` is an array belonging to that implementation.
 
     Returns
     -------
@@ -120,6 +116,10 @@ def asarray(
 
     Notes
     -----
+
+    -   If ``dtype`` is not ``None``, then array conversions should obey :ref:`type-promotion` rules. Conversions not specified according to :ref:`type-promotion` rules may or may not be permitted by a conforming array library. To perform an explicit cast, use :func:`array_api.astype`.
+    -   If an input value exceeds the precision of the resolved output array data type, behavior is left unspecified and, thus, implementation-defined.
+    -   must ensure that the returned array does not share data with another array, either by copying the data to a new memory location or in some other way (e.g., this property is guaranteed by design)
 
     .. versionchanged:: 2022.12
        Added complex data type support.
