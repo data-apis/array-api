@@ -65,7 +65,7 @@ def astype(
 
 def can_cast(from_: Union[dtype, array], to: dtype, /) -> bool:
     """
-    Determines if one data type can be cast to another data type according :ref:`type-promotion` rules.
+    Determines if one data type can be cast to another data type according type promotion rules (see :ref:`type-promotion`).
 
     Parameters
     ----------
@@ -77,7 +77,13 @@ def can_cast(from_: Union[dtype, array], to: dtype, /) -> bool:
     Returns
     -------
     out: bool
-        ``True`` if the cast can occur according to :ref:`type-promotion` rules; otherwise, ``False``.
+        ``True`` if the cast can occur according to type promotion rules (see :ref:`type-promotion`); otherwise, ``False``.
+
+    Notes
+    -----
+
+    -   When ``from_`` is a data type, the function must determine whether the data type can be cast to another data type according to the complete type promotion rules (see :ref:`type-promotion`) described in this specification, irrespective of whether a conforming array library supports devices which do not have full data type support.
+    -   When ``from_`` is an array, the function must determine whether the data type of the array can be cast to the desired data type according to the type promotion graph of the array device. As not all devices can support all data types, full support for type promotion rules (see :ref:`type-promotion`) may not be possible. Accordingly, the output of ``can_cast(array, dtype)`` may differ from ``can_cast(array.dtype, dtype)``.
     """
 
 
@@ -229,5 +235,7 @@ def result_type(
     -----
 
     -   At least one argument must be an array or a dtype.
-    -   If provided array and/or dtype arguments having mixed data type kinds (e.g., integer and floating-point), the returned dtype is unspecified and is implementation-dependent.
+    -   If provided array and/or dtype arguments having mixed data type kinds (e.g., integer and floating-point), the returned dtype is unspecified and thus implementation-dependent.
+    -   If at least one argument is an array, the function must determine the resulting dtype according to the type promotion graph of the array device which is shared among all array arguments. As not all devices can support all data types, full support for type promotion rules (see :ref:`type-promotion`) may not be possible. Accordingly, the returned dtype may differ from that determined from the complete type promotion graph defined in this specification (see :ref:`type-promotion`).
+    -   If two or more arguments are arrays belonging to different devices, behavior is unspecified and thus implementation-dependent. Conforming implementations may choose to ignore device attributes, raise an exception, or some other behavior.
     """
