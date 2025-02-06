@@ -522,7 +522,7 @@ raise <code class="docutils literal notranslate"><span class="pre">BufferError</
 <code class="docutils literal notranslate"><span class="pre">__dlpack__</span></code> to return a capsule referencing an array whose underlying memory is
 accessible to the Python interpreter (represented by the <code class="docutils literal notranslate"><span class="pre">kDLCPU</span></code> enumerator in DLPack).
 If a copy must be made to enable this support but <code class="docutils literal notranslate"><span class="pre">copy</span></code> is set to <code class="docutils literal notranslate"><span class="pre">False</span></code>, the
-function must raise <code class="docutils literal notranslate"><span class="pre">ValueError</span></code>.</p>
+function must raise <code class="docutils literal notranslate"><span class="pre">BufferError</span></code>.</p>
 <p>Other device kinds will be considered for standardization in a future version of this
 API standard.</p>
 </p></li>
