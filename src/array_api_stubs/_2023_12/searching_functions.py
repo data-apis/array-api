@@ -107,7 +107,7 @@ def searchsorted(
     side: Literal['left', 'right']
         argument controlling which index is returned if a value lands exactly on an edge.
 
-        Let ``x`` be an array of rank ``N`` where ``v`` is an individual element given by ``v = x2[n,m,...,j]``.
+        Let ``x2`` be an array of rank ``N`` where ``v`` is an individual element given by ``v = x2[n,m,...,j]``.
 
         If ``side == 'left'``, then
 
