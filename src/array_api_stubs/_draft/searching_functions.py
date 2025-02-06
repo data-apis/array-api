@@ -138,15 +138,10 @@ def searchsorted(
 
         Let ``x2`` be an array of rank ``N`` where ``v`` is an individual element given by ``v = x2[n,m,...,j]``.
 
-        If ``side == 'left'``, then
-
-        - each returned index ``i`` must satisfy the index condition ``x1[i-1] < v <= x1[i]``.
-        - if no index satisfies the index condition, then the returned index for that element must be ``0``.
-
-        Otherwise, if ``side == 'right'``, then
-
-        - each returned index ``i`` must satisfy the index condition ``x1[i-1] <= v < x1[i]``.
-        - if no index satisfies the index condition, then the returned index for that element must be ``M``, where ``M`` is the number of elements in ``x1``.
+        - If ``v`` is less than all elements in ``x1``, then the returned index for that element must be ``0``.
+        - If ``v`` is greater than all elements in ``x1``, then the returned index for that element must be ``M``, where ``M`` is the number of elements in ``x1``.
+        - If ``side == 'left'``, then each returned index ``i`` must satisfy the index condition ``x1[i-1] < v <= x1[i]``.
+        - If ``side == 'right'``, then each returned index ``i`` must satisfy the index condition ``x1[i-1] <= v < x1[i]``.
 
         Default: ``'left'``.
     sorter: Optional[array]
