@@ -364,7 +364,7 @@ class _array:
             ``__dlpack__`` to return a capsule referencing an array whose underlying memory is
             accessible to the Python interpreter (represented by the ``kDLCPU`` enumerator in DLPack).
             If a copy must be made to enable this support but ``copy`` is set to ``False``, the
-            function must raise ``ValueError``.
+            function must raise ``BufferError``.
 
             Other device kinds will be considered for standardization in a future version of this
             API standard.
