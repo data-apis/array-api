@@ -111,8 +111,7 @@ def searchsorted(
 
         - If ``v`` is less than all elements in ``x1``, then the returned index for that element must be ``0``.
         - If ``v`` is greater than all elements in ``x1``, then the returned index for that element must be ``M``, where ``M`` is the number of elements in ``x1``.
-        - If ``side == 'left'``, then each returned index ``i`` must satisfy the index condition ``x1[i-1] < v <= x1[i]``.
-        - If ``side == 'right'``, then each returned index ``i`` must satisfy the index condition ``x1[i-1] <= v < x1[i]``.
+        - Otherwise, if ``side == 'left'``, then each returned index ``i`` must satisfy the index condition ``x1[i-1] < v <= x1[i]``. If ``side == 'right'``, then each returned index ``i`` must satisfy the index condition ``x1[i-1] <= v < x1[i]``.
 
         Default: ``'left'``.
     sorter: Optional[array]
