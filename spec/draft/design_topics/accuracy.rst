@@ -25,6 +25,8 @@ including the corresponding element-wise array APIs defined in this standard
 
 for real-valued floating-point operands must return the correctly rounded value according to IEEE 754-2019 and a supported rounding mode. By default, the rounding mode should be ``roundTiesToEven`` (i.e., round to nearest with ties rounded toward the nearest value with an even least significant bit).
 
+IEEE 754-2019 requires support for subnormal (a.k.a., denormal) numbers, which are useful for supporting gradual underflow. However, hardware support for subnormal numbers is not universal, and many platforms (e.g., accelerators) and compilers support toggling denormals-are-zero (DAZ) and/or flush-to-zero (FTZ) behavior to increase performance and to guard against timing attacks. Accordingly, conforming implementations may vary in their support for subnormal numbers.
+
 Mathematical Functions
 ----------------------
 
