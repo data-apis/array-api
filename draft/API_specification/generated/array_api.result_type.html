@@ -477,7 +477,9 @@
 <p class="rubric">Notes</p>
 <ul class="simple">
 <li><p>At least one argument must be an array or a dtype.</p></li>
-<li><p>If provided array and/or dtype arguments having mixed data type kinds (e.g., integer and floating-point), the returned dtype is unspecified and is implementation-dependent.</p></li>
+<li><p>If provided array and/or dtype arguments having mixed data type kinds (e.g., integer and floating-point), the returned dtype is unspecified and thus implementation-dependent.</p></li>
+<li><p>If at least one argument is an array, the function must determine the resulting dtype according to the type promotion graph of the array device which is shared among all array arguments. As not all devices can support all data types, full support for type promotion rules (see <a class="reference internal" href="../type_promotion.html#type-promotion"><span class="std std-ref">Type Promotion Rules</span></a>) may not be possible. Accordingly, the returned dtype may differ from that determined from the complete type promotion graph defined in this specification (see <a class="reference internal" href="../type_promotion.html#type-promotion"><span class="std std-ref">Type Promotion Rules</span></a>).</p></li>
+<li><p>If two or more arguments are arrays belonging to different devices, behavior is unspecified and thus implementation-dependent. Conforming implementations may choose to ignore device attributes, raise an exception, or some other behavior.</p></li>
 </ul>
 </dd></dl>
 </section>
