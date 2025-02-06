@@ -23,7 +23,7 @@ including the corresponding element-wise array APIs defined in this standard
 -   multiply
 -   divide
 
-for real-valued floating-point operands must return the nearest representable value according to IEEE 754-2019 and a supported rounding mode. By default, the rounding mode should be ``roundTiesToEven`` (i.e., round to nearest with ties rounded toward the nearest value with an even least significant bit).
+for real-valued floating-point operands must return the correctly rounded value according to IEEE 754-2019 and a supported rounding mode. By default, the rounding mode should be ``roundTiesToEven`` (i.e., round to nearest with ties rounded toward the nearest value with an even least significant bit).
 
 Mathematical Functions
 ----------------------
