@@ -42,14 +42,14 @@ def broadcast_to(x: array, /, shape: Tuple[int, ...]) -> array:
     Parameters
     ----------
     x: array
-        array to broadcast.
+        array to broadcast. Must be capable of being broadcast to the specified ``shape`` (see :ref:`broadcasting`). If the array is incompatible with the specified shape, the function should raise an exception.
     shape: Tuple[int, ...]
-        array shape. Must be compatible with ``x`` (see :ref:`broadcasting`). If the array is incompatible with the specified shape, the function should raise an exception.
+        array shape.
 
     Returns
     -------
     out: array
-        an array having a specified shape. Must have the same data type as ``x``.
+        an array having the specified shape. Must have the same data type as ``x``.
     """
 
 
