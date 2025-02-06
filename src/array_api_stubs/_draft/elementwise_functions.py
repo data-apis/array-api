@@ -831,7 +831,7 @@ def clip(
     Returns
     -------
     out: array
-      an array containing element-wise results. The returned array must have the same data type as ``x``.
+      an array containing element-wise results. The returned array should have the same data type as ``x``.
 
     Notes
     -----
