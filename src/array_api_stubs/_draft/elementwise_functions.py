@@ -879,7 +879,7 @@ def conj(x: array, /) -> array:
     Notes
     -----
 
-    -   Whether or not the returned array and the input array share the same underlying memory is unspecified and thus implementation-defined.
+    -   Whether the returned array and the input array share the same underlying memory is unspecified and thus implementation-defined.
 
     .. versionadded:: 2022.12
     """
@@ -2358,7 +2358,7 @@ def real(x: array, /) -> array:
     Notes
     -----
 
-    -   Whether or not the returned array and the input array share the same underlying memory is unspecified and thus implementation-defined.
+    -   Whether the returned array and the input array share the same underlying memory is unspecified and thus implementation-defined.
 
     .. versionadded:: 2022.12
     """
