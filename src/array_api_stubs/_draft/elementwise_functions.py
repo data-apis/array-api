@@ -824,9 +824,9 @@ def clip(
     x: array
       input array. Should have a real-valued data type.
     min: Optional[Union[int, float, array]]
-      lower-bound of the range to which to clamp. If ``None``, no lower bound must be applied. Must be compatible with ``x`` (see :ref:`broadcasting`). Should have the same data type as ``x``. Default: ``None``.
+      lower-bound of the range to which to clamp. If ``None``, no lower bound must be applied. Must be compatible with ``x`` and ``max`` (see :ref:`broadcasting`). Should have the same data type as ``x``. Default: ``None``.
     max: Optional[Union[int, float, array]]
-      upper-bound of the range to which to clamp. If ``None``, no upper bound must be applied. Must be compatible with ``x`` (see :ref:`broadcasting`). Should have the same data type as ``x``. Default: ``None``.
+      upper-bound of the range to which to clamp. If ``None``, no upper bound must be applied. Must be compatible with ``x`` and ``min`` (see :ref:`broadcasting`). Should have the same data type as ``x``. Default: ``None``.
 
     Returns
     -------
