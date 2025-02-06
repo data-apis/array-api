@@ -110,7 +110,6 @@ where
 -   **c16**: double-precision complex floating-point number (i.e., ``complex128``)
     composed of two double-precision (64-bit) floating-point numbers
 
-
 Notes
 ~~~~~
 
@@ -132,21 +131,30 @@ where ``<op>`` is a built-in operator (including in-place operators, but excludi
 
 -   a Python ``bool`` for a ``bool`` array data type.
 -   a Python ``int`` within the bounds of the given data type for integer array :ref:`data-types`.
--   a Python ``int``, ``float``, or ``complex`` for real-valued floating-point array data types.
+-   a Python ``int`` or ``float`` for real-valued floating-point array data types.
 -   a Python ``int``, ``float``, or ``complex`` for complex floating-point array data types.
 
 Provided the above requirements are met, the expected behavior is equivalent to:
 
-1.  Convert the scalar to zero-dimensional array with the same data type as that of the array used in the expression.
+1.  Convert the scalar to a zero-dimensional array with the same data type as that of the array used in the expression.
 2.  Execute the operation for ``array <op> 0-D array`` (or ``0-D array <op> array`` if ``scalar`` was the left-hand argument).
 
-.. note::
-   Behavior is not specified when mixing a Python ``float`` and an array with an integer data type; this may give ``float32``, ``float64``, or raise an exception. Behavior is implementation-specific.
+Additionally, using Python ``complex`` scalars together with arrays must be supported for:
 
-   Behavior is also not specified for integers outside of the bounds of a given integer data type. Integers outside of bounds may result in overflow or an error.
+-   ``array <op> scalar``
+-   ``scalar <op> array``
 
+where ``<op>`` is a built-in operator (including in-place operators, but excluding the matmul ``@`` operator; see :ref:`operators` for operators supported by the array object) and ``scalar`` has a type and value compatible with a promoted array data type:
 
-.. note::
-    Mixing a Python ``complex`` and an array with a real-valued data type is allowed; the result is an array of the data type of the same *precision* as the array operand. In other word, ``1j <op> float32_array`` results in a ``complex64`` array; ``1j <op> float64_array`` results in a ``complex128`` array.
+-   a Python ``complex`` for real-valued floating-point array data types.
 
-   Behavior is not specificed when mixing ``complex`` scalars with integer arrays; this may give ``complex64``, ``complex128``, or raise an exception. Behavior is implementation-specific.
+Provided the above requirements are met, the expected behavior is equivalent to:
+
+1.  Convert the scalar to a zero-dimensional array with a complex floating-point array data type having the same precision as that of the array operand used in the expression (e.g., if an array has a ``float32`` data type, the scalar must be converted to a zero-dimensional array having a ``complex64`` data type; if an array has a ``float64`` data type, the scalar must be converted to a zero-dimensional array have a ``complex128`` data type).
+2.  Execute the operation for ``array <op> 0-D array`` (or ``0-D array <op> array`` if ``scalar`` was the left-hand argument).
+
+Behavior is not specified for integers outside of the bounds of a given integer data type. Integers outside of bounds may result in overflow or an error.
+
+Behavior is not specified when mixing a Python ``float`` and an array with an integer data type; this may give ``float32``, ``float64``, or raise an exception. Behavior is implementation-specific.
+
+Behavior is not specified when mixing a Python ``complex`` and an array with an integer data type; this may give ``complex64``, ``complex128``, or raise an exception. Behavior is implementation-specific.
