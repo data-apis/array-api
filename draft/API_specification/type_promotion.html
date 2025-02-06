@@ -721,15 +721,26 @@ composed of two double-precision (64-bit) floating-point numbers</p></li>
 </ul>
 <p>Provided the above requirements are met, the expected behavior is equivalent to:</p>
 <ol class="arabic simple">
-<li><p>Convert the scalar to zero-dimensional array with the same data type as that of the array used in the expression.</p></li>
+<li><p>Convert the scalar to a zero-dimensional array with the same data type as that of the array used in the expression.</p></li>
 <li><p>Execute the operation for <code class="docutils literal notranslate"><span class="pre">array</span> <span class="pre">&lt;op&gt;</span> <span class="pre">0-D</span> <span class="pre">array</span></code> (or <code class="docutils literal notranslate"><span class="pre">0-D</span> <span class="pre">array</span> <span class="pre">&lt;op&gt;</span> <span class="pre">array</span></code> if <code class="docutils literal notranslate"><span class="pre">scalar</span></code> was the left-hand argument).</p></li>
 </ol>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<p>Additionally, using Python <code class="docutils literal notranslate"><span class="pre">complex</span></code> scalars together with arrays must be supported for:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">array</span> <span class="pre">&lt;op&gt;</span> <span class="pre">scalar</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">scalar</span> <span class="pre">&lt;op&gt;</span> <span class="pre">array</span></code></p></li>
+</ul>
+<p>where <code class="docutils literal notranslate"><span class="pre">&lt;op&gt;</span></code> is a built-in operator (including in-place operators, but excluding the matmul <code class="docutils literal notranslate"><span class="pre">@</span></code> operator; see <a class="reference internal" href="array_object.html#operators"><span class="std std-ref">Operators</span></a> for operators supported by the array object) and <code class="docutils literal notranslate"><span class="pre">scalar</span></code> has a type and value compatible with a promoted array data type:</p>
+<ul class="simple">
+<li><p>a Python <code class="docutils literal notranslate"><span class="pre">complex</span></code> for real-valued floating-point array data types.</p></li>
+</ul>
+<p>Provided the above requirements are met, the expected behavior is equivalent to:</p>
+<ol class="arabic simple">
+<li><p>Convert the scalar to a zero-dimensional array with a complex floating-point array data type having the same precision as that of the array operand used in the expression (e.g., if an array has a <code class="docutils literal notranslate"><span class="pre">float32</span></code> data type, the scalar must be converted to a zero-dimensional array having a <code class="docutils literal notranslate"><span class="pre">complex64</span></code> data type; if an array has a <code class="docutils literal notranslate"><span class="pre">float64</span></code> data type, the scalar must be converted to a zero-dimensional array have a <code class="docutils literal notranslate"><span class="pre">complex128</span></code> data type).</p></li>
+<li><p>Execute the operation for <code class="docutils literal notranslate"><span class="pre">array</span> <span class="pre">&lt;op&gt;</span> <span class="pre">0-D</span> <span class="pre">array</span></code> (or <code class="docutils literal notranslate"><span class="pre">0-D</span> <span class="pre">array</span> <span class="pre">&lt;op&gt;</span> <span class="pre">array</span></code> if <code class="docutils literal notranslate"><span class="pre">scalar</span></code> was the left-hand argument).</p></li>
+</ol>
+<p>Behavior is not specified for integers outside of the bounds of a given integer data type. Integers outside of bounds may result in overflow or an error.</p>
 <p>Behavior is not specified when mixing a Python <code class="docutils literal notranslate"><span class="pre">float</span></code> and an array with an integer data type; this may give <code class="docutils literal notranslate"><span class="pre">float32</span></code>, <code class="docutils literal notranslate"><span class="pre">float64</span></code>, or raise an exception. Behavior is implementation-specific.</p>
-<p>Similarly, behavior is not specified when mixing a Python <code class="docutils literal notranslate"><span class="pre">complex</span></code> and an array with a real-valued data type; this may give <code class="docutils literal notranslate"><span class="pre">complex64</span></code>, <code class="docutils literal notranslate"><span class="pre">complex128</span></code>, or raise an exception. Behavior is implementation-specific.</p>
-<p>Behavior is also not specified for integers outside of the bounds of a given integer data type. Integers outside of bounds may result in overflow or an error.</p>
-</div>
+<p>Behavior is not specified when mixing a Python <code class="docutils literal notranslate"><span class="pre">complex</span></code> and an array with an integer data type; this may give <code class="docutils literal notranslate"><span class="pre">complex64</span></code>, <code class="docutils literal notranslate"><span class="pre">complex128</span></code>, or raise an exception. Behavior is implementation-specific.</p>
 </section>
 </section>
 </section>
