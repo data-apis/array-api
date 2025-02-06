@@ -285,6 +285,8 @@
         <li class="md-nav__item"><a href="#statistical-functions" class="md-nav__link">Statistical Functions</a>
         </li>
         <li class="md-nav__item"><a href="#linear-algebra" class="md-nav__link">Linear Algebra</a>
+        </li>
+        <li class="md-nav__item"><a href="#operations-involving-complex-numbers" class="md-nav__link">Operations Involving Complex Numbers</a>
         </li></ul>
             </nav>
         </li>
@@ -412,6 +414,8 @@
         <li class="md-nav__item"><a href="#statistical-functions" class="md-nav__link">Statistical Functions</a>
         </li>
         <li class="md-nav__item"><a href="#linear-algebra" class="md-nav__link">Linear Algebra</a>
+        </li>
+        <li class="md-nav__item"><a href="#operations-involving-complex-numbers" class="md-nav__link">Operations Involving Complex Numbers</a>
         </li></ul>
             </nav>
         </li>
@@ -446,10 +450,17 @@
 <li><p>multiply</p></li>
 <li><p>divide</p></li>
 </ul>
-<p>for floating-point operands must return the nearest representable value according to IEEE 754-2019 and a supported rounding mode. By default, the rounding mode should be <code class="docutils literal notranslate"><span class="pre">roundTiesToEven</span></code> (i.e., round to nearest with ties rounded toward the nearest value with an even least significant bit).</p>
+<p>for real-valued floating-point operands must return a correctly rounded value according to IEEE 754-2019 and a supported rounding mode. By default, the rounding mode should be <code class="docutils literal notranslate"><span class="pre">roundTiesToEven</span></code> (i.e., round to nearest with ties rounded toward the nearest value with an even least significant bit).</p>
+<p>IEEE 754-2019 requires support for subnormal (a.k.a., denormal) numbers, which are useful for supporting gradual underflow. However, hardware support for subnormal numbers is not universal, and many platforms (e.g., accelerators) and compilers support toggling denormals-are-zero (DAZ) and/or flush-to-zero (FTZ) behavior to increase performance and to guard against timing attacks. Accordingly, conforming implementations may vary in their support for subnormal numbers.</p>
 </section>
 <section id="mathematical-functions">
 <h2 id="mathematical-functions">Mathematical Functions<a class="headerlink" href="#mathematical-functions" title="Link to this heading">¶</a></h2>
+<p>The results of the following functions</p>
+<ul class="simple">
+<li><p>reciprocal</p></li>
+<li><p>sqrt</p></li>
+</ul>
+<p>for real-valued floating-point operands must return a correctly rounded value according to IEEE 754-2019 and a supported rounding mode.</p>
 <p>This specification does <strong>not</strong> precisely define the behavior of the following functions</p>
 <ul class="simple">
 <li><p>acos</p></li>
@@ -463,10 +474,12 @@
 <li><p>cosh</p></li>
 <li><p>exp</p></li>
 <li><p>expm1</p></li>
+<li><p>hypot</p></li>
 <li><p>log</p></li>
 <li><p>log1p</p></li>
 <li><p>log2</p></li>
 <li><p>log10</p></li>
+<li><p>logaddexp</p></li>
 <li><p>pow</p></li>
 <li><p>sin</p></li>
 <li><p>sinh</p></li>
@@ -496,6 +509,10 @@
 <section id="linear-algebra">
 <h2 id="linear-algebra">Linear Algebra<a class="headerlink" href="#linear-algebra" title="Link to this heading">¶</a></h2>
 <p>This specification does not specify accuracy requirements for linear algebra functions; however, this specification does expect that a conforming implementation of the array API standard will make a best-effort attempt to ensure that its implementations are theoretically sound and numerically robust.</p>
+</section>
+<section id="operations-involving-complex-numbers">
+<h2 id="operations-involving-complex-numbers">Operations Involving Complex Numbers<a class="headerlink" href="#operations-involving-complex-numbers" title="Link to this heading">¶</a></h2>
+<p>This specification does not specify accuracy requirements for arithmetic or functional operations involving complex-valued floating-point operands; however, this specification does expect that a conforming implementation of the array API standard will make a best-effort attempt to ensure that its implementations are theoretically sound and numerically robust.</p>
 </section>
 </section>
 
