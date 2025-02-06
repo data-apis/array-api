@@ -65,7 +65,7 @@ def astype(
 
 def can_cast(from_: Union[dtype, array], to: dtype, /) -> bool:
     """
-    Determines if one data type can be cast to another data type according type promotion rules (see :ref:`type-promotion`).
+    Determines if one data type can be cast to another data type according to type promotion rules (see :ref:`type-promotion`).
 
     Parameters
     ----------
