@@ -146,7 +146,7 @@ def searchsorted(
         Otherwise, if ``side == 'right'``, then
 
         - each returned index ``i`` must satisfy the index condition ``x1[i-1] <= v < x1[i]``.
-        - if no index satisfies the index condition, then the returned index for that element must be ``N``, where ``N`` is the number of elements in ``x1``.
+        - if no index satisfies the index condition, then the returned index for that element must be ``M``, where ``M`` is the number of elements in ``x1``.
 
         Default: ``'left'``.
     sorter: Optional[array]
