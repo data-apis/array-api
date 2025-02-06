@@ -470,19 +470,18 @@
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>x</strong> (<em>array</em>) – input array. Must be compatible with <code class="docutils literal notranslate"><span class="pre">indices</span></code>, except for the axis (dimension) specified by <code class="docutils literal notranslate"><span class="pre">axis</span></code> (see <a class="reference internal" href="../broadcasting.html#broadcasting"><span class="std std-ref">Broadcasting</span></a>).</p></li>
-<li><p><strong>indices</strong> (<em>array</em>) – <p>array indices. Must have the same rank (i.e., number of dimensions) as <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This specification does not require bounds checking. The behavior for out-of-bounds indices is left unspecified.</p>
-</div>
-</p></li>
-<li><p><strong>axis</strong> (<em>int</em>) – axis along which to select values. If <code class="docutils literal notranslate"><span class="pre">axis</span></code> is negative, the function must determine the axis along which to select values by counting from the last dimension. Default: <code class="docutils literal notranslate"><span class="pre">-1</span></code>.</p></li>
+<li><p><strong>indices</strong> (<em>array</em>) – array indices. Must have the same rank (i.e., number of dimensions) as <code class="docutils literal notranslate"><span class="pre">x</span></code>. If an index is negative, the function must determine the element to select along a specified axis (dimension) by counting from the last element (where <code class="docutils literal notranslate"><span class="pre">-1</span></code> refers to the last element).</p></li>
+<li><p><strong>axis</strong> (<em>int</em>) – axis along which to select values. If <code class="docutils literal notranslate"><span class="pre">axis</span></code> is negative, the function must determine the axis along which to select values by counting from the last dimension (where <code class="docutils literal notranslate"><span class="pre">-1</span></code> refers to the last dimension). Default: <code class="docutils literal notranslate"><span class="pre">-1</span></code>.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>out</strong> (<em>array</em>) – an array having the same data type as <code class="docutils literal notranslate"><span class="pre">x</span></code>. Must have the same rank (i.e., number of dimensions) as <code class="docutils literal notranslate"><span class="pre">x</span></code> and must have a shape determined according to <a class="reference internal" href="../broadcasting.html#broadcasting"><span class="std std-ref">Broadcasting</span></a>, except for the axis (dimension) specified by <code class="docutils literal notranslate"><span class="pre">axis</span></code> whose size must equal the size of the corresponding axis (dimension) in <code class="docutils literal notranslate"><span class="pre">indices</span></code>.</p>
 </dd>
 </dl>
+<p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>This specification does not require bounds checking. The behavior for out-of-bounds indices is left unspecified.</p></li>
+</ul>
 </dd></dl>
 </section>
 
