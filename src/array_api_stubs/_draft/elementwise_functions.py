@@ -869,7 +869,7 @@ def conj(x: array, /) -> array:
     Parameters
     ----------
     x: array
-        input array. Should have a complex floating-point data type.
+        input array. Must have a numeric data type.
 
     Returns
     -------
@@ -878,6 +878,8 @@ def conj(x: array, /) -> array:
 
     Notes
     -----
+
+    -   Whether the returned array and the input array share the same underlying memory is unspecified and thus implementation-defined.
 
     .. versionadded:: 2022.12
     """
@@ -2346,7 +2348,7 @@ def real(x: array, /) -> array:
     Parameters
     ----------
     x: array
-        input array. Should have a complex floating-point data type.
+        input array. Must have a numeric data type.
 
     Returns
     -------
@@ -2355,6 +2357,8 @@ def real(x: array, /) -> array:
 
     Notes
     -----
+
+    -   Whether the returned array and the input array share the same underlying memory is unspecified and thus implementation-defined.
 
     .. versionadded:: 2022.12
     """
