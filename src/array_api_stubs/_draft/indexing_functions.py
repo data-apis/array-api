@@ -7,21 +7,14 @@ def take(x: array, indices: array, /, *, axis: Optional[int] = None) -> array:
     """
     Returns elements of an array along an axis.
 
-    .. note::
-       Conceptually, ``take(x, indices, axis=3)`` is equivalent to ``x[:,:,:,indices,...]``; however, explicit indexing via arrays of indices is not currently supported in this specification due to concerns regarding ``__setitem__`` and array mutation semantics.
-
     Parameters
     ----------
     x: array
         input array. Should have one or more dimensions (axes).
     indices: array
-        array indices. The array must be one-dimensional and have an integer data type.
-
-        .. note::
-           This specification does not require bounds checking. The behavior for out-of-bounds indices is left unspecified.
-
+        array indices. The array must be one-dimensional and have an integer data type. If an index is negative, the function must determine the element to select along a specified axis (dimension) by counting from the last element (where ``-1`` refers to the last element).
     axis: Optional[int]
-        axis over which to select values. If ``axis`` is negative, the function must determine the axis along which to select values by counting from the last dimension.
+        axis over which to select values. If ``axis`` is negative, the function must determine the axis along which to select values by counting from the last dimension (where ``-1`` refers to the last dimension).
 
         If ``x`` is a one-dimensional array, providing an ``axis`` is optional; however, if ``x`` has more than one dimension, providing an ``axis`` is required.
 
@@ -33,6 +26,8 @@ def take(x: array, indices: array, /, *, axis: Optional[int] = None) -> array:
     Notes
     -----
 
+    -   Conceptually, ``take(x, indices, axis=3)`` is equivalent to ``x[:,:,:,indices,...]``; however, explicit indexing via arrays of indices is not currently supported in this specification due to concerns regarding ``__setitem__`` and array mutation semantics.
+    -   This specification does not require bounds checking. The behavior for out-of-bounds indices is left unspecified.
     -   When ``x`` is a zero-dimensional array, behavior is unspecified and thus implementation-defined.
 
     .. versionadded:: 2022.12
@@ -51,16 +46,17 @@ def take_along_axis(x: array, indices: array, /, *, axis: int = -1) -> array:
     x: array
         input array. Must be compatible with ``indices``, except for the axis (dimension) specified by ``axis`` (see :ref:`broadcasting`).
     indices: array
-        array indices. Must have the same rank (i.e., number of dimensions) as ``x``.
-
-        .. note::
-           This specification does not require bounds checking. The behavior for out-of-bounds indices is left unspecified.
-
+        array indices. Must have the same rank (i.e., number of dimensions) as ``x``. If an index is negative, the function must determine the element to select along a specified axis (dimension) by counting from the last element (where ``-1`` refers to the last element).
     axis: int
-        axis along which to select values. If ``axis`` is negative, the function must determine the axis along which to select values by counting from the last dimension. Default: ``-1``.
+        axis along which to select values. If ``axis`` is negative, the function must determine the axis along which to select values by counting from the last dimension (where ``-1`` refers to the last dimension). Default: ``-1``.
 
     Returns
     -------
     out: array
         an array having the same data type as ``x``. Must have the same rank (i.e., number of dimensions) as ``x`` and must have a shape determined according to :ref:`broadcasting`, except for the axis (dimension) specified by ``axis`` whose size must equal the size of the corresponding axis (dimension) in ``indices``.
+
+    Notes
+    -----
+
+    -   This specification does not require bounds checking. The behavior for out-of-bounds indices is left unspecified.
     """
