@@ -169,11 +169,14 @@ For backward compatibility, conforming implementations may support complex numbe
 In-place Operators
 ~~~~~~~~~~~~~~~~~~
 
-A conforming implementation of the array API standard must provide and support an array object supporting the following in-place Python operators.
+A conforming implementation of the array API standard must provide and support an array object supporting the following "in-place" Python operators.
 
 An in-place operation must not change the data type or shape of the in-place array as a result of :ref:`type-promotion` or :ref:`broadcasting`.
 
 An in-place operation must have the same behavior (including special cases) as its respective binary (i.e., two operand, non-assignment) operation. For example, after in-place addition ``x1 += x2``, the modified array ``x1`` must always equal the result of the equivalent binary arithmetic operation ``x1 = x1 + x2``.
+
+.. note::
+    This specification refers to the following operators as "in-place" as that is what these operators are called in `Python <https://docs.python.org/3/library/operator.html#in-place-operators>`. However, conforming array libraries which do not support array mutation may choose to not explicitly implement in-place Python operators. When a library does not implement a method corresponding to an in-place Python operator, Python falls back to the equivalent method for the corresponding binary arithmetic operation. Accordingly, the guidance above requiring equivalent results (i.e., ``x1 += x2`` must always equal ``x1 = x1 + x2``) only applies when the promoted result type (see :ref:`type-promotion`) equals the data type of ``x1``. When this is not true (e.g., if ``x2`` is ``float64`` and ``x1`` is ``float32``), behavior is unspecified and thus implementation-defined.
 
 .. note::
     In-place operators must be supported as discussed in :ref:`copyview-mutability`.
