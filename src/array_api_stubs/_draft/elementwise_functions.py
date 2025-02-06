@@ -841,7 +841,7 @@ def clip(
     - If a broadcasted element in ``min`` is greater than a corresponding broadcasted element in ``max``, behavior is unspecified and thus implementation-dependent.
     - For scalar ``min`` and/or ``max``, the scalar values should follow type promotion rules for operations involving arrays and scalar operands (see :ref:`type-promotion`). Hence, if ``x`` and either ``min`` or ``max`` have different data type kinds (e.g., integer versus floating-point), behavior is unspecified and thus implementation-dependent.
     - If ``x`` has an integral data type and a broadcasted element in ``min`` or ``max`` is outside the bounds of the data type of ``x``, behavior is unspecified and thus implementation-dependent.
-    - If ``x`` and either ``min`` or ``max`` is an array having a different data type, behavior is unspecified and thus implementation-dependent.
+    - If either ``min`` or ``max`` is an array having a different data type than ``x``, behavior is unspecified and thus implementation-dependent.
 
     **Special cases**
 
