@@ -204,6 +204,9 @@ An array must support indexing a one-dimensional array by an integer array (or a
 
 - If ``J`` is a one-dimensional array (or an equivalent sequence) with shape ``(k,)``, the result must be a one-dimensional array ``B``having shape ``(k,)``. Each element of ``B`` must follow the relation ``B[i] = A[J[i]]``.
 
+.. note::
+   If ``J`` is an array having more than one dimension, behavior is left unspecified and thus implementation-defined. This may be revisited in a future revision of this standard.
+
 An array must support indexing an array having more than one dimension by an indexing tuple which includes only integers and integer arrays (or equivalent sequences) according to the following rules. Let ``A`` be an ``N``-dimensional array with shape ``S1 = (s1, s2, ..., sN)`` and ``T`` be a tuple ``(I, J, ..., K)`` having length ``N`` and containing only valid integer and integer array (or an equivalent sequence) indices.
 
 - Providing an integer tuple element ``K`` having value ``k`` must be equivalent to providing a zero-dimensional integer array ``K`` containing ``k``.
