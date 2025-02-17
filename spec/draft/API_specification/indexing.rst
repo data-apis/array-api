@@ -201,17 +201,17 @@ An array must support indexing a one-dimensional array by an integer array accor
 
 - If ``J`` is a one-dimensional array with shape ``(k,)``, the result must be a one-dimensional array ``B``having shape ``(k,)``. Each element of ``B`` must follow the relation ``B[i] = A[J[i]]``.
 
-An array must support indexing an array having more than one dimension by an indexing tuple which includes only integers and one-dimensional integer arrays according to the following rules. Let ``A`` be an ``N``-dimensional array with shape ``S1 = (s1, s2, ..., sN)`` and ``T`` be a tuple ``(t1, t2, ..., tN)`` having length ``N`` and containing only valid integer and one-dimensional integer array indices.
+An array must support indexing an array having more than one dimension by an indexing tuple which includes only integers and integer arrays according to the following rules. Let ``A`` be an ``N``-dimensional array with shape ``S1 = (s1, s2, ..., sN)`` and ``T`` be a tuple ``(I, J, ..., K)`` having length ``N`` and containing only valid integer and integer array indices.
 
-- Providing an integer tuple element ``tk`` having value ``k`` must be equivalent to providing a zero-dimensional integer array ``K`` containing ``k``.
+- Providing an integer tuple element ``K`` having value ``k`` must be equivalent to providing a zero-dimensional integer array ``K`` containing ``k``.
 
-- If ``T`` consists of only integers and zero-dimensional integer arrays, the result must be equivalent to indexing multiple axes using integer indices (see :ref:`indexing-multi-axis`).
+- If ``T`` consists of only integers and zero-dimensional integer arrays, the result must be equivalent to indexing multiple axes using integer indices. For example, if ``A`` is a two-dimensional array, ``T`` is the tuple ``(i, J)``, ``i`` is a valid integer index, and ``J`` is a zero-dimensional array containing a valid integer index ``j``, the result of ``A[T]`` must be equivalent to ``A[(i,j)]`` (see :ref:`indexing-multi-axis`).
 
-- When ``T`` contains a one-dimensional integer array ``J`` having shape ``S2 = (m,)``, where ``m`` is greater than or equal to the number of elements in any other one-dimensional integer array in ``T``, each element of ``T`` must be broadcast to the same shape as ``J``.
+- If ``T`` consists of only integers and integer arrays, with at least one of those integer arrays being a one-dimensional integer array ``J`` having shape ``S2 = (m,)``, where ``m`` is greater than or equal to the number of elements in any other integer array in ``T``, each element of ``T`` must be broadcast to the same shape as ``J``.
 
 - An ``IndexError`` exception must be raised if any element of ``T`` is not broadcast-compatible with ``J`` (see :ref:`broadcasting`).
 
-- After broadcasting, ``T`` must be equivalent to a tuple ``U = (u1, u2, ..., uN)`` containing only one-dimensional integer arrays having shape ``S2``.
+- After broadcasting, ``T`` must be equivalent to a tuple ``U = (u1, u2, ..., uN)`` containing only integer arrays having shape ``S2``.
 
 - Let ``v_i`` be the tuple formed by the integer indices ``u1[i], u2[i], ..., uN[i]``. When applying the indexing tuple ``U`` to ``A``, the resulting array must be a one-dimensional array having shape ``(m,)`` and containing each element ``A[v_i]`` for ``i`` on the half-open interval ``[0, m)``.
 
