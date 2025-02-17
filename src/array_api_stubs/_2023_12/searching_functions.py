@@ -107,11 +107,13 @@ def searchsorted(
     side: Literal['left', 'right']
         argument controlling which index is returned if a value lands exactly on an edge.
 
-        Let ``x2`` be an array of rank ``N`` where ``v`` is an individual element given by ``v = x2[n,m,...,j]``.
+        Let ``v`` be an element of ``x2`` given by ``v = x2[j]``, where ``j`` refers to a valid scalar or tuple index.
 
-        - If ``v`` is less than all elements in ``x1``, then the returned index for that element must be ``0``.
-        - If ``v`` is greater than all elements in ``x1``, then the returned index for that element must be ``M``, where ``M`` is the number of elements in ``x1``.
-        - Otherwise, if ``side == 'left'``, then each returned index ``i`` must satisfy the index condition ``x1[i-1] < v <= x1[i]``. If ``side == 'right'``, then each returned index ``i`` must satisfy the index condition ``x1[i-1] <= v < x1[i]``.
+        - If ``v`` is less than all elements in ``x1``, then ``out[j]`` must be ``0``.
+        - If ``v`` is greater than all elements in ``x1``, then ``out[j]`` must be ``M``, where ``M`` is the number of elements in ``x1``.
+        - Otherwise, each returned index ``i = out[j]`` must satisfy an index condition:
+          - If ``side == 'left'``, then ``x1[i-1] < v <= x1[i]``. 
+          - If ``side == 'right'``, then ``x1[i-1] <= v < x1[i]``.
 
         Default: ``'left'``.
     sorter: Optional[array]
