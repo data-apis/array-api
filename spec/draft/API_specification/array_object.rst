@@ -87,7 +87,7 @@ A conforming implementation of the array API standard must provide and support a
     -   `operator.matmul(x1, x2) <https://docs.python.org/3/library/operator.html#operator.matmul>`_
     -   `operator.__matmul__(x1, x2) <https://docs.python.org/3/library/operator.html#operator.__matmul__>`_
 
-The matmul ``@`` operator should be defined for arrays having real-valued data types.
+The matmul ``@`` operator should be defined for arrays having numeric data types.
 
 Bitwise Operators
 ~~~~~~~~~~~~~~~~~
@@ -169,14 +169,28 @@ For backward compatibility, conforming implementations may support complex numbe
 In-place Operators
 ~~~~~~~~~~~~~~~~~~
 
-A conforming implementation of the array API standard must provide and support an array object supporting the following in-place Python operators.
+.. note::
+    In-place operations must be supported as discussed in :ref:`copyview-mutability`.
+
+A conforming implementation of the array API standard must provide and support an array object supporting the following "in-place" Python operators.
+
+.. note::
+    This specification refers to the following operators as "in-place" as that is what these operators are called in `Python <https://docs.python.org/3/library/operator.html#in-place-operators>`. However, conforming array libraries which do not support array mutation may choose to not explicitly implement in-place Python operators. When a library does not implement a method corresponding to an in-place Python operator, Python falls back to the equivalent method for the corresponding binary arithmetic operation.
 
 An in-place operation must not change the data type or shape of the in-place array as a result of :ref:`type-promotion` or :ref:`broadcasting`.
 
-An in-place operation must have the same behavior (including special cases) as its respective binary (i.e., two operand, non-assignment) operation. For example, after in-place addition ``x1 += x2``, the modified array ``x1`` must always equal the result of the equivalent binary arithmetic operation ``x1 = x1 + x2``.
+Let ``x1 += x2`` be a representative in-place operation. If, after applying type promotion (see :ref:`type-promotion`) to in-place operands ``x1`` and ``x2``, the resulting data type is equal to the data type of the array on the left-hand side of the operation (i.e., ``x1``), then an in-place operation must have the same behavior (including special cases) as the respective binary (i.e., two operand, non-assignment) operation. In this case, for the in-place addition ``x1 += x2``, the modified array ``x1`` must always equal the result of the equivalent binary arithmetic operation ``x1[...] = x1 + x2``.
+
+If, however, after applying type promotion (see :ref:`type-promotion`) to in-place operands, the resulting data type is not equal to the data type of the array on the left-hand side of the operation, then a conforming implementation may return results which differ from the respective binary operation due to casting behavior and selection of the operation's intermediate precision. The choice of casting behavior and intermediate precision is unspecified and thus implementation-defined.
 
 .. note::
-    In-place operators must be supported as discussed in :ref:`copyview-mutability`.
+    Let ``x1`` be the operand on the left-hand side and ``x2`` be the operand on the right-hand side of an in-place operation. Consumers of the array API standard are advised of the following considerations when using in-place operations:
+
+    1. In-place operations do not guarantee in-place mutation. A conforming library may or may not support in-place mutation.
+    2. If, after applying broadcasting (see :ref:`broadcasting`) to in-place operands, the resulting shape is not equal to the shape of ``x1``, in-place operators may raise an exception.
+    3. If, after applying type promotion (see :ref:`type-promotion`) to in-place operands, the resulting data type is not equal to the data type of ``x1``, the resulting data type may not equal the data type of ``x1`` and the operation's intermediate precision may be that of ``x1``, even if the promoted data type between ``x1`` and ``x2`` would have higher precision.
+
+    In general, for in-place operations, consumers of the array API standard are advised to ensure operands have the same data type and broadcast to the shape of the operand on the left-hand side of the operation in order to maximize portability.
 
 Arithmetic Operators
 """"""""""""""""""""
