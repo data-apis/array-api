@@ -187,10 +187,10 @@ If, however, after applying type promotion (see :ref:`type-promotion`) to in-pla
     Let ``x1`` be the operand on the left-hand side and ``x2`` be the operand on the right-hand side of an in-place operation. Consumers of the array API standard are advised of the following considerations when using in-place operations:
 
     1. In-place operations do not guarantee in-place mutation. A conforming library may or may not support in-place mutation.
-    2. If, after applying broadcasting (see :ref:`broadcasting`) to in-place operands, the resulting shape is not the same as the shape of ``x1``, in-place operators may raise an exception.
-    3. If, after applying type promotion (see :ref:`type-promotion`) to in-place operands, the resulting data type is not the same as the data type of ``x1``, the resulting data type may not be the same as ``x1`` and the operation's intermediate precision may be that of ``x1``, even if the promoted data type between ``x1`` and ``x2`` would have higher precision.
+    2. If, after applying broadcasting (see :ref:`broadcasting`) to in-place operands, the resulting shape is not equal to the shape of ``x1``, in-place operators may raise an exception.
+    3. If, after applying type promotion (see :ref:`type-promotion`) to in-place operands, the resulting data type is not equal to the data type of ``x1``, the resulting data type may not equal the data type of ``x1`` and the operation's intermediate precision may be that of ``x1``, even if the promoted data type between ``x1`` and ``x2`` would have higher precision.
 
-    In general, for in-place operations, ensure operands are the same data type and broadcast to the shape of the operand on the left-hand side of the operation in order to maximize portability.
+    In general, for in-place operations, consumers of the array API standard are advised to ensure operands have the same data type and broadcast to the shape of the operand on the left-hand side of the operation in order to maximize portability.
 
 Arithmetic Operators
 """"""""""""""""""""
