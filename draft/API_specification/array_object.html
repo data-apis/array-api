@@ -632,7 +632,7 @@
 </ul>
 </li>
 </ul>
-<p>The matmul <code class="docutils literal notranslate"><span class="pre">@</span></code> operator should be defined for arrays having real-valued data types.</p>
+<p>The matmul <code class="docutils literal notranslate"><span class="pre">@</span></code> operator should be defined for arrays having numeric data types.</p>
 </section>
 <section id="bitwise-operators">
 <h3 id="bitwise-operators">Bitwise Operators<a class="headerlink" href="#bitwise-operators" title="Link to this heading">¶</a></h3>
@@ -725,12 +725,27 @@ For backward compatibility, conforming implementations may support complex numbe
 </section>
 <section id="in-place-operators">
 <h3 id="in-place-operators">In-place Operators<a class="headerlink" href="#in-place-operators" title="Link to this heading">¶</a></h3>
-<p>A conforming implementation of the array API standard must provide and support an array object supporting the following in-place Python operators.</p>
-<p>An in-place operation must not change the data type or shape of the in-place array as a result of <a class="reference internal" href="type_promotion.html#type-promotion"><span class="std std-ref">Type Promotion Rules</span></a> or <a class="reference internal" href="broadcasting.html#broadcasting"><span class="std std-ref">Broadcasting</span></a>.</p>
-<p>An in-place operation must have the same behavior (including special cases) as its respective binary (i.e., two operand, non-assignment) operation. For example, after in-place addition <code class="docutils literal notranslate"><span class="pre">x1</span> <span class="pre">+=</span> <span class="pre">x2</span></code>, the modified array <code class="docutils literal notranslate"><span class="pre">x1</span></code> must always equal the result of the equivalent binary arithmetic operation <code class="docutils literal notranslate"><span class="pre">x1</span> <span class="pre">=</span> <span class="pre">x1</span> <span class="pre">+</span> <span class="pre">x2</span></code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>In-place operators must be supported as discussed in <a class="reference internal" href="../design_topics/copies_views_and_mutation.html#copyview-mutability"><span class="std std-ref">Copy-view behaviour and mutability</span></a>.</p>
+<p>In-place operations must be supported as discussed in <a class="reference internal" href="../design_topics/copies_views_and_mutation.html#copyview-mutability"><span class="std std-ref">Copy-view behaviour and mutability</span></a>.</p>
+</div>
+<p>A conforming implementation of the array API standard must provide and support an array object supporting the following “in-place” Python operators.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This specification refers to the following operators as “in-place” as that is what these operators are called in <code class="code docutils literal notranslate"><span class="pre">Python</span> <span class="pre">&lt;https://docs.python.org/3/library/operator.html#in-place-operators&gt;</span></code>. However, conforming array libraries which do not support array mutation may choose to not explicitly implement in-place Python operators. When a library does not implement a method corresponding to an in-place Python operator, Python falls back to the equivalent method for the corresponding binary arithmetic operation.</p>
+</div>
+<p>An in-place operation must not change the data type or shape of the in-place array as a result of <a class="reference internal" href="type_promotion.html#type-promotion"><span class="std std-ref">Type Promotion Rules</span></a> or <a class="reference internal" href="broadcasting.html#broadcasting"><span class="std std-ref">Broadcasting</span></a>.</p>
+<p>Let <code class="docutils literal notranslate"><span class="pre">x1</span> <span class="pre">+=</span> <span class="pre">x2</span></code> be a representative in-place operation. If, after applying type promotion (see <a class="reference internal" href="type_promotion.html#type-promotion"><span class="std std-ref">Type Promotion Rules</span></a>) to in-place operands <code class="docutils literal notranslate"><span class="pre">x1</span></code> and <code class="docutils literal notranslate"><span class="pre">x2</span></code>, the resulting data type is equal to the data type of the array on the left-hand side of the operation (i.e., <code class="docutils literal notranslate"><span class="pre">x1</span></code>), then an in-place operation must have the same behavior (including special cases) as the respective binary (i.e., two operand, non-assignment) operation. In this case, for the in-place addition <code class="docutils literal notranslate"><span class="pre">x1</span> <span class="pre">+=</span> <span class="pre">x2</span></code>, the modified array <code class="docutils literal notranslate"><span class="pre">x1</span></code> must always equal the result of the equivalent binary arithmetic operation <code class="docutils literal notranslate"><span class="pre">x1[...]</span> <span class="pre">=</span> <span class="pre">x1</span> <span class="pre">+</span> <span class="pre">x2</span></code>.</p>
+<p>If, however, after applying type promotion (see <a class="reference internal" href="type_promotion.html#type-promotion"><span class="std std-ref">Type Promotion Rules</span></a>) to in-place operands, the resulting data type is not equal to the data type of the array on the left-hand side of the operation, then a conforming implementation may return results which differ from the respective binary operation due to casting behavior and selection of the operation’s intermediate precision. The choice of casting behavior and intermediate precision is unspecified and thus implementation-defined.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Let <code class="docutils literal notranslate"><span class="pre">x1</span></code> be the operand on the left-hand side and <code class="docutils literal notranslate"><span class="pre">x2</span></code> be the operand on the right-hand side of an in-place operation. Consumers of the array API standard are advised of the following considerations when using in-place operations:</p>
+<ol class="arabic simple">
+<li><p>In-place operations do not guarantee in-place mutation. A conforming library may or may not support in-place mutation.</p></li>
+<li><p>If, after applying broadcasting (see <a class="reference internal" href="broadcasting.html#broadcasting"><span class="std std-ref">Broadcasting</span></a>) to in-place operands, the resulting shape is not equal to the shape of <code class="docutils literal notranslate"><span class="pre">x1</span></code>, in-place operators may raise an exception.</p></li>
+<li><p>If, after applying type promotion (see <a class="reference internal" href="type_promotion.html#type-promotion"><span class="std std-ref">Type Promotion Rules</span></a>) to in-place operands, the resulting data type is not equal to the data type of <code class="docutils literal notranslate"><span class="pre">x1</span></code>, the resulting data type may not equal the data type of <code class="docutils literal notranslate"><span class="pre">x1</span></code> and the operation’s intermediate precision may be that of <code class="docutils literal notranslate"><span class="pre">x1</span></code>, even if the promoted data type between <code class="docutils literal notranslate"><span class="pre">x1</span></code> and <code class="docutils literal notranslate"><span class="pre">x2</span></code> would have higher precision.</p></li>
+</ol>
+<p>In general, for in-place operations, consumers of the array API standard are advised to ensure operands have the same data type and broadcast to the shape of the operand on the left-hand side of the operation in order to maximize portability.</p>
 </div>
 <section id="id26">
 <h4 id="id26">Arithmetic Operators<a class="headerlink" href="#id26" title="Link to this heading">¶</a></h4>
