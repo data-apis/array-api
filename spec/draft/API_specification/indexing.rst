@@ -182,7 +182,7 @@ Multi-dimensional arrays must extend the concept of single-axis indexing to mult
 Integer Array Indexing
 ----------------------
 
-An array must support indexing a one-dimensional array by a one-dimensional integer array according to the following rules. Let ``A`` be a one-dimensional array with shape ``S1 = (n)``, and let ``J`` be a one-dimensional integer array with ``S2 = (k,)``.
+An array must support indexing a one-dimensional array by a one-dimensional integer array according to the following rules. Let ``A`` be a one-dimensional array with shape ``S1 = (n,)``, and let ``J`` be a one-dimensional integer array with ``S2 = (k,)``.
 
 - Each integer index element in ``J`` must satisfy the rules stated above for indexing a single-axis (see :ref:`indexing-single-axis`). Namely,
 
