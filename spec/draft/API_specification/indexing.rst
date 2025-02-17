@@ -188,7 +188,7 @@ An array must support indexing a one-dimensional array by a one-dimensional inte
 
   - Nonnegative indices must start at ``0`` (i.e., zero-based indexing).
   - **Valid** nonnegative indices must reside on the half-open interval ``[0, n)``.
-  - Negative indices must count backward from the last index along an array dimension, starting from ``-1`` (i.e., negative-one-based indexing, where ``-1`` refers to the last index along an array dimension).
+  - Negative indices must count backward from the last index, starting from ``-1`` (i.e., negative-one-based indexing, where ``-1`` refers to the last index).
   - **Valid** negative indices must reside on the closed interval ``[-n, -1]``.
   - A negative index ``j`` is related to a zero-based nonnegative index ``i`` via ``i = n+j``.
 
