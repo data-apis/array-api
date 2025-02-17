@@ -182,7 +182,10 @@ Multi-dimensional arrays must extend the concept of single-axis indexing to mult
 Integer Array Indexing
 ----------------------
 
-An array must support indexing a one-dimensional array by an integer array according to the following rules. Let ``A`` be a one-dimensional array with shape ``(n,)``, and let ``J`` be an integer array.
+An array must support indexing a one-dimensional array by an integer array (or an equivalent sequence) according to the following rules. Let ``A`` be a one-dimensional array with shape ``(n,)``, and let ``J`` be an integer array (or an equivalent sequence).
+
+.. note::
+   An **equivalent sequence** is defined as a sequence such as a a list or tuple which, when provided as an argument to ``asarray``, results in an integer array.
 
 - Each integer index element in ``J`` must satisfy the rules stated above for indexing a single-axis (see :ref:`indexing-single-axis`). Namely,
 
@@ -199,15 +202,15 @@ An array must support indexing a one-dimensional array by an integer array accor
 
 - If ``J`` is a zero-dimensional array containing an integer index ``k``, the result must be equivalent to providing a single-axis integer index ``k`` (i.e., if ``J`` is a zero-dimensional array, ``A[J]`` must equal ``A[k]``; see :ref:`indexing-single-axis).
 
-- If ``J`` is a one-dimensional array with shape ``(k,)``, the result must be a one-dimensional array ``B``having shape ``(k,)``. Each element of ``B`` must follow the relation ``B[i] = A[J[i]]``.
+- If ``J`` is a one-dimensional array (or an equivalent sequence) with shape ``(k,)``, the result must be a one-dimensional array ``B``having shape ``(k,)``. Each element of ``B`` must follow the relation ``B[i] = A[J[i]]``.
 
-An array must support indexing an array having more than one dimension by an indexing tuple which includes only integers and integer arrays according to the following rules. Let ``A`` be an ``N``-dimensional array with shape ``S1 = (s1, s2, ..., sN)`` and ``T`` be a tuple ``(I, J, ..., K)`` having length ``N`` and containing only valid integer and integer array indices.
+An array must support indexing an array having more than one dimension by an indexing tuple which includes only integers and integer arrays (or equivalent sequences) according to the following rules. Let ``A`` be an ``N``-dimensional array with shape ``S1 = (s1, s2, ..., sN)`` and ``T`` be a tuple ``(I, J, ..., K)`` having length ``N`` and containing only valid integer and integer array (or an equivalent sequence) indices.
 
 - Providing an integer tuple element ``K`` having value ``k`` must be equivalent to providing a zero-dimensional integer array ``K`` containing ``k``.
 
 - If ``T`` consists of only integers and zero-dimensional integer arrays, the result must be equivalent to indexing multiple axes using integer indices. For example, if ``A`` is a two-dimensional array, ``T`` is the tuple ``(i, J)``, ``i`` is a valid integer index, and ``J`` is a zero-dimensional array containing a valid integer index ``j``, the result of ``A[T]`` must be equivalent to ``A[(i,j)]`` (see :ref:`indexing-multi-axis`).
 
-- If ``T`` consists of only integers and integer arrays, with at least one of those integer arrays being a one-dimensional integer array ``J`` having shape ``S2 = (m,)``, where ``m`` is greater than or equal to the number of elements in any other integer array in ``T``, each element of ``T`` must be broadcast to the same shape as ``J``.
+- If ``T`` consists of only integers and integer arrays (or equivalent sequences), with at least one of those integer arrays being a one-dimensional integer array (or an equivalent sequence) ``J`` having shape ``S2 = (m,)``, where ``m`` is greater than or equal to the number of elements in any other integer array (or an equivalent sequence) in ``T``, each element of ``T`` must be broadcast to the same shape as ``J``.
 
 - An ``IndexError`` exception must be raised if any element of ``T`` is not broadcast-compatible with ``J`` (see :ref:`broadcasting`).
 
