@@ -201,9 +201,6 @@ An array must support indexing a one-dimensional array by a one-dimensional inte
 
 An array must support indexing an array having more than one dimension by an indexing tuple which includes only integers and one-dimensional integer arrays according to the following rules. Let ``A`` be an ``N``-dimensional array with shape ``S1 = (s1, s2, ..., sN)`` and ``T`` be a tuple ``(t1, t2, ..., tN)`` having length ``N`` and containing only valid integer and one-dimensional integer array indices.
 
-.. note::
-  This specification does not require bounds checking. The behavior for out-of-bounds integer indices is left unspecified.
-
 - Providing an integer tuple element ``tk`` having value ``k`` must be equivalent to providing a zero-dimensional integer array ``K`` containing ``k``.
 
 - If ``T`` consists of only integers and zero-dimensional integer arrays, the result must be equivalent to indexing multiple axes using integer indices (see :ref:`indexing-multi-axis`).
