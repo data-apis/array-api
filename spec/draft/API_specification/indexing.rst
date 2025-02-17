@@ -200,7 +200,7 @@ An array must support indexing a one-dimensional array by an integer array (or a
 
 - Providing duplicate integer index elements in ``J`` must result in the duplication of the corresponding elements of ``A`` in the resulting array.
 
-- If ``J`` is a zero-dimensional array containing an integer index ``k``, the result must be equivalent to providing a single-axis integer index ``k`` (i.e., if ``J`` is a zero-dimensional array, ``A[J]`` must equal ``A[k]``; see :ref:`indexing-single-axis).
+- If ``J`` is a zero-dimensional array containing an integer index ``k``, the result must be equivalent to providing a single-axis integer index ``k`` (i.e., if ``J`` is a zero-dimensional array, ``A[J]`` must equal ``A[k]``; see :ref:`indexing-single-axis`).
 
 - If ``J`` is a one-dimensional array (or an equivalent sequence) with shape ``(k,)``, the result must be a one-dimensional array ``B``having shape ``(k,)``. Each element of ``B`` must follow the relation ``B[i] = A[J[i]]``.
 
