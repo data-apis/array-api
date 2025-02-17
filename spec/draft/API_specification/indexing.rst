@@ -219,7 +219,7 @@ An array must support indexing an array having more than one dimension by an ind
 
 - After broadcasting, ``T`` must be equivalent to a tuple ``U = (u1, u2, ..., uN)`` containing only integer arrays having shape ``S2``.
 
-- Let ``v_i`` be the tuple formed by the integer indices ``u1[i], u2[i], ..., uN[i]``. When applying the indexing tuple ``U`` to ``A``, the resulting array must be a one-dimensional array having shape ``(m,)`` and containing each element ``A[v_i]`` for ``i`` on the half-open interval ``[0, m)``.
+- Let ``v_i`` be the tuple formed by the integer indices ``u1[i], u2[i], ..., uN[i]``. When applying the indexing tuple ``U`` to ``A``, the result must be an array having shape ``S2`` and contain each element ``A[v_i]``.
 
 .. note::
    This specification does not currently address indexing tuples which combine slices and integer arrays. Behavior for such indexing tuples is left unspecified and thus implementation-defined. This may be revisited in a future revision of this standard.
