@@ -224,6 +224,9 @@ An array must support indexing an array having more than one dimension by an ind
 .. note::
    This specification does not currently address indexing tuples which combine slices and integer arrays. Behavior for such indexing tuples is left unspecified and thus implementation-defined. This may be revisited in a future revision of this standard.
 
+.. note::
+   If an indexing tuple contains an integer array having more than one dimension, behavior is left unspecified and thus implementation-defined. This may be revisited in a future revision of this standard.
+
 Boolean Array Indexing
 ----------------------
 
