@@ -197,7 +197,7 @@ An array must support indexing a one-dimensional array by a one-dimensional inte
 
 - Providing duplicate integer index elements in ``J`` must result in the duplication of the corresponding elements of ``A`` in the resulting array.
 
-- The result of providing a valid integer index for each element in ``J`` must be an array having shape ``S3 = (k,)``.
+- The result of providing a valid integer index for each element in ``J`` must be an array having shape ``(k,)``.
 
 An array must support indexing an array having more than one dimension by an indexing tuple which includes only integers and one-dimensional integer arrays according to the following rules. Let ``A`` be an ``N``-dimensional array with shape ``S1 = (s1, s2, ..., sN)`` and ``T`` be a tuple ``(t1, t2, ..., tN)`` having length ``N`` and containing only valid integer and one-dimensional integer array indices.
 
