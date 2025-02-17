@@ -185,7 +185,7 @@ Integer Array Indexing
 An array must support indexing a one-dimensional array by an integer array (or an equivalent sequence) according to the following rules. Let ``A`` be a one-dimensional array with shape ``(n,)``, and let ``J`` be an integer array (or an equivalent sequence).
 
 .. note::
-   An **equivalent sequence** is defined as a sequence such as a a list or tuple which, when provided as an argument to ``asarray``, results in an integer array.
+   An **equivalent sequence** is defined as a sequence such as a list or tuple which, when provided as an argument to ``asarray``, results in an integer array.
 
 - Each integer index element in ``J`` must satisfy the rules stated above for indexing a single-axis (see :ref:`indexing-single-axis`). Namely,
 
