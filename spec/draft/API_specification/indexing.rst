@@ -7,6 +7,9 @@ Indexing
 
 A conforming implementation of the array API standard must adhere to the following conventions.
 
+
+.. _indexing-single-axis:
+
 Single-axis Indexing
 --------------------
 
@@ -121,6 +124,9 @@ The behavior outside of these bounds is unspecified.
 .. note::
    *Rationale: this is consistent with bounds checking for integer indexing; the behavior of out-of-bounds indices is left unspecified. Implementations may choose to clip (consistent with Python* ``list`` *slicing semantics), raise an exception, return junk values, or some other behavior depending on device requirements and performance considerations.*
 
+
+.. _indexing-multi-axis:
+
 Multi-axis Indexing
 -------------------
 
@@ -172,6 +178,54 @@ Multi-dimensional arrays must extend the concept of single-axis indexing to mult
     This specification leaves unspecified the behavior of providing a slice which attempts to select elements along a particular axis, but whose starting index is out-of-bounds.
 
     *Rationale: this is consistent with bounds-checking for single-axis indexing. An implementation may choose to set the axis (dimension) size of the result array to* ``0`` *, raise an exception, return junk values, or some other behavior depending on device requirements and performance considerations.*
+
+Integer Array Indexing
+----------------------
+
+An array must support indexing a one-dimensional array by an integer array (or an equivalent sequence) according to the following rules. Let ``A`` be a one-dimensional array with shape ``(n,)``, and let ``J`` be an integer array (or an equivalent sequence).
+
+.. note::
+   An **equivalent sequence** is defined as a sequence such as a list or tuple which, when provided as an argument to ``asarray``, results in an integer array.
+
+- Each integer index element in ``J`` must satisfy the rules stated above for indexing a single-axis (see :ref:`indexing-single-axis`). Namely,
+
+  - Nonnegative indices must start at ``0`` (i.e., zero-based indexing).
+  - **Valid** nonnegative indices must reside on the half-open interval ``[0, n)``.
+  - Negative indices must count backward from the last index, starting from ``-1`` (i.e., negative-one-based indexing, where ``-1`` refers to the last index).
+  - **Valid** negative indices must reside on the closed interval ``[-n, -1]``.
+  - A negative index ``j`` is related to a zero-based nonnegative index ``i`` via ``i = n+j``.
+
+  .. note::
+    This specification does not require bounds checking. The behavior for out-of-bounds integer indices is left unspecified.
+
+- Providing duplicate integer index elements in ``J`` must result in the duplication of the corresponding elements of ``A`` in the resulting array.
+
+- If ``J`` is a zero-dimensional array containing an integer index ``k``, the result must be equivalent to providing a single-axis integer index ``k`` (i.e., if ``J`` is a zero-dimensional array, ``A[J]`` must equal ``A[k]``; see :ref:`indexing-single-axis`).
+
+- If ``J`` is a one-dimensional array (or an equivalent sequence) with shape ``(k,)``, the result must be a one-dimensional array ``B``having shape ``(k,)``. Each element of ``B`` must follow the relation ``B[i] = A[J[i]]``.
+
+.. note::
+   If ``J`` is an array having more than one dimension, behavior is left unspecified and thus implementation-defined. This may be revisited in a future revision of this standard.
+
+An array must support indexing an array having more than one dimension by an indexing tuple which includes only integers and integer arrays (or equivalent sequences) according to the following rules. Let ``A`` be an ``N``-dimensional array with shape ``S1 = (s1, s2, ..., sN)`` and ``T`` be a tuple ``(I, J, ..., K)`` having length ``N`` and containing only valid integers and integer arrays (or equivalent sequences).
+
+- Providing an integer tuple element ``K`` having value ``k`` must be equivalent to providing a zero-dimensional integer array ``K`` containing ``k``.
+
+- If ``T`` consists of only integers and zero-dimensional integer arrays, the result must be equivalent to indexing multiple axes using integer indices. For example, if ``A`` is a two-dimensional array, ``T`` is the tuple ``(i, J)``, ``i`` is a valid integer index, and ``J`` is a zero-dimensional array containing a valid integer index ``j``, the result of ``A[T]`` must be equivalent to ``A[(i,j)]`` (see :ref:`indexing-multi-axis`).
+
+- If ``T`` consists of only integers and integer arrays (or equivalent sequences), with at least one of those integer arrays being a one-dimensional integer array (or an equivalent sequence) ``J`` having shape ``S2 = (m,)``, where ``m`` is greater than or equal to the number of elements in any other integer array (or an equivalent sequence) in ``T``, each element of ``T`` must be broadcast to the same shape as ``J``.
+
+- An ``IndexError`` exception must be raised if any element of ``T`` is not broadcast-compatible with ``J`` (see :ref:`broadcasting`).
+
+- After broadcasting, ``T`` must be equivalent to a tuple ``U = (u1, u2, ..., uN)`` containing only integer arrays having shape ``S2``.
+
+- Let ``v_i`` be the tuple formed by the integer indices ``u1[i], u2[i], ..., uN[i]``. When applying the indexing tuple ``U`` to ``A``, the result must be an array having shape ``S2`` and contain each element ``A[v_i]``.
+
+.. note::
+   This specification does not currently address indexing tuples which combine slices and integer arrays. Behavior for such indexing tuples is left unspecified and thus implementation-defined. This may be revisited in a future revision of this standard.
+
+.. note::
+   If an indexing tuple contains an integer array having more than one dimension, behavior is left unspecified and thus implementation-defined. This may be revisited in a future revision of this standard.
 
 Boolean Array Indexing
 ----------------------
