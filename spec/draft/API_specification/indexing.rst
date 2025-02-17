@@ -182,7 +182,7 @@ Multi-dimensional arrays must extend the concept of single-axis indexing to mult
 Integer Array Indexing
 ----------------------
 
-An array must support indexing a one-dimensional array by a one-dimensional integer array according to the following rules. Let ``A`` be a one-dimensional array with shape ``S1 = (n,)``, and let ``J`` be a one-dimensional integer array with shape ``S2 = (k,)``.
+An array must support indexing a one-dimensional array by an integer array according to the following rules. Let ``A`` be a one-dimensional array with shape ``(n,)``, and let ``J`` be an integer array.
 
 - Each integer index element in ``J`` must satisfy the rules stated above for indexing a single-axis (see :ref:`indexing-single-axis`). Namely,
 
@@ -197,7 +197,9 @@ An array must support indexing a one-dimensional array by a one-dimensional inte
 
 - Providing duplicate integer index elements in ``J`` must result in the duplication of the corresponding elements of ``A`` in the resulting array.
 
-- The result of providing a valid integer index for each element in ``J`` must be an array having shape ``(k,)``.
+- If ``J`` is a zero-dimensional array containing an integer index ``k``, the result must be equivalent to providing a single-axis integer index ``k`` (i.e., if ``J`` is a zero-dimensional array, ``A[J]`` must equal ``A[k]``; see :ref:`indexing-single-axis).
+
+- If ``J`` is a one-dimensional array with shape ``(k,)``, the result must be a one-dimensional array ``B``having shape ``(k,)``. Each element of ``B`` must follow the relation ``B[i] = A[J[i]]``.
 
 An array must support indexing an array having more than one dimension by an indexing tuple which includes only integers and one-dimensional integer arrays according to the following rules. Let ``A`` be an ``N``-dimensional array with shape ``S1 = (s1, s2, ..., sN)`` and ``T`` be a tuple ``(t1, t2, ..., tN)`` having length ``N`` and containing only valid integer and one-dimensional integer array indices.
 
