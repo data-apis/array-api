@@ -212,7 +212,7 @@ An array must support indexing an array having more than one dimension by an ind
 
 - If ``T`` consists of only integers and integer arrays, with at least one of those integer arrays being a one-dimensional integer array ``J`` having shape ``S2 = (m,)``, where ``m`` is greater than or equal to the number of elements in any other integer array in ``T``, each element of ``T`` must be broadcast to the same shape as ``J``.
 
-- An ``IndexError`` exception must be raised if any element of ``T`` is not broadcast-compatible with ``J`` (see :ref:`broadcasting`).
+- An exception must be raised if any element of ``T`` is not broadcast-compatible with ``J`` (see :ref:`broadcasting`).
 
 - After broadcasting, ``T`` must be equivalent to a tuple ``U = (u1, u2, ..., uN)`` containing only integer arrays having shape ``S2``.
 
