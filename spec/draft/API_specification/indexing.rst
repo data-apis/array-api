@@ -196,7 +196,7 @@ An array must support indexing by an indexing tuple which contains only integers
   .. note::
     Given the assignment operation ``x[T] = y[...]``, if ``T`` contains an integer array having duplicate indices, the order in which elements in ``y`` are assigned to the corresponding element(s) in ``x`` is unspecified and thus implementation-defined.
 
-- If ``T`` consists of at least one of non-zero-dimensional integer array, all elements of ``T`` must be broadcast against each other to determine a common shape ``S2 = (s1, s2, ..., sN)`` according to standard broadcasting rules (see :ref:`broadcasting`). If one or more elements in ``T`` are not broadcast-compatible with the others, an exception must be raised.
+- If ``T`` contains at least one non-zero-dimensional integer array, all elements of ``T`` must be broadcast against each other to determine a common shape ``S2 = (s1, s2, ..., sN)`` according to standard broadcasting rules (see :ref:`broadcasting`). If one or more elements in ``T`` are not broadcast-compatible with the others, an exception must be raised.
 
 - After broadcasting elements of ``T`` to a common shape ``S2``, the resulting tuple ``U = (u1, u2, ..., uN)`` must only contain integer arrays having shape ``S2``.
 
