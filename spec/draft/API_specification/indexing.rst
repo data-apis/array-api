@@ -182,47 +182,28 @@ Multi-dimensional arrays must extend the concept of single-axis indexing to mult
 Integer Array Indexing
 ----------------------
 
-An array must support indexing a one-dimensional array by an integer array according to the following rules. Let ``A`` be a one-dimensional array with shape ``(n,)``, and let ``J`` be an integer array.
+An array must support indexing by an indexing tuple which includes only integers and integer arrays according to the following rules. Let ``A`` be an ``N``-dimensional array with shape ``S1``, ``T`` be a tuple ``(t1, t2, ..., tN)`` having length ``N`` and, for ``N > 0``, containing only integers and integer arrays, and ``tk`` be an individual element of ``T``.
 
-- Each integer index element in ``J`` must satisfy the rules stated above for indexing a single-axis (see :ref:`indexing-single-axis`). Namely,
+- Providing a zero-dimensional integer array ``tk`` containing an integer index must be equivalent to providing an integer index having value ``tk[()]``. Conversely, each integer index ``tk`` must be equivalent to a zero-dimensional integer array containing the same value and be treated as such in all contexts, including shape inference and broadcasting. Accordingly, if ``T`` consists of only integers and zero-dimensional integer arrays, the result must be equivalent to indexing multiple axes using integer indices. For example, if ``A`` is a two-dimensional array, ``T`` is the tuple ``(i, J)``, ``i`` is a valid integer index, and ``J`` is a zero-dimensional array containing a valid integer index ``j``, the result of ``A[T]`` must be equivalent to ``A[(i,j)]`` (see :ref:`indexing-multi-axis`).
 
-  - Nonnegative indices must start at ``0`` (i.e., zero-based indexing).
-  - **Valid** nonnegative indices must reside on the half-open interval ``[0, n)``.
-  - Negative indices must count backward from the last index, starting from ``-1`` (i.e., negative-one-based indexing, where ``-1`` refers to the last index).
-  - **Valid** negative indices must reside on the closed interval ``[-n, -1]``.
-  - A negative index ``j`` is related to a zero-based nonnegative index ``i`` via ``i = n+j``.
+- If ``tk`` is an integer array, each element in ``tk`` must independently satisfy the rules stated above for indexing a single-axis with an integer index (see :ref:`indexing-single-axis`).
 
   .. note::
     This specification does not require bounds checking. The behavior for out-of-bounds integer indices is left unspecified.
 
-- Providing duplicate integer index elements in ``J`` must result in the duplication of the corresponding elements of ``A`` in the resulting array.
+- If ``tk`` is an integer array containing duplicate valid integer indices, the result must include the corresponding elements of ``A`` with the same duplication.
 
-- If ``J`` is a zero-dimensional array containing an integer index ``k``, the result must be equivalent to providing a single-axis integer index ``k`` (i.e., if ``J`` is a zero-dimensional array, ``A[J]`` must equal ``A[k]``; see :ref:`indexing-single-axis`).
+  .. note::
+    Given the assignment operation ``x[T] = y[...]``, if ``T`` contains an integer array having duplicate indices, the order in which elements in ``y`` are assigned to the corresponding element(s) in ``x`` is unspecified and thus implementation-defined.
 
-- If ``J`` is a one-dimensional array with shape ``(k,)``, the result must be a one-dimensional array ``B``having shape ``(k,)``. Each element of ``B`` must follow the relation ``B[i] = A[J[i]]``.
+- If ``T`` consists of at least one of non-zero-dimensional integer array, all elements of ``T`` must be broadcast against each other to determine a common shape ``S2 = (s1, s2, ..., sN)`` according to standard broadcasting rules (see :ref:`broadcasting`). If one or more elements in ``T`` are not broadcast-compatible with the others, an exception must be raised.
 
-.. note::
-   If ``J`` is an array having more than one dimension, behavior is left unspecified and thus implementation-defined. This may be revisited in a future revision of this standard.
+- After broadcasting elements of ``T`` to a common shape ``S2``, the resulting tuple ``U = (u1, u2, ..., uN)`` must only contain integer arrays having shape ``S2``.
 
-An array must support indexing an array having more than one dimension by an indexing tuple which includes only integers and integer arrays according to the following rules. Let ``A`` be an ``N``-dimensional array with shape ``S1 = (s1, s2, ..., sN)`` and ``T`` be a tuple ``(t0, t1, ..., tN)`` having length ``N`` and containing only valid integers and integer arrays.
-
-- Providing an integer tuple element ``K`` having value ``k`` must be equivalent to providing a zero-dimensional integer array ``K`` containing ``k``.
-
-- If ``T`` consists of only integers and zero-dimensional integer arrays, the result must be equivalent to indexing multiple axes using integer indices. For example, if ``A`` is a two-dimensional array, ``T`` is the tuple ``(i, J)``, ``i`` is a valid integer index, and ``J`` is a zero-dimensional array containing a valid integer index ``j``, the result of ``A[T]`` must be equivalent to ``A[(i,j)]`` (see :ref:`indexing-multi-axis`).
-
-- If ``T`` consists of only integers and integer arrays, with at least one of those integer arrays being a one-dimensional integer array ``J`` having shape ``S2 = (m,)``, where ``m`` is greater than or equal to the number of elements in any other integer array in ``T``, each element of ``T`` must be broadcast to the same shape as ``J``.
-
-- An exception must be raised if any element of ``T`` is not broadcast-compatible with ``J`` (see :ref:`broadcasting`).
-
-- After broadcasting, ``T`` must be equivalent to a tuple ``U = (u1, u2, ..., uN)`` containing only integer arrays having shape ``S2``.
-
-- Let ``v_i`` be the tuple formed by the integer indices ``u1[i], u2[i], ..., uN[i]``. When applying the indexing tuple ``U`` to ``A``, the result must be an array having shape ``S2`` and contain each element ``A[v_i]``.
+- Each element in ``U`` must specify a multi-dimensional index ``v_i = (u1[i], u2[i], ..., uN[i])``, where ``i`` ranges over ``S2``. The result of ``A[U]`` must be constructed by gathering elements from ``A`` at each coordinate tuple ``v_i``. For example, let ``A`` have shape ``(4,4)`` and ``U`` contain integer arrays equivalent to ``([0,1], [2,3])``, with ``u1 = [0,1]`` and ``u2 = [2,3]``. The resulting coordinate tuples must be ``(0,2)`` and ``(1,3)``, respectively, and the resulting array must have shape ``(2,)`` and contain elements ``A[(0,2)]`` and ``A[(1,3)]``.
 
 .. note::
    This specification does not currently address indexing tuples which combine slices and integer arrays. Behavior for such indexing tuples is left unspecified and thus implementation-defined. This may be revisited in a future revision of this standard.
-
-.. note::
-   If an indexing tuple contains an integer array having more than one dimension, behavior is left unspecified and thus implementation-defined. This may be revisited in a future revision of this standard.
 
 Boolean Array Indexing
 ----------------------
