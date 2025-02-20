@@ -182,7 +182,7 @@ Multi-dimensional arrays must extend the concept of single-axis indexing to mult
 Integer Array Indexing
 ----------------------
 
-An array must support indexing by an indexing tuple which includes only integers and integer arrays according to the following rules. Let ``A`` be an ``N``-dimensional array with shape ``S1``, ``T`` be a tuple ``(t1, t2, ..., tN)`` having length ``N`` and, for ``N > 0``, containing only integers and integer arrays, and ``tk`` be an individual element of ``T``.
+An array must support indexing by an indexing tuple which includes only integers and integer arrays according to the following rules. Let ``A`` be an ``N``-dimensional array with shape ``S1``. Let ``T`` be a tuple ``(t1, t2, ..., tN)`` having length ``N`` and, for ``N > 0``, containing only integers and integer arrays. Let ``tk`` be an individual element of ``T``.
 
 - Providing a zero-dimensional integer array ``tk`` containing an integer index must be equivalent to providing an integer index having value ``tk[()]``. Conversely, each integer index ``tk`` must be equivalent to a zero-dimensional integer array containing the same value and be treated as such in all contexts, including shape inference and broadcasting. Accordingly, if ``T`` consists of only integers and zero-dimensional integer arrays, the result must be equivalent to indexing multiple axes using integer indices. For example, if ``A`` is a two-dimensional array, ``T`` is the tuple ``(i, J)``, ``i`` is a valid integer index, and ``J`` is a zero-dimensional array containing a valid integer index ``j``, the result of ``A[T]`` must be equivalent to ``A[(i,j)]`` (see :ref:`indexing-multi-axis`).
 
