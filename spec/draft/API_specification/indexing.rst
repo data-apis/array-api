@@ -202,6 +202,8 @@ An array must support indexing by an indexing tuple which contains only integers
 
 - Each element in ``U`` must specify a multi-dimensional index ``v_i = (u1[i], u2[i], ..., uN[i])``, where ``i`` ranges over ``S2``. The result of ``A[U]`` must be constructed by gathering elements from ``A`` at each coordinate tuple ``v_i``. For example, let ``A`` have shape ``(4,4)`` and ``U`` contain integer arrays equivalent to ``([0,1], [2,3])``, with ``u1 = [0,1]`` and ``u2 = [2,3]``. The resulting coordinate tuples must be ``(0,2)`` and ``(1,3)``, respectively, and the resulting array must have shape ``(2,)`` and contain elements ``A[(0,2)]`` and ``A[(1,3)]``.
 
+- The result of ``A[U]`` must be an array having the broadcasted shape ``S2``.
+
 .. note::
    This specification does not currently address indexing tuples which combine slices and integer arrays. Behavior for such indexing tuples is left unspecified and thus implementation-defined. This may be revisited in a future revision of this standard.
 
