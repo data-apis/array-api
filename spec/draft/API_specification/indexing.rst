@@ -204,7 +204,7 @@ An array must support indexing a one-dimensional array by an integer array accor
 .. note::
    If ``J`` is an array having more than one dimension, behavior is left unspecified and thus implementation-defined. This may be revisited in a future revision of this standard.
 
-An array must support indexing an array having more than one dimension by an indexing tuple which includes only integers and integer arrays according to the following rules. Let ``A`` be an ``N``-dimensional array with shape ``S1 = (s1, s2, ..., sN)`` and ``T`` be a tuple ``(I, J, ..., K)`` having length ``N`` and containing only valid integers and integer arrays.
+An array must support indexing an array having more than one dimension by an indexing tuple which includes only integers and integer arrays according to the following rules. Let ``A`` be an ``N``-dimensional array with shape ``S1 = (s1, s2, ..., sN)`` and ``T`` be a tuple ``(t0, t1, ..., tN)`` having length ``N`` and containing only valid integers and integer arrays.
 
 - Providing an integer tuple element ``K`` having value ``k`` must be equivalent to providing a zero-dimensional integer array ``K`` containing ``k``.
 
