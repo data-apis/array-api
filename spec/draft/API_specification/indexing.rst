@@ -187,6 +187,17 @@ Integer Array Indexing
 
 An array must support indexing by an indexing tuple which contains only integers and integer arrays according to the following rules. Let ``A`` be an ``N``-dimensional array with shape ``S1``. Let ``T`` be a tuple ``(t1, t2, ..., tN)`` having length ``N``. Let ``tk`` be an individual element of ``T``.
 
+.. note::
+   This specification does not currently address indexing tuples which combine slices and integer arrays. Behavior for such indexing tuples is left unspecified and thus implementation-defined. This may be revisited in a future revision of this standard.
+
+.. note::
+   This specification does not currently address indexing tuples which include array-like elements, such as Python lists, tuples, and other sequences. Behavior when indexing an array using array-like elements is left unspecified and thus implementation-defined.
+
+- If ``tk`` is an integer array, ``tk`` should have the default array index data type (see :ref:`data-type-defaults`).
+
+.. note::
+   Conforming implementations of this standard may support integer arrays having other integer data types; however, consumers of this standard should be aware that integer arrays having uncommon array index data types such as ``int8`` and ``uint8`` may not be widely supported as index arrays across conforming array libraries. To dynamically resolve the default array index data type, including for that of the current device context, use the inspection API ``default_dtypes()``.
+
 - Providing a zero-dimensional integer array ``tk`` containing an integer index must be equivalent to providing an integer index having the value ``tk[()]``. Conversely, each integer index ``tk`` must be equivalent to a zero-dimensional integer array containing the same value and be treated as such, including shape inference and broadcasting. Accordingly, if ``T`` consists of only integers and zero-dimensional integer arrays, the result must be equivalent to indexing multiple axes using integer indices. For example, if ``A`` is a two-dimensional array, ``T`` is the tuple ``(i, J)``, ``i`` is a valid integer index, and ``J`` is a zero-dimensional array containing a valid integer index ``j``, the result of ``A[T]`` must be equivalent to ``A[(i,j)]`` (see :ref:`indexing-multi-axis`).
 
 - If ``tk`` is an integer array, each element in ``tk`` must independently satisfy the rules stated above for indexing a single-axis with an integer index (see :ref:`indexing-single-axis`).
@@ -196,8 +207,8 @@ An array must support indexing by an indexing tuple which contains only integers
 
 - If ``tk`` is an integer array containing duplicate valid integer indices, the result must include the corresponding elements of ``A`` with the same duplication.
 
-  .. note::
-    Given the assignment operation ``x[T] = y[...]``, if ``T`` contains an integer array having duplicate indices, the order in which elements in ``y`` are assigned to the corresponding element(s) in ``x`` is unspecified and thus implementation-defined.
+  ..
+    TODO: once setitem semantics are determined, insert the following note: Given the assignment operation ``x[T] = y[...]``, if ``T`` contains an integer array having duplicate indices, the order in which elements in ``y`` are assigned to the corresponding element(s) in ``x`` is unspecified and thus implementation-defined.
 
 - If ``T`` contains at least one non-zero-dimensional integer array, all elements of ``T`` must be broadcast against each other to determine a common shape ``S2 = (s1, s2, ..., sN)`` according to standard broadcasting rules (see :ref:`broadcasting`). If one or more elements in ``T`` are not broadcast-compatible with the others, an exception must be raised.
 
@@ -206,9 +217,6 @@ An array must support indexing by an indexing tuple which contains only integers
 - Each element in ``U`` must specify a multi-dimensional index ``v_i = (u1[i], u2[i], ..., uN[i])``, where ``i`` ranges over ``S2``. The result of ``A[U]`` must be constructed by gathering elements from ``A`` at each coordinate tuple ``v_i``. For example, let ``A`` have shape ``(4,4)`` and ``U`` contain integer arrays equivalent to ``([0,1], [2,3])``, with ``u1 = [0,1]`` and ``u2 = [2,3]``. The resulting coordinate tuples must be ``(0,2)`` and ``(1,3)``, respectively, and the resulting array must have shape ``(2,)`` and contain elements ``A[(0,2)]`` and ``A[(1,3)]``.
 
 - The result of ``A[U]`` must be an array having the broadcasted shape ``S2``.
-
-.. note::
-   This specification does not currently address indexing tuples which combine slices and integer arrays. Behavior for such indexing tuples is left unspecified and thus implementation-defined. This may be revisited in a future revision of this standard.
 
 Boolean Array Indexing
 ----------------------

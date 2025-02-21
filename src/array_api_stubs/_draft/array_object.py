@@ -610,7 +610,7 @@ class _array:
             slice,
             ellipsis,
             None,
-            Tuple[Union[int, slice, ellipsis, None], ...],
+            Tuple[Union[int, slice, ellipsis, array, None], ...],
             array,
         ],
         /,
@@ -618,13 +618,11 @@ class _array:
         """
         Returns ``self[key]``.
 
-        See :ref:`indexing` for details on supported indexing semantics.
-
         Parameters
         ----------
         self: array
             array instance.
-        key: Union[int, slice, ellipsis, None, Tuple[Union[int, slice, ellipsis, None], ...], array]
+        key: Union[int, slice, ellipsis, None, Tuple[Union[int, slice, ellipsis, array,  None], ...], array]
             index key.
 
         Returns
@@ -632,8 +630,11 @@ class _array:
         out: array
             an array containing the accessed value(s). The returned array must have the same data type as ``self``.
 
-        .. note::
-           When ``__getitem__`` is defined on an object, Python will automatically define iteration (i.e., the behavior from ``iter(x)``) as  ``x[0]``, ``x[1]``, ..., ``x[N-1]``. This can also be implemented directly by defining ``__iter__``. Therefore, for a one-dimensional array ``x``, iteration should produce a sequence of zero-dimensional arrays ``x[0]``, ``x[1]``, ..., ``x[N-1]``, where ``N`` is the number of elements in the array. Iteration behavior for arrays having zero dimensions or more than one dimension is unspecified and thus implementation-defined.
+        Notes
+        -----
+
+        -   See :ref:`indexing` for details on supported indexing semantics.
+        -   When ``__getitem__`` is defined on an object, Python will automatically define iteration (i.e., the behavior from ``iter(x)``) as  ``x[0]``, ``x[1]``, ..., ``x[N-1]``. This can also be implemented directly by defining ``__iter__``. Therefore, for a one-dimensional array ``x``, iteration should produce a sequence of zero-dimensional arrays ``x[0]``, ``x[1]``, ..., ``x[N-1]``, where ``N`` is the number of elements in the array. Iteration behavior for arrays having zero dimensions or more than one dimension is unspecified and thus implementation-defined.
 
         """
 
@@ -1081,7 +1082,7 @@ class _array:
     def __setitem__(
         self: array,
         key: Union[
-            int, slice, ellipsis, Tuple[Union[int, slice, ellipsis], ...], array
+            int, slice, ellipsis, Tuple[Union[int, slice, ellipsis, array], ...], array
         ],
         value: Union[int, float, complex, bool, array],
         /,
@@ -1089,19 +1090,22 @@ class _array:
         """
         Sets ``self[key]`` to ``value``.
 
-        See :ref:`indexing` for details on supported indexing semantics.
-
         Parameters
         ----------
         self: array
             array instance.
-        key: Union[int, slice, ellipsis, Tuple[Union[int, slice, ellipsis], ...], array]
+        key: Union[int, slice, ellipsis, Tuple[Union[int, slice, ellipsis, array], ...], array]
             index key.
         value: Union[int, float, complex, bool, array]
             value(s) to set. Must be compatible with ``self[key]`` (see :ref:`broadcasting`).
 
         Notes
         -----
+
+        -   See :ref:`indexing` for details on supported indexing semantics.
+
+            .. note::
+               Indexing semantics when ``key`` is an integer array or a tuple of integers and integer arrays is currently unspecified and thus implementation-defined. This will be revisited in a future revision of this standard.
 
         -   Setting array values must not affect the data type of ``self``.
         -   When ``value`` is a Python scalar (i.e., ``int``, ``float``, ``complex``, ``bool``), behavior must follow specification guidance on mixing arrays with Python scalars (see :ref:`type-promotion`).
