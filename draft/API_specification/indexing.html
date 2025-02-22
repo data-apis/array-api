@@ -314,6 +314,8 @@
         </li>
         <li class="md-nav__item"><a href="#multi-axis-indexing" class="md-nav__link">Multi-axis Indexing</a>
         </li>
+        <li class="md-nav__item"><a href="#integer-array-indexing" class="md-nav__link">Integer Array Indexing</a>
+        </li>
         <li class="md-nav__item"><a href="#boolean-array-indexing" class="md-nav__link">Boolean Array Indexing</a>
         </li>
         <li class="md-nav__item"><a href="#return-values" class="md-nav__link">Return Values</a>
@@ -480,6 +482,8 @@
         </li>
         <li class="md-nav__item"><a href="#multi-axis-indexing" class="md-nav__link">Multi-axis Indexing</a>
         </li>
+        <li class="md-nav__item"><a href="#integer-array-indexing" class="md-nav__link">Integer Array Indexing</a>
+        </li>
         <li class="md-nav__item"><a href="#boolean-array-indexing" class="md-nav__link">Boolean Array Indexing</a>
         </li>
         <li class="md-nav__item"><a href="#return-values" class="md-nav__link">Return Values</a>
@@ -502,7 +506,7 @@
 </div></blockquote>
 <p>A conforming implementation of the array API standard must adhere to the following conventions.</p>
 <section id="single-axis-indexing">
-<h2 id="single-axis-indexing">Single-axis Indexing<a class="headerlink" href="#single-axis-indexing" title="Link to this heading">¶</a></h2>
+<span id="indexing-single-axis"></span><h2 id="single-axis-indexing">Single-axis Indexing<a class="headerlink" href="#single-axis-indexing" title="Link to this heading">¶</a></h2>
 <p>To index a single array axis, an array must support standard Python indexing rules. Let <code class="docutils literal notranslate"><span class="pre">n</span></code> be the axis (dimension) size.</p>
 <ul>
 <li><p>An integer index must be an object satisfying <a class="reference external" href="https://www.python.org/dev/peps/pep-0357/">operator.index</a> (e.g., <code class="docutils literal notranslate"><span class="pre">int</span></code>).</p></li>
@@ -612,7 +616,7 @@
 </section>
 </section>
 <section id="multi-axis-indexing">
-<h2 id="multi-axis-indexing">Multi-axis Indexing<a class="headerlink" href="#multi-axis-indexing" title="Link to this heading">¶</a></h2>
+<span id="indexing-multi-axis"></span><h2 id="multi-axis-indexing">Multi-axis Indexing<a class="headerlink" href="#multi-axis-indexing" title="Link to this heading">¶</a></h2>
 <p>Multi-dimensional arrays must extend the concept of single-axis indexing to multiple axes by applying single-axis indexing rules along each axis (dimension) and supporting the following additional rules. Let <code class="docutils literal notranslate"><span class="pre">N</span></code> be the number of dimensions (“rank”) of a multi-dimensional array <code class="docutils literal notranslate"><span class="pre">A</span></code>.</p>
 <ul>
 <li><p>Each axis may be independently indexed via single-axis indexing by providing a comma-separated sequence (“selection tuple”) of single-axis indexing expressions (e.g., <code class="docutils literal notranslate"><span class="pre">A[:,</span> <span class="pre">2:10,</span> <span class="pre">:,</span> <span class="pre">5]</span></code>).</p>
@@ -662,6 +666,44 @@
 <p><em>Rationale: this is consistent with bounds-checking for single-axis indexing. An implementation may choose to set the axis (dimension) size of the result array to</em> <code class="docutils literal notranslate"><span class="pre">0</span></code> <em>, raise an exception, return junk values, or some other behavior depending on device requirements and performance considerations.</em></p>
 </div>
 </li>
+</ul>
+</section>
+<section id="integer-array-indexing">
+<h2 id="integer-array-indexing">Integer Array Indexing<a class="headerlink" href="#integer-array-indexing" title="Link to this heading">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Integer array indexing, as described in this specification, is a reduced subset of “vectorized indexing” semantics, as implemented in libraries such as NumPy. In vectorized indexing, integers and integer arrays are broadcasted to integer arrays having a common shape before being “zipped” together to form a list of index coordinates. This form of indexing diverges from the multi-axis indexing semantics described above (see <a class="reference internal" href="#indexing-multi-axis"><span class="std std-ref">Multi-axis Indexing</span></a>) where each element of an indexing tuple comprised of integers and slices independently indexes a particular axis. This latter form of indexing is commonly referred to as “orthogonal indexing” and is the default form of indexing outside of Python in languages such as Julia and MATLAB.</p>
+</div>
+<p>An array must support indexing by an indexing tuple which contains only integers and integer arrays according to the following rules. Let <code class="docutils literal notranslate"><span class="pre">A</span></code> be an <code class="docutils literal notranslate"><span class="pre">N</span></code>-dimensional array with shape <code class="docutils literal notranslate"><span class="pre">S1</span></code>. Let <code class="docutils literal notranslate"><span class="pre">T</span></code> be a tuple <code class="docutils literal notranslate"><span class="pre">(t1,</span> <span class="pre">t2,</span> <span class="pre">...,</span> <span class="pre">tN)</span></code> having length <code class="docutils literal notranslate"><span class="pre">N</span></code>. Let <code class="docutils literal notranslate"><span class="pre">tk</span></code> be an individual element of <code class="docutils literal notranslate"><span class="pre">T</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This specification does not currently address indexing tuples which combine slices and integer arrays. Behavior for such indexing tuples is left unspecified and thus implementation-defined. This may be revisited in a future revision of this standard.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This specification does not currently address indexing tuples which include array-like elements, such as Python lists, tuples, and other sequences. Behavior when indexing an array using array-like elements is left unspecified and thus implementation-defined.</p>
+</div>
+<ul class="simple">
+<li><p>If <code class="docutils literal notranslate"><span class="pre">tk</span></code> is an integer array, <code class="docutils literal notranslate"><span class="pre">tk</span></code> should have the default array index data type (see <a class="reference internal" href="data_types.html#data-type-defaults"><span class="std std-ref">Default Data Types</span></a>).</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Conforming implementations of this standard may support integer arrays having other integer data types; however, consumers of this standard should be aware that integer arrays having uncommon array index data types such as <code class="docutils literal notranslate"><span class="pre">int8</span></code> and <code class="docutils literal notranslate"><span class="pre">uint8</span></code> may not be widely supported as index arrays across conforming array libraries. To dynamically resolve the default array index data type, including for that of the current device context, use the inspection API <code class="docutils literal notranslate"><span class="pre">default_dtypes()</span></code>.</p>
+</div>
+<ul>
+<li><p>Providing a zero-dimensional integer array <code class="docutils literal notranslate"><span class="pre">tk</span></code> containing an integer index must be equivalent to providing an integer index having the value <code class="docutils literal notranslate"><span class="pre">int(tk)</span></code>. Conversely, each integer index <code class="docutils literal notranslate"><span class="pre">tk</span></code> must be equivalent to a zero-dimensional integer array containing the same value and be treated as such, including shape inference and broadcasting. Accordingly, if <code class="docutils literal notranslate"><span class="pre">T</span></code> consists of only integers and zero-dimensional integer arrays, the result must be equivalent to indexing multiple axes using integer indices. For example, if <code class="docutils literal notranslate"><span class="pre">A</span></code> is a two-dimensional array, <code class="docutils literal notranslate"><span class="pre">T</span></code> is the tuple <code class="docutils literal notranslate"><span class="pre">(i,</span> <span class="pre">J)</span></code>, <code class="docutils literal notranslate"><span class="pre">i</span></code> is a valid integer index, and <code class="docutils literal notranslate"><span class="pre">J</span></code> is a zero-dimensional array containing a valid integer index <code class="docutils literal notranslate"><span class="pre">j</span></code>, the result of <code class="docutils literal notranslate"><span class="pre">A[T]</span></code> must be equivalent to <code class="docutils literal notranslate"><span class="pre">A[(i,j)]</span></code> (see <a class="reference internal" href="#indexing-multi-axis"><span class="std std-ref">Multi-axis Indexing</span></a>).</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">tk</span></code> is an integer array, each element in <code class="docutils literal notranslate"><span class="pre">tk</span></code> must independently satisfy the rules stated above for indexing a single-axis with an integer index (see <a class="reference internal" href="#indexing-single-axis"><span class="std std-ref">Single-axis Indexing</span></a>).</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This specification does not require bounds checking. The behavior for out-of-bounds integer indices is left unspecified.</p>
+</div>
+</li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">tk</span></code> is an integer array containing duplicate valid integer indices, the result must include the corresponding elements of <code class="docutils literal notranslate"><span class="pre">A</span></code> with the same duplication.</p>
+</li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">T</span></code> contains at least one non-zero-dimensional integer array, all elements of <code class="docutils literal notranslate"><span class="pre">T</span></code> must be broadcast against each other to determine a common shape <code class="docutils literal notranslate"><span class="pre">S2</span> <span class="pre">=</span> <span class="pre">(s1,</span> <span class="pre">s2,</span> <span class="pre">...,</span> <span class="pre">sN)</span></code> according to standard broadcasting rules (see <a class="reference internal" href="broadcasting.html#broadcasting"><span class="std std-ref">Broadcasting</span></a>). If one or more elements in <code class="docutils literal notranslate"><span class="pre">T</span></code> are not broadcast-compatible with the others, an exception must be raised.</p></li>
+<li><p>After broadcasting elements of <code class="docutils literal notranslate"><span class="pre">T</span></code> to a common shape <code class="docutils literal notranslate"><span class="pre">S2</span></code>, the resulting tuple <code class="docutils literal notranslate"><span class="pre">U</span> <span class="pre">=</span> <span class="pre">(u1,</span> <span class="pre">u2,</span> <span class="pre">...,</span> <span class="pre">uN)</span></code> must only contain integer arrays having shape <code class="docutils literal notranslate"><span class="pre">S2</span></code> (i.e., <code class="docutils literal notranslate"><span class="pre">u1</span> <span class="pre">=</span> <span class="pre">broadcast_to(t1,</span> <span class="pre">S2)</span></code>, <code class="docutils literal notranslate"><span class="pre">u2</span> <span class="pre">=</span> <span class="pre">broadcast_to(t2,</span> <span class="pre">S2)</span></code>, et cetera).</p></li>
+<li><p>Each element in <code class="docutils literal notranslate"><span class="pre">U</span></code> must specify a multi-dimensional index <code class="docutils literal notranslate"><span class="pre">v_i</span> <span class="pre">=</span> <span class="pre">(u1[i],</span> <span class="pre">u2[i],</span> <span class="pre">...,</span> <span class="pre">uN[i])</span></code>, where <code class="docutils literal notranslate"><span class="pre">i</span></code> ranges over <code class="docutils literal notranslate"><span class="pre">S2</span></code>. The result of <code class="docutils literal notranslate"><span class="pre">A[U]</span></code> must be constructed by gathering elements from <code class="docutils literal notranslate"><span class="pre">A</span></code> at each coordinate tuple <code class="docutils literal notranslate"><span class="pre">v_i</span></code>. For example, let <code class="docutils literal notranslate"><span class="pre">A</span></code> have shape <code class="docutils literal notranslate"><span class="pre">(4,4)</span></code> and <code class="docutils literal notranslate"><span class="pre">U</span></code> contain integer arrays equivalent to <code class="docutils literal notranslate"><span class="pre">([0,1],</span> <span class="pre">[2,3])</span></code>, with <code class="docutils literal notranslate"><span class="pre">u1</span> <span class="pre">=</span> <span class="pre">[0,1]</span></code> and <code class="docutils literal notranslate"><span class="pre">u2</span> <span class="pre">=</span> <span class="pre">[2,3]</span></code>. The resulting coordinate tuples must be <code class="docutils literal notranslate"><span class="pre">(0,2)</span></code> and <code class="docutils literal notranslate"><span class="pre">(1,3)</span></code>, respectively, and the resulting array must have shape <code class="docutils literal notranslate"><span class="pre">(2,)</span></code> and contain elements <code class="docutils literal notranslate"><span class="pre">A[(0,2)]</span></code> and <code class="docutils literal notranslate"><span class="pre">A[(1,3)]</span></code>.</p></li>
+<li><p>The result of <code class="docutils literal notranslate"><span class="pre">A[U]</span></code> must be an array having the broadcasted shape <code class="docutils literal notranslate"><span class="pre">S2</span></code>.</p></li>
 </ul>
 </section>
 <section id="boolean-array-indexing">

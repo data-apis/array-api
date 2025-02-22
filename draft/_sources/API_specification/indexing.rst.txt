@@ -7,6 +7,9 @@ Indexing
 
 A conforming implementation of the array API standard must adhere to the following conventions.
 
+
+.. _indexing-single-axis:
+
 Single-axis Indexing
 --------------------
 
@@ -121,6 +124,9 @@ The behavior outside of these bounds is unspecified.
 .. note::
    *Rationale: this is consistent with bounds checking for integer indexing; the behavior of out-of-bounds indices is left unspecified. Implementations may choose to clip (consistent with Python* ``list`` *slicing semantics), raise an exception, return junk values, or some other behavior depending on device requirements and performance considerations.*
 
+
+.. _indexing-multi-axis:
+
 Multi-axis Indexing
 -------------------
 
@@ -172,6 +178,45 @@ Multi-dimensional arrays must extend the concept of single-axis indexing to mult
     This specification leaves unspecified the behavior of providing a slice which attempts to select elements along a particular axis, but whose starting index is out-of-bounds.
 
     *Rationale: this is consistent with bounds-checking for single-axis indexing. An implementation may choose to set the axis (dimension) size of the result array to* ``0`` *, raise an exception, return junk values, or some other behavior depending on device requirements and performance considerations.*
+
+Integer Array Indexing
+----------------------
+
+.. note::
+  Integer array indexing, as described in this specification, is a reduced subset of "vectorized indexing" semantics, as implemented in libraries such as NumPy. In vectorized indexing, integers and integer arrays are broadcasted to integer arrays having a common shape before being "zipped" together to form a list of index coordinates. This form of indexing diverges from the multi-axis indexing semantics described above (see :ref:`indexing-multi-axis`) where each element of an indexing tuple comprised of integers and slices independently indexes a particular axis. This latter form of indexing is commonly referred to as "orthogonal indexing" and is the default form of indexing outside of Python in languages such as Julia and MATLAB.
+
+An array must support indexing by an indexing tuple which contains only integers and integer arrays according to the following rules. Let ``A`` be an ``N``-dimensional array with shape ``S1``. Let ``T`` be a tuple ``(t1, t2, ..., tN)`` having length ``N``. Let ``tk`` be an individual element of ``T``.
+
+.. note::
+   This specification does not currently address indexing tuples which combine slices and integer arrays. Behavior for such indexing tuples is left unspecified and thus implementation-defined. This may be revisited in a future revision of this standard.
+
+.. note::
+   This specification does not currently address indexing tuples which include array-like elements, such as Python lists, tuples, and other sequences. Behavior when indexing an array using array-like elements is left unspecified and thus implementation-defined.
+
+- If ``tk`` is an integer array, ``tk`` should have the default array index data type (see :ref:`data-type-defaults`).
+
+.. note::
+   Conforming implementations of this standard may support integer arrays having other integer data types; however, consumers of this standard should be aware that integer arrays having uncommon array index data types such as ``int8`` and ``uint8`` may not be widely supported as index arrays across conforming array libraries. To dynamically resolve the default array index data type, including for that of the current device context, use the inspection API ``default_dtypes()``.
+
+- Providing a zero-dimensional integer array ``tk`` containing an integer index must be equivalent to providing an integer index having the value ``int(tk)``. Conversely, each integer index ``tk`` must be equivalent to a zero-dimensional integer array containing the same value and be treated as such, including shape inference and broadcasting. Accordingly, if ``T`` consists of only integers and zero-dimensional integer arrays, the result must be equivalent to indexing multiple axes using integer indices. For example, if ``A`` is a two-dimensional array, ``T`` is the tuple ``(i, J)``, ``i`` is a valid integer index, and ``J`` is a zero-dimensional array containing a valid integer index ``j``, the result of ``A[T]`` must be equivalent to ``A[(i,j)]`` (see :ref:`indexing-multi-axis`).
+
+- If ``tk`` is an integer array, each element in ``tk`` must independently satisfy the rules stated above for indexing a single-axis with an integer index (see :ref:`indexing-single-axis`).
+
+  .. note::
+    This specification does not require bounds checking. The behavior for out-of-bounds integer indices is left unspecified.
+
+- If ``tk`` is an integer array containing duplicate valid integer indices, the result must include the corresponding elements of ``A`` with the same duplication.
+
+  ..
+    TODO: once setitem semantics are determined, insert the following note: Given the assignment operation ``x[T] = y[...]``, if ``T`` contains an integer array having duplicate indices, the order in which elements in ``y`` are assigned to the corresponding element(s) in ``x`` is unspecified and thus implementation-defined.
+
+- If ``T`` contains at least one non-zero-dimensional integer array, all elements of ``T`` must be broadcast against each other to determine a common shape ``S2 = (s1, s2, ..., sN)`` according to standard broadcasting rules (see :ref:`broadcasting`). If one or more elements in ``T`` are not broadcast-compatible with the others, an exception must be raised.
+
+- After broadcasting elements of ``T`` to a common shape ``S2``, the resulting tuple ``U = (u1, u2, ..., uN)`` must only contain integer arrays having shape ``S2`` (i.e., ``u1 = broadcast_to(t1, S2)``, ``u2 = broadcast_to(t2, S2)``, et cetera).
+
+- Each element in ``U`` must specify a multi-dimensional index ``v_i = (u1[i], u2[i], ..., uN[i])``, where ``i`` ranges over ``S2``. The result of ``A[U]`` must be constructed by gathering elements from ``A`` at each coordinate tuple ``v_i``. For example, let ``A`` have shape ``(4,4)`` and ``U`` contain integer arrays equivalent to ``([0,1], [2,3])``, with ``u1 = [0,1]`` and ``u2 = [2,3]``. The resulting coordinate tuples must be ``(0,2)`` and ``(1,3)``, respectively, and the resulting array must have shape ``(2,)`` and contain elements ``A[(0,2)]`` and ``A[(1,3)]``.
+
+- The result of ``A[U]`` must be an array having the broadcasted shape ``S2``.
 
 Boolean Array Indexing
 ----------------------
