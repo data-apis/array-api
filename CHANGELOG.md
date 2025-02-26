@@ -15,6 +15,7 @@ This changelog is organized by specification version and notes all changes with 
 - Clarify that conforming implementations may support additional arguments beyond those described in the Array API specification ([gh-870](https://github.com/data-apis/array-api/pull/870))
 - Clarify accuracy requirements for operations involving complex numbers ([gh-882](https://github.com/data-apis/array-api/pull/882))
 - Clarify expected results for in-place operations in conforming array libraries which do not support array mutation ([gh-895](https://github.com/data-apis/array-api/pull/895))
+- Clarify the expected behavior of the `copy` keyword argument when `copy=True` in `asarray`, `astype`, `reshape`, and `__dlpack__` ([gh-906](https://github.com/data-apis/array-api/pull/906))
 
 #### APIs
 
