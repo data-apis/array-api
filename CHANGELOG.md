@@ -18,7 +18,7 @@ This changelog is organized by specification version and notes all changes with 
 
 #### APIs
 
-- `__dlpack__`: Clarify the expected behavior of the `copy` keyword argument when `copy=True` ([gh-906](https://github.com/data-apis/array-api/pull/906))
+- `__dlpack__`: clarify the expected behavior of the `copy` keyword argument when `copy=True` ([gh-906](https://github.com/data-apis/array-api/pull/906))
 - `__eq__`: clarify that cross-kind comparisons are unspecified ([gh-822](https://github.com/data-apis/array-api/pull/822))
 - `__ge__`: clarify that cross-kind comparisons are unspecified ([gh-822](https://github.com/data-apis/array-api/pull/822))
 - `__getitem__`: clarify that iteration is defined for one-dimensional arrays ([gh-821](https://github.com/data-apis/array-api/pull/821))
@@ -26,8 +26,8 @@ This changelog is organized by specification version and notes all changes with 
 - `__le__`: clarify that cross-kind comparisons are unspecified ([gh-822](https://github.com/data-apis/array-api/pull/822))
 - `__lt__`: clarify that cross-kind comparisons are unspecified ([gh-822](https://github.com/data-apis/array-api/pull/822))
 - `__ne__`: clarify that cross-kind comparisons are unspecified ([gh-822](https://github.com/data-apis/array-api/pull/822))
-- `asarray`: Clarify the expected behavior of the `copy` keyword argument when `copy=True` ([gh-906](https://github.com/data-apis/array-api/pull/906))
-- `astype`: Clarify the expected behavior of the `copy` keyword argument when `copy=True` ([gh-906](https://github.com/data-apis/array-api/pull/906))
+- `asarray`: clarify the expected behavior of the `copy` keyword argument when `copy=True` ([gh-906](https://github.com/data-apis/array-api/pull/906))
+- `astype`: clarify the expected behavior of the `copy` keyword argument when `copy=True` ([gh-906](https://github.com/data-apis/array-api/pull/906))
 - `clip`: specify behavior when one of the operands is `NaN` ([gh-813](https://github.com/data-apis/array-api/pull/813); backported to v2023.12 revision of the Array API specification)
 - `clip`: clarify behavior when arguments have different data types ([gh-896](https://github.com/data-apis/array-api/pull/896))
 - `conj`: add support for real-valued arrays ([gh-884](https://github.com/data-apis/array-api/pull/884))
@@ -40,7 +40,7 @@ This changelog is organized by specification version and notes all changes with 
 - `mean`: add support for complex floating-point data types ([gh-850](https://github.com/data-apis/array-api/pull/850))
 - `not_equal`: clarify that cross-kind comparisons are unspecified ([gh-822](https://github.com/data-apis/array-api/pull/822))
 - `real`: add support for real-valued arrays ([gh-884](https://github.com/data-apis/array-api/pull/884))
-- `reshape`: Clarify the expected behavior of the `copy` keyword argument when `copy=True` ([gh-906](https://github.com/data-apis/array-api/pull/906))
+- `reshape`: clarify the expected behavior of the `copy` keyword argument when `copy=True` ([gh-906](https://github.com/data-apis/array-api/pull/906))
 - `sqrt`: clarify that results must be correctly rounded according to IEEE 754 ([gh-882](https://github.com/data-apis/array-api/pull/882))
 - `take`: clarify that behavior when provided a zero-dimensional input array is unspecified ([gh-876](https://github.com/data-apis/array-api/pull/876))
 - `take`: clarify support for negative indices ([gh-894](https://github.com/data-apis/array-api/pull/894))
