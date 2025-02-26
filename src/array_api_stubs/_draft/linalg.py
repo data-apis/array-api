@@ -635,6 +635,9 @@ def solve(x1: array, x2: array, /) -> array:
 
     .. versionchanged:: 2022.12
        Added complex data type support.
+
+    .. versionchanged:: 2024.12
+       Clarified broadcasting semantics and the shape of the output array.
     """
 
 

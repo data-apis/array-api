@@ -4,6 +4,172 @@
 
 This changelog is organized by specification version and notes all changes with respect to the previous version. Within the section for a specific version (e.g., v2022.12), separate sections are used for (a) changes to existing APIs and requirements, (b) new APIs and new requirements, and (c) errata.
 
+## v2024.12
+
+### Updates
+
+> Updates to existing APIs and requirements.
+
+#### Normative
+
+- Clarify that conforming implementations may support additional arguments beyond those described in the Array API specification ([gh-870](https://github.com/data-apis/array-api/pull/870))
+- Clarify accuracy requirements for operations involving complex numbers ([gh-882](https://github.com/data-apis/array-api/pull/882))
+- Clarify expected results for in-place operations in conforming array libraries which do not support array mutation ([gh-895](https://github.com/data-apis/array-api/pull/895))
+
+#### APIs
+
+- `__dlpack__`: clarify the expected behavior of the `copy` keyword argument when `copy=True` ([gh-906](https://github.com/data-apis/array-api/pull/906))
+- `__eq__`: clarify that cross-kind comparisons are unspecified ([gh-822](https://github.com/data-apis/array-api/pull/822))
+- `__ge__`: clarify that cross-kind comparisons are unspecified ([gh-822](https://github.com/data-apis/array-api/pull/822))
+- `__getitem__`: clarify that iteration is defined for one-dimensional arrays ([gh-821](https://github.com/data-apis/array-api/pull/821))
+- `__gt__`: clarify that cross-kind comparisons are unspecified ([gh-822](https://github.com/data-apis/array-api/pull/822))
+- `__le__`: clarify that cross-kind comparisons are unspecified ([gh-822](https://github.com/data-apis/array-api/pull/822))
+- `__lt__`: clarify that cross-kind comparisons are unspecified ([gh-822](https://github.com/data-apis/array-api/pull/822))
+- `__ne__`: clarify that cross-kind comparisons are unspecified ([gh-822](https://github.com/data-apis/array-api/pull/822))
+- `asarray`: clarify the expected behavior of the `copy` keyword argument when `copy=True` ([gh-906](https://github.com/data-apis/array-api/pull/906))
+- `astype`: clarify the expected behavior of the `copy` keyword argument when `copy=True` ([gh-906](https://github.com/data-apis/array-api/pull/906))
+- `clip`: specify behavior when one of the operands is `NaN` ([gh-813](https://github.com/data-apis/array-api/pull/813); backported to v2023.12 revision of the Array API specification)
+- `clip`: clarify behavior when arguments have different data types ([gh-896](https://github.com/data-apis/array-api/pull/896))
+- `conj`: add support for real-valued arrays ([gh-884](https://github.com/data-apis/array-api/pull/884))
+- `cumulative_sum`: clarify that behavior when providing a zero-dimensional array is unspecified ([gh-851](https://github.com/data-apis/array-api/pull/851))
+- `equal`: clarify that cross-kind comparisons are unspecified ([gh-822](https://github.com/data-apis/array-api/pull/822))
+- `greater`: clarify that cross-kind comparisons are unspecified ([gh-822](https://github.com/data-apis/array-api/pull/822))
+- `greater_equal`: clarify that cross-kind comparisons are unspecified ([gh-822](https://github.com/data-apis/array-api/pull/822))
+- `less`: clarify that cross-kind comparisons are unspecified ([gh-822](https://github.com/data-apis/array-api/pull/822))
+- `less_equal`: clarify that cross-kind comparisons are unspecified ([gh-822](https://github.com/data-apis/array-api/pull/822))
+- `mean`: add support for complex floating-point data types ([gh-850](https://github.com/data-apis/array-api/pull/850))
+- `not_equal`: clarify that cross-kind comparisons are unspecified ([gh-822](https://github.com/data-apis/array-api/pull/822))
+- `real`: add support for real-valued arrays ([gh-884](https://github.com/data-apis/array-api/pull/884))
+- `reshape`: clarify the expected behavior of the `copy` keyword argument when `copy=True` ([gh-906](https://github.com/data-apis/array-api/pull/906))
+- `sqrt`: clarify that results must be correctly rounded according to IEEE 754 ([gh-882](https://github.com/data-apis/array-api/pull/882))
+- `take`: clarify that behavior when provided a zero-dimensional input array is unspecified ([gh-876](https://github.com/data-apis/array-api/pull/876))
+- `take`: clarify support for negative indices ([gh-894](https://github.com/data-apis/array-api/pull/894))
+
+##### Scalar Argument Support
+
+The following APIs were updated to support both scalar and array arguments for one or more arguments:
+
+- `add` ([gh-862](https://github.com/data-apis/array-api/pull/862))
+- `atan2` ([gh-862](https://github.com/data-apis/array-api/pull/862))
+- `bitwise_and` ([gh-862](https://github.com/data-apis/array-api/pull/862))
+- `bitwise_left_shift` ([gh-862](https://github.com/data-apis/array-api/pull/862))
+- `bitwise_or` ([gh-862](https://github.com/data-apis/array-api/pull/862))
+- `bitwise_right_shift` ([gh-862](https://github.com/data-apis/array-api/pull/862))
+- `bitwise_xor` ([gh-862](https://github.com/data-apis/array-api/pull/862))
+- `copysign` ([gh-862](https://github.com/data-apis/array-api/pull/862))
+- `divide` ([gh-862](https://github.com/data-apis/array-api/pull/862))
+- `equal` ([gh-862](https://github.com/data-apis/array-api/pull/862))
+- `floor_divide` ([gh-862](https://github.com/data-apis/array-api/pull/862))
+- `greater` ([gh-862](https://github.com/data-apis/array-api/pull/862))
+- `greater_equal` ([gh-862](https://github.com/data-apis/array-api/pull/862))
+- `hypot` ([gh-862](https://github.com/data-apis/array-api/pull/862))
+- `less` ([gh-862](https://github.com/data-apis/array-api/pull/862))
+- `less_equal` ([gh-862](https://github.com/data-apis/array-api/pull/862))
+- `logaddexp` ([gh-862](https://github.com/data-apis/array-api/pull/862))
+- `logical_and` ([gh-862](https://github.com/data-apis/array-api/pull/862))
+- `logical_or` ([gh-862](https://github.com/data-apis/array-api/pull/862))
+- `logical_xor` ([gh-862](https://github.com/data-apis/array-api/pull/862))
+- `maximum` ([gh-862](https://github.com/data-apis/array-api/pull/862))
+- `minimum` ([gh-862](https://github.com/data-apis/array-api/pull/862))
+- `multiply` ([gh-862](https://github.com/data-apis/array-api/pull/862))
+- `nextafter` ([gh-862](https://github.com/data-apis/array-api/pull/862))
+- `not_equal` ([gh-862](https://github.com/data-apis/array-api/pull/862))
+- `pow` ([gh-862](https://github.com/data-apis/array-api/pull/862))
+- `remainder` ([gh-862](https://github.com/data-apis/array-api/pull/862))
+- `result_type` ([gh-873](https://github.com/data-apis/array-api/pull/873))
+- `subtract` ([gh-862](https://github.com/data-apis/array-api/pull/862))
+- `where` ([gh-860](https://github.com/data-apis/array-api/pull/860))
+
+#### Extensions
+
+> Updates to APIs and requirements included as part of specification extensions.
+
+- `fft.fftfreq`: add `dtype` keyword argument ([gh-885](https://github.com/data-apis/array-api/pull/885))
+- `fft.rfftfreq`: add `dtype` keyword argument ([gh-885](https://github.com/data-apis/array-api/pull/885))
+
+* * *
+
+### Additions
+
+> New APIs and requirements added to the specification.
+
+#### Normative
+
+- Add support for integer array indexing ([gh-900](https://github.com/data-apis/array-api/pull/900))
+
+#### APIs
+
+The following APIs were added to the specification:
+
+- `count_nonzero`: count the number of array elements which are non-zero ([gh-803](https://github.com/data-apis/array-api/pull/803))
+- `cumulative_prod`: calculate the cumulative product ([gh-793](https://github.com/data-apis/array-api/pull/793))
+- `diff`: calculate the n-th discrete forward difference along a specified axis ([gh-791](https://github.com/data-apis/array-api/pull/791), [gh-881](https://github.com/data-apis/array-api/pull/881))
+- `nextafter`: return the next representable floating-point value for each element in an array ([gh-792](https://github.com/data-apis/array-api/pull/792))
+- `reciprocal`: return the reciprocal for each element in an array ([gh-802](https://github.com/data-apis/array-api/pull/802))
+- `take_along_axis`: return elements from an array at locations specified by one-dimensional indices along an axis ([gh-816](https://github.com/data-apis/array-api/pull/816))
+
+#### Inspection APIs
+
+The following inspection APIs were added to the specification:
+
+- `max dimensions`: return the maximum number of supported dimensions ([gh-763](https://github.com/data-apis/array-api/pull/763) and [gh-809](https://github.com/data-apis/array-api/pull/809))
+
+* * *
+
+### Breaking Changes
+
+The following is a list of breaking changes relative to the previous version of the specification:
+
+#### Normative
+
+- An operation involving a Python `complex` scalar and a real-valued floating-point arrays must be equivalent to an operation involving a zero-dimensional array having a complex floating-point data type and a real-valued floating-point array ([gh-871](https://github.com/data-apis/array-api/pull/871))
+
+#### APIs
+
+- `can_cast`: application of type promotion rules must account for device context ([gh-889](https://github.com/data-apis/array-api/pull/889))
+- `result_type`: application of type promotion rules must account for device context ([gh-889](https://github.com/data-apis/array-api/pull/889))
+
+* * *
+
+### Errata
+
+The following is a list of fixes and points of clarification with regard to the previous version of the specification:
+
+- `__add__`: fix typing for `other` argument ([gh-https://github.com/data-apis/array-api/pull/905](https://github.com/data-apis/array-api/pull/905))
+- `__bool__`: fix typo in special case notes ([gh-785](https://github.com/data-apis/array-api/pull/785))
+- `__dlpack__`: resolve conflicting exception guidance ([gh-887](https://github.com/data-apis/array-api/pull/887))
+- `__eq__`: fix typing for `other` argument ([gh-https://github.com/data-apis/array-api/pull/905](https://github.com/data-apis/array-api/pull/905))
+- `__getitem__`: clarify required indexing semantics ([gh-821](https://github.com/data-apis/array-api/pull/821))
+- `__mul__`: fix typing for `other` argument ([gh-https://github.com/data-apis/array-api/pull/905](https://github.com/data-apis/array-api/pull/905))
+- `__ne__`: fix typing for `other` argument ([gh-https://github.com/data-apis/array-api/pull/905](https://github.com/data-apis/array-api/pull/905))
+- `__pow__`: fix typing for `other` argument ([gh-https://github.com/data-apis/array-api/pull/905](https://github.com/data-apis/array-api/pull/905))
+- `__setitem__`: clarify required indexing semantics ([gh-821](https://github.com/data-apis/array-api/pull/821))
+- `__setitem__`: fix typing for `value` argument ([gh-https://github.com/data-apis/array-api/pull/905](https://github.com/data-apis/array-api/pull/905))
+- `__sub__`: fix typing for `other` argument ([gh-https://github.com/data-apis/array-api/pull/905](https://github.com/data-apis/array-api/pull/905))
+- `__truediv__`: fix typing for `other` argument ([gh-https://github.com/data-apis/array-api/pull/905](https://github.com/data-apis/array-api/pull/905))
+- `broadcast_to`: clarify broadcast behavior ([gh-888](https://github.com/data-apis/array-api/pull/888))
+- `broadcast_to`: clarify required exception behavior ([gh-897](https://github.com/data-apis/array-api/pull/897))
+- `clip`: clarify that the operation is only defined when elements in `min` and `max` are inside the bounds of the input array data type ([gh-814](https://github.com/data-apis/array-api/pull/814))
+- `clip`: fix typo in parameter description ([gh-896](https://github.com/data-apis/array-api/pull/896))
+- `copysign`: fix formatting of special cases ([gh-806](https://github.com/data-apis/array-api/pull/806))
+- `fft.fft`: fix typo in function description ([gh-806](https://github.com/data-apis/array-api/pull/806))
+- `fft.ifft`: fix typo in function description ([gh-806](https://github.com/data-apis/array-api/pull/806))
+- `fft.fftn`: fix typo in function description ([gh-806](https://github.com/data-apis/array-api/pull/806))
+- `fft.ifftn`: fix typo in function description ([gh-806](https://github.com/data-apis/array-api/pull/806))
+- `fft.irfft`: fix typo in function description ([gh-806](https://github.com/data-apis/array-api/pull/806))
+- `fft.irfftn`: fix typo in function description ([gh-806](https://github.com/data-apis/array-api/pull/806))
+- `fft.hfft`: fix typo in function description ([gh-806](https://github.com/data-apis/array-api/pull/806))
+- `linalg.solve`: clarify broadcasting semantics and output shape ([gh-810](https://github.com/data-apis/array-api/pull/810))
+- `nonzero`: fix return type ([gh-803](https://github.com/data-apis/array-api/pull/803) and [gh-https://github.com/data-apis/array-api/pull/904](https://github.com/data-apis/array-api/pull/904))
+- `searchsorted`: fix incorrect boundary conditions ([gh-898](https://github.com/data-apis/array-api/pull/898))
+- `sign`: fix equation in function description ([gh-844](https://github.com/data-apis/array-api/pull/844))
+- `tile`: fix missing return type ([gh-798](https://github.com/data-apis/array-api/pull/798))
+- `unstack`: fix typo in function description ([gh-810](https://github.com/data-apis/array-api/pull/810))
+- `vecdot`: fix regression in default value for `axis` keyword argument ([gh-880](https://github.com/data-apis/array-api/pull/880))
+- `where`: clarify that the `condition` argument should have a boolean data type ([gh-868](https://github.com/data-apis/array-api/pull/868))
+
+* * *
+
 ## v2023.12
 
 ### Updates

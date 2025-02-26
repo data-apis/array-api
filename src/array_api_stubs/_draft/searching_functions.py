@@ -83,6 +83,8 @@ def count_nonzero(
 
     -   If ``x`` has a complex floating-point data type, non-zero elements are those elements having at least one component (real or imaginary) which is non-zero.
     -   If ``x`` has a boolean data type, non-zero elements are those elements which are equal to ``True``.
+
+    .. versionadded:: 2024.12
     """
 
 
@@ -162,6 +164,9 @@ def searchsorted(
     While behavior for arrays containing NaNs and signed zeros is implementation-dependent, specification-conforming libraries should, however, ensure consistency with ``sort`` and ``argsort`` (i.e., if a value in ``x2`` is inserted into ``x1`` according to the corresponding index in the output array and ``sort`` is invoked on the resultant array, the sorted result should be an array in the same order).
 
     .. versionadded:: 2023.12
+
+    .. versionchanged:: 2024.12
+       Fixed incorrect boundary conditions.
     """
 
 
@@ -195,5 +200,8 @@ def where(
     -   If either ``x1`` or ``x2`` is a scalar value, the returned array must have a data type determined according to :ref:`mixing-scalars-and-arrays`.
 
     .. versionchanged:: 2024.12
-        Added support for scalar arguments.
+       Added scalar argument support.
+
+    .. versionchanged:: 2024.12
+       Clarified that the ``condition`` argument should have a boolean data type.
     """
