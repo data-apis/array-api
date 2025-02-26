@@ -393,6 +393,9 @@ class _array:
 
         .. note::
            Element-wise results, including special cases, must equal the results returned by the equivalent element-wise function :func:`~array_api.equal`.
+
+        .. versionchanged:: 2022.12
+            Added complex data type support.
         """
 
     def __float__(self: array, /) -> float:
