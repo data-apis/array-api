@@ -34,6 +34,12 @@ def take(x: array, indices: array, /, *, axis: Optional[int] = None) -> array:
 
     .. versionchanged:: 2023.12
        Out-of-bounds behavior is explicitly left unspecified.
+
+    .. versionchanged:: 2024.12
+       Behavior when provided a zero-dimensional input array is explicitly left unspecified.
+
+    .. versionchanged:: 2024.12
+       Clarified support for negative indices.
     """
 
 
@@ -59,4 +65,6 @@ def take_along_axis(x: array, indices: array, /, *, axis: int = -1) -> array:
     -----
 
     -   This specification does not require bounds checking. The behavior for out-of-bounds indices is left unspecified.
+
+    .. versionadded:: 2024.12
     """

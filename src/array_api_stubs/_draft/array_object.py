@@ -460,10 +460,13 @@ class _array:
            Added BufferError.
 
         .. versionchanged:: 2023.12
-           Added the ``max_version``, ``dl_device``, and ``copy`` keywords.
+           Added the ``max_version``, ``dl_device``, and ``copy`` keyword arguments.
 
         .. versionchanged:: 2023.12
            Added recommendation for handling read-only arrays.
+
+        .. versionchanged:: 2024.12
+           Resolved conflicting exception guidance.
         """
 
     def __dlpack_device__(self: array, /) -> Tuple[Enum, int]:
@@ -515,6 +518,9 @@ class _array:
 
         -   Element-wise results, including special cases, must equal the results returned by the equivalent element-wise function :func:`~array_api.equal`.
         -   Comparison of arrays without a corresponding promotable data type (see :ref:`type-promotion`) is undefined and thus implementation-dependent.
+
+        .. versionchanged:: 2024.12
+            Cross-kind comparisons are explicitly left unspecified.
         """
 
     def __float__(self: array, /) -> float:
@@ -601,6 +607,9 @@ class _array:
         -   Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.greater_equal`.
         -   Comparison of arrays without a corresponding promotable data type (see :ref:`type-promotion`) is undefined and thus implementation-dependent.
         -   For backward compatibility, conforming implementations may support complex numbers; however, inequality comparison of complex numbers is unspecified and thus implementation-dependent (see :ref:`complex-number-ordering`).
+
+        .. versionchanged:: 2024.12
+            Cross-kind comparisons are explicitly left unspecified.
         """
 
     def __getitem__(
@@ -636,6 +645,8 @@ class _array:
         -   See :ref:`indexing` for details on supported indexing semantics.
         -   When ``__getitem__`` is defined on an object, Python will automatically define iteration (i.e., the behavior from ``iter(x)``) as  ``x[0]``, ``x[1]``, ..., ``x[N-1]``. This can also be implemented directly by defining ``__iter__``. Therefore, for a one-dimensional array ``x``, iteration should produce a sequence of zero-dimensional arrays ``x[0]``, ``x[1]``, ..., ``x[N-1]``, where ``N`` is the number of elements in the array. Iteration behavior for arrays having zero dimensions or more than one dimension is unspecified and thus implementation-defined.
 
+        .. versionchanged:: 2024.12
+            Clarified that iteration is defined for one-dimensional arrays.
         """
 
     def __gt__(self: array, other: Union[int, float, array], /) -> array:
@@ -660,6 +671,9 @@ class _array:
         -   Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.greater`.
         -   Comparison of arrays without a corresponding promotable data type (see :ref:`type-promotion`) is undefined and thus implementation-dependent.
         -   For backward compatibility, conforming implementations may support complex numbers; however, inequality comparison of complex numbers is unspecified and thus implementation-dependent (see :ref:`complex-number-ordering`).
+
+        .. versionchanged:: 2024.12
+            Cross-kind comparisons are explicitly left unspecified.
         """
 
     def __index__(self: array, /) -> int:
@@ -781,6 +795,9 @@ class _array:
         -   Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.less_equal`.
         -   Comparison of arrays without a corresponding promotable data type (see :ref:`type-promotion`) is undefined and thus implementation-dependent.
         -   For backward compatibility, conforming implementations may support complex numbers; however, inequality comparison of complex numbers is unspecified and thus implementation-dependent (see :ref:`complex-number-ordering`).
+
+        .. versionchanged:: 2024.12
+            Cross-kind comparisons are explicitly left unspecified.
         """
 
     def __lshift__(self: array, other: Union[int, array], /) -> array:
@@ -827,6 +844,9 @@ class _array:
         -   Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.less`.
         -   Comparison of arrays without a corresponding promotable data type (see :ref:`type-promotion`) is undefined and thus implementation-dependent.
         -   For backward compatibility, conforming implementations may support complex numbers; however, inequality comparison of complex numbers is unspecified and thus implementation-dependent (see :ref:`complex-number-ordering`).
+
+        .. versionchanged:: 2024.12
+            Cross-kind comparisons are explicitly left unspecified.
         """
 
     def __matmul__(self: array, other: array, /) -> array:
@@ -952,6 +972,9 @@ class _array:
 
         .. versionchanged:: 2022.12
             Added complex data type support.
+
+        .. versionchanged:: 2024.12
+            Cross-kind comparisons are explicitly left unspecified.
         """
 
     def __neg__(self: array, /) -> array:

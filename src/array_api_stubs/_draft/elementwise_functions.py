@@ -341,6 +341,9 @@ def add(
 
     .. versionchanged:: 2022.12
        Added complex data type support.
+
+    .. versionchanged:: 2024.12
+       Added scalar argument support.
     """
 
 
@@ -573,6 +576,9 @@ def atan2(x1: Union[array, int, float], x2: Union[array, int, float], /) -> arra
     - If ``x1_i`` is ``+infinity`` and ``x2_i`` is ``-infinity``, the result is an implementation-dependent approximation to ``+3π/4``.
     - If ``x1_i`` is ``-infinity`` and ``x2_i`` is ``+infinity``, the result is an implementation-dependent approximation to ``-π/4``.
     - If ``x1_i`` is ``-infinity`` and ``x2_i`` is ``-infinity``, the result is an implementation-dependent approximation to ``-3π/4``.
+
+    .. versionchanged:: 2024.12
+       Added scalar argument support.
     """
 
 
@@ -665,6 +671,9 @@ def bitwise_and(x1: Union[array, int, bool], x2: Union[array, int, bool], /) -> 
     -----
 
     -   At least one of ``x1`` or ``x2`` must be an array.
+
+    .. versionchanged:: 2024.12
+       Added scalar argument support.
     """
 
 
@@ -688,6 +697,9 @@ def bitwise_left_shift(x1: Union[array, int], x2: Union[array, int], /) -> array
     -----
 
     -   At least one of ``x1`` or ``x2`` must be an array.
+
+    .. versionchanged:: 2024.12
+       Added scalar argument support.
     """
 
 
@@ -727,6 +739,9 @@ def bitwise_or(x1: Union[array, int, bool], x2: Union[array, int, bool], /) -> a
     -----
 
     -   At least one of ``x1`` or ``x2`` must be an array.
+
+    .. versionchanged:: 2024.12
+       Added scalar argument support.
     """
 
 
@@ -753,6 +768,9 @@ def bitwise_right_shift(x1: Union[array, int], x2: Union[array, int], /) -> arra
     -----
 
     -   At least one of ``x1`` or ``x2`` must be an array.
+
+    .. versionchanged:: 2024.12
+       Added scalar argument support.
     """
 
 
@@ -776,6 +794,9 @@ def bitwise_xor(x1: Union[array, int, bool], x2: Union[array, int, bool], /) -> 
     -----
 
     -   At least one of ``x1`` or ``x2`` must be an array.
+
+    .. versionchanged:: 2024.12
+       Added scalar argument support.
     """
 
 
@@ -850,6 +871,15 @@ def clip(
     - If ``max_i`` is ``NaN``, the result is ``NaN``.
 
     .. versionadded:: 2023.12
+
+    .. versionchanged:: 2024.12
+       Added special case behavior when one of the operands is ``NaN``.
+
+    .. versionchanged:: 2024.12
+       Clarified that behavior is only defined when ``x``, ``min``, and ``max`` resolve to arrays having the same data type.
+
+    .. versionchanged:: 2024.12
+       Clarified that behavior is only defined when elements of ``min`` and ``max`` are inside the bounds of the input array data type.
     """
 
 
@@ -885,6 +915,9 @@ def conj(x: array, /) -> array:
     -   Whether the returned array and the input array share the same underlying memory is unspecified and thus implementation-defined.
 
     .. versionadded:: 2022.12
+
+    .. versionchanged:: 2024.12
+       Added support for real-valued arrays.
     """
 
 
@@ -928,6 +961,9 @@ def copysign(x1: Union[array, int, float], x2: Union[array, int, float], /) -> a
     - If ``x1_i`` is ``NaN`` and ``x2_i`` is ``NaN`` and the sign bit of ``x2_i`` is ``0``, the result is ``NaN`` with a sign bit of ``0``.
 
     .. versionadded:: 2023.12
+
+    .. versionchanged:: 2024.12
+       Added scalar argument support.
     """
 
 
@@ -1124,6 +1160,9 @@ def divide(
 
     .. versionchanged:: 2022.12
        Added complex data type support.
+
+    .. versionchanged:: 2024.12
+       Added scalar argument support.
     """
 
 
@@ -1177,6 +1216,12 @@ def equal(
 
     .. versionchanged:: 2022.12
        Added complex data type support.
+
+    .. versionchanged:: 2024.12
+       Cross-kind comparisons are explicitly left unspecified.
+
+    .. versionchanged:: 2024.12
+       Added scalar argument support.
     """
 
 
@@ -1385,6 +1430,9 @@ def floor_divide(
     - If ``x1_i`` and ``x2_i`` have the same mathematical sign and are both nonzero finite numbers, the result has a positive mathematical sign.
     - If ``x1_i`` and ``x2_i`` have different mathematical signs and are both nonzero finite numbers, the result has a negative mathematical sign.
     - In the remaining cases, where neither ``-infinity``, ``+0``, ``-0``, nor ``NaN`` is involved, the quotient must be computed and rounded to the greatest (i.e., closest to `+infinity`) representable integer-value number that is not greater than the division result. If the magnitude is too large to represent, the operation overflows and the result is an ``infinity`` of appropriate mathematical sign. If the magnitude is too small to represent, the operation underflows and the result is a zero of appropriate mathematical sign.
+
+    .. versionchanged:: 2024.12
+       Added scalar argument support.
     """
 
 
@@ -1411,6 +1459,11 @@ def greater(x1: Union[array, int, float], x2: Union[array, int, float], /) -> ar
     -   Comparison of arrays without a corresponding promotable data type (see :ref:`type-promotion`) is undefined and thus implementation-dependent.
     -   For backward compatibility, conforming implementations may support complex numbers; however, inequality comparison of complex numbers is unspecified and thus implementation-dependent (see :ref:`complex-number-ordering`).
 
+    .. versionchanged:: 2024.12
+       Cross-kind comparisons are explicitly left unspecified.
+
+    .. versionchanged:: 2024.12
+       Added scalar argument support.
     """
 
 
@@ -1438,6 +1491,12 @@ def greater_equal(
     -   At least one of ``x1`` or ``x2`` must be an array.
     -   Comparison of arrays without a corresponding promotable data type (see :ref:`type-promotion`) is undefined and thus implementation-dependent.
     -   For backward compatibility, conforming implementations may support complex numbers; however, inequality comparison of complex numbers is unspecified and thus implementation-dependent (see :ref:`complex-number-ordering`).
+
+    .. versionchanged:: 2024.12
+       Cross-kind comparisons are explicitly left unspecified.
+
+    .. versionchanged:: 2024.12
+       Added scalar argument support.
     """
 
 
@@ -1486,6 +1545,9 @@ def hypot(x1: Union[array, int, float], x2: Union[array, int, float], /) -> arra
        Accordingly, conforming implementations may vary in their support for subnormal numbers.
 
     .. versionadded:: 2023.12
+
+    .. versionchanged:: 2024.12
+       Added scalar argument support.
     """
 
 
@@ -1638,6 +1700,12 @@ def less(x1: Union[array, int, float], x2: Union[array, int, float], /) -> array
     -   At least one of ``x1`` or ``x2`` must be an array.
     -   Comparison of arrays without a corresponding promotable data type (see :ref:`type-promotion`) is undefined and thus implementation-dependent.
     -   For backward compatibility, conforming implementations may support complex numbers; however, inequality comparison of complex numbers is unspecified and thus implementation-dependent (see :ref:`complex-number-ordering`).
+
+    .. versionchanged:: 2024.12
+       Cross-kind comparisons are explicitly left unspecified.
+
+    .. versionchanged:: 2024.12
+       Added scalar argument support.
     """
 
 
@@ -1663,6 +1731,12 @@ def less_equal(x1: Union[array, int, float], x2: Union[array, int, float], /) ->
     -   At least one of ``x1`` or ``x2`` must be an array.
     -   Comparison of arrays without a corresponding promotable data type (see :ref:`type-promotion`) is undefined and thus implementation-dependent.
     -   For backward compatibility, conforming implementations may support complex numbers; however, inequality comparison of complex numbers is unspecified and thus implementation-dependent (see :ref:`complex-number-ordering`).
+
+    .. versionchanged:: 2024.12
+       Cross-kind comparisons are explicitly left unspecified.
+
+    .. versionchanged:: 2024.12
+       Added scalar argument support.
     """
 
 
@@ -1902,6 +1976,9 @@ def logaddexp(x1: Union[array, int, float], x2: Union[array, int, float], /) -> 
     - If either ``x1_i`` or ``x2_i`` is ``NaN``, the result is ``NaN``.
     - If ``x1_i`` is ``+infinity`` and ``x2_i`` is not ``NaN``, the result is ``+infinity``.
     - If ``x1_i`` is not ``NaN`` and ``x2_i`` is ``+infinity``, the result is ``+infinity``.
+
+    .. versionchanged:: 2024.12
+       Added scalar argument support.
     """
 
 
@@ -1928,6 +2005,9 @@ def logical_and(x1: Union[array, bool], x2: Union[array, bool], /) -> array:
     -----
 
     -   At least one of ``x1`` or ``x2`` must be an array.
+
+    .. versionchanged:: 2024.12
+       Added scalar argument support.
     """
 
 
@@ -1973,6 +2053,9 @@ def logical_or(x1: Union[array, bool], x2: Union[array, bool], /) -> array:
     -----
 
     -   At least one of ``x1`` or ``x2`` must be an array.
+
+    .. versionchanged:: 2024.12
+       Added scalar argument support.
     """
 
 
@@ -1999,6 +2082,9 @@ def logical_xor(x1: Union[array, bool], x2: Union[array, bool], /) -> array:
     -----
 
     -   At least one of ``x1`` or ``x2`` must be an array.
+
+    .. versionchanged:: 2024.12
+       Added scalar argument support.
     """
 
 
@@ -2032,6 +2118,9 @@ def maximum(x1: Union[array, int, float], x2: Union[array, int, float], /) -> ar
     -   If either ``x1_i`` or ``x2_i`` is ``NaN``, the result is ``NaN``.
 
     .. versionadded:: 2023.12
+
+    .. versionchanged:: 2024.12
+       Added scalar argument support.
     """
 
 
@@ -2065,6 +2154,9 @@ def minimum(x1: Union[array, int, float], x2: Union[array, int, float], /) -> ar
     -   If either ``x1_i`` or ``x2_i`` is ``NaN``, the result is ``NaN``.
 
     .. versionadded:: 2023.12
+
+    .. versionchanged:: 2024.12
+       Added scalar argument support.
     """
 
 
@@ -2137,6 +2229,9 @@ def multiply(
 
     .. versionchanged:: 2022.12
        Added complex data type support.
+
+    .. versionchanged:: 2024.12
+       Added scalar argument support.
     """
 
 
@@ -2196,6 +2291,8 @@ def nextafter(x1: Union[array, int, float], x2: Union[array, int, float], /) -> 
     - If either ``x1_i`` or ``x2_i`` is ``NaN``, the result is ``NaN``.
     - If ``x1_i`` is ``-0`` and ``x2_i`` is ``+0``, the result is ``+0``.
     - If ``x1_i`` is ``+0`` and ``x2_i`` is ``-0``, the result is ``-0``.
+
+    .. versionadded:: 2024.12
     """
 
 
@@ -2247,6 +2344,12 @@ def not_equal(
 
     .. versionchanged:: 2022.12
        Added complex data type support.
+
+    .. versionchanged:: 2024.12
+       Cross-kind comparisons are explicitly left unspecified.
+
+    .. versionchanged:: 2024.12
+       Added scalar argument support.
     """
 
 
@@ -2341,6 +2444,9 @@ def pow(
 
     .. versionchanged:: 2022.12
        Added complex data type support.
+
+    .. versionchanged:: 2024.12
+       Added scalar argument support.
     """
 
 
@@ -2364,6 +2470,9 @@ def real(x: array, /) -> array:
     -   Whether the returned array and the input array share the same underlying memory is unspecified and thus implementation-defined.
 
     .. versionadded:: 2022.12
+
+    .. versionchanged:: 2024.12
+       Added support for real-valued arrays.
     """
 
 
@@ -2387,6 +2496,8 @@ def reciprocal(x: array, /) -> array:
     **Special cases**
 
     For floating-point operands, special cases must be handled as if the operation is implemented as ``1.0 / x`` (see :func:`~array_api.divide`).
+
+    .. versionadded:: 2024.12
     """
 
 
@@ -2442,6 +2553,9 @@ def remainder(x1: Union[array, int, float], x2: Union[array, int, float], /) -> 
     - If ``x1_i`` is a negative (i.e., less than ``0``) finite number and ``x2_i`` is ``+infinity``, the result is ``x2_i``. (**note**: this results matches Python behavior.)
     - If ``x1_i`` is a negative (i.e., less than ``0``) finite number and ``x2_i`` is ``-infinity``, the result is ``x1_i``. (**note**: this result matches Python behavior.)
     - In the remaining cases, the result must match that of the Python ``%`` operator.
+
+    .. versionchanged:: 2024.12
+       Added scalar argument support.
     """
 
 
@@ -2796,6 +2910,9 @@ def subtract(
 
     .. versionchanged:: 2022.12
        Added complex data type support.
+
+    .. versionchanged:: 2024.12
+       Added scalar argument support.
     """
 
 

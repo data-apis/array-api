@@ -63,6 +63,8 @@ def cumulative_prod(
     **Special Cases**
 
     For both real-valued and complex floating-point operands, special cases must be handled as if the operation is implemented by successive application of :func:`~array_api.multiply`.
+
+    .. versionadded:: 2024.12
     """
 
 
@@ -117,6 +119,9 @@ def cumulative_sum(
     For both real-valued and complex floating-point operands, special cases must be handled as if the operation is implemented by successive application of :func:`~array_api.add`.
 
     .. versionadded:: 2023.12
+
+    .. versionchanged:: 2024.12
+       Behavior when providing a zero-dimensional array is explicitly left unspecified.
     """
 
 
@@ -209,6 +214,9 @@ def mean(
 
     .. note::
        Array libraries, such as NumPy, PyTorch, and JAX, currently deviate from this specification in their handling of components which are ``NaN`` when computing the arithmetic mean. In general, consumers of array libraries implementing this specification should use :func:`~array_api.isnan` to test whether the result of computing the arithmetic mean over an array have a complex floating-point data type is ``NaN``, rather than relying on ``NaN`` propagation of individual components.
+
+    .. versionchanged:: 2024.12
+       Added complex data type support.
     """
 
 

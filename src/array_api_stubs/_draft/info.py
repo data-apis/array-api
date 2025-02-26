@@ -69,6 +69,9 @@ def capabilities() -> Capabilities:
     -----
 
     .. versionadded: 2023.12
+
+    .. versionchanged:: 2024.12
+       Added support for querying the maximum number of supported dimensions.
     """
 
 

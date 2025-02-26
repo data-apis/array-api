@@ -50,6 +50,9 @@ def broadcast_to(x: array, /, shape: Tuple[int, ...]) -> array:
     -------
     out: array
         an array having the specified shape. Must have the same data type as ``x``.
+
+    .. versionchanged:: 2024.12
+       Clarified broadcast behavior.
     """
 
 
