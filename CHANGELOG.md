@@ -43,7 +43,7 @@ This changelog is organized by specification version and notes all changes with 
 
 ##### Scalar Argument Support
 
-The following APIs were updated to support scalars in place of arrays for one or more arguments:
+The following APIs were updated to support both scalar and array arguments for one or more arguments:
 
 - `add` ([gh-862](https://github.com/data-apis/array-api/pull/862))
 - `atan2` ([gh-862](https://github.com/data-apis/array-api/pull/862))
