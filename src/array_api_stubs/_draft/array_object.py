@@ -519,6 +519,9 @@ class _array:
         -   Element-wise results, including special cases, must equal the results returned by the equivalent element-wise function :func:`~array_api.equal`.
         -   Comparison of arrays without a corresponding promotable data type (see :ref:`type-promotion`) is undefined and thus implementation-dependent.
 
+        .. versionchanged:: 2022.12
+            Added complex data type support.
+
         .. versionchanged:: 2024.12
             Cross-kind comparisons are explicitly left unspecified.
         """

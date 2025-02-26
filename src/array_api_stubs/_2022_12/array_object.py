@@ -146,7 +146,7 @@ class _array:
             Added complex data type support.
         """
 
-    def __add__(self: array, other: Union[int, float, array], /) -> array:
+    def __add__(self: array, other: Union[int, float, complex, array], /) -> array:
         """
         Calculates the sum for each element of an array instance with the respective element of the array ``other``.
 
@@ -154,7 +154,7 @@ class _array:
         ----------
         self: array
             array instance (augend array). Should have a numeric data type.
-        other: Union[int, float, array]
+        other: Union[int, float, complex, array]
             addend array. Must be compatible with ``self`` (see :ref:`broadcasting`). Should have a numeric data type.
 
         Returns
@@ -374,7 +374,7 @@ class _array:
               ROCM = 10
         """
 
-    def __eq__(self: array, other: Union[int, float, bool, array], /) -> array:
+    def __eq__(self: array, other: Union[int, float, complex, bool, array], /) -> array:
         r"""
         Computes the truth value of ``self_i == other_i`` for each element of an array instance with the respective element of the array ``other``.
 
@@ -382,7 +382,7 @@ class _array:
         ----------
         self: array
             array instance. May have any data type.
-        other: Union[int, float, bool, array]
+        other: Union[int, float, complex, bool, array]
             other array. Must be compatible with ``self`` (see :ref:`broadcasting`). May have any data type.
 
         Returns
@@ -393,6 +393,9 @@ class _array:
 
         .. note::
            Element-wise results, including special cases, must equal the results returned by the equivalent element-wise function :func:`~array_api.equal`.
+
+        .. versionchanged:: 2022.12
+            Added complex data type support.
         """
 
     def __float__(self: array, /) -> float:
@@ -746,7 +749,7 @@ class _array:
            Element-wise results, including special cases, must equal the results returned by the equivalent element-wise function :func:`~array_api.remainder`.
         """
 
-    def __mul__(self: array, other: Union[int, float, array], /) -> array:
+    def __mul__(self: array, other: Union[int, float, complex, array], /) -> array:
         r"""
         Calculates the product for each element of an array instance with the respective element of the array ``other``.
 
@@ -757,7 +760,7 @@ class _array:
         ----------
         self: array
             array instance. Should have a numeric data type.
-        other: Union[int, float, array]
+        other: Union[int, float, complex, array]
             other array. Must be compatible with ``self`` (see :ref:`broadcasting`). Should have a numeric data type.
 
         Returns
@@ -775,7 +778,7 @@ class _array:
             Added complex data type support.
         """
 
-    def __ne__(self: array, other: Union[int, float, bool, array], /) -> array:
+    def __ne__(self: array, other: Union[int, float, complex, bool, array], /) -> array:
         """
         Computes the truth value of ``self_i != other_i`` for each element of an array instance with the respective element of the array ``other``.
 
@@ -783,7 +786,7 @@ class _array:
         ----------
         self: array
             array instance. May have any data type.
-        other: Union[int, float, bool, array]
+        other: Union[int, float, complex, bool, array]
             other array. Must be compatible with ``self`` (see :ref:`broadcasting`). May have any data type.
 
         Returns
@@ -852,9 +855,6 @@ class _array:
 
         .. note::
            Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.bitwise_or`.
-
-        .. versionchanged:: 2022.12
-            Added complex data type support.
         """
 
     def __pos__(self: array, /) -> array:
@@ -876,7 +876,7 @@ class _array:
            Element-wise results must equal the results returned by the equivalent element-wise function :func:`~array_api.positive`.
         """
 
-    def __pow__(self: array, other: Union[int, float, array], /) -> array:
+    def __pow__(self: array, other: Union[int, float, complex, array], /) -> array:
         r"""
         Calculates an implementation-dependent approximation of exponentiation by raising each element (the base) of an array instance to the power of ``other_i`` (the exponent), where ``other_i`` is the corresponding element of the array ``other``.
 
@@ -889,7 +889,7 @@ class _array:
         ----------
         self: array
             array instance whose elements correspond to the exponentiation base. Should have a numeric data type.
-        other: Union[int, float, array]
+        other: Union[int, float, complex, array]
             other array whose elements correspond to the exponentiation exponent. Must be compatible with ``self`` (see :ref:`broadcasting`). Should have a numeric data type.
 
         Returns
@@ -933,7 +933,7 @@ class _array:
         key: Union[
             int, slice, ellipsis, Tuple[Union[int, slice, ellipsis], ...], array
         ],
-        value: Union[int, float, bool, array],
+        value: Union[int, float, complex, bool, array],
         /,
     ) -> None:
         """
@@ -947,7 +947,7 @@ class _array:
             array instance.
         key: Union[int, slice, ellipsis, Tuple[Union[int, slice, ellipsis], ...], array]
             index key.
-        value: Union[int, float, bool, array]
+        value: Union[int, float, complex, bool, array]
             value(s) to set. Must be compatible with ``self[key]`` (see :ref:`broadcasting`).
 
 
@@ -960,7 +960,7 @@ class _array:
            When ``value`` is an ``array`` of a different data type than ``self``, how values are cast to the data type of ``self`` is implementation defined.
         """
 
-    def __sub__(self: array, other: Union[int, float, array], /) -> array:
+    def __sub__(self: array, other: Union[int, float, complex, array], /) -> array:
         """
         Calculates the difference for each element of an array instance with the respective element of the array ``other``.
 
@@ -970,7 +970,7 @@ class _array:
         ----------
         self: array
             array instance (minuend array). Should have a numeric data type.
-        other: Union[int, float, array]
+        other: Union[int, float, complex, array]
             subtrahend array. Must be compatible with ``self`` (see :ref:`broadcasting`). Should have a numeric data type.
 
         Returns
@@ -988,7 +988,7 @@ class _array:
             Added complex data type support.
         """
 
-    def __truediv__(self: array, other: Union[int, float, array], /) -> array:
+    def __truediv__(self: array, other: Union[int, float, complex, array], /) -> array:
         r"""
         Evaluates ``self_i / other_i`` for each element of an array instance with the respective element of the array ``other``.
 
@@ -1001,7 +1001,7 @@ class _array:
         ----------
         self: array
             array instance. Should have a numeric data type.
-        other: Union[int, float, array]
+        other: Union[int, float, complex, array]
             other array. Must be compatible with ``self`` (see :ref:`broadcasting`). Should have a numeric data type.
 
         Returns
