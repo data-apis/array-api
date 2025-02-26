@@ -594,7 +594,7 @@ def fftfreq(
        Required the output array have the default real-valued floating-point data type.
 
     .. versionchanged:: 2024.12
-       Added dtype keyword argument support.
+       Added ``dtype`` keyword argument support.
     """
 
 
@@ -643,7 +643,7 @@ def rfftfreq(
        Required the output array have the default real-valued floating-point data type.
 
     .. versionchanged:: 2024.12
-       Added dtype keyword argument support.
+       Added ``dtype`` keyword argument support.
     """
 
 
