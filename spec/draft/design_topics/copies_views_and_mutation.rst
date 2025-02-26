@@ -79,6 +79,9 @@ standard, it remains possible to write code that will not work the same for all
 array libraries. This is something that the users are advised to best keep in
 mind and to reason carefully about the potential ambiguity of implemented code.
 
+
+.. _copy-keyword-argument:
+
 Copy keyword argument behavior
 ------------------------------
 
