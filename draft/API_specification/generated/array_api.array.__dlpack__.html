@@ -527,7 +527,7 @@ function must raise <code class="docutils literal notranslate"><span class="pre"
 API standard.</p>
 </p></li>
 <li><p><strong>copy</strong> (<em>Optional</em><em>[</em><em>bool</em><em>]</em>) – <p>boolean indicating whether or not to copy the input. If <code class="docutils literal notranslate"><span class="pre">True</span></code>, the
-function must always copy (performed by the producer). If <code class="docutils literal notranslate"><span class="pre">False</span></code>, the
+function must always copy (performed by the producer; see also <a class="reference internal" href="../../design_topics/copies_views_and_mutation.html#copy-keyword-argument"><span class="std std-ref">Copy keyword argument behavior</span></a>). If <code class="docutils literal notranslate"><span class="pre">False</span></code>, the
 function must never copy, and raise a <code class="docutils literal notranslate"><span class="pre">BufferError</span></code> in case a copy is
 deemed necessary (e.g. if a cross-device data movement is requested, and
 it is not possible without a copy). If <code class="docutils literal notranslate"><span class="pre">None</span></code>, the function must reuse

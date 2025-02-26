@@ -48,7 +48,7 @@
     <link rel="apple-touch-icon" href="../_static/images/apple-icon-152x152.png"/>
   
   
-    <title>Copy-view behaviour and mutability &#8212; Python array API standard DRAFT documentation</title>
+    <title>Copy-view behavior and mutability &#8212; Python array API standard DRAFT documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=75810a84" />
     <link rel="stylesheet" type="text/css" href="../_static/material.css?v=79c92029" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
@@ -102,7 +102,7 @@
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           <span class="md-header-nav__topic">Python array API standard DRAFT</span>
-          <span class="md-header-nav__topic"> Copy-view behaviour and mutability </span>
+          <span class="md-header-nav__topic"> Copy-view behavior and mutability </span>
         </div>
       </div>
       <div class="md-flex__cell md-flex__cell--shrink">
@@ -226,13 +226,20 @@
     
     
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    <label class="md-nav__link md-nav__link--active" for="__toc"> Copy-view behaviour and mutability </label>
+    <label class="md-nav__link md-nav__link--active" for="__toc"> Copy-view behavior and mutability </label>
     
-      <a href="#" class="md-nav__link md-nav__link--active">Copy-view behaviour and mutability</a>
+      <a href="#" class="md-nav__link md-nav__link--active">Copy-view behavior and mutability</a>
       
         
 <nav class="md-nav md-nav--secondary">
+    <label class="md-nav__title" for="__toc">"Contents"</label>
   <ul class="md-nav__list" data-md-scrollfix="">
+        <li class="md-nav__item"><a href="#design-topics-copies-views-and-mutation--page-root" class="md-nav__link">Copy-view behavior and mutability</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#copy-keyword-argument-behavior" class="md-nav__link">Copy keyword argument behavior</a>
+        </li></ul>
+            </nav>
+        </li>
   </ul>
 </nav>
       
@@ -388,7 +395,14 @@
               <div class="md-sidebar__inner">
                 
 <nav class="md-nav md-nav--secondary">
+    <label class="md-nav__title" for="__toc">"Contents"</label>
   <ul class="md-nav__list" data-md-scrollfix="">
+        <li class="md-nav__item"><a href="#design-topics-copies-views-and-mutation--page-root" class="md-nav__link">Copy-view behavior and mutability</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#copy-keyword-argument-behavior" class="md-nav__link">Copy keyword argument behavior</a>
+        </li></ul>
+            </nav>
+        </li>
   </ul>
 </nav>
               </div>
@@ -398,71 +412,91 @@
         <div class="md-content">
           <article class="md-content__inner md-typeset" role="main">
             
-  <section id="copy-view-behaviour-and-mutability">
-<span id="copyview-mutability"></span><h1 id="design-topics-copies-views-and-mutation--page-root">Copy-view behaviour and mutability<a class="headerlink" href="#design-topics-copies-views-and-mutation--page-root" title="Link to this heading">¶</a></h1>
+  <section id="copy-view-behavior-and-mutability">
+<span id="copyview-mutability"></span><h1 id="design-topics-copies-views-and-mutation--page-root">Copy-view behavior and mutability<a class="headerlink" href="#design-topics-copies-views-and-mutation--page-root" title="Link to this heading">¶</a></h1>
 <div class="important admonition">
 <p class="admonition-title">Mutating views</p>
 <p>Array API consumers are <em>strongly</em> advised to avoid <em>any</em> mutating operations when an array object may either be a “view” (i.e., an array whose data refers to memory that belongs to another array) or own memory of which one or more other array objects may be views. This admonition may become more strict in the future (e.g., this specification may require that view mutation be prohibited and trigger an exception). Accordingly, only perform mutation operations (e.g., in-place assignment) when absolutely confident that array data belongs to one, and only one, array object.</p>
 </div>
 <p>Strided array implementations (e.g. NumPy, PyTorch, CuPy, MXNet) typically
 have the concept of a “view”, meaning an array containing data in memory that
-belongs to another array (i.e. a different “view” on the original data).
-Views are useful for performance reasons - not copying data to a new location
-saves memory and is faster than copying - but can also affect the semantics
+belongs to another array (i.e., a different “view” on the original data).
+Views are useful for performance reasons—not copying data to a new location
+saves memory and is faster than copying—but can also affect the semantics
 of code. This happens when views are combined with <em>mutating</em> operations.
-This simple example illustrates that:</p>
+The following example is illustrative:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">ones</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="p">[:]</span>  <span class="c1"># `y` *may* be a view on the data of `x`</span>
 <span class="n">y</span> <span class="o">-=</span> <span class="mi">1</span>  <span class="c1"># if `y` is a view, this modifies `x`</span>
 </pre></div>
 </div>
-<p>Code as simple as the above example will not be portable between array
-libraries - for NumPy/PyTorch/CuPy/MXNet <code class="docutils literal notranslate"><span class="pre">x</span></code> will contain the value <code class="docutils literal notranslate"><span class="pre">0</span></code>,
-while for TensorFlow/JAX/Dask it will contain the value <code class="docutils literal notranslate"><span class="pre">1</span></code>. The combination
-of views and mutability is fundamentally problematic here if the goal is to
-be able to write code with unambiguous semantics.</p>
+<p>Code similar to the above example will not be portable between array
+libraries. For example, for NumPy, PyTorch, and CuPy, <code class="docutils literal notranslate"><span class="pre">x</span></code> will contain the value <code class="docutils literal notranslate"><span class="pre">0</span></code>,
+while, for TensorFlow, JAX, and Dask, <code class="docutils literal notranslate"><span class="pre">x</span></code> will contain the value <code class="docutils literal notranslate"><span class="pre">1</span></code>. In
+this case, the combination of views and mutability is fundamentally problematic
+if the goal is to be able to write code with unambiguous semantics.</p>
 <p>Views are necessary for getting good performance out of the current strided
-array libraries. It is not always clear however when a library will return a
-view, and when it will return a copy. This API standard does not attempt to
-specify this - libraries can do either.</p>
-<p>There are several types of operations that do in-place mutation of data
-contained in arrays. These include:</p>
+array libraries. It is not always clear, however, when a library will return a
+view and when it will return a copy. This standard does not attempt to
+specify this—libraries may do either.</p>
+<p>There are several types of operations that may perform in-place mutation of
+array data. These include:</p>
 <ol class="arabic simple">
-<li><p>Inplace operators (e.g. <code class="docutils literal notranslate"><span class="pre">*=</span></code>)</p></li>
+<li><p>In-place operators (e.g. <code class="docutils literal notranslate"><span class="pre">*=</span></code>)</p></li>
 <li><p>Item assignment (e.g. <code class="docutils literal notranslate"><span class="pre">x[0]</span> <span class="pre">=</span> <span class="pre">1</span></code>)</p></li>
 <li><p>Slice assignment (e.g., <code class="docutils literal notranslate"><span class="pre">x[:2,</span> <span class="pre">:]</span> <span class="pre">=</span> <span class="pre">3</span></code>)</p></li>
 <li><p>The <code class="code docutils literal notranslate"><span class="pre">out=</span></code> keyword present in some strided array libraries (e.g. <code class="docutils literal notranslate"><span class="pre">sin(x,</span> <span class="pre">out=y)</span></code>)</p></li>
 </ol>
-<p>Libraries like TensorFlow and JAX tend to support inplace operators, provide
+<p>Libraries such as TensorFlow and JAX tend to support in-place operators by providing
 alternative syntax for item and slice assignment (e.g. an <code class="docutils literal notranslate"><span class="pre">update_index</span></code>
-function or <code class="docutils literal notranslate"><span class="pre">x.at[idx].set(y)</span></code>), and have no need for <code class="docutils literal notranslate"><span class="pre">out=</span></code>.</p>
-<p>A potential solution could be to make views read-only, or use copy-on-write
-semantics. Both are hard to implement and would present significant issues
-for backwards compatibility for current strided array libraries. Read-only
-views would also not be a full solution, given that mutating the original
-(base) array will also result in ambiguous semantics. Hence this API standard
-does not attempt to go down this route.</p>
-<p>Both inplace operators and item/slice assignment can be mapped onto
+function or <code class="docutils literal notranslate"><span class="pre">x.at[idx].set(y)</span></code>) and have no need for <code class="docutils literal notranslate"><span class="pre">out=</span></code>.</p>
+<p>A potential solution could be to make views read-only or implement copy-on-write
+semantics. Both are hard to implement and would present significant backward
+compatibility issues for current strided array libraries. Read-only
+views would also not be a full solution due to the fact that mutating the original
+(base) array will also result in ambiguous semantics. Accordingly, this standard
+does not attempt to pursue this solution.</p>
+<p>Both in-place operators and item/slice assignment can be mapped onto
 equivalent functional expressions (e.g. <code class="docutils literal notranslate"><span class="pre">x[idx]</span> <span class="pre">=</span> <span class="pre">val</span></code> maps to
-<code class="docutils literal notranslate"><span class="pre">x.at[idx].set(val)</span></code>), and given that both inplace operators and item/slice
+<code class="docutils literal notranslate"><span class="pre">x.at[idx].set(val)</span></code>), and, given that both in-place operators and item/slice
 assignment are very widely used in both library and end user code, this
 standard chooses to include them.</p>
-<p>The situation with <code class="docutils literal notranslate"><span class="pre">out=</span></code> is slightly different - it’s less heavily used, and
-easier to avoid. It’s also not an optimal API, because it mixes an
+<p>The situation with <code class="docutils literal notranslate"><span class="pre">out=</span></code> is slightly different—it’s less heavily used, and
+easier to avoid. It’s also not an optimal API because it mixes an
 “efficiency of implementation” consideration (“you’re allowed to do this
-inplace”) with the semantics of a function (“the output _must_ be placed into
-this array). There are libraries that do some form of tracing or abstract
-interpretation over a language that does not support mutation (to make
-analysis easier); in those cases implementing <code class="docutils literal notranslate"><span class="pre">out=</span></code> with correct handling of
-views may even be impossible to do. There’s alternatives, for example the
-donated arguments in JAX or working buffers in LAPACK, that allow the user to
-express “you _may_ overwrite this data, do whatever is fastest”. Given that
-those alternatives aren’t widely used in array libraries today, this API
-standard chooses to (a) leave out <code class="docutils literal notranslate"><span class="pre">out=</span></code>, and (b) not specify another method
-of reusing arrays that are no longer needed as buffers.</p>
-<p>This leaves the problem of the initial example - with this API standard it
-remains possible to write code that will not work the same for all array
-libraries. This is something that the user must be careful about.</p>
+in-place”) with the semantics of a function (“the output _must_ be placed into
+this array”). There are libraries that do some form of tracing or abstract
+interpretation over a vocabulary that does not support mutation (to make
+analysis easier). In those cases implementing <code class="docutils literal notranslate"><span class="pre">out=</span></code> with correct handling of
+views may even be impossible to do.</p>
+<p>There are alternatives. For example, the concept of donated arguments in JAX or
+working buffers in LAPACK which allow the user to express “you _may_ overwrite
+this data; do whatever is fastest”. Given that those alternatives aren’t widely
+used in array libraries today, this standard chooses to (a) leave out <code class="docutils literal notranslate"><span class="pre">out=</span></code>,
+and (b) not specify another method of reusing arrays that are no longer needed
+as buffers.</p>
+<p>This leaves the problem of the initial example—despite the best efforts of this
+standard, it remains possible to write code that will not work the same for all
+array libraries. This is something that the users are advised to best keep in
+mind and to reason carefully about the potential ambiguity of implemented code.</p>
+<section id="copy-keyword-argument-behavior">
+<span id="copy-keyword-argument"></span><h2 id="copy-keyword-argument-behavior">Copy keyword argument behavior<a class="headerlink" href="#copy-keyword-argument-behavior" title="Link to this heading">¶</a></h2>
+<p>Several APIs in this standard support a <code class="docutils literal notranslate"><span class="pre">copy</span></code> keyword argument (e.g.,
+<code class="docutils literal notranslate"><span class="pre">asarray</span></code>, <code class="docutils literal notranslate"><span class="pre">astype</span></code>, <code class="docutils literal notranslate"><span class="pre">reshape</span></code>, and <code class="docutils literal notranslate"><span class="pre">__dlpack__</span></code>). Typically, when a
+user sets <code class="docutils literal notranslate"><span class="pre">copy=True</span></code>, the user does so in order to ensure that they are free
+to mutate the returned array without side-effects—namely, without mutating other
+views on the original (base) array. Accordingly, when <code class="docutils literal notranslate"><span class="pre">copy=True</span></code>, unless an
+array library can guarantee that an array can be mutated without side-effects,
+conforming libraries are recommended to always perform a physical copy of the
+underlying array data.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Typically, in order to provide such a guarantee, libraries must perform
+whole-program analysis.</p>
+</div>
+<p>Conversely, consumers of this standard should expect that, if they set
+<code class="docutils literal notranslate"><span class="pre">copy=True</span></code>, they are free to use in-place operations on a returned array.</p>
+</section>
 </section>
 
 
