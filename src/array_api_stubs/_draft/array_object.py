@@ -370,7 +370,7 @@ class _array:
             API standard.
         copy: Optional[bool]
             boolean indicating whether or not to copy the input. If ``True``, the
-            function must always copy (performed by the producer). If ``False``, the
+            function must always copy (performed by the producer; see also :ref:`copy-keyword-argument`). If ``False``, the
             function must never copy, and raise a ``BufferError`` in case a copy is
             deemed necessary (e.g. if a cross-device data movement is requested, and
             it is not possible without a copy). If ``None``, the function must reuse
