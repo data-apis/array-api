@@ -482,6 +482,9 @@
 <li><p>When <code class="docutils literal notranslate"><span class="pre">from_</span></code> is a data type, the function must determine whether the data type can be cast to another data type according to the complete type promotion rules (see <a class="reference internal" href="../type_promotion.html#type-promotion"><span class="std std-ref">Type Promotion Rules</span></a>) described in this specification, irrespective of whether a conforming array library supports devices which do not have full data type support.</p></li>
 <li><p>When <code class="docutils literal notranslate"><span class="pre">from_</span></code> is an array, the function must determine whether the data type of the array can be cast to the desired data type according to the type promotion graph of the array device. As not all devices can support all data types, full support for type promotion rules (see <a class="reference internal" href="../type_promotion.html#type-promotion"><span class="std std-ref">Type Promotion Rules</span></a>) may not be possible. Accordingly, the output of <code class="docutils literal notranslate"><span class="pre">can_cast(array,</span> <span class="pre">dtype)</span></code> may differ from <code class="docutils literal notranslate"><span class="pre">can_cast(array.dtype,</span> <span class="pre">dtype)</span></code>.</p></li>
 </ul>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 2024.12: </span>Required that the application of type promotion rules must account for device context.</p>
+</div>
 </dd></dl>
 </section>
 

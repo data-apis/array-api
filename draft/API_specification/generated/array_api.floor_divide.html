@@ -515,6 +515,9 @@
 <li><p>If <code class="docutils literal notranslate"><span class="pre">x1_i</span></code> and <code class="docutils literal notranslate"><span class="pre">x2_i</span></code> have different mathematical signs and are both nonzero finite numbers, the result has a negative mathematical sign.</p></li>
 <li><p>In the remaining cases, where neither <code class="docutils literal notranslate"><span class="pre">-infinity</span></code>, <code class="docutils literal notranslate"><span class="pre">+0</span></code>, <code class="docutils literal notranslate"><span class="pre">-0</span></code>, nor <code class="docutils literal notranslate"><span class="pre">NaN</span></code> is involved, the quotient must be computed and rounded to the greatest (i.e., closest to <code class="code docutils literal notranslate"><span class="pre">+infinity</span></code>) representable integer-value number that is not greater than the division result. If the magnitude is too large to represent, the operation overflows and the result is an <code class="docutils literal notranslate"><span class="pre">infinity</span></code> of appropriate mathematical sign. If the magnitude is too small to represent, the operation underflows and the result is a zero of appropriate mathematical sign.</p></li>
 </ul>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 2024.12: </span>Added scalar argument support.</p>
+</div>
 </dd></dl>
 </section>
 

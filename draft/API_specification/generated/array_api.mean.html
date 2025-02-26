@@ -499,6 +499,9 @@
 <p class="admonition-title">Note</p>
 <p>Array libraries, such as NumPy, PyTorch, and JAX, currently deviate from this specification in their handling of components which are <code class="docutils literal notranslate"><span class="pre">NaN</span></code> when computing the arithmetic mean. In general, consumers of array libraries implementing this specification should use <a class="reference internal" href="array_api.isnan.html#array_api.isnan" title="array_api.isnan"><code class="xref py py-func docutils literal notranslate"><span class="pre">isnan()</span></code></a> to test whether the result of computing the arithmetic mean over an array have a complex floating-point data type is <code class="docutils literal notranslate"><span class="pre">NaN</span></code>, rather than relying on <code class="docutils literal notranslate"><span class="pre">NaN</span></code> propagation of individual components.</p>
 </div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 2024.12: </span>Added complex data type support.</p>
+</div>
 </dd></dl>
 </section>
 

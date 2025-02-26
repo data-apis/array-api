@@ -481,6 +481,12 @@
 <li><p>If at least one argument is an array, the function must determine the resulting dtype according to the type promotion graph of the array device which is shared among all array arguments. As not all devices can support all data types, full support for type promotion rules (see <a class="reference internal" href="../type_promotion.html#type-promotion"><span class="std std-ref">Type Promotion Rules</span></a>) may not be possible. Accordingly, the returned dtype may differ from that determined from the complete type promotion graph defined in this specification (see <a class="reference internal" href="../type_promotion.html#type-promotion"><span class="std std-ref">Type Promotion Rules</span></a>).</p></li>
 <li><p>If two or more arguments are arrays belonging to different devices, behavior is unspecified and thus implementation-dependent. Conforming implementations may choose to ignore device attributes, raise an exception, or some other behavior.</p></li>
 </ul>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 2024.12: </span>Added scalar argument support.</p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 2024.12: </span>Required that the application of type promotion rules must account for device context.</p>
+</div>
 </dd></dl>
 </section>
 

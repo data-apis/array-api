@@ -482,6 +482,9 @@
 <li><p>See <a class="reference internal" href="../indexing.html#indexing"><span class="std std-ref">Indexing</span></a> for details on supported indexing semantics.</p></li>
 <li><p>When <code class="docutils literal notranslate"><span class="pre">__getitem__</span></code> is defined on an object, Python will automatically define iteration (i.e., the behavior from <code class="docutils literal notranslate"><span class="pre">iter(x)</span></code>) as  <code class="docutils literal notranslate"><span class="pre">x[0]</span></code>, <code class="docutils literal notranslate"><span class="pre">x[1]</span></code>, …, <code class="docutils literal notranslate"><span class="pre">x[N-1]</span></code>. This can also be implemented directly by defining <code class="docutils literal notranslate"><span class="pre">__iter__</span></code>. Therefore, for a one-dimensional array <code class="docutils literal notranslate"><span class="pre">x</span></code>, iteration should produce a sequence of zero-dimensional arrays <code class="docutils literal notranslate"><span class="pre">x[0]</span></code>, <code class="docutils literal notranslate"><span class="pre">x[1]</span></code>, …, <code class="docutils literal notranslate"><span class="pre">x[N-1]</span></code>, where <code class="docutils literal notranslate"><span class="pre">N</span></code> is the number of elements in the array. Iteration behavior for arrays having zero dimensions or more than one dimension is unspecified and thus implementation-defined.</p></li>
 </ul>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 2024.12: </span>Clarified that iteration is defined for one-dimensional arrays.</p>
+</div>
 </dd></dl>
 </section>
 

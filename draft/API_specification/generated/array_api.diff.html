@@ -491,6 +491,9 @@
 <li><p>The first-order differences are given by <code class="docutils literal notranslate"><span class="pre">out[i]</span> <span class="pre">=</span> <span class="pre">x[i+1]</span> <span class="pre">-</span> <span class="pre">x[i]</span></code> along a specified axis. Higher-order differences must be calculated recursively (e.g., by calling <code class="docutils literal notranslate"><span class="pre">diff(out,</span> <span class="pre">axis=axis,</span> <span class="pre">n=n-1)</span></code>).</p></li>
 <li><p>If a conforming implementation chooses to support <code class="docutils literal notranslate"><span class="pre">prepend</span></code> and <code class="docutils literal notranslate"><span class="pre">append</span></code> arrays which have a different data type than <code class="docutils literal notranslate"><span class="pre">x</span></code>, behavior is unspecified and thus implementation-defined. Implementations may choose to type promote (<a class="reference internal" href="../type_promotion.html#type-promotion"><span class="std std-ref">Type Promotion Rules</span></a>), cast <code class="docutils literal notranslate"><span class="pre">prepend</span></code> and/or <code class="docutils literal notranslate"><span class="pre">append</span></code> to the same data type as <code class="docutils literal notranslate"><span class="pre">x</span></code>, or raise an exception.</p></li>
 </ul>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 2024.12.</span></p>
+</div>
 </dd></dl>
 </section>
 
