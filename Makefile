@@ -24,5 +24,6 @@ spec:
 	sphinx-build "$(SOURCEDIR)/2021.12" "$(BUILDDIR)/2021.12" $(SPHINXOPTS)
 	sphinx-build "$(SOURCEDIR)/2022.12" "$(BUILDDIR)/2022.12" $(SPHINXOPTS)
 	sphinx-build "$(SOURCEDIR)/2023.12" "$(BUILDDIR)/2023.12" $(SPHINXOPTS)
-	cp -r "$(BUILDDIR)/2023.12" "$(BUILDDIR)/latest"
+	sphinx-build "$(SOURCEDIR)/2024.12" "$(BUILDDIR)/2024.12" $(SPHINXOPTS)
+	cp -r "$(BUILDDIR)/2024.12" "$(BUILDDIR)/latest"
 	sphinx-build "$(SOURCEDIR)/draft" "$(BUILDDIR)/draft" $(SPHINXOPTS)
