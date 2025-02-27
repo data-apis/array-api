@@ -1,0 +1,6 @@
+﻿.. currentmodule:: array_api.linalg
+
+matrix_norm
+===========
+
+.. autofunction:: matrix_norm

@@ -1,0 +1,6 @@
+﻿.. currentmodule:: array_api
+
+log2
+====
+
+.. autofunction:: log2

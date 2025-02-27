@@ -1,0 +1,6 @@
+﻿.. currentmodule:: array_api
+
+not_equal
+=========
+
+.. autofunction:: not_equal

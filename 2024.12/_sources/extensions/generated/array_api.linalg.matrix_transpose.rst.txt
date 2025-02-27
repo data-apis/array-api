@@ -1,0 +1,6 @@
+﻿.. currentmodule:: array_api.linalg
+
+matrix_transpose
+================
+
+.. autofunction:: matrix_transpose

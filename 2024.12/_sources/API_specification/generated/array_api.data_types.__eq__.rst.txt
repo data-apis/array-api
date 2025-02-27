@@ -1,0 +1,6 @@
+﻿.. currentmodule:: array_api.data_types
+
+__eq__
+======
+
+.. autofunction:: __eq__

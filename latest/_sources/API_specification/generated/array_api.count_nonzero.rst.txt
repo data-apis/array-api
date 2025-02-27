@@ -1,0 +1,6 @@
+﻿.. currentmodule:: array_api
+
+count_nonzero
+=============
+
+.. autofunction:: count_nonzero
