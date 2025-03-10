@@ -85,17 +85,40 @@ page gives a high-level specification for data exchange in Python using DLPack.
    below. They are not required to return an array object from ``from_dlpack``
    which conforms to this standard.
 
+binsparse: Extending to sparse arrays
+-------------------------------------
+
+Sparse arrays can be represented in-memory by a collection of 1-dimensional and 2-dimensional
+dense arrays, alongside some metadata on how to interpret these arrays. This allows us to re-use
+the DLPack protocol for the storage of the constituent arrays. The work of specifying the
+accompanying metadata has already been performed by the
+`binsparse specification <https://graphblas.org/binsparse-specification/>`_.
+
+While initially intended to target file formats, binsparse has relatively few requirements from
+back-ends:
+
+1. The ability to represent and parse JSON.
+2. To be able to represent/store a key-value store of 1-dimensional (and optionally 2-dimensional)
+   arrays.
+
+It is the only such specification for sparse representations to have these minimal requirements.
+We can satisfy both: The former with the ``json`` built-in Python module or a Python ``dict`` and
+the latter with the DLPack protocol.
+
+.. note::
+   See the `RFC to adopt binsparse <https://github.com/data-apis/array-api/issues/840>`_
+   for discussion that preceded the adoption of the binsparse protocol.
+
+   See :ref:`sparse_interchange` for the Python specification of this protocol.
+
+
 Non-supported use cases
 -----------------------
 
 Use of DLPack requires that the data can be represented by a strided, in-memory
 layout on a single device. This covers usage by a large range of, but not all,
 known and possible array libraries. Use cases that are not supported by DLPack
-include:
-
-- Distributed arrays, i.e., the data residing on multiple nodes or devices,
-- Sparse arrays, i.e., sparse representations where a data value (typically
-  zero) is implicit.
+include distributed arrays, i.e., the data residing on multiple nodes or devices.
 
 There may be other reasons why it is not possible or desirable for an
 implementation to materialize the array as strided data in memory. In such

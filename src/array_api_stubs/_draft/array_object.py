@@ -1246,5 +1246,41 @@ class _array:
            Clarified behavior when a provided ``device`` object corresponds to the device on which an array instance resides.
         """
 
+    def __binsparse_descriptor__(self) -> dict:
+        """
+        Returns a `dict` equivalent to a parsed `binsparse JSON descriptor <https://graphblas.org/binsparse-specification/>`_.
+
+        Parameters
+        ----------
+        self: array
+            array instance.
+
+        Returns
+        -------
+        out: dict
+            A ``dict`` equivalent to a parsed JSON binsparse descriptor of an array. See :ref:`sparse_interchange` for details.
+
+
+        .. versionadded:: 2025.12
+        """
+
+    def __binsparse__(self) -> dict[str, array]:
+        """
+        Returns a key-value store of the constituent arrays of a sparse array, as specified by the `binsparse specification <https://graphblas.org/binsparse-specification/>`_.
+
+        Parameters
+        ----------
+        self: array
+            array instance.
+
+        Returns
+        -------
+        out: dict[str, array]
+            A ``dict`` equivalent to a parsed JSON binsparse descriptor of an array. See :ref:`sparse_interchange` for details.
+
+
+        .. versionadded:: 2025.12
+        """
+
 
 array = _array

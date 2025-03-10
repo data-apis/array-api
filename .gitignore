@@ -35,3 +35,7 @@ tmp/
 *.egg
 dist/
 .DS_STORE
+
+# pixi environments
+.pixi
+*.egg-info
