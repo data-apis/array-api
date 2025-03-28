@@ -90,6 +90,10 @@ def asarray(
 
            An object supporting the buffer protocol can be turned into a memoryview through ``memoryview(obj)``.
 
+        .. note::
+           If ``obj`` is a sequence with some elements being arrays, the behavior is unspecified and thus implementation-defined. Conforming
+           implentations may perform the conversion or raise an error.
+
     dtype: Optional[dtype]
         output array data type. If ``dtype`` is ``None``, the output array data type must be inferred from the data type(s) in ``obj``. If all input values are Python scalars, then, in order of precedence,
 
