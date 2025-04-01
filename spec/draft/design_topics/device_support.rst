@@ -82,9 +82,11 @@ rather than hard requirements:
 
   1. If ``device=`` keyword is specified, that always takes precedence
 
-  2. If ``device=None``, then use the setting from a context manager, if set.
+  2. If ``device=None``, then use the device of the input array(s), if any.
 
-  3. If no context manager was used, then use the global default device/strategy
+  3. If there are no input arrays, then use the setting from a context manager, if set.
+
+  4. If no context manager was used, then use the global default device/strategy
 
 .. _device-out-of-scope:
 
