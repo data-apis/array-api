@@ -1282,7 +1282,7 @@ class _array:
         Raises
         ------
         TypeError
-            If ``descriptor`` is not ``None``, and the array library does not support converting to it.
+            If ``descriptor`` is not ``None``, and the array library does not support converting to a format specified by it.
         """
 
 

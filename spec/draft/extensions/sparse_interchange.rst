@@ -10,7 +10,8 @@ Extension name and usage
 
 If implemented, this extension must be retrievable via::
 
-    >>> if hasattr(x, 'sparse'):
+    >>> xp = x.__array_namespace__()
+    >>> if hasattr(xp, 'sparse'):
     >>>     # Use the extension
 
 .. currentmodule:: array_api
