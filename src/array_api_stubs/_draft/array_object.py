@@ -1272,7 +1272,7 @@ class _array:
         self: array
             array instance.
         descriptor: Optional[dict]
-            If ``descriptor`` is not ``None``, the data returned must be in the format specified by it. If the format is unsupported, a ``TypeError`` must be raised.
+            If ``descriptor`` is not ``None``, the data returned must be in the format specified by it.
 
         Returns
         -------
@@ -1283,6 +1283,14 @@ class _array:
         ------
         TypeError
             If ``descriptor`` is not ``None``, and the array library does not support converting to a format specified by it.
+        ValueError
+            If ``descriptor`` is not a valid binsparse descriptor.
+
+        Notes
+        -----
+
+        - ``x.__binsparse_descriptor__()["binsparse"]["data_types"].keys() == x.__binsparse__().keys()`` must hold.
+        - ``descriptor["binsparse"]["data_types"].keys() == x.__binsparse__(descriptor=descriptor).keys()`` must hold.
         """
 
 

@@ -67,7 +67,8 @@ def from_binsparse(
         on the input array. This may happen for libraries that are never able
         to export their data with binsparse.
     ValueError
-        If data exchange is possible via an explicit copy but ``copy`` is set to ``False``.
+        If data exchange is possible via an explicit copy but ``copy`` is set to ``False``, or if the specified
+        descriptor is not valid.
     TypeError
         If ``descriptor`` is ``None``, the data received from the source library is not guaranteed to
         be in a format that the target array library supports. In this case, a ``TypeError`` must be raised.
