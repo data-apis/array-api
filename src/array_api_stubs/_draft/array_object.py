@@ -1261,7 +1261,9 @@ class _array:
             A ``dict`` equivalent to a parsed JSON binsparse descriptor of an array. See :ref:`sparse_interchange` for details.
         """
 
-    def __binsparse__(self) -> dict[str, array]:
+    def __binsparse__(
+        self, /, *, descriptor: Optional[dict] = None
+    ) -> dict[str, array]:
         """
         Returns a key-value store of the constituent arrays of a sparse array, as specified by the `binsparse specification <https://graphblas.org/binsparse-specification/>`_.
 
@@ -1269,11 +1271,18 @@ class _array:
         ----------
         self: array
             array instance.
+        descriptor: Optional[dict]
+            If ``descriptor`` is not ``None``, the data returned must be in the format specified by it. If the format is unsupported, a ``TypeError`` must be raised.
 
         Returns
         -------
         out: dict[str, array]
             A ``dict`` equivalent to a parsed JSON binsparse descriptor of an array. See :ref:`sparse_interchange` for details.
+
+        Raises
+        ------
+        TypeError
+            If ``descriptor`` is not ``None``, and the array library does not support converting to it.
         """
 
 
