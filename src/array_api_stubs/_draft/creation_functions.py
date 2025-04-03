@@ -657,7 +657,7 @@ def from_binsparse(arrays: dict[str, array], descriptor: dict, /) -> array:
     arrays: dict[str, array]
         input constituent arrays.
     descriptor: dict
-        The parsed binsparse descriptor of the array.
+        the parsed binsparse descriptor of the array.
 
     Returns
     -------
@@ -668,7 +668,4 @@ def from_binsparse(arrays: dict[str, array], descriptor: dict, /) -> array:
            :class: note
 
            The returned array may be either a copy or a view. See :ref:`data-interchange` for details.
-
-
-    .. versionadded:: 2025.12
     """

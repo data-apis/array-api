@@ -98,11 +98,11 @@ While initially intended to target file formats, binsparse has relatively few re
 back-ends:
 
 1. The ability to represent and parse JSON.
-2. To be able to represent/store a key-value store of 1-dimensional (and optionally 2-dimensional)
+2. The ability to represent/store a key-value store of 1-dimensional (and optionally 2-dimensional)
    arrays.
 
 It is the only such specification for sparse representations to have these minimal requirements.
-We can satisfy both: The former with the ``json`` built-in Python module or a Python ``dict`` and
+We can satisfy both: the former with the ``json`` built-in Python module or a Python ``dict`` and
 the latter with the DLPack protocol.
 
 .. note::

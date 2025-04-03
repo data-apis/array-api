@@ -1259,9 +1259,6 @@ class _array:
         -------
         out: dict
             A ``dict`` equivalent to a parsed JSON binsparse descriptor of an array. See :ref:`sparse_interchange` for details.
-
-
-        .. versionadded:: 2025.12
         """
 
     def __binsparse__(self) -> dict[str, array]:
@@ -1277,9 +1274,6 @@ class _array:
         -------
         out: dict[str, array]
             A ``dict`` equivalent to a parsed JSON binsparse descriptor of an array. See :ref:`sparse_interchange` for details.
-
-
-        .. versionadded:: 2025.12
         """
 
 
