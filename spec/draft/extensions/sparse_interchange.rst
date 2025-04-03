@@ -10,7 +10,7 @@ Extension name and usage
 
 If implemented, this extension must be retrievable via::
 
-    >>> if hasattr(x, '__dlpack__'):
+    >>> if hasattr(x, 'sparse'):
     >>>     # Use the extension
 
 Objects in API
@@ -28,7 +28,7 @@ functions/methods.
    :toctree: generated
    :template: method.rst
 
-   from_binsparse
+   sparse.from_binsparse
 
 
 .. autosummary::

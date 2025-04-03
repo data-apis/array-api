@@ -4,7 +4,6 @@ __all__ = [
     "empty",
     "empty_like",
     "eye",
-    "from_binsparse",
     "from_dlpack",
     "full",
     "full_like",
@@ -645,27 +644,4 @@ def zeros_like(
     -------
     out: array
         an array having the same shape as ``x`` and filled with zeros.
-    """
-
-
-def from_binsparse(arrays: dict[str, array], descriptor: dict, /) -> array:
-    """
-    Returns a new array containing the data from another (array) object with a ``__binsparse__`` method.
-
-    Parameters
-    ----------
-    arrays: dict[str, array]
-        input constituent arrays.
-    descriptor: dict
-        the parsed binsparse descriptor of the array.
-
-    Returns
-    -------
-    out: array
-        an array containing the data in `arrays` with a format specified by `descriptor`.
-
-        .. admonition:: Note
-           :class: note
-
-           The returned array may be either a copy or a view. See :ref:`data-interchange` for details.
     """
