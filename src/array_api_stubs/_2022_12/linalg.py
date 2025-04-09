@@ -134,7 +134,7 @@ def diagonal(x: array, /, *, offset: int = 0) -> array:
     """
 
 
-def eigh(x: array, /) -> Tuple[array]:
+def eigh(x: array, /) -> Tuple[array, array]:
     r"""
     Returns an eigenvalue decomposition of a complex Hermitian or real symmetric matrix (or a stack of matrices) ``x``.
 
@@ -168,7 +168,7 @@ def eigh(x: array, /) -> Tuple[array]:
 
     Returns
     -------
-    out: Tuple[array]
+    out: Tuple[array, array]
         a namedtuple (``eigenvalues``, ``eigenvectors``) whose
 
         -   first element must have the field name ``eigenvalues`` (corresponding to :math:`\operatorname{diag}\Lambda` above) and must be an array consisting of computed eigenvalues. The array containing the eigenvalues must have shape ``(..., M)`` and must have a real-valued floating-point data type whose precision matches the precision of ``x`` (e.g., if ``x`` is ``complex128``, then ``eigenvalues`` must be ``float64``).
