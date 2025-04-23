@@ -77,7 +77,7 @@ rather than hard requirements:
 - Respect explicit device assignment (i.e. if the input to the ``device=`` keyword is not ``None``, guarantee that the array is created on the given device, and raise an exception otherwise).
 - Preserve device assignment as much as possible (e.g. output arrays from a function are expected to be on the same device as input arrays to the function).
 - Raise an exception if an operation involves arrays on different devices (i.e. avoid implicit data transfer between devices).
-- When a function accepts a mix of arrays and Python scalars, the scalars should inherit the device of the arrays, much like it happens with :ref:`type-promotion`.
+- When a function accepts a mix of arrays and Python scalars, the scalars should inherit the device of the arrays, much like what happens with :ref:`type-promotion`.
 - Use a default for ``device=None`` which is consistent between functions within the same library.
 - If a library has multiple ways of controlling device placement, the most explicit method should have the highest priority:
 
