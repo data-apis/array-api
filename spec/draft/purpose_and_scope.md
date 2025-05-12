@@ -418,48 +418,6 @@ completed such an implementation may, and are encouraged to, provide details on
 the level of (non-)conformance. For details on how to do this, see
 [Verification - measuring conformance](verification_test_suite.md).
 
-
-* * *
-
-## Terms and Definitions
-
-For the purposes of this specification, the following terms and definitions apply.
-
-<!-- NOTE: please keep terms in alphabetical order -->
-
-**array**:
-a (usually fixed-size) multidimensional container of items of the same type and size.
-
-**axis**:
-an array dimension.
-
-**branch cut**:
-a curve in the complex plane across which a given complex function fails to be continuous.
-
-**broadcast**:
-automatic (implicit) expansion of array dimensions to be of equal sizes without copying array data for the purpose of making arrays with different shapes have compatible shapes for element-wise operations.
-
-**compatible**:
-two arrays whose dimensions are compatible (i.e., where the size of each dimension in one array is either equal to one or to the size of the corresponding dimension in a second array).
-
-**element-wise**:
-an operation performed element-by-element, in which individual array elements are considered in isolation and independently of other elements within the same array.
-
-**matrix**:
-a two-dimensional array.
-
-**rank**:
-number of array dimensions (not to be confused with the number of linearly independent columns of a matrix).
-
-**shape**:
-a tuple of `N` non-negative integers that specify the sizes of each dimension and where `N` corresponds to the number of dimensions.
-
-**singleton dimension**:
-a dimension whose size is one.
-
-**vector**:
-a one-dimensional array.
-
 * * *
 
 ## Normative References

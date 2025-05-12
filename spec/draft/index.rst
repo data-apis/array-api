@@ -9,6 +9,7 @@ Contents
    :maxdepth: 1
 
    purpose_and_scope
+   terms_and_definitions
    use_cases
    assumptions
 
