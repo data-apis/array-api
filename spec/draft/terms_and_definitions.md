@@ -4,7 +4,7 @@ For the purposes of this specification, the following terms and definitions appl
 
 ## Normative Keywords
 
-This specification aims to follow [RFC 2119](https://tools.ietf.org/html/rfc2119) and using the following keywords to indicate requirement levels:
+This specification aims to follow [RFC 2119](https://tools.ietf.org/html/rfc2119) and use the following keywords to indicate requirement levels:
 
 **must**:
 a definition or behavior is an absolute requirement of this specification.
