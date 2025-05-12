@@ -32,3 +32,4 @@ the array API standard. See :ref:`api-specification`.
 
    fourier_transform_functions
    linear_algebra_functions
+   sparse_interchange
