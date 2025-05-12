@@ -86,7 +86,7 @@ def diagonal(x: array, /, *, offset: int = 0) -> array:
     """
 
 
-def eigh(x: array, /) -> Tuple[array]:
+def eigh(x: array, /) -> Tuple[array, array]:
     """
     Returns an eigendecomposition x = QLQᵀ of a symmetric matrix (or a stack of symmetric matrices) ``x``, where ``Q`` is an orthogonal matrix (or a stack of matrices) and ``L`` is a vector (or a stack of vectors).
 
@@ -106,7 +106,7 @@ def eigh(x: array, /) -> Tuple[array]:
 
     Returns
     -------
-    out: Tuple[array]
+    out: Tuple[array, array]
         a namedtuple (``eigenvalues``, ``eigenvectors``) whose
 
         -   first element must have the field name ``eigenvalues`` (corresponding to ``L`` above) and must be an array consisting of computed eigenvalues. The array containing the eigenvalues must have shape ``(..., M)``.
