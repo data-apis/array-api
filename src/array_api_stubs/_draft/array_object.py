@@ -211,7 +211,7 @@ class _array:
         Returns
         -------
         out: Any
-            an object representing the array API namespace. It should have every top-level function defined in the specification as an attribute. It may contain other public names as well, but it is recommended to only include those names that are part of the specification.
+            an object representing the array API namespace. It should have every top-level function defined in the specification as an attribute.
         """
 
     def __bool__(self: array, /) -> bool:
