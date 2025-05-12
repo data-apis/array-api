@@ -15,7 +15,7 @@ def argsort(
     x: array
         input array. **Should** have a real-valued data type.
     axis: int
-        axis along which to sort. If set to ``-1``, the function **must** sort along the last axis. Default: ``-1``.
+        axis along which to sort. A valid axis **must** be an integer on the interval ``[-N, N)``, where ``N`` is the number of axes in ``x``. If an axis is specified as a negative integer, the function **must** determine the axis along which to perform the operation by counting backward from the last axis (where ``-1`` refers to the last axis). If provided an invalid axis, the function **must** raise an exception. Default: ``-1``.
     descending: bool
         sort order. If ``True``, the returned indices **must** sort ``x`` in descending order (by value). If ``False``, the returned indices **must** sort ``x`` in ascending order (by value). Default: ``False``.
     stable: bool
@@ -44,7 +44,7 @@ def sort(
     x: array
         input array. **Should** have a real-valued data type.
     axis: int
-        axis along which to sort. If set to ``-1``, the function **must** sort along the last axis. Default: ``-1``.
+        axis along which to sort. A valid axis **must** be an integer on the interval ``[-N, N)``, where ``N`` is the number of axes in ``x``. If an axis is specified as a negative integer, the function **must** determine the axis along which to perform the operation by counting backward from the last axis (where ``-1`` refers to the last axis). If provided an invalid axis, the function **must** raise an exception. Default: ``-1``.
     descending: bool
         sort order. If ``True``, the array **must** be sorted in descending order (by value). If ``False``, the array **must** be sorted in ascending order (by value). Default: ``False``.
     stable: bool
