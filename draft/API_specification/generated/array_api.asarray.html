@@ -490,14 +490,6 @@
 <li><p>if one or more values are <code class="docutils literal notranslate"><span class="pre">float</span></code>s, the output data type must be the default real-valued floating-point data type.</p></li>
 </ul>
 <p>Default: <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
-<div class="note admonition">
-<p class="admonition-title">Note</p>
-<p>If <code class="docutils literal notranslate"><span class="pre">dtype</span></code> is not <code class="docutils literal notranslate"><span class="pre">None</span></code>, then array conversions should obey <a class="reference internal" href="../type_promotion.html#type-promotion"><span class="std std-ref">Type Promotion Rules</span></a> rules. Conversions not specified according to <a class="reference internal" href="../type_promotion.html#type-promotion"><span class="std std-ref">Type Promotion Rules</span></a> rules may or may not be permitted by a conforming array library. To perform an explicit cast, use <a class="reference internal" href="array_api.astype.html#array_api.astype" title="array_api.astype"><code class="xref py py-func docutils literal notranslate"><span class="pre">array_api.astype()</span></code></a>.</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If an input value exceeds the precision of the resolved output array data type, behavior is left unspecified and, thus, implementation-defined.</p>
-</div>
 </p></li>
 <li><p><strong>device</strong> (<em>Optional</em><em>[</em><em>device</em><em>]</em>) – device on which to place the created array. If <code class="docutils literal notranslate"><span class="pre">device</span></code> is <code class="docutils literal notranslate"><span class="pre">None</span></code> and <code class="docutils literal notranslate"><span class="pre">obj</span></code> is an array, the output array device must be inferred from <code class="docutils literal notranslate"><span class="pre">obj</span></code>. Default: <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
 <li><p><strong>copy</strong> (<em>Optional</em><em>[</em><em>bool</em><em>]</em>) – boolean indicating whether or not to copy the input. If <code class="docutils literal notranslate"><span class="pre">True</span></code>, the function must always copy (see <a class="reference internal" href="../../design_topics/copies_views_and_mutation.html#copy-keyword-argument"><span class="std std-ref">Copy keyword argument behavior</span></a>). If <code class="docutils literal notranslate"><span class="pre">False</span></code>, the function must never copy for input which supports the buffer protocol and must raise a <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> in case a copy would be necessary. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, the function must reuse existing memory buffer if possible and copy otherwise. Default: <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
@@ -508,6 +500,11 @@
 </dd>
 </dl>
 <p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>If <code class="docutils literal notranslate"><span class="pre">obj</span></code> is a sequence with some elements being arrays, behavior is unspecified and thus implementation-defined. Conforming implementations may perform a conversion or raise an exception. To join a sequence of arrays along a new axis, see <a class="reference internal" href="array_api.stack.html#array_api.stack" title="array_api.stack"><code class="xref py py-func docutils literal notranslate"><span class="pre">stack()</span></code></a>.</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">dtype</span></code> is not <code class="docutils literal notranslate"><span class="pre">None</span></code>, then array conversions should obey <a class="reference internal" href="../type_promotion.html#type-promotion"><span class="std std-ref">Type Promotion Rules</span></a> rules. Conversions not specified according to <a class="reference internal" href="../type_promotion.html#type-promotion"><span class="std std-ref">Type Promotion Rules</span></a> rules may or may not be permitted by a conforming array library. To perform an explicit cast, use <a class="reference internal" href="array_api.astype.html#array_api.astype" title="array_api.astype"><code class="xref py py-func docutils literal notranslate"><span class="pre">array_api.astype()</span></code></a>.</p></li>
+<li><p>If an input value exceeds the precision of the resolved output array data type, behavior is unspecified and thus implementation-defined.</p></li>
+</ul>
 <div class="versionchanged">
 <p><span class="versionmodified changed">Changed in version 2022.12: </span>Added complex data type support.</p>
 </div>
