@@ -90,12 +90,6 @@ def asarray(
 
            An object supporting the buffer protocol can be turned into a memoryview through ``memoryview(obj)``.
 
-        .. note::
-           If ``obj`` is a sequence with some elements being arrays, the behavior is unspecified and thus implementation-defined. Conforming
-           implentations may perform the conversion or raise an error.
-
-           To join a sequence of arrays along a new axis, see :func:`~array_api.stack`.
-
     dtype: Optional[dtype]
         output array data type. If ``dtype`` is ``None``, the output array data type must be inferred from the data type(s) in ``obj``. If all input values are Python scalars, then, in order of precedence,
 
@@ -105,14 +99,6 @@ def asarray(
         -   if one or more values are ``float``\s, the output data type must be the default real-valued floating-point data type.
 
         Default: ``None``.
-
-        .. admonition:: Note
-           :class: note
-
-           If ``dtype`` is not ``None``, then array conversions should obey :ref:`type-promotion` rules. Conversions not specified according to :ref:`type-promotion` rules may or may not be permitted by a conforming array library. To perform an explicit cast, use :func:`array_api.astype`.
-
-        .. note::
-           If an input value exceeds the precision of the resolved output array data type, behavior is left unspecified and, thus, implementation-defined.
 
     device: Optional[device]
         device on which to place the created array. If ``device`` is ``None`` and ``obj`` is an array, the output array device must be inferred from ``obj``. Default: ``None``.
@@ -126,6 +112,10 @@ def asarray(
 
     Notes
     -----
+
+    -   If ``obj`` is a sequence with some elements being arrays, behavior is unspecified and thus implementation-defined. Conforming implementations may perform a conversion or raise an exception. To join a sequence of arrays along a new axis, see :func:`~array_api.stack`.
+    -   If ``dtype`` is not ``None``, then array conversions should obey :ref:`type-promotion` rules. Conversions not specified according to :ref:`type-promotion` rules may or may not be permitted by a conforming array library. To perform an explicit cast, use :func:`array_api.astype`.
+    -   If an input value exceeds the precision of the resolved output array data type, behavior is left unspecified and, thus, implementation-defined.
 
     .. versionchanged:: 2022.12
        Added complex data type support.
