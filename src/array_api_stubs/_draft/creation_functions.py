@@ -115,7 +115,7 @@ def asarray(
 
     -   If ``obj`` is a sequence with some elements being arrays, behavior is unspecified and thus implementation-defined. Conforming implementations may perform a conversion or raise an exception. To join a sequence of arrays along a new axis, see :func:`~array_api.stack`.
     -   If ``dtype`` is not ``None``, then array conversions should obey :ref:`type-promotion` rules. Conversions not specified according to :ref:`type-promotion` rules may or may not be permitted by a conforming array library. To perform an explicit cast, use :func:`array_api.astype`.
-    -   If an input value exceeds the precision of the resolved output array data type, behavior is left unspecified and, thus, implementation-defined.
+    -   If an input value exceeds the precision of the resolved output array data type, behavior is unspecified and thus implementation-defined.
 
     .. versionchanged:: 2022.12
        Added complex data type support.
