@@ -104,7 +104,7 @@ def nonzero(x: array, /) -> Tuple[array, ...]:
     Parameters
     ----------
     x: array
-        input array. **Must** have one or more dimensions. If ``x`` is zero-dimensional, the function must raise an exception.
+        input array. **Must** have one or more dimensions. If ``x`` is zero-dimensional, the function **must** raise an exception.
 
     Returns
     -------
