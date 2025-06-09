@@ -11,9 +11,9 @@ def __eq__(self: dtype, other: dtype, /) -> bool:
     Parameters
     ----------
     self: dtype
-        data type instance. May be any supported data type.
+        data type instance. **Should** be any supported data type.
     other: dtype
-        other data type instance. May be any supported data type.
+        other data type instance. **Should** be any supported data type.
 
     Returns
     -------
