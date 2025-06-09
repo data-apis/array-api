@@ -230,7 +230,7 @@ def reshape(
     x: array
         input array to reshape.
     shape: Tuple[int, ...]
-        a new shape compatible with the original shape. Only one shape dimension **may** be allowed to be ``-1``. When a shape dimension is ``-1``, the corresponding output array shape dimension **must** be inferred from the length of the array and the remaining dimensions.
+        a new shape compatible with the original shape. Only one shape dimension **must** be allowed to be ``-1``. When a shape dimension is ``-1``, the corresponding output array shape dimension **must** be inferred from the length of the array and the remaining dimensions.
     copy: Optional[bool]
         whether or not to copy the input array. If ``True``, the function **must** always copy (see :ref:`copy-keyword-argument`). If ``False``, the function **must** never copy. If ``None``, the function **must** avoid copying, if possible, and **may** copy otherwise. Default: ``None``.
 
