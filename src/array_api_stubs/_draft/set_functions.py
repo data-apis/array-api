@@ -37,7 +37,7 @@ def unique_all(x: array, /) -> Tuple[array, array, array, array]:
 
         -   As ``nan`` values compare as ``False``, ``nan`` values **should** be considered distinct.
         -   As complex floating-point values having at least one ``nan`` component compare as ``False``, complex floating-point values having ``nan`` components **should** be considered distinct.
-        -   As ``-0`` and ``+0`` compare as ``True``, signed zeros **should** not be considered distinct, and the corresponding unique element **may** be implementation-dependent (e.g., an implementation **may** choose to return ``-0`` if ``-0`` occurs before ``+0``).
+        -   As ``-0`` and ``+0`` compare as ``True``, signed zeros **should not** be considered distinct, and the corresponding unique element **may** be implementation-dependent (e.g., an implementation **may** choose to return ``-0`` if ``-0`` occurs before ``+0``).
 
         As signed zeros are not distinct, using ``inverse_indices`` to reconstruct the input array is not guaranteed to return an array having the exact same values.
 
@@ -82,7 +82,7 @@ def unique_counts(x: array, /) -> Tuple[array, array]:
 
         -   As ``nan`` values compare as ``False``, ``nan`` values **should** be considered distinct.
         -   As complex floating-point values having at least one ``nan`` component compare as ``False``, complex floating-point values having ``nan`` components **should** be considered distinct.
-        -   As ``-0`` and ``+0`` compare as ``True``, signed zeros **should** not be considered distinct, and the corresponding unique element **may** be implementation-dependent (e.g., an implementation **may** choose to return ``-0`` if ``-0`` occurs before ``+0``).
+        -   As ``-0`` and ``+0`` compare as ``True``, signed zeros **should not** be considered distinct, and the corresponding unique element **may** be implementation-dependent (e.g., an implementation **may** choose to return ``-0`` if ``-0`` occurs before ``+0``).
 
         Each ``nan`` value and each complex floating-point value having a ``nan`` component **should** have a count of one, while the counts for signed zeros **should** be aggregated as a single count.
 
@@ -125,7 +125,7 @@ def unique_inverse(x: array, /) -> Tuple[array, array]:
 
         -   As ``nan`` values compare as ``False``, ``nan`` values **should** be considered distinct.
         -   As complex floating-point values having at least one ``nan`` component compare as ``False``, complex floating-point values having ``nan`` components **should** be considered distinct.
-        -   As ``-0`` and ``+0`` compare as ``True``, signed zeros **should** not be considered distinct, and the corresponding unique element **may** be implementation-dependent (e.g., an implementation **may** choose to return ``-0`` if ``-0`` occurs before ``+0``).
+        -   As ``-0`` and ``+0`` compare as ``True``, signed zeros **should not** be considered distinct, and the corresponding unique element **may** be implementation-dependent (e.g., an implementation **may** choose to return ``-0`` if ``-0`` occurs before ``+0``).
 
         As signed zeros are not distinct, using ``inverse_indices`` to reconstruct the input array is not guaranteed to return an array having the exact same values.
 
@@ -165,7 +165,7 @@ def unique_values(x: array, /) -> array:
 
         -   As ``nan`` values compare as ``False``, ``nan`` values **should** be considered distinct.
         -   As complex floating-point values having at least one ``nan`` component compare as ``False``, complex floating-point values having ``nan`` components **should** be considered distinct.
-        -   As ``-0`` and ``+0`` compare as ``True``, signed zeros **should** not be considered distinct, and the corresponding unique element **may** be implementation-dependent (e.g., an implementation **may** choose to return ``-0`` if ``-0`` occurs before ``+0``).
+        -   As ``-0`` and ``+0`` compare as ``True``, signed zeros **should not** be considered distinct, and the corresponding unique element **may** be implementation-dependent (e.g., an implementation **may** choose to return ``-0`` if ``-0`` occurs before ``+0``).
 
     .. versionchanged:: 2022.12
        Added complex data type support.
