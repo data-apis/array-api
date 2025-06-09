@@ -41,7 +41,7 @@ def matmul(x1: array, x2: array, /) -> array:
 
     Raises
     ------
-    Error
+    Exception
         an exception **should** be raised in the following circumstances:
 
         -   if either ``x1`` or ``x2`` is a zero-dimensional array.
@@ -154,7 +154,7 @@ def vecdot(x1: array, x2: array, /, *, axis: int = -1) -> array:
 
     Raises
     ------
-    Error
+    Exception
         an exception **should** be raised in the following circumstances:
 
         -   if the size of the axis over which to compute the dot product is not the same (before broadcasting) for both ``x1`` and ``x2``.
