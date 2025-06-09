@@ -42,6 +42,8 @@ def matmul(x1: array, x2: array, /) -> array:
     Raises
     ------
     Error
+        an exception **should** be raised in the following circumstances:
+
         -   if either ``x1`` or ``x2`` is a zero-dimensional array.
         -   if ``x1`` is a one-dimensional array having shape ``(K,)``, ``x2`` is a one-dimensional array having shape ``(L,)``, and ``K != L``.
         -   if ``x1`` is a one-dimensional array having shape ``(K,)``, ``x2`` is an array having shape ``(..., L, N)``, and ``K != L``.
@@ -153,6 +155,8 @@ def vecdot(x1: array, x2: array, /, *, axis: int = -1) -> array:
     Raises
     ------
     Error
+        an exception **should** be raised in the following circumstances:
+
         -   if the size of the axis over which to compute the dot product is not the same (before broadcasting) for both ``x1`` and ``x2``.
 
     Notes
