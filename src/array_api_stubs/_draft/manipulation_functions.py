@@ -116,7 +116,7 @@ def flip(x: array, /, *, axis: Optional[Union[int, Tuple[int, ...]]] = None) -> 
     Returns
     -------
     out: array
-        an output array. The returned array **must** have the same data type and shape as ``x`` and whose elements, relative to ``x``, are reordered.
+        an output array. The returned array **must** have the same data type and shape as ``x``. The returned array must have the same elements as ``x``, but which are reordered relative to ``x``.
     """
 
 
@@ -272,7 +272,7 @@ def roll(
     Returns
     -------
     out: array
-        an output array. The returned array **must** have the same data type as ``x`` and the same elements as ``x``, but which are shifted relative to ``x``.
+        an output array. The returned array **must** have the same data type as ``x``. The returned array **must** have the same elements as ``x``, but which are shifted relative to ``x``.
     """
 
 
