@@ -31,7 +31,7 @@ def unique_all(x: array, /) -> Tuple[array, array, array, array]:
     Notes
     -----
 
-    -   The order of unique elements returned by this function is not specified and **may** vary between implementations.
+    -   The order of unique elements returned by this function is left unspecified and thus implementation-dependent. As a consequence, the element order **may** vary between implementations.
 
     -   Uniqueness **should** be determined based on value equality (see :func:`~array_api.equal`). For input arrays having floating-point data types, value-based equality implies the following behavior.
 
@@ -76,7 +76,7 @@ def unique_counts(x: array, /) -> Tuple[array, array]:
     Notes
     -----
 
-    -   The order of unique elements returned by this function is not specified and **may** vary between implementations.
+    -   The order of unique elements returned by this function is left unspecified and thus implementation-dependent. As a consequence, the element order **may** vary between implementations.
 
     -   Uniqueness **should** be determined based on value equality (see :func:`~array_api.equal`). For input arrays having floating-point data types, value-based equality implies the following behavior.
 
@@ -119,7 +119,7 @@ def unique_inverse(x: array, /) -> Tuple[array, array]:
     Notes
     -----
 
-    -   The order of unique elements returned by this function is not specified and **may** vary between implementations.
+    -   The order of unique elements returned by this function is left unspecified and thus implementation-dependent. As a consequence, the element order **may** vary between implementations.
 
     -   Uniqueness **should** be determined based on value equality (see :func:`~array_api.equal`). For input arrays having floating-point data types, value-based equality implies the following behavior.
 
@@ -159,7 +159,7 @@ def unique_values(x: array, /) -> array:
     Notes
     -----
 
-    -   The order of unique elements returned by this function is not specified and **may** vary between implementations.
+    -   The order of unique elements returned by this function is left unspecified and thus implementation-dependent. As a consequence, the element order **may** vary between implementations.
 
     -   Uniqueness **should** be determined based on value equality (see :func:`~array_api.equal`). For input arrays having floating-point data types, value-based equality implies the following behavior.
 
