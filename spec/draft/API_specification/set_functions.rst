@@ -18,6 +18,7 @@ Objects in API
    :toctree: generated
    :template: method.rst
 
+   isin
    unique_all
    unique_counts
    unique_inverse
