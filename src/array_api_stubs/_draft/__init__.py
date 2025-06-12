@@ -16,6 +16,7 @@ from .statistical_functions import *
 from .utility_functions import *
 from . import linalg
 from . import fft
+from . import sparse
 from .info import __array_namespace_info__
 
 
