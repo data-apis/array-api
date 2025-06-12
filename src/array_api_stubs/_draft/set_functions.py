@@ -33,7 +33,7 @@ def isin(
 
     -   At least one of ``x1`` or ``x2`` **must** be an array.
 
-    -   If an element in ``x1`` is in ``x1``, the corresponding element in the output array **must** be ``True``; otherwise, the corresponding element in the output array **must** be ``False``.
+    -   If an element in ``x1`` is in ``x2``, the corresponding element in the output array **must** be ``True``; otherwise, the corresponding element in the output array **must** be ``False``.
 
     -   Testing whether an element in ``x1`` corresponds to an element in ``x2`` **should** be determined based on value equality (see :func:`~array_api.equal`). For input arrays having floating-point data types, value-based equality implies the following behavior.
 
