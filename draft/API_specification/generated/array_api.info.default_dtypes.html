@@ -473,28 +473,25 @@
 <dt class="sig sig-object py" id="array_api.info.default_dtypes">
 <span class="sig-name descname"><span class="pre">default_dtypes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">device</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">DefaultDataTypes</span></span></span><a class="headerlink" href="#array_api.info.default_dtypes" title="Link to this definition">¶</a></dt>
 <dd><p>Returns a dictionary containing default data types.</p>
-<p>The dictionary must have the following keys:</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>device</strong> (<em>Optional</em><em>[</em><em>device</em><em>]</em>) – device for which to return default data types. If <code class="docutils literal notranslate"><span class="pre">device</span></code> is <code class="docutils literal notranslate"><span class="pre">None</span></code>, the returned data types <strong>must</strong> be the default data types for the current device; otherwise, the returned data types <strong>must</strong> be default data types specific to the specified device. Default: <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>out</strong> (<em>DefaultDataTypes</em>) – a dictionary containing the default data type for respective data type kinds. The returned dictionary <strong>must</strong> have the following keys:</p>
 <ul class="simple">
 <li><p><code class="code docutils literal notranslate"><span class="pre">"real</span> <span class="pre">floating"</span></code>: default real floating-point data type.</p></li>
 <li><p><code class="code docutils literal notranslate"><span class="pre">"complex</span> <span class="pre">floating"</span></code>: default complex floating-point data type.</p></li>
 <li><p><code class="code docutils literal notranslate"><span class="pre">"integral"</span></code>: default integral data type.</p></li>
 <li><p><code class="code docutils literal notranslate"><span class="pre">"indexing"</span></code>: default array index data type.</p></li>
 </ul>
-<p>Dictionary values must be the corresponding data type object.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>device</strong> (<em>Optional</em><em>[</em><em>device</em><em>]</em>) – <p>device for which to return default data types. If <code class="docutils literal notranslate"><span class="pre">device</span></code> is <code class="docutils literal notranslate"><span class="pre">None</span></code>, the returned data types must be the default data types for the current device; otherwise, the returned data types must be default data types specific to the specified device. Default: <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Some array libraries have the concept of a device context manager, allowing library consumers to manage the current device context. When <code class="docutils literal notranslate"><span class="pre">device</span></code> is <code class="docutils literal notranslate"><span class="pre">None</span></code>, libraries supporting a device context should return the default data types for the current device. For libraries without a context manager or supporting only a single device, those libraries should return the default data types for the default device.</p>
-</div>
-</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>out</strong> (<em>DefaultDataTypes</em>) – a dictionary containing the default data type for respective data type kinds.</p>
+<p>Dictionary values <strong>must</strong> be the corresponding data type object.</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>Some array libraries have the concept of a device context manager, allowing library consumers to manage the current device context. When <code class="docutils literal notranslate"><span class="pre">device</span></code> is <code class="docutils literal notranslate"><span class="pre">None</span></code>, libraries supporting a device context <strong>must</strong> return the default data types for the current device. For libraries without a context manager or supporting only a single device, those libraries <strong>must</strong> return the default data types for the default device.</p></li>
+</ul>
 </dd></dl>
 </section>
 

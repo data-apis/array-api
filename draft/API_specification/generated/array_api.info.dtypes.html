@@ -473,21 +473,13 @@
 <dt class="sig sig-object py" id="array_api.info.dtypes">
 <span class="sig-name descname"><span class="pre">dtypes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">device</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kind</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">DataTypes</span></span></span><a class="headerlink" href="#array_api.info.dtypes" title="Link to this definition">¶</a></dt>
 <dd><p>Returns a dictionary of supported <em>Array API</em> data types.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>While specification-conforming array libraries may support additional data types which are not present in this specification, data types which are not present in this specification should not be included in the returned dictionary.</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Specification-conforming array libraries must only return supported data types having expected properties as described in <a class="reference internal" href="../data_types.html#data-types"><span class="std std-ref">Data Types</span></a>. For example, if a library decides to alias <code class="docutils literal notranslate"><span class="pre">float32</span></code> as <code class="docutils literal notranslate"><span class="pre">float64</span></code>, that library must not include <code class="docutils literal notranslate"><span class="pre">float64</span></code> in the dictionary of supported data types.</p>
-</div>
-<dl class="field-list">
+<dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>kind</strong> (<em>Optional</em><em>[</em><em>Union</em><em>[</em><em>str</em><em>, </em><em>Tuple</em><em>[</em><em>str</em><em>, </em><em>...</em><em>]</em><em>]</em><em>]</em>) – <p>data type kind.</p>
 <ul>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">kind</span></code> is <code class="docutils literal notranslate"><span class="pre">None</span></code>, the function must return a dictionary containing all supported Array API data types.</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">kind</span></code> is a string, the function must return a dictionary containing the data types belonging to the specified data type kind. The following data type kinds must be supported:</p>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">kind</span></code> is <code class="docutils literal notranslate"><span class="pre">None</span></code>, the function <strong>must</strong> return a dictionary containing all supported Array API data types.</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">kind</span></code> is a string, the function <strong>must</strong> return a dictionary containing the data types belonging to the specified data type kind. The following data type kinds <strong>must</strong> be supported:</p>
 <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">'bool'</span></code>: boolean data types (e.g., <code class="docutils literal notranslate"><span class="pre">bool</span></code>).</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">'signed</span> <span class="pre">integer'</span></code>: signed integer data types (e.g., <code class="docutils literal notranslate"><span class="pre">int8</span></code>, <code class="docutils literal notranslate"><span class="pre">int16</span></code>, <code class="docutils literal notranslate"><span class="pre">int32</span></code>, <code class="docutils literal notranslate"><span class="pre">int64</span></code>).</p></li>
@@ -498,27 +490,23 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">'numeric'</span></code>: numeric data types. Shorthand for <code class="docutils literal notranslate"><span class="pre">('integral',</span> <span class="pre">'real</span> <span class="pre">floating',</span> <span class="pre">'complex</span> <span class="pre">floating')</span></code>.</p></li>
 </ul>
 </li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">kind</span></code> is a tuple, the tuple specifies a union of data type kinds, and the function must return a dictionary containing the data types belonging to at least one of the specified data type kinds.</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">kind</span></code> is a tuple, the tuple specifies a union of data type kinds, and the function <strong>must</strong> return a dictionary containing the data types belonging to at least one of the specified data type kinds.</p></li>
 </ul>
 <p>Default: <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
 </p></li>
-<li><p><strong>device</strong> (<em>Optional</em><em>[</em><em>device</em><em>]</em>) – <p>device for which to return supported data types. If <code class="docutils literal notranslate"><span class="pre">device</span></code> is <code class="docutils literal notranslate"><span class="pre">None</span></code>, the returned data types must be the supported data types for the current device; otherwise, the returned data types must be supported data types specific to the specified device. Default: <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Some array libraries have the concept of a device context manager, allowing library consumers to manage the current device context. When <code class="docutils literal notranslate"><span class="pre">device</span></code> is <code class="docutils literal notranslate"><span class="pre">None</span></code>, libraries supporting a device context should return the supported data types for the current device. For libraries without a context manager or supporting only a single device, those libraries should return the supported data types for the default device.</p>
-</div>
-</p></li>
+<li><p><strong>device</strong> (<em>Optional</em><em>[</em><em>device</em><em>]</em>) – device for which to return supported data types. If <code class="docutils literal notranslate"><span class="pre">device</span></code> is <code class="docutils literal notranslate"><span class="pre">None</span></code>, the returned data types <strong>must</strong> be the supported data types for the current device; otherwise, the returned data types <strong>must</strong> be supported data types specific to the specified device. Default: <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>out</strong> (<em>DataTypes</em>) – a dictionary containing supported data types.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Dictionary keys must only consist of canonical names as defined in <a class="reference internal" href="../data_types.html#data-types"><span class="std std-ref">Data Types</span></a>.</p>
-</div>
+<dd class="field-even"><p><strong>out</strong> (<em>DataTypes</em>) – a dictionary containing supported data types. The returned dictionary <strong>must</strong> only contain keys corresponding to the canonical names as defined in <a class="reference internal" href="../data_types.html#data-types"><span class="std std-ref">Data Types</span></a>.</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>While specification-conforming array libraries <strong>may</strong> support additional data types which are not present in this specification, data types which are not present in this specification <strong>must not</strong> be included in the returned dictionary.</p></li>
+<li><p>Specification-conforming array libraries <strong>must</strong> only return supported data types having expected properties as described in <a class="reference internal" href="../data_types.html#data-types"><span class="std std-ref">Data Types</span></a>. For example, if a library decides to alias <code class="docutils literal notranslate"><span class="pre">float32</span></code> as <code class="docutils literal notranslate"><span class="pre">float64</span></code>, that library <strong>must not</strong> include <code class="docutils literal notranslate"><span class="pre">float64</span></code> in the dictionary of supported data types.</p></li>
+<li><p>Some array libraries have the concept of a device context manager, allowing library consumers to manage the current device context. When <code class="docutils literal notranslate"><span class="pre">device</span></code> is <code class="docutils literal notranslate"><span class="pre">None</span></code>, libraries supporting a device context <strong>must</strong> return the supported data types for the current device. For libraries without a context manager or supporting only a single device, those libraries <strong>must</strong> return the supported data types for the default device.</p></li>
+</ul>
 </dd></dl>
 </section>
 

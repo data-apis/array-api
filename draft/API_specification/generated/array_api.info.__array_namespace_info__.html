@@ -473,14 +473,16 @@
 <dt class="sig sig-object py" id="array_api.info.__array_namespace_info__">
 <span class="sig-name descname"><span class="pre">__array_namespace_info__</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">Info</span></span></span><a class="headerlink" href="#array_api.info.__array_namespace_info__" title="Link to this definition">¶</a></dt>
 <dd><p>Returns a namespace with Array API namespace inspection utilities.</p>
-<p>See <a class="reference internal" href="../inspection.html#inspection"><span class="std std-ref">Inspection</span></a> for a list of inspection APIs.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>out</strong> (<em>Info</em>) – An object containing Array API namespace inspection utilities.</p>
+<dd class="field-odd"><p><strong>out</strong> (<em>Info</em>) – an object containing Array API namespace inspection utilities.</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
-<p>The returned object may be either a namespace or a class, so long as an Array API user can access inspection utilities as follows:</p>
+<ul class="simple">
+<li><p>See <a class="reference internal" href="../inspection.html#inspection"><span class="std std-ref">Inspection</span></a> for a list of inspection APIs.</p></li>
+<li><p>The returned object <strong>may</strong> be either a namespace or a class, as long as an Array API user can access inspection utilities as follows:</p></li>
+</ul>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">info</span> <span class="o">=</span> <span class="n">xp</span><span class="o">.</span><span class="n">__array_namespace_info__</span><span class="p">()</span>
 <span class="n">info</span><span class="o">.</span><span class="n">capabilities</span><span class="p">()</span>
 <span class="n">info</span><span class="o">.</span><span class="n">devices</span><span class="p">()</span>
