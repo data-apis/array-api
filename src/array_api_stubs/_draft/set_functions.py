@@ -1,7 +1,7 @@
 __all__ = ["isin", "unique_all", "unique_counts", "unique_inverse", "unique_values"]
 
 
-from ._types import Tuple, array
+from ._types import Tuple, Union, array
 
 
 def isin(
