@@ -477,11 +477,11 @@
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>x</strong> (<em>array</em>) – input array.</p></li>
-<li><p><strong>axis</strong> (<em>int</em>) – axis along which the array will be split. A valid <code class="docutils literal notranslate"><span class="pre">axis</span></code> must be on the interval <code class="docutils literal notranslate"><span class="pre">[-N,</span> <span class="pre">N)</span></code>, where <code class="docutils literal notranslate"><span class="pre">N</span></code> is the rank (number of dimensions) of <code class="docutils literal notranslate"><span class="pre">x</span></code>. If provided an <code class="docutils literal notranslate"><span class="pre">axis</span></code> outside of the required interval, the function must raise an exception. Default: <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p></li>
+<li><p><strong>axis</strong> (<em>int</em>) – axis along which to split an array. A valid axis <strong>must</strong> be an integer on the interval <code class="docutils literal notranslate"><span class="pre">[-N,</span> <span class="pre">N)</span></code>, where <code class="docutils literal notranslate"><span class="pre">N</span></code> is the number of axes in <code class="docutils literal notranslate"><span class="pre">x</span></code>. If an axis is specified as a negative integer, the function <strong>must</strong> determine the axis along which to perform the operation by counting backward from the last axis (where <code class="docutils literal notranslate"><span class="pre">-1</span></code> refers to the last axis). If provided an invalid axis, the function <strong>must</strong> raise an exception. Default: <code class="docutils literal notranslate"><span class="pre">0</span></code>.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>out</strong> (<em>Tuple[array, …]</em>) – tuple of slices along the given dimension. All the arrays have the same shape.</p>
+<dd class="field-even"><p><strong>out</strong> (<em>Tuple[array, …]</em>) – tuple of slices along the given dimension. Each returned array <strong>must</strong> have the same shape.</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>

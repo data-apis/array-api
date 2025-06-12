@@ -476,13 +476,13 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>x</strong> (<em>array</em>) – array to broadcast. Must be capable of being broadcast to the specified <code class="docutils literal notranslate"><span class="pre">shape</span></code> (see <a class="reference internal" href="../broadcasting.html#broadcasting"><span class="std std-ref">Broadcasting</span></a>). If the array is incompatible with the specified shape, the function must raise an exception.</p></li>
+<li><p><strong>x</strong> (<em>array</em>) – array to broadcast. <strong>Must</strong> be capable of being broadcast to the specified <code class="docutils literal notranslate"><span class="pre">shape</span></code> (see <a class="reference internal" href="../broadcasting.html#broadcasting"><span class="std std-ref">Broadcasting</span></a>). If the array is incompatible with the specified shape, the function <strong>must</strong> raise an exception.</p></li>
 <li><p><strong>shape</strong> (<em>Tuple</em><em>[</em><em>int</em><em>, </em><em>...</em><em>]</em>) – array shape.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
-<li><p><strong>out</strong> (<em>array</em>) – an array having the specified shape. Must have the same data type as <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></li>
+<li><p><strong>out</strong> (<em>array</em>) – an array having the specified shape. <strong>Must</strong> have the same data type as <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></li>
 <li><p><strong>.. versionchanged:: 2024.12</strong> – Clarified broadcast behavior.</p></li>
 </ul>
 </dd>

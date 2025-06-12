@@ -477,16 +477,15 @@
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>x</strong> (<em>array</em>) – input array to reshape.</p></li>
-<li><p><strong>shape</strong> (<em>Tuple</em><em>[</em><em>int</em><em>, </em><em>...</em><em>]</em>) – a new shape compatible with the original shape. One shape dimension is allowed to be <code class="docutils literal notranslate"><span class="pre">-1</span></code>. When a shape dimension is <code class="docutils literal notranslate"><span class="pre">-1</span></code>, the corresponding output array shape dimension must be inferred from the length of the array and the remaining dimensions.</p></li>
-<li><p><strong>copy</strong> (<em>Optional</em><em>[</em><em>bool</em><em>]</em>) – whether or not to copy the input array. If <code class="docutils literal notranslate"><span class="pre">True</span></code>, the function must always copy (see <a class="reference internal" href="../../design_topics/copies_views_and_mutation.html#copy-keyword-argument"><span class="std std-ref">Copy keyword argument behavior</span></a>). If <code class="docutils literal notranslate"><span class="pre">False</span></code>, the function must never copy. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, the function must avoid copying, if possible, and may copy otherwise. Default: <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
+<li><p><strong>shape</strong> (<em>Tuple</em><em>[</em><em>int</em><em>, </em><em>...</em><em>]</em>) – a new shape compatible with the original shape. Only one shape dimension <strong>must</strong> be allowed to be <code class="docutils literal notranslate"><span class="pre">-1</span></code>. When a shape dimension is <code class="docutils literal notranslate"><span class="pre">-1</span></code>, the corresponding output array shape dimension <strong>must</strong> be inferred from the length of the array and the remaining dimensions.</p></li>
+<li><p><strong>copy</strong> (<em>Optional</em><em>[</em><em>bool</em><em>]</em>) – whether or not to copy the input array. If <code class="docutils literal notranslate"><span class="pre">True</span></code>, the function <strong>must</strong> always copy (see <a class="reference internal" href="../../design_topics/copies_views_and_mutation.html#copy-keyword-argument"><span class="std std-ref">Copy keyword argument behavior</span></a>). If <code class="docutils literal notranslate"><span class="pre">False</span></code>, the function <strong>must</strong> never copy. If <code class="docutils literal notranslate"><span class="pre">None</span></code>, the function <strong>must</strong> avoid copying, if possible, and <strong>may</strong> copy otherwise. Default: <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>out</strong> (<em>array</em>) – an output array having the same data type and elements as <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<dd class="field-even"><p><strong>out</strong> (<em>array</em>) – an output array. The returned array <strong>must</strong> have the same data type and the same elements as <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
 </dd>
 <dt class="field-odd">Raises<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>ValueError</strong> – If <code class="docutils literal notranslate"><span class="pre">copy=False</span></code> and a copy would be necessary, a <code class="docutils literal notranslate"><span class="pre">ValueError</span></code>
-    should be raised.</p>
+<dd class="field-odd"><p><strong>ValueError</strong> – If <code class="docutils literal notranslate"><span class="pre">copy=False</span></code> and a copy would be necessary, a <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> <strong>should</strong> be raised.</p>
 </dd>
 </dl>
 </dd></dl>
