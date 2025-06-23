@@ -503,12 +503,14 @@ rather than hard requirements:</p>
 <li><p>Respect explicit device assignment (i.e. if the input to the <code class="docutils literal notranslate"><span class="pre">device=</span></code> keyword is not <code class="docutils literal notranslate"><span class="pre">None</span></code>, guarantee that the array is created on the given device, and raise an exception otherwise).</p></li>
 <li><p>Preserve device assignment as much as possible (e.g. output arrays from a function are expected to be on the same device as input arrays to the function).</p></li>
 <li><p>Raise an exception if an operation involves arrays on different devices (i.e. avoid implicit data transfer between devices).</p></li>
+<li><p>When a function accepts a mix of arrays and Python scalars, the scalars should inherit the device of the arrays, much like what happens with <a class="reference internal" href="../API_specification/type_promotion.html#type-promotion"><span class="std std-ref">Type Promotion Rules</span></a>.</p></li>
 <li><p>Use a default for <code class="docutils literal notranslate"><span class="pre">device=None</span></code> which is consistent between functions within the same library.</p></li>
-<li><p>If a library has multiple ways of controlling device placement, the most explicit method should have the highest priority. For example:</p>
+<li><p>If a library has multiple ways of controlling device placement, the most explicit method should have the highest priority:</p>
 <ol class="arabic simple">
-<li><p>If <code class="docutils literal notranslate"><span class="pre">device=</span></code> keyword is specified, that always takes precedence</p></li>
-<li><p>If <code class="docutils literal notranslate"><span class="pre">device=None</span></code>, then use the setting from a context manager, if set.</p></li>
-<li><p>If no context manager was used, then use the global default device/strategy</p></li>
+<li><p>If the <code class="docutils literal notranslate"><span class="pre">device=</span></code> keyword is specified, that always takes precedence;</p></li>
+<li><p>If <code class="docutils literal notranslate"><span class="pre">device=None</span></code> or the function does not accept a <code class="docutils literal notranslate"><span class="pre">device</span></code> parameter, then use the device of the input array(s), if any;</p></li>
+<li><p>If there are no input arrays, then use the setting from a context manager, if any;</p></li>
+<li><p>If no context manager was used, then use the global default device/strategy.</p></li>
 </ol>
 </li>
 </ul>
