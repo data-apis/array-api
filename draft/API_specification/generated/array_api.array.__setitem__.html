@@ -491,9 +491,11 @@
 </div>
 </li>
 <li><p>Setting array values must not affect the data type of <code class="docutils literal notranslate"><span class="pre">self</span></code>.</p></li>
-<li><p>When <code class="docutils literal notranslate"><span class="pre">value</span></code> is a Python scalar (i.e., <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code>, <code class="docutils literal notranslate"><span class="pre">complex</span></code>, <code class="docutils literal notranslate"><span class="pre">bool</span></code>), behavior must follow specification guidance on mixing arrays with Python scalars (see <a class="reference internal" href="../type_promotion.html#type-promotion"><span class="std std-ref">Type Promotion Rules</span></a>).</p></li>
-<li><p>When <code class="docutils literal notranslate"><span class="pre">value</span></code> is an <code class="docutils literal notranslate"><span class="pre">array</span></code> of a different data type than <code class="docutils literal notranslate"><span class="pre">self</span></code>, how values are cast to the data type of <code class="docutils literal notranslate"><span class="pre">self</span></code> is implementation defined.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">value</span></code> must be promoted to the data type of <code class="docutils literal notranslate"><span class="pre">self</span></code> according to <a class="reference internal" href="../type_promotion.html#type-promotion"><span class="std std-ref">Type Promotion Rules</span></a>. If this is not supported according to <a class="reference internal" href="../type_promotion.html#type-promotion"><span class="std std-ref">Type Promotion Rules</span></a>, behavior is unspecified and thus implementation-defined.</p></li>
 </ul>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 2025.12: </span>Specified <a class="reference internal" href="../type_promotion.html#type-promotion"><span class="std std-ref">Type Promotion Rules</span></a> when <code class="docutils literal notranslate"><span class="pre">value</span></code> is an array.</p>
+</div>
 </dd></dl>
 </section>
 
