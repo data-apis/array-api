@@ -1134,8 +1134,10 @@ class _array:
                Indexing semantics when ``key`` is an integer array or a tuple of integers and integer arrays is currently unspecified and thus implementation-defined. This will be revisited in a future revision of this standard.
 
         -   Setting array values must not affect the data type of ``self``.
-        -   When ``value`` is a Python scalar (i.e., ``int``, ``float``, ``complex``, ``bool``), behavior must follow specification guidance on mixing arrays with Python scalars (see :ref:`type-promotion`).
-        -   When ``value`` is an ``array`` of a different data type than ``self``, how values are cast to the data type of ``self`` is implementation defined.
+        -   ``value`` must be promoted to the data type of ``self`` according to :ref:`type-promotion`. If this is not supported according to :ref:`type-promotion`, behavior is unspecified and thus implementation-defined.
+
+        .. versionchanged:: 2025.12
+            Specified :ref:`type-promotion` when ``value`` is an array.
         """
 
     def __sub__(self: array, other: Union[int, float, complex, array], /) -> array:
