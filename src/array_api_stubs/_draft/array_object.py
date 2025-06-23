@@ -1134,7 +1134,7 @@ class _array:
                Indexing semantics when ``key`` is an integer array or a tuple of integers and integer arrays is currently unspecified and thus implementation-defined. This will be revisited in a future revision of this standard.
 
         -   Setting array values must not affect the data type of ``self``.
-        -   ``value`` must be  promoted to the data type of ``self`` according to :ref:`type-promotion`. If this is not possible, behavior is unspecified and thus implementation-defined.
+        -   ``value`` must be  promoted to the data type of ``self`` according to :ref:`type-promotion`. If this is not supported according to :ref:`type-promotion`, behavior is unspecified and thus implementation-defined.
 
         .. versionchanged:: 2025.12
             Specified :ref:`type-promotion` when ``value`` is an array.
