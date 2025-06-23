@@ -35,13 +35,13 @@ def isin(
 
     -   If an element in ``x1`` is in ``x2``, the corresponding element in the output array **must** be ``True``; otherwise, the corresponding element in the output array **must** be ``False``.
 
-    -   Testing whether an element in ``x1`` corresponds to an element in ``x2`` **should** be determined based on value equality (see :func:`~array_api.equal`). For input arrays having floating-point data types, value-based equality implies the following behavior. When ``invert`` is ``False``,
+    -   Testing whether an element in ``x1`` corresponds to an element in ``x2`` **must** be determined based on value equality (see :func:`~array_api.equal`). For input arrays having floating-point data types, value-based equality implies the following behavior. When ``invert`` is ``False``,
 
-        -   As ``nan`` values compare as ``False``, if an element in ``x1`` is ``nan``, the corresponding element in the returned array **should** be ``False``.
-        -   As complex floating-point values having at least one ``nan`` component compare as ``False``, if an element in ``x1`` is a complex floating-point value having one or more ``nan`` components, the corresponding element in the returned array **should** be ``False``.
-        -   As ``-0`` and ``+0`` compare as ``True``, if an element in ``x1`` is ``±0`` and ``x2`` contains at least one element which is ``±0``, the corresponding element in the returned array **should** be ``True``.
+        -   As ``nan`` values compare as ``False``, if an element in ``x1`` is ``nan``, the corresponding element in the returned array **must** be ``False``.
+        -   As complex floating-point values having at least one ``nan`` component compare as ``False``, if an element in ``x1`` is a complex floating-point value having one or more ``nan`` components, the corresponding element in the returned array **must** be ``False``.
+        -   As ``-0`` and ``+0`` compare as ``True``, if an element in ``x1`` is ``±0`` and ``x2`` contains at least one element which is ``±0``, the corresponding element in the returned array **must** be ``True``.
 
-        When ``invert`` is ``True``, the returned array must contain the same results as if the operation is implemented as ``logical_not(isin(x1, x2))``.
+        When ``invert`` is ``True``, the returned array **must** contain the same results as if the operation is implemented as ``logical_not(isin(x1, x2))``.
 
     -   Comparison of arrays without a corresponding promotable data type (see :ref:`type-promotion`) is unspecified and thus implementation-defined.
     """
