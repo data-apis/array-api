@@ -45,7 +45,7 @@ Everyone is welcome—drop in and say hello!
 
 ### Links
 
-- Public calendar: <https://calendar.google.com/calendar/u/3?cid=OGZlOTAxM2EyY2I1ZDM0MDliYjIzNmQwNGVjYTczZmE1MjI3ZWFjMDFjMDJlYThmNmJjNGE2YTNjZjk4MmZhM0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t>
+- Public calendar: <https://calendar.google.com/calendar/embed?src=8fe9013a2cb5d3409bb236d04eca73fa5227eac01c02ea8f6bc4a6a3cf982fa3%40group.calendar.google.com>
 
 ### Joining the meeting
 
