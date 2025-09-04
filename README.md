@@ -47,6 +47,10 @@ Everyone is welcome—drop in and say hello!
 
 - Public calendar: <https://calendar.google.com/calendar/u/3?cid=OGZlOTAxM2EyY2I1ZDM0MDliYjIzNmQwNGVjYTczZmE1MjI3ZWFjMDFjMDJlYThmNmJjNGE2YTNjZjk4MmZhM0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t>
 
+### Joining the meeting
+
+- See the public calendar for information on how to join!
+
 ### Agenda
 
 - Have specific things to discuss? Feel free to comment on <https://github.com/data-apis/array-api/issues/853> or the linked agenda document!
