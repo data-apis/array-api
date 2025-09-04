@@ -1,4 +1,5 @@
 # Array API standard
+
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 [![All Contributors](https://img.shields.io/badge/all_contributors-64-orange.svg?style=flat-square)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
@@ -8,17 +9,59 @@ API standard for arrays (or tensors).
 
 These are relevant documents related to the content in this repository:
 
-- [Rendered html docs for latest version](https://data-apis.github.io/array-api/latest)
+- [Rendered HTML docs for latest version](https://data-apis.github.io/array-api/latest)
 - [Consortium announcement blog post](https://data-apis.org/blog/announcing_the_consortium/)
 - [Blog post on first release of draft array API standard](https://data-apis.org/blog/array_api_standard_release/)
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for how to go about contributing to
 this array API standard.
 
+## Workgroup Meetings
 
-## Building docs locally
+To coordinate activities and facilitate discussion across the Python ecosystem, the Consortium for Python Data API Standards holds an open meeting every other week on Thursdays throughout the year.
 
-### Quickstart
+This meeting is open to the public. So if you have questions about the array API standard, pain points, feature requests, or are just wanting to listen in, we encourage you to join the public call to connect with Consortium members, stay updated on the latest Consortium activities, and chat with others in the community.
+
+Everyone is welcome—drop in and say hello!
+
+### Time
+
+**UTC 17:00 (05:00 PM)** every other Thursday:
+
+| Timezone | Date/Time |
+| ---------- | ---------- |
+| US / Pacific | Thu 10:00 (10:00 AM) |
+| US / Mountain | Thu 11:00 (11:00 AM) |
+| US / Central | Thu 12:00 (12:00 AM) |
+| US / Eastern | Thu 13:00 (01:00 PM) |
+| EU / Western | Thu 18:00 (06:00 PM) |
+| EU / Central | Thu 19:00 (07:00 PM) |
+| EU / Eastern | Thu 20:00 (08:00 PM) |
+| Moscow | Thu 20:00 (08:00 PM) |
+| Chennai | Thu 22:30 (10:30 PM) |
+| Hangzhou | Fri 01:00 (01:00 AM) |
+| Tokyo | Fri 02:00 (02:00 AM) |
+| Sydney | Fri 03:00 (03:00 AM) |
+
+### Links
+
+- Public calendar: <https://calendar.google.com/calendar/embed?src=8fe9013a2cb5d3409bb236d04eca73fa5227eac01c02ea8f6bc4a6a3cf982fa3%40group.calendar.google.com>
+
+### Joining the meeting
+
+- See the public calendar for information on how to join!
+
+### Agenda
+
+- Have specific things to discuss? Feel free to comment on <https://github.com/data-apis/array-api/issues/853> or the linked agenda document!
+
+* * *
+
+## Development
+
+### Building docs locally
+
+#### Quickstart
 
 To install the local stubs and additional dependencies of the Sphinx docs, you
 can use `pip install -r doc-requirements.txt`. Then just running `make` at the
@@ -31,7 +74,7 @@ $ ls _site/
 2021.12/  draft/  index.html  latest/  versions.json
 ```
 
-### The nitty-gritty
+#### The nitty-gritty
 
 The spec website is comprised of multiple Sphinx docs (one for each spec version),
 all of which exist in `spec/` and rely on the modules found in `src/` (most
@@ -56,7 +99,7 @@ To build the whole website, which includes every version of the spec, you can
 utilize `make spec`.
 
 
-## Making a spec release
+### Making a spec release
 
 The Sphinx doc at `spec/draft/` should be where the in-development spec resides,
 with `src/array_api_stubs/_draft/` containing its respective stubs. A spec
@@ -142,6 +185,7 @@ for more background on the approach we use.
 
 <!-- TODO: write a script to automate/standardise spec releases -->
 
+* * *
 
 ## Contributors ✨
 
