@@ -1,7 +1,50 @@
-__all__ = ["unique_all", "unique_counts", "unique_inverse", "unique_values"]
+__all__ = ["isin", "unique_all", "unique_counts", "unique_inverse", "unique_values"]
 
 
-from ._types import Tuple, array
+from ._types import Tuple, Union, array
+
+
+def isin(
+    x1: Union[array, int, float, complex, bool],
+    x2: Union[array, int, float, complex, bool],
+    /,
+    *,
+    invert: bool = False,
+) -> array:
+    """
+    Tests whether each element in ``x1`` is in ``x2``.
+
+    Parameters
+    ----------
+    x1: Union[array, int, float, complex, bool]
+        first input array. **May** have any data type.
+    x2: Union[array, int, float, complex, bool]
+        second input array. **May** have any data type.
+    invert: bool
+        boolean indicating whether to invert the test criterion. If ``True``, the function **must** test whether each element in ``x1`` is *not* in ``x2``. If ``False``, the function **must** test whether each element in ``x1`` is in ``x2``. Default: ``False``.
+
+    Returns
+    -------
+    out: array
+        an array containing element-wise test results. The returned array **must** have the same shape as ``x1`` and **must** have a boolean data type.
+
+    Notes
+    -----
+
+    -   At least one of ``x1`` or ``x2`` **must** be an array.
+
+    -   If an element in ``x1`` is in ``x2``, the corresponding element in the output array **must** be ``True``; otherwise, the corresponding element in the output array **must** be ``False``.
+
+    -   Testing whether an element in ``x1`` corresponds to an element in ``x2`` **must** be determined based on value equality (see :func:`~array_api.equal`). For input arrays having floating-point data types, value-based equality implies the following behavior. When ``invert`` is ``False``,
+
+        -   As ``nan`` values compare as ``False``, if an element in ``x1`` is ``nan``, the corresponding element in the returned array **must** be ``False``.
+        -   As complex floating-point values having at least one ``nan`` component compare as ``False``, if an element in ``x1`` is a complex floating-point value having one or more ``nan`` components, the corresponding element in the returned array **must** be ``False``.
+        -   As ``-0`` and ``+0`` compare as ``True``, if an element in ``x1`` is ``±0`` and ``x2`` contains at least one element which is ``±0``, the corresponding element in the returned array **must** be ``True``.
+
+        When ``invert`` is ``True``, the returned array **must** contain the same results as if the operation is implemented as ``logical_not(isin(x1, x2))``.
+
+    -   Comparison of arrays without a corresponding promotable data type (see :ref:`type-promotion`) is unspecified and thus implementation-defined.
+    """
 
 
 def unique_all(x: array, /) -> Tuple[array, array, array, array]:
