@@ -187,9 +187,6 @@ def eigh(x: array, /) -> Tuple[array, array]:
     .. note::
        Whether an array library explicitly checks whether an input array is Hermitian or a symmetric matrix (or a stack of matrices) is implementation-defined.
 
-    .. note::
-       The function ``eig`` will be added in a future version of the specification.
-
     Parameters
     ----------
     x: array
@@ -201,7 +198,7 @@ def eigh(x: array, /) -> Tuple[array, array]:
         a namedtuple (``eigenvalues``, ``eigenvectors``) whose
 
         -   first element must have the field name ``eigenvalues`` (corresponding to :math:`\operatorname{diag}\Lambda` above) and must be an array consisting of computed eigenvalues. The array containing the eigenvalues must have shape ``(..., M)`` and must have a real-valued floating-point data type whose precision matches the precision of ``x`` (e.g., if ``x`` is ``complex128``, then ``eigenvalues`` must be ``float64``).
-        -   second element have have the field name ``eigenvectors`` (corresponding to :math:`Q` above) and must be an array where the columns of the inner most matrices contain the computed eigenvectors. These matrices must be orthogonal. The array containing the eigenvectors must have shape ``(..., M, M)`` and must have the same data type as ``x``.
+        -   second element have the field name ``eigenvectors`` (corresponding to :math:`Q` above) and must be an array where the columns of the inner most matrices contain the computed eigenvectors. These matrices must be orthogonal. The array containing the eigenvectors must have shape ``(..., M, M)`` and must have the same data type as ``x``.
 
     Notes
     -----
@@ -227,14 +224,11 @@ def eigvalsh(x: array, /) -> array:
 
     where :math:`\lambda \in \mathbb{R}` and where :math:`I_n` is the *n*-dimensional identity matrix.
 
-    .. note:;
+    .. note::
        The eigenvalues of a complex Hermitian or real symmetric matrix are always real.
 
     .. note::
        Whether an array library explicitly checks whether an input array is Hermitian or a symmetric matrix (or a stack of matrices) is implementation-defined.
-
-    .. note::
-       The function ``eigvals`` will be added in a future version of the specification.
 
     Parameters
     ----------
@@ -255,6 +249,128 @@ def eigvalsh(x: array, /) -> array:
     .. versionchanged:: 2022.12
        Added complex data type support.
     """
+
+
+def eig(x: array, /) -> Tuple[array, array]:
+    r"""
+    Returns eigenvalues and eigenvectors of a real or complex matrix (or a stack of matrices) ``x``.
+
+    If ``x`` is real-valued, let :math:`\mathbb{K}` be the union of the set of real numbers :math:`\mathbb{R}`
+    and the set of complex numbers, :math:`\mathbb{C}`; if ``x`` is complex-valued, let :math:`\mathbb{K}`
+    be the set of complex numbers :math:`\mathbb{C}`.
+
+    A real or complex value :math:`lambda \in \mathbb{K}` is an **eigenvalue** of a real
+    or complex matrix :math:`x \in \mathbb{K}^{n \times n}` if there exist a real or complex vector
+    :math:`v \in \mathbb{K}^{n}`, such that
+
+    .. math::
+
+            x v = \lambda v
+
+    Then, :math:`v` is referred to as an **eigenvector** of :math:`x`, corresponding to
+    the eigenvalue :math:`\lambda`.
+
+    A general matrix :math:`x \in \mathbb{K}^{n \times n}`
+
+    - has :math:`n` eigenvectors, which are defined as the roots (counted with multiplicity) of the
+      polynomial :math:`p` of degree :math:`n` given by
+
+       .. math::
+
+          p(\lambda) = \operatorname{det}(x - \lambda I_n)
+
+    - does not in general have :math:`n` linearly independent eigenvectors if it has
+      eigenvalues with multiplicity larger than one.
+
+    .. note::
+       The eigenvalues of a non-symmetric real matrix in general are complex: for
+       :math:x \in \mathbb{R}^{n \times n}`, the eigenvalues, :math:`\lambda \in \mathbb{C}`,
+       and may or may not reside on the real axis of the complex plane.
+
+    .. warning::
+       The eigenvectors of a general matrix are not unique and are not continuous with respect to ``x``. Because eigenvectors are not unique, different hardware and software may compute different eigenvectors.
+
+       For eigenvalues of multiplity :math:`s=1`, the non-uniqueness stems from the fact that multiplying an eigenvector by :math:`-1` when ``x`` is real-valued and by :math:`e^{\phi j}` (:math:`\phi \in \mathbb{R}`) when ``x`` is complex produces another set of valid eigenvectors.
+
+       For eigenvalues of multiplity :math:`s > 1`, the :math:`s` computed eigenvectors may be repeated or
+       have entries differ by an order of machine epsilon for the data type of :math:`x`.
+
+    Parameters
+    ----------
+    x: array
+        input array having shape ``(..., M, M)`` and whose innermost two dimensions form square matrices. Should have a floating-point data type.
+
+    Returns
+    -------
+    out: Tuple[array, array]
+        a namedtuple (``eigenvalues``, ``eigenvectors``) whose
+
+        -   first element must have the field name ``eigenvalues`` (corresponding to :math:`\lambda` above) and must be an array consisting of computed eigenvalues. The array containing the eigenvalues must have shape ``(..., M)`` and must have a real-valued or complex-valued floating-point data type whose precision matches the precision of ``x`` (e.g., if ``x`` is ``float64``, then ``eigenvalues`` must be either ``float64`` or `complex128`).
+
+        -   second element have the field name ``eigenvectors`` (corresponding to :math:`v` above) and must be an array where the columns of the inner most matrices contain the computed eigenvectors. These matrices must be orthogonal. The array containing the eigenvectors must have shape ``(..., M, M)`` and must have the same data type as ``x``.
+
+    Notes
+    -----
+
+    .. note::
+       Eigenvalue sort order is left unspecified and is thus implementation-dependent.
+
+    .. note::
+        If all eigenvectors have zero imaginary parts, a conforming implementation may
+        return either a complex-valued array or a real-valued array containing the real
+        parts of eigenvalues.
+
+    .. note::
+        For real symmetric or complex Hermitian matrices, prefer using the ``eigh`` routine.
+
+    .. versionadded:: 2025.12
+    """
+
+
+def eigvals(x: array, /) -> array:
+    r"""
+    Returns the eigenvalues of a real or complex (or a stack of matrices) ``x``.
+
+    If ``x`` is real-valued, let :math:`\mathbb{K}` be the union of the set of real numbers :math:`\mathbb{R}`
+    and the set of complex numbers, :math:`\mathbb{C}`;  if ``x`` is complex-valued, let :math:`\mathbb{K}` be the set of complex numbers :math:`\mathbb{C}`.
+
+    The **eigenvalues** of a real or complex matrix :math:`x \in\ \mathbb{K}^{n \times n}` are defined as the roots (counted with multiplicity) of the polynomial :math:`p` of degree :math:`n` given by
+
+    .. math::
+       p(\lambda) = \operatorname{det}(x - \lambda I_n)
+
+    where :math:`\lambda \in \mathbb{K}` and where :math:`I_n` is the *n*-dimensional identity matrix.
+
+    .. note::
+       The eigenvalues of a non-symmetric real matrix in general are complex: for
+       :math:x \in \mathbb{R}^{n \times n}`, the eigenvalues :math:`\lambda \in \mathbb{C}`,
+       and may or may not reside on the real axis of the complex plane.
+
+
+    Parameters
+    ----------
+    x: array
+        input array having shape ``(..., M, M)`` and whose innermost two dimensions form square matrices. Should have a floating-point data type.
+
+    Returns
+    -------
+    out: array
+        an array containing the computed eigenvalues. The returned array must have shape ``(..., M)`` and have a real-valued or complex-valued floating-point data type whose precision matches the precision of ``x`` (e.g., if ``x`` is ``float64``, then must have a ``float64`` or a ``complex128`` data type).
+
+    Notes
+    -----
+
+    .. note::
+       Eigenvalue sort order is left unspecified and is thus implementation-dependent.
+
+    .. note::
+        If all eigenvectors have zero imaginary parts, a conforming implementation may
+        return either a complex-valued array or a real-valued array containing the real
+        parts of eigenvalues.
+
+    .. versionadded:: 2025.12
+    """
+
 
 
 def inv(x: array, /) -> array:
