@@ -255,9 +255,8 @@ def eig(x: array, /) -> Tuple[array, array]:
     r"""
     Returns eigenvalues and eigenvectors of a real or complex matrix (or a stack of matrices) ``x``.
 
-    If ``x`` is real-valued, let :math:`\mathbb{K}` be the union of the set of real numbers :math:`\mathbb{R}`
-    and the set of complex numbers, :math:`\mathbb{C}`; if ``x`` is complex-valued, let :math:`\mathbb{K}`
-    be the set of complex numbers :math:`\mathbb{C}`.
+    Let :math:`\mathbb{K}` be the union of the set of real numbers :math:`\mathbb{R}`
+    and the set of complex numbers, :math:`\mathbb{C}`.
 
     A real or complex value :math:`lambda \in \mathbb{K}` is an **eigenvalue** of a real
     or complex matrix :math:`x \in \mathbb{K}^{n \times n}` if there exist a real or complex vector
@@ -305,20 +304,15 @@ def eig(x: array, /) -> Tuple[array, array]:
     out: Tuple[array, array]
         a namedtuple (``eigenvalues``, ``eigenvectors``) whose
 
-        -   first element must have the field name ``eigenvalues`` (corresponding to :math:`\lambda` above) and must be an array consisting of computed eigenvalues. The array containing the eigenvalues must have shape ``(..., M)`` and must have a real-valued or complex-valued floating-point data type whose precision matches the precision of ``x`` (e.g., if ``x`` is ``float64``, then ``eigenvalues`` must be either ``float64`` or `complex128`).
+        -   first element must have the field name ``eigenvalues`` (corresponding to :math:`\lambda` above) and must be an array consisting of computed eigenvalues. The array containing the eigenvalues must have shape ``(..., M)`` and must have a complex floating-point array data type having the same precision as that of ``x`` (e.g., if ``x`` has a ``float32`` data type, ``eigenvalues`` must have the ``complex64`` data type; if ``x`` has a ``float64`` data type, ``eigenvalues`` have the ``complex128`` data type).
 
-        -   second element have the field name ``eigenvectors`` (corresponding to :math:`v` above) and must be an array where the columns of the inner most matrices contain the computed eigenvectors. These matrices must be orthogonal. The array containing the eigenvectors must have shape ``(..., M, M)`` and must have the same data type as ``x``.
+        -   second element have the field name ``eigenvectors`` (corresponding to :math:`v` above) and must be an array where the columns of the inner most matrices contain the computed eigenvectors. These matrices must be orthogonal. The array containing the eigenvectors must have shape ``(..., M, M)`` and must have the same data type as ``eigenvalues``.
 
     Notes
     -----
 
     .. note::
        Eigenvalue sort order is left unspecified and is thus implementation-dependent.
-
-    .. note::
-        If all eigenvectors have zero imaginary parts, a conforming implementation may
-        return either a complex-valued array or a real-valued array containing the real
-        parts of eigenvalues.
 
     .. note::
         For real symmetric or complex Hermitian matrices, prefer using the ``eigh`` routine.
@@ -355,18 +349,13 @@ def eigvals(x: array, /) -> array:
     Returns
     -------
     out: array
-        an array containing the computed eigenvalues. The returned array must have shape ``(..., M)`` and have a real-valued or complex-valued floating-point data type whose precision matches the precision of ``x`` (e.g., if ``x`` is ``float64``, then must have a ``float64`` or a ``complex128`` data type).
+        an array containing the computed eigenvalues. The returned array must have shape ``(..., M)`` and have a complex floating-point array data type having the same precision as that of ``x`` (e.g., if ``x`` has a ``float32`` data type, the array must have the ``complex64`` data type; if ``x`` has a ``float64`` data type, the array has the ``complex128`` data type).
 
     Notes
     -----
 
     .. note::
        Eigenvalue sort order is left unspecified and is thus implementation-dependent.
-
-    .. note::
-        If all eigenvectors have zero imaginary parts, a conforming implementation may
-        return either a complex-valued array or a real-valued array containing the real
-        parts of eigenvalues.
 
     .. versionadded:: 2025.12
     """
