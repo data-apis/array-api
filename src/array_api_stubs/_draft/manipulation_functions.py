@@ -19,7 +19,7 @@ __all__ = [
 from ._types import List, Optional, Tuple, Union, array
 
 
-def broadcast_arrays(*arrays: array) -> List[array]:
+def broadcast_arrays(*arrays: array) -> Tuple[array, ...]:
     """
     Broadcasts one or more arrays against one another.
 
@@ -30,8 +30,8 @@ def broadcast_arrays(*arrays: array) -> List[array]:
 
     Returns
     -------
-    out: List[array]
-        a list of broadcasted arrays. Each array **must** have the same shape. Each array **must** have the same dtype as its corresponding input array.
+    out: Tuple[array, ...]
+        tuple of broadcasted arrays. Each array **must** have the same shape. Each array **must** have the same dtype as its corresponding input array.
     """
 
 
