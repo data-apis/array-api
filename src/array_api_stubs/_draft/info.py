@@ -80,12 +80,12 @@ def default_device() -> device:
     Returns
     -------
     out: device
-        an object corresponding to the default device or ``None``.
-        A conforming array library may return ``None`` if the default device is not
-        predictable due to library specific device placement rules.
+        an object (including ``None``) corresponding to the default device.
 
     Notes
     -----
+
+    -   A conforming array library may return ``None`` if the default device is not predictable due to library specific device placement rules.
 
     .. versionadded: 2023.12
     """
