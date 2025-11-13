@@ -172,19 +172,19 @@ def dtypes(
     """
 
 
-def devices() -> List[device]:
+def devices() -> Tuple[device, ...]:
     """
     Returns a list of supported devices which are available at runtime.
 
     Returns
     -------
-    out: List[device]
-        a list of supported devices.
+    out: Tuple[device, ...]
+        tuple containing a list of supported devices.
 
     Notes
     -----
 
-    -   Each device object (see :ref:`device-support`) in the list of returned devices **must** be an object which can be provided as a valid keyword-argument to array creation functions.
+    -   Each device object (see :ref:`device-support`) in the tuple of returned devices **must** be an object which can be provided as a valid keyword-argument to array creation functions.
 
     Notes
     -----
