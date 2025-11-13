@@ -124,7 +124,7 @@ def nonzero(x: array, /) -> Tuple[array, ...]:
 
 def searchsorted(
     x1: array,
-    x2: array,
+    x2: Union[array, int, float],
     /,
     *,
     side: Literal["left", "right"] = "left",
@@ -137,7 +137,7 @@ def searchsorted(
     ----------
     x1: array
         input array. **Must** be a one-dimensional array. **Should** have a real-valued data type. If ``sorter`` is ``None``, **must** be sorted in ascending order; otherwise, ``sorter`` **must** be an array of indices that sort ``x1`` in ascending order.
-    x2: array
+    x2: Union[array, int, float]
         array containing search values. **Should** have a real-valued data type.
     side: Literal['left', 'right']
         argument controlling which index is returned if a value lands exactly on an edge.
@@ -163,6 +163,7 @@ def searchsorted(
     Notes
     -----
 
+    -   If ``x2`` is a scalar value, ``x2`` should be treated as equivalent to a zero-dimensional array having a data type determined according to :ref:`mixing-scalars-and-arrays`.
     -   For real-valued floating-point arrays, the sort order of NaNs and signed zeros is unspecified and thus implementation-dependent. Accordingly, when a real-valued floating-point array contains NaNs and signed zeros, what constitutes ascending order **may** vary among specification-conforming array libraries.
     -   While behavior for arrays containing NaNs and signed zeros is implementation-dependent, specification-conforming libraries **should**, however, ensure consistency with ``sort`` and ``argsort`` (i.e., if a value in ``x2`` is inserted into ``x1`` according to the corresponding index in the output array and ``sort`` is invoked on the resultant array, the sorted result **should** be an array in the same order).
 
