@@ -475,10 +475,13 @@
 <dd><p>Returns the default device.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>out</strong> (<em>device</em>) – an object corresponding to the default device.</p>
+<dd class="field-odd"><p><strong>out</strong> (<em>device</em>) – an object (including <code class="docutils literal notranslate"><span class="pre">None</span></code>) corresponding to the default device.</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>A conforming array library may return <code class="docutils literal notranslate"><span class="pre">None</span></code> if the default device is not predictable due to library specific device placement rules.</p></li>
+</ul>
 </dd></dl>
 </section>
 
