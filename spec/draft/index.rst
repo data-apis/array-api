@@ -34,5 +34,6 @@ Contents
    :caption: Other
    :maxdepth: 1
 
+   migration_guide
    changelog
    license
