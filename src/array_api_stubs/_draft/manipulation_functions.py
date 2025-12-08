@@ -1,5 +1,6 @@
 __all__ = [
     "broadcast_arrays",
+    "broadcast_shapes",
     "broadcast_to",
     "concat",
     "expand_dims",
