@@ -35,6 +35,35 @@ def broadcast_arrays(*arrays: array) -> List[array]:
     """
 
 
+def broadcast_shapes(*shapes: Tuple[int, ...]) -> Tuple[int, ...]:
+    """
+    Broadcasts one or more shapes against one another.
+
+    Parameters
+    ----------
+    shapes: Tuple[int, ...]
+        an arbitrary number of to-be broadcasted shapes.
+
+    Returns
+    -------
+    out: Tuple[int, ...]
+        a broadcasted shape.
+
+    Raises
+    ------
+    ValueError
+        If provided shapes which are not broadcast compatible (see :ref:`broadcasting`), a ``ValueError`` **should** be raised.
+
+    Notes
+    -----
+
+    -   If not provided one or more arguments, the function **must** return an empty tuple.
+
+    .. note::
+       Array libraries which build computation graphs (e.g., ndonnx and Dask) commonly support shapes having dimensions of unknown size. If a shape contains a value other than an integer (e.g., ``None`` for a dimension of unknown size), behavior is unspecified and thus implementation-defined. Array-conforming libraries **may** choose to propagate such values (e.g., if a shape contains a dimension size of ``None``, the returned broadcasted shape also has a corresponding dimension having a size equal to ``None``) or raise an exception.
+    """
+
+
 def broadcast_to(x: array, /, shape: Tuple[int, ...]) -> array:
     """
     Broadcasts an array to a specified shape.
