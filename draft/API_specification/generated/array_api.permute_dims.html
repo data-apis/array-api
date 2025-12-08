@@ -477,7 +477,7 @@
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>x</strong> (<em>array</em>) – input array.</p></li>
-<li><p><strong>axes</strong> (<em>Tuple</em><em>[</em><em>int</em><em>, </em><em>...</em><em>]</em>) – tuple containing a permutation of <code class="docutils literal notranslate"><span class="pre">(0,</span> <span class="pre">1,</span> <span class="pre">...,</span> <span class="pre">N-1)</span></code> where <code class="docutils literal notranslate"><span class="pre">N</span></code> is the number of axes in <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p></li>
+<li><p><strong>axes</strong> (<em>Tuple</em><em>[</em><em>int</em><em>, </em><em>...</em><em>]</em>) – tuple containing a permutation of axes. A valid axis <strong>must</strong> be an integer on the interval <code class="docutils literal notranslate"><span class="pre">[-N,</span> <span class="pre">N)</span></code>, where <code class="docutils literal notranslate"><span class="pre">N</span></code> is the number of axes in <code class="docutils literal notranslate"><span class="pre">x</span></code>. If an axis is specified as a negative integer, the function <strong>must</strong> determine the respective axis index by counting backward from the last axis (where <code class="docutils literal notranslate"><span class="pre">-1</span></code> refers to the last axis). If provided an invalid axis, the function <strong>must</strong> raise an exception.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
