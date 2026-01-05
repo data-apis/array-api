@@ -471,16 +471,16 @@
 <h1 id="api-specification-generated-array-api-info-devices--page-root">devices<a class="headerlink" href="#api-specification-generated-array-api-info-devices--page-root" title="Link to this heading">¶</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="array_api.info.devices">
-<span class="sig-name descname"><span class="pre">devices</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">device</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#array_api.info.devices" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">devices</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">device</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#array_api.info.devices" title="Link to this definition">¶</a></dt>
 <dd><p>Returns a list of supported devices which are available at runtime.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>out</strong> (<em>List[device]</em>) – a list of supported devices.</p>
+<dd class="field-odd"><p><strong>out</strong> (<em>Tuple[device, …]</em>) – tuple containing a list of supported devices.</p>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
 <ul class="simple">
-<li><p>Each device object (see <a class="reference internal" href="../../design_topics/device_support.html#device-support"><span class="std std-ref">Device support</span></a>) in the list of returned devices <strong>must</strong> be an object which can be provided as a valid keyword-argument to array creation functions.</p></li>
+<li><p>Each device object (see <a class="reference internal" href="../../design_topics/device_support.html#device-support"><span class="std std-ref">Device support</span></a>) in the tuple of returned devices <strong>must</strong> be an object which can be provided as a valid keyword-argument to array creation functions.</p></li>
 </ul>
 <p class="rubric">Notes</p>
 </dd></dl>
