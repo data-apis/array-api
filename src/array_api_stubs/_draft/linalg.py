@@ -359,7 +359,6 @@ def eigvals(x: array, /) -> array:
     """
 
 
-
 def inv(x: array, /) -> array:
     r"""
     Returns the multiplicative inverse of a square matrix (or a stack of square matrices) ``x``.
