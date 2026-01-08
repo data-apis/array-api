@@ -198,7 +198,7 @@ def eigh(x: array, /) -> Tuple[array, array]:
         a namedtuple (``eigenvalues``, ``eigenvectors``) whose
 
         -   first element must have the field name ``eigenvalues`` (corresponding to :math:`\operatorname{diag}\Lambda` above) and must be an array consisting of computed eigenvalues. The array containing the eigenvalues must have shape ``(..., M)`` and must have a real-valued floating-point data type whose precision matches the precision of ``x`` (e.g., if ``x`` is ``complex128``, then ``eigenvalues`` must be ``float64``).
-        -   second element have the field name ``eigenvectors`` (corresponding to :math:`Q` above) and must be an array where the columns of the inner most matrices contain the computed eigenvectors. These matrices must be orthogonal. The array containing the eigenvectors must have shape ``(..., M, M)`` and must have the same data type as ``x``.
+        -   second element must have the field name ``eigenvectors`` (corresponding to :math:`Q` above) and must be an array where the columns of the inner most matrices contain the computed eigenvectors. These matrices must be orthogonal. The array containing the eigenvectors must have shape ``(..., M, M)`` and must have the same data type as ``x``.
 
     Notes
     -----
@@ -253,13 +253,13 @@ def eigvalsh(x: array, /) -> array:
 
 def eig(x: array, /) -> Tuple[array, array]:
     r"""
-    Returns eigenvalues and eigenvectors of a real or complex matrix (or a stack of matrices) ``x``.
+    Returns eigenvalues and eigenvectors of a real or complex matrix (or stack of matrices) ``x``.
 
     Let :math:`\mathbb{K}` be the union of the set of real numbers :math:`\mathbb{R}`
     and the set of complex numbers, :math:`\mathbb{C}`.
 
     A real or complex value :math:`lambda \in \mathbb{K}` is an **eigenvalue** of a real
-    or complex matrix :math:`x \in \mathbb{K}^{n \times n}` if there exist a real or complex vector
+    or complex matrix :math:`x \in \mathbb{K}^{n \times n}` if there exists a real or complex vector
     :math:`v \in \mathbb{K}^{n}`, such that
 
     .. math::
@@ -271,7 +271,7 @@ def eig(x: array, /) -> Tuple[array, array]:
 
     A general matrix :math:`x \in \mathbb{K}^{n \times n}`
 
-    - has :math:`n` eigenvectors, which are defined as the roots (counted with multiplicity) of the
+    - has :math:`n` eigenvalues, which are defined as the roots (counted with multiplicity) of the
       polynomial :math:`p` of degree :math:`n` given by
 
        .. math::
@@ -282,9 +282,9 @@ def eig(x: array, /) -> Tuple[array, array]:
       eigenvalues with multiplicity larger than one.
 
     .. note::
-       The eigenvalues of a non-symmetric real matrix in general are complex: for
+       The eigenvalues of a non-symmetric real matrix are in general complex: for
        :math:x \in \mathbb{R}^{n \times n}`, the eigenvalues, :math:`\lambda \in \mathbb{C}`,
-       and may or may not reside on the real axis of the complex plane.
+       may or may not reside on the real axis of the complex plane.
 
     .. warning::
        The eigenvectors of a general matrix are not unique and are not continuous with respect to ``x``. Because eigenvectors are not unique, different hardware and software may compute different eigenvectors.
@@ -306,13 +306,12 @@ def eig(x: array, /) -> Tuple[array, array]:
 
         -   first element must have the field name ``eigenvalues`` (corresponding to :math:`\lambda` above) and must be an array consisting of computed eigenvalues. The array containing the eigenvalues must have shape ``(..., M)`` and must have a complex floating-point array data type having the same precision as that of ``x`` (e.g., if ``x`` has a ``float32`` data type, ``eigenvalues`` must have the ``complex64`` data type; if ``x`` has a ``float64`` data type, ``eigenvalues`` have the ``complex128`` data type).
 
-        -   second element have the field name ``eigenvectors`` (corresponding to :math:`v` above) and must be an array where the columns of the inner most matrices contain the computed eigenvectors. These matrices must be orthogonal. The array containing the eigenvectors must have shape ``(..., M, M)`` and must have the same data type as ``eigenvalues``.
+        -   second element must have the field name ``eigenvectors`` (corresponding to :math:`v` above) and must be an array where the columns of the inner most matrices contain the computed eigenvectors. These matrices must be orthogonal. The array containing the eigenvectors must have shape ``(..., M, M)`` and must have the same data type as ``eigenvalues``.
 
     Notes
     -----
 
-    .. note::
-       Eigenvalue sort order is left unspecified and is thus implementation-dependent.
+    -   Eigenvalue sort order is left unspecified and is thus implementation-dependent.
 
     .. note::
         For real symmetric or complex Hermitian matrices, prefer using the ``eigh`` routine.
@@ -323,7 +322,7 @@ def eig(x: array, /) -> Tuple[array, array]:
 
 def eigvals(x: array, /) -> array:
     r"""
-    Returns the eigenvalues of a real or complex (or a stack of matrices) ``x``.
+    Returns the eigenvalues of a real or complex matrix (or a stack of matrices) ``x``.
 
     If ``x`` is real-valued, let :math:`\mathbb{K}` be the union of the set of real numbers :math:`\mathbb{R}`
     and the set of complex numbers, :math:`\mathbb{C}`;  if ``x`` is complex-valued, let :math:`\mathbb{K}` be the set of complex numbers :math:`\mathbb{C}`.
@@ -336,9 +335,9 @@ def eigvals(x: array, /) -> array:
     where :math:`\lambda \in \mathbb{K}` and where :math:`I_n` is the *n*-dimensional identity matrix.
 
     .. note::
-       The eigenvalues of a non-symmetric real matrix in general are complex: for
+       The eigenvalues of a non-symmetric real matrix are in general complex: for
        :math:x \in \mathbb{R}^{n \times n}`, the eigenvalues :math:`\lambda \in \mathbb{C}`,
-       and may or may not reside on the real axis of the complex plane.
+       may or may not reside on the real axis of the complex plane.
 
 
     Parameters
@@ -354,8 +353,7 @@ def eigvals(x: array, /) -> array:
     Notes
     -----
 
-    .. note::
-       Eigenvalue sort order is left unspecified and is thus implementation-dependent.
+    -   Eigenvalue sort order is left unspecified and is thus implementation-dependent.
 
     .. versionadded:: 2025.12
     """
