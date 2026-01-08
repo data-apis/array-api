@@ -59,7 +59,7 @@ def broadcast_shapes(*shapes: Tuple[int, ...]) -> Tuple[int, ...]:
     -----
 
     -   If not provided one or more arguments, the function **must** return an empty tuple.
-    -   Array libraries which build computation graphs (e.g., ndonnx and Dask) commonly support shapes having dimensions of unknown size. If a shape contains a value other than an integer (e.g., ``None`` for a dimension of unknown size), array-conforming libraries **must** propagate such values (e.g., if a shape contains a dimension size of ``None``, the returned broadcasted shape also has a corresponding dimension having a size equal to ``None``).
+    -   Array libraries which build computation graphs (e.g., ndonnx and Dask) commonly support shapes having dimensions of unknown size. If a shape contains a value other than an integer (e.g., ``None`` for a dimension of unknown size), array-conforming libraries **must** propagate such values (e.g., if a shape contains a dimension size of ``None``, the returned broadcasted shape **must** also have a corresponding dimension having a size equal to ``None``).
     """
 
 
