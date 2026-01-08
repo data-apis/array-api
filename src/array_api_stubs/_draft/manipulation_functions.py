@@ -48,7 +48,7 @@ def broadcast_shapes(*shapes: Tuple[int, ...]) -> Tuple[int, ...]:
     Returns
     -------
     out: Tuple[int, ...]
-        a broadcasted shape.
+        a single broadcasted shape obtained by applying broadcasting rules (see :ref:`broadcasting`) to each of the input shapes against one another.
 
     Raises
     ------
@@ -59,9 +59,7 @@ def broadcast_shapes(*shapes: Tuple[int, ...]) -> Tuple[int, ...]:
     -----
 
     -   If not provided one or more arguments, the function **must** return an empty tuple.
-
-    .. note::
-       Array libraries which build computation graphs (e.g., ndonnx and Dask) commonly support shapes having dimensions of unknown size. If a shape contains a value other than an integer (e.g., ``None`` for a dimension of unknown size), behavior is unspecified and thus implementation-defined. Array-conforming libraries **may** choose to propagate such values (e.g., if a shape contains a dimension size of ``None``, the returned broadcasted shape also has a corresponding dimension having a size equal to ``None``) or raise an exception.
+    -   Array libraries which build computation graphs (e.g., ndonnx and Dask) commonly support shapes having dimensions of unknown size. If a shape contains a value other than an integer (e.g., ``None`` for a dimension of unknown size), array-conforming libraries **must** propagate such values (e.g., if a shape contains a dimension size of ``None``, the returned broadcasted shape also has a corresponding dimension having a size equal to ``None``).
     """
 
 
