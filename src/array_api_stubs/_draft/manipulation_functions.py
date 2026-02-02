@@ -79,7 +79,7 @@ def concat(
     """
 
 
-def expand_dims(x: array, /, *, axis: int = 0) -> array:
+def expand_dims(x: array, /, axis: int) -> array:
     """
     Expands the shape of an array by inserting a new axis of size one at the position specified by ``axis``.
 
@@ -88,7 +88,7 @@ def expand_dims(x: array, /, *, axis: int = 0) -> array:
     x: array
         input array.
     axis: int
-        axis position (zero-based). A valid ``axis`` **must** reside on the closed-interval ``[-N-1, N]``, where ``N`` is the number of axes in ``x``. If an axis is specified as a negative integer, the axis position at which to insert a singleton dimension **must** be computed as ``N + axis + 1``. Hence, if provided ``-1``, the resolved axis position **must** be ``N`` (i.e., a singleton dimension **must** be appended to the input array ``x``). If provided ``-N-1``, the resolved axis position **must** be ``0`` (i.e., a singleton dimension **must** be prepended to the input array ``x``). If provided an invalid axis, the function **must** raise an exception. Default: ``0``.
+        axis position (zero-based). A valid ``axis`` **must** reside on the closed-interval ``[-N-1, N]``, where ``N`` is the number of axes in ``x``. If an axis is specified as a negative integer, the axis position at which to insert a singleton dimension **must** be computed as ``N + axis + 1``. Hence, if provided ``-1``, the resolved axis position **must** be ``N`` (i.e., a singleton dimension **must** be appended to the input array ``x``). If provided ``-N-1``, the resolved axis position **must** be ``0`` (i.e., a singleton dimension **must** be prepended to the input array ``x``). If provided an invalid axis, the function **must** raise an exception.
 
     Returns
     -------
