@@ -88,14 +88,22 @@ def expand_dims(x: array, /, axis: Union[int, Tuple[int, ...]]) -> array:
     x: array
         input array.
     axis: Union[int, Tuple[int, ...]]
-        axis position(s) (zero-based). A valid axis position **must** reside on the closed-interval ``[-N-1, N]``, where ``N`` is the number of dimensions in ``x``. If an axis position is specified as a negative integer, the axis position at which to insert a singleton dimension **must** be computed as ``N + axis + 1``. Hence, if provided ``-1``, the resolved axis position **must** be ``N`` (i.e., a singleton dimension **must** be appended to the input array ``x``). If provided ``-N-1``, the resolved axis position **must** be ``0`` (i.e., a singleton dimension **must** be prepended to the input array ``x``). If provided an invalid axis position, the function **must** raise an exception.
+        axis position(s) (zero-based). If ``axis`` is an integer,
+
+        -   a valid axis position **must** reside on the closed-interval ``[-N-1, N]``, where ``N`` is the number of dimensions in ``x``.
+        -   if an axis position is specified as a negative integer, the axis position at which to insert a singleton dimension **must** be computed as ``N + axis + 1``.
+        -   if provided ``-1``, the resolved axis position **must** be ``N`` (i.e., a singleton dimension **must** be appended to the input array ``x``).
+        -   if provided ``-N-1``, the resolved axis position **must** be ``0`` (i.e., a singleton dimension **must** be prepended to the input array ``x``).
+        -   if provided an invalid axis position, the function **must** raise an exception.
 
         If ``axis`` is a tuple,
 
-        -   each entry of ``axis`` must resolve to a unique axis position. If an entry is a negative integer, the entry **must** resolve to a positive axis position according to the rules described above.
-        -   if provided an invalid axis position, the function **must** raise an exception.
+        -   a valid axis position **must** reside on the closed-interval ``[-M-1, M]``, where ``M = N + len(axis) - 1`` and ``N`` is the number of dimensions in ``x``.
+        -   if an entry is a negative integer, the axis position at which to insert a singleton dimension **must** be computed as ``M + axis + 1``.
+        -   each entry of ``axis`` must resolve to a unique positive axis position.
         -   for each entry of ``axis``, the corresponding dimension in the expanded output array **must** be a singleton dimension.
         -   for the remaining dimensions of the expanded output array, the output array dimensions **must** correspond to the dimensions of ``x`` in order.
+        -   if provided an invalid axis position, the function **must** raise an exception.
 
     Returns
     -------
@@ -106,6 +114,15 @@ def expand_dims(x: array, /, axis: Union[int, Tuple[int, ...]]) -> array:
     ------
     IndexError
         If provided an invalid ``axis``, an ``IndexError`` **should** be raised.
+
+    Notes
+    -----
+
+    -   Calling this function with a tuple of axis positions **must** be semantically equivalent to calling this function repeatedly with a single axis position only when the following three conditions are met:
+
+        -   each entry of the tuple is normalized to positive axis positions according to the number of dimensions in the expanded output array.
+        -   the normalized positive axis positions are sorted in ascending order.
+        -   the normalized positive axis positions are unique.
     """
 
 
