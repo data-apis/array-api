@@ -26,7 +26,7 @@ def isin(
     Returns
     -------
     out: array
-        an array containing element-wise test results. The returned array **must** have the same shape as ``x1`` and **must** have a boolean data type.
+        an array containing element-wise test results. The returned array **must** have a boolean data type. If ``x1`` is an array, the returned array **must** have the same shape as ``x1``; otherwise, the returned array **must** be a zero-dimensional array containing the result.
 
     Notes
     -----
