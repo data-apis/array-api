@@ -19,6 +19,7 @@ Objects in API
    :template: method.rst
 
    broadcast_arrays
+   broadcast_shapes
    broadcast_to
    concat
    expand_dims
