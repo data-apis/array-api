@@ -36,18 +36,18 @@ def broadcast_arrays(*arrays: array) -> Tuple[array, ...]:
     """
 
 
-def broadcast_shapes(*shapes: Tuple[int | None, ...]) -> Tuple[int | None, ...]:
+def broadcast_shapes(*shapes: Tuple[Optional[int], ...]) -> Tuple[Optional[int], ...]:
     """
     Broadcasts one or more shapes against one another.
 
     Parameters
     ----------
-    shapes: Tuple[int | None, ...]
+    shapes: Tuple[Optional[int], ...]
         an arbitrary number of to-be broadcasted shapes.
 
     Returns
     -------
-    out: Tuple[int | None, ...]
+    out: Tuple[Optional[int], ...]
         a single broadcasted shape obtained by applying broadcasting rules (see :ref:`broadcasting`) to each of the input shapes against one another.
 
     Raises
