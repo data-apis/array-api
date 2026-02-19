@@ -36,18 +36,18 @@ def broadcast_arrays(*arrays: array) -> Tuple[array, ...]:
     """
 
 
-def broadcast_shapes(*shapes: Tuple[int, ...]) -> Tuple[int, ...]:
+def broadcast_shapes(*shapes: Tuple[int | None, ...]) -> Tuple[int | None, ...]:
     """
     Broadcasts one or more shapes against one another.
 
     Parameters
     ----------
-    shapes: Tuple[int, ...]
+    shapes: Tuple[int | None, ...]
         an arbitrary number of to-be broadcasted shapes.
 
     Returns
     -------
-    out: Tuple[int, ...]
+    out: Tuple[int | None, ...]
         a single broadcasted shape obtained by applying broadcasting rules (see :ref:`broadcasting`) to each of the input shapes against one another.
 
     Raises
@@ -59,7 +59,7 @@ def broadcast_shapes(*shapes: Tuple[int, ...]) -> Tuple[int, ...]:
     -----
 
     -   If not provided one or more arguments, the function **must** return an empty tuple.
-    -   An array-conforming library **may** accept a non-integer value (e.g., ``None``) for one or more dimensions. This is common for array libraries which build computation graphs (e.g., ndonnx and Dask) and which need to provide a mechanism for indicating dimensions of unknown size. Array-conforming libraries which accept non-integer values for dimensions of unknown size **must** propagate such values (e.g., if a shape contains a dimension size of ``None``, the returned broadcasted shape **must** also have a corresponding dimension having a size equal to ``None``); otherwise, an array-conforming library **must** raise a ``ValueError``.
+    -   Array-conforming libraries which build computation graphs (e.g., ndonnx and Dask) and which need to provide a mechanism for indicating dimensions of unknown size **may** accept non-integer values (e.g., ``None``). For these libraries, dimensions of unknown size **must** be propagated to the returned shape.
     """
 
 
