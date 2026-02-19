@@ -97,6 +97,8 @@ A conforming implementation of this ``linalg`` extension must provide and suppor
    diagonal
    eigh
    eigvalsh
+   eig
+   eigvals
    inv
    matmul
    matrix_norm
