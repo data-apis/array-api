@@ -1248,5 +1248,52 @@ class _array:
            Clarified behavior when a provided ``device`` object corresponds to the device on which an array instance resides.
         """
 
+    def __binsparse_descriptor__(self) -> dict:
+        """
+        Returns a `dict` equivalent to a parsed `binsparse JSON descriptor <https://graphblas.org/binsparse-specification/>`_.
+
+        Parameters
+        ----------
+        self: array
+            array instance.
+
+        Returns
+        -------
+        out: dict
+            A ``dict`` equivalent to a parsed JSON binsparse descriptor of an array. See :ref:`sparse_interchange` for details.
+        """
+
+    def __binsparse__(
+        self, /, *, descriptor: Optional[dict] = None
+    ) -> dict[str, array]:
+        """
+        Returns a key-value store of the constituent arrays of a sparse array, as specified by the `binsparse specification <https://graphblas.org/binsparse-specification/>`_.
+
+        Parameters
+        ----------
+        self: array
+            array instance.
+        descriptor: Optional[dict]
+            If ``descriptor`` is not ``None``, the data returned must be in the format specified by it.
+
+        Returns
+        -------
+        out: dict[str, array]
+            A ``dict`` equivalent to a parsed JSON binsparse descriptor of an array. See :ref:`sparse_interchange` for details.
+
+        Raises
+        ------
+        TypeError
+            If ``descriptor`` is not ``None``, and the array library does not support converting to a format specified by it.
+        ValueError
+            If ``descriptor`` is not a valid binsparse descriptor.
+
+        Notes
+        -----
+
+        - ``x.__binsparse_descriptor__()["binsparse"]["data_types"].keys() == x.__binsparse__().keys()`` must hold.
+        - ``descriptor["binsparse"]["data_types"].keys() == x.__binsparse__(descriptor=descriptor).keys()`` must hold.
+        """
+
 
 array = _array
