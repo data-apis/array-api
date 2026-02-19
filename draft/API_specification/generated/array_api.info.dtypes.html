@@ -507,6 +507,9 @@
 <li><p>Specification-conforming array libraries <strong>must</strong> only return supported data types having expected properties as described in <a class="reference internal" href="../data_types.html#data-types"><span class="std std-ref">Data Types</span></a>. For example, if a library decides to alias <code class="docutils literal notranslate"><span class="pre">float32</span></code> as <code class="docutils literal notranslate"><span class="pre">float64</span></code>, that library <strong>must not</strong> include <code class="docutils literal notranslate"><span class="pre">float64</span></code> in the dictionary of supported data types.</p></li>
 <li><p>Some array libraries have the concept of a device context manager, allowing library consumers to manage the current device context. When <code class="docutils literal notranslate"><span class="pre">device</span></code> is <code class="docutils literal notranslate"><span class="pre">None</span></code>, libraries supporting a device context <strong>must</strong> return the supported data types for the current device. For libraries without a context manager or supporting only a single device, those libraries <strong>must</strong> return the supported data types for the default device.</p></li>
 </ul>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 2023.12.</span></p>
+</div>
 </dd></dl>
 </section>
 
