@@ -76,7 +76,7 @@ def concat(
     """
 
 
-def expand_dims(x: array, /, *, axis: int = 0) -> array:
+def expand_dims(x: array, /, axis: int) -> array:
     """
     Expands the shape of an array by inserting a new axis (dimension) of size one at the position specified by ``axis``.
 

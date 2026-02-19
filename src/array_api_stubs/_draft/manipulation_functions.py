@@ -79,26 +79,42 @@ def concat(
     """
 
 
-def expand_dims(x: array, /, *, axis: int = 0) -> array:
+def expand_dims(x: array, /, axis: Union[int, Tuple[int, ...]]) -> array:
     """
-    Expands the shape of an array by inserting a new axis of size one at the position specified by ``axis``.
+    Expands the shape of an array by inserting a new axis of size one at the position (or positions) specified by ``axis``.
 
     Parameters
     ----------
     x: array
         input array.
-    axis: int
-        axis position (zero-based). A valid ``axis`` **must** reside on the closed-interval ``[-N-1, N]``, where ``N`` is the number of axes in ``x``. If an axis is specified as a negative integer, the axis position at which to insert a singleton dimension **must** be computed as ``N + axis + 1``. Hence, if provided ``-1``, the resolved axis position **must** be ``N`` (i.e., a singleton dimension **must** be appended to the input array ``x``). If provided ``-N-1``, the resolved axis position **must** be ``0`` (i.e., a singleton dimension **must** be prepended to the input array ``x``). If provided an invalid axis, the function **must** raise an exception. Default: ``0``.
+    axis: Union[int, Tuple[int, ...]]
+        axis position(s) (zero-based). If ``axis`` is an integer, ``axis`` **must** be equivalent to the tuple ``(axis,)``. If ``axis`` is a tuple,
+
+        -   a valid axis position **must** reside on the half-open interval ``[-M, M)``, where ``M = N + len(axis)`` and ``N`` is the number of dimensions in ``x``.
+        -   if the i-th entry is a negative integer, the axis position of the inserted singleton dimension in the output array **must** be computed as ``M + axis[i]``.
+        -   each entry of ``axis`` must resolve to a unique positive axis position.
+        -   for each entry of ``axis``, the corresponding dimension in the expanded output array **must** be a singleton dimension.
+        -   for the remaining dimensions of the expanded output array, the output array dimensions **must** correspond to the dimensions of ``x`` in order.
+        -   if provided an invalid axis position, the function **must** raise an exception.
 
     Returns
     -------
     out: array
-        an expanded output array. **Must** have the same data type as ``x``.
+        an expanded output array. **Must** have the same data type as ``x``. If ``axis`` is an integer, the output array must have ``N + 1`` dimensions. If ``axis`` is a tuple, the output array must have ``N + len(axis)`` dimensions.
 
     Raises
     ------
     IndexError
         If provided an invalid ``axis``, an ``IndexError`` **should** be raised.
+
+    Notes
+    -----
+
+    -   Calling this function with a tuple of axis positions **must** be semantically equivalent to calling this function repeatedly with a single axis position only when the following three conditions are met:
+
+        -   each entry of the tuple is normalized to positive axis positions according to the number of dimensions in the expanded output array.
+        -   the normalized positive axis positions are sorted in ascending order.
+        -   the normalized positive axis positions are unique.
     """
 
 
