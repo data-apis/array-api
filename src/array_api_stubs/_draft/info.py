@@ -46,7 +46,7 @@ def __array_namespace_info__() -> Info:
       info.default_dtypes()
       # ...
 
-    .. versionadded: 2023.12
+    .. versionadded:: 2023.12
     """
 
 
@@ -66,7 +66,7 @@ def capabilities() -> Capabilities:
     Notes
     -----
 
-    .. versionadded: 2023.12
+    .. versionadded:: 2023.12
 
     .. versionchanged:: 2024.12
        Added support for querying the maximum number of supported dimensions.
@@ -87,7 +87,10 @@ def default_device() -> device:
 
     -   A conforming array library may return ``None`` if the default device is not predictable due to library specific device placement rules.
 
-    .. versionadded: 2023.12
+    .. versionadded:: 2023.12
+
+    .. versionchanged:: 2025.12
+       Clarified support for returning ``None`` when the default device is not predictable.
     """
 
 
@@ -120,7 +123,7 @@ def default_dtypes(
 
     -   Some array libraries have the concept of a device context manager, allowing library consumers to manage the current device context. When ``device`` is ``None``, libraries supporting a device context **must** return the default data types for the current device. For libraries without a context manager or supporting only a single device, those libraries **must** return the default data types for the default device.
 
-    .. versionadded: 2023.12
+    .. versionadded:: 2023.12
     """
 
 
@@ -170,7 +173,7 @@ def dtypes(
 
     -   Some array libraries have the concept of a device context manager, allowing library consumers to manage the current device context. When ``device`` is ``None``, libraries supporting a device context **must** return the supported data types for the current device. For libraries without a context manager or supporting only a single device, those libraries **must** return the supported data types for the default device.
 
-    .. versionadded: 2023.12
+    .. versionadded:: 2023.12
     """
 
 
@@ -191,5 +194,8 @@ def devices() -> Tuple[device, ...]:
     Notes
     -----
 
-    .. versionadded: 2023.12
+    .. versionadded:: 2023.12
+
+    .. versionchanged:: 2025.12
+       Changed the return value from a List to a Tuple.
     """
