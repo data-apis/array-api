@@ -1,0 +1,6 @@
+﻿.. currentmodule:: array_api
+
+atan2
+=====
+
+.. autofunction:: atan2

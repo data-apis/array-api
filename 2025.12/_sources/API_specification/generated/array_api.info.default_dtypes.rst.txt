@@ -1,0 +1,6 @@
+﻿.. currentmodule:: array_api.info
+
+default_dtypes
+==============
+
+.. autofunction:: default_dtypes

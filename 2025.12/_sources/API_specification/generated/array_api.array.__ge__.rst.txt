@@ -1,0 +1,6 @@
+﻿.. currentmodule:: array_api
+
+__ge__
+======
+
+.. automethod:: array.__ge__

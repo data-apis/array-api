@@ -1,0 +1,6 @@
+﻿.. currentmodule:: array_api
+
+__ne__
+======
+
+.. automethod:: array.__ne__

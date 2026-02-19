@@ -1,0 +1,6 @@
+﻿.. currentmodule:: array_api
+
+unique_values
+=============
+
+.. autofunction:: unique_values
