@@ -88,16 +88,10 @@ def expand_dims(x: array, /, axis: Union[int, Tuple[int, ...]]) -> array:
     x: array
         input array.
     axis: Union[int, Tuple[int, ...]]
-        axis position(s) (zero-based). If ``axis`` is an integer,
+        axis position(s) (zero-based). If ``axis`` is an integer, ``axis`` **must** be equivalent to the tuple ``(axis,)``. If ``axis`` is a tuple,
 
-        -   a valid axis position **must** reside on the closed-interval ``[-N-1, N]``, where ``N`` is the number of dimensions in ``x``.
-        -   if an axis position is specified as a negative integer, the axis position of the inserted singleton dimension in the output array **must** be computed as ``N + axis + 1``. For example, if provided ``-1``, the resolved axis position **must** be ``N`` (i.e., a singleton dimension **must** be appended to the input array ``x``). Similarly, if provided ``-N-1``, the resolved axis position **must** be ``0`` (i.e., a singleton dimension **must** be prepended to the input array ``x``).
-        -   if provided an invalid axis position, the function **must** raise an exception.
-
-        If ``axis`` is a tuple,
-
-        -   a valid axis position **must** reside on the closed-interval ``[-M-1, M]``, where ``M = N + len(axis) - 1`` and ``N`` is the number of dimensions in ``x``.
-        -   if an entry is a negative integer, the axis position of the inserted singleton dimension in the output array **must** be computed as ``M + axis + 1``.
+        -   a valid axis position **must** reside on the half-open interval ``[-M, M)``, where ``M = N + len(axis)`` and ``N`` is the number of dimensions in ``x``.
+        -   if the i-th entry is a negative integer, the axis position of the inserted singleton dimension in the output array **must** be computed as ``M + axis[i]``.
         -   each entry of ``axis`` must resolve to a unique positive axis position.
         -   for each entry of ``axis``, the corresponding dimension in the expanded output array **must** be a singleton dimension.
         -   for the remaining dimensions of the expanded output array, the output array dimensions **must** correspond to the dimensions of ``x`` in order.
