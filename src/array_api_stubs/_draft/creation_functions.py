@@ -481,6 +481,9 @@ def meshgrid(*arrays: array, indexing: Literal["xy", "ij"] = "xy") -> Tuple[arra
 
     .. versionchanged:: 2022.12
        Added complex data type support.
+
+    .. versionchanged:: 2025.12
+       Changed the return value from a List to a Tuple.
     """
 
 

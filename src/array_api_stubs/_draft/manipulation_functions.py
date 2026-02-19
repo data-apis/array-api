@@ -33,6 +33,12 @@ def broadcast_arrays(*arrays: array) -> Tuple[array, ...]:
     -------
     out: Tuple[array, ...]
         tuple of broadcasted arrays. Each array **must** have the same shape. Each array **must** have the same dtype as its corresponding input array.
+
+    Notes
+    -----
+
+    .. versionchanged:: 2025.12
+       Changed the return value from a List to a Tuple.
     """
 
 
@@ -143,6 +149,9 @@ def expand_dims(x: array, /, axis: Union[int, Tuple[int, ...]]) -> array:
         -   each entry of the tuple is normalized to positive axis positions according to the number of dimensions in the expanded output array.
         -   the normalized positive axis positions are sorted in ascending order.
         -   the normalized positive axis positions are unique.
+
+    .. versionchanged:: 2025.12
+       Added support for specifying a tuple of axis positions.
     """
 
 
@@ -209,6 +218,12 @@ def permute_dims(x: array, /, axes: Tuple[int, ...]) -> array:
     -------
     out: array
         an array containing the axes permutation. The returned array **must** have the same data type as ``x``.
+
+    Notes
+    -----
+
+    .. versionchanged:: 2025.12
+       Added support for negative axes.
     """
 
 

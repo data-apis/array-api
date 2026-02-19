@@ -171,6 +171,9 @@ def searchsorted(
 
     .. versionchanged:: 2024.12
        Fixed incorrect boundary conditions.
+
+    .. versionchanged:: 2025.12
+       Added scalar argument support.
     """
 
 

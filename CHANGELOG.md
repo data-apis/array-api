@@ -4,6 +4,77 @@
 
 This changelog is organized by specification version and notes all changes with respect to the previous version. Within the section for a specific version (e.g., v2022.12), separate sections are used for (a) changes to existing APIs and requirements, (b) new APIs and new requirements, and (c) errata.
 
+## v2025.12
+
+### Updates
+
+> Updates to existing APIs and requirements.
+
+#### Normative
+
+- Clarify guidance regarding device placement of returned output arrays ([gh-919](https://github.com/data-apis/array-api/pull/919))
+
+#### APIs
+
+- `__array_namespace__`: remove guidance recommending that the returned namespace only include those names which are part of this specification ([gh-931](https://github.com/data-apis/array-api/pull/931))
+- `__setitem__`: specify type promotion behavior when the `value` argument is an array ([gh-920](https://github.com/data-apis/array-api/pull/920))
+- `asarray`: clarify that behavior when providing a nested sequence is unspecified ([gh-917](https://github.com/data-apis/array-api/pull/917))
+- `clip`: clarify type promotion behavior when providing scalar values for `min` and/or `max` arguments ([gh-926](https://github.com/data-apis/array-api/pull/926))
+- `expand_dims`: add support for specifying a tuple of axis positions ([gh-988](https://github.com/data-apis/array-api/pull/988))
+- `info.default_device`: clarify support for `None` when the default device is not predictable ([gh-961](https://github.com/data-apis/array-api/pull/961))
+- `permute_dims`: add support for negative axes ([gh-980](https://github.com/data-apis/array-api/pull/980))
+
+##### Scalar Argument Support
+
+The following APIs were updated to support both scalar and array arguments for one or more arguments:
+
+- `searchsorted`: add scalar argument support ([gh-982](https://github.com/data-apis/array-api/pull/982))
+
+* * *
+
+### Additions
+
+> New APIs and requirements added to the specification.
+
+#### APIs
+
+The following APIs were added to the specification:
+
+- `broadcast_shapes`: broadcast one or more shapes against one another ([gh-983](https://github.com/data-apis/array-api/pull/983))
+- `isin`: test for each element in `x1` whether the element is in `x2` ([gh-959](https://github.com/data-apis/array-api/pull/959))
+
+#### Extensions
+
+The following APIs were added to optional specification extensions:
+
+- `linalg.eig`: return the eigenvalues and eigenvectors of a real or complex matrix ([gh-978](https://github.com/data-apis/array-api/pull/978))
+- `linalg.eigvals`: return the eigenvalues of a real or complex matrix ([gh-978](https://github.com/data-apis/array-api/pull/978))
+
+* * *
+
+### Breaking Changes
+
+The following is a list of breaking changes relative to the previous version of the specification:
+
+#### APIs
+
+- `broadcast_arrays`: return a tuple rather than a list ([gh-981](https://github.com/data-apis/array-api/pull/981))
+- `info.devices`: return a tuple rather than a list ([gh-981](https://github.com/data-apis/array-api/pull/981))
+- `meshgrid`: return a tuple rather than a list ([gh-981](https://github.com/data-apis/array-api/pull/981))
+
+* * *
+
+### Errata
+
+The following is a list of fixes and points of clarification with regard to the previous version of the specification:
+
+- `clip`: clarify type promotion behavior when providing scalar values for `min` and/or `max` arguments ([gh-926](https://github.com/data-apis/array-api/pull/926))
+- `linalg.eigh`: fix typing for output tuple ([gh-924](https://github.com/data-apis/array-api/pull/924))
+- `meshgrid`: fix typing for `indexing` argument ([gh-915](https://github.com/data-apis/array-api/pull/915))
+- `sqrt`: fix special case for complex-valued input ([gh-987](https://github.com/data-apis/array-api/pull/987))
+
+* * *
+
 ## v2024.12
 
 ### Updates
