@@ -1,5 +1,6 @@
 __all__ = [
     "broadcast_arrays",
+    "broadcast_shapes",
     "broadcast_to",
     "concat",
     "expand_dims",
@@ -32,6 +33,33 @@ def broadcast_arrays(*arrays: array) -> Tuple[array, ...]:
     -------
     out: Tuple[array, ...]
         tuple of broadcasted arrays. Each array **must** have the same shape. Each array **must** have the same dtype as its corresponding input array.
+    """
+
+
+def broadcast_shapes(*shapes: Tuple[Optional[int], ...]) -> Tuple[Optional[int], ...]:
+    """
+    Broadcasts one or more shapes against one another.
+
+    Parameters
+    ----------
+    shapes: Tuple[Optional[int], ...]
+        an arbitrary number of to-be broadcasted shapes.
+
+    Returns
+    -------
+    out: Tuple[Optional[int], ...]
+        a single broadcasted shape obtained by applying broadcasting rules (see :ref:`broadcasting`) to each of the input shapes against one another.
+
+    Raises
+    ------
+    ValueError
+        If provided shapes which are not broadcast compatible (see :ref:`broadcasting`), a ``ValueError`` **should** be raised.
+
+    Notes
+    -----
+
+    -   If not provided one or more arguments, the function **must** return an empty tuple.
+    -   Array-conforming libraries which build computation graphs (e.g., ndonnx and Dask) and which need to provide a mechanism for indicating dimensions of unknown size **may** accept non-integer values (e.g., ``None``). For these libraries, dimensions of unknown size **must** be propagated to the returned shape.
     """
 
 
