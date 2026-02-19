@@ -451,7 +451,7 @@ def linspace(
     """
 
 
-def meshgrid(*arrays: array, indexing: Literal["xy", "ij"] = "xy") -> List[array]:
+def meshgrid(*arrays: array, indexing: Literal["xy", "ij"] = "xy") -> Tuple[array, ...]:
     """
     Returns coordinate matrices from coordinate vectors.
 
@@ -464,8 +464,8 @@ def meshgrid(*arrays: array, indexing: Literal["xy", "ij"] = "xy") -> List[array
 
     Returns
     -------
-    out: List[array]
-        list of N arrays, where ``N`` is the number of provided one-dimensional input arrays. Each returned array must have rank ``N``. For ``N`` one-dimensional arrays having lengths ``Ni = len(xi)``,
+    out: Tuple[array, ...]
+        tuple of N arrays, where ``N`` is the number of provided one-dimensional input arrays. Each returned array must have rank ``N``. For ``N`` one-dimensional arrays having lengths ``Ni = len(xi)``,
 
         - if matrix indexing ``ij``, then each returned array must have the shape ``(N1, N2, N3, ..., Nn)``.
         - if Cartesian indexing ``xy``, then each returned array must have shape ``(N2, N1, N3, ..., Nn)``.
