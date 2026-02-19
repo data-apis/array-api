@@ -17,11 +17,11 @@ This changelog is organized by specification version and notes all changes with 
 #### APIs
 
 - `__array_namespace__`: remove guidance recommending that the returned namespace only include those names which are part of this specification ([gh-931](https://github.com/data-apis/array-api/pull/931))
+- `__array_namespace_info__().default_device`: clarify support for `None` when the default device is not predictable ([gh-961](https://github.com/data-apis/array-api/pull/961))
 - `__setitem__`: specify type promotion behavior when the `value` argument is an array ([gh-920](https://github.com/data-apis/array-api/pull/920))
 - `asarray`: clarify that behavior when providing a nested sequence is unspecified ([gh-917](https://github.com/data-apis/array-api/pull/917))
 - `clip`: clarify type promotion behavior when providing scalar values for `min` and/or `max` arguments ([gh-926](https://github.com/data-apis/array-api/pull/926))
 - `expand_dims`: add support for specifying a tuple of axis positions ([gh-988](https://github.com/data-apis/array-api/pull/988))
-- `info.default_device`: clarify support for `None` when the default device is not predictable ([gh-961](https://github.com/data-apis/array-api/pull/961))
 - `permute_dims`: add support for negative axes ([gh-980](https://github.com/data-apis/array-api/pull/980))
 
 ##### Scalar Argument Support
@@ -58,8 +58,8 @@ The following is a list of breaking changes relative to the previous version of 
 
 #### APIs
 
+- `__array_namespace_info__().devices`: return a tuple rather than a list ([gh-981](https://github.com/data-apis/array-api/pull/981))
 - `broadcast_arrays`: return a tuple rather than a list ([gh-981](https://github.com/data-apis/array-api/pull/981))
-- `info.devices`: return a tuple rather than a list ([gh-981](https://github.com/data-apis/array-api/pull/981))
 - `meshgrid`: return a tuple rather than a list ([gh-981](https://github.com/data-apis/array-api/pull/981))
 
 * * *
