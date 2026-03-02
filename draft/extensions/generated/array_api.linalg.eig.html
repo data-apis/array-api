@@ -48,14 +48,14 @@
     <link rel="apple-touch-icon" href="../../_static/images/apple-icon-152x152.png"/>
   
   
-    <title>eigvalsh &#8212; Python array API standard 2025.12 documentation</title>
+    <title>eig &#8212; Python array API standard DRAFT documentation</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=75810a84" />
     <link rel="stylesheet" type="text/css" href="../../_static/material.css?v=79c92029" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=e159c6a3" />
     <script src="../../_static/jquery.js?v=5d32c60e"></script>
     <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-    <script src="../../_static/documentation_options.js?v=50a9be24"></script>
+    <script src="../../_static/documentation_options.js?v=a088130d"></script>
     <script src="../../_static/doctools.js?v=888ff710"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -63,8 +63,8 @@
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="inv" href="array_api.linalg.inv.html" />
-    <link rel="prev" title="eigvals" href="array_api.linalg.eigvals.html" />
+    <link rel="next" title="eigh" href="array_api.linalg.eigh.html" />
+    <link rel="prev" title="diagonal" href="array_api.linalg.diagonal.html" />
   
     <link rel="apple-touch-icon" href="../../_static/images/apple-icon-152x152.png"/>
   
@@ -85,12 +85,12 @@
   <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer">
   <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search">
   <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
-  <a href="#extensions/generated/array_api.linalg.eigvalsh" tabindex="1" class="md-skip"> Skip to content </a>
+  <a href="#extensions/generated/array_api.linalg.eig" tabindex="1" class="md-skip"> Skip to content </a>
   <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
     <div class="md-flex navheader">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../../index.html" title="Python array API standard 2025.12 documentation"
+        <a href="../../index.html" title="Python array API standard DRAFT documentation"
            class="md-header-nav__button md-logo">
           
             <i class="md-icon">&#xe869</i>
@@ -102,8 +102,8 @@
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          <span class="md-header-nav__topic">Python array API standard 2025.12</span>
-          <span class="md-header-nav__topic"> eigvalsh </span>
+          <span class="md-header-nav__topic">Python array API standard DRAFT</span>
+          <span class="md-header-nav__topic"> eig </span>
         </div>
       </div>
       <div class="md-flex__cell md-flex__cell--shrink">
@@ -176,13 +176,13 @@
               <div class="md-sidebar__inner">
                 <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="../../index.html" title="Python array API standard 2025.12 documentation" class="md-nav__button md-logo">
+    <a href="../../index.html" title="Python array API standard DRAFT documentation" class="md-nav__button md-logo">
       
         <i class="md-icon">&#xe869</i>
       
     </a>
     <a href="../../index.html"
-       title="Python array API standard 2025.12 documentation">Python array API standard 2025.12</a>
+       title="Python array API standard DRAFT documentation">Python array API standard DRAFT</a>
   </label>
   
 
@@ -327,9 +327,9 @@
 <nav class="md-nav md-nav--secondary">
     <label class="md-nav__title" for="__toc">"Contents"</label>
   <ul class="md-nav__list" data-md-scrollfix="">
-        <li class="md-nav__item"><a href="#extensions-generated-array-api-linalg-eigvalsh--page-root" class="md-nav__link">eigvalsh</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#extensions-generated-array-api-linalg-eig--page-root" class="md-nav__link">eig</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#array_api.linalg.eigvalsh" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">eigvalsh()</span></code></a>
+        <li class="md-nav__item"><a href="#array_api.linalg.eig" class="md-nav__link"><code class="docutils literal notranslate"><span class="pre">eig()</span></code></a>
         </li></ul>
             </nav>
         </li>
@@ -342,40 +342,68 @@
         <div class="md-content">
           <article class="md-content__inner md-typeset" role="main">
             
-  <section id="eigvalsh">
-<h1 id="extensions-generated-array-api-linalg-eigvalsh--page-root">eigvalsh<a class="headerlink" href="#extensions-generated-array-api-linalg-eigvalsh--page-root" title="Link to this heading">¶</a></h1>
+  <section id="eig">
+<h1 id="extensions-generated-array-api-linalg-eig--page-root">eig<a class="headerlink" href="#extensions-generated-array-api-linalg-eig--page-root" title="Link to this heading">¶</a></h1>
 <dl class="py function">
-<dt class="sig sig-object py" id="array_api.linalg.eigvalsh">
-<span class="sig-name descname"><span class="pre">eigvalsh</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">array</span></span></span><a class="headerlink" href="#array_api.linalg.eigvalsh" title="Link to this definition">¶</a></dt>
-<dd><p>Returns the eigenvalues of a complex Hermitian or real symmetric matrix (or a stack of matrices) <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
-<p>If <code class="docutils literal notranslate"><span class="pre">x</span></code> is real-valued, let <span class="math notranslate nohighlight">\(\mathbb{K}\)</span> be the set of real numbers <span class="math notranslate nohighlight">\(\mathbb{R}\)</span>, and, if <code class="docutils literal notranslate"><span class="pre">x</span></code> is complex-valued, let <span class="math notranslate nohighlight">\(\mathbb{K}\)</span> be the set of complex numbers <span class="math notranslate nohighlight">\(\mathbb{C}\)</span>.</p>
-<p>The <strong>eigenvalues</strong> of a complex Hermitian or real symmetric matrix <span class="math notranslate nohighlight">\(x \in\ \mathbb{K}^{n \times n}\)</span> are defined as the roots (counted with multiplicity) of the polynomial <span class="math notranslate nohighlight">\(p\)</span> of degree <span class="math notranslate nohighlight">\(n\)</span> given by</p>
+<dt class="sig sig-object py" id="array_api.linalg.eig">
+<span class="sig-name descname"><span class="pre">eig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">array</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">→</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">array</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">array</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#array_api.linalg.eig" title="Link to this definition">¶</a></dt>
+<dd><p>Returns eigenvalues and eigenvectors of a real or complex matrix (or stack of matrices) <code class="docutils literal notranslate"><span class="pre">x</span></code>.</p>
+<p>Let <span class="math notranslate nohighlight">\(\mathbb{K}\)</span> be the union of the set of real numbers <span class="math notranslate nohighlight">\(\mathbb{R}\)</span>
+and the set of complex numbers, <span class="math notranslate nohighlight">\(\mathbb{C}\)</span>.</p>
+<p>A real or complex value <span class="math notranslate nohighlight">\(lambda \in \mathbb{K}\)</span> is an <strong>eigenvalue</strong> of a real
+or complex matrix <span class="math notranslate nohighlight">\(x \in \mathbb{K}^{n \times n}\)</span> if there exists a real or complex vector
+<span class="math notranslate nohighlight">\(v \in \mathbb{K}^{n}\)</span>, such that</p>
 <div class="math notranslate nohighlight">
+\[x v = \lambda v\]</div>
+<p>Then, <span class="math notranslate nohighlight">\(v\)</span> is referred to as an <strong>eigenvector</strong> of <span class="math notranslate nohighlight">\(x\)</span>, corresponding to
+the eigenvalue <span class="math notranslate nohighlight">\(\lambda\)</span>.</p>
+<p>A general matrix <span class="math notranslate nohighlight">\(x \in \mathbb{K}^{n \times n}\)</span></p>
+<ul>
+<li><p>has <span class="math notranslate nohighlight">\(n\)</span> eigenvalues, which are defined as the roots (counted with multiplicity) of the
+polynomial <span class="math notranslate nohighlight">\(p\)</span> of degree <span class="math notranslate nohighlight">\(n\)</span> given by</p>
+<blockquote>
+<div><div class="math notranslate nohighlight">
 \[p(\lambda) = \operatorname{det}(x - \lambda I_n)\]</div>
-<p>where <span class="math notranslate nohighlight">\(\lambda \in \mathbb{R}\)</span> and where <span class="math notranslate nohighlight">\(I_n\)</span> is the <em>n</em>-dimensional identity matrix.</p>
+</div></blockquote>
+</li>
+<li><p>does not in general have <span class="math notranslate nohighlight">\(n\)</span> linearly independent eigenvectors if it has
+eigenvalues with multiplicity larger than one.</p></li>
+</ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The eigenvalues of a complex Hermitian or real symmetric matrix are always real.</p>
+<p>The eigenvalues of a non-symmetric real matrix are in general complex: for
+:math:x in mathbb{R}^{n times n}`, the eigenvalues, <span class="math notranslate nohighlight">\(\lambda \in \mathbb{C}\)</span>,
+may or may not reside on the real axis of the complex plane.</p>
 </div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Whether an array library explicitly checks whether an input array is Hermitian or a symmetric matrix (or a stack of matrices) is implementation-defined.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The eigenvectors of a general matrix are not unique and are not continuous with respect to <code class="docutils literal notranslate"><span class="pre">x</span></code>. Because eigenvectors are not unique, different hardware and software may compute different eigenvectors.</p>
+<p>For eigenvalues of multiplity <span class="math notranslate nohighlight">\(s=1\)</span>, the non-uniqueness stems from the fact that multiplying an eigenvector by <span class="math notranslate nohighlight">\(-1\)</span> when <code class="docutils literal notranslate"><span class="pre">x</span></code> is real-valued and by <span class="math notranslate nohighlight">\(e^{\phi j}\)</span> (<span class="math notranslate nohighlight">\(\phi \in \mathbb{R}\)</span>) when <code class="docutils literal notranslate"><span class="pre">x</span></code> is complex produces another set of valid eigenvectors.</p>
+<p>For eigenvalues of multiplity <span class="math notranslate nohighlight">\(s &gt; 1\)</span>, the <span class="math notranslate nohighlight">\(s\)</span> computed eigenvectors may be repeated or
+have entries differ by an order of machine epsilon for the data type of <span class="math notranslate nohighlight">\(x\)</span>.</p>
 </div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>x</strong> (<em>array</em>) – input array having shape <code class="docutils literal notranslate"><span class="pre">(...,</span> <span class="pre">M,</span> <span class="pre">M)</span></code> and whose innermost two dimensions form square matrices. Should have a floating-point data type.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>out</strong> (<em>array</em>) – an array containing the computed eigenvalues. The returned array must have shape <code class="docutils literal notranslate"><span class="pre">(...,</span> <span class="pre">M)</span></code> and have a real-valued floating-point data type whose precision matches the precision of <code class="docutils literal notranslate"><span class="pre">x</span></code> (e.g., if <code class="docutils literal notranslate"><span class="pre">x</span></code> is <code class="docutils literal notranslate"><span class="pre">complex128</span></code>, then must have a <code class="docutils literal notranslate"><span class="pre">float64</span></code> data type).</p>
+<dd class="field-even"><p><strong>out</strong> (<em>Tuple[array, array]</em>) – a namedtuple (<code class="docutils literal notranslate"><span class="pre">eigenvalues</span></code>, <code class="docutils literal notranslate"><span class="pre">eigenvectors</span></code>) whose</p>
+<ul class="simple">
+<li><p>first element must have the field name <code class="docutils literal notranslate"><span class="pre">eigenvalues</span></code> (corresponding to <span class="math notranslate nohighlight">\(\lambda\)</span> above) and must be an array consisting of computed eigenvalues. The array containing the eigenvalues must have shape <code class="docutils literal notranslate"><span class="pre">(...,</span> <span class="pre">M)</span></code> and must have a complex floating-point array data type having the same precision as that of <code class="docutils literal notranslate"><span class="pre">x</span></code> (e.g., if <code class="docutils literal notranslate"><span class="pre">x</span></code> has a <code class="docutils literal notranslate"><span class="pre">float32</span></code> data type, <code class="docutils literal notranslate"><span class="pre">eigenvalues</span></code> must have the <code class="docutils literal notranslate"><span class="pre">complex64</span></code> data type; if <code class="docutils literal notranslate"><span class="pre">x</span></code> has a <code class="docutils literal notranslate"><span class="pre">float64</span></code> data type, <code class="docutils literal notranslate"><span class="pre">eigenvalues</span></code> have the <code class="docutils literal notranslate"><span class="pre">complex128</span></code> data type).</p></li>
+<li><p>second element must have the field name <code class="docutils literal notranslate"><span class="pre">eigenvectors</span></code> (corresponding to <span class="math notranslate nohighlight">\(v\)</span> above) and must be an array where the columns of the inner most matrices contain the computed eigenvectors. These matrices must be orthogonal. The array containing the eigenvectors must have shape <code class="docutils literal notranslate"><span class="pre">(...,</span> <span class="pre">M,</span> <span class="pre">M)</span></code> and must have the same data type as <code class="docutils literal notranslate"><span class="pre">eigenvalues</span></code>.</p></li>
+</ul>
 </dd>
 </dl>
 <p class="rubric">Notes</p>
+<ul class="simple">
+<li><p>Eigenvalue sort order is left unspecified and is thus implementation-dependent.</p></li>
+</ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Eigenvalue sort order is left unspecified and is thus implementation-dependent.</p>
+<p>For real symmetric or complex Hermitian matrices, prefer using the <code class="docutils literal notranslate"><span class="pre">eigh</span></code> routine.</p>
 </div>
-<div class="versionchanged">
-<p><span class="versionmodified changed">Changed in version 2022.12: </span>Added complex data type support.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 2025.12.</span></p>
 </div>
 </dd></dl>
 </section>
@@ -390,7 +418,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
           
-            <a href="array_api.linalg.eigvals.html" title="eigvals"
+            <a href="array_api.linalg.diagonal.html" title="diagonal"
                class="md-flex md-footer-nav__link md-footer-nav__link--prev"
                rel="prev">
               <div class="md-flex__cell md-flex__cell--shrink">
@@ -399,17 +427,17 @@
               <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
                 <span class="md-flex__ellipsis">
                   <span
-                      class="md-footer-nav__direction"> "Previous" </span> eigvals </span>
+                      class="md-footer-nav__direction"> "Previous" </span> diagonal </span>
               </div>
             </a>
           
           
-            <a href="array_api.linalg.inv.html" title="inv"
+            <a href="array_api.linalg.eigh.html" title="eigh"
                class="md-flex md-footer-nav__link md-footer-nav__link--next"
                rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
                 class="md-flex__ellipsis"> <span
-                class="md-footer-nav__direction"> "Next" </span> inv </span>
+                class="md-footer-nav__direction"> "Next" </span> eigh </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink"><i
                 class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>

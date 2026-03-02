@@ -1,0 +1,6 @@
+﻿.. currentmodule:: array_api.linalg
+
+eig
+===
+
+.. autofunction:: eig
