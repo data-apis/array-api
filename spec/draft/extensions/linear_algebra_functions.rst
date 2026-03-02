@@ -95,7 +95,9 @@ A conforming implementation of this ``linalg`` extension must provide and suppor
    cross
    det
    diagonal
+   eig
    eigh
+   eigvals
    eigvalsh
    inv
    matmul

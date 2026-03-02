@@ -3,7 +3,9 @@ __all__ = [
     "cross",
     "det",
     "diagonal",
+    "eig",
     "eigh",
+    "eigvals",
     "eigvalsh",
     "inv",
     "matmul",
@@ -163,6 +165,75 @@ def diagonal(x: array, /, *, offset: int = 0) -> array:
     """
 
 
+def eig(x: array, /) -> Tuple[array, array]:
+    r"""
+    Returns eigenvalues and eigenvectors of a real or complex matrix (or stack of matrices) ``x``.
+
+    Let :math:`\mathbb{K}` be the union of the set of real numbers :math:`\mathbb{R}`
+    and the set of complex numbers, :math:`\mathbb{C}`.
+
+    A real or complex value :math:`lambda \in \mathbb{K}` is an **eigenvalue** of a real
+    or complex matrix :math:`x \in \mathbb{K}^{n \times n}` if there exists a real or complex vector
+    :math:`v \in \mathbb{K}^{n}`, such that
+
+    .. math::
+
+            x v = \lambda v
+
+    Then, :math:`v` is referred to as an **eigenvector** of :math:`x`, corresponding to
+    the eigenvalue :math:`\lambda`.
+
+    A general matrix :math:`x \in \mathbb{K}^{n \times n}`
+
+    - has :math:`n` eigenvalues, which are defined as the roots (counted with multiplicity) of the
+      polynomial :math:`p` of degree :math:`n` given by
+
+       .. math::
+
+          p(\lambda) = \operatorname{det}(x - \lambda I_n)
+
+    - does not in general have :math:`n` linearly independent eigenvectors if it has
+      eigenvalues with multiplicity larger than one.
+
+    .. note::
+       The eigenvalues of a non-symmetric real matrix are in general complex: for
+       :math:x \in \mathbb{R}^{n \times n}`, the eigenvalues, :math:`\lambda \in \mathbb{C}`,
+       may or may not reside on the real axis of the complex plane.
+
+    .. warning::
+       The eigenvectors of a general matrix are not unique and are not continuous with respect to ``x``. Because eigenvectors are not unique, different hardware and software may compute different eigenvectors.
+
+       For eigenvalues of multiplity :math:`s=1`, the non-uniqueness stems from the fact that multiplying an eigenvector by :math:`-1` when ``x`` is real-valued and by :math:`e^{\phi j}` (:math:`\phi \in \mathbb{R}`) when ``x`` is complex produces another set of valid eigenvectors.
+
+       For eigenvalues of multiplity :math:`s > 1`, the :math:`s` computed eigenvectors may be repeated or
+       have entries differ by an order of machine epsilon for the data type of :math:`x`.
+
+    Parameters
+    ----------
+    x: array
+        input array having shape ``(..., M, M)`` and whose innermost two dimensions form square matrices. Should have a floating-point data type.
+
+    Returns
+    -------
+    out: Tuple[array, array]
+        a namedtuple (``eigenvalues``, ``eigenvectors``) whose
+
+        -   first element must have the field name ``eigenvalues`` (corresponding to :math:`\lambda` above) and must be an array consisting of computed eigenvalues. The array containing the eigenvalues must have shape ``(..., M)`` and must have a complex floating-point array data type having the same precision as that of ``x`` (e.g., if ``x`` has a ``float32`` data type, ``eigenvalues`` must have the ``complex64`` data type; if ``x`` has a ``float64`` data type, ``eigenvalues`` have the ``complex128`` data type).
+
+        -   second element must have the field name ``eigenvectors`` (corresponding to :math:`v` above) and must be an array where the columns of the inner most matrices contain the computed eigenvectors. These matrices must be orthogonal. The array containing the eigenvectors must have shape ``(..., M, M)`` and must have the same data type as ``eigenvalues``.
+
+    Notes
+    -----
+
+    -   Eigenvalue sort order is left unspecified and is thus implementation-dependent.
+
+    .. note::
+        For real symmetric or complex Hermitian matrices, prefer using the ``eigh`` routine.
+
+    .. versionadded:: 2025.12
+    """
+
+
 def eigh(x: array, /) -> Tuple[array, array]:
     r"""
     Returns an eigenvalue decomposition of a complex Hermitian or real symmetric matrix (or a stack of matrices) ``x``.
@@ -248,75 +319,6 @@ def eigvalsh(x: array, /) -> array:
 
     .. versionchanged:: 2022.12
        Added complex data type support.
-    """
-
-
-def eig(x: array, /) -> Tuple[array, array]:
-    r"""
-    Returns eigenvalues and eigenvectors of a real or complex matrix (or stack of matrices) ``x``.
-
-    Let :math:`\mathbb{K}` be the union of the set of real numbers :math:`\mathbb{R}`
-    and the set of complex numbers, :math:`\mathbb{C}`.
-
-    A real or complex value :math:`lambda \in \mathbb{K}` is an **eigenvalue** of a real
-    or complex matrix :math:`x \in \mathbb{K}^{n \times n}` if there exists a real or complex vector
-    :math:`v \in \mathbb{K}^{n}`, such that
-
-    .. math::
-
-            x v = \lambda v
-
-    Then, :math:`v` is referred to as an **eigenvector** of :math:`x`, corresponding to
-    the eigenvalue :math:`\lambda`.
-
-    A general matrix :math:`x \in \mathbb{K}^{n \times n}`
-
-    - has :math:`n` eigenvalues, which are defined as the roots (counted with multiplicity) of the
-      polynomial :math:`p` of degree :math:`n` given by
-
-       .. math::
-
-          p(\lambda) = \operatorname{det}(x - \lambda I_n)
-
-    - does not in general have :math:`n` linearly independent eigenvectors if it has
-      eigenvalues with multiplicity larger than one.
-
-    .. note::
-       The eigenvalues of a non-symmetric real matrix are in general complex: for
-       :math:x \in \mathbb{R}^{n \times n}`, the eigenvalues, :math:`\lambda \in \mathbb{C}`,
-       may or may not reside on the real axis of the complex plane.
-
-    .. warning::
-       The eigenvectors of a general matrix are not unique and are not continuous with respect to ``x``. Because eigenvectors are not unique, different hardware and software may compute different eigenvectors.
-
-       For eigenvalues of multiplity :math:`s=1`, the non-uniqueness stems from the fact that multiplying an eigenvector by :math:`-1` when ``x`` is real-valued and by :math:`e^{\phi j}` (:math:`\phi \in \mathbb{R}`) when ``x`` is complex produces another set of valid eigenvectors.
-
-       For eigenvalues of multiplity :math:`s > 1`, the :math:`s` computed eigenvectors may be repeated or
-       have entries differ by an order of machine epsilon for the data type of :math:`x`.
-
-    Parameters
-    ----------
-    x: array
-        input array having shape ``(..., M, M)`` and whose innermost two dimensions form square matrices. Should have a floating-point data type.
-
-    Returns
-    -------
-    out: Tuple[array, array]
-        a namedtuple (``eigenvalues``, ``eigenvectors``) whose
-
-        -   first element must have the field name ``eigenvalues`` (corresponding to :math:`\lambda` above) and must be an array consisting of computed eigenvalues. The array containing the eigenvalues must have shape ``(..., M)`` and must have a complex floating-point array data type having the same precision as that of ``x`` (e.g., if ``x`` has a ``float32`` data type, ``eigenvalues`` must have the ``complex64`` data type; if ``x`` has a ``float64`` data type, ``eigenvalues`` have the ``complex128`` data type).
-
-        -   second element must have the field name ``eigenvectors`` (corresponding to :math:`v` above) and must be an array where the columns of the inner most matrices contain the computed eigenvectors. These matrices must be orthogonal. The array containing the eigenvectors must have shape ``(..., M, M)`` and must have the same data type as ``eigenvalues``.
-
-    Notes
-    -----
-
-    -   Eigenvalue sort order is left unspecified and is thus implementation-dependent.
-
-    .. note::
-        For real symmetric or complex Hermitian matrices, prefer using the ``eigh`` routine.
-
-    .. versionadded:: 2025.12
     """
 
 
