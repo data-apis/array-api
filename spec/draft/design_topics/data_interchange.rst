@@ -92,8 +92,9 @@ DLPack C Exchange API
 DLPack 1.3 introduces a C-level exchange API that can be used to speed up
 data exchange between arrays at the C-extension level. This API is available via
 the ``type(array_instance).__dlpack_c_exchange_api__`` attribute on the array type object.
+This is a static global object shared across all the array instances of the same type.
 For more details, see the `Python specification of DLPack <https://dmlc.github.io/dlpack/latest/python_spec.html>`__
-We recommend consumer libraries to start first using the python level ``__dlpack__`` first which will covers
+We recommend consumer libraries to start first using the Python-level ``__dlpack__`` first which will covers
 most cases, then start to use the C-level ``__dlpack_c_exchange_api__`` for performance critical cases.
 
 

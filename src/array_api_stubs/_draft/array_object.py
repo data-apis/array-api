@@ -21,7 +21,7 @@ class _array:
     Attributes
     ----------
     __dlpack_c_exchange_api__: PyCapsule
-        An optional static array type attribute store in ``type(array_instance).__dlpack_c_exchange_api__``
+        An optional static array type attribute stored in ``type(array_instance).__dlpack_c_exchange_api__``
         that can be used to retrieve the DLPack C-API exchange API struct in DLPack 1.3 or later to speed up
         exchange of array data at the C extension level without going through Python-level exchange.
         See :ref:`data-interchange` section for more details.
