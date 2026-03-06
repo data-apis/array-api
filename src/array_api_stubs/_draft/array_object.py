@@ -119,10 +119,10 @@ class _array:
            Limiting the transpose to two-dimensional arrays (matrices) deviates from the NumPy et al practice of reversing all axes for arrays having more than two-dimensions. This is intentional, as reversing all axes was found to be problematic (e.g., conflicting with the mathematical definition of a transpose which is limited to matrices; not operating on batches of matrices; et cetera). In order to reverse all axes, one is recommended to use the functional ``permute_dims`` interface found in this specification.
         """
 
-
     @property
     def __dlpack_c_exchange_api__(self: array) -> PyCapsule:
         """
+        Object containing the DLPack C-API exchange API struct.
 
         An optional static array type attribute stored in ``type(array_instance).__dlpack_c_exchange_api__``
         that can be used to retrieve the DLPack C-API exchange API struct in DLPack 1.3 or later to speed up
@@ -133,6 +133,7 @@ class _array:
         -------
         out: PyCapsule
             The PyCapsule object containing the DLPack C-API exchange API struct.
+
 
         .. note::
            This is a static global object shared across all the array instances of the same type.
