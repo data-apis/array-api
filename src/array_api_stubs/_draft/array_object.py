@@ -26,6 +26,7 @@ class _array:
         exchange of array data at the C extension level without going through Python-level exchange.
         See :ref:`data-interchange` section for more details.
     """
+
     # use None for placeholder
     __dlpack_c_exchange_api__: PyCapsule = None
 
