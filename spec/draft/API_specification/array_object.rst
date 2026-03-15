@@ -273,6 +273,7 @@ Attributes
    array.shape
    array.size
    array.T
+   array.__dlpack_c_exchange_api__
 
 -------------------------------------------------
 
