@@ -1,0 +1,6 @@
+﻿.. currentmodule:: array_api
+
+__dlpack_c_exchange_api__
+=========================
+
+.. autoproperty:: array.__dlpack_c_exchange_api__
