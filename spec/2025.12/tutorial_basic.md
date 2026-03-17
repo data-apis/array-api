@@ -108,5 +108,51 @@ def is_converged(xprev, x, N, tol):
 
 At this point the actual execution depends only on `xp` namespace,
 and replacing that one variable allow us to switch from e.g. NumPy arrays
-to a JAX execution on a GPU. This allows us to be more flexible, and, for
-example use lazy evaluation and JIT compile a loop body with JAX's JIT compilation.
+to a JAX execution on a GPU. This lets us be more flexible, and, for example,
+use lazy evaluation and JIT compile a loop body with JAX's JIT compilation:
+
+```python
+import jax
+import jax.numpy as jnp
+
+xp = jnp
+
+def hits(G, max_iter=100, tol=1.0e-8, normalized=True):
+    N = len(G)
+    h = xp.full((N, 1), 1.0 / N)
+    A = xp.asarray(G.A)
+    # Power iteration: make up to max_iter iterations
+    for _i in range(max_iter):
+        h, a, conv = loop_body(h, A, N, tol)
+        if conv:
+            break
+    else:
+        raise Exception("Didn't converge")
+    if normalized:
+        h = h / xp.sum(xp.abs(h))
+        a = a / xp.sum(xp.abs(a))
+    return h, a
+
+@jax.jit
+def loop_body(hprev, A, N, tol):
+    a = hprev.mT @ A
+    h = A @ a.mT
+    h = h / xp.max(h)
+    conv = is_converged(hprev, h, N, tol)
+    return h, a, conv
+
+def is_converged(xprev, x, N, tol):
+    err = xp.sum(xp.abs(x - xprev))
+    return err < xp.asarray(N * tol)
+
+if __name__ == "__main__":
+
+    class Graph():
+        def __init__(self):
+            self.A = xp.ones((10, 10))
+        def __len__(self):
+            return len(self.A)
+
+    G = Graph()
+    h, a = hits(G)
+```
