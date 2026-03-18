@@ -31,6 +31,7 @@ a set of tools and packages to help you with the migration process:
 ### Array API Compat
 
 GitHub: [array-api-compat](https://github.com/data-apis/array-api-compat)
+
 User group: Array Consumers
 
 Although NumPy, Dask, CuPy, and PyTorch support the Array API Standard, there
@@ -46,6 +47,7 @@ API while having access to the standard compatible one.
 ### Array API Strict
 
 GitHub: [array-api-strict](https://github.com/data-apis/array-api-strict)
+
 User group: Array Consumers, Array Producers (for testing)
 
 `array-api-strict` is a library that provides a strict and minimal
@@ -63,6 +65,7 @@ array provider to ensure your code uses API compliant with the standard.
 ### Array API Test
 
 GitHub: [array-api-tests](https://github.com/data-apis/array-api-tests)
+
 User group: Array Producers
 
 `array-api-tests` is a collection of tests that can be used to verify the
@@ -77,6 +80,7 @@ standard and can be used with compatible array consumers libraries.
 ### Array API Extra
 
 GitHub: [array-api-extra](https://github.com/data-apis/array-api-extra)
+
 User group: Array Consumers
 
 `array-api-extra` is a collection of additional utilities and tools that are
