@@ -176,8 +176,10 @@ return np.dot(c, b)
 The first step should be as simple as assigning `np` namespace to a dedicated
 namespace variable. The convention in the ecosystem is to name it `xp`. Then
 making sure that each method and function call is something that Array API
-supports is vital. `dot` is present in the NumPy's API but the standard doesn't
-support it. Let's use `tensordot` instead - both NumPy and the standard define it:
+supports is vital. `dot` is present in the NumPy's API but the standard
+doesn't support it. For the sake of simplicity let's assume both `c` and `b`
+are `ndim=2`, therefore we select `tensordot` instead - both NumPy and the
+standard define it:
 
 ```python
 import numpy as np
