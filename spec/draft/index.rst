@@ -31,6 +31,13 @@ Contents
    benchmark_suite
 
 .. toctree::
+   :caption: Guides and Tutorials
+   :maxdepth: 1
+
+   migration_guide
+   tutorial_basic
+
+.. toctree::
    :caption: Other
    :maxdepth: 1
 
