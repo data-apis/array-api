@@ -72,7 +72,7 @@ User group: Array Producers
 compliance of your library with the Array API Standard. It includes tests
 for array producers, covering a wide range of functionalities and use cases.
 By running these tests, you can ensure that your library adheres to the
-standard and can be used with compatible array consumers libraries.
+standard and can be used with compatible array consumer libraries.
 
 
 (array-api-extra)=
@@ -115,18 +115,18 @@ There are two main ways to test your API for compliance: either using
 {ref}`array-api-tests` is a test suite which verifies that your API
 adheres to the standard. For each function or method, it confirms
 it's importable, verifies the signature, generates multiple test
-cases with [hypothesis](https://hypothesis.readthedocs.io/en/latest/)
+cases with the [hypothesis](https://hypothesis.readthedocs.io/en/latest/)
 package, and runs assertions on the outputs.
 
 The setup details are enclosed in the GitHub repository, so here we
 cover only the minimal workflow:
 
-1. Install your package, for example in editable mode.
-2. Clone `array-api-tests`, and set `ARRAY_API_TESTS_MODULE` environment
+1. Install your package (e.g., in editable mode).
+2. Clone `array-api-tests`, and set the `ARRAY_API_TESTS_MODULE` environment
    variable to your package import name.
-3. Inside the `array-api-tests` directory run `pytest` command. There are
+3. Inside the `array-api-tests` directory run the command for running pytest: `pytest`. There are
    multiple useful options delivered by the test suite. A few worth mentioning:
-   - `--max-examples=1000` - maximal number of test cases to generate by the
+   - `--max-examples=1000` - maximal number of test cases to generate when using
      hypothesis. This allows you to balance between execution time of the test
      suite and thoroughness of the testing. It's advised to use as many examples
      as the time buget can fit. Each test case is a random combination of
@@ -136,7 +136,7 @@ cover only the minimal workflow:
      to fail. It's impossible to get the whole API perfectly implemented on a
      first try, so tracking what still fails gives you more control over the
      state of your API.
-   - `-o xfail_strict=<bool>` is often used with the previous one. If a test
+   - `-o xfail_strict=<bool>` is often used with the previous option. If a test
      expected to fail actually passes (`XPASS`), then you can decide whether
      to ignore that fact or raise it as an error.
    - `--skips-file` for skipping tests. At times, some failing tests might stall
@@ -144,19 +144,19 @@ cover only the minimal workflow:
      option is to skip these for the time being.
 
 We strongly advise you to embed this setup in your CI as well. This will allow
-you to monitor the coverage live, and make sure new changes don't break existing
-APIs. For a reference, here's a [NumPy Array API Tests CI setup](https://github.com/numpy/numpy/blob/581d10f43b539a189a2d37856e5130464de9e5f6/.github/workflows/linux.yml#L296).
+you to continuously monitor Array API coverage, and make sure new changes don't break existing
+APIs. As a reference, see [NumPy's Array API Tests CI setup](https://github.com/numpy/numpy/blob/581d10f43b539a189a2d37856e5130464de9e5f6/.github/workflows/linux.yml#L296).
 
 
 #### Array API Strict
 
-A simpler, and more manual, way of testing the Array API coverage is to
+A simpler, and more manual, way of testing Array API coverage is to
 run your API calls along with the {ref}`array-api-strict` Python implementation.
 
-This way you can ensure the outputs coming from your API match the minimal
+This way, you can ensure that the outputs coming from your API match the minimal
 reference implementation. Bear in mind, however, that you need to write
-the tests cases yourself, so you need to also take into account the edge
-cases as well.
+the tests cases yourself, so you need to also take into account any applicable edge
+cases.
 
 
 (array-consumers)=
@@ -177,12 +177,12 @@ c = np.mean(a, axis=0)
 return np.dot(c, b)
 ```
 
-The first step should be as simple as assigning `np` namespace to a dedicated
-namespace variable. The convention in the ecosystem is to name it `xp`. Then
-making sure that each method and function call is something that Array API
-supports is vital. `dot` is present in the NumPy's API but the standard
-doesn't support it. For the sake of simplicity let's assume both `c` and `b`
-are `ndim=2`, therefore we select `tensordot` instead - both NumPy and the
+The first step should be as simple as assigning the `np` namespace to a dedicated
+namespace variable. The convention used in the ecosystem is to name it `xp`. Then,
+it is vital to ensure that each method and function call is something that the Array API
+supports. For example, `dot` is present in the NumPy's API, but the standard
+doesn't support it. For the sake of simplicity, let's assume both `c` and `b`
+are `ndim=2`; therefore, we select `tensordot` instead, as both NumPy and the
 standard define it:
 
 ```python
@@ -196,8 +196,8 @@ c = xp.mean(a, axis=0)
 return xp.tensordot(c, b, axes=1)
 ```
 
-Then replacing one backend with another one should rely on providing a different
-namespace, such as: `xp = torch`, e.g. via environment variable. This can be useful
+At this point, replacing one backend with another one should only require providing a different
+namespace, such as `xp = torch` (e.g., via an environment variable). This can be useful
 if you're writing a script or in your custom software. The other alternatives are:
 
 - If you are building a library where the backend is determined by input arrays,
@@ -211,8 +211,8 @@ if you're writing a script or in your custom software. The other alternatives ar
     return xp.arange(scalar1, scalar2) @ array1
   ```
 - For a function that accepts scalars and returns arrays, use namespace `xp` as
-  a parameter in the signature. Then enforcing objects to be of type by the
-  provided backend can be achieved with `arg1 = xp.asarray(arg1)` for each input:
+  a parameter in the signature. Enforcing objects to have the same type as the
+  provided backend can then be achieved with `arg1 = xp.asarray(arg1)` for each input:
   ```python
   def func(s1, s2, xp):
     return xp.arange(s1, s2)
@@ -220,17 +220,17 @@ if you're writing a script or in your custom software. The other alternatives ar
 
 If you're relying on NumPy, CuPy, PyTorch, Dask, or JAX then
 {ref}`array-api-compat` can come in handy for the transition. The compat layer
-allows you to still rely on your selection of array producing library, while
+allows you to still rely on your preferred array producing library, while
 making sure you're already using standard compatible API. Additionally, it
 offers a set of useful utility functions, such as:
 
 - [array_namespace()](https://data-apis.org/array-api-compat/helper-functions.html#array_api_compat.array_namespace)
   for fetching the namespace based on input arrays.
 - [is_array_api_obj()](https://data-apis.org/array-api-compat/helper-functions.html#array_api_compat.is_array_api_obj)
-  for the introspection whether a given object is Array API compatible.
+  for inspecting whether a given object is Array API compatible.
 - [device()](https://data-apis.org/array-api-compat/helper-functions.html#array_api_compat.device)
-  to get a device the array resides on.
+  for retrieving the device on which an array resides.
 
 For now, the migration from a specific library (e.g., NumPy) to a standard
 compatible setup requires a manual intervention for each failing API call,
-but, in the future, we plan to provide some automation tools for it.
+but, in the future, we're hoping to provide tools for automating the migration process.
