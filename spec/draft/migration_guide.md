@@ -57,7 +57,7 @@ You can compare your API calls with `array-api-strict` counterparts and
 ensure that your library is fully compliant with the standard and can
 serve as a reliable reference for other developers in the ecosystem.
 For consumers, you can use `array-api-strict` during the development as an
-array provider to ensure your code uses API compliant with the standard.
+array provider to ensure your code uses APIs compliant with the standard.
 
 
 (array-api-tests)=
