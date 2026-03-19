@@ -2,15 +2,15 @@
 
 # Array API Tutorial
 
-In this tutorial we're going to show the migration from the array consumer
+In this tutorial, we're going to demonstrate how to migrate to the Array API from the array consumer's
 point of view for a simple graph algorithm.
 
-The example presented here comes from [`graphblas-algorithms`](https://github.com/python-graphblas/graphblas-algorithms).
-library. There we can find [the HITS algorithm](https://github.com/python-graphblas/graphblas-algorithms/blob/35dbc90e808c6bf51b63d51d8a63f59238c02975/graphblas_algorithms/algorithms/link_analysis/hits_alg.py#L9),
-used for the link analysis for estimating prominence in sparse networks.
+The example presented here comes from the [`graphblas-algorithms`](https://github.com/python-graphblas/graphblas-algorithms).
+library. In particular, we'll be migrating [the HITS algorithm](https://github.com/python-graphblas/graphblas-algorithms/blob/35dbc90e808c6bf51b63d51d8a63f59238c02975/graphblas_algorithms/algorithms/link_analysis/hits_alg.py#L9), which is
+used for the link analysis for estimating prominence in sparse networks, to be Array API compliant.
 
 The inlined and slightly simplified (without "authority" feature)
-implementation looks like this:
+implementation looks similar to the following:
 
 ```python
 def hits(G, max_iter=100, tol=1.0e-8, normalized=True):
@@ -42,18 +42,18 @@ def is_converged(xprev, x, tol):
 ```
 
 We can see that the API is specific to the GraphBLAS array object.
-There is `Vector` constructor, overloaded `<<` for assigning new values,
+There is a `Vector` constructor, overloaded `<<` for assigning new values,
 and `reduce`/`get` for reductions. We need to replace them, and, by convention,
 we will use `xp` namespace for calling respective functions.
 
-First we want to make sure we construct arrays in an agnostic way:
+First, we want to make sure we construct arrays in an agnostic way:
 
 ```python
 h = xp.full(N, 1.0 / N)
 A = xp.asarray(G.A)
 ```
 
-Then, instead of `reduce` calls we use appropriate reducing
+Then, instead of `reduce` calls, we will use appropriate reduction
 functions from the Array API:
 
 ```python
@@ -65,13 +65,13 @@ a = a / xp.sum(xp.abs(a))
 err = xp.sum(xp.abs(...))
 ```
 
-We replace custom binary operation with the Array API counterpart:
+We replace the custom binary operation with the Array API counterpart:
 
 ```python
 ...(x - xprev)
 ```
 
-And last but not least, let's ensure that the result of the convergence
+And finally, let's ensure that the result of the convergence
 condition is a scalar coming from our API:
 
 ```python
@@ -106,9 +106,9 @@ def is_converged(xprev, x, N, tol):
     return err < xp.asarray(N * tol)
 ```
 
-At this point the actual execution depends only on `xp` namespace,
-and replacing that one variable allow us to switch from e.g. NumPy arrays
-to a JAX execution on a GPU. This lets us be more flexible, and, for example,
+At this point, the actual execution depends only on `xp` namespace,
+and replacing that one variable will allow us to switch from, e.g., NumPy arrays on the CPU
+to JAX arrays for running on a GPU. This lets us be more flexible, and, for example,
 use lazy evaluation and JIT compile a loop body with JAX's JIT compilation:
 
 ```python
