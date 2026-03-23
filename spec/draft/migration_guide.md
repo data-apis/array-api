@@ -3,24 +3,24 @@
 # Migration Guide
 
 This page is meant to help migrate your codebase to an array API standard
-compliant implementation. The guide is divided into three parts.
+compliant implementation or become interoperable with compliant
+implementations. The guide is divided into three parts.
 
 The first part gives an overview of the {ref}`ecosystem` libraries, that
 are helpful in different contexts when working with the array API standard.
 
-The first part is dedicated for {ref}`array-producers`. If your library
+The second part is dedicated to {ref}`array-producers`. If your library
 mimics, for example, NumPy's or PyTorch's functionality, then you can find in
-the first part additional instructions and guidance on how to ensure
-downstream users can easily pick your solution as an array provider for
-their system/algorithm.
+here additional instructions and guidance on how to ensure downstream users
+can easily pick your solution as an array provider for their system/algorithm.
 
-The second part delves into details for array API standard compatibility for
+The third part delves into details for array API standard compatibility for
 {ref}`array-consumers`. This pertains to any software that performs
 multidimensional array manipulation in Python, such as may be found in
 scikit-learn, SciPy, or statsmodels. If your software relies on a certain
 array producing library, such as NumPy or JAX, then you can use the second
-part to learn how to make it library agnostic and, as a result, interchange
-array namespaces with significantly less friction.
+part to learn how to make it library agnostic and, as a result, use array
+namespaces interchangeably with significantly less friction.
 
 
 (ecosystem)=
@@ -39,12 +39,13 @@ GitHub: [array-api-compat](https://github.com/data-apis/array-api-compat)
 
 User group: Array Consumers
 
-Although NumPy, Dask, CuPy, and PyTorch support the array API standard, there
-are still some corner cases where their behavior diverges from the standard.
+Although NumPy or CuPy support the array API standard, there are still some
+corner cases where their behavior diverges from the standard.
 `array-api-compat` provides a compatibility layer to cover an additional subset
-of these corner cases. This is also accompanied by a few utility functions fo
-easier introspection into array objects. As an array consumer, you can still
-rely on the original API while having access to the standard compatible one.
+of such corner cases for supported libraries. This is also accompanied by a few
+utility functions for easier introspection into array objects. As an array
+consumer, you can consume standard-compliant namespaces as well as the wrapped
+namespaces in `array-api-compat` at the same time.
 
 
 (array-api-strict)=
@@ -57,8 +58,8 @@ User group: Array Consumers
 
 `array-api-strict` is a library that provides a strict and minimal
 implementation of the array API standard. As a consumer, you can use
-`array-api-strict` for parametrising tests with it as an array namespace
-to ensure your code uses APIs compliant with the standard.
+`array-api-strict` in parametrising tests over the array namespace
+to ensure your code uses only APIs compliant which are in the standard.
 
 
 (array-api-tests)=
@@ -181,7 +182,7 @@ return np.dot(c, b)
 The first step should be as simple as assigning the `np` namespace to a dedicated
 namespace variable. The convention used in the ecosystem is to name it `xp`.
 Then, it is vital to ensure that each method and function call is something that
-the array API standard supports. For example, `dot` is present in the NumPy's
+the array API standard supports. For example, `dot` is present in the NumPy
 API, but the standard doesn't support it. For the sake of simplicity, let's
 assume both `c` and `b` are `ndim=2`; therefore, we select `tensordot` instead,
 as both NumPy and the standard define it:
