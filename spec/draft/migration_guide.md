@@ -10,8 +10,8 @@ The first part gives an overview of the {ref}`ecosystem` libraries, that
 are helpful in different contexts when working with the array API standard.
 
 The second part is dedicated to {ref}`array-producers`. If your library
-mimics, for example, NumPy's or PyTorch's functionality, then you can find in
-here additional instructions and guidance on how to ensure downstream users
+mimics, for example, NumPy's or PyTorch's functionality, you can find
+additional instructions and guidance here on how to ensure downstream users
 can easily pick your solution as an array provider for their system/algorithm.
 
 The third part delves into details for array API standard compatibility for
@@ -59,7 +59,7 @@ User group: Array Consumers
 `array-api-strict` is a library that provides a strict and minimal
 implementation of the array API standard. As a consumer, you can use
 `array-api-strict` in parametrising tests over the array namespace
-to ensure your code uses only APIs compliant which are in the standard.
+to ensure your code uses only APIs that are compliant with the standard.
 
 
 (array-api-tests)=
@@ -127,10 +127,10 @@ cover only the minimal workflow:
    variable to your package import name.
 3. Inside the `array-api-tests` directory run the command for running pytest: `pytest`. There are
    multiple useful options delivered by the test suite. A few worth mentioning:
-   - `--max-examples=1000` - maximal number of test cases to generate when using
+   - `--max-examples=1000` - maximum number of test cases to generate when using
      hypothesis. This allows you to balance between execution time of the test
      suite and thoroughness of the testing. It's advised to use as many examples
-     as the time buget can fit. Each test case is a random combination of
+     as the time budget can fit. Each test case is a random combination of
      possible inputs: the more cases, the higher chance of finding an
      unsupported edge case.
    - With the `--xfails-file` option, you can describe which tests are expected
