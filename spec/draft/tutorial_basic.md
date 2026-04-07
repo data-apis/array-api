@@ -1,9 +1,9 @@
 (tutorial-basic)=
 
-# Array API Tutorial
+# Array API Tutorial - Essentials
 
-In this tutorial, we're going to demonstrate how to migrate to the Array API from the array consumer's
-point of view for a simple graph algorithm.
+In this tutorial, we're going to demonstrate how to migrate to the Array API
+from the array consumer's point of view for a simple graph algorithm.
 
 The example presented here comes from the [`graphblas-algorithms`](https://github.com/python-graphblas/graphblas-algorithms).
 library. In particular, we'll be migrating [the HITS algorithm](https://github.com/python-graphblas/graphblas-algorithms/blob/35dbc90e808c6bf51b63d51d8a63f59238c02975/graphblas_algorithms/algorithms/link_analysis/hits_alg.py#L9), which is

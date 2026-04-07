@@ -36,6 +36,7 @@ Contents
 
    migration_guide
    tutorial_basic
+   tutorial_api
 
 .. toctree::
    :caption: Other
