@@ -234,3 +234,84 @@ offers a set of useful utility functions, such as:
 For now, the migration from a specific library (e.g., NumPy) to a standard
 compatible setup requires a manual intervention for each failing API call,
 but, in the future, we're hoping to provide tools for automating the migration process.
+
+## Migration patterns for selected libraries
+
+Below, you can find a non-exhaustive list of API calls that are present in NumPy
+and PyTorch but are not supported by the Array API Standard. For each of them, we
+provide the recommended alternative from the standard, along with some notes on
+how to use it.
+
+### NumPy
+
+| NumPy API | Array API | Notes |
+| --- | --- | --- |
+| `np.transpose(x, axes)` | `xp.permute_dims(x, axes)` | `None` is not supported |
+| `np.concatenate(...)` | `xp.concat(...)` |  |
+| `np.power(x, y)` | `xp.pow(x, y)` |  |
+| `np.absolute(x)` | `xp.abs(x)` |  |
+| `np.invert(x)` | `xp.bitwise_invert(x)` |  |
+| `np.left_shift(x, n)` | `xp.bitwise_left_shift(x, n)` |  |
+| `np.right_shift(x, n)` | `xp.bitwise_right_shift(x, n)` |  |
+| `np.arcsin(x)` | `xp.asin(x)` |  |
+| `np.arccos(x)` | `xp.acos(x)` |  |
+| `np.arctan(x)` | `xp.atan(x)` |  |
+| `np.arctan2(y, x)` | `xp.atan2(y, x)` |  |
+| `np.arcsinh(x)` | `xp.asinh(x)` |  |
+| `np.arccosh(x)` | `xp.acosh(x)` |  |
+| `np.arctanh(x)` | `xp.atanh(x)` |  |
+| `np.bool_` | `xp.bool` |  |
+| `np.array(x)` | `xp.asarray(x)` |  |
+| `np.ascontiguousarray(x)` | `xp.asarray(x, copy=True)` | Use with `copy=True` to ensure contiguous array |
+| `x.astype(dtype)` | `xp.astype(x, dtype)` |  |
+| `np.unique(x)` | `xp.unique_values(x)` |  |
+| `np.unique(x, return_counts=True)` | `xp.unique_counts(x)` |  |
+| `np.unique(x, return_inverse=True)` | `xp.unique_inverse(x)` |  |
+| `np.unique(x, return_index=True, return_inverse=True, return_counts=True)` | `xp.unique_all(x)` |  |
+| `np.linalg.norm(x)` | `xp.linalg.vector_norm(x)` or `xp.linalg.matrix_norm(x)` |  |
+| `np.dot(a, b)` | `xp.matmul(a, b)` or `xp.vecdot(a, b)` or `xp.tensordot(a, b, axes=1)` |  |
+| `np.vstack((a, b))` | `xp.concat((a, b), axis=0)` |  |
+| `np.row_stack(...)` | `xp.concat((a, b), axis=0)` | |
+| `np.hstack((a, b))` | `xp.concat((a, b), axis=1)` |  |
+| `np.column_stack((a, b))` | `xp.concat(...)` | Use with `xp.reshape` to ensure 2-D |
+| `np.dstack((a, b))` | `xp.concat((a, b), axis=2)` |  |
+| `np.trace(x)` | `xp.linalg.trace(x)` |  |
+| `np.diagonal(x)` | `xp.linalg.diagonal(x)` |  |
+| `np.cross(a, b)` | `xp.linalg.cross(a, b)` |  |
+| `np.outer(a, b)` | `xp.linalg.outer(a, b)` |  |
+| `np.matmul(a, b)` | `xp.linalg.matmul(a, b)` or `xp.matmul(a, b)` |  |
+| `np.ravel` | `xp.reshape(x, (-1,))` |  |
+| `x.flatten` | `xp.reshape(x, (-1,))` |  |
+
+### PyTorch
+
+| PyTorch API | Array API | Notes |
+| --- | --- | --- |
+| `torch.transpose(x, dim0, dim1)` | `xp.permute_dims(x, axes)` |  |
+| `torch.permute(x, dims)` | `xp.permute_dims(x, axes)` |  |
+| `torch.cat(...)` | `xp.concat(...)` |  |
+| `torch.absolute(x)` | `xp.abs(x)` |  |
+| `torch.clamp(x, min, max)` | `xp.clip(x, min, max)` |  |
+| `torch.bitwise_not(x)` | `xp.bitwise_invert(x)` |  |
+| `torch.arcsin(x)` | `xp.asin(x)` |  |
+| `torch.arccos(x)` | `xp.acos(x)` |  |
+| `torch.arctan(x)` | `xp.atan(x)` |  |
+| `torch.arctan2(y, x)` | `xp.atan2(y, x)` |  |
+| `torch.arcsinh(x)` | `xp.asinh(x)` |  |
+| `torch.arccosh(x)` | `xp.acosh(x)` |  |
+| `torch.arctanh(x)` | `xp.atanh(x)` |  |
+| `torch.tensor` | `xp.asarray` |  |
+| `x.astype(dtype)` | `xp.astype(x, dtype)` |  |
+| `torch.unique(x)` | `xp.unique_values(x)` |  |
+| `torch.unique(x, return_counts=True)` | `xp.unique_counts(x)` |  |
+| `torch.unique(x, return_inverse=True)` | `xp.unique_inverse(x)` |  |
+| `torch.unique(x, return_index=True, return_inverse=True, return_counts=True)` | `xp.unique_all(x)` |  |
+| `torch.linalg.norm(x)` | `xp.linalg.vector_norm(x)` or `xp.linalg.matrix_norm(x)` |  |
+| `torch.dot(a, b)` | `xp.matmul(a, b)` or `xp.vecdot(a, b)` or `xp.tensordot(a, b, axes=1)` |  |
+| `torch.vstack((a, b))` | `xp.concat((a, b), axis=0)` |  |
+| `torch.hstack((a, b))` | `xp.concat((a, b), axis=1)` |  |
+| `torch.dstack((a, b))` | `xp.concat((a, b), axis=2)` |  |
+| `torch.trace(x)` | `xp.linalg.trace(x)` |  |
+| `torch.diagonal(x)` | `xp.linalg.diagonal(x)` |  |
+| `torch.cross(a, b)` | `xp.linalg.cross(a, b)` |  |
+| `torch.outer(a, b)` | `xp.linalg.outer(a, b)` |  |
