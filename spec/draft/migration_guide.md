@@ -244,6 +244,15 @@ how to use it.
 
 ### NumPy
 
+Please note that `xp` is a convention for the array namespace variable, but all
+the alternatives provided in the tables below can be used with the original `np`
+name as well.
+
+```py
+import numpy as np
+xp = np
+```
+
 | NumPy API | Array API | Notes |
 | --- | --- | --- |
 | `np.transpose(x, axes)` | `xp.permute_dims(x, axes)` | `None` is not supported |
@@ -284,6 +293,14 @@ how to use it.
 | `x.flatten` | `xp.reshape(x, (-1,))` |  |
 
 ### PyTorch
+
+For PyTorch, we use `array-api-compat` for the transition, so it's a required
+dependency for the migration process. You can import it as follows:
+
+```py
+import array_api_compat.torch as torch
+xp = torch
+```
 
 | PyTorch API | Array API | Notes |
 | --- | --- | --- |
