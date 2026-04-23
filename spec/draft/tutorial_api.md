@@ -54,7 +54,7 @@ Another common pattern during migration to the array API standard is to modify
 the signature of a function. The most troublesome parameters are keyword arguments
 as it requires users to use the new name.
 
-For this scenario, suppose we want to update signature of `reshape` to match the one in
+For this scenario, suppose we want to update the signature of `reshape` to match the one in
 the standard:
 
 ```py
