@@ -1,6 +1,6 @@
 (tutorial-api)=
 
-# Array API Tutorial - Migrating API
+# Array API Tutorial - Migrating APIs
 
 The purpose of this tutorial is to show common patterns for migrating your APIs to
 a standard-compatible version in the least disruptive manner for users.
