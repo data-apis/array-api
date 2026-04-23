@@ -3,18 +3,16 @@
 # Array API Tutorial - Migrating API
 
 The purpose of this tutorial is to show common patterns for migrating your APIs to
-the standard-compatible version in the least disruptive manner for the users.
+the standard-compatible version in the least disruptive manner for users.
 The patterns discussed in the document cover renaming functions and changing their
-signatures, with deprecation periods.
+signatures, along with deprecation periods.
 
 ## Renaming a function
 
-First common migration that might occur is the need to rename a function to
+The first common migration is the need to rename a function to
 the one that is present (or is semantically close enough) in the array API standard.
 
-Let's assume our API has a `transpose` function - the one that is not in the standard
-under this name. Instead, `permute_dims` is present for permuting the axes of an
-array, so we can assume this is the one we want to migrate users to. The original
+Let's assume our API has a `transpose` function for permuting the axes of an array, but which has no matching name in the standard. Instead, the standard has a `permute_dims` API which performs the equivalent operation and is the function to which we want users to migrate. The original
 function is as follows:
 
 ```py
@@ -34,9 +32,9 @@ def transpose(a, axes=None):
     ...
 ```
 
-After a deprecation cycle, when you are ready to remove the deprecated function,
+After a deprecation cycle and when you are ready to remove the deprecated function,
 you should still leave hints for users in case they skipped deprecated versions.
-One option is to track deprecated & removed functions' names in `__getattr__` and
+One option is to track the names of deprecated and removed functions in `__getattr__` and
 still inform users what has happened and what to do about it:
 
 ```py
@@ -56,7 +54,7 @@ Another common pattern during migration to the array API standard is to modify
 the signature of a function. The most troublesome parameters are keyword arguments
 as it requires users to use the new name.
 
-For this scenario we are about to change `reshape` signature to the one in
+For this scenario, suppose we want to update signature of `reshape` to match the one in
 the standard:
 
 ```py
@@ -64,10 +62,10 @@ def reshape(a, newshape):
     ...
 ```
 
-We need to rename `newshape` parameter to `shape`, add `copy` parameter, and enforce
+We need to rename `newshape` parameter to `shape`, add a `copy` parameter, and enforce
 new positional/keyword calling format.
 
-After researching how users call our `reshape`, we decided to: make `a` positional
+After researching how users call our `reshape`, we decided to do the following: make `a` positional
 only without an extra deprecation message apart from changelog entry, make `shape`
 positional or keyword parameter, and make `newshape` and `copy` keyword only:
 
@@ -77,7 +75,7 @@ def reshape(a, /, shape=None, *, newshape=None, copy=None):
 ```
 
 This way users calling `reshape(arr, (ax1, ax2, ax3))` will not notice any change
-in the behavior of the function. Now we need to iron out other scenarios.
+in the behavior of the function. Next, we need to iron out other scenarios.
 Users calling the function with a `newshape=...` need to receive a warning with
 a proper recommendation, and the extreme case of both `shape` and `newshape` passed
 needs to result in an exception:
@@ -98,7 +96,7 @@ def reshape(a, /, shape=None, *, newshape=None, copy=None):
 ```
 
 Once a deprecation period has passed, we replace the deprecation warning with
-a to a `TypeError`, with the same migration message as before:
+a `TypeError` and use the same migration message as before:
 
 ```py
 def reshape(a, /, shape=None, *, newshape=None, copy=None):
