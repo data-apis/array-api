@@ -321,6 +321,14 @@
             </nav>
         </li>
         <li class="md-nav__item"><a href="#array-consumers" class="md-nav__link">Array Consumers</a>
+        </li>
+        <li class="md-nav__item"><a href="#migration-patterns-for-selected-libraries" class="md-nav__link">Migration patterns for selected libraries</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#numpy" class="md-nav__link">NumPy</a>
+        </li>
+        <li class="md-nav__item"><a href="#pytorch" class="md-nav__link">PyTorch</a>
+        </li></ul>
+            </nav>
         </li></ul>
             </nav>
         </li>
@@ -345,6 +353,13 @@
     
     
       <a href="#array-consumers" class="md-nav__link">Array Consumers</a>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="#migration-patterns-for-selected-libraries" class="md-nav__link">Migration patterns for selected libraries</a>
       
     
     </li></ul>
@@ -424,6 +439,14 @@
             </nav>
         </li>
         <li class="md-nav__item"><a href="#array-consumers" class="md-nav__link">Array Consumers</a>
+        </li>
+        <li class="md-nav__item"><a href="#migration-patterns-for-selected-libraries" class="md-nav__link">Migration patterns for selected libraries</a><nav class="md-nav">
+              <ul class="md-nav__list">
+        <li class="md-nav__item"><a href="#numpy" class="md-nav__link">NumPy</a>
+        </li>
+        <li class="md-nav__item"><a href="#pytorch" class="md-nav__link">PyTorch</a>
+        </li></ul>
+            </nav>
         </li></ul>
             </nav>
         </li>
@@ -636,6 +659,373 @@ for retrieving the device on which an array resides.</p></li>
 <p>For now, the migration from a specific library (e.g., NumPy) to a standard
 compatible setup requires a manual intervention for each failing API call,
 but, in the future, we’re hoping to provide tools for automating the migration process.</p>
+</section>
+<section id="migration-patterns-for-selected-libraries">
+<h2 id="migration-patterns-for-selected-libraries">Migration patterns for selected libraries<a class="headerlink" href="#migration-patterns-for-selected-libraries" title="Link to this heading">¶</a></h2>
+<p>Below, you can find a non-exhaustive list of API calls that are present in NumPy
+and PyTorch but are not supported by the Array API Standard. For each of them, we
+provide the recommended alternative from the standard, along with some notes on
+how to use it.</p>
+<section id="numpy">
+<h3 id="numpy">NumPy<a class="headerlink" href="#numpy" title="Link to this heading">¶</a></h3>
+<p>Please note that <code class="docutils literal notranslate"><span class="pre">xp</span></code> is a convention for the array namespace variable, but all
+the alternatives provided in the tables below can be used with the original <code class="docutils literal notranslate"><span class="pre">np</span></code>
+name as well.</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="n">xp</span> <span class="o">=</span> <span class="n">np</span>
+</pre></div>
+</div>
+<table border="1">
+<thead>
+<tr>
+<th>NumPy API</th>
+<th>Array API</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>np.transpose(x, axes)</code></td>
+<td><code>xp.permute_dims(x, axes)</code></td>
+<td><code>None</code> is not supported</td>
+</tr>
+<tr>
+<td><code>np.concatenate(...)</code></td>
+<td><code>xp.concat(...)</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>np.power(x, y)</code></td>
+<td><code>xp.pow(x, y)</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>np.absolute(x)</code></td>
+<td><code>xp.abs(x)</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>np.invert(x)</code></td>
+<td><code>xp.bitwise_invert(x)</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>np.left_shift(x, n)</code></td>
+<td><code>xp.bitwise_left_shift(x, n)</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>np.right_shift(x, n)</code></td>
+<td><code>xp.bitwise_right_shift(x, n)</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>np.arcsin(x)</code></td>
+<td><code>xp.asin(x)</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>np.arccos(x)</code></td>
+<td><code>xp.acos(x)</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>np.arctan(x)</code></td>
+<td><code>xp.atan(x)</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>np.arctan2(y, x)</code></td>
+<td><code>xp.atan2(y, x)</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>np.arcsinh(x)</code></td>
+<td><code>xp.asinh(x)</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>np.arccosh(x)</code></td>
+<td><code>xp.acosh(x)</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>np.arctanh(x)</code></td>
+<td><code>xp.atanh(x)</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>np.bool_</code></td>
+<td><code>xp.bool</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>np.array(x)</code></td>
+<td><code>xp.asarray(x)</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>np.ascontiguousarray(x)</code></td>
+<td><code>xp.asarray(x, copy=True)</code></td>
+<td>Use with <code>copy=True</code> to ensure contiguous array</td>
+</tr>
+<tr>
+<td><code>x.astype(dtype)</code></td>
+<td><code>xp.astype(x, dtype)</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>np.unique(x)</code></td>
+<td><code>xp.unique_values(x)</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>np.unique(x, return_counts=True)</code></td>
+<td><code>xp.unique_counts(x)</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>np.unique(x, return_inverse=True)</code></td>
+<td><code>xp.unique_inverse(x)</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>np.unique(x, return_index=True, return_inverse=True, return_counts=True)</code></td>
+<td><code>xp.unique_all(x)</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>np.linalg.norm(x)</code></td>
+<td><code>xp.linalg.vector_norm(x)</code> or <code>xp.linalg.matrix_norm(x)</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>np.dot(a, b)</code></td>
+<td><code>xp.matmul(a, b)</code> or <code>xp.vecdot(a, b)</code> or <code>xp.tensordot(a, b, axes=1)</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>np.vstack((a, b))</code></td>
+<td><code>xp.concat((a, b), axis=0)</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>np.row_stack(...)</code></td>
+<td><code>xp.concat((a, b), axis=0)</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>np.hstack((a, b))</code></td>
+<td><code>xp.concat((a, b), axis=1)</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>np.column_stack((a, b))</code></td>
+<td><code>xp.concat(...)</code></td>
+<td>Use with <code>xp.reshape</code> to ensure 2-D</td>
+</tr>
+<tr>
+<td><code>np.dstack((a, b))</code></td>
+<td><code>xp.concat((a, b), axis=2)</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>np.trace(x)</code></td>
+<td><code>xp.linalg.trace(x)</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>np.diagonal(x)</code></td>
+<td><code>xp.linalg.diagonal(x)</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>np.cross(a, b)</code></td>
+<td><code>xp.linalg.cross(a, b)</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>np.outer(a, b)</code></td>
+<td><code>xp.linalg.outer(a, b)</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>np.matmul(a, b)</code></td>
+<td><code>xp.linalg.matmul(a, b)</code> or <code>xp.matmul(a, b)</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>np.ravel</code></td>
+<td><code>xp.reshape(x, (-1,))</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>x.flatten</code></td>
+<td><code>xp.reshape(x, (-1,))</code></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="pytorch">
+<h3 id="pytorch">PyTorch<a class="headerlink" href="#pytorch" title="Link to this heading">¶</a></h3>
+<p>For PyTorch, we use <code class="docutils literal notranslate"><span class="pre">array-api-compat</span></code> for the transition, so it’s a required
+dependency for the migration process. You can import it as follows:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">array_api_compat.torch</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">torch</span>
+<span class="n">xp</span> <span class="o">=</span> <span class="n">torch</span>
+</pre></div>
+</div>
+<table border="1">
+<thead>
+<tr>
+<th>PyTorch API</th>
+<th>Array API</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>torch.transpose(x, dim0, dim1)</code></td>
+<td><code>xp.permute_dims(x, axes)</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>torch.permute(x, dims)</code></td>
+<td><code>xp.permute_dims(x, axes)</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>torch.cat(...)</code></td>
+<td><code>xp.concat(...)</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>torch.absolute(x)</code></td>
+<td><code>xp.abs(x)</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>torch.clamp(x, min, max)</code></td>
+<td><code>xp.clip(x, min, max)</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>torch.bitwise_not(x)</code></td>
+<td><code>xp.bitwise_invert(x)</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>torch.arcsin(x)</code></td>
+<td><code>xp.asin(x)</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>torch.arccos(x)</code></td>
+<td><code>xp.acos(x)</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>torch.arctan(x)</code></td>
+<td><code>xp.atan(x)</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>torch.arctan2(y, x)</code></td>
+<td><code>xp.atan2(y, x)</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>torch.arcsinh(x)</code></td>
+<td><code>xp.asinh(x)</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>torch.arccosh(x)</code></td>
+<td><code>xp.acosh(x)</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>torch.arctanh(x)</code></td>
+<td><code>xp.atanh(x)</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>torch.tensor</code></td>
+<td><code>xp.asarray</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>x.astype(dtype)</code></td>
+<td><code>xp.astype(x, dtype)</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>torch.unique(x)</code></td>
+<td><code>xp.unique_values(x)</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>torch.unique(x, return_counts=True)</code></td>
+<td><code>xp.unique_counts(x)</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>torch.unique(x, return_inverse=True)</code></td>
+<td><code>xp.unique_inverse(x)</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>torch.unique(x, return_index=True, return_inverse=True, return_counts=True)</code></td>
+<td><code>xp.unique_all(x)</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>torch.linalg.norm(x)</code></td>
+<td><code>xp.linalg.vector_norm(x)</code> or <code>xp.linalg.matrix_norm(x)</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>torch.dot(a, b)</code></td>
+<td><code>xp.matmul(a, b)</code> or <code>xp.vecdot(a, b)</code> or <code>xp.tensordot(a, b, axes=1)</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>torch.vstack((a, b))</code></td>
+<td><code>xp.concat((a, b), axis=0)</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>torch.hstack((a, b))</code></td>
+<td><code>xp.concat((a, b), axis=1)</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>torch.dstack((a, b))</code></td>
+<td><code>xp.concat((a, b), axis=2)</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>torch.trace(x)</code></td>
+<td><code>xp.linalg.trace(x)</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>torch.diagonal(x)</code></td>
+<td><code>xp.linalg.diagonal(x)</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>torch.cross(a, b)</code></td>
+<td><code>xp.linalg.cross(a, b)</code></td>
+<td></td>
+</tr>
+<tr>
+<td><code>torch.outer(a, b)</code></td>
+<td><code>xp.linalg.outer(a, b)</code></td>
+<td></td>
+</tr>
+</tbody>
+</table></section>
 </section>
 </section>
 
