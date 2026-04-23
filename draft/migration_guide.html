@@ -298,23 +298,23 @@
               <ul class="md-nav__list">
         <li class="md-nav__item"><a href="#ecosystem" class="md-nav__link">Ecosystem</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#array-api-compat" class="md-nav__link">Array API Compat</a>
+        <li class="md-nav__item"><a href="#array-api-compat" class="md-nav__link">array-api-compat</a>
         </li>
-        <li class="md-nav__item"><a href="#array-api-strict" class="md-nav__link">Array API Strict</a>
+        <li class="md-nav__item"><a href="#array-api-strict" class="md-nav__link">array-api-strict</a>
         </li>
-        <li class="md-nav__item"><a href="#array-api-test" class="md-nav__link">Array API Test</a>
+        <li class="md-nav__item"><a href="#array-api-tests" class="md-nav__link">array-api-tests</a>
         </li>
-        <li class="md-nav__item"><a href="#array-api-extra" class="md-nav__link">Array API Extra</a>
+        <li class="md-nav__item"><a href="#array-api-extra" class="md-nav__link">array-api-extra</a>
         </li></ul>
             </nav>
         </li>
         <li class="md-nav__item"><a href="#array-producers" class="md-nav__link">Array Producers</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#testing-against-array-api" class="md-nav__link">Testing against Array API</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#testing-against-array-api" class="md-nav__link">Testing against array API</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#array-api-test-suite-recommended" class="md-nav__link">Array API Test suite (Recommended)</a>
+        <li class="md-nav__item"><a href="#array-api-tests-suite-recommended" class="md-nav__link">array-api-tests suite (Recommended)</a>
         </li>
-        <li class="md-nav__item"><a href="#id6" class="md-nav__link">Array API Strict</a>
+        <li class="md-nav__item"><a href="#id8" class="md-nav__link">array-api-strict</a>
         </li></ul>
             </nav>
         </li></ul>
@@ -394,23 +394,23 @@
               <ul class="md-nav__list">
         <li class="md-nav__item"><a href="#ecosystem" class="md-nav__link">Ecosystem</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#array-api-compat" class="md-nav__link">Array API Compat</a>
+        <li class="md-nav__item"><a href="#array-api-compat" class="md-nav__link">array-api-compat</a>
         </li>
-        <li class="md-nav__item"><a href="#array-api-strict" class="md-nav__link">Array API Strict</a>
+        <li class="md-nav__item"><a href="#array-api-strict" class="md-nav__link">array-api-strict</a>
         </li>
-        <li class="md-nav__item"><a href="#array-api-test" class="md-nav__link">Array API Test</a>
+        <li class="md-nav__item"><a href="#array-api-tests" class="md-nav__link">array-api-tests</a>
         </li>
-        <li class="md-nav__item"><a href="#array-api-extra" class="md-nav__link">Array API Extra</a>
+        <li class="md-nav__item"><a href="#array-api-extra" class="md-nav__link">array-api-extra</a>
         </li></ul>
             </nav>
         </li>
         <li class="md-nav__item"><a href="#array-producers" class="md-nav__link">Array Producers</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#testing-against-array-api" class="md-nav__link">Testing against Array API</a><nav class="md-nav">
+        <li class="md-nav__item"><a href="#testing-against-array-api" class="md-nav__link">Testing against array API</a><nav class="md-nav">
               <ul class="md-nav__list">
-        <li class="md-nav__item"><a href="#array-api-test-suite-recommended" class="md-nav__link">Array API Test suite (Recommended)</a>
+        <li class="md-nav__item"><a href="#array-api-tests-suite-recommended" class="md-nav__link">array-api-tests suite (Recommended)</a>
         </li>
-        <li class="md-nav__item"><a href="#id6" class="md-nav__link">Array API Strict</a>
+        <li class="md-nav__item"><a href="#id8" class="md-nav__link">array-api-strict</a>
         </li></ul>
             </nav>
         </li></ul>
@@ -431,86 +431,84 @@
             
   <section id="migration-guide">
 <span id="id1"></span><h1 id="migration-guide--page-root">Migration Guide<a class="headerlink" href="#migration-guide--page-root" title="Link to this heading">¶</a></h1>
-<p>This page is meant to help migrate your codebase to an Array API compliant
-implementation. The guide is divided into two parts and, depending on your
-exact use-case, you should look thoroughly into at least one of them.</p>
-<p>The first part is dedicated for <a class="reference internal" href="#array-producers"><span class="std std-ref">Array Producers</span></a>. If your library
-mimics, for example, NumPy’s or Dask’s functionality, then you can find in
-the first part additional instructions and guidance on how to ensure
-downstream users can easily pick your solution as an array provider for
-their system/algorithm.</p>
-<p>The second part delves into details for Array API compatibility for
+<p>This page is meant to help migrate your codebase to an array API standard
+compliant implementation or become interoperable with compliant
+implementations. The guide is divided into three parts.</p>
+<p>The first part gives an overview of the <a class="reference internal" href="#ecosystem"><span class="std std-ref">Ecosystem</span></a> libraries, that
+are helpful in different contexts when working with the array API standard.</p>
+<p>The second part is dedicated to <a class="reference internal" href="#array-producers"><span class="std std-ref">Array Producers</span></a>. If your library
+mimics, for example, NumPy’s or PyTorch’s functionality, you can find
+additional instructions and guidance here on how to ensure downstream users
+can easily pick your solution as an array provider for their system/algorithm.</p>
+<p>The third part delves into details for array API standard compatibility for
 <a class="reference internal" href="#array-consumers"><span class="std std-ref">Array Consumers</span></a>. This pertains to any software that performs
 multidimensional array manipulation in Python, such as may be found in
 scikit-learn, SciPy, or statsmodels. If your software relies on a certain
 array producing library, such as NumPy or JAX, then you can use the second
-part to learn how to make it library agnostic and interchange array
-namespaces with significantly less friction.</p>
+part to learn how to make it library agnostic and, as a result, use array
+namespaces interchangeably with significantly less friction.</p>
 <section id="ecosystem">
-<h2 id="ecosystem">Ecosystem<a class="headerlink" href="#ecosystem" title="Link to this heading">¶</a></h2>
-<p>Apart from the documented standard, the Array API ecosystem also provides
+<span id="id2"></span><h2 id="ecosystem">Ecosystem<a class="headerlink" href="#ecosystem" title="Link to this heading">¶</a></h2>
+<p>Apart from the documented standard, the array API ecosystem also provides
 a set of tools and packages to help you with the migration process:</p>
 <section id="array-api-compat">
-<span id="id2"></span><h3 id="array-api-compat">Array API Compat<a class="headerlink" href="#array-api-compat" title="Link to this heading">¶</a></h3>
+<span id="id3"></span><h3 id="array-api-compat">array-api-compat<a class="headerlink" href="#array-api-compat" title="Link to this heading">¶</a></h3>
 <p>GitHub: <a class="reference external" href="https://github.com/data-apis/array-api-compat">array-api-compat</a></p>
 <p>User group: Array Consumers</p>
-<p>Although NumPy, Dask, CuPy, and PyTorch support the Array API Standard, there
-are still some corner cases where their behavior diverges from the standard.
-<code class="docutils literal notranslate"><span class="pre">array-api-compat</span></code> provides a compatibility layer to cover these cases.
-This is also accompanied by a few utility functions for easier introspection
-into array objects. As an array consumer, you can still rely on the original
-API while having access to the standard compatible one.</p>
+<p>Although NumPy or CuPy support the array API standard, there are still some
+corner cases where their behavior diverges from the standard.
+<code class="docutils literal notranslate"><span class="pre">array-api-compat</span></code> provides a compatibility layer to cover an additional subset
+of such corner cases for supported libraries. This is also accompanied by a few
+utility functions for easier introspection into array objects. As an array
+consumer, you can consume standard-compliant namespaces as well as the wrapped
+namespaces in <code class="docutils literal notranslate"><span class="pre">array-api-compat</span></code> at the same time.</p>
 </section>
 <section id="array-api-strict">
-<span id="id3"></span><h3 id="array-api-strict">Array API Strict<a class="headerlink" href="#array-api-strict" title="Link to this heading">¶</a></h3>
+<span id="id4"></span><h3 id="array-api-strict">array-api-strict<a class="headerlink" href="#array-api-strict" title="Link to this heading">¶</a></h3>
 <p>GitHub: <a class="reference external" href="https://github.com/data-apis/array-api-strict">array-api-strict</a></p>
-<p>User group: Array Consumers, Array Producers (for testing)</p>
+<p>User group: Array Consumers</p>
 <p><code class="docutils literal notranslate"><span class="pre">array-api-strict</span></code> is a library that provides a strict and minimal
-implementation of the Array API Standard. For array producers, it is designed
-to be used as a reference implementation for testing and development purposes.
-You can compare your API calls with <code class="docutils literal notranslate"><span class="pre">array-api-strict</span></code> counterparts and
-ensure that your library is fully compliant with the standard and can
-serve as a reliable reference for other developers in the ecosystem.
-For consumers, you can use <code class="docutils literal notranslate"><span class="pre">array-api-strict</span></code> during the development as an
-array provider to ensure your code uses APIs compliant with the standard.</p>
+implementation of the array API standard. As a consumer, you can use
+<code class="docutils literal notranslate"><span class="pre">array-api-strict</span></code> in parametrising tests over the array namespace
+to ensure your code uses only APIs that are compliant with the standard.</p>
 </section>
-<section id="array-api-test">
-<span id="array-api-tests"></span><h3 id="array-api-test">Array API Test<a class="headerlink" href="#array-api-test" title="Link to this heading">¶</a></h3>
+<section id="array-api-tests">
+<span id="id5"></span><h3 id="array-api-tests">array-api-tests<a class="headerlink" href="#array-api-tests" title="Link to this heading">¶</a></h3>
 <p>GitHub: <a class="reference external" href="https://github.com/data-apis/array-api-tests">array-api-tests</a></p>
 <p>User group: Array Producers</p>
 <p><code class="docutils literal notranslate"><span class="pre">array-api-tests</span></code> is a collection of tests that can be used to verify the
-compliance of your library with the Array API Standard. It includes tests
+compliance of your library with the array API standard. It includes tests
 for array producers, covering a wide range of functionalities and use cases.
 By running these tests, you can ensure that your library adheres to the
 standard and can be used with compatible array consumer libraries.</p>
 </section>
 <section id="array-api-extra">
-<span id="id4"></span><h3 id="array-api-extra">Array API Extra<a class="headerlink" href="#array-api-extra" title="Link to this heading">¶</a></h3>
+<span id="id6"></span><h3 id="array-api-extra">array-api-extra<a class="headerlink" href="#array-api-extra" title="Link to this heading">¶</a></h3>
 <p>GitHub: <a class="reference external" href="https://github.com/data-apis/array-api-extra">array-api-extra</a></p>
 <p>User group: Array Consumers</p>
 <p><code class="docutils literal notranslate"><span class="pre">array-api-extra</span></code> is a collection of additional utilities and tools that are
-missing from the Array API Standard but can be useful for compliant array
-consumers. It includes additional array manipulation and statistical functions.
-It is already used by SciPy and scikit-learn.</p>
-<p>The sections below mention when and how to use them.</p>
+not present in the array API standard but can be useful for compliant array
+consumers. It includes additional array manipulation and statistical
+functions, support for lazy backends, and useful testing utilities. It is
+already used by SciPy and scikit-learn.</p>
 </section>
 </section>
 <section id="array-producers">
-<span id="id5"></span><h2 id="array-producers">Array Producers<a class="headerlink" href="#array-producers" title="Link to this heading">¶</a></h2>
+<span id="id7"></span><h2 id="array-producers">Array Producers<a class="headerlink" href="#array-producers" title="Link to this heading">¶</a></h2>
 <p>For array producers, the central task during the development/migration process
-is ensuring that the user-facing API adheres to the Array API Standard.</p>
+is ensuring that the user-facing API adheres to the array API standard.</p>
 <p>The complete API of the standard is documented in the
 <a class="reference external" href="https://data-apis.org/array-api/latest/API_specification/index.html">API specification</a>.</p>
 <p>There, each function, constant, and object is described with details
 on parameters, return values, and special cases.</p>
 <section id="testing-against-array-api">
-<h3 id="testing-against-array-api">Testing against Array API<a class="headerlink" href="#testing-against-array-api" title="Link to this heading">¶</a></h3>
+<h3 id="testing-against-array-api">Testing against array API<a class="headerlink" href="#testing-against-array-api" title="Link to this heading">¶</a></h3>
 <p>There are two main ways to test your API for compliance: either using
 <code class="docutils literal notranslate"><span class="pre">array-api-tests</span></code> suite or testing your API manually against the
 <code class="docutils literal notranslate"><span class="pre">array-api-strict</span></code> reference implementation.</p>
-<section id="array-api-test-suite-recommended">
-<h4 id="array-api-test-suite-recommended">Array API Test suite (Recommended)<a class="headerlink" href="#array-api-test-suite-recommended" title="Link to this heading">¶</a></h4>
-<p><a class="reference internal" href="#array-api-tests"><span class="std std-ref">Array API Test</span></a> is a test suite which verifies that your API
+<section id="array-api-tests-suite-recommended">
+<h4 id="array-api-tests-suite-recommended">array-api-tests suite (Recommended)<a class="headerlink" href="#array-api-tests-suite-recommended" title="Link to this heading">¶</a></h4>
+<p><a class="reference internal" href="#array-api-tests"><span class="std std-ref">array-api-tests</span></a> is a test suite which verifies that your API
 adheres to the standard. For each function or method, it confirms
 it’s importable, verifies the signature, generates multiple test
 cases with the <a class="reference external" href="https://hypothesis.readthedocs.io/en/latest/">hypothesis</a>
@@ -524,10 +522,10 @@ variable to your package import name.</p></li>
 <li><p>Inside the <code class="docutils literal notranslate"><span class="pre">array-api-tests</span></code> directory run the command for running pytest: <code class="docutils literal notranslate"><span class="pre">pytest</span></code>. There are
 multiple useful options delivered by the test suite. A few worth mentioning:</p>
 <ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">--max-examples=1000</span></code> - maximal number of test cases to generate when using
+<li><p><code class="docutils literal notranslate"><span class="pre">--max-examples=1000</span></code> - maximum number of test cases to generate when using
 hypothesis. This allows you to balance between execution time of the test
 suite and thoroughness of the testing. It’s advised to use as many examples
-as the time buget can fit. Each test case is a random combination of
+as the time budget can fit. Each test case is a random combination of
 possible inputs: the more cases, the higher chance of finding an
 unsupported edge case.</p></li>
 <li><p>With the <code class="docutils literal notranslate"><span class="pre">--xfails-file</span></code> option, you can describe which tests are expected
@@ -544,13 +542,15 @@ option is to skip these for the time being.</p></li>
 </li>
 </ol>
 <p>We strongly advise you to embed this setup in your CI as well. This will allow
-you to continuously monitor Array API coverage, and make sure new changes don’t break existing
-APIs. As a reference, see <a class="reference external" href="https://github.com/numpy/numpy/blob/581d10f43b539a189a2d37856e5130464de9e5f6/.github/workflows/linux.yml#L296">NumPy’s Array API Tests CI setup</a>.</p>
+you to continuously monitor array API standard coverage, and make sure new
+changes don’t break existing APIs. As a reference, see
+<a class="reference external" href="https://github.com/numpy/numpy/blob/581d10f43b539a189a2d37856e5130464de9e5f6/.github/workflows/linux.yml#L296">NumPy’s array-api-tests CI setup</a>
+and <a class="reference external" href="https://github.com/mdhaber/mparray/blob/0ef47e008fef92c605f73907436d4c6617419161/pixi.toml#L119-L179">a Pixi workspace setup</a>.</p>
 </section>
-<section id="id6">
-<h4 id="id6">Array API Strict<a class="headerlink" href="#id6" title="Link to this heading">¶</a></h4>
-<p>A simpler, and more manual, way of testing Array API coverage is to
-run your API calls along with the <a class="reference internal" href="#array-api-strict"><span class="std std-ref">Array API Strict</span></a> Python implementation.</p>
+<section id="id8">
+<h4 id="id8">array-api-strict<a class="headerlink" href="#id8" title="Link to this heading">¶</a></h4>
+<p>A simpler, and more manual, way of testing array API standard coverage is to
+run your API calls along with the <a class="reference internal" href="#array-api-strict"><span class="std std-ref">array-api-strict</span></a> Python implementation.</p>
 <p>This way, you can ensure that the outputs coming from your API match the minimal
 reference implementation. Bear in mind, however, that you need to write
 the tests cases yourself, so you need to also take into account any applicable edge
@@ -559,11 +559,10 @@ cases.</p>
 </section>
 </section>
 <section id="array-consumers">
-<span id="id7"></span><h2 id="array-consumers">Array Consumers<a class="headerlink" href="#array-consumers" title="Link to this heading">¶</a></h2>
-<p>For array consumers, the main premise is to keep in mind that your <strong>array
-manipulation operations should not lock in for a particular array producing
-library</strong>. For instance, if you use NumPy for arrays, then your code could
-contain:</p>
+<span id="id9"></span><h2 id="array-consumers">Array Consumers<a class="headerlink" href="#array-consumers" title="Link to this heading">¶</a></h2>
+<p>For array consumers, the main premise is that your <strong>array manipulation operations
+should not be specific to one particular array producing library</strong>. For instance,
+if your code is specific to NumPy, it might contain:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="c1"># ...</span>
@@ -573,12 +572,12 @@ contain:</p>
 </pre></div>
 </div>
 <p>The first step should be as simple as assigning the <code class="docutils literal notranslate"><span class="pre">np</span></code> namespace to a dedicated
-namespace variable. The convention used in the ecosystem is to name it <code class="docutils literal notranslate"><span class="pre">xp</span></code>. Then,
-it is vital to ensure that each method and function call is something that the Array API
-supports. For example, <code class="docutils literal notranslate"><span class="pre">dot</span></code> is present in the NumPy’s API, but the standard
-doesn’t support it. For the sake of simplicity, let’s assume both <code class="docutils literal notranslate"><span class="pre">c</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code>
-are <code class="docutils literal notranslate"><span class="pre">ndim=2</span></code>; therefore, we select <code class="docutils literal notranslate"><span class="pre">tensordot</span></code> instead, as both NumPy and the
-standard define it:</p>
+namespace variable. The convention used in the ecosystem is to name it <code class="docutils literal notranslate"><span class="pre">xp</span></code>.
+Then, it is vital to ensure that each method and function call is something that
+the array API standard supports. For example, <code class="docutils literal notranslate"><span class="pre">dot</span></code> is present in the NumPy
+API, but the standard doesn’t support it. For the sake of simplicity, let’s
+assume both <code class="docutils literal notranslate"><span class="pre">c</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code> are <code class="docutils literal notranslate"><span class="pre">ndim=2</span></code>; therefore, we select <code class="docutils literal notranslate"><span class="pre">tensordot</span></code> instead,
+as both NumPy and the standard define it:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 
 <span class="n">xp</span> <span class="o">=</span> <span class="n">np</span>
@@ -589,17 +588,18 @@ standard define it:</p>
 <span class="k">return</span> <span class="n">xp</span><span class="o">.</span><span class="n">tensordot</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">axes</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>At this point, replacing one backend with another one should only require providing a different
-namespace, such as <code class="docutils literal notranslate"><span class="pre">xp</span> <span class="pre">=</span> <span class="pre">torch</span></code> (e.g., via an environment variable). This can be useful
-if you’re writing a script or in your custom software. The other alternatives are:</p>
+<p>At this point, replacing one backend with another one should only require
+providing a different namespace, such as <code class="docutils literal notranslate"><span class="pre">xp</span> <span class="pre">=</span> <span class="pre">torch</span></code> (e.g., via an environment
+variable). This can be useful if you’re writing a script or in your custom
+software. The other alternatives are:</p>
 <ul>
-<li><p>If you are building a library where the backend is determined by input arrays,
-and your function accepts array arguments, then a recommended way is to ask
-your input arrays for a namespace to use: <code class="docutils literal notranslate"><span class="pre">xp</span> <span class="pre">=</span> <span class="pre">arr.__array_namespace__()</span></code>.
-If the given library doesn’t have it, then <a class="reference external" href="https://data-apis.org/array-api-compat/helper-functions.html#array_api_compat.array_namespace"><code class="docutils literal notranslate"><span class="pre">array_api_compat.array_namespace()</span></code></a>
-should be used instead:</p>
+<li><p>If you are building a library where the backend is determined by input
+arrays, and your function accepts array arguments, then a recommended way to
+fetch the namespace is to use <a class="reference external" href="https://data-apis.org/array-api-compat/helper-functions.html#array_api_compat.array_namespace"><code class="docutils literal notranslate"><span class="pre">array_api_compat.array_namespace()</span></code></a>.
+In case you don’t want to introduce a new package dependency, you can rely
+on a plain <code class="docutils literal notranslate"><span class="pre">xp</span> <span class="pre">=</span> <span class="pre">arr.__array_namespace__()</span></code>:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">func</span><span class="p">(</span><span class="n">array1</span><span class="p">,</span> <span class="n">scalar1</span><span class="p">,</span> <span class="n">scalar2</span><span class="p">):</span>
-  <span class="n">xp</span> <span class="o">=</span> <span class="n">array1</span><span class="o">.</span><span class="n">__array_namespace__</span><span class="p">()</span>  <span class="c1"># or array_namespace(array1)</span>
+  <span class="n">xp</span> <span class="o">=</span> <span class="n">array_namespace</span><span class="p">(</span><span class="n">array1</span><span class="p">)</span>  <span class="c1"># or array1.__array_namespace__()</span>
   <span class="k">return</span> <span class="n">xp</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">scalar1</span><span class="p">,</span> <span class="n">scalar2</span><span class="p">)</span> <span class="o">@</span> <span class="n">array1</span>
 </pre></div>
 </div>
@@ -614,7 +614,7 @@ provided backend can then be achieved with <code class="docutils literal notrans
 </li>
 </ul>
 <p>If you’re relying on NumPy, CuPy, PyTorch, Dask, or JAX then
-<a class="reference internal" href="#array-api-compat"><span class="std std-ref">Array API Compat</span></a> can come in handy for the transition. The compat layer
+<a class="reference internal" href="#array-api-compat"><span class="std std-ref">array-api-compat</span></a> can come in handy for the transition. The compat layer
 allows you to still rely on your preferred array producing library, while
 making sure you’re already using standard compatible API. Additionally, it
 offers a set of useful utility functions, such as:</p>
@@ -622,7 +622,7 @@ offers a set of useful utility functions, such as:</p>
 <li><p><a class="reference external" href="https://data-apis.org/array-api-compat/helper-functions.html#array_api_compat.array_namespace">array_namespace()</a>
 for fetching the namespace based on input arrays.</p></li>
 <li><p><a class="reference external" href="https://data-apis.org/array-api-compat/helper-functions.html#array_api_compat.is_array_api_obj">is_array_api_obj()</a>
-for inspecting whether a given object is Array API compatible.</p></li>
+for inspecting whether a given object is array API compatible.</p></li>
 <li><p><a class="reference external" href="https://data-apis.org/array-api-compat/helper-functions.html#array_api_compat.device">device()</a>
 for retrieving the device on which an array resides.</p></li>
 </ul>
