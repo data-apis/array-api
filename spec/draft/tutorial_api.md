@@ -12,7 +12,7 @@ signatures, along with deprecation periods.
 The first common migration is the need to rename a function to
 the one that is present (or is semantically close enough) in the array API standard.
 
-Let's assume our API has a `transpose` function for permuting the axes of an array, but which has no matching name in the standard. Instead, the standard has a `permute_dims` API which performs the equivalent operation and is the function to which we want users to migrate. The original
+Let's assume our API has a `transpose` function for permuting the axes of an array, but which has no matching name in the standard. Instead, the standard has a `permute_dims` API which performs the equivalent operation. The original
 function is as follows:
 
 ```py
