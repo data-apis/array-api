@@ -8,7 +8,7 @@ frameworks pushing forward the state of the art in these fields are appearing
 every year. One unintended consequence of all this activity and creativity
 has been fragmentation in multidimensional array (a.k.a. tensor) libraries -
 which are the fundamental data structure for these fields. Choices include
-NumPy, Tensorflow, PyTorch, Dask, JAX, CuPy, MXNet, Xarray, and others.
+NumPy, JAX, PyTorch, Tensorflow, Dask, ndonnx, CuPy, pydata/sparse and others.
 
 The APIs of each of these libraries are largely similar, but with enough
 differences that it's quite difficult to write code that works with multiple
@@ -40,7 +40,7 @@ design to ensure it's fit for a wide range of users and situations - see
 {ref}`use-cases`.
 
 A question that may arise when reading this document is: _"what about
-functionality that's not present in this document?_ This:
+functionality that's not present in this document?"_ This:
 
 - means that there is no guarantee the functionality is present in libraries
   adhering to the standard
@@ -230,27 +230,22 @@ though, including:
 - developers of compilers and runtimes with array-specific functionality
 - end users
 
-Libraries that are being actively considered - in terms of current behaviour and
-API surface - during the creation of the first version of this standard
-include:
+The table below shows the libraries that support the array API standard, and
+whether they support it directly or through a compatibility layer, along with
+the version of the standard they implement:
 
-- [NumPy](https://numpy.org)
-- [TensorFlow](https://www.tensorflow.org/)
-- [PyTorch](https://pytorch.org/)
-- [MXNet](https://numpy.mxnet.io/)
-- [JAX](https://github.com/google/jax)
-- [Dask](https://dask.org/)
-- [CuPy](https://cupy.chainer.org/)
-
-Other Python array libraries that are currently under active development and
-could adopt this API standard include:
-
-- [xarray](https://xarray.pydata.org/)
-- [PyData/Sparse](https://sparse.pydata.org)
-- [Weld](https://github.com/weld-project/weld)
-- [Bohrium](https://bohrium.readthedocs.io/)
-- [Arkouda](https://github.com/mhmerrill/arkouda)
-- [Legate](https://research.nvidia.com/publication/2019-11_Legate-NumPy%3A-Accelerated)
+| Syntax | supported version | Website |
+| --- | --- | --- |
+| NumPy | 2025.12 | <https://numpy.org> |
+| JAX | 2024.12 | <https://docs.jax.dev/en/latest/> |
+| PyTorch | through `array-api-compat` | <https://pytorch.org/> |
+| Dask | through `array-api-compat` | <https://dask.org/> |
+| CuPy | through `array-api-compat` | <https://cupy.dev/> |
+| pydata/sparse | 2024.12 | <https://sparse.pydata.org/> |
+| cubed | 2025.12 | <https://github.com/cubed-dev/cubed> |
+| ndonnx | 2024.12 | <https://ndonnx.readthedocs.io/en/latest/> |
+| marray | wrapper library, same as NumPy | <https://github.com/mdhaber/marray> |
+| Arkouda | 2022.12 | <https://bears-r-us.github.io/arkouda/> |
 
 There are a huge amount of array-consuming libraries; some of the most
 prominent ones that are being taken into account - in terms of current array
@@ -260,19 +255,22 @@ to grow it over time):
 - [Pandas](https://pandas.pydata.org/)
 - [SciPy](https://github.com/scipy/scipy)
 - [scikit-learn](https://scikit-learn.org/)
-- [Matplotlib](https://matplotlib.org/)
 - [scikit-image](https://scikit-image.org/)
+- [scikit-learn-intelex](https://uxlfoundation.github.io/scikit-learn-intelex/)
+- [Matplotlib](https://matplotlib.org/)
 - [NetworkX](https://networkx.github.io/)
+- [SysIdentPy](https://github.com/wilsonrljr/sysidentpy)
+- [quantity-array](https://github.com/quantity-dev/quantity-array)
+- [GLASS](https://glass.readthedocs.io/stable/)
+- [magpylib](https://magpylib.readthedocs.io/en/stable/)
+- [pyribs](https://pyribs.org/)
 
 Array libraries in other languages, some of which may grow a Python API in the
 future or have taken inspiration from NumPy or other array libraries, include:
 
 - [Xtensor](https://xtensor.readthedocs.io) (C++, cross-language)
-- [XND](https://xnd.io/) (C, cross-language)
 - [stdlib](https://stdlib.io/) (JavaScript)
 - [rust-ndarray](https://github.com/rust-ndarray/ndarray) (Rust)
-- [rray](https://github.com/r-lib/rray) (R)
-- [ND4J](https://github.com/deeplearning4j/nd4j) (JVM)
 - [NumSharp](https://github.com/SciSharp/NumSharp) (C#)
 
 Compilers, runtimes, and dispatching layers for which this API standard may be
@@ -286,15 +284,14 @@ relevant:
 - [Apache TVM](https://tvm.apache.org/)
 - [MLIR](https://mlir.llvm.org/)
 - [TACO](https://github.com/tensor-compiler/taco)
-- [unumpy](https://github.com/Quansight-Labs/unumpy)
 - [einops](https://github.com/arogozhnikov/einops)
 - [Apache Arrow](https://arrow.apache.org/)
 
 
-
 ## How to read this document
 
-For guidance on how to read and understand the type annotations included in this specification, consult the Python [documentation](https://docs.python.org/3/library/typing.html).
+For guidance on how to read and understand the type annotations included in
+this specification, consult the Python [documentation](https://docs.python.org/3/library/typing.html).
 
 
 (how-to-adopt-this-api)=

@@ -483,7 +483,7 @@ frameworks pushing forward the state of the art in these fields are appearing
 every year. One unintended consequence of all this activity and creativity
 has been fragmentation in multidimensional array (a.k.a. tensor) libraries -
 which are the fundamental data structure for these fields. Choices include
-NumPy, Tensorflow, PyTorch, Dask, JAX, CuPy, MXNet, Xarray, and others.</p>
+NumPy, JAX, PyTorch, Tensorflow, Dask, ndonnx, CuPy, pydata/sparse and others.</p>
 <p>The APIs of each of these libraries are largely similar, but with enough
 differences that it’s quite difficult to write code that works with multiple
 (or all) of these libraries. This array API standard aims to address that
@@ -509,7 +509,7 @@ ones).</p>
 design to ensure it’s fit for a wide range of users and situations - see
 <a class="reference internal" href="use_cases.html#use-cases"><span class="std std-ref">Use cases</span></a>.</p>
 <p>A question that may arise when reading this document is: <em>“what about
-functionality that’s not present in this document?</em> This:</p>
+functionality that’s not present in this document?”</em> This:</p>
 <ul class="simple">
 <li><p>means that there is no guarantee the functionality is present in libraries
 adhering to the standard</p></li>
@@ -685,28 +685,70 @@ though, including:</p>
 <li><p>developers of compilers and runtimes with array-specific functionality</p></li>
 <li><p>end users</p></li>
 </ul>
-<p>Libraries that are being actively considered - in terms of current behaviour and
-API surface - during the creation of the first version of this standard
-include:</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://numpy.org">NumPy</a></p></li>
-<li><p><a class="reference external" href="https://www.tensorflow.org/">TensorFlow</a></p></li>
-<li><p><a class="reference external" href="https://pytorch.org/">PyTorch</a></p></li>
-<li><p><a class="reference external" href="https://numpy.mxnet.io/">MXNet</a></p></li>
-<li><p><a class="reference external" href="https://github.com/google/jax">JAX</a></p></li>
-<li><p><a class="reference external" href="https://dask.org/">Dask</a></p></li>
-<li><p><a class="reference external" href="https://cupy.chainer.org/">CuPy</a></p></li>
-</ul>
-<p>Other Python array libraries that are currently under active development and
-could adopt this API standard include:</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://xarray.pydata.org/">xarray</a></p></li>
-<li><p><a class="reference external" href="https://sparse.pydata.org">PyData/Sparse</a></p></li>
-<li><p><a class="reference external" href="https://github.com/weld-project/weld">Weld</a></p></li>
-<li><p><a class="reference external" href="https://bohrium.readthedocs.io/">Bohrium</a></p></li>
-<li><p><a class="reference external" href="https://github.com/mhmerrill/arkouda">Arkouda</a></p></li>
-<li><p><a class="reference external" href="https://research.nvidia.com/publication/2019-11_Legate-NumPy%3A-Accelerated">Legate</a></p></li>
-</ul>
+<p>The table below shows the libraries that support the array API standard, and
+whether they support it directly or through a compatibility layer, along with
+the version of the standard they implement:</p>
+<table border="1">
+<thead>
+<tr>
+<th>Syntax</th>
+<th>supported version</th>
+<th>Website</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>NumPy</td>
+<td>2025.12</td>
+<td><a href="https://numpy.org">https://numpy.org</a></td>
+</tr>
+<tr>
+<td>JAX</td>
+<td>2024.12</td>
+<td><a href="https://docs.jax.dev/en/latest/">https://docs.jax.dev/en/latest/</a></td>
+</tr>
+<tr>
+<td>PyTorch</td>
+<td>through <code>array-api-compat</code></td>
+<td><a href="https://pytorch.org/">https://pytorch.org/</a></td>
+</tr>
+<tr>
+<td>Dask</td>
+<td>through <code>array-api-compat</code></td>
+<td><a href="https://dask.org/">https://dask.org/</a></td>
+</tr>
+<tr>
+<td>CuPy</td>
+<td>through <code>array-api-compat</code></td>
+<td><a href="https://cupy.dev/">https://cupy.dev/</a></td>
+</tr>
+<tr>
+<td>pydata/sparse</td>
+<td>2024.12</td>
+<td><a href="https://sparse.pydata.org/">https://sparse.pydata.org/</a></td>
+</tr>
+<tr>
+<td>cubed</td>
+<td>2025.12</td>
+<td><a href="https://github.com/cubed-dev/cubed">https://github.com/cubed-dev/cubed</a></td>
+</tr>
+<tr>
+<td>ndonnx</td>
+<td>2024.12</td>
+<td><a href="https://ndonnx.readthedocs.io/en/latest/">https://ndonnx.readthedocs.io/en/latest/</a></td>
+</tr>
+<tr>
+<td>marray</td>
+<td>wrapper library, same as NumPy</td>
+<td><a href="https://github.com/mdhaber/marray">https://github.com/mdhaber/marray</a></td>
+</tr>
+<tr>
+<td>Arkouda</td>
+<td>2022.12</td>
+<td><a href="https://bears-r-us.github.io/arkouda/">https://bears-r-us.github.io/arkouda/</a></td>
+</tr>
+</tbody>
+</table>
 <p>There are a huge amount of array-consuming libraries; some of the most
 prominent ones that are being taken into account - in terms of current array
 API usage or impact of design decisions on them - include (this list is likely
@@ -715,19 +757,22 @@ to grow it over time):</p>
 <li><p><a class="reference external" href="https://pandas.pydata.org/">Pandas</a></p></li>
 <li><p><a class="reference external" href="https://github.com/scipy/scipy">SciPy</a></p></li>
 <li><p><a class="reference external" href="https://scikit-learn.org/">scikit-learn</a></p></li>
-<li><p><a class="reference external" href="https://matplotlib.org/">Matplotlib</a></p></li>
 <li><p><a class="reference external" href="https://scikit-image.org/">scikit-image</a></p></li>
+<li><p><a class="reference external" href="https://uxlfoundation.github.io/scikit-learn-intelex/">scikit-learn-intelex</a></p></li>
+<li><p><a class="reference external" href="https://matplotlib.org/">Matplotlib</a></p></li>
 <li><p><a class="reference external" href="https://networkx.github.io/">NetworkX</a></p></li>
+<li><p><a class="reference external" href="https://github.com/wilsonrljr/sysidentpy">SysIdentPy</a></p></li>
+<li><p><a class="reference external" href="https://github.com/quantity-dev/quantity-array">quantity-array</a></p></li>
+<li><p><a class="reference external" href="https://glass.readthedocs.io/stable/">GLASS</a></p></li>
+<li><p><a class="reference external" href="https://magpylib.readthedocs.io/en/stable/">magpylib</a></p></li>
+<li><p><a class="reference external" href="https://pyribs.org/">pyribs</a></p></li>
 </ul>
 <p>Array libraries in other languages, some of which may grow a Python API in the
 future or have taken inspiration from NumPy or other array libraries, include:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://xtensor.readthedocs.io">Xtensor</a> (C++, cross-language)</p></li>
-<li><p><a class="reference external" href="https://xnd.io/">XND</a> (C, cross-language)</p></li>
 <li><p><a class="reference external" href="https://stdlib.io/">stdlib</a> (JavaScript)</p></li>
 <li><p><a class="reference external" href="https://github.com/rust-ndarray/ndarray">rust-ndarray</a> (Rust)</p></li>
-<li><p><a class="reference external" href="https://github.com/r-lib/rray">rray</a> (R)</p></li>
-<li><p><a class="reference external" href="https://github.com/deeplearning4j/nd4j">ND4J</a> (JVM)</p></li>
 <li><p><a class="reference external" href="https://github.com/SciSharp/NumSharp">NumSharp</a> (C#)</p></li>
 </ul>
 <p>Compilers, runtimes, and dispatching layers for which this API standard may be
@@ -741,14 +786,14 @@ relevant:</p>
 <li><p><a class="reference external" href="https://tvm.apache.org/">Apache TVM</a></p></li>
 <li><p><a class="reference external" href="https://mlir.llvm.org/">MLIR</a></p></li>
 <li><p><a class="reference external" href="https://github.com/tensor-compiler/taco">TACO</a></p></li>
-<li><p><a class="reference external" href="https://github.com/Quansight-Labs/unumpy">unumpy</a></p></li>
 <li><p><a class="reference external" href="https://github.com/arogozhnikov/einops">einops</a></p></li>
 <li><p><a class="reference external" href="https://arrow.apache.org/">Apache Arrow</a></p></li>
 </ul>
 </section>
 <section id="how-to-read-this-document">
 <h2 id="how-to-read-this-document">How to read this document<a class="headerlink" href="#how-to-read-this-document" title="Link to this heading">¶</a></h2>
-<p>For guidance on how to read and understand the type annotations included in this specification, consult the Python <a class="reference external" href="https://docs.python.org/3/library/typing.html">documentation</a>.</p>
+<p>For guidance on how to read and understand the type annotations included in
+this specification, consult the Python <a class="reference external" href="https://docs.python.org/3/library/typing.html">documentation</a>.</p>
 </section>
 <section id="how-to-adopt-this-api">
 <span id="id1"></span><h2 id="how-to-adopt-this-api">How to adopt this API<a class="headerlink" href="#how-to-adopt-this-api" title="Link to this heading">¶</a></h2>
