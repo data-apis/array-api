@@ -3,7 +3,7 @@
 # Array API Tutorial - Migrating API
 
 The purpose of this tutorial is to show common patterns for migrating your APIs to
-the standard-compatible version in the least disruptive manner for users.
+a standard-compatible version in the least disruptive manner for users.
 The patterns discussed in the document cover renaming functions and changing their
 signatures, along with deprecation periods.
 
