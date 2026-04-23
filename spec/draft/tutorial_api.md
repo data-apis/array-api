@@ -66,8 +66,8 @@ We need to rename `newshape` parameter to `shape`, add a `copy` parameter, and e
 new positional/keyword calling format.
 
 After researching how users call our `reshape`, we decided to do the following: make `a` positional
-only without an extra deprecation message apart from changelog entry, make `shape`
-positional or keyword parameter, and make `newshape` and `copy` keyword only:
+only without an extra deprecation message apart from a changelog entry, make `shape`
+a positional or keyword parameter, and make `newshape` and `copy` keyword only:
 
 ```py
 def reshape(a, /, shape=None, *, newshape=None, copy=None):
