@@ -48,7 +48,7 @@
     <link rel="apple-touch-icon" href="_static/images/apple-icon-152x152.png"/>
   
   
-    <title>Array API Tutorial &#8212; Python array API standard DRAFT documentation</title>
+    <title>Array API Tutorial - Essentials &#8212; Python array API standard DRAFT documentation</title>
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=75810a84" />
     <link rel="stylesheet" type="text/css" href="_static/material.css?v=79c92029" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -62,7 +62,7 @@
     <script src="_static/copybutton.js?v=f281be69"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Changelog per API standard version" href="changelog.html" />
+    <link rel="next" title="Array API Tutorial - Migrating APIs" href="tutorial_api.html" />
     <link rel="prev" title="Migration Guide" href="migration_guide.html" />
   
     <link rel="apple-touch-icon" href="_static/images/apple-icon-152x152.png"/>
@@ -102,7 +102,7 @@
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           <span class="md-header-nav__topic">Python array API standard DRAFT</span>
-          <span class="md-header-nav__topic"> Array API Tutorial </span>
+          <span class="md-header-nav__topic"> Array API Tutorial - Essentials </span>
         </div>
       </div>
       <div class="md-flex__cell md-flex__cell--shrink">
@@ -293,15 +293,22 @@
     
     
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    <label class="md-nav__link md-nav__link--active" for="__toc"> Array API Tutorial </label>
+    <label class="md-nav__link md-nav__link--active" for="__toc"> Array API Tutorial - Essentials </label>
     
-      <a href="#" class="md-nav__link md-nav__link--active">Array API Tutorial</a>
+      <a href="#" class="md-nav__link md-nav__link--active">Array API Tutorial - Essentials</a>
       
         
 <nav class="md-nav md-nav--secondary">
   <ul class="md-nav__list" data-md-scrollfix="">
   </ul>
 </nav>
+      
+    
+    </li>
+    <li class="md-nav__item">
+    
+    
+      <a href="tutorial_api.html" class="md-nav__link">Array API Tutorial - Migrating APIs</a>
       
     
     </li>
@@ -346,10 +353,10 @@
         <div class="md-content">
           <article class="md-content__inner md-typeset" role="main">
             
-  <section id="array-api-tutorial">
-<span id="tutorial-basic"></span><h1 id="tutorial-basic--page-root">Array API Tutorial<a class="headerlink" href="#tutorial-basic--page-root" title="Link to this heading">¶</a></h1>
-<p>In this tutorial, we’re going to demonstrate how to migrate to the Array API from the array consumer’s
-point of view for a simple graph algorithm.</p>
+  <section id="array-api-tutorial-essentials">
+<span id="tutorial-basic"></span><h1 id="tutorial-basic--page-root">Array API Tutorial - Essentials<a class="headerlink" href="#tutorial-basic--page-root" title="Link to this heading">¶</a></h1>
+<p>In this tutorial, we’re going to demonstrate how to migrate to the Array API
+from the array consumer’s point of view for a simple graph algorithm.</p>
 <p>The example presented here comes from the <a class="reference external" href="https://github.com/python-graphblas/graphblas-algorithms"><code class="docutils literal notranslate"><span class="pre">graphblas-algorithms</span></code></a>.
 library. In particular, we’ll be migrating <a class="reference external" href="https://github.com/python-graphblas/graphblas-algorithms/blob/35dbc90e808c6bf51b63d51d8a63f59238c02975/graphblas_algorithms/algorithms/link_analysis/hits_alg.py#L9">the HITS algorithm</a>, which is
 used for the link analysis for estimating prominence in sparse networks, to be Array API compliant.</p>
@@ -512,12 +519,12 @@ use lazy evaluation and JIT compile a loop body with JAX’s JIT compilation:</p
             </a>
           
           
-            <a href="changelog.html" title="Changelog per API standard version"
+            <a href="tutorial_api.html" title="Array API Tutorial - Migrating APIs"
                class="md-flex md-footer-nav__link md-footer-nav__link--next"
                rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"><span
                 class="md-flex__ellipsis"> <span
-                class="md-footer-nav__direction"> "Next" </span> Changelog per API standard version </span>
+                class="md-footer-nav__direction"> "Next" </span> Array API Tutorial - Migrating APIs </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink"><i
                 class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
