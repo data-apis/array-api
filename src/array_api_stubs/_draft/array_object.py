@@ -669,6 +669,10 @@ class _array:
         -   See :ref:`indexing` for details on supported indexing semantics.
         -   When ``__getitem__`` is defined on an object, Python will automatically define iteration (i.e., the behavior from ``iter(x)``) as  ``x[0]``, ``x[1]``, ..., ``x[N-1]``. This can also be implemented directly by defining ``__iter__``. Therefore, for a one-dimensional array ``x``, iteration should produce a sequence of zero-dimensional arrays ``x[0]``, ``x[1]``, ..., ``x[N-1]``, where ``N`` is the number of elements in the array. Iteration behavior for arrays having zero dimensions or more than one dimension is unspecified and thus implementation-defined.
 
+            .. note::
+               When ``key`` contains integer arrays on a device different from the device of ``self``, the
+               behavior is unspecified and thus implementation-defined.
+
         .. versionchanged:: 2024.12
             Clarified that iteration is defined for one-dimensional arrays.
         """
@@ -1153,6 +1157,10 @@ class _array:
 
             .. note::
                Indexing semantics when ``key`` is an integer array or a tuple of integers and integer arrays is currently unspecified and thus implementation-defined. This will be revisited in a future revision of this standard.
+
+            .. note::
+               When ``value`` is an array on a device different from the device of ``self``, the
+               behavior is unspecified and thus implementation-defined.
 
         -   Setting array values must not affect the data type of ``self``.
         -   ``value`` must be promoted to the data type of ``self`` according to :ref:`type-promotion`. If this is not supported according to :ref:`type-promotion`, behavior is unspecified and thus implementation-defined.

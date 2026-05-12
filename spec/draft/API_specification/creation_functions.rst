@@ -34,3 +34,8 @@ Objects in API
    triu
    zeros
    zeros_like
+
+
+.. note::
+   Creation functions which accept ``device`` and ``dtype`` arguments should raise an
+   exception if the explicitly provided ``dtype`` is not supported by the ``device``.

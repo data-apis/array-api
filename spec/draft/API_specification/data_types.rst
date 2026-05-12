@@ -5,7 +5,7 @@ Data Types
 
     Array API specification for supported data types.
 
-A conforming implementation of the array API standard must provide and support
+A conforming implementation of the array API standard should provide and support
 the following data types ("dtypes") in its array object, and as data type
 objects in its main namespace under the specified names:
 
@@ -38,6 +38,8 @@ objects in its main namespace under the specified names:
 +--------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 | complex128   | Double-precision (128-bit) complex floating-point number whose real and imaginary components must be IEEE 754 double-precision (64-bit) binary floating-point numbers (see IEEE 754-2019). |
 +--------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+
+If a library only supports a subset of data types, it must at a minimum support ``bool`` and at least one integer dtype and one real floating-point dtype.
 
 Data type objects must have the following methods (no attributes are required):
 
