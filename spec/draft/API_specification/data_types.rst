@@ -39,8 +39,7 @@ objects in its main namespace under the specified names:
 | complex128   | Double-precision (128-bit) complex floating-point number whose real and imaginary components must be IEEE 754 double-precision (64-bit) binary floating-point numbers (see IEEE 754-2019). |
 +--------------+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
-If a library only supports a subset of data types, it must support at least one data type
-from each :ref:`category <data-type-categories>`.
+If a library only supports a subset of data types, it must at a minimum support ``bool`` and at least one integer dtype and one real floating-point dtype.
 
 Data type objects must have the following methods (no attributes are required):
 
