@@ -9,6 +9,7 @@ Contents
    :maxdepth: 1
 
    purpose_and_scope
+   terms_and_definitions
    use_cases
    assumptions
 
@@ -28,6 +29,14 @@ Contents
    usage_data
    verification_test_suite
    benchmark_suite
+
+.. toctree::
+   :caption: Guides and Tutorials
+   :maxdepth: 1
+
+   migration_guide
+   tutorial_basic
+   tutorial_api
 
 .. toctree::
    :caption: Other

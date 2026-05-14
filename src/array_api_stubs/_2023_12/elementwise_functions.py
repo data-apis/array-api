@@ -791,9 +791,9 @@ def clip(
     x: array
       input array. Should have a real-valued data type.
     min: Optional[Union[int, float, array]]
-      lower-bound of the range to which to clamp. If ``None``, no lower bound must be applied. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have a real-valued data type. Default: ``None``.
+      lower-bound of the range to which to clamp. If ``None``, no lower bound must be applied. Must be compatible with ``x`` and ``max`` (see :ref:`broadcasting`). Should have a real-valued data type. Default: ``None``.
     max: Optional[Union[int, float, array]]
-      upper-bound of the range to which to clamp. If ``None``, no upper bound must be applied. Must be compatible with ``x1`` (see :ref:`broadcasting`). Should have a real-valued data type. Default: ``None``.
+      upper-bound of the range to which to clamp. If ``None``, no upper bound must be applied. Must be compatible with ``x`` and ``min`` (see :ref:`broadcasting`). Should have a real-valued data type. Default: ``None``.
 
     Returns
     -------
@@ -805,7 +805,9 @@ def clip(
 
     - If both ``min`` and ``max`` are ``None``, the elements of the returned array must equal the respective elements in ``x``.
     - If a broadcasted element in ``min`` is greater than a corresponding broadcasted element in ``max``, behavior is unspecified and thus implementation-dependent.
+    - If ``x`` has an integral data type and a broadcasted element in ``min`` or ``max`` is outside the bounds of the data type of ``x``, behavior is unspecified and thus implementation-dependent.
     - If ``x`` and either ``min`` or ``max`` have different data type kinds (e.g., integer versus floating-point), behavior is unspecified and thus implementation-dependent.
+    - For scalar ``min`` and/or ``max``, the scalar values should follow type promotion rules for operations involving arrays and scalar operands (see :ref:`type-promotion`).
 
     **Special cases**
 
@@ -2596,8 +2598,8 @@ def sqrt(x: array, /) -> array:
     - If ``a`` is either ``+0`` or ``-0`` and ``b`` is ``+0``, the result is ``+0 + 0j``.
     - If ``a`` is any value (including ``NaN``) and ``b`` is ``+infinity``, the result is ``+infinity + infinity j``.
     - If ``a`` is a finite number and ``b`` is ``NaN``, the result is ``NaN + NaN j``.
-    - If ``a`` ``-infinity`` and ``b`` is a positive (i.e., greater than ``0``) finite number, the result is ``NaN + NaN j``.
-    - If ``a`` is ``+infinity`` and ``b`` is a positive (i.e., greater than ``0``) finite number, the result is ``+0 + infinity j``.
+    - If ``a`` ``-infinity`` and ``b`` is a positive (i.e., greater than ``0``) finite number, the result is ``+0 + infinity j``.
+    - If ``a`` is ``+infinity`` and ``b`` is a positive (i.e., greater than ``0``) finite number, the result is ``+infinity + 0 j``.
     - If ``a`` is ``-infinity`` and ``b`` is ``NaN``, the result is ``NaN + infinity j`` (sign of the imaginary component is unspecified).
     - If ``a`` is ``+infinity`` and ``b`` is ``NaN``, the result is ``+infinity + NaN j``.
     - If ``a`` is ``NaN`` and ``b`` is any value, the result is ``NaN + NaN j``.

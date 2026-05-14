@@ -57,7 +57,7 @@ def nonzero(x: array, /) -> Tuple[array, ...]:
 
     Returns
     -------
-    out: Typle[array, ...]
+    out: Tuple[array, ...]
         a tuple of ``k`` arrays, one for each dimension of ``x`` and each of size ``n`` (where ``n`` is the total number of non-zero elements), containing the indices of the non-zero elements in that dimension. The indices must be returned in row-major, C-style order. The returned array must have the default array index data type.
     """
 
@@ -69,7 +69,7 @@ def where(condition: array, x1: array, x2: array, /) -> array:
     Parameters
     ----------
     condition: array
-        when ``True``, yield ``x1_i``; otherwise, yield ``x2_i``. Must be compatible with ``x1`` and ``x2`` (see :ref:`broadcasting`).
+        when ``True``, yield ``x1_i``; otherwise, yield ``x2_i``. Should have a boolean data type. Must be compatible with ``x1`` and ``x2`` (see :ref:`broadcasting`).
     x1: array
         first input array. Must be compatible with ``condition`` and ``x2`` (see :ref:`broadcasting`).
     x2: array
