@@ -521,7 +521,7 @@
 <blockquote>
 <div><p>Array API specification for supported data types.</p>
 </div></blockquote>
-<p>A conforming implementation of the array API standard must provide and support
+<p>A conforming implementation of the array API standard should provide and support
 the following data types (“dtypes”) in its array object, and as data type
 objects in its main namespace under the specified names:</p>
 <table>
@@ -572,6 +572,7 @@ objects in its main namespace under the specified names:</p>
 </tr>
 </tbody>
 </table>
+<p>If a library only supports a subset of data types, it must at a minimum support <code class="docutils literal notranslate"><span class="pre">bool</span></code> and at least one integer dtype and one real floating-point dtype.</p>
 <p>Data type objects must have the following methods (no attributes are required):</p>
 <table class="autosummary longtable docutils align-default">
 <tbody>
