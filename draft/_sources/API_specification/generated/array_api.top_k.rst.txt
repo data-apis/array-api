@@ -1,0 +1,6 @@
+﻿.. currentmodule:: array_api
+
+top_k
+=====
+
+.. autofunction:: top_k
