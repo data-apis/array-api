@@ -514,8 +514,15 @@ class _array:
               METAL = 8
               VPI = 9
               ROCM = 10
+              ROCM_PINNED = 11
               CUDA_MANAGED = 13
               ONE_API = 14
+              WEB_GPU = 15
+              HEXAGON = 16
+              MAIA = 17
+              TRAINIUM = 18
+              TPU = 19
+              TPU_PINNED = 20
         """
 
     def __eq__(self: array, other: Union[int, float, complex, bool, array], /) -> array:
