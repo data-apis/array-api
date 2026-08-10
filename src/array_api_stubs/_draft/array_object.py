@@ -524,6 +524,7 @@ class _array:
               TPU = 19
               TPU_PINNED = 20
         """
+        # The ExtDev (enum value 12) device has not been included as its semantics are not fixed.
 
     def __eq__(self: array, other: Union[int, float, complex, bool, array], /) -> array:
         r"""
