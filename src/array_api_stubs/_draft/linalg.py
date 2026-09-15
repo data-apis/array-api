@@ -558,9 +558,9 @@ def pinv(x: array, /, *, rtol: Optional[Union[float, array]] = None) -> array:
     is a singular decomposition of :math:`A`, then
 
     .. math::
-       A^{+} = U \Sigma^{+} V^H
+       A^{+} = V \Sigma^{+} U^H
 
-    where :math:`U` and :math:`V^H` are orthogonal matrices, :math:`\Sigma` is a diagonal matrix consisting of :math:`A`'s singular values, and :math:`\Sigma^{+}` is then a diagonal matrix consisting of the reciprocals of :math:`A`'s singular values, leaving zeros in place. During numerical computation, only elements larger than a small tolerance are considered nonzero, and all others replaced by zeros.
+    where :math:`U` and :math:`V` are unitary matrices, :math:`\Sigma` is a diagonal matrix consisting of :math:`A`'s singular values, and :math:`\Sigma^{+}` is then the transpose of :math:`\Sigma` with nonzero diagonal entries replaced by their reciprocals. During numerical computation, only elements larger than a small tolerance are considered nonzero, and all others replaced by zeros.
 
     When ``x`` is a stack of matrices, the function must compute the pseudo-inverse for each matrix in the stack.
 
